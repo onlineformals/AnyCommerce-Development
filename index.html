@@ -44,6 +44,7 @@ all css includes need to be after the js that changes the base url.
 css files should be included before any .js file to ensure they are downloaded in parallel
 -->
 <link rel="stylesheet" type="text/css" href="app-quickstart.css" />
+<link rel="stylesheet" type="text/css" href="_formals_css.css" />
 <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/ui-lightness/jquery-ui.css" />
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -54,18 +55,14 @@ css files should be included before any .js file to ensure they are downloaded i
 
 
 <script type="text/javascript">
-app.u.loadScript(app.vars.baseURL+"app-quickstart-init.js");
+app.u.loadScript(app.vars.baseURL+"_formals_init.js");
 </script>
 
 
 </head>
 
 <body>
-<!-- DELETE THIS WHEN YOU GET STARTED -->
-<h1>WELCOME TO QUICKSTART</h1>
-This file is intended to go along with the 10-step tutorial at:
-<a href="https://github.com/zoovy/AnyCommerce-Development/wiki/quickstart">https://github.com/zoovy/AnyCommerce-Development/wiki/quickstart</a>
-<!-- /DELETE THIS WHEN YOU GET STARTED -->
+
 
 
 
@@ -112,6 +109,15 @@ This file is intended to go along with the 10-step tutorial at:
 <div id='appNav'>
 	<button class='displayNone prodDetailNextItemButton' data-app-role='prodDetailNextItemButton'>Next</button>
 	<button class='displayNone prodDetailPrevItemButton' data-app-role='prodDetailPrevItemButton'>Previous</button>
+</div>
+<div class="header">
+    <div class="headerTopSect">
+        <div class="centeringContainer">
+    		<div class="floatLeft headerLoginLink"><h5>Welcome, <span class='username'>Guest!</span> <h6><a href='#top' onClick="return showContent('customer',{'show':'myaccount'});">Sign in</a> or <a href='#top' onClick="return showContent('customer',{'show':'newsletter'});">Register.</a></h6></h5></div>
+            <div class="floatRight headerTopNavLink"><a class="pointer" href='#top' onClick="return showContent('customer',{'show':'lists'});">Wishlist</a><a class="pointer headerTopCenterLink" href='#top' onClick="return showContent('customer',{'show':'myaccount'});">My Account</a><a class="pointer" href='#top' onclick="return showContent('company',{'show':'contact'});">Help</a></div>
+            <div class="floatRight headerCartLink"><a class="pointer bindByAnchor" href="#cart?."><span class="cartItemCount">0</span> item(s) </a> <h6> - </h6><a class="pointer bindByAnchor" href="#cart?.">View Shopping Bag</a></div>
+        </div>
+    </div>
 </div>
 
 <div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
