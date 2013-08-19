@@ -114,8 +114,25 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
     <div class="headerTopSect">
         <div class="centeringContainer">
     		<div class="floatLeft headerLoginLink"><h5>Welcome, <span class='username'>Guest!</span> <h6><a href='#top' onClick="return showContent('customer',{'show':'myaccount'});">Sign in</a> or <a href='#top' onClick="return showContent('customer',{'show':'newsletter'});">Register.</a></h6></h5></div>
-            <div class="floatRight headerTopNavLink"><a class="pointer" href='#top' onClick="return showContent('customer',{'show':'lists'});">Wishlist</a><a class="pointer headerTopCenterLink" href='#top' onClick="return showContent('customer',{'show':'myaccount'});">My Account</a><a class="pointer" href='#top' onclick="return showContent('company',{'show':'contact'});">Help</a></div>
+            <div class="floatRight headerTopNavLink"><a class="pointer" href='#top' onclick="return showContent('company',{'show':'contact'});">Help</a><a class="pointer headerTopCenterLink" href='#top' onClick="return showContent('customer',{'show':'myaccount'});">My Account</a><a class="pointer" href='#top' onClick="return showContent('customer',{'show':'lists'});">Wishlist</a></div>
             <div class="floatRight headerCartLink"><a class="pointer bindByAnchor" href="#cart?."><span class="cartItemCount">0</span> item(s) </a> <h6> - </h6><a class="pointer bindByAnchor" href="#cart?.">View Shopping Bag</a></div>
+        </div>
+    </div>
+    <div class="headerMidSect">
+    	<div class="centeringContainer">
+        	<div class="headerLogoContainer">
+            	<a href="#homepage?." class='bindByAnchor pointer'><img src="Images/Homepage/headerlogo.png" /></a>
+            </div>
+            <div class="headerSearchContainer">
+            	<form name='headerSearchFrm' action='#' class='marginTop' method="get">
+                    <fieldset>
+                        <!-- <legend>Search</legend> -->
+                        <input type='search' name='KEYWORDS' value='Find it here...' class="productSearchKeyword handleDefault secondary" id="searchBarInput" />
+                        <input class="search" type="submit" value="SEARCH" id="searchBarButton" />
+                    </fieldset>
+            	</form>
+                <p class="headerSearchLinks">Questions? <a class="pointer" href='#top' onclick="return showContent('company',{'show':'contact'});">Chat with a Stylist</a> or <a class="pointer" href='#top' onclick="return showContent('company',{'show':'contact'});">Contact Us</a></p>
+            </div>
         </div>
     </div>
 </div>
