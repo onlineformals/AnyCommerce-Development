@@ -12,6 +12,9 @@ body{
 	width:100%;
 	margin:0;
 }
+h1, h2, h3, h4, h5, h6, p, a{
+	font-family: 'Raleway', sans-serif;
+}
 
 
 /***********************************************************************************************************************************/
@@ -19,7 +22,8 @@ body{
 /*****HEADER****/
 .header{
 	width:100%;
-	height:280px;
+	height:293px;
+	margin-bottom:20px;
 }
 
 /***********************************************************************************************************************************/
@@ -35,17 +39,17 @@ body{
     width: 280px;
 }
 .headerLoginLink h5{
-	float:left;
-	color:#666666;
-	font-size: 18px;
-    margin-top: 10px;
+	color: #666666;
+    float: left;
+    font-size: 16px;
+    margin-top: 15px;
 }
 .headerLoginLink h6{
-	float: left;
-    font-size: 16px;
-    margin-top: 12px;
-	margin-left:5px;
-	color:#666666;
+	color: #666666;
+    float: left;
+    font-size: 14px;
+    margin-left: 5px;
+    margin-top: 17px;
 }
 .headerLoginLink a{
 	color: #E61552;
@@ -59,7 +63,7 @@ body{
 .headerCartLink a{
 	color: #666666;
     float: left;
-    margin-top: 10px;
+    margin-top: 15px;
     text-decoration: none;
 }
 .headerCartLink span{
@@ -69,7 +73,7 @@ body{
     float: left;
     margin-left: 3px;
     margin-right: 1px;
-    margin-top: 14px;
+    margin-top: 18px;
     text-decoration: none;
 }
 
@@ -78,13 +82,13 @@ body{
     width: 210px;
 }
 .headerTopCenterLink{
-	margin-left: 20px;
-    margin-right: 20px;
+	margin-left: 14px;
+    margin-right: 14px;
 }
 .headerTopNavLink a{
 	color: #666666;
     float: right;
-    margin-top: 10px;
+    margin-top: 15px;
     text-decoration: none;
 }
 
@@ -136,14 +140,16 @@ body{
     height: 40px;
     width: 80px;
 	margin-left: -2px;
+	font-family: 'Raleway', sans-serif;
 }
 
 .headerSearchLinks{
-	margin-left:5px;
+	margin-left:3px;
 	margin-top:5px;
 }
 .headerSearchContainer p{
 	color: #666666;
+	font-size:14px;
 }
 .headerSearchContainer a{
 	color: #E61552;
@@ -182,8 +188,22 @@ body{
 }
 .dropdownLinkContainer div a{
 	font-size:22px;
+	font-weight:600;
 }
 .dropdownLinkContainer div a:hover{
 	color:#e61652;
 }
 
+
+
+/***********************************************************************************************************************************/
+/***********************************************************************************************************************************/
+/*****HOMEPAGE****/
+
+/***********************************************************************************************************************************/
+/*****BANNER****/
+.homepageBannerContainer{
+	height:100px;
+	width:940px;
+	float:left;
+}
