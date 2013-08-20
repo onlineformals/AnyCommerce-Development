@@ -188,7 +188,7 @@ h1, h2, h3, h4, h5, h6, p, a{
 }
 .dropdownLinkContainer div a{
 	font-size:22px;
-	font-weight:600;
+	font-weight:600;a
 }
 .dropdownLinkContainer div a:hover{
 	color:#e61652;
@@ -206,4 +206,38 @@ h1, h2, h3, h4, h5, h6, p, a{
 	height:100px;
 	width:940px;
 	float:left;
+}
+
+/***********************************************************************************************************************************/
+/*****BANNER CAROUSEL****/
+.homepageCarouselContainer{
+	float:left;
+	width:940px;
+	height:440px;
+	margin-top:20px;
+	position:relative;
+	overflow:hidden;
+}
+.homepageCarouselContainer div.caroufredsel_wrapper{
+	margin:0 !important;
+}
+.carouselHPBannerList{
+	padding:0;
+}
+.carouselHPBannerList li{
+	list-style:none;
+	float:left;
+	cursor:pointer;
+}
+.prevHPCaro{
+	position:absolute;
+	top:192px;
+	left:20px;
+	cursor:pointer;
+}
+.nextHPCaro{
+	cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 192px;
 }

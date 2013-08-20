@@ -18,6 +18,8 @@ app.rq.push(['extension',0,'myRIA','app-quickstart.js','startMyProgram']);
 //CUSTOM EXTENSIONS
 app.rq.push(['extension',0,'_store_formals','extensions/_store_formals.js']);
 
+app.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.2.1/jquery.carouFredSel-6.2.1-packed.js']);
+
 //app.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
 app.rq.push(['extension',1,'tools_ABtesting','extensions/tools_ABtesting.js']);
 //app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js']);
@@ -50,7 +52,29 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 				}
 			}
 		else	{} //couldn't find the tab to tabificate.
-	}]);
+}]);
+	
+app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
+	//Carousel horizontal sliders - homepage banner
+	var carouselHPBanner;
+	function foo1(){ $(".carouselHPBannerList").carouFredSel
+	({
+		width   : 940,
+		height	: 440,
+		items   : 1,
+		scroll: 1,
+		auto : {
+			duration    : 500,
+			timeoutDuration: 5000,
+			pauseOnHover: true
+		},
+		prev : ".prevHPCaro",
+		next : ".nextHPCaro"
+	});
+	}
+	carouselHPBanner = foo1;
+	setTimeout(carouselHPBanner, 2000);
+}]);
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.
 //app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);

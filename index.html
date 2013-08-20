@@ -244,6 +244,16 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     <div class="homepageBannerContainer">
     	<a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/topbanner/testbanner.png" /></a>
     </div>
+    <div class="homepageCarouselContainer">
+    	<ul class="carouselHPBannerList">
+        	<li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/carousel/testbanner-1.png" /></a></li>
+            <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/carousel/testbanner-1.png" /></a></li>
+            <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/carousel/testbanner-1.png" /></a></li>
+            <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/carousel/testbanner-1.png" /></a></li>
+        </ul>
+        <img class="prevHPCaro" src="Images/Homepage/caroleft.png" />
+        <img class="nextHPCaro" src="Images/Homepage/caroright.png" />
+    </div>
 	
 	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
 
