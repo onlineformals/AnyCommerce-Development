@@ -61,8 +61,33 @@ var _store_formals = function() {
 					
 				hideDropdown : function($tag) {
 					$(".dropdown", $tag).stop().animate({"height":"0px"}, 500);
-				}
+				},
 			//END HEADER DROPDOWN MENUS
+			
+			homepageCategoryMouseOver : function($tag) {
+				//app.u.dump("mouse over function successully ran.")
+				$(".homepageCatTitleBar", $tag).css({'background-color':'rgba(230,22,82,.5)'});
+				$(".homepageCatTitle", $tag).css({'color':'white'});
+				
+			},
+			homepageCategoryMouseOut : function($tag) {
+				//app.u.dump("mouse over function successully ran.")
+				$(".homepageCatTitleBar", $tag).css({'background-color':'rgba(200,200,200,.5)'});
+				$(".homepageCatTitle", $tag).css({'color':'#333333'});
+				
+			},
+			homepageSubCatMouseOver : function($tag) {
+				//app.u.dump("mouse over function successully ran.")
+				$(".homepageSubCatTitleBar", $tag).css({'background-color':'rgba(230,22,82,.5)'});
+				$(".homepageSubCatTitle", $tag).css({'color':'white'});
+				
+			},
+			homepageSubCatMouseOut : function($tag) {
+				//app.u.dump("mouse over function successully ran.")
+				$(".homepageSubCatTitleBar", $tag).css({'background-color':'rgba(200,200,200,.5)'});
+				$(".homepageSubCatTitle", $tag).css({'color':'#333333'});
+				
+			}
 			
 		},//END a FUNCTIONS
 		

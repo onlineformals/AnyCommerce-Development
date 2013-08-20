@@ -108,8 +108,9 @@ h1, h2, h3, h4, h5, h6, p, a{
 .headerSearchContainer{
 	float: right;
     height: 85px;
+    margin-right: 60px;
+    margin-top: 45px;
     width: 300px;
-	margin-top:35px;
 }
 .headerSearchContainer form{
 	margin: 0;
@@ -203,19 +204,22 @@ h1, h2, h3, h4, h5, h6, p, a{
 /***********************************************************************************************************************************/
 /*****BANNER****/
 .homepageBannerContainer{
-	height:100px;
-	width:940px;
-	float:left;
+	height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 940px;
 }
 
 /***********************************************************************************************************************************/
 /*****BANNER CAROUSEL****/
 .homepageCarouselContainer{
-	float:left;
-	width:940px;
-	height:440px;
+	 height: 440px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 940px;
 	margin-top:20px;
-	position:relative;
 	overflow:hidden;
 }
 .homepageCarouselContainer div.caroufredsel_wrapper{
@@ -253,6 +257,10 @@ h1, h2, h3, h4, h5, h6, p, a{
 	margin-right:10px;
 	margin-top:20px;
 }
+.homepageCategoryItemTop:hover{
+	background-color:rgba(200,200,200,.5);
+	color:white;
+}
 .homepageCatTitleBar{
 	position:absolute;
 	bottom:0;
@@ -261,6 +269,35 @@ h1, h2, h3, h4, h5, h6, p, a{
 	background-color:rgba(200,200,200,.5);
 }
 .homepageCatTitleBar p{
+	color: #333333;
+    font-size: 18px;
+    margin-top: 14px;
+    text-align: center;
+}
+
+/***********************************************************************************************************************************/
+/*****SUB-CATEGORY LIST****/
+.homepageSubCatItemTop{
+	position:relative;
+	width:302px;
+	height:122px;
+	float:left;
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:20px;
+}
+.homepageSubCatItemTop:hover{
+	background-color:rgba(200,200,200,.5);
+	color:white;
+}
+.homepageSubCatTitleBar{
+	position:absolute;
+	bottom:0;
+	width:100%;
+	height:50px;
+	background-color:rgba(200,200,200,.5);
+}
+.homepageSubCatTitleBar p{
 	color: #333333;
     font-size: 18px;
     margin-top: 14px;
