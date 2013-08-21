@@ -192,8 +192,29 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
 	</div>
 </div>
 
-	<div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
+<div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
 
+<div class="footer">
+	<div class="footerNewsletterBar">
+    	<div class="centeringContainer">
+        	<img src="Images/Homepage/footernewslettericon.png" />
+        	<div class="footNewsTextCont">
+            	<p>Exclusive Offers. New Arrivals. Fashionable News.</p>
+            	<h3>JOIN OUR NEWSLETTER</h3>
+            </div>
+            <div class="footNewsSignupCont">
+            <form action='#' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
+                <fieldset class='userInfo'>
+                    <input type="text" name='fullname' value='' placeholder="   Name" class="subName" id='subscribeFullname' />
+                    <input type="email" name='login' value='' placeholder="   E-mail Address" class="subEmail" id='subscribeLogin' />
+                    <fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
+                    <input class="subButton pointer" type="submit" value="Join" id="" />
+                </fieldset>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- ... your html ends -->
 <!-- /VIEW CONTENT -->
 </div>

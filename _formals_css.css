@@ -199,6 +199,85 @@ h1, h2, h3, h4, h5, h6, p, a{
 
 /***********************************************************************************************************************************/
 /***********************************************************************************************************************************/
+/*****FOOTER****/
+.footer{
+	width:100%;
+	height:550px;
+}
+
+/***********************************************************************************************************************************/
+/*****NEWSLETTER BAR****/
+.footerNewsletterBar{
+	background-image: url("Images/Homepage/footernewsletterbar.png");
+    background-repeat: repeat-x;
+    height: 115px;
+    margin-left: -7px;
+    width: 100.5%;
+}
+
+.footerNewsletterBar div.centeringContainer img{
+	float:left;
+	margin-top:50px;
+}
+.footNewsTextCont{
+	width:330px;
+	height:100%;
+	float:left;
+	margin-top:40px;
+}
+.footNewsTextCont p{
+	color: white;
+    font-size: 14px;
+    text-align: right;
+}
+.footNewsTextCont h3{
+	color: white;
+    margin-top: -15px;
+    text-align: right;
+}
+
+.footNewsSignupCont{
+	float: right;
+    height: 55px;
+    margin-top: 35px;
+    width: 500px;
+}
+.footNewsSignupCont form#subscribeFrm{
+}
+.footNewsSignupCont form#subscribeFrm fieldset.userInfo{
+	border: medium none;
+}
+.footNewsSignupCont form#subscribeFrm fieldset.userInfo input{
+	float:left;
+}
+.footNewsSignupCont form#subscribeFrm fieldset.userInfo input.subName{
+	border: medium none;
+    height: 40px;
+    margin-right: 10px;
+    padding: 0;
+    width: 190px;
+}
+.footNewsSignupCont form#subscribeFrm fieldset.userInfo input.subEmail{
+	border: medium none;
+    height: 40px;
+    padding: 0;
+    width: 180px;
+}
+.footNewsSignupCont form#subscribeFrm fieldset.userInfo input.subButton{
+	background-color: #333333;
+    border: medium none;
+    color: white;
+    font-size: 16px;
+    height: 40px;
+    margin-top: -17px;
+    width: 80px;
+}
+
+
+
+
+/***********************************************************************************************************************************/
+/***********************************************************************************************************************************/
 /*****HOMEPAGE****/
 
 /***********************************************************************************************************************************/
@@ -316,7 +395,7 @@ h1, h2, h3, h4, h5, h6, p, a{
 /*****PRODUCT LIST CAROUSEL****/
 .homepageProductListContainer{
 	width:100%;
-	height:500px;
+	height:800px;
 	background-image:url(Images/Homepage/hpproductlistcarouselbar.png);
 	background-repeat:repeat-x;
 }
