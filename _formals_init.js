@@ -56,8 +56,7 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 	
 app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 	//Carousel horizontal sliders - homepage banner
-	var carouselHPBanner;
-	function foo1(){ $(".carouselHPBannerList").carouFredSel
+	function carouselHPBanner(){ $(".carouselHPBannerList").carouFredSel
 	({
 		width   : 940,
 		height	: 440,
@@ -68,12 +67,30 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 			timeoutDuration: 5000,
 			pauseOnHover: true
 		},
-		prev : ".prevHPCaro",
-		next : ".nextHPCaro"
+		prev : ".prevHPBannerCaro",
+		next : ".nextHPBannerCaro"
 	});
 	}
-	carouselHPBanner = foo1;
 	setTimeout(carouselHPBanner, 2000);
+	
+	//Carousel title bar - homepage product lists
+	function carouselHPProductList(){ $(".hpProductListTitleCarousel").carouFredSel
+	({
+		width   : 400,
+		height	: 112,
+		items   : 1,
+		scroll: 1,
+		auto : false,
+		/*auto : {
+			duration    : 500,
+			timeoutDuration: 5000,
+			pauseOnHover: true
+		},*/
+		prev : ".hpProductListPrev",
+		next : ".hpProductListNext"
+	});
+	}
+	setTimeout(carouselHPProductList, 2000);
 }]);
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.

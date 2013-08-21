@@ -233,13 +233,13 @@ h1, h2, h3, h4, h5, h6, p, a{
 	float:left;
 	cursor:pointer;
 }
-.prevHPCaro{
+.prevHPBannerCaro{
 	position:absolute;
 	top:192px;
 	left:20px;
 	cursor:pointer;
 }
-.nextHPCaro{
+.nextHPBannerCaro{
 	cursor: pointer;
     position: absolute;
     right: 20px;
@@ -248,6 +248,10 @@ h1, h2, h3, h4, h5, h6, p, a{
 
 /***********************************************************************************************************************************/
 /*****CATEGORY LIST****/
+.homepageCategoryListContainer{
+	height: 240px;
+    width: 100%;
+}
 .homepageCategoryItemTop{
 	position:relative;
 	width:220px;
@@ -277,13 +281,17 @@ h1, h2, h3, h4, h5, h6, p, a{
 
 /***********************************************************************************************************************************/
 /*****SUB-CATEGORY LIST****/
+.homepageSubCatListContainer{
+	height: 145px;
+    width: 100%;
+}
 .homepageSubCatItemTop{
 	position:relative;
 	width:302px;
 	height:122px;
 	float:left;
 	margin-left:10px;
-	margin-right:10px;
+	margin-right:7px;
 	margin-top:20px;
 }
 .homepageSubCatItemTop:hover{
@@ -302,4 +310,57 @@ h1, h2, h3, h4, h5, h6, p, a{
     font-size: 18px;
     margin-top: 14px;
     text-align: center;
+}
+
+/***********************************************************************************************************************************/
+/*****PRODUCT LIST CAROUSEL****/
+.homepageProductListContainer{
+	width:100%;
+	height:500px;
+	background-image:url(Images/Homepage/hpproductlistcarouselbar.png);
+	background-repeat:repeat-x;
+}
+.hpProductListTitleCarouselBar{
+	height: 112px;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.hpProductListTitleCarouselBar div.caroufredsel_wrapper{
+	margin-left: 245px !important;
+    margin-right: auto !important;
+}
+.hpProductListTitleCarousel{
+}
+.hpProductListTitleCarousel li{
+	float: left;
+    height: 112px;
+    list-style: none outside none;
+    width: 400px;
+	margin-top: 15px;
+}
+.hpProductListTitleCarousel li h3{
+	text-align: center;
+	color:#666666;
+	font-size:36px;
+	font-weight:400;
+}
+.hpProductListPrev{
+	position:absolute;
+	left:150px;
+	top:25px;
+	cursor:pointer;
+}
+.hpProductListNext{
+	cursor: pointer;
+    position: absolute;
+    right: 150px;
+    top: 25px;
+}
+
+.hpProductListContentArea{
+	width:100%;
+	height:800px;
+	background-color:#eeeeee;
 }
