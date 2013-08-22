@@ -311,28 +311,71 @@ h1, h2, h3, h4, h5, h6, p, a{
 .footerSocMedIcon{
 	cursor: pointer;
     float: left;
-    height: 61px;
-    margin-right: 20px;
-    width: 61px;
 }
 .footerFB{
 	background-image:url(Images/Homepage/footer/socialicons/facebook.png);
-	margin-left: 5px;
+	background-repeat:none;
+	height: 75px;
+	width: 82px;
+}
+.footerFB:hover{
+	background-image:url(Images/Homepage/footer/socialicons/facebookhover.png);
+	background-repeat:none;
 }
 .footerTwit{
 	background-image:url(Images/Homepage/footer/socialicons/twitter.png);
+	background-repeat:none;
+	height: 75px;
+	width: 81px;
+	margin-left: -10px;
+}
+.footerTwit:hover{
+	background-image:url(Images/Homepage/footer/socialicons/twitterhover.png);
+	background-repeat:none;
 }
 .footerPint{
 	background-image:url(Images/Homepage/footer/socialicons/pinterest.png);
+	background-repeat:none;
+	height: 75px;
+	width: 75px;
+	margin-left:5px;
+}
+.footerPint:hover{
+	background-image:url(Images/Homepage/footer/socialicons/pinteresthover.png);
+	background-repeat:none;
 }
 .footerYT{
 	background-image:url(Images/Homepage/footer/socialicons/youtube.png);
+	background-repeat:none;
+	height: 75px;
+	width: 75px;
+	margin-left:6px;
+}
+.footerYT:hover{
+	background-image:url(Images/Homepage/footer/socialicons/youtubehover.png);
+	background-repeat:none;
 }
 .footerInsta{
 	background-image:url(Images/Homepage/footer/socialicons/instagram.png);
+	background-repeat:none;
+	height: 75px;
+	width: 83px;
+	margin-left:1px;
+}
+.footerInsta:hover{
+	background-image:url(Images/Homepage/footer/socialicons/instagramhover.png);
+	background-repeat:none;
 }
 .footerGP{
 	background-image:url(Images/Homepage/footer/socialicons/googleplus.png);
+	background-repeat:none;
+	height: 75px;
+	width: 81px;
+	margin-left:-1px;
+}
+.footerGP:hover{
+	background-image:url(Images/Homepage/footer/socialicons/googleplushover.png);
+	background-repeat:none;
 }
 
 .footerShowroomLinkContainer{
