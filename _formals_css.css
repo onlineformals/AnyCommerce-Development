@@ -480,7 +480,7 @@ h1, h2, h3, h4, h5, h6, p, a{
 /*****PRODUCT LIST CAROUSEL****/
 .homepageProductListContainer{
 	width:100%;
-	height:800px;
+	height:909px;
 	background-image:url(Images/Homepage/hpproductlistcarouselbar.png);
 	background-repeat:repeat-x;
 }
@@ -527,4 +527,31 @@ h1, h2, h3, h4, h5, h6, p, a{
 	width:100%;
 	height:800px;
 	background-color:#eeeeee;
+	position:relative;
+}
+
+.hpProductListPag{
+	margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 200px;
+	height:21px;
+}
+.hpProductListPag a{
+	width:20px;
+	height:21px;
+	background-image:url(Images/Homepage/carouselpagination.png);
+	float:left;
+	margin-right: 20px;
+}
+.hpProductListPag a span{
+	display:none;
+}
+.hpProductListPag a.selected{
+	background-image:url(Images/Homepage/carouselpaginationselected.png);
+}
+.hpProductListCarouselArea{
+	height:800px;
+	width:100%;
+	position:relative;
 }

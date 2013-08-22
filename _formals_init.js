@@ -87,7 +87,8 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 			pauseOnHover: true
 		},*/
 		prev : ".hpProductListPrev",
-		next : ".hpProductListNext"
+		next : ".hpProductListNext",
+		pagination  : ".hpProductListPag"
 	});
 	}
 	setTimeout(carouselHPProductList, 2000);
