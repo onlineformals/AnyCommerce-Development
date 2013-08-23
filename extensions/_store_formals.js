@@ -52,15 +52,19 @@ var _store_formals = function() {
 			//HEADER DROPDOWN MENUS
 				showDropdown : function($tag) {
 					var $dropdown = $(".dropdown", $tag);
-					var height = 300;
+					var height = 280;
 					/*$dropdown.children().each(function(){
 						height += $(this).outerHeight(true);
 					});*/
 					$dropdown.stop().animate({"height":height+"px"}, 500);
+					$dropdown.css({'border-top':'7px dotted rgba(200, 200, 200, 0.5)'});
+					$dropdown.css({'border-bottom':'10px solid #E61652'});
 				},
 					
 				hideDropdown : function($tag) {
 					$(".dropdown", $tag).stop().animate({"height":"0px"}, 500);
+					$(".dropdown", $tag).css({'border-top':'none'});
+					$(".dropdown", $tag).css({'border-bottom':'none'});
 				},
 			//END HEADER DROPDOWN MENUS
 			
