@@ -17,6 +17,7 @@ app.rq.push(['extension',0,'myRIA','app-quickstart.js','startMyProgram']);
 
 //CUSTOM EXTENSIONS
 app.rq.push(['extension',0,'_store_formals','extensions/_store_formals.js']);
+app.rq.push(['extension',0,'prodlist_infinite','extensions/prodlist_infinite.js']);
 
 app.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.2.1/jquery.carouFredSel-6.2.1-packed.js']);
 
@@ -74,7 +75,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 	setTimeout(carouselHPBanner, 2000);
 	
 	//Carousel title bar - homepage product lists
-	function carouselHPProductList(){ $(".hpProductListTitleCarousel").carouFredSel
+	function carouselHPProductListTitle(){ $(".hpProductListTitleCarousel").carouFredSel
 	({
 		width   : 400,
 		height	: 112,
@@ -86,11 +87,38 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 			timeoutDuration: 5000,
 			pauseOnHover: true
 		},*/
-		prev : ".hpProductListPrev",
-		next : ".hpProductListNext",
 		pagination  : ".hpProductListPag"
 	});
 	}
+	setTimeout(carouselHPProductListTitle, 2000);
+	
+	//Carousel Content bar - homepage product lists
+	function carouselHPProductList(){ $(".hpProductListCarouselContainer").carouFredSel
+	({
+		width   : 960,
+		height	: 670,
+		items   : 1,
+		scroll: 1,
+		auto : false,
+		/*auto : {
+			duration    : 500,
+			timeoutDuration: 5000,
+			pauseOnHover: true
+		},*/
+	});
+	$(".loadingBG", ".hpProductListCarouselContainer").remove();
+	app.u.dump("loadingBG has been removed from bottom carousel");
+	}
+	$(".hpProductListNext").click(function() {
+    	$(".hpProductListTitleCarousel").trigger("next", 1);
+		$(".hpProductListCarouselContainer").trigger("next", 1);
+    });
+	$(".hpProductListPrev").click(function() {
+    	$(".hpProductListTitleCarousel").trigger("prev", 1);
+		$(".hpProductListCarouselContainer").trigger("prev", 1);
+    });
+	
+	
 	setTimeout(carouselHPProductList, 2000);
 }]);
 
