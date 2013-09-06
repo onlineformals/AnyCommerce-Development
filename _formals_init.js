@@ -87,7 +87,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 			timeoutDuration: 5000,
 			pauseOnHover: true
 		},*/
-		pagination  : ".hpProductListPag"
+		//pagination  : ".hpProductListPag"
 	});
 	}
 	setTimeout(carouselHPProductListTitle, 2000);
@@ -100,15 +100,13 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 		items   : 1,
 		scroll: 1,
 		auto : false,
-		/*auto : {
-			duration    : 500,
-			timeoutDuration: 5000,
-			pauseOnHover: true
-		},*/
 	});
+	}
 	$(".loadingBG", ".hpProductListCarouselContainer").remove();
 	app.u.dump("loadingBG has been removed from bottom carousel");
-	}
+	
+	setTimeout(carouselHPProductList, 2000);
+	
 	$(".hpProductListNext").click(function() {
     	$(".hpProductListTitleCarousel").trigger("next", 1);
 		$(".hpProductListCarouselContainer").trigger("next", 1);
@@ -117,9 +115,6 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
     	$(".hpProductListTitleCarousel").trigger("prev", 1);
 		$(".hpProductListCarouselContainer").trigger("prev", 1);
     });
-	
-	
-	setTimeout(carouselHPProductList, 2000);
 }]);
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.
