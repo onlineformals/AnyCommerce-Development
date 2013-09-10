@@ -548,6 +548,14 @@ don't modify the 'data-templateid' unless you are changing template names and up
         <div class="catContentArea">
         	
             <div class="catTopCarousel">
+                <ul class="carouselCPBannerList">
+                    <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/categorypage/topbanner/testimage1.png" /></a></li>
+                    <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/categorypage/topbanner/testimage1.png" /></a></li>
+                    <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/categorypage/topbanner/testimage1.png" /></a></li>
+                    <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/categorypage/topbanner/testimage1.png" /></a></li>
+                </ul>
+                <img class="prevCPBannerCaro" src="Images/Homepage/caroleft.png" />
+                <img class="nextCPBannerCaro" src="Images/Homepage/caroright.png" />
             </div>
             
             <ul class='listStyleNone fluidList clearfix noPadOrMargin categoryList' data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;"></ul><!-- outputs a list of subcategories -->
