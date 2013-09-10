@@ -810,8 +810,10 @@ li{
 .carouselCPBannerList li a{
 }
 .prevCPBannerCaro{
-	position:absolute;
-	left:0;
+	 cursor: pointer;
+    left: 60px;
+    position: absolute;
+    top: 205px;
 }
 .nextCPBannerCaro{
 	position:absolute;
