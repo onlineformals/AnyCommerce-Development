@@ -179,6 +179,9 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
                             <li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.polka_dots" class="pointer bindByAnchor">Polka Dots</a></li>
                             <li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.sequins" class="pointer bindByAnchor">Sequins</a></li>
                             <li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.vintage" class="pointer bindByAnchor">Vintage</a></li>
+                            <br />
+                            <br />
+                             <li class="headerDropdownLink"><a href="#!category?navcat=.shop_accessories" class="pointer bindByAnchor">Test Cat</a></li>
                         </ul>
                     </div>
                 </div>
@@ -535,21 +538,44 @@ don't modify the 'data-templateid' unless you are changing template names and up
 -->
 <div id='categoryTemplate' class='loadingBG categoryTemplate'>
 
-	<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
-
-	<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" src='images/blank.gif' alt='' />
-
-	<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
-
-	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-
-	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
-
-	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
-
-	<p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-
-
+	<div class="centeringContainer">
+        <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+    
+        <div class="catSidebar">
+        	<p>content coming soon!</p>
+        </div>
+        
+        <div class="catContentArea">
+        	
+            <div class="catTopCarousel">
+            </div>
+            
+            <ul class='listStyleNone fluidList clearfix noPadOrMargin categoryList' data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;"></ul><!-- outputs a list of subcategories -->
+            
+            <div class="catCustomTextArea">
+            	<h1>EDITABLE TEXT AREA</h1>
+            </div>
+            
+            <div class="catBottomCarousel">
+            </div>
+        
+            <!--
+            <img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" src='images/blank.gif' alt='' />
+        
+            <h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
+        
+            <p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+        
+            <ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
+        
+            <!--
+            <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
+        
+        	<!--
+            <p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+            -->
+        </div>
+    </div>   
 </div>
 
 
