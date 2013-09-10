@@ -110,6 +110,19 @@ var _store_formals = function() {
 				
 			},
 			
+			categorySubCatMouseOver : function($tag) {
+				//app.u.dump("mouse over function successully ran.")
+				$(".homepageSubCatTitleBar", $tag).css({'background-color':'rgba(230,22,82,.5)'});
+				$(".catName", $tag).css({'color':'white'});
+				
+			},
+			categorySubCatMouseOut : function($tag) {
+				//app.u.dump("mouse over function successully ran.")
+				$(".homepageSubCatTitleBar", $tag).css({'background-color':'rgba(200,200,200,.5)'});
+				$(".catName", $tag).css({'color':'#333333'});
+				
+			},
+			
 		},//END a FUNCTIONS
 		
 		renderFormats : {

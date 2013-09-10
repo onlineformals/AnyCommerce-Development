@@ -136,6 +136,41 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 	setTimeout(carouselCPBanner, 2000);
 	
 	
+		//Carousel title bar - homepage product lists
+	function carouselCatProductListTitle(){ $(".catProductListTitleCarousel").carouFredSel
+	({
+		width   : 400,
+		height	: 112,
+		items   : 1,
+		scroll: 1,
+		auto : false,
+	});
+	}
+	setTimeout(carouselCatProductListTitle, 2000);
+	
+	//Carousel Content bar - homepage product lists
+	function carouselCatProductList(){ $(".catProductListCarouselContainer").carouFredSel
+	({
+		width   : 700,
+		//height	: 695,
+		items   : 1,
+		scroll: 1,
+		auto : false,
+	});
+	}
+	$(".loadingBG", ".catProductListCarouselContainer").remove();
+	app.u.dump("loadingBG has been removed from bottom carousel");
+	
+	setTimeout(carouselCatProductList, 2000);
+	
+	$(".catProductListNext").click(function() {
+    	$(".catProductListTitleCarousel").trigger("next", 1);
+		$(".catProductListCarouselContainer").trigger("next", 1);
+    });
+	$(".catProductListPrev").click(function() {
+    	$(".catProductListTitleCarousel").trigger("prev", 1);
+		$(".catProductListCarouselContainer").trigger("prev", 1);
+    });
 }]);
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.

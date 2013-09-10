@@ -767,15 +767,21 @@ li{
 .catTopCarousel{
 	width:700px;
 	height:440px;
+	position:relative;
+	float:left;
+}
+.catTopCarousel div.caroufredsel_wrapper{
+	margin-top:0 !important;
 }
 
 /***********************************************************************************************************************************/
 /*****SUBCATEGORY LIST****/
 .categoryList{
-	margin-top:20px;
-	width:700px;
-	height:220px;
-	float:left;
+	float: left;
+    height: auto;
+    margin-left: -9px;
+    margin-top: 20px;
+    width: 720px;
 }
 
 /***********************************************************************************************************************************/
@@ -802,6 +808,7 @@ li{
     text-align: center;
 }
 .carouselCPBannerList{
+	padding-left: 0;
 }
 .carouselCPBannerList li{
 	list-style:none;
@@ -811,20 +818,157 @@ li{
 }
 .prevCPBannerCaro{
 	 cursor: pointer;
-    left: 60px;
+    left: 20px;
     position: absolute;
-    top: 205px;
+    top: 200px;
 }
 .nextCPBannerCaro{
 	position:absolute;
-	right:0;
+	right:20px;
+	top:200px;
+	cursor:pointer;
 }
 
 /***********************************************************************************************************************************/
 /*****BOTTOM CAROUSEL****/
 .catBottomCarousel{
 	width:700px;
-	height:825px;
 	float:left;
 	margin-top:20px;
+}
+
+.catProductListTitleCarouselBar{
+	height: 110px;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.catProductListTitleCarouselBar div.caroufredsel_wrapper{
+	margin-left: 150px !important;
+    margin-right: auto !important;
+}
+.catProductListTitleCarousel{
+	overflow: hidden;
+    padding-left: 0;
+}
+.catProductListTitleCarousel li{
+	float: left;
+    height: 112px;
+    list-style: none outside none;
+    width: 400px;
+	margin-top: 15px;
+}
+.catProductListTitleCarousel li h3{
+	text-align: center;
+	color:#666666;
+	font-size:36px;
+	font-weight:400;
+}
+.catProductListPrev{
+	position:absolute;
+	left:100px;
+	top:25px;
+	cursor:pointer;
+}
+.catProductListNext{
+	cursor: pointer;
+    position: absolute;
+    right: 100px;
+    top: 25px;
+}
+
+.catProductListContentArea{
+	width:100%;
+	position:relative;
+}
+.catProductListCarouselArea div.caroufredsel_wrapper{
+	
+}
+.catProductListCarouselContainer{
+}
+.catProductListCarouselContainer ul.productList{
+	float: left;
+    margin-left: -20px;
+    width: 720px;
+}
+ .catProductListCarouselContainer ul.productList li.productItem{
+	height:300px !important;
+	width:200px !important;
+	background-color:white;
+	position:relative;
+	border:10px solid white;
+	margin: 5px 0 5px 20px;
+}
+.productItemInfo{
+	position:absolute;
+	bottom:0;
+	width:100%;
+	height:60px;
+	background-color:rgba(200,200,200,.5);
+}
+.productItemInfoContent{
+}
+.productItemInfoMoreInfo{
+	display:none;
+	width:100%;
+	height:100%;
+}
+.productItemInfoMoreInfo h1{
+	color: #FFFFFF;
+    font-size: 12px;
+    margin-top: 22px;
+    text-align: center;
+}
+
+.catProductListPag{
+	margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 200px;
+	height:21px;
+	margin-top:35px;
+}
+.catProductListPag a{
+	width:20px;
+	height:21px;
+	background-image:url(Images/Homepage/carouselpagination.png);
+	float:left;
+	margin-right: 20px;
+}
+.catProductListPag a span{
+	display:none;
+}
+.catProductListPag a.selected{
+	background-image:url(Images/Homepage/carouselpaginationselected.png);
+}
+.catProductListCarouselArea{
+	width:100%;
+	position:relative;
+}
+
+
+
+
+/***********************************************************************************************************************************/
+/***********************************************************************************************************************************/
+/*****CATEGORY LIST TEMPLATE****/
+
+.categoryListTemplate{
+	float: left;
+    height: 220px !important;
+    margin: 10px 8px 10px 9px !important;
+    position: relative;
+    width: 220px !important;
+	border:1px solid #cccccc;
+}
+.categoryListTemplateCont{
+	width:100%;
+	height:100%;
+}
+.catName{
+	font-size: 16px;
+    margin-top: 15px;
+    text-align: center;
+	color:#333333;
 }
