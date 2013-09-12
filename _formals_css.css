@@ -1095,6 +1095,12 @@ li{
 	font-size:36px;
 	font-weight:400;
 }
+.catProductListTitleCarouselBarProm h3{
+	text-align: center;
+	color:#666666;
+	font-size:36px;
+	font-weight:400;
+}
 .catProductListPrevProm{
 	position:absolute;
 	left:100px;
