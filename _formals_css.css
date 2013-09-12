@@ -756,56 +756,23 @@ li{
 /***********************************************************************************************************************************/
 /*****MAIN CONTENT AREA****/
 .catContentArea{
-	width:700px;
+	width:960px;
 	height:100%;
 	margin: 10px 0 10px 10px;
 	float:left;
+	overflow:hidden;
 }
 
 /***********************************************************************************************************************************/
 /*****CAT TOP CAROUSEL****/
 .catTopCarousel{
-	width:700px;
+	width:960px;
 	height:440px;
 	position:relative;
 	float:left;
 }
 .catTopCarousel div.caroufredsel_wrapper{
 	margin-top:0 !important;
-}
-
-/***********************************************************************************************************************************/
-/*****SUBCATEGORY LIST****/
-.categoryList{
-	float: left;
-    height: auto;
-    margin-left: -9px;
-    margin-top: 20px;
-    width: 720px;
-}
-
-/***********************************************************************************************************************************/
-/*****CUSTOM TEXT AREA****/
-.catCustomTextArea{
-	margin-top:20px;
-	width:700px;
-	height:100px;
-	border:1px solid #cccccc;
-	background: rgb(248,248,248); /* Old browsers */
-	background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(238,238,238,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(248,248,248,1)), color-stop(100%,rgba(238,238,238,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(238,238,238,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(238,238,238,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(238,238,238,1) 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  rgba(248,248,248,1) 0%,rgba(238,238,238,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
-	float:left;
-	position:relative;
-}
-.catCustomTextArea H1{
-	color: #9B9B9B;
-    line-height: 105px;
-    text-align: center;
 }
 .carouselCPBannerList{
 	padding-left: 0;
@@ -830,9 +797,44 @@ li{
 }
 
 /***********************************************************************************************************************************/
+/*****SUBCATEGORY LIST****/
+.categoryList{
+	float: left;
+    height: auto;
+    margin-left: 2px;
+    margin-top: 20px;
+    width: 960px;
+}
+
+/***********************************************************************************************************************************/
+/*****CUSTOM TEXT AREA****/
+.catCustomTextArea{
+	margin-top:20px;
+	width:960px;
+	height:100px;
+	border:1px solid #cccccc;
+	background: rgb(248,248,248); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(238,238,238,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(248,248,248,1)), color-stop(100%,rgba(238,238,238,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(238,238,238,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(238,238,238,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(238,238,238,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(248,248,248,1) 0%,rgba(238,238,238,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
+	float:left;
+	position:relative;
+}
+.catCustomTextArea H1{
+	color: #9B9B9B;
+    line-height: 105px;
+    text-align: center;
+}
+
+
+/***********************************************************************************************************************************/
 /*****BOTTOM CAROUSEL****/
 .catBottomCarousel{
-	width:700px;
+	width:960px;
 	float:left;
 	margin-top:20px;
 }
@@ -845,7 +847,7 @@ li{
     width: 100%;
 }
 .catProductListTitleCarouselBar div.caroufredsel_wrapper{
-	margin-left: 150px !important;
+	margin-left: 270px !important;
     margin-right: auto !important;
 }
 .catProductListTitleCarousel{
@@ -860,6 +862,12 @@ li{
 	margin-top: 15px;
 }
 .catProductListTitleCarousel li h3{
+	text-align: center;
+	color:#666666;
+	font-size:36px;
+	font-weight:400;
+}
+.catProductListTitleCarouselBar h3{
 	text-align: center;
 	color:#666666;
 	font-size:36px;
@@ -890,7 +898,7 @@ li{
 .catProductListCarouselContainer ul.productList{
 	float: left;
     margin-left: -20px;
-    width: 720px;
+    width: 960px;
 }
  .catProductListCarouselContainer ul.productList li.productItem{
 	height:300px !important;
@@ -937,6 +945,228 @@ li{
 	margin-right: 20px;
 }
 .catProductListPag a span{
+	display:none;
+}
+.catProductListPag a.selected{
+	background-image:url(Images/Homepage/carouselpaginationselected.png);
+}
+.catProductListCarouselArea{
+	width:100%;
+	position:relative;
+}
+
+
+
+
+/***********************************************************************************************************************************/
+/***********************************************************************************************************************************/
+/*****CATEGORY TEMPLATE PROM****/
+
+/***********************************************************************************************************************************/
+/*****BREADCRUMB****/
+.breadcrumb{
+	text-align:center;
+}
+.breadcrumb li{
+	float:none;
+}
+
+/***********************************************************************************************************************************/
+/*****SIDEBAR****/
+.catSidebar{
+	width:220px;
+	height:100%;
+	margin: 10px 10px 10px 0;
+	float:left;
+	background-color:#f7f7f7;
+	border:1px solid #cdcdcd;
+}
+
+/***********************************************************************************************************************************/
+/*****MAIN CONTENT AREA****/
+.catContentAreaProm{
+	width:700px;
+	height:100%;
+	margin: 10px 0 10px 10px;
+	float:left;
+	overflow:hidden;
+}
+
+/***********************************************************************************************************************************/
+/*****CAT TOP CAROUSEL****/
+.catTopCarouselProm{
+	width:700px;
+	height:440px;
+	position:relative;
+	float:left;
+}
+.catTopCarouselProm div.caroufredsel_wrapper{
+	margin-top:0 !important;
+}
+
+/***********************************************************************************************************************************/
+/*****SUBCATEGORY LIST****/
+.categoryListProm{
+	float: left;
+    height: auto;
+    margin-left: -9px;
+    margin-top: 20px;
+    width: 720px;
+}
+
+/***********************************************************************************************************************************/
+/*****CUSTOM TEXT AREA****/
+.catCustomTextAreaProm{
+	margin-top:20px;
+	width:700px;
+	height:100px;
+	border:1px solid #cccccc;
+	background: rgb(248,248,248); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(238,238,238,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(248,248,248,1)), color-stop(100%,rgba(238,238,238,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(238,238,238,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(238,238,238,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(238,238,238,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(248,248,248,1) 0%,rgba(238,238,238,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
+	float:left;
+	position:relative;
+}
+.catCustomTextAreaProm H1{
+	color: #9B9B9B;
+    line-height: 105px;
+    text-align: center;
+}
+.carouselCPBannerListProm{
+	padding-left: 0;
+}
+.carouselCPBannerListProm li{
+	list-style:none;
+	float:left;
+}
+.carouselCPBannerListProm li a{
+}
+.prevCPBannerCaroProm{
+	 cursor: pointer;
+    left: 20px;
+    position: absolute;
+    top: 200px;
+}
+.nextCPBannerCaroProm{
+	position:absolute;
+	right:20px;
+	top:200px;
+	cursor:pointer;
+}
+
+/***********************************************************************************************************************************/
+/*****BOTTOM CAROUSEL****/
+.catBottomCarouselProm{
+	width:700px;
+	float:left;
+	margin-top:20px;
+}
+
+.catProductListTitleCarouselBarProm{
+	height: 110px;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.catProductListTitleCarouselBarProm div.caroufredsel_wrapper{
+	margin-left: 150px !important;
+    margin-right: auto !important;
+}
+.catProductListTitleCarouselProm{
+	overflow: hidden;
+    padding-left: 0;
+}
+.catProductListTitleCarouselProm li{
+	float: left;
+    height: 112px;
+    list-style: none outside none;
+    width: 400px;
+	margin-top: 15px;
+}
+.catProductListTitleCarouselProm li h3{
+	text-align: center;
+	color:#666666;
+	font-size:36px;
+	font-weight:400;
+}
+.catProductListPrevProm{
+	position:absolute;
+	left:100px;
+	top:25px;
+	cursor:pointer;
+}
+.catProductListNextProm{
+	cursor: pointer;
+    position: absolute;
+    right: 100px;
+    top: 25px;
+}
+
+.catProductListContentAreaProm{
+	width:100%;
+	position:relative;
+}
+.catProductListCarouselAreaProm div.caroufredsel_wrapper{
+	
+}
+.catProductListCarouselContainerProm{
+}
+.catProductListCarouselContainerProm ul.productList{
+	float: left;
+    margin-left: -20px;
+    width: 720px;
+}
+ .catProductListCarouselContainerProm ul.productList li.productItem{
+	height:300px !important;
+	width:200px !important;
+	background-color:white;
+	position:relative;
+	border:10px solid white;
+	margin: 5px 0 5px 20px;
+}
+.productItemInfo{
+	position:absolute;
+	bottom:0;
+	width:100%;
+	height:60px;
+	background-color:rgba(200,200,200,.5);
+}
+.productItemInfoContent{
+}
+.productItemInfoMoreInfo{
+	display:none;
+	width:100%;
+	height:100%;
+}
+.productItemInfoMoreInfo h1{
+	color: #FFFFFF;
+    font-size: 12px;
+    margin-top: 22px;
+    text-align: center;
+}
+
+.catProductListPagProm{
+	margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 200px;
+	height:21px;
+	margin-top:35px;
+}
+.catProductListPagProm a{
+	width:20px;
+	height:21px;
+	background-image:url(Images/Homepage/carouselpagination.png);
+	float:left;
+	margin-right: 20px;
+}
+.catProductListPagProm a span{
 	display:none;
 }
 .catProductListPag a.selected{

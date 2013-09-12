@@ -180,8 +180,8 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
                             <li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.sequins" class="pointer bindByAnchor">Sequins</a></li>
                             <li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.vintage" class="pointer bindByAnchor">Vintage</a></li>
                             <br />
-                            <br />
-                             <li class="headerDropdownLink"><a href="#!category?navcat=.shop_accessories" class="pointer bindByAnchor">Test Cat</a></li>
+                             <li class="headerDropdownLink"><a href="#!category?navcat=.shop_accessories" class="pointer bindByAnchor">Test Cat - prom</a></li>
+                             <li class="headerDropdownLink"><a href="#!category?navcat=.shop_by_designer" class="pointer bindByAnchor">Test Cat</a></li>
                         </ul>
                     </div>
                 </div>
@@ -540,52 +540,130 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 	<div class="centeringContainer">
         <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+        <div class="catTopCarousel">
+            <ul class="carouselCPBannerList">
+                <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/carousel/testbanner-1.png" /></a></li>
+                <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/carousel/testbanner-1.png" /></a></li>
+                <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/carousel/testbanner-1.png" /></a></li>
+                <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/carousel/testbanner-1.png" /></a></li>
+            </ul>
+            <img class="prevCPBannerCaro" src="Images/Homepage/caroleft.png" />
+            <img class="nextCPBannerCaro" src="Images/Homepage/caroright.png" />
+        </div>
+        
+        <ul class='listStyleNone fluidList clearfix noPadOrMargin categoryList' data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;"></ul><!-- outputs a list of subcategories -->
+        
+        <div class="catCustomTextArea">
+            <h1 data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></h1>
+        </div>
+        
+         <div class="catBottomCarousel">         	
+            <div class="catProductListTitleCarouselBar">
+            	<h3>Featured Products</h3>
+            </div>
+            <div class="catProductListContentArea">
+                <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
+            </div>
+        </div>
+        <!--
+        <div class="catBottomCarousel">         	
+            <div class="catProductListTitleCarouselBar">
+                <ul class="catProductListTitleCarousel">
+                    <li><h3>Featured Products</h3></li>
+                    <li><h3>Best Sellers</h3></li>
+                    <li><h3>New Arrivals</h3></li>
+                    <li><h3>Celebrity Trends</h3></li>
+                    <li><h3>New to Sale</h3></li>
+                </ul>
+                <img class="catProductListPrev" src="Images/Homepage/caroleft.png" />
+                <img class="catProductListNext" src="Images/Homepage/caroright.png" />
+            </div>
+            <div class="catProductListContentArea">
+                <div class="catProductListCarouselArea">
+                    <div class="catProductListCarouselContainer">
+                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
+                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_best_sellers.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
+                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_new_arrivals.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
+                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_celebrity_trends.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
+                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_new_to_sale.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
+                    </div>
+                    <div class="catProductListPag"></div>
+                </div>
+            </div>
+        </div>
+        <!--
+        <img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" src='images/blank.gif' alt='' />
+    
+        <h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
+    
+        <p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+    
+        <ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
+    
+        <!--
+        <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
+    
+        <!--
+        <p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+        -->
+    </div>
+   
+</div>
+
+
+
+
+
+<div id='categoryTemplateProm' class='loadingBG categoryTemplate'>
+
+	<div class="centeringContainer">
+        <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
     
         <div class="catSidebar">
         	<p>content coming soon!</p>
         </div>
         
-        <div class="catContentArea">
+        <div class="catContentAreaProm">
         	
-            <div class="catTopCarousel">
-                <ul class="carouselCPBannerList">
+            <div class="catTopCarouselProm">
+                <ul class="carouselCPBannerListProm">
                     <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/categorypage/topbanner/testimage1.png" /></a></li>
                     <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/categorypage/topbanner/testimage1.png" /></a></li>
                     <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/categorypage/topbanner/testimage1.png" /></a></li>
                     <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/categorypage/topbanner/testimage1.png" /></a></li>
                 </ul>
-                <img class="prevCPBannerCaro" src="Images/Homepage/caroleft.png" />
-                <img class="nextCPBannerCaro" src="Images/Homepage/caroright.png" />
+                <img class="prevCPBannerCaroProm" src="Images/Homepage/caroleft.png" />
+                <img class="nextCPBannerCaroProm" src="Images/Homepage/caroright.png" />
             </div>
             
-            <ul class='listStyleNone fluidList clearfix noPadOrMargin categoryList' data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;"></ul><!-- outputs a list of subcategories -->
+            <ul class='listStyleNone fluidList clearfix noPadOrMargin categoryList categoryListProm' data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;"></ul><!-- outputs a list of subcategories -->
             
-            <div class="catCustomTextArea">
+            <div class="catCustomTextAreaProm">
             	<h1>EDITABLE TEXT AREA</h1>
             </div>
             
-            <div class="catBottomCarousel">         	
-                <div class="catProductListTitleCarouselBar">
-                    <ul class="catProductListTitleCarousel">
+            <div class="catBottomCarouselProm">         	
+                <div class="catProductListTitleCarouselBarProm">
+                    <ul class="catProductListTitleCarouselProm">
                         <li><h3>Featured Products</h3></li>
                         <li><h3>Best Sellers</h3></li>
                         <li><h3>New Arrivals</h3></li>
                         <li><h3>Celebrity Trends</h3></li>
                         <li><h3>New to Sale</h3></li>
                     </ul>
-                    <img class="catProductListPrev" src="Images/Homepage/caroleft.png" />
-                    <img class="catProductListNext" src="Images/Homepage/caroright.png" />
+                    <img class="catProductListPrevProm" src="Images/Homepage/caroleft.png" />
+                    <img class="catProductListNextProm" src="Images/Homepage/caroright.png" />
                 </div>
-                <div class="catProductListContentArea">
-                    <div class="catProductListCarouselArea">
-                        <div class="catProductListCarouselContainer">
+                <div class="catProductListContentAreaProm">
+                    <div class="catProductListCarouselAreaProm">
+                        <div class="catProductListCarouselContainerProm">
                             <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
                             <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_best_sellers.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
                             <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_new_arrivals.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
                             <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_celebrity_trends.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
                             <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_new_to_sale.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
                         </div>
-                        <div class="catProductListPag"></div>
+                        <div class="catProductListPagProm"></div>
                     </div>
                 </div>
     		</div>

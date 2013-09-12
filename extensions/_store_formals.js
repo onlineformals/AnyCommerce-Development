@@ -20,7 +20,7 @@ var _store_formals = function() {
 	var r= {
 		vars : {
 			catTemplates : {
-				
+				".shop_accessories" : "categoryTemplateProm"
 			},
 		},
 		
