@@ -46,13 +46,15 @@ li{
     float: left;
     font-size: 16px;
     margin-top: 15px;
+	font-weight: normal;
 }
 .headerLoginLink h6{
 	color: #666666;
     float: left;
-    font-size: 14px;
+    font-size: 16px;
     margin-left: 5px;
-    margin-top: 17px;
+    margin-top: 15px;
+	font-weight: normal;
 }
 .headerLoginLink a{
 	color: #E61552;
@@ -232,10 +234,11 @@ li{
 	color:#e61652;
 }
 .headerDropdownLink{
+	text-align:left;
 }
 .headerDropdownTitle{
 	font-weight: bold;
-    text-decoration: underline;
+	text-align:left;
 }
 .headerDropdownTitle a{
 	font-weight: bold !important;
@@ -273,10 +276,18 @@ li{
     left: 495px;
     top: 52px;
 }
+.navBarBridal{
+	width:90px;
+}
+.navBarAccessories{
+	width:150px;
+}
 .navBarAccessories div.headerDropdown{
 	box-shadow: 1px 5px 5px #484944;
     left: 620px;
     top: 52px;
+}
+.navBarStock{
 }
 .navBarStock div.headerDropdown{
 	box-shadow: 1px 5px 5px #484944;
@@ -387,6 +398,7 @@ li{
 .footerLinkList a{
 	color: white;
     text-decoration: none;
+	font-size: 18px;
 }
 .footerLinkList a:hover{
 	color: #E61552;
@@ -980,6 +992,21 @@ li{
 	float:left;
 	background-color:#f7f7f7;
 	border:1px solid #cdcdcd;
+}
+.catSidebar h3{
+	margin-left: 40px;
+}
+.catSidebar ul{
+	list-style: none outside none;
+}
+.catSidebar ul li{
+}
+.catSidebar ul li a{
+	color: #333333;
+    text-decoration: none;
+}
+.catSidebar ul li a:hover{
+	color:#e61652;
 }
 
 /***********************************************************************************************************************************/
