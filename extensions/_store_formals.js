@@ -20,7 +20,8 @@ var _store_formals = function() {
 	var r= {
 		vars : {
 			catTemplates : {
-				".shop_accessories" : "categoryTemplateProm"
+				".shop_accessories" : "categoryTemplateProm",
+				".shop_by_designer.ballgowns_by_mac_duggal" : "categoryProductListTemplate"
 			},
 		},
 		
