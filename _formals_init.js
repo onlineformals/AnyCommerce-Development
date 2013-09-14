@@ -13,6 +13,7 @@ app.rq.push(['extension',0,'store_search','extensions/store_search.js']);
 app.rq.push(['extension',0,'store_product','extensions/store_product.js']);
 app.rq.push(['extension',0,'store_cart','extensions/store_cart.js']);
 app.rq.push(['extension',0,'store_crm','extensions/store_crm.js']);
+app.rq.push(['extension',0,'_store_filter','extensions/_store_filter.js']);
 app.rq.push(['extension',0,'myRIA','app-quickstart.js','startMyProgram']);
 
 //CUSTOM EXTENSIONS
@@ -236,6 +237,60 @@ app.rq.push(['templateFunction','categoryTemplateProm','onCompletes',function(P)
     });
 }]);
 
+
+app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',function(P) {
+	var $context = $(app.u.jqSelector('#',P.parentID));
+	//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+	
+	app.ext._store_filter.vars.catPageID = $(app.u.jqSelector('#',P.parentID));  
+	
+	app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
+	if(app.ext._store_filter.filterMap[P.navcat])	{
+		app.u.dump(" -> safe id DOES have a filter.");
+
+		var $page = $(app.u.jqSelector('#',P.parentID));
+		app.u.dump(" -> $page.length: "+$page.length);
+		if($page.data('filterAdded'))	{} //filter is already added, don't add again.
+		else	{
+			$page.data('filterAdded',true)
+			var $form = $("[name='"+app.ext._store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.catProdListSidebar',$page));
+			$form.on('submit.filterSearch',function(event){
+				event.preventDefault()
+				app.u.dump(" -> Filter form submitted.");
+				app.ext._store_filter.a.execFilter($form,$page);
+				});
+	
+			if(typeof app.ext._store_filter.filterMap[P.navcat].exec == 'function')	{
+				app.ext._store_filter.filterMap[P.navcat].exec($form,P)
+				}
+	
+	//make all the checkboxes auto-submit the form.
+			$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+				$form.submit();      
+				});
+			}
+		}
+		
+		
+		
+		//selector function for filtered search that displays appropriate wood menu options when wood is selected.	
+		/*$('.woodPieces:checkbox').click(function() {
+			var woodPieces = $(this);
+			// $this will contain a reference to the checkbox   
+			if (woodPieces.is(':checked')) {
+				 $(".woodType").show();
+				 $(".kingHeight").show();
+			} else {
+				$(".woodType").hide();
+				$(".kingHeight").hide();
+			}
+		});*/
+		
+		$('.resetButton', $context).click(function(){
+		$context.empty().remove();
+		showContent('category',{'navcat':P.navcat});
+		});
+}]);
 
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.
