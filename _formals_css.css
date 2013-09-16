@@ -1344,3 +1344,26 @@ catProdListProductListCont div.loadingBG{
     margin-top: 22px;
     text-align: center;
 }
+
+
+
+/***********************************************************************************************************************************/
+/***********************************************************************************************************************************/
+/*****FILTERED SEARCH TEMPLATES****/
+.layeredSearch fieldset{
+	border: medium none;
+}
+.break{
+	clear: left;
+    float: left;
+}
+.resetButton{
+	background-color: #333333;
+    border: medium none;
+    border-radius: 0 0 0 0;
+    color: #FFFFFF;
+    font-family: 'Raleway',sans-serif;
+    font-size: 13px;
+    height: 60px;
+    width: 100%;
+}
