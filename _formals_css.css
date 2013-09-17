@@ -183,7 +183,7 @@ li{
 	overflow:hidden;
 	background-color:white;
 	width:320px;
-	z-index:2;
+	z-index:3;
 	position:absolute;
 	background-color: #EEEEEE;
 }
