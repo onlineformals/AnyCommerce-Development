@@ -701,6 +701,16 @@ li{
 }
 .productItemInfoContent{
 }
+.productItemInfoContent h5{
+	font-size: 12px;
+    font-weight: normal;
+	color:#333333;
+}
+.productItemInfoContent h6{
+	font-size: 12px;
+    font-weight: normal;
+	color:#333333;
+}
 .productItemInfoMoreInfo{
 	display:none;
 	width:100%;
@@ -1335,6 +1345,8 @@ catProdListProductListCont div.loadingBG{
 	background-color:rgba(200,200,200,.5);
 }
 .productItemInfoContent{
+	margin-top: 10px;
+    text-align: center;
 }
 .productItemInfoMoreInfo{
 	display:none;
@@ -1376,7 +1388,7 @@ catProdListProductListCont div.loadingBG{
 }
 .break{
 	clear: left;
-    color: #000000;
+    color: #333333;
     float: left;
     font-family: 'Raleway',sans-serif;
     margin-bottom: 2px;

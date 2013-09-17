@@ -490,9 +490,9 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         	<div class="centeringContainer">
             	<div class="hpProductListCarouselArea">
                 	<div class="hpProductListCarouselContainer">
-                    	<ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_featured_styles.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
+                    	<ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_featured_products.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
                         <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_best_sellers.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
-                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_new_arrivals.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
+                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_-_new_arrivals.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
                         <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_celebrity_trends.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
                         <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_new_to_sale.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
                     </div>
@@ -795,7 +795,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 
 		<div class="productItemInfo">
             <div class="productItemInfoContent">
-                <h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
+                <h5 data-bind='var: product(zoovy:prod_name); format:truncText; numCharacters: 32;'></h5>
         
                 <h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
                 
