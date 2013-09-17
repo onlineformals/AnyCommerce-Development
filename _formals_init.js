@@ -271,25 +271,59 @@ app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',func
 			}
 		}
 		
-		
-		
-		//selector function for filtered search that displays appropriate wood menu options when wood is selected.	
-		/*$('.woodPieces:checkbox').click(function() {
-			var woodPieces = $(this);
-			// $this will contain a reference to the checkbox   
-			if (woodPieces.is(':checked')) {
-				 $(".woodType").show();
-				 $(".kingHeight").show();
-			} else {
-				$(".woodType").hide();
-				$(".kingHeight").hide();
-			}
-		});*/
-		
 		$('.resetButton', $context).click(function(){
 		$context.empty().remove();
 		showContent('category',{'navcat':P.navcat});
 		});
+		
+		//ASSIGN EXPAND/COLLAPSE VALUES TO FILTER FORM
+		if($('.filterPriceCat'), $context){
+			$('.filterCategoryCont', '.filterPriceCat').show();
+			$('.filterCatTitle', '.filterPriceCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+			$('.filterPriceCat').data('collapseOrExpanded',true).append();
+		}
+		
+		if($('.filterDressTypeCat'), $context){
+			$('.filterCategoryCont', '.filterDressTypeCat').show();
+			$('.filterCatTitle', '.filterDressTypeCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+			$('.filterDressTypeCat').data('collapseOrExpanded',true).append();
+		}
+		
+		if($('.filterDesignerCat'), $context){
+			$('.filterCategoryCont', '.filterDesignerCat').show();
+			$('.filterCatTitle', '.filterDesignerCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+			$('.filterDesignerCat').data('collapseOrExpanded',true).append();
+		}
+		
+		if($('.filterColorCat'), $context){
+			$('.filterCategoryCont', '.filterColorCat').show();
+			$('.filterCatTitle', '.filterColorCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+			$('.filterColorCat').data('collapseOrExpanded',true).append();
+		}
+		
+		if($('.filterHemlineCat'), $context){
+			$('.filterCategoryCont', '.filterHemlineCat').show();
+			$('.filterCatTitle', '.filterHemlineCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+			$('.filterHemlineCat').data('collapseOrExpanded',true).append();
+		}
+		
+		if($('.filterSilhouetteCat'), $context){
+			$('.filterCategoryCont', '.filterSilhouetteCat').show();
+			$('.filterCatTitle', '.filterSilhouetteCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+			$('.filterSilhouetteCat').data('collapseOrExpanded',true).append();
+		}
+		
+		if($('.filterNecklineCat'), $context){
+			$('.filterCategoryCont', '.filterNecklineCat').show();
+			$('.filterCatTitle', '.filterNecklineCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+			$('.filterNecklineCat').data('collapseOrExpanded',true).append();
+		}
+		
+		if($('.filterTrendsCat'), $context){
+			$('.filterCategoryCont', '.filterTrendsCat').show();
+			$('.filterCatTitle', '.filterTrendsCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+			$('.filterTrendsCat').data('collapseOrExpanded',true).append();
+		}
 }]);
 
 
