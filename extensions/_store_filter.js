@@ -38,10 +38,130 @@ var _store_filter = function() {
 //key is safe id. value is name of the filter form.
 	filterMap : {
 		
+			//TEST FORM - REMOVE BEFORE GOING LIVE
 			".shop_by_designer.ballgowns_by_mac_duggal":{
 			"filter": "masterFilterSearchForm",
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
-			}
+			},
+			
+			//PROM PAGES
+			".prom.designers.bg_haute":{
+			"filter": "PromBGHauteForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom.designers.prom.designers.cassandra_stone":{
+			"filter": "PromCassStoneForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom.designers.faviana":{
+			"filter": "PromFavianaForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom.designers.gigi":{
+			"filter": "PromGigiForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom.designers.jasz_couture":{
+			"filter": "PromJaszCoutForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom.designers.johnathan_kayne":{
+			"filter": "PromJohnKayneForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom.designers.jovani":{
+			"filter": "PromJovaniForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom.designers.la_femme":{
+			"filter": "PromLaFemmeForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom.designers.le_gala":{
+			"filter": "PromLeGalaForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom.designers.lm_collection":{
+			"filter": "PromLmCollForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom.designers.mac_duggal":{
+			"filter": "PromMacDuggalForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom.designers.mignon":{
+			"filter": "PromMignonForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom.designers.mnm_couture":{
+			"filter": "PromMnmCoutForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom.designers.night_moves":{
+			"filter": "PromNightMovesForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom.designers.paris":{
+			"filter": "PromParisForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom.designers.scala.":{
+			"filter": "PromScalaForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom.designers.shail_k":{
+			"filter": "PromShailKForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom.designers.sherri_hill":{
+			"filter": "PromSherriHillForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom.designers.tony_bowls":{
+			"filter": "PromTonyBowlsForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom..prom.styles.ballgown___a_line":{
+			"filter": "PromALineForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom..prom.styles.empire":{
+			"filter": "PromEmpireForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom..prom.styles.high_low":{
+			"filter": "PromHighLowForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom..prom.styles.mermaid":{
+			"filter": "PromMermaidForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom..prom.styles.short":{
+			"filter": "PromShortForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom..prom.trends.beads":{
+			"filter": "PromBeadsForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom..prom.trends.lace":{
+			"filter": "PromLaceForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom..prom.trends.polka_dots":{
+			"filter": "PromDotsForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom..prom.trends.sequins":{
+			"filter": "PromSequinsForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".prom..prom.trends.vintage":{
+			"filter": "PromVintageForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			
 		},
 
 					////////////////////////////////////   CALLBACKS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
