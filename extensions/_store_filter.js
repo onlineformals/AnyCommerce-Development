@@ -121,44 +121,94 @@ var _store_filter = function() {
 			"filter": "PromTonyBowlsForm",
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
-			".prom..prom.styles.ballgown___a_line":{
+			".prom.styles.ballgown___a_line":{
 			"filter": "PromALineForm",
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
-			".prom..prom.styles.empire":{
+			".prom.styles.empire":{
 			"filter": "PromEmpireForm",
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
-			".prom..prom.styles.high_low":{
+			".prom.styles.high_low":{
 			"filter": "PromHighLowForm",
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
-			".prom..prom.styles.mermaid":{
+			".prom.styles.mermaid":{
 			"filter": "PromMermaidForm",
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
-			".prom..prom.styles.short":{
+			".prom.styles.short":{
 			"filter": "PromShortForm",
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
-			".prom..prom.trends.beads":{
+			".prom.trends.beads":{
 			"filter": "PromBeadsForm",
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
-			".prom..prom.trends.lace":{
+			".prom.trends.lace":{
 			"filter": "PromLaceForm",
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
-			".prom..prom.trends.polka_dots":{
+			".prom.trends.polka_dots":{
 			"filter": "PromDotsForm",
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
-			".prom..prom.trends.sequins":{
+			".prom.trends.sequins":{
 			"filter": "PromSequinsForm",
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
-			".prom..prom.trends.vintage":{
+			".prom.trends.vintage":{
 			"filter": "PromVintageForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			
+			//EVENING PAGES
+			".evening.designers.bg_haute":{
+			"filter": "EveningBGHauteForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".evening.designers.jasz_couture":{
+			"filter": "EveningJaszCoutForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".evening.designers.jovani.":{
+			"filter": "EveningJovaniForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".evening.designers.la_femme":{
+			"filter": "EveningLaFemmeForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".evening.designers.mac_duggal":{
+			"filter": "EveningMacDuggalForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".evening.designers.mignon":{
+			"filter": "EveningMignonForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".evening.designers.mnm_couture":{
+			"filter": "EveningMnmCoutForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".evening.designers.scala":{
+			"filter": "EveningScalaForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".evening.designers.shail_k":{
+			"filter": "EveningShailKForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".evening.designers.sherri_hill":{
+			"filter": "EveningSherriHillForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".evening.designers.tony_bowls":{
+			"filter": "EveningTonyBowlsForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".evening.celebrity_inspired":{
+			"filter": "EveningCelebForm",
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			
