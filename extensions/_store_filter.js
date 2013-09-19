@@ -323,6 +323,18 @@ var _store_filter = function() {
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			
+			//BRIDAL PAGES
+			".bridal":{
+			"filter": "BridalForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			
+			//IN STOCK PAGES
+			".in_stock":{
+			"filter": "InStockForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			
 			//ACCESSORIES PAGES
 			/*
 			".accessories.shoes.touch_ups":{
