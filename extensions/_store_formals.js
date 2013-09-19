@@ -188,7 +188,7 @@ var _store_formals = function() {
 			homepageCarouselProdItemMouseOut : function($tag) {
 				//app.u.dump("mouse over function successully ran.")
 				$tag.css({'border':'10px solid white'});
-				$(".productItemInfo", $tag).css({'background-color':'rgba(200,200,200,.5)'});
+				$(".productItemInfo", $tag).css({'background-color':'rgba(200,200,200,.6)'});
 				$(".productItemInfoContent", $tag).show();
 				$(".productItemInfoMoreInfo", $tag).hide();
 				
