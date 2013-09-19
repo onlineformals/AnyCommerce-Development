@@ -96,11 +96,15 @@ var _store_formals = function() {
 				".pageant.designers.tony_bowls" : "categoryProductListTemplate",
 				".pageant.children_s_pageant" : "categoryProductListTemplate",
 				
+				".bridal" : "categoryProductListTemplate",
+				
 				".accessories.shoes.touch_ups" : "categoryProductListTemplate",
 				".accessories.shoes.coloriffics" : "categoryProductListTemplate",
 				".accessories.jewelry" : "categoryProductListTemplate",
 				".accessories.under_the_dress.bra_cups" : "categoryProductListTemplate",
-				".accessories.under_the_dress.shapewear" : "categoryProductListTemplate"
+				".accessories.under_the_dress.shapewear" : "categoryProductListTemplate",
+				
+				".in_stock" : "categoryProductListTemplate"
 			},
 		},
 		
