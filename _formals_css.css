@@ -25,36 +25,36 @@ li{
 /*****HEADER****/
 .header{
 	width:100%;
-	height:293px;
+	height:200px;
 	margin-bottom:20px;
+	background-color: #EBEBEB;
 }
 
 /***********************************************************************************************************************************/
 /**HEADER TOP AREA**/
 .headerTopSect{
-	height:50px;
+	height:25px;
 	width:100%;
-	border-bottom:7px dotted rgb(40, 40, 40);
-	border-bottom:7px dotted rgba(200, 200, 200, .2);
+	background-color:#ebebeb;
 }
 .headerLoginLink{
 	height: 100%;
     width: 280px;
 }
 .headerLoginLink h5{
-	color: #666666;
+	color: #979797;
     float: left;
-    font-size: 16px;
-    margin-top: 15px;
+    font-size: 14px;
+    margin-top: 5px;
 	font-weight: normal;
 }
 .headerLoginLink h6{
-	color: #666666;
+	color: #979797;
     float: left;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: normal;
     margin-left: 5px;
-    margin-top: 15px;
-	font-weight: normal;
+    margin-top: 5px;
 }
 .headerLoginLink a{
 	color: #E61552;
@@ -66,9 +66,10 @@ li{
     width: 300px;
 }
 .headerCartLink a{
-	color: #666666;
+	color: #979797;
     float: left;
-    margin-top: 15px;
+    font-size: 14px;
+    margin-top: 5px;
     text-decoration: none;
 }
 .headerCartLink span{
@@ -78,7 +79,7 @@ li{
     float: left;
     margin-left: 3px;
     margin-right: 1px;
-    margin-top: 18px;
+    margin-top: 7px;
     text-decoration: none;
 }
 
@@ -91,22 +92,26 @@ li{
     margin-right: 14px;
 }
 .headerTopNavLink a{
-	color: #666666;
+	color: #979797;
     float: right;
-    margin-top: 15px;
+    font-size: 14px;
+    margin-top: 5px;
     text-decoration: none;
 }
 
 /***********************************************************************************************************************************/
 /**HEADER MID AREA**/
 .headerMidSect{
-	height:150px;
-	width:100%;
+	background-color: #FFFFFF;
+    box-shadow: 0 8px 6px #ABABAB;
+    float: left;
+    height: 125px;
+    width: 100%;
 }
 .headerLogoContainer{
 	float: left;
     height: 80px;
-    margin-top: 35px;
+    margin-top: 20px;
     width: 385px;
 }
 
@@ -133,7 +138,7 @@ li{
     border-top: 1px solid #999999;
     color: #B4B4B4;
     float: left;
-    height: 38px;
+    height: 25px;
     padding: 0 0 0 10px;
     width: 205px;
 }
@@ -143,7 +148,7 @@ li{
     color: white;
     float: left;
     font-weight: bold;
-    height: 40px;
+    height: 27px;
     width: 80px;
 	margin-left: -2px;
 	font-family: 'Raleway', sans-serif;
@@ -165,8 +170,6 @@ li{
 /***********************************************************************************************************************************/
 /**HEADER BOTTOM AREA**/
 .headerBottomSect{
-	background-image:url(Images/Homepage/headernavbar.png);
-	background-repeat:repeat-x;
 	height: 86px;
 	width: 100%;
 	float:left;
@@ -206,8 +209,9 @@ li{
     width: 120px;
 }
 .dropdownLinkContainer div a{
-	font-size:22px;
-	font-weight:600;a
+	color: #909090;
+    font-size: 22px;
+    font-weight: 600;
 }
 .dropdownLinkContainer div a:hover{
 	color:#e61652;
