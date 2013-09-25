@@ -61,7 +61,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 	function carouselHPBanner(){ $(".carouselHPBannerList").carouFredSel
 	({
 		width   : 940,
-		height	: 440,
+		height	: 350,
 		items   : 1,
 		scroll: 1,
 		auto : {

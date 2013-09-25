@@ -47,6 +47,7 @@ css files should be included before any .js file to ensure they are downloaded i
 <link rel="stylesheet" type="text/css" href="_formals_css.css" />
 <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/ui-lightness/jquery-ui.css" />
 <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Maven+Pro:400,500,900,700' rel='stylesheet' type='text/css'>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="resources/jquery.ui.widget.min.js"></script><!-- here so that plugins that may load before the jqueryui lib load without error -->
@@ -139,8 +140,20 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
 	<div class="headerBottomSect">
 		<div class="centeringContainer">
 			<div class="topNavContainer">
+                <div class="navBarDesigner dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
+                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.designers'});"><a>DESIGNERS</a></div>
+                	<div class="dropdown headerDropdown leftAlign">
+                        <ul>
+                        	<li class="headerDropdownTitle">DESIGNERS</li>
+                        	<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.bg_haute" class="pointer bindByAnchor">BG Haute</a></li>
+                		</ul>
+                        <ul>
+                            <li class="headerDropdownLink"><a href="#!category?navcat=.shop_accessories" class="pointer bindByAnchor">Test Cat - prom</a></li>
+                		</ul>
+                	</div>
+                </div>
                 <div class="navBarProm dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
-                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.prom'});"><a>Prom</a></div>
+                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.prom'});"><a>PROM</a></div>
                 	<div class="dropdown headerDropdown leftAlign">
                         <ul>
                         	<li class="headerDropdownTitle">DESIGNERS</li>
@@ -183,7 +196,7 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
                     </div>
                 </div>
                 <div class="navBarEvening dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
-                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.evening'});"><a>Evening</a></div>
+                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.evening'});"><a>EVENING</a></div>
                 	<div class="dropdown headerDropdown leftAlign">
                         <ul>
                         	<li class="headerDropdownTitle">DESIGNERS</li>
@@ -208,7 +221,7 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
                 	</div>
                 </div>
                 <div class="navBarCocktail dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
-                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.cocktail'});"><a>Cocktail</a></div>
+                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.cocktail'});"><a>COCKTAIL</a></div>
                 	<div class="dropdown headerDropdown leftAlign">
                         <ul>
                         	<li class="headerDropdownTitle">DESIGNERS</li>
@@ -234,7 +247,7 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
                 	</div>
                 </div>
                 <div class="navBarPlusSize dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
-                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.plus_size'});"><a>Plus Size</a></div>
+                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.plus_size'});"><a>PLUS SIZE</a></div>
                 	<div class="dropdown headerDropdown leftAlign">
                         <ul>
                         	<li class="headerDropdownTitle">DESIGNERS</li>
@@ -252,7 +265,7 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
                 	</div>
                 </div>
                 <div class="navBarPageant dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
-                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.pageant'});"><a>Pageant</a></div>
+                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.pageant'});"><a>PAGEANT</a></div>
                 	<div class="dropdown headerDropdown leftAlign">
                         <ul>
                         	<li class="headerDropdownTitle">DESIGNERS</li>
@@ -270,7 +283,7 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
                 	</div>
                 </div>
                 <div class="navBarBridal dropdownLinkContainer"> <!--onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))"-->
-                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.bridal'});"><a>Bridal</a></div>
+                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.bridal'});"><a>BRIDAL</a></div>
                 	<div class="dropdown headerDropdown leftAlign">
                         <ul>
                         	<li class="headerDropdownLink"><a href="#!category?navcat=." class="pointer bindByAnchor">link</a></li>
@@ -281,7 +294,7 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
                 	</div>
                 </div>
                 <div class="navBarAccessories dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
-                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.accessories'});"><a>Accessories</a></div>
+                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.accessories'});"><a>ACCESSORIES</a></div>
                 	<div class="dropdown headerDropdown leftAlign">
                         <ul>
                         	<li class="headerDropdownTitle">SHOES</li>
@@ -297,7 +310,7 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
                 	</div>
                 </div>
                 <div class="navBarStock dropdownLinkContainer"> <!--onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))"-->
-                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.in_stock'});"><a>In Stock</a></div>
+                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.in_stock'});"><a>IN STOCK</a></div>
                 	<div class="dropdown headerDropdown leftAlign">
                         <ul>
                         	<li class="headerDropdownLink"><a href="#!category?navcat=." class="pointer bindByAnchor">link</a></li>
@@ -416,14 +429,15 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 	
     <div class="centeringContainer">
         <div class="homepageBannerContainer">
+        	<!--Remove the overflow hidden style when installing the new banner*/-->
             <a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/topbanner/testbanner.png" /></a>
         </div>
         <div class="homepageCarouselContainer">
             <ul class="carouselHPBannerList">
                 <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/carousel/testbanner-1.png" /></a></li>
+                <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/carousel/testbanner-2.png" /></a></li>
                 <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/carousel/testbanner-1.png" /></a></li>
-                <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/carousel/testbanner-1.png" /></a></li>
-                <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/carousel/testbanner-1.png" /></a></li>
+                <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/carousel/testbanner-2.png" /></a></li>
             </ul>
             <img class="prevHPBannerCaro" src="Images/Homepage/caroleft.png" />
             <img class="nextHPBannerCaro" src="Images/Homepage/caroright.png" />
@@ -481,14 +495,14 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     	<div class="centeringContainer">
             <div class="hpProductListTitleCarouselBar">
                 <ul class="hpProductListTitleCarousel">
-                	<li><h3>Featured Styles</h3></li>
-                    <li><h3>Best Sellers</h3></li>
-                    <li><h3>New Arrivals</h3></li>
-                    <li><h3>Celebrity Trends</h3></li>
-                    <li><h3>New to Sale</h3></li>
+                	<li><h3>FEATURED STYLES</h3></li>
+                    <li><h3>BEST SELLERS</h3></li>
+                    <li><h3>NEW ARRIVALS</h3></li>
+                    <li><h3>CELEBRITY TRENDS</h3></li>
+                    <li><h3>NEW TO SALE</h3></li>
                 </ul>
-                <img class="hpProductListPrev" src="Images/Homepage/caroleft.png" />
-                <img class="hpProductListNext" src="Images/Homepage/caroright.png" />
+                <img class="hpProductListPrev" src="Images/Homepage/caroleftsmall.png" />
+                <img class="hpProductListNext" src="Images/Homepage/carorightsmall.png" />
             </div>
         </div>
         <div class="hpProductListContentArea">

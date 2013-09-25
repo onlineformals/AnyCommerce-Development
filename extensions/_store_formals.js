@@ -160,7 +160,7 @@ var _store_formals = function() {
 			},
 			homepageCategoryMouseOut : function($tag) {
 				//app.u.dump("mouse over function successully ran.")
-				$(".homepageCatTitleBar", $tag).css({'background-color':'rgba(200,200,200,.5)'});
+				$(".homepageCatTitleBar", $tag).css({'background-color':'rgba(900,900,900,.8)'});
 				$(".homepageCatTitle", $tag).css({'color':'#333333'});
 				
 			},
@@ -172,7 +172,7 @@ var _store_formals = function() {
 			},
 			homepageSubCatMouseOut : function($tag) {
 				//app.u.dump("mouse over function successully ran.")
-				$(".homepageSubCatTitleBar", $tag).css({'background-color':'rgba(200,200,200,.5)'});
+				$(".homepageSubCatTitleBar", $tag).css({'background-color':'rgba(900,900,900,.8)'});
 				$(".homepageSubCatTitle", $tag).css({'color':'#333333'});
 				
 			},
@@ -188,7 +188,7 @@ var _store_formals = function() {
 			homepageCarouselProdItemMouseOut : function($tag) {
 				//app.u.dump("mouse over function successully ran.")
 				$tag.css({'border':'10px solid white'});
-				$(".productItemInfo", $tag).css({'background-color':'rgba(200,200,200,.6)'});
+				$(".productItemInfo", $tag).css({'background-color':'rgba(900,900,900,.8)'});
 				$(".productItemInfoContent", $tag).show();
 				$(".productItemInfoMoreInfo", $tag).hide();
 				
@@ -202,7 +202,7 @@ var _store_formals = function() {
 			},
 			categorySubCatMouseOut : function($tag) {
 				//app.u.dump("mouse over function successully ran.")
-				$(".homepageSubCatTitleBar", $tag).css({'background-color':'rgba(200,200,200,.5)'});
+				$(".homepageSubCatTitleBar", $tag).css({'background-color':'rgba(900,900,900,.8)'});
 				$(".catName", $tag).css({'color':'#333333'});
 				
 			},

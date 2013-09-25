@@ -13,10 +13,10 @@ body{
 	margin:0;
 }
 h1, h2, h3, h4, h5, h6, p, a{
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Maven Pro', sans-serif;
 }
 li{
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Maven Pro', sans-serif;
 }
 
 
@@ -24,10 +24,11 @@ li{
 /***********************************************************************************************************************************/
 /*****HEADER****/
 .header{
-	width:100%;
-	height:200px;
-	margin-bottom:20px;
 	background-color: #EBEBEB;
+    box-shadow: 0 5px 6px #ABABAB;
+    height: 205px;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 /***********************************************************************************************************************************/
@@ -45,20 +46,21 @@ li{
 	color: #979797;
     float: left;
     font-size: 14px;
-    margin-top: 5px;
-	font-weight: normal;
+    margin-top: 3px;
+	font-weight: 500;
 }
 .headerLoginLink h6{
 	color: #979797;
     float: left;
     font-size: 14px;
-    font-weight: normal;
-    margin-left: 5px;
-    margin-top: 5px;
+    font-weight: 500;
+    margin-top: 3px;
+	margin-left:5px;
 }
 .headerLoginLink a{
 	color: #E61552;
 	text-decoration: none;
+	font-weight: 500;
 }
 
 .headerCartLink{
@@ -69,8 +71,9 @@ li{
 	color: #979797;
     float: left;
     font-size: 14px;
-    margin-top: 5px;
+    margin-top: 3px;
     text-decoration: none;
+	font-weight: 500;
 }
 .headerCartLink span{
 }
@@ -79,8 +82,9 @@ li{
     float: left;
     margin-left: 3px;
     margin-right: 1px;
-    margin-top: 7px;
+    margin-top: 5px;
     text-decoration: none;
+	font-weight: 500;
 }
 
 .headerTopNavLink{
@@ -95,15 +99,16 @@ li{
 	color: #979797;
     float: right;
     font-size: 14px;
-    margin-top: 5px;
+    margin-top: 3px;
     text-decoration: none;
+	font-weight: 500;
 }
 
 /***********************************************************************************************************************************/
 /**HEADER MID AREA**/
 .headerMidSect{
 	background-color: #FFFFFF;
-    box-shadow: 0 8px 6px #ABABAB;
+    box-shadow: 0 6px 6px #ABABAB;
     float: left;
     height: 125px;
     width: 100%;
@@ -151,7 +156,7 @@ li{
     height: 27px;
     width: 80px;
 	margin-left: -2px;
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Maven Pro', sans-serif;
 }
 
 .headerSearchLinks{
@@ -170,14 +175,15 @@ li{
 /***********************************************************************************************************************************/
 /**HEADER BOTTOM AREA**/
 .headerBottomSect{
-	height: 86px;
+	height: 55px;
 	width: 100%;
 	float:left;
 }
 .topNavContainer{
 	width:100%;
-	height:28px;
-	margin-top:28px;
+	height:15px;
+	margin-top:18px;
+	margin-left:-13px;
 }
 .navTopCat{
 }
@@ -206,11 +212,11 @@ li{
 	cursor: pointer;
     float: left;
     text-align: center;
-    width: 120px;
+	margin-left: 32px;
 }
 .dropdownLinkContainer div a{
 	color: #909090;
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 600;
 }
 .dropdownLinkContainer div a:hover{
@@ -250,53 +256,69 @@ li{
 .stackedDropdownLI{
 	margin-top:10px;
 }
-.navBarProm div.headerDropdown{
+.navBarDesigner{
+}
+.navBarProm{
+}
+.navBarEvening{
+}
+.navBarCocktail{
+}
+.navBarPlusSize{
+}
+.navBarPageant{
+}
+.navBarBridal{
+}
+.navBarAccessories{
+}
+.navBarStock{
+}
+.navBarDesigner div.headerDropdown{
 	box-shadow: 1px 5px 5px #484944;
     left: 10px;
-    top: 52px;
+    top: 37px;
+}
+.navBarProm div.headerDropdown{
+	box-shadow: 1px 5px 5px #484944;
+    left: 15px;
+    top: 37px;
 }
 .navBarEvening div.headerDropdown{
 	box-shadow: 1px 5px 5px #484944;
-    left: 20px;
-    top: 52px;
+    left: 90px;
+    top: 37px;
 }
 .navBarCocktail div.headerDropdown{
 	box-shadow: 1px 5px 5px #484944;
-    left: 135px;
-    top: 52px;
+    left: 190px;
+    top: 37px;
 }
 .navBarPlusSize div.headerDropdown{
 	box-shadow: 1px 5px 5px #484944;
-    left: 255px;
-    top: 52px;
+    left: 300px;
+    top: 37px;
 }
 .navBarPageant div.headerDropdown{
 	box-shadow: 1px 5px 5px #484944;
-    left: 375px;
-    top: 52px;
+    left: 410px;
+    top: 37px;
 }
 .navBarBridal div.headerDropdown{
 	box-shadow: 1px 5px 5px #484944;
     left: 495px;
-    top: 52px;
-}
-.navBarBridal{
-	width:90px;
-}
-.navBarAccessories{
-	width:150px;
+    top: 37px;
 }
 .navBarAccessories div.headerDropdown{
 	box-shadow: 1px 5px 5px #484944;
     left: 620px;
-    top: 52px;
+    top: 37px;
 }
-.navBarStock{
-}
+
 .navBarStock div.headerDropdown{
 	box-shadow: 1px 5px 5px #484944;
     left: 630px;
-    top: 52px;
+    top: 37px;
 }
 
 
@@ -316,20 +338,20 @@ li{
 .footerNewsletterBar{
 	background-image: url("Images/Homepage/footernewsletterbar.png");
     background-repeat: repeat-x;
-    height: 109px;
+    height: 85px;
     margin-left: -7px;
     width: 100.5%;
 }
 
 .footerNewsletterBar div.centeringContainer img{
 	float:left;
-	margin-top:50px;
+	margin-top:38px;
 }
 .footNewsTextCont{
 	width:330px;
 	height:100%;
 	float:left;
-	margin-top:40px;
+	margin-top:27px;
 }
 .footNewsTextCont p{
 	color: white;
@@ -345,7 +367,7 @@ li{
 .footNewsSignupCont{
 	float: right;
     height: 55px;
-    margin-top: 35px;
+    margin-top: 30px;
     width: 500px;
 }
 .footNewsSignupCont form#subscribeFrm{
@@ -358,14 +380,14 @@ li{
 }
 .footNewsSignupCont form#subscribeFrm fieldset.userInfo input.subName{
 	border: medium none;
-    height: 40px;
+    height: 25px;
     margin-right: 10px;
     padding: 0;
     width: 190px;
 }
 .footNewsSignupCont form#subscribeFrm fieldset.userInfo input.subEmail{
 	border: medium none;
-    height: 40px;
+    height: 25px;
     padding: 0;
     width: 180px;
 }
@@ -374,7 +396,7 @@ li{
     border: medium none;
     color: white;
     font-size: 16px;
-    height: 40px;
+    height: 25px;
     margin-top: -17px;
     width: 80px;
 }
@@ -400,9 +422,10 @@ li{
 	margin-top: 20px;
 }
 .footerLinkList a{
-	color: white;
+	color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 600;
     text-decoration: none;
-	font-size: 18px;
 }
 .footerLinkList a:hover{
 	color: #E61552;
@@ -517,17 +540,19 @@ li{
 /***********************************************************************************************************************************/
 /*****BANNER****/
 .homepageBannerContainer{
-	height: 100px;
+	height: 50px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
     width: 940px;
+	/*Remove this style whenever the new banner is made and added*/
+	overflow:hidden;
 }
 
 /***********************************************************************************************************************************/
 /*****BANNER CAROUSEL****/
 .homepageCarouselContainer{
-	 height: 440px;
+	 height: 350px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -548,7 +573,7 @@ li{
 }
 .prevHPBannerCaro{
 	position:absolute;
-	top:192px;
+	top:160px;
 	left:20px;
 	cursor:pointer;
 }
@@ -556,7 +581,7 @@ li{
 	cursor: pointer;
     position: absolute;
     right: 20px;
-    top: 192px;
+    top: 160px;
 }
 
 /***********************************************************************************************************************************/
@@ -575,15 +600,15 @@ li{
 	margin-top:20px;
 }
 .homepageCategoryItemTop:hover{
-	background-color:rgba(200,200,200,.5);
+	background-color:rgba(900,900,900,.8);
 	color:white;
 }
 .homepageCatTitleBar{
 	position:absolute;
-	bottom:0;
+	bottom:30px;
 	width:100%;
 	height:50px;
-	background-color:rgba(200,200,200,.5);
+	background-color:rgba(900,900,900,.8);
 }
 .homepageCatTitleBar p{
 	color: #333333;
@@ -608,7 +633,7 @@ li{
 	margin-top:20px;
 }
 .homepageSubCatItemTop:hover{
-	background-color:rgba(200,200,200,.5);
+	background-color:rgba(900,900,900,.8);
 	color:white;
 }
 .homepageSubCatTitleBar{
@@ -616,7 +641,7 @@ li{
 	bottom:0;
 	width:100%;
 	height:50px;
-	background-color:rgba(200,200,200,.5);
+	background-color:rgba(900,900,900,.8);
 }
 .homepageSubCatTitleBar p{
 	color: #333333;
@@ -629,12 +654,12 @@ li{
 /*****PRODUCT LIST CAROUSEL****/
 .homepageProductListContainer{
 	width:100%;
-	height:909px;
-	background-image:url(Images/Homepage/hpproductlistcarouselbar.png);
+	height:885px;
+	background-image:url(Images/Homepage/hpproductlistcarouselbarsmall.png);
 	background-repeat:repeat-x;
 }
 .hpProductListTitleCarouselBar{
-	height: 112px;
+	height: 88px;
     margin-top: 20px;
     overflow: hidden;
     position: relative;
@@ -651,25 +676,26 @@ li{
     height: 112px;
     list-style: none outside none;
     width: 400px;
-	margin-top: 15px;
+	margin-top: 12px;
 }
 .hpProductListTitleCarousel li h3{
-	text-align: center;
-	color:#666666;
-	font-size:36px;
-	font-weight:400;
+	color: #666666;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 5px;
+    text-align: center;
 }
 .hpProductListPrev{
 	position:absolute;
 	left:150px;
-	top:25px;
+	top:27px;
 	cursor:pointer;
 }
 .hpProductListNext{
 	cursor: pointer;
     position: absolute;
     right: 150px;
-    top: 25px;
+    top: 27px;
 }
 
 .hpProductListContentArea{
@@ -701,7 +727,7 @@ li{
 	bottom:0;
 	width:100%;
 	height:60px;
-	background-color:rgba(200,200,200,.5);
+	background-color:rgba(900,900,900,.8);
 }
 .productItemInfoContent h5{
 	font-size: 12px;
@@ -711,7 +737,7 @@ li{
 .productItemInfoContent h6{
 	font-size: 12px;
     font-weight: normal;
-	color:#333333;
+	color:#AD0000;
 }
 .productItemInfoMoreInfo{
 	display:none;
@@ -938,7 +964,7 @@ li{
 	bottom:0;
 	width:100%;
 	height:60px;
-	background-color:rgba(200,200,200,.5);
+	background-color:rgba(900,900,900,.8);
 }
 .productItemInfoMoreInfo{
 	display:none;
@@ -1182,7 +1208,7 @@ li{
 	bottom:0;
 	width:100%;
 	height:60px;
-	background-color:rgba(200,200,200,.5);
+	background-color:rgba(900,900,900,.8);
 }
 .productItemInfoMoreInfo{
 	display:none;
@@ -1340,7 +1366,7 @@ catProdListProductListCont div.loadingBG{
 	bottom:0;
 	width:100%;
 	height:60px;
-	background-color:rgba(200,200,200,.6);
+	background-color:rgba(900,900,900,.8);
 }
 .productItemInfoContent{
 	margin-top: 15px;
