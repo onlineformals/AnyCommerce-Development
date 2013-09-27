@@ -97,7 +97,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 	function carouselHPProductList(){ $(".hpProductListCarouselContainer").carouFredSel
 	({
 		width   : 960,
-		height	: 670,
+		//height	: 670,
 		items   : 1,
 		scroll: 1,
 		auto : false,
@@ -130,7 +130,7 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 	function carouselCPBanner(){ $(".carouselCPBannerList", $context).carouFredSel
 	({
 		width   : 960,
-		height	: 440,
+		//height	: 440,
 		items   : 1,
 		scroll: 1,
 		auto : false,
@@ -189,7 +189,7 @@ app.rq.push(['templateFunction','categoryTemplateProm','onCompletes',function(P)
 	function carouselCPBannerProm(){ $(".carouselCPBannerListProm", $context).carouFredSel
 	({
 		width   : 700,
-		height	: 440,
+		//height	: 440,
 		items   : 1,
 		scroll: 1,
 		auto : false,
