@@ -784,7 +784,10 @@ li{
 /***********************************************************************************************************************************/
 /*****BREADCRUMB****/
 .breadcrumb{
-	text-align:left;
+	float: left;
+    margin-top: 20px;
+    text-align: left;
+    width: 100%;
 }
 .breadcrumb li{
 	float:none;
@@ -1007,15 +1010,6 @@ li{
 /***********************************************************************************************************************************/
 /***********************************************************************************************************************************/
 /*****CATEGORY TEMPLATE PROM****/
-
-/***********************************************************************************************************************************/
-/*****BREADCRUMB****/
-.breadcrumb{
-	text-align:center;
-}
-.breadcrumb li{
-	float:none;
-}
 
 /***********************************************************************************************************************************/
 /*****SIDEBAR****/
@@ -1255,21 +1249,23 @@ li{
 /***********************************************************************************************************************************/
 /*****SIDEBAR****/
 .catProdListSidebar{
-	width:218px;
-	height:auto;
-	margin: 0 10px 10px 0;
-	float:left;
-	background-color:#FFFFFF;
-	border:1px solid #cdcdcd;
-	display:none;
-	position:absolute;
-	top:0;
-	z-index:3;
+	background-color: #F2F2F4;
+    border: 1px solid #CDCDCD;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    display: none;
+    float: left;
+    height: auto;
+    margin: 0 10px 10px 0;
+    position: absolute;
+    top: 0;
+    width: 218px;
+    z-index: 3;
 }
 .catProdListSidebar img{
  	position: absolute;
     right: -45px;
-    top: -13px;
+    top: 15px;
 	cursor:pointer;
 }
 /***********************************************************************************************************************************/
@@ -1284,25 +1280,36 @@ li{
 .catProdListBanner{
 	float: left;
     width: 100%;
+	position:relative;
 }
 
 /***********************************************************************************************************************************/
 /*****CATEGORY DESCRIPTION****/
 .catProdListCustomTextArea{
-	margin-top:20px;
-	width:700px;
-	height:100px;
-	border:1px solid #cccccc;
-	background: rgb(248,248,248); /* Old browsers */
-	background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(238,238,238,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(248,248,248,1)), color-stop(100%,rgba(238,238,238,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(238,238,238,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(238,238,238,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(238,238,238,1) 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  rgba(248,248,248,1) 0%,rgba(238,238,238,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
+	width:936px;
+	height:31px;
+	background-color:rgba(900,900,900,.8);
 	float:left;
-	position:relative;
+	position:absolute;
+	bottom:17px;
+	left:2px;
+	/*border:1px solid #cccccc;*/
+	
+	/*background: rgb(248,248,248); /* Old browsers */
+	/*background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(238,238,238,1) 100%); /* FF3.6+ */
+	/*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(248,248,248,1)), color-stop(100%,rgba(238,238,238,1))); /* Chrome,Safari4+ */
+	/*background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(238,238,238,1) 100%); /* Chrome10+,Safari5.1+ */
+	/*background: -o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(238,238,238,1) 100%); /* Opera 11.10+ */
+	/*background: -ms-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(238,238,238,1) 100%); /* IE10+ */
+	/*background: linear-gradient(to bottom,  rgba(248,248,248,1) 0%,rgba(238,238,238,1) 100%); /* W3C */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
+}
+.catProdListCustomTextArea h1{
+	color: #716A58;
+    font-size: 17px;
+    letter-spacing: 21px;
+    line-height: 29px;
+    text-align: center;
 }
 
 /***********************************************************************************************************************************/
@@ -1319,6 +1326,11 @@ li{
 .catProdListProductListCont ul.productList{
 	margin-left: -20px;
     width: 100%;
+}
+.loadingBG{
+	clear: left;
+    float: left;
+	margin-left: 420px;
 }
 catProdListProductListCont div.loadingBG{
 	clear: left;
@@ -1400,6 +1412,7 @@ catProdListProductListCont div.loadingBG{
     position: absolute;
     top: -20px;
 	left:0;
+	z-index:2;
 }
 
 
@@ -1427,6 +1440,7 @@ catProdListProductListCont div.loadingBG{
     margin-left: 0;
     padding-left: 0;
     padding-right: 0;
+	float:left;
 }
 .break{
 	clear: left;
@@ -1448,14 +1462,20 @@ catProdListProductListCont div.loadingBG{
 	cursor:pointer;
 }
 .resetButton{
-	background-color: #333333;
+	background-color: #F2F2F4;
     border: medium none;
-    border-radius: 0 0 0 0;
-    color: #FFFFFF;
+    border-radius: 0 10px 0 0;
+    color: #E63563;
+    float: right;
     font-family: 'Raleway',sans-serif;
-    font-size: 13px;
-    height: 60px;
-    width: 100%;
+    font-size: 11px;
+    font-weight: 900;
+    height: 35px;
+    width: 95px;
+}
+.resetButtonBottom{
+	border-bottom-right-radius: 10px;
+    border-top-right-radius: 0;	
 }
 
 .break input{
