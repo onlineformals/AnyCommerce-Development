@@ -784,7 +784,7 @@ li{
 /***********************************************************************************************************************************/
 /*****BREADCRUMB****/
 .breadcrumb{
-	text-align:center;
+	text-align:left;
 }
 .breadcrumb li{
 	float:none;
@@ -1256,25 +1256,34 @@ li{
 /*****SIDEBAR****/
 .catProdListSidebar{
 	width:218px;
-	height:100%;
+	height:auto;
 	margin: 0 10px 10px 0;
 	float:left;
-	background-color:#f7f7f7;
+	background-color:#FFFFFF;
 	border:1px solid #cdcdcd;
+	display:none;
+	position:absolute;
+	top:0;
+	z-index:3;
 }
-
+.catProdListSidebar img{
+ 	position: absolute;
+    right: -45px;
+    top: -13px;
+	cursor:pointer;
+}
 /***********************************************************************************************************************************/
 /*****CONTENT AREA****/
 .catProdListContentArea{
 	float: left;
-    width: 700px;
+    width: 100%;
 }
 
 /***********************************************************************************************************************************/
 /*****BANNER****/
 .catProdListBanner{
 	float: left;
-    width: 700px;
+    width: 100%;
 }
 
 /***********************************************************************************************************************************/
@@ -1298,13 +1307,18 @@ li{
 
 /***********************************************************************************************************************************/
 /*****PRODUCT LIST****/
+.catGhostCell{
+	display:none;
+	width:220px;
+	float:left;
+}
+
 .catProdListProductListCont{
 	width:100%;
 }
 .catProdListProductListCont ul.productList{
-	float: left;
-    margin-left: -19px;
-    width: 722px;
+	margin-left: -20px;
+    width: 100%;
 }
 catProdListProductListCont div.loadingBG{
 	clear: left;
@@ -1379,6 +1393,13 @@ catProdListProductListCont div.loadingBG{
     font-size: 12px;
     margin-top: 22px;
     text-align: center;
+}
+
+.searchTab{
+	cursor: pointer;
+    position: absolute;
+    top: -20px;
+	left:0;
 }
 
 

@@ -790,17 +790,20 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='categoryProductListTemplate' class='loadingBG categoryTemplate' data-app-role='categoryPage'>
 
 	<div class="centeringContainer">
-   		<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+    	<img class="searchTab" onClick="app.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent());" src="Images/categorypage/filteredsearch/search_tab.png">
     	<div class="catProdListSidebar">
+        	<img class="floatRight" onClick="app.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent().parent());" src="Images/categorypage/filteredsearch/search_tab_open.png" />
         </div>
         <div class="catProdListContentArea"> 
             <div class="catProdListBanner">
-                <img src="Images/categorypage/topbanner/testimage1.png" />
+                <img src="Images/categorypage/topbanner/testbanner-2.png" />
             </div>
             <div class="catProdListCustomTextAreadisplayNone" data-bind="var: category(%page.description); format: showIfSet;">
                 <h1 data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></h1>
             </div>
+            <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
             <div class="catProdListProductListCont">
+            	<div class="catGhostCell"></div>
                 <ul class='listStyleNone fluidList noPadOrMargin productList' data-app-role='productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
             </div>
     	</div>    

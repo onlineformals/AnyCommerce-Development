@@ -156,25 +156,21 @@ var _store_formals = function() {
 				//app.u.dump("mouse over function successully ran.")
 				$(".homepageCatTitleBar", $tag).css({'background-color':'rgba(230,22,82,.5)'});
 				$(".homepageCatTitle", $tag).css({'color':'white'});
-				
 			},
 			homepageCategoryMouseOut : function($tag) {
 				//app.u.dump("mouse over function successully ran.")
 				$(".homepageCatTitleBar", $tag).css({'background-color':'rgba(900,900,900,.8)'});
 				$(".homepageCatTitle", $tag).css({'color':'#333333'});
-				
 			},
 			homepageSubCatMouseOver : function($tag) {
 				//app.u.dump("mouse over function successully ran.")
 				$(".homepageSubCatTitleBar", $tag).css({'background-color':'rgba(230,22,82,.5)'});
 				$(".homepageSubCatTitle", $tag).css({'color':'white'});
-				
 			},
 			homepageSubCatMouseOut : function($tag) {
 				//app.u.dump("mouse over function successully ran.")
 				$(".homepageSubCatTitleBar", $tag).css({'background-color':'rgba(900,900,900,.8)'});
 				$(".homepageSubCatTitle", $tag).css({'color':'#333333'});
-				
 			},
 			
 			homepageCarouselProdItemMouseOver : function($tag) {
@@ -183,7 +179,6 @@ var _store_formals = function() {
 				$(".productItemInfo", $tag).css({'background-color':'rgba(230,22,82,.5)'});
 				$(".productItemInfoContent", $tag).hide();
 				$(".productItemInfoMoreInfo", $tag).show();
-				
 			},
 			homepageCarouselProdItemMouseOut : function($tag) {
 				//app.u.dump("mouse over function successully ran.")
@@ -191,21 +186,18 @@ var _store_formals = function() {
 				$(".productItemInfo", $tag).css({'background-color':'rgba(900,900,900,.8)'});
 				$(".productItemInfoContent", $tag).show();
 				$(".productItemInfoMoreInfo", $tag).hide();
-				
 			},
 			
 			categorySubCatMouseOver : function($tag) {
 				//app.u.dump("mouse over function successully ran.")
 				$(".homepageSubCatTitleBar", $tag).css({'background-color':'rgba(230,22,82,.5)'});
-				$(".catName", $tag).css({'color':'white'});
-				
+				$(".catName", $tag).css({'color':'white'});	
 			},
 			categorySubCatMouseOut : function($tag) {
 				//app.u.dump("mouse over function successully ran.")
 				$(".homepageSubCatTitleBar", $tag).css({'background-color':'rgba(900,900,900,.8)'});
 				$(".catName", $tag).css({'color':'#333333'});
-				
-			},
+			}
 			
 		},//END a FUNCTIONS
 		

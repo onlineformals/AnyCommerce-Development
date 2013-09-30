@@ -277,6 +277,10 @@ app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',func
 		});
 		
 		//ASSIGN EXPAND/COLLAPSE VALUES TO FILTER FORM
+		if($('.layeredSearch'), $context){
+			$('.catProdListSidebar', $context).data('collapseOrExpanded',false).append();
+		}
+		
 		if($('.filterPriceCat'), $context){
 			$('.filterCategoryCont', '.filterPriceCat').show();
 			$('.filterCatTitle', '.filterPriceCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
