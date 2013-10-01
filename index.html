@@ -790,7 +790,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='categoryProductListTemplate' class='loadingBG categoryTemplate' data-app-role='categoryPage'>
 
 	<div class="centeringContainer">
-    	<img class="searchTab" onClick="app.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent());" src="Images/categorypage/filteredsearch/search_tab.png">
+    	<img class="searchTab" onClick="app.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent());" src="Images/categorypage/filteredsearch/search_tab.png" />
     	<div class="catProdListSidebar">
         	<img class="floatRight" onClick="app.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent().parent());" src="Images/categorypage/filteredsearch/search_tab_open.png" />
         </div>
@@ -1008,6 +1008,7 @@ this will likely become more flexible in the future. ###
 
 <div id='productTemplate' class='productPage'>
 
+<div class="centeringContainer">
 <ul class='clearfix noPadOrMargin fluidList breadcrumb' data-bind='var: session(session.recentCategories.0); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 
 <table class='prodViewerContainer'>
@@ -1147,7 +1148,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 <div class='prodlistRelatedContainer'>
 	<ul class='listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplate;hide_pagination:true;hide_summary:true; before:<h2>Similar Items</h2>; withReviews:1;"></ul>
 </div>
-
+</div>
 
 </div><!-- productTemplate -->
 
