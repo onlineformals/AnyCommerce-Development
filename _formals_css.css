@@ -1458,11 +1458,12 @@ catProdListProductListCont div.loadingBG{
 }
 .break{
 	clear: left;
-    color: #333333;
+    color: #909090;
     float: left;
     font-family: 'Raleway',sans-serif;
     margin-bottom: 2px;
     margin-left: 20px;
+	font-size:10px;
 }
 .filterCatTitle{
 	background-image: url("Images/categorypage/filteredsearch/catbaropen.png");
