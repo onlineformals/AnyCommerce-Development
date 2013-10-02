@@ -238,6 +238,9 @@ app.rq.push(['templateFunction','categoryTemplateProm','onCompletes',function(P)
 }]);
 
 
+var filterIDNum = 0;
+var filterForNum = 0;
+
 app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',function(P) {
 	var $context = $(app.u.jqSelector('#',P.parentID));
 	//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
@@ -274,6 +277,16 @@ app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',func
 		$('.resetButton', $context).click(function(){
 		$context.empty().remove();
 		showContent('category',{'navcat':P.navcat});
+		});
+		
+		//**ADD ID/FOR VALUES FOR CHECKBOX VISUAL MODIFIER**
+		$('.filterCB', $context).each(function() {
+			$(this).attr('id', 'filterCB'+filterIDNum);
+			filterIDNum += 1;
+		});
+		$('.break', $context).each(function() {
+			$(this).attr('for', 'filterCB'+filterForNum);
+			filterForNum += 1;
 		});
 		
 		//ASSIGN EXPAND/COLLAPSE VALUES TO FILTER FORM
