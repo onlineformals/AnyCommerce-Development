@@ -289,12 +289,31 @@ app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',func
 			filterForNum += 1;
 		});
 		
+		
+		//IF RE-VISITING A CAT PAGE, RETURNS HEIGHT OF GHOST ELEMENT TO EITHER FULL FILTER FORM SIZE OR COLLAPSED.
+		if($('.catGhostCell', $context).data('heightVal')){
+			var catGhostCellHeight = $('.catGhostCell', $context).data('heightVal');
+			app.u.dump("$('.catGhostCell', $context).data('heightVal') exists. Assigning height value");
+			$(".catGhostCell", $context).css("height",catGhostCellHeight);
+		}
+		else{
+			$('.catGhostCell', $context).data('heightVal', '').append();
+			app.u.dump("$('.catGhostCell', $context).data('heightVal') doesn't exists. Make it.");
+		}
+		
 		//ASSIGN EXPAND/COLLAPSE VALUES TO FILTER FORM
 		var $sidebarContext = $(".catProdListSidebar").parent().parent();
 		//app.u.dump($sidebarContext);
 		
 		if($('.layeredSearch', $context).length){
-			$('.catProdListSidebar', $context).data('collapseOrExpanded',false).append();
+			if($('.catProdListSidebar', $context).data('collapseOrExpanded')){
+				app.u.dump("$('.catProdListSidebar', $context).data('collapseOrExpanded') exists. Do nothing.");
+			}
+			else{
+				app.u.dump("$('.catProdListSidebar', $context).data('collapseOrExpanded') doesn't exists. Make it.");
+				$('.catProdListSidebar', $context).data('collapseOrExpanded',false).append();
+			}
+			
 			app.u.dump("Filter form found, showing search tab");
 		}
 		else{
@@ -353,8 +372,15 @@ app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',func
 		
 }]);
 
-app.rq.push(['templateFunction','categoryProductListTemplate','onDeparts',function(P) {
+/*
+pp.rq.push(['templateFunction','categoryProductListTemplate','onDeparts',function(P) {
+	var $context = $(app.u.jqSelector('#',P.parentID));
+	if($('.layeredSearch', $context).length){
+		$('.catProdListSidebar', $context).hide();
+		$(".catGhostCell", $context).css("height","0");
+	}
 }]);
+*/
 
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.

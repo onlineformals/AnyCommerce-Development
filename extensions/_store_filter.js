@@ -690,6 +690,7 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 					var sidebar = $('.catProdListSidebar', $context).height();
 					var banner = $('.catProdListBanner', $context).height();
 					var ghostCell = sidebar - banner - 50;
+					$('.catGhostCell', $context).data('heightVal', ghostCell).append();
 					$(".catGhostCell", $context).css("height",ghostCell);
 					
 					if($('.catProdListSidebar', $context).data('collapseOrExpanded') === true){
