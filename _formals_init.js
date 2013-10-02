@@ -353,6 +353,9 @@ app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',func
 		
 }]);
 
+app.rq.push(['templateFunction','categoryProductListTemplate','onDeparts',function(P) {
+}]);
+
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.
 //app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);
