@@ -1412,7 +1412,7 @@ catProdListProductListCont div.loadingBG{
     position: absolute;
     top: -20px;
 	left:0;
-	z-index:2;
+	z-index:4;
 }
 
 

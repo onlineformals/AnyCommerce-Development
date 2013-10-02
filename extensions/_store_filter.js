@@ -597,16 +597,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 					$(".catGhostCell", $context).css("height",ghostCell);
 					
 					if($('.catProdListSidebar', $context).data('collapseOrExpanded') === true){
-						$('.catProdListSidebar', $context).hide("slide", {direction: "left" }, 1000);
-						$('.searchTab', $context).slideDown(1000);
+						//$('.catProdListSidebar', $context).hide("slide", {direction: "left" }, 1000);
+						$('.catProdListSidebar', $context).slideUp(1000);
+						//$('.searchTab', $context).slideDown(1000);
 						$(".productList", $context).css("width","100%");
 						//$(".productList", $context).css("margin-right","20px");
 						$('.catGhostCell', $context).hide();
 						$('.catProdListSidebar', $context).data('collapseOrExpanded',false).append();
 					}
 					else{
-						$('.catProdListSidebar', $context).show("slide", { direction: "left" }, 1000);
-						$('.searchTab', $context).slideUp(1000);
+						//$('.catProdListSidebar', $context).show("slide", { direction: "left" }, 1000);
+						$('.catProdListSidebar', $context).slideDown(1000);
+						//$('.searchTab', $context).slideUp(1000);
 						$(".productList", $context).css("width","auto");
 						//$(".productList", $context).css("margin-right","0");
 						$('.catGhostCell', $context).show();

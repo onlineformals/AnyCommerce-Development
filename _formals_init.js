@@ -289,49 +289,49 @@ app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',func
 			app.u.dump("Filter form not found, hiding search tab");
 		}
 		
-		if($('.filterPriceCat', $context)){
+		if($('.filterPriceCat', $context).length){
 			$('.filterCategoryCont', '.filterPriceCat').show();
 			$('.filterCatTitle', '.filterPriceCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
 			$('.filterPriceCat').data('collapseOrExpanded',true).append();
 		}
 		
-		if($('.filterDressTypeCat', $context)){
+		if($('.filterDressTypeCat', $context).length){
 			$('.filterCategoryCont', '.filterDressTypeCat').show();
 			$('.filterCatTitle', '.filterDressTypeCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
 			$('.filterDressTypeCat').data('collapseOrExpanded',true).append();
 		}
 		
-		if($('.filterDesignerCat', $context)){
+		if($('.filterDesignerCat', $context).length){
 			$('.filterCategoryCont', '.filterDesignerCat').show();
 			$('.filterCatTitle', '.filterDesignerCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
 			$('.filterDesignerCat').data('collapseOrExpanded',true).append();
 		}
 		
-		if($('.filterColorCat', $context)){
+		if($('.filterColorCat', $context).length){
 			$('.filterCategoryCont', '.filterColorCat').show();
 			$('.filterCatTitle', '.filterColorCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
 			$('.filterColorCat').data('collapseOrExpanded',true).append();
 		}
 		
-		if($('.filterHemlineCat', $context)){
+		if($('.filterHemlineCat', $context).length){
 			$('.filterCategoryCont', '.filterHemlineCat').show();
 			$('.filterCatTitle', '.filterHemlineCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
 			$('.filterHemlineCat').data('collapseOrExpanded',true).append();
 		}
 		
-		if($('.filterSilhouetteCat', $context)){
+		if($('.filterSilhouetteCat', $context).length){
 			$('.filterCategoryCont', '.filterSilhouetteCat').show();
 			$('.filterCatTitle', '.filterSilhouetteCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
 			$('.filterSilhouetteCat').data('collapseOrExpanded',true).append();
 		}
 		
-		if($('.filterNecklineCat', $context)){
+		if($('.filterNecklineCat', $context).length){
 			$('.filterCategoryCont', '.filterNecklineCat').show();
 			$('.filterCatTitle', '.filterNecklineCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
 			$('.filterNecklineCat').data('collapseOrExpanded',true).append();
 		}
 		
-		if($('.filterTrendsCat', $context)){
+		if($('.filterTrendsCat', $context).length){
 			$('.filterCategoryCont', '.filterTrendsCat').show();
 			$('.filterCatTitle', '.filterTrendsCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
 			$('.filterTrendsCat').data('collapseOrExpanded',true).append();
