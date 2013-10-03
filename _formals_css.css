@@ -1461,7 +1461,7 @@ catProdListProductListCont div.loadingBG{
     color: #909090;
     float: left;
     font-family: 'Raleway',sans-serif;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
     margin-left: 20px;
 	font-size:10px;
 }
@@ -1510,6 +1510,10 @@ input[type=checkbox].filterCB {
 	border:0;
 }
 
+.break input{
+}
+
+/*
 input[type=checkbox].filterCB + label.break {
 	padding-left:20px;
 	height:15px; 
@@ -1527,6 +1531,7 @@ input[type=checkbox].filterCB:checked + label.break {
 }
 
 .break{ background-image:url(http://csscheckbox.com/checkboxes/mac-style.png); }
+*/
 
 /***********************************************************************************************************************************/
 /*****PRICE****/

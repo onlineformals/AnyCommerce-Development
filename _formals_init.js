@@ -280,6 +280,7 @@ app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',func
 		});
 		
 		//**ADD ID/FOR VALUES FOR CHECKBOX VISUAL MODIFIER**
+		/*
 		$('.filterCB', $context).each(function() {
 			$(this).attr('id', 'filterCB'+filterIDNum);
 			filterIDNum += 1;
@@ -288,6 +289,7 @@ app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',func
 			$(this).attr('for', 'filterCB'+filterForNum);
 			filterForNum += 1;
 		});
+		*/
 		
 		
 		//IF RE-VISITING A CAT PAGE, RETURNS HEIGHT OF GHOST ELEMENT TO EITHER FULL FILTER FORM SIZE OR COLLAPSED.
