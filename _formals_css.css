@@ -1444,6 +1444,46 @@ catProdListProductListCont div.loadingBG{
 	float:left;
 }
 
+/***********************************************************************************************************************************/
+/*****IMAGE CONTAINER****/
+.imageContainer{
+	float:left;
+	width:50%;
+}
+.imageContainer div img.prodBigImage{
+	border:solid 10px white;
+	box-shadow: 0 4px 5px 0 #E9E9E9;
+}
+.imageContainer div.prodThumbs{
+}
+.imageContainer div.prodThumbs div{
+	float:left;
+}
+.imageContainer div.prodThumbs div img{
+	border:solid 10px white;
+	box-shadow: 0 4px 5px 0 #E9E9E9;
+}
+
+/***********************************************************************************************************************************/
+/*****CONTENT CONTAINER****/
+.prodTempContentContainer{
+	float:left;
+	width:47%;
+}
+
+
+/***********************************************************************************************************************************/
+/*****BOTTOM CONTENT CONTAINER****/
+
+
+
+
+
+
+
+
+
+
 
 
 /***********************************************************************************************************************************/
