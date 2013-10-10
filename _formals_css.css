@@ -157,6 +157,7 @@ li{
     width: 80px;
 	margin-left: -2px;
 	font-family: 'Maven Pro', sans-serif;
+	padding-bottom: 3px;
 }
 
 .headerSearchLinks{
@@ -1476,6 +1477,58 @@ catProdListProductListCont div.loadingBG{
 	color: #726B5B;
     font-size: 30px;
     font-weight: 500;
+}
+
+.productMfg{
+	color:#736a5b;
+}
+.productMfg span{
+	color:#e91454;
+	text-decoration:none;
+}
+
+.priceContainer h4{
+	color:#736a5b;
+}
+
+.productPriceText{
+	color: #E91454;
+}
+
+.productDescriptionContainer p{
+	color: #726B5B;
+}
+
+.variationsContainer{
+	color: #726B5B;
+}
+.variationsContainer div div span select{
+	color: #726B5B;
+}
+
+.prodViewerAddToCartForm {
+	float: left;
+}
+.prodViewerAddToCartForm input.ui-button{
+	background: none repeat scroll 0 0 #E61652;
+    border: medium none;
+    border-radius: 0 0 0 0;
+    color: #FEFFFB;
+	height:25px;
+	width:150px;
+}
+
+.productSizingChartModalLinkContainer{
+	color: #E91454;
+    float: left;
+    font-size: 13px;
+    margin-left: 10px;
+    margin-top: 31px;
+    text-decoration: underline;
+    width: 165px;
+	cursor: pointer;
+}
+.productSizingChartModalLinkContainer a{
 }
 
 

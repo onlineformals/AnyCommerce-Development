@@ -54,6 +54,49 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 				}
 			}
 		else	{} //couldn't find the tab to tabificate.
+	
+	//**Sets the color of the price.**
+	
+	//$(".priceContainer h4.basePrice", $context).find('$').css('color','red');
+	
+	  /*
+	  var text = $(".priceContainer h4.basePrice").text();
+	  app.u.dump(text);
+	  var delimiter = "$";
+      parts = text.split(delimiter);
+      firstPart = $(".priceContainer h4.basePrice", $context, { class: 'red', html: parts[0] });
+      secondPart = $(".priceContainer h4.basePrice", $context, { class: 'blue', html: text.split(parts[0] + delimiter)[1] });
+
+  	$(".priceContainer h4.basePrice", $context).append(firstPart).append(delimiter).append(secondPart).html();
+	*/
+	
+	/*
+	$(".priceContainer h4.basePrice", $context).each(function(){
+	  var $this = $(this);
+	  var sin = $this.html();
+	  if (sin.indexOf('$') === -1) return;
+	  var sout = sin.substring(0, sin.indexOf('$') === -1)+'<span class=of>'+sin.charAt(sin.indexOf('$'))+'</span>';
+	  $this.html(sout);
+	});
+	*/
+	
+	/*
+	$(".priceContainer h4.basePrice", $context).each(function(){
+		var r,o,sr;
+		r = $(this);
+		
+		if(r.indexOf('$') > 0)	{
+			sr = r.split('$');
+			o = sr[0];
+			if(sr[1])	{o += '<span class="priceValue">.'+sr[1]+'<\/span>'}
+			$(".priceContainer h4.basePrice", $context).html(o);
+		}
+		else	{
+			$(".priceContainer h4.basePrice", $context).html(r);
+		}
+	});
+	*/
+	
 }]);
 	
 app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {

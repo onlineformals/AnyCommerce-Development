@@ -208,6 +208,30 @@ var _store_formals = function() {
 				$tag.show().css('display','inline'); //IE isn't responding to the 'show', so the display:inline is added as well.
 				}
 			},
+			
+			money : function($tag,data)	{
+			
+//			app.u.dump('BEGIN view.formats.money');
+			var amount = data.bindData.isElastic ? (data.value / 100) : data.value;
+			if(amount)	{
+				var r,o,sr;
+				r = app.u.formatMoney(amount,data.bindData.currencySign,'',data.bindData.hideZero);
+//					app.u.dump(' -> attempting to use var. value: '+data.value);
+//					app.u.dump(' -> currencySign = "'+data.bindData.currencySign+'"');
+
+//				**SPAN IS APPENDED TO ALL OF THE PRICE TEXT, RATHER THAN JUST THE CENTS**
+				if(r.substr(0,1))	{
+//					app.u.dump(' -> r = '+r);
+					sr = r.split(r.substr(0,1));
+					o = sr[0];
+					if(sr[1])	{o += '<span class="productPriceText">$'+sr[1]+'<\/span>'}
+					$tag.html(o);
+					}
+				else	{
+					$tag.html(r);
+					}
+				}
+			}, //money
 		}
 	}
 	return r;
