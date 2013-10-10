@@ -126,13 +126,18 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
             	<a href="#homepage?." class='bindByAnchor pointer'><img src="Images/Homepage/headerlogo.png" /></a>
             </div>
             <div class="headerSearchContainer">
-            	<form name='headerSearchFrm' action='#' class='marginTop' method="get">
+            	<form name='headerSearchFrm' action='#' class='productSearchForm' method="get" id="searchFunc">
+					<input type='search' name='KEYWORDS' class="productSearchKeyword handleDefault secondary" placeholder="Find it here..." id="searchBar"/>
+					<input class="search pointer" type="submit" value="Search" id="searchButton" />
+   		    	</form>
+                <!--
+                <form name='headerSearchFrm' action='#' class='marginTop' method="get">
                     <fieldset>
-                        <!-- <legend>Search</legend> -->
                         <input type='search' name='KEYWORDS' value='Find it here...' class="productSearchKeyword handleDefault secondary" id="searchBarInput" />
                         <input class="search" type="submit" value="SEARCH" id="searchBarButton" />
                     </fieldset>
             	</form>
+                -->
                 <p class="headerSearchLinks">Questions? <a class="pointer" href='#top' onclick="return showContent('company',{'show':'contact'});">Chat with a Stylist</a> or <a class="pointer" href='#top' onclick="return showContent('company',{'show':'contact'});">Contact Us</a></p>
             </div>
         </div>
@@ -1151,12 +1156,12 @@ this will likely become more flexible in the future. ###
 <table class='prodViewerContainer'>
 <tr>
 	<td class='imageContainer'>
-<div>
-
-	<div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer'></div>
-	<div data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'><img src='blank.gif' class='prodBigImage' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='240' height='240' /></div>
-
-</div>
+        <div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
+        
+            <div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer'></div>
+            <div data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'><img src='blank.gif' class='prodBigImage' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='240' height='240' /></div>
+        
+        </div>
 
 	</td>
 

@@ -137,7 +137,7 @@ li{
     margin: 0;
     padding: 0;
 }
-#searchBarInput{
+#searchBar{
 	border-bottom: 1px solid #999999;
     border-left: 1px solid #999999;
     border-top: 1px solid #999999;
@@ -147,7 +147,7 @@ li{
     padding: 0 0 0 10px;
     width: 205px;
 }
-#searchBarButton{
+#searchButton{
 	background-color: #E61652;
     border: medium none;
     color: white;
@@ -1457,10 +1457,12 @@ catProdListProductListCont div.loadingBG{
 .imageContainer div.prodThumbs{
 }
 .imageContainer div.prodThumbs div{
-	float:left;
+	float: left;
+    margin-right: 10px;
+    margin-top: 5px;
 }
 .imageContainer div.prodThumbs div img{
-	border:solid 10px white;
+	border:solid 5px white;
 	box-shadow: 0 4px 5px 0 #E9E9E9;
 }
 
@@ -1469,6 +1471,11 @@ catProdListProductListCont div.loadingBG{
 .prodTempContentContainer{
 	float:left;
 	width:47%;
+}
+.prodTempContentContainer div.prodSummaryContainer h1{
+	color: #726B5B;
+    font-size: 30px;
+    font-weight: 500;
 }
 
 
