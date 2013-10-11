@@ -239,7 +239,8 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
                             <li class="headerDropdownLink"><a href="#!category?navcat=.shop_accessories" class="pointer bindByAnchor">Test Cat - prom</a></li>
                             <li class="headerDropdownLink"><a href="#!category?navcat=.shop_by_designer" class="pointer bindByAnchor">Test Cat</a></li>
                             <li class="headerDropdownLink"><a href="#!category?navcat=.shop_by_designer.ballgowns_by_mac_duggal" class="pointer bindByAnchor">Test sub cat</a></li>
-                		</ul>
+                			<li class="headerDropdownLink"><a href='#!product?pid=SHERRI14-11045' class="pointer bindByAnchor">Test product</a></li>
+                        </ul>
                 	</div>
                 </div>
                 <div class="navBarCocktail dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
@@ -1073,6 +1074,11 @@ this will likely become more flexible in the future. ###
                 </div>
                 
                 <div class="productSharingLinkContainer">
+                	<a target="_blank" onclick="javascript:window.open('mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: + window.location');">Tell a friend</a> <!-- onclick="javascript:window.location='mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: ' + window.location;">Tell a friend</a>-->
+                    <p> | </p>
+                    <a onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>Write a Review</a>
+                    <p> | </p>
+                    <a href="javascript:window.print()">Print</a>
                 </div>
                 
                 <div class="socialLinks"></div>
@@ -1118,9 +1124,9 @@ this will likely become more flexible in the future. ###
                             <li class='prodDetailTab displayNone' data-bind='var: product(zoovy:prod_detail); format:showIfSet;'><a href='#prodSpecs'>Specs</a></li>
                             <li class='prodFeaturesTab displayNone' data-bind='var: product(zoovy:prod_features); format:showIfSet;'><a href='#prodFeatures'>Features</a></li>
                             -->
-                            <li class='prodSizeChartTab displayNone' data-bind='var: product(youtube:videoid); format:showIfSet;'><a href='#prodSizeChart'>Video</a></li>
-                            <li class='prodReviewsTab displayNone' data-bind='var: product(youtube:videoid); format:showIfSet;'><a href='#prodReviews'>Reviews</a></li>
-                            <li class='prodAccessoriesTab displayNone' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a href='#prodAccessories'>Accessories</a></li>
+                            <li class='prodSizeChartTab displayNone' data-bind='var: product(zoovy:prod_desc); format:showIfSet;'><a href='#prodSizeChart'>SIZE CHART</a></li>
+                            <li class='prodReviewsTab'><a href='#prodReviews'>REVIEWS</a></li>
+                            <li class='prodAccessoriesTab displayNone' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a href='#prodAccessories'>ACCESSORIES</a></li>
                         </ul>
                     
                         <!--
@@ -1229,6 +1235,10 @@ this will likely become more flexible in the future. ###
 
 <div id="SizingChartTemplate">
 <p>sizing chart modal. Remove before starting to build sizing chart modal.</p>
+</div>
+
+<div id="productEmailLinkModal">
+	<a target="_blank" onclick="javascript:window.location='mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: ' + window.location;">Tell a friend</a>
 </div>
 
 

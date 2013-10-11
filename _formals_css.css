@@ -1531,9 +1531,36 @@ catProdListProductListCont div.loadingBG{
 .productSizingChartModalLinkContainer a{
 }
 
+.productSharingLinkContainer{
+	background-color: #EEEEEE;
+    float: left;
+    height: 22px;
+    padding-left: 50px;
+    padding-top: 3px;
+    width: 370px;
+}
+.productSharingLinkContainer p{
+	float: left;
+    margin-left: 15px;
+    margin-right: 15px;
+	color: #726B5B;
+}
+.productSharingLinkContainer a{
+	color: #726B5B;
+    float: left;
+    text-decoration: none;
+}
+
 
 /***********************************************************************************************************************************/
 /*****BOTTOM CONTENT CONTAINER****/
+
+.tabs li{
+}
+.ui-state-default{
+}
+.ui-state-active{
+}
 
 
 
