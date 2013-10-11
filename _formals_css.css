@@ -1560,9 +1560,19 @@ catProdListProductListCont div.loadingBG{
 
 .tabs li{
 }
-.ui-state-default{
+li.ui-state-default{
+	background: none repeat scroll 0 0 #eeeeee;
+    border: medium none;
 }
-.ui-state-active{
+li.ui-state-default a.ui-tabs-anchor{
+	color: #726b5b;
+}
+li.ui-state-active{
+	background: none repeat scroll 0 0 #E61652;
+    border: medium none;
+}
+li.ui-state-active a.ui-tabs-anchor{
+	color: #FFFFFF;
 }
 
 
