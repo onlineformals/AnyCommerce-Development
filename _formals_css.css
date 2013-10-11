@@ -1514,8 +1514,12 @@ catProdListProductListCont div.loadingBG{
     border: medium none;
     border-radius: 0 0 0 0;
     color: #FEFFFB;
-	height:25px;
-	width:150px;
+    font-size: 10px;
+    height: 25px;
+    letter-spacing: 6px;
+    padding-left: 15px;
+    padding-top: 5px;
+    width: 150px;
 }
 
 .productSizingChartModalLinkContainer{
@@ -1559,6 +1563,8 @@ catProdListProductListCont div.loadingBG{
 /*****BOTTOM CONTENT CONTAINER****/
 
 .tabs li{
+	height: 25px;
+	width: 120px;
 }
 li.ui-state-default{
 	background: none repeat scroll 0 0 #eeeeee;
@@ -1573,6 +1579,12 @@ li.ui-state-active{
 }
 li.ui-state-active a.ui-tabs-anchor{
 	color: #FFFFFF;
+}
+div.prodTabs ul.tabs li a.ui-tabs-anchor{
+	font-size: 14px;
+    padding: 5px 0 0;
+    text-align: center;
+    width: 100%;
 }
 
 
