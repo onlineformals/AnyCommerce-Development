@@ -1127,7 +1127,7 @@ this will likely become more flexible in the future. ###
                             <li class='prodFeaturesTab displayNone' data-bind='var: product(zoovy:prod_features); format:showIfSet;'><a href='#prodFeatures'>Features</a></li>
                             -->
                             <li class='prodReviewsTab'><a href='#prodReviews'>REVIEWS</a></li>
-                            <li class='prodSizeChartTab displayNone' data-bind='var: product(html_input); format:showIfSet;'><a href='#prodSizeChart'>SIZE CHART</a></li>
+                            <li class='prodSizeChartTab displayNone' data-bind='var: product(user:html_input); format:showIfSet;'><a href='#prodSizeChart'>SIZE CHART</a></li>
                             <li class='prodAccessoriesTab displayNone' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a href='#prodAccessories'>ACCESSORIES</a></li>
                         </ul>
                     
@@ -1155,9 +1155,9 @@ this will likely become more flexible in the future. ###
                     
                         </div>
                         
-                        <div class='tabContent' data-anytab-content='prodSizeChart'>
+                        <div class='tabContent tabContentSizingChart' data-anytab-content='prodSizeChart'>
                             
-                            <div data-bind='var: product(html_input); format:wiki; wikiFormats:myRIA;'></div>
+                            <div class="productSizingChartTabContent" data-bind='var: product(user:html_input); format:wiki; wikiFormats:myRIA;'></div>
                             <!--
                             <div data-bind='var: product(youtube:videoid); format:youtubeVideo;'></div>
                         	-->

@@ -1566,7 +1566,6 @@ catProdListProductListCont div.loadingBG{
 
 /***********************************************************************************************************************************/
 /*****BOTTOM CONTENT CONTAINER****/
-
 .tabs li{
 	height: 25px;
 	width: 120px;
@@ -1605,6 +1604,19 @@ div.prodTabs ul.tabs li a.ui-tabs-anchor{
     font-weight: 500;
     line-height: 23px;
     margin-left: 10px;
+}
+
+.tabbedProductContent div  div.tabContentSizingChart{
+	padding:0;
+}
+.productSizingChartTabContent table.productSizeChart tbody tr{
+	font-size: 14px;
+}
+.productSizingChartTabContent table.productSizeChart{
+	margin-top: 12px;
+}
+.productSizingChartTabContent table.productSizeChart tbody tr td{
+	padding: 6px;
 }
 
 
@@ -1759,10 +1771,6 @@ div.prodTabs ul.tabs li a.ui-tabs-anchor{
 }
 .productSizeChart tbody tr{
 	color: #736D5D;
-}
-.productSizeChart tbody tr td{
-}
-.productSizeChart tbody tr td center font b{
 }
 .productSizeChart tbody td a{
 	color: #DD339D;
