@@ -1753,6 +1753,28 @@ div.prodTabs ul.tabs li a.ui-tabs-anchor{
 	float:left;
 }
 
+.productSizeChart{
+	margin-top: 34px;
+    position: relative;
+}
+.productSizeChart tbody td{
+}
+.productSizeChart tbody td center{
+}
+.productSizeChart tbody tr{
+	color: #736D5D;
+}
+.productSizeChart tbody td a{
+	color: #DD339D;
+    font-size: 14px;
+    font-weight: 500;
+    position: absolute;
+    right: 5px;
+    top: 9px;
+}
+.productSizeChart tbody td center font{
+}
+
 
 
 
