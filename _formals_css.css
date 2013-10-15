@@ -1475,8 +1475,13 @@ catProdListProductListCont div.loadingBG{
 }
 .prodTempContentContainer div.prodSummaryContainer h1{
 	color: #726B5B;
+    float: left;
     font-size: 30px;
     font-weight: 500;
+    width: 285px;
+}
+.productAuthSeal{
+	float: right;
 }
 
 .productMfg{
@@ -1526,7 +1531,7 @@ catProdListProductListCont div.loadingBG{
 	color: #E91454;
     float: left;
     font-size: 13px;
-    margin-left: 10px;
+    margin-left: 5px;
     margin-top: 31px;
     text-decoration: underline;
     width: 165px;
@@ -1586,6 +1591,168 @@ div.prodTabs ul.tabs li a.ui-tabs-anchor{
     text-align: center;
     width: 100%;
 }
+
+.productRelatedItemsTitleContainer{
+	background-color: #EEEEEE;
+    clear: left;
+    float: left;
+    height: 25px;
+    width: 100%;
+}
+.productRelatedItemsTitleContainer h2{
+	color: #726A5A;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 23px;
+    margin-left: 10px;
+}
+
+
+
+
+/***********************************************************************************************************************************/
+/***********************************************************************************************************************************/
+/*****SIZING CHART MODAL TEMPLATE****/
+#SizingChartTemplate{
+	background-color:#ffffff;
+}
+.SizingChartModal{
+	border: 3px solid #CCCCCC !important;
+    box-shadow: 0 0 4px 4px #BBBBBB;
+    padding: 0 !important;
+}
+.SizingChartModal div.ui-dialog-titlebar{
+	background-color:#ffffff;
+	background-color: #FFFFFF;
+    background-image: none;
+    border: medium none;
+    border-radius: 0 0 0 0;
+    padding: 0;
+	height: 30px;
+}
+.SizingChartModal div.ui-dialog-titlebar button.ui-dialog-titlebar-close{
+	background-image: url("Images/productpage/sizingmodalclose.png");
+    border: medium none;
+    height: 22px;
+    width: 22px;
+}
+.SizingChartModal div.ui-dialog-titlebar button.ui-dialog-titlebar-close span{
+	display:none;
+}
+
+/***********************************************************************************************************************************/
+/*****TITLE BAR****/
+.sizeChartTitleBar{
+	width:100%;
+	height:24px;
+	background-color:#dd339d;
+	border-bottom: 1px solid #f2b2da;
+	border-top: 1px solid #f2b2da;
+}
+.sizeChartTitleBar h4{
+	color: #FFFFFF;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 22px;
+    line-height: 21px;
+    margin-left: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+/***********************************************************************************************************************************/
+/*****STEP ONE SECTION****/
+.sizeChartStepOneCont{
+	width: 772px;
+	float:left;
+}
+
+.sizeChartStepIcon{
+	float: left;
+    height: 45px;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 30px;
+}
+.sizeChartStepIcon h6{
+	color: #909090;
+}
+.sizeChartStepIcon h1{
+	color: #DD339D;
+    font-size: 50px;
+    line-height: 30px;
+    margin-left: 0;
+}
+
+.sizeChartStepContent{
+	float: left;
+    margin-left: 10px;
+    width: 722px;
+}
+.sizeChartStepContent p{
+	color: #242122;
+    float: left;
+    font-size: 14px;
+    margin-left: 5px;
+    margin-right: 19px;
+    margin-top: 10px;
+    width: 30%;
+}
+.sizeChartStepContent p span{
+	font-weight: bold;
+}
+.sizeChartSectionTitleBar{
+	background-color: #E1E1E1;
+    border-bottom: 1px solid #ECECEC;
+    border-top: 1px solid #ECECEC;
+    height: 12px;
+    margin-top: 10px;
+    width: 100%;
+	float:left;
+}
+.sizeChartSectionTitleBar h6{
+	color: #DD339D;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 15px;
+    line-height: 12px;
+}
+
+/***********************************************************************************************************************************/
+/*****STEP TWO SECTION****/
+.sizeChartStepTwoCont{
+	width: 772px;
+	float:left;
+}
+.sizeChartStepTwoCont div.sizeChartStepContent p{
+	width: 100%;
+}
+.sizeChartStepTwoCont div.sizeChartStepContent p span{
+}
+.sizeChartStepTwoCont div.sizeChartStepContent ul{
+	float: left;
+    list-style: none outside none;
+    padding: 0;
+    width: 180px;
+}
+.sizeChartStepTwoCont div.sizeChartStepContent ul li{
+	text-align: center;
+}
+.sizeChartStepTwoCont div.sizeChartStepContent ul li a{
+	color: #DD339D;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/***********************************************************************************************************************************/
+/*****STEP THREE SECTION****/
+.sizeChartStepThreeCont{
+	width: 772px;
+	float:left;
+}
+
 
 
 

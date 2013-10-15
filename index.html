@@ -1042,6 +1042,8 @@ this will likely become more flexible in the future. ###
         <div class="prodTempContentContainer">
             <div class='prodSummaryContainer marginBottom no_underline'>
                 <h1 data-bind='var: product(zoovy:prod_name); format:text;'></h1>
+                
+                <img class="productAuthSeal" src="Images/productpage/authorizedseal.png" />
 
                 <hgroup class='marginBottom'>
                     <!--<h5 class='stid' data-bind='var: product(pid); format:text; pretext: Sku: ;'></h5>-->
@@ -1070,7 +1072,7 @@ this will likely become more flexible in the future. ###
                 </form>
                 
                 <div class="productSizingChartModalLinkContainer">
-                	<a onClick="$('#SizingChartTemplate').dialog({'modal':'true', 'title':'','width':868, height:700, 'dialogClass' : 'SizingChartModal'});"> Need help with your size?</a>
+                	<a onClick="$('#SizingChartTemplate').dialog({'modal':'true', 'title':'','width':825, height:700, 'dialogClass' : 'SizingChartModal'});"> Need help with your size?</a>
                 </div>
                 
                 <div class="productSharingLinkContainer">
@@ -1124,8 +1126,8 @@ this will likely become more flexible in the future. ###
                             <li class='prodDetailTab displayNone' data-bind='var: product(zoovy:prod_detail); format:showIfSet;'><a href='#prodSpecs'>Specs</a></li>
                             <li class='prodFeaturesTab displayNone' data-bind='var: product(zoovy:prod_features); format:showIfSet;'><a href='#prodFeatures'>Features</a></li>
                             -->
-                            <li class='prodSizeChartTab displayNone' data-bind='var: product(zoovy:prod_desc); format:showIfSet;'><a href='#prodSizeChart'>SIZE CHART</a></li>
                             <li class='prodReviewsTab'><a href='#prodReviews'>REVIEWS</a></li>
+                            <li class='prodSizeChartTab displayNone' data-bind='var: product(html_input); format:showIfSet;'><a href='#prodSizeChart'>SIZE CHART</a></li>
                             <li class='prodAccessoriesTab displayNone' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a href='#prodAccessories'>ACCESSORIES</a></li>
                         </ul>
                     
@@ -1143,14 +1145,6 @@ this will likely become more flexible in the future. ###
                         </div>
         				-->
         
-                        <div class='tabContent' data-anytab-content='prodSizeChart'>
-                            
-                            <div data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
-                            <!--
-                            <div data-bind='var: product(youtube:videoid); format:youtubeVideo;'></div>
-                        	-->
-                        </div>
-                        
                         <div  class='tabContent' data-anytab-content='prodReviews'>
                     
                             <div class='clearfix alignRight'>
@@ -1160,6 +1154,14 @@ this will likely become more flexible in the future. ###
                             <ul class='listStyleNone clearfix productReviewsList' data-bind="var: reviews(reviews.@reviews); format:processList; loadsTemplate:productReviewsTemplateDetail;"></ul>
                     
                         </div>
+                        
+                        <div class='tabContent' data-anytab-content='prodSizeChart'>
+                            
+                            <div data-bind='var: product(html_input); format:wiki; wikiFormats:myRIA;'></div>
+                            <!--
+                            <div data-bind='var: product(youtube:videoid); format:youtubeVideo;'></div>
+                        	-->
+                        </div>
                     
                         <div class='tabContent' data-anytab-content='prodAccessories'>
                             <ul class='listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist' data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateATC;hide_pagination:true;hide_summary:true; withReviews:1; withInventory:1; withVariations:1;"></ul>
@@ -1168,8 +1170,11 @@ this will likely become more flexible in the future. ###
                 </div>
             </div>
         </div>
+        <div class="productRelatedItemsTitleContainer">
+        	<h2>YOU MAY ALSO LIKE</h2>
+        </div>
         <div class='prodlistRelatedContainer'>
-            <ul class='listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplate;hide_pagination:true;hide_summary:true; before:<h2>Similar Items</h2>; withReviews:1;"></ul>
+            <ul class='listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplate;hide_pagination:true;hide_summary:true; withReviews:1;"></ul>
         </div>
     </div>      
 </div><!-- productTemplate -->
@@ -1234,7 +1239,72 @@ this will likely become more flexible in the future. ###
 
 
 <div id="SizingChartTemplate">
-<p>sizing chart modal. Remove before starting to build sizing chart modal.</p>
+	<div class="sizeChartTitleBar">
+    	<h4>GET YOUR PERFECT SIZE!</h4>
+    </div>
+    <div class="sizeChartStepOneCont">
+    	<div class="sizeChartStepIcon">
+        	<h6>STEP</h6>
+            <h1>1</h1>
+        </div>
+        <div class="sizeChartStepContent">
+        	<div class="sizeChartSectionTitleBar">
+            	<h6>MEASURE</h6>
+            </div>
+            <p><span>BUST</span> - Measure around the fullest part of your bust section.<br />(Without wearing a padded bra)</p>
+            <p><span>WAIST</span> - Measure around your natural waistline, making sure you keep the measuring tape snug, but not extremely tight. Approximately 1 1/2" - 2" above your belly button.</p>
+            <p><span>HIPS</span> - Measure around the fullest part of your hips. This is approxiamtely 8" below your waistline for Misses sizes or 7" for Petite sizes.</p>
+        </div>
+    </div>
+    <div class="sizeChartStepTwoCont">
+    	<div class="sizeChartStepIcon">
+        	<h6>STEP</h6>
+            <h1>2</h1>
+        </div>
+        <div class="sizeChartStepContent">
+            <div class="sizeChartSectionTitleBar">
+                <h6>REFERENCE</h6>
+            </div>
+            <p>Be sure to use the appropriate manufacturer size chart when making your dress selections. <br /><span>TIP</span> : If your size is in between, we recommend choosing the larger size.</p>
+            <ul>
+            	<li><a>BG HAUTE</a></li>
+                <li><a>CASSANDRA STONE</a></li>
+                <li><a>CASSANDRA STONE PLUS SIZE</a></li>
+                <li><a>ESLEY COLLECTION</a></li>
+                <li><a>FABULOUSS</a></li>
+                <li><a>FAVIANA</a></li>
+            </ul>
+            <ul>
+            	<li><a>FAVIANA EXTRA SIZE</a></li>
+                <li><a>FAVIANA GLAMOUR</a></li>
+                <li><a>FLIRT</a></li>
+                <li><a>GIGI</a></li>
+                <li><a>JASZ COUTURE</a></li>
+                <li><a>JOVANI</a></li>
+                <li><a>LAFEMME</a></li>
+            </ul>
+            <ul>
+            	<li><a>LA GALA</a></li>
+                <li><a>LM COLLECTION</a></li>
+                <li><a>MAC DUGGAL</a></li>
+                <li><a>MAGGIE SOTERO</a></li>
+                <li><a>MIGNON</a></li>
+                <li><a>MNM COUTURE</a></li>
+                <li><a>NIGHT MOVES</a></li>
+            </ul>
+            <ul>
+            	<li><a>PARIS</a></li>
+                <li><a>SCALA</a></li>
+                <li><a>SHAIL K</a></li>
+                <li><a>SHERRI HILL</a></li>
+                <li><a>TERANI</a></li>
+                <li><a>TONY BOWLS</a></li>
+                <li><a>WOW</a></li>
+            </ul>
+    	</div>
+    </div>
+    <div class="sizeChartStepThreeCont">
+    </div>
 </div>
 
 <div id="productEmailLinkModal">
