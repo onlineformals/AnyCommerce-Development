@@ -197,6 +197,14 @@ var _store_formals = function() {
 				//app.u.dump("mouse over function successully ran.")
 				$(".homepageSubCatTitleBar", $tag).css({'background-color':'rgba(900,900,900,.8)'});
 				$(".catName", $tag).css({'color':'#333333'});
+			},
+			
+			sizingChartModalScrollTop : function() {
+				$("#SizingChartTemplate").animate({scrollTop: 0}, 600);
+			},
+			
+			sizingChartModalScrollToChart : function(chartLoc) {
+				$("#SizingChartTemplate").animate({scrollTop: chartLoc}, 600);
 			}
 			
 		},//END a FUNCTIONS

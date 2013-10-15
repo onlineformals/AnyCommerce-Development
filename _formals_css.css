@@ -1757,12 +1757,12 @@ div.prodTabs ul.tabs li a.ui-tabs-anchor{
 	margin-top: 34px;
     position: relative;
 }
-.productSizeChart tbody td{
-}
-.productSizeChart tbody td center{
-}
 .productSizeChart tbody tr{
 	color: #736D5D;
+}
+.productSizeChart tbody tr td{
+}
+.productSizeChart tbody tr td center font b{
 }
 .productSizeChart tbody td a{
 	color: #DD339D;
@@ -1771,8 +1771,10 @@ div.prodTabs ul.tabs li a.ui-tabs-anchor{
     position: absolute;
     right: 5px;
     top: 9px;
+	cursor:pointer;
 }
-.productSizeChart tbody td center font{
+.productNightMovesChart tbody tr td.productNightMovesFont{
+	font-size: 14px;
 }
 
 
