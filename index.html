@@ -382,7 +382,7 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
                 </ul>
                 <ul class="footerLinkList">
                 	<li><a href='#top' onClick="return showContent('company',{'show':'contact'});" class="pointer">Contact Us</a></li>
-                    <li><a href='#top' onClick="return showContent('category',{'show':'.'});" class="pointer">Size Charts</a></li>
+                    <li><a href='#top' onClick="window.scrollTo(0,0); $('#SizingChartTemplate').dialog({'modal':'true', 'title':'','width':825, height:700, 'dialogClass' : 'SizingChartModal'});" class="pointer">Size Charts</a></li>
                     <li><a href='#top' onClick="return showContent('company',{'show':'return'});" class="pointer">Policies</a></li>
                     <li><a href='#top' onClick="return showContent('company',{'show':'shipping'});" class="pointer">Shipping</a></li>
                     <li><a href='#top' onClick="return showContent('customer',{'show':'myaccount'});" class="pointer">My Account</a></li>
@@ -1238,7 +1238,7 @@ this will likely become more flexible in the future. ###
 
 
 
-<div id="SizingChartTemplate">
+<div id='SizingChartTemplate'>
 	<div class="sizeChartTitleBar">
     	<h4>GET YOUR PERFECT SIZE!</h4>
     </div>
