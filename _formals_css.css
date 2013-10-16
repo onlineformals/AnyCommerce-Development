@@ -1618,6 +1618,14 @@ div.prodTabs ul.tabs li a.ui-tabs-anchor{
 .productSizingChartTabContent table.productSizeChart tbody tr td{
 	padding: 6px;
 }
+.productSizingChartTabContent table.productSizeChart tbody tr td.productNightMovesFont{	
+	border: 1px solid;
+    font-size: 12px;
+    padding: 7px 0 0;
+    text-align: center;
+}
+.productSizingChartTabContent table.productNightMovesChart{
+}
 
 
 
