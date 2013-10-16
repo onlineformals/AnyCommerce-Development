@@ -1519,12 +1519,12 @@ catProdListProductListCont div.loadingBG{
     border: medium none;
     border-radius: 0 0 0 0;
     color: #FEFFFB;
-    font-size: 10px;
-    height: 25px;
+    font-size: 12px;
+    height: 35px;
     letter-spacing: 6px;
     padding-left: 15px;
     padding-top: 5px;
-    width: 150px;
+    width: 175px;
 }
 
 .productSizingChartModalLinkContainer{
