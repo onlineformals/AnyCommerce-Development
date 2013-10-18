@@ -21,6 +21,7 @@ app.rq.push(['extension',0,'_store_formals','extensions/_store_formals.js']);
 app.rq.push(['extension',0,'prodlist_infinite','extensions/prodlist_infinite.js']);
 
 app.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.2.1/jquery.carouFredSel-6.2.1-packed.js']);
+app.rq.push(['script',0,app.vars.baseURL+'zoom-master/jquery.zoom.js']);
 
 //app.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
 app.rq.push(['extension',1,'tools_ABtesting','extensions/tools_ABtesting.js']);
@@ -54,7 +55,61 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 				}
 			}
 		else	{} //couldn't find the tab to tabificate.
-	
+		
+		
+		//HOVER ZOOM FEATURE
+		 
+		 var image = $('.prodMainImage',$context).parent().attr('data-imgsrc');
+		 var imageURL = app.u.makeImage({
+		   "name" : image,
+		   "w" : 1000,
+		   "h" : 1150,
+		   "b" : "FFFFFF"
+		   });
+		 $('.largeImageContainer').zoom({
+		  url: imageURL,
+		  on:'mouseover',
+		  onZoomIn: function(){
+		   // the active class causes the curser to be switched to a zoom out image - this occurs when the image has zoom
+		   $('.largeImageContainer').addClass('active');
+		   },
+		  onZoomOut: function(){
+		   // restores the zoom in curser after zoom out
+		   $('.largeImageContainer').removeClass('active');
+		   }});
+		 $('.thumbnail',$context).on('mouseenter.productHover', function(){
+		  $('.largeImageContainer').trigger('zoom.destroy');
+		  var newImage = $(this).parent().attr('data-imgsrc');
+		  $('.prodMainImage',$context).attr('src', app.u.makeImage({
+		   "name" : newImage,
+		   "w" : 450,
+		   "h" : 560,
+		   "b" : "FFFFFF"
+		   }));
+		  var newImageURL = app.u.makeImage({
+		   "name" : newImage,
+		   "w" : 1000,
+		   "h" : 1150,
+		   "b" : "FFFFFF"
+		   });
+		  $('.largeImageContainer').zoom({
+		   url: newImageURL,
+		   on:'mouseover',
+		   onZoomIn: function(){
+			$('.largeImageContainer').addClass('active');
+			//app.u.dump("we're running addClass");
+			},
+		   onZoomOut: function(){
+			$('.largeImageContainer').removeClass('active');
+			}
+		   });
+		});
+		
+		function productHoverZoomClick(){
+			$(".zoomImg", $context).before("<div onClick='app.ext.store_product.u.showPicsInModal({\"pid\":$(this).attr(\"data-pid\")});' data-bind=\"var:product(zoovy:prod_image1; format:assignAttribute; attribute:data-pid;\">");
+			$(".zoomImg", $context).after("</div>");
+		}
+		
 }]);
 	
 app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
