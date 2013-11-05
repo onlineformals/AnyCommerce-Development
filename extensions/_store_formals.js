@@ -19,12 +19,26 @@
 var _store_formals = function() {
 	var r= {
 		vars : {
-			catTemplates : {
-				//TEST CATS -REMOVE BEFORE GOING LIVE.
-				".shop_accessories" : "categoryTemplateProm",
-				".shop_by_designer.ballgowns_by_mac_duggal" : "categoryProductListTemplate",
-				
-				".prom" : "categoryTemplateProm",
+			catTemplates : {	
+				".designers.bg_haute" : "categoryProductListTemplate",
+				".designers.cassandra_stone" : "categoryProductListTemplate",
+				".designers.faviana" : "categoryProductListTemplate",
+				".designers.gigi" : "categoryProductListTemplate",
+				".designers.jasz_couture" : "categoryProductListTemplate",
+				".designers.johnathan_kayne" : "categoryProductListTemplate",
+				".designers.la_femme" : "categoryProductListTemplate",
+				".designers.le_gala" : "categoryProductListTemplate",
+				".designers.lm_collection" : "categoryProductListTemplate",
+				".designers.mac_duggal" : "categoryProductListTemplate",
+				".designers.mignon" : "categoryProductListTemplate",
+				".designers.mnm_couture" : "categoryProductListTemplate",
+				".designers.night_moves" : "categoryProductListTemplate",
+				".designers.paris" : "categoryProductListTemplate",
+				".designers.scala" : "categoryProductListTemplate",
+				".designers.shail_k" : "categoryProductListTemplate",
+				".designers.sherri_hill" : "categoryProductListTemplate",
+				".designers.tony_bowls" : "categoryProductListTemplate",
+						
 				".prom.designers.bg_haute" : "categoryProductListTemplate",
 				".prom.designers.cassandra_stone" : "categoryProductListTemplate",
 				".prom.designers.faviana" : "categoryProductListTemplate",

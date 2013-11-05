@@ -1384,6 +1384,7 @@ catProdListProductListCont div.loadingBG{
 .productList > li{
 	margin-left: 20px;
     margin-right: 0;
+	box-shadow: 0 4px 5px 0 #E9E9E9;
 }
 .productItemInfo{
 	position:absolute;
@@ -1629,6 +1630,16 @@ div.prodTabs ul.tabs li a.ui-tabs-anchor{
 .productSizingChartTabContent table.productNightMovesChart{
 }
 
+div.tabContent div button.prodPageReviewButton{
+	background-color: #E61652;
+    background-image: none;
+    border: medium none;
+    border-radius: 0 0 0 0;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 5px;
+}
+
 
 
 
@@ -1667,7 +1678,7 @@ div.prodTabs ul.tabs li a.ui-tabs-anchor{
 .sizeChartTitleBar{
 	width:100%;
 	height:24px;
-	background-color:#dd339d;
+	background-color:#E61652;
 	border-bottom: 1px solid #f2b2da;
 	border-top: 1px solid #f2b2da;
 }
@@ -1700,7 +1711,7 @@ div.prodTabs ul.tabs li a.ui-tabs-anchor{
 	color: #909090;
 }
 .sizeChartStepIcon h1{
-	color: #DD339D;
+	color: #E61652;
     font-size: 50px;
     line-height: 30px;
     margin-left: 0;
@@ -1733,7 +1744,7 @@ div.prodTabs ul.tabs li a.ui-tabs-anchor{
 	float:left;
 }
 .sizeChartSectionTitleBar h6{
-	color: #DD339D;
+	color: #E61652;
     font-size: 17px;
     font-weight: 600;
     letter-spacing: 15px;
@@ -1761,7 +1772,7 @@ div.prodTabs ul.tabs li a.ui-tabs-anchor{
 	text-align: center;
 }
 .sizeChartStepTwoCont div.sizeChartStepContent ul li a{
-	color: #DD339D;
+	color: #E61652;
     cursor: pointer;
     font-size: 14px;
     font-weight: bold;
@@ -1774,6 +1785,11 @@ div.prodTabs ul.tabs li a.ui-tabs-anchor{
 	width: 772px;
 	float:left;
 }
+div.sizeChartStepContent p.sizingModalStepThreeDesc{
+	margin-bottom: 30px;
+    margin-top: 15px;
+    width: 100%;
+}
 
 .productSizeChart{
 	margin-top: 34px;
@@ -1783,7 +1799,7 @@ div.prodTabs ul.tabs li a.ui-tabs-anchor{
 	color: #736D5D;
 }
 .productSizeChart tbody td a{
-	color: #DD339D;
+	color: #E61652;
     font-size: 14px;
     font-weight: 500;
     position: absolute;
