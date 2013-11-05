@@ -715,7 +715,7 @@ li{
     width: 960px;
 }
  .hpProductListCarouselContainer ul.productList li.productItem{
-	height:300px !important;
+	height:280px !important;
 	width:200px !important;
 	background-color:white;
 	position:relative;
@@ -1617,7 +1617,8 @@ div.prodTabs ul.tabs li a.ui-tabs-anchor{
 	margin-top: 12px;
 }
 .productSizingChartTabContent table.productSizeChart tbody tr td{
-	padding: 6px;
+	font-size: 12px;
+    padding: 5px;
 }
 .productSizingChartTabContent table.productSizeChart tbody tr td.productNightMovesFont{	
 	border: 1px solid;
