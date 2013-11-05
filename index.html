@@ -109,8 +109,10 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
 
 <!-- These add specific functionality for the app. In most cases, you want to leave them alone. -->
 <div id='appNav'>
-	<button class='displayNone prodDetailNextItemButton' data-app-role='prodDetailNextItemButton'>Next</button>
+	<!--
+    button class='displayNone prodDetailNextItemButton' data-app-role='prodDetailNextItemButton'>Next</button>
 	<button class='displayNone prodDetailPrevItemButton' data-app-role='prodDetailPrevItemButton'>Previous</button>
+    -->
 </div>
 <div class="header">
     <div class="headerTopSect">
@@ -1177,8 +1179,8 @@ this will likely become more flexible in the future. ###
                             <li class='prodDetailTab displayNone' data-bind='var: product(zoovy:prod_detail); format:showIfSet;'><a href='#prodSpecs'>Specs</a></li>
                             <li class='prodFeaturesTab displayNone' data-bind='var: product(zoovy:prod_features); format:showIfSet;'><a href='#prodFeatures'>Features</a></li>
                             -->
+                            <li class='prodSizeChartTab'><a href='#prodSizeChart'>SIZE CHART</a></li>
                             <li class='prodReviewsTab'><a href='#prodReviews'>REVIEWS</a></li>
-                            <li class='prodSizeChartTab displayNone' data-bind='var: product(user:html_input); format:showIfSet;'><a href='#prodSizeChart'>SIZE CHART</a></li>
                             <li class='prodAccessoriesTab displayNone' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a href='#prodAccessories'>ACCESSORIES</a></li>
                         </ul>
                     
@@ -1195,6 +1197,15 @@ this will likely become more flexible in the future. ###
                             <div data-bind='var: product(zoovy:prod_features); format:wiki; wikiFormats:myRIA;'></div>
                         </div>
         				-->
+                        
+                         <div class='tabContent tabContentSizingChart' data-anytab-content='prodSizeChart'>
+                            
+                            <div class="productSizingChartTabContent" data-bind='var: product(user:html_input); format:wiki; wikiFormats:myRIA;'></div>
+                            <p data-bind='var: product(user:html_input); format:hideIfSet;'>The sizing chart has not been uploaded to this product. Please refer to the "Need help with your size?" link to see appropriate sizing chart.</p>
+                            <!--
+                            <div data-bind='var: product(youtube:videoid); format:youtubeVideo;'></div>
+                        	-->
+                        </div>
         
                         <div  class='tabContent' data-anytab-content='prodReviews'>
                     
@@ -1204,14 +1215,6 @@ this will likely become more flexible in the future. ###
                     
                             <ul class='listStyleNone clearfix productReviewsList' data-bind="var: reviews(reviews.@reviews); format:processList; loadsTemplate:productReviewsTemplateDetail;"></ul>
                     
-                        </div>
-                        
-                        <div class='tabContent tabContentSizingChart' data-anytab-content='prodSizeChart'>
-                            
-                            <div class="productSizingChartTabContent" data-bind='var: product(user:html_input); format:wiki; wikiFormats:myRIA;'></div>
-                            <!--
-                            <div data-bind='var: product(youtube:videoid); format:youtubeVideo;'></div>
-                        	-->
                         </div>
                     
                         <div class='tabContent' data-anytab-content='prodAccessories'>

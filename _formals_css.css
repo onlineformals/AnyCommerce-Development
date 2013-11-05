@@ -1640,6 +1640,11 @@ div.tabContent div button.prodPageReviewButton{
     padding: 5px;
 }
 
+div.tabContentSizingChart p{
+	font-size: 16px;
+    padding: 10px;
+}
+
 
 
 
