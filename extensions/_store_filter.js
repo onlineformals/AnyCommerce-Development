@@ -44,6 +44,82 @@ var _store_filter = function() {
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			
+			//DESIGNER PAGES
+			".designers.bg_haute":{
+			"filter": "designBGHauteForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".designers.cassandra_stone":{
+			"filter": "designCassandraStoneForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".designers.faviana":{
+			"filter": "designFavianaForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".designers.gigi":{
+			"filter": "designGigiForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".designers.jasz_couture":{
+			"filter": "designJaszCoutureForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".designers.johnathan_kayne":{
+			"filter": "designJohnathanKayneForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".designers.la_femme":{
+			"filter": "designLaFemmeForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".designers.le_gala":{
+			"filter": "designLeGalaForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".designers.lm_collection":{
+			"filter": "designLMCollectionForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".designers.mac_duggal":{
+			"filter": "designMacDuggalForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".designers.mignon":{
+			"filter": "designMignonForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".designers.mnm_couture":{
+			"filter": "designMNMCoutureForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".designers.night_moves":{
+			"filter": "designNightMovesForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".designers.paris":{
+			"filter": "designParisForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".designers.scala":{
+			"filter": "designScalaForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".designers.shail_k":{
+			"filter": "designShailKForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".designers.sherri_hill":{
+			"filter": "designSherriHillForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".designers.tony_bowls":{
+			"filter": "designTonyBowlsForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			
+			
+			
 			//PROM PAGES
 			".prom.designers.bg_haute":{
 			"filter": "PromBGHauteForm",
