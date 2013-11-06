@@ -219,9 +219,64 @@ var _store_formals = function() {
 			
 			sizingChartModalScrollToChart : function(chartLoc) {
 				$("#SizingChartTemplate").animate({scrollTop: chartLoc}, 600);
-			}
+			},
+			
+			loginFrmSubmit : function(email,password,errorDiv)        {
+					var errors = '';
+					$errorDiv = errorDiv.empty(); //make sure error screen is empty. do not hide or callback errors won't show up.
+
+					if(app.u.isValidEmail(email) == false){
+							errors += "Please provide a valid email address<br \/>";
+							}
+					if(!password)        {
+							errors += "Please provide your password<br \/>";
+							}
+					if(errors == ''){
+							app.calls.appBuyerLogin.init({"login":email,"password":password},{'callback':'authenticateBuyer','extension':'myRIA'});
+							app.calls.refreshCart.init({},'immutable'); //cart needs to be updated as part of authentication process.
+//                                        app.calls.buyerProductLists.init('forgetme',{'callback':'handleForgetmeList','extension':'store_prodlist'},'immutable');
+							app.model.dispatchThis('immutable');
+							}
+					else {
+							$errorDiv.anymessage({'message':errors});
+							}
+					showContent('customer',{'show':'myaccount'})
+			}, //loginFrmSubmit
 			
 		},//END a FUNCTIONS
+		
+		u : {
+			
+			handleAppLoginCreate : function($form)        {
+                                if($form)        {
+                                        var formObj = $form.serializeJSON();
+                                        
+                                        if(formObj.pass !== formObj.pass2) {
+                                                app.u.throwMessage('Sorry, your passwords do not match! Please re-enter your password');
+                                                return;
+                                        }
+                                        
+                                        var tagObj = {
+                                                'callback':function(rd) {
+                                                        if(app.model.responseHasErrors(rd)) {
+                                                                $form.anymessage({'message':rd});
+                                                        }
+                                                        else {
+                                                                showContent('customer',{'show':'myaccount'});
+                                                                app.u.throwMessage(app.u.successMsgObject("Your account has been created!"));
+                                                        }
+                                                }
+                                        }
+                                        
+                                        formObj._vendor = "OF";
+                                        app.calls.appBuyerCreate.init(formObj,tagObj,'immutable');
+                                        app.model.dispatchThis('immutable');
+                                }
+                                else {
+                                        $('#globalMessaging').anymessage({'message':'$form not passed into myRIA.u.handleBuyerAccountCreate','gMessage':true});
+                                }
+                        }
+		},//END u FUNCTIONS
 		
 		renderFormats : {
 			//Identical to the showIFSet render format but sets to inline instead of block.
