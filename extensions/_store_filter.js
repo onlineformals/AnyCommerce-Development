@@ -291,16 +291,36 @@ var _store_filter = function() {
 			},
 			
 			//COCKTAIL PAGES
+			".cocktail.designers.faviana":{
+			"filter": "CocktailFavianaForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".cocktail.designers.gigi":{
+			"filter": "CocktailGigiForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
 			".cocktail.designers.jovani":{
 			"filter": "CocktailJovaniForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".cocktail.designers.johnathan_kayne":{
+			"filter": "CocktailJohnKayneForm",
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".cocktail.designers.la_femme":{
 			"filter": "CocktailLaFemmeForm",
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
+			".cocktail.designers.lm_collection":{
+			"filter": "CocktailLMCollectionForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
 			".cocktail.designers.mac_duggal":{
 			"filter": "CocktailMacDuggalForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".cocktail.designers.mignon":{
+			"filter": "CocktailMignonForm",
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".cocktail.designers.scala":{
@@ -347,19 +367,19 @@ var _store_filter = function() {
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			
-			".plus_size.styles.styles.a_line___ballgown":{
+			".plus_size.styles.a_line___ballgown":{
 			"filter": "PlusSizeALineForm",
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
-			".plus_size.styles.styles.empire":{
+			".plus_size.styles.empire":{
 			"filter": "PlusSizeEmpireForm",
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
-			".plus_size.styles.styles.mermaid":{
+			".plus_size.styles.mermaid":{
 			"filter": "PlusSizeMermaidForm",
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
-			".plus_size.styles.styles.short":{
+			".plus_size.styles.short":{
 			"filter": "PlusSizeShortForm",
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
