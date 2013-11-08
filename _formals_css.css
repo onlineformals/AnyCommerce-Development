@@ -1454,6 +1454,12 @@ catProdListProductListCont div.loadingBG{
     color: #FFFFFF;
 }
 
+/***********************************************************************************************************************************/
+/*****TITLE BAR****/
+.ui-dialog .ui-dialog-title{
+	color: #FFFFFF;
+}
+
 
 
 
@@ -1550,6 +1556,7 @@ catProdListProductListCont div.loadingBG{
     padding-left: 15px;
     padding-top: 5px;
     width: 175px;
+	font-weight: 600;
 }
 
 .productSizingChartModalLinkContainer{
@@ -1567,18 +1574,19 @@ catProdListProductListCont div.loadingBG{
 .productSharingLinkContainer{
 	background-color: #EEEEEE;
     float: left;
-    height: 22px;
-    padding-left: 50px;
-    padding-top: 3px;
-    width: 370px;
+    height: 23px;
+    padding-left: 17px;
+    padding-top: 2px;
+    width: 433px;
 }
 .productSharingLinkContainer menu.CRMButtonMenu{
+	float:left;
 }
 .productSharingLinkContainer p{
-	float: left;
-    margin-left: 0;
-    margin-right: 0;
 	color: #726B5B;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .productSharingLinkContainer a{
 	color: #726B5B;
@@ -1615,6 +1623,7 @@ div.prodTabs ul.tabs li a.ui-tabs-anchor{
     padding: 5px 0 0;
     text-align: center;
     width: 100%;
+	font-weight: 600;
 }
 
 .productRelatedItemsTitleContainer{
@@ -1639,7 +1648,7 @@ div.prodTabs ul.tabs li a.ui-tabs-anchor{
 	font-size: 14px;
 }
 .productSizingChartTabContent table.productSizeChart{
-	margin-top: 12px;
+	margin-top: 0;
 }
 .productSizingChartTabContent table.productSizeChart tbody tr td{
 	font-size: 12px;
@@ -1666,7 +1675,8 @@ div.tabContent div button.prodPageReviewButton{
 
 div.tabContentSizingChart p{
 	font-size: 16px;
-    padding: 10px;
+    padding: 0;
+	margin:0;
 }
 
 
