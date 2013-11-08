@@ -1459,6 +1459,61 @@ catProdListProductListCont div.loadingBG{
 .ui-dialog .ui-dialog-title{
 	color: #FFFFFF;
 }
+div.ui-dialog-titlebar button.ui-dialog-titlebar-close{
+	background-image: url("Images/productpage/sizingmodalclose.png");
+    border: medium none;
+    height: 22px;
+    width: 22px;
+	background-color:#E61652;
+}
+div.ui-dialog-titlebar button.ui-state-hover{
+	background-color:#FF5A80;
+}
+div.ui-dialog-titlebar button.ui-dialog-titlebar-close span{
+	display:none;
+}
+
+/***********************************************************************************************************************************/
+/*****SUMMARY CONTENT****/
+.prodSummaryContainer hgroup.marginBottom{
+	clear: left;
+    float: left;
+}
+.prodSummaryContainer div.priceContainer{
+	clear: left;
+    float: left;
+}
+.prodSummaryContainer div.productDescriptionContainer{
+	clear: left;
+    float: left;
+}
+
+.QuickviewTabContentSizingChart{
+	float: left;
+    margin-top: 20px;
+}
+
+div.quickviewProductSharingLinkContainer{
+	padding-left: 5px;
+    padding-top: 2px;
+    width: 423px;
+}
+div.quickviewProductSharingLinkContainer a{
+	color:#726B5B;
+}
+div.quickviewProductSharingLinkContainer p{
+	margin-left: 4px;
+    margin-right: 4px;
+}
+
+div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
+	color: #E91454;
+    cursor: pointer;
+    float: left;
+    font-size: 13px;
+    text-decoration: underline;
+	margin-top:10px;
+}
 
 
 
@@ -1597,6 +1652,10 @@ catProdListProductListCont div.loadingBG{
 	float:left;
 }
 
+.tabbedProductContentTD{
+	float: left;
+}
+
 
 /***********************************************************************************************************************************/
 /*****BOTTOM CONTENT CONTAINER****/
@@ -1707,6 +1766,10 @@ div.tabContentSizingChart p{
     border: medium none;
     height: 22px;
     width: 22px;
+	background-color:white;
+}
+.SizingChartModal div.ui-dialog-titlebar button.ui-state-hover{
+	background-color:#EEEEEE;
 }
 .SizingChartModal div.ui-dialog-titlebar button.ui-dialog-titlebar-close span{
 	display:none;

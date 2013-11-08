@@ -1262,7 +1262,7 @@ this will likely become more flexible in the future. ###
 
 
 <!-- a template used for a quickview link off of a category page -->
-<div id='productTemplateQuickView'>
+<div id='productTemplateQuickView' class="quickViewTemplate">
 
         <div class='imageContainer'>
         	<!--<div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});' data-bind="var:product(zoovy:prod_image1); format:assignAttribute; attribute:data-pid;">-->
@@ -1335,7 +1335,7 @@ this will likely become more flexible in the future. ###
         </div>
             
         <div class="prodTempContentContainer">
-            <div class='prodSummaryContainer marginBottom no_underline'>
+            <div class='prodSummaryContainer quickViewProdSummaryContainer  marginBottom no_underline'>
                 <h1 data-bind='var: product(zoovy:prod_name); format:text;'></h1>
                 
                 <img class="productAuthSeal" src="Images/productpage/authorizedseal2.png" />
@@ -1370,7 +1370,7 @@ this will likely become more flexible in the future. ###
                 	<a onClick="$('#SizingChartTemplate').dialog({'modal':'true', 'title':'','width':825, height:700, 'dialogClass' : 'SizingChartModal'});"> Need help with your size?</a>
                 </div>
                 
-                <div class="productSharingLinkContainer">
+                <div class="productSharingLinkContainer quickviewProductSharingLinkContainer">
                 	<menu data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu'>
                         <!--<a href='#' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).parent().attr("data-pid"),"templateID":"reviewFrmTemplate"}); return false;'>Write Review</a>	|-->
                         <a href='#' onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">Add to Wishlist</a>
@@ -1420,16 +1420,19 @@ this will likely become more flexible in the future. ###
                     -->
                     <div class='prodTabs tabbedProductContent'>
                     
+                        <!--
                         <ul class='tabs'>
                             <!--
                             <li class='prodDescTab'><a href='#prodDesc'>Description</a></li>
                             <li class='prodDetailTab displayNone' data-bind='var: product(zoovy:prod_detail); format:showIfSet;'><a href='#prodSpecs'>Specs</a></li>
                             <li class='prodFeaturesTab displayNone' data-bind='var: product(zoovy:prod_features); format:showIfSet;'><a href='#prodFeatures'>Features</a></li>
                             -->
+                            <!--
                             <li class='prodSizeChartTab'><a href='#prodSizeChart'>SIZE CHART</a></li>
                             <li class='prodReviewsTab'><a href='#prodReviews'>REVIEWS</a></li>
                             <li class='prodAccessoriesTab displayNone' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a href='#prodAccessories'>ACCESSORIES</a></li>
                         </ul>
+                        -->
                     
                         <!--
                         <div class='tabContent' data-anytab-content='prodDesc'>
@@ -1445,7 +1448,7 @@ this will likely become more flexible in the future. ###
                         </div>
         				-->
                         
-                         <div class='tabContent tabContentSizingChart' data-anytab-content='prodSizeChart'>
+                         <div class='tabContent tabContentSizingChart QuickviewTabContentSizingChart' data-anytab-content='prodSizeChart'>
                             
                             <div class="productSizingChartTabContent" data-bind='var: product(user:html_input); format:wiki; wikiFormats:myRIA;'></div>
                             <p data-bind='var: product(user:html_input); format:hideIfSet;'>The sizing chart has not been uploaded to this product. Please refer to the "Need help with your size?" link to see appropriate sizing chart.</p>
@@ -1454,6 +1457,7 @@ this will likely become more flexible in the future. ###
                         	-->
                         </div>
         
+                        <!--
                         <div  class='tabContent' data-anytab-content='prodReviews'>
                     
                             <div class='clearfix alignRight'>
@@ -1467,6 +1471,7 @@ this will likely become more flexible in the future. ###
                         <div class='tabContent' data-anytab-content='prodAccessories'>
                             <ul class='listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist' data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateATC;hide_pagination:true;hide_summary:true; withReviews:1; withInventory:1; withVariations:1;"></ul>
                         </div>
+                        -->
                     </div>
                 </div>
             </div>
