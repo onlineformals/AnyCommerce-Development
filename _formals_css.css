@@ -1419,6 +1419,28 @@ catProdListProductListCont div.loadingBG{
 
 
 
+
+
+/***********************************************************************************************************************************/
+/***********************************************************************************************************************************/
+/*****productListTemplateResults****/
+
+.searchResultsProduct{
+	height:280px !important;
+	width:200px !important;
+	background-color:white;
+	position:relative;
+	border:10px solid white;
+	margin:10px;
+}
+.searchResultsProduct button.quickView{
+	background-color: rgba(230, 22, 82, 0.5);
+    border: medium none;
+    border-radius: 3px 3px 3px 3px;
+    color: #FFFFFF;
+}
+
+
 /***********************************************************************************************************************************/
 /***********************************************************************************************************************************/
 /*****QUICKVIEW****/
