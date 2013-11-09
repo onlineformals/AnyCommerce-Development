@@ -1417,6 +1417,20 @@ catProdListProductListCont div.loadingBG{
 	z-index:4;
 }
 
+div.productItemInfoContent h5.prodListItemProdMSRP{
+	font-size: 10px;
+    margin-top: 0;
+	text-decoration:line-through;
+}
+div.productItemInfoContent span.prodListItemSavings{
+	display: block;
+    font-size: 10px;
+    margin-top: 0;
+}
+div.productItemInfoContent span.prodListItemSavings span.savingsPercentage{
+	color: #AD0000;
+}
+
 
 
 
@@ -1654,6 +1668,20 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 
 .tabbedProductContentTD{
 	float: left;
+}
+
+.prodMSRP{
+	color: #736A5B;
+    font-size: 14px;
+	text-decoration: line-through;
+}
+.savings{
+	color: #E91454;
+    font-weight: 600;
+}
+.savings span.savingsDifference{
+}
+.savings span.savingsPercentage{
 }
 
 
