@@ -80,6 +80,26 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 		 $('.thumbnail',$context).on('mouseenter.productHover', function(){
 		  $('.largeImageContainer').trigger('zoom.destroy');
 		  var newImage = $(this).parent().attr('data-imgsrc');
+		  
+		  //IMAGE VIEWER CLICK BLOCKER
+		  var thumbObject = $(this);
+		  if(thumbObject.data("firstTimeHover")){
+			  //app.u.dump("firstTimeHover exists for " + $(this) + ". Doing nothing.")
+		  }
+		  else{
+			  //app.u.dump("firstTimeHover does not exists for " + $(this) + ". Adding it set to false.")
+			  thumbObject.data('firstTimeHover',false).append();
+		  }
+		  
+		  if (thumbObject.data('firstTimeHover') === false){
+			  //app.u.dump("Running image blocker for " + $(this) + ".")
+			  var imageContainerSize = $('.imageContainer', $context).height();
+			  //app.u.dump(imageContainerSize);
+			  $(".imageContainerBlocker", $context).css("height",imageContainerSize);
+			  $(".imageContainerBlocker", $context).show();
+		  }
+		  //END IMAGE CLICK BLOCKER
+		
 		  $('.prodMainImage',$context).attr('src', app.u.makeImage({
 		   "name" : newImage,
 		   "w" : 450,
@@ -92,6 +112,15 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 		   "h" : 1150,
 		   "b" : "FFFFFF"
 		   });
+		   
+		   //CLICK BLOCKER ACTIVATOR
+		   setTimeout(function(){
+			   $(".imageContainerBlocker", $context).hide();
+			   thumbObject.data('firstTimeHover',true).append();
+			   //app.u.dump("Setting firstTimeHover to true for " + $(this) + ".");
+		   }, 3000);
+		   //END CLICK BLOCK ACTIVATOR
+		   
 		  $('.largeImageContainer').zoom({
 		   url: newImageURL,
 		   on:'mouseover',
@@ -109,7 +138,6 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			$(".zoomImg", $context).before("<div onClick='app.ext.store_product.u.showPicsInModal({\"pid\":$(this).attr(\"data-pid\")});' data-bind=\"var:product(zoovy:prod_image1; format:assignAttribute; attribute:data-pid;\">");
 			$(".zoomImg", $context).after("</div>");
 		}
-		
 }]);
 	
 app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
