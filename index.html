@@ -1178,6 +1178,10 @@ this will likely become more flexible in the future. ###
                 <table class='marginBottom fullWidth gridTable' data-app-role='childrenSiblingsContainer'>
                     <tbody data-bind="var: product(zoovy:grp_children); format:productList; extension:store_prodlist; loadsTemplate:productListTemplateChildren;hide_summary:true; withInventory:1; withVariations:1;"></tbody>
                 </table>
+                <div data-bind="var: product(youtube_videoid); format: assignAttribute; attribute: data-youtubeid;">
+                    <p data-bind="var: product(youtube_videoid); format:text;"></p>
+                    <img class="pointer" src="blank.gif" data-bind="var: product(youtube_videoid); format:youtubeThumbnail; extension:myRIA;" onClick="app.ext.myRIA.a.showYoutubeInModal($(this).parent().data('youtubeid')); return false;" alt="" />
+                </div>
 
                 <!--
                 <div data-bind='var: product(zoovy:ship_latency); format:text;pretext:Normally ships in ;posttext: day(s);' class='latency marginBottom'></div>
@@ -1219,7 +1223,7 @@ this will likely become more flexible in the future. ###
                             <li class='prodSizeChartTab'><a href='#prodSizeChart'>SIZE CHART</a></li>
                             <li class='prodReviewsTab'><a href='#prodReviews'>REVIEWS</a></li>
                             <li class='prodAccessoriesTab displayNone' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a href='#prodAccessories'>ACCESSORIES</a></li>
-                            <li class='prodVideoTab displayNone' data-bind='var: product(user:youtube_videoid); format:showIfSet;'><a href='#prodVideo'>VIDEOS</a></li>
+                            <li class='prodVideoTab displayNone' data-bind='var: product(youtube_videoid); format:showIfSet;'><a href='#prodVideo'>VIDEOS</a></li>
                         </ul>
                     
                         <!--
@@ -1260,7 +1264,11 @@ this will likely become more flexible in the future. ###
                         </div>
                         
                         <div class='tabContent' data-anytab-content='prodVideo'>
-                            <div data-bind='var: product(user:youtube_videoid); format:youtubeVideo;'></div>
+                        	<div data-bind="var: product(youtube_videoid); format: assignAttribute; attribute: data-youtubeid;">
+                                <img class="pointer" src="blank.gif" data-bind="var: product(youtube_videoid); format:youtubeThumbnail; extension:myRIA;" onClick="app.ext.myRIA.a.showYoutubeInModal($(this).parent().data('youtubeid')); return false;" alt="" />
+                            </div>
+                            <!--<div data-bind='var:product(youtube_videoid);format:assignAttribute; attribute:data-videoid;' onClick="app.ext.myRIA.a.showYoutubeInModal($(this).attr('data-videoid'));"></div>-->
+                            <!--<div data-bind='var: product(user:youtube_videoid); format:youtubeVideo;'></div>-->
                         </div>
                         
                     </div>
