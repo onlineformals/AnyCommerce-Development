@@ -2838,7 +2838,6 @@ return $r;
 //			app.u.dump(" -> showIfSet: "+data.value);
 			if(data.value)	{
 				$tag.show().css('display','block'); //IE isn't responding to the 'show', so the display:block is added as well.
-				app.u.dump("Element should be showing now. data.value = " + data.value);
 				}
 			},
 
