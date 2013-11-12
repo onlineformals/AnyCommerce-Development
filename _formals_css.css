@@ -540,12 +540,17 @@ li{
 }
 .footerTopPromSeal{
 	float: left;
-    margin-left: 40px;
+    margin-left: 185px;
+    margin-top: 3px;
 }
-
 .footerAuthorizeDotNetSeal{
 	float: left;
-    margin-left: 270px;	
+    margin-left: 110px;
+}
+.footerGeotrustSeal{
+	float: left;
+    margin-left: 125px;
+    margin-top: 10px;
 }
 
 
