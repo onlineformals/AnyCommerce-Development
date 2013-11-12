@@ -574,8 +574,8 @@ NOTES
 					var parentID = P.parentID ? P.parentID : "image-modal";
 					var imageAttr = "zoovy:prod_image";
 					imageAttr += P.int ? P.int : "1";
-					P.width = P.width ? P.width : 600;
-					P.height = P.height ? P.height : 660;
+					P.width = P.width ? P.width : 650;
+					P.height = P.height ? P.height : 720;
 					
 					var $parent = $(app.u.jqSelector('#',parentID));
 //parent may not exist. empty if it does, otherwise create it.
@@ -587,7 +587,7 @@ NOTES
 						app.renderFunctions.translateTemplate(app.data["appProductGet|"+P.pid],"imageViewer_"+parentID);
 						}
 					else	{
-						$parent.append(app.u.makeImage({"class":"imageViewerSoloImage","h":"550","w":"550","bg":"ffffff","name":app.data['appProductGet|'+P.pid]['%attribs'][imageAttr],"tag":1}));
+						$parent.append(app.u.makeImage({"class":"imageViewerSoloImage","h":"650","w":"600","bg":"ffffff","name":app.data['appProductGet|'+P.pid]['%attribs'][imageAttr],"tag":1}));
 						}	
 					$parent.dialog({modal: true,width:P.width ,height:P.height});
 					$parent.dialog('option', 'title', app.data["appProductGet|"+P.pid]['%attribs']['zoovy:prod_name']); //proper way to set title. otherwise doesn't update after first dialog is opened.

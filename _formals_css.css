@@ -1555,6 +1555,7 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 	box-shadow: 0 4px 5px 0 #E9E9E9;
 }
 .imageContainer div.prodThumbs{
+	position:relative;
 }
 .imageContainer div.prodThumbs div{
 	float: left;
@@ -1577,12 +1578,22 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 	position:absolute;
 	left:0;
 	top:0;
-	z-index:1;
+	z-index:2;
 	display:none;
 }
 .imageContainerBlocker img{
 	margin-left: 230px;
     margin-top: 240px;
+}
+.zoomImg{
+	z-index:1;
+}
+
+.prodThumbs p{
+	color: #726B5B;
+    left: 130px;
+    position: absolute;
+    top: -9px;
 }
 /***********************************************************************************************************************************/
 /*****CONTENT CONTAINER****/
