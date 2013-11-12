@@ -449,6 +449,12 @@ app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',func
 			$('.filterNecklineCat').data('collapseOrExpanded',true).append();
 		}
 		
+		if($('.filterSaleCat', $context).length){
+			$('.filterCategoryCont', '.filterSaleCat').show();
+			$('.filterCatTitle', '.filterSaleCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+			$('.filterSaleCat').data('collapseOrExpanded',true).append();
+		}
+		
 		if($('.filterTrendsCat', $context).length){
 			$('.filterCategoryCont', '.filterTrendsCat').show();
 			$('.filterCatTitle', '.filterTrendsCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");

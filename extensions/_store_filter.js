@@ -756,6 +756,31 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 					}
 				},
 				
+				toggleShowHideSaleFilter : function(){
+					if($('.filterSaleCat').data('collapseOrExpanded') === true){
+						$('.filterCategoryCont', '.filterSaleCat').slideUp(1000);
+						$('.filterCatTitle', '.filterSaleCat').css("background-image","url(Images/categorypage/filteredsearch/catbarclosed.png)");
+						$('.filterSaleCat').data('collapseOrExpanded',false).append();
+						setTimeout(function($context){
+							var sidebar = $('.catProdListSidebar', $context).height();
+							var banner = $('.catProdListBanner', $context).height();
+							var ghostCell = sidebar - banner - 50;
+							$(".catGhostCell", $context).css("height",ghostCell);
+						}, 1100);
+					}
+					else{
+						$('.filterCategoryCont', '.filterSaleCat').slideDown(1000);
+						$('.filterCatTitle', '.filterSaleCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+						$('.filterSaleCat').data('collapseOrExpanded',true).append();
+						setTimeout(function($context){
+							var sidebar = $('.catProdListSidebar', $context).height();
+							var banner = $('.catProdListBanner', $context).height();
+							var ghostCell = sidebar - banner - 50;
+							$(".catGhostCell", $context).css("height",ghostCell);
+						}, 1100);
+					}
+				},
+				
 				toggleShowHideTrendFilter : function(){
 					if($('.filterTrendsCat').data('collapseOrExpanded') === true){
 						$('.filterCategoryCont', '.filterTrendsCat').slideUp(1000);
