@@ -266,7 +266,7 @@ formerly showCart
 				else if(data.value.asm_master)	{$tag.remove()}
 				else	{
 $tag.attr({'data-stid':data.value.stid}).val(0); //val is used for the updateCartQty
-$tag.button({icons: {primary: "ui-icon-closethick"},text: false});
+//$tag.button({icons: {primary: "ui-icon-closethick"},text: false});
 //the click event handles all the requests needed, including updating the totals panel and removing the stid from the dom.
 $tag.one('click',function(event){
 	event.preventDefault();
@@ -388,7 +388,7 @@ either templateID needs to be set OR showloading must be true. TemplateID will t
 						$modal.dialog('open');
 						}
 					else	{
-						$modal = $("<div \/>").attr({"id":"modalCart","title":"Your Shopping Cart"}).appendTo('body');
+						$modal = $("<div \/>").attr({"id":"modalCart","title":"YOUR SHOPPING CART"}).appendTo('body');
 						$modal.append("<div id='cartMessaging' class='appMessaging'><\/div><div id='modalCartContents'><\/div>");
 						$modal.dialog({modal: true,width:'80%',height:$(window).height() - 200});  //browser doesn't like percentage for height
 						}

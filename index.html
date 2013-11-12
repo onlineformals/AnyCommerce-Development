@@ -405,8 +405,7 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
             <div class="footerShowroomLinkContainer">
             	<div href='#top' onClick="return showContent('category',{'show':'.'});"><img src="Images/Homepage/footer/showroomlink.png" /></div>
             </div>
-            
-			<!--**RE-ACTIVATE BEFORE LAUNCH**
+            <!--**RE-ACTIVATE BEFORE LAUNCH**
 			<div class="footerSealsSection">
             	<div class="footerTopPromSeal">
             		<script type="text/javascript" language="javascript">var customer_id="105781";</script><script type="text/javascript" language="javascript" src="//www.toppromwebsites.com/validator/tpw-seal.js"></script>
@@ -421,7 +420,6 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
                 </div>
 			</div>
             -->
-			
 			<div class="footerBottomNote">
             	<p>Online Formals Inc. Copyright &#169; 2013. All Rights Reserved.</p>
             </div>
@@ -3573,7 +3571,7 @@ So the cart template should contain these two elements and the extension should 
 
 	<td class='cartSummaryTotalsContainer'>
 	<div class='ui-widget ui-widget-content ui-helper-clearfix ui-corner-all'>
-		<h2 class='ui-widget-header ui-helper-clearfix ui-corner-all ui-header'>Cart Totals</h2>
+		<!--<h2 class='ui-widget-header ui-helper-clearfix ui-corner-all ui-header'>Cart Totals</h2>-->
 		<div class='cartSummaryContainer'>
 
 <section id='cartTemplateCostSummary' class='cartSummary'>
@@ -3650,24 +3648,25 @@ So the cart template should contain these two elements and the extension should 
 <ul>
 	<li id='productListTemplateCart' class='padMargBorderBottom clearfix'>
 
-		<button class='floatRight removeButton' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' >Remove Item From Cart</button>
+		<button class='floatRight removeButton' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' ></button>
 		<button class='floatRight moveToWishlist marginRight' data-bind='format:moveToWishlistButton; extension:myRIA; useParentData:true;' >Move to Wishlist</button>
 
 		<div class='floatLeft'><img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(zoovy:prod_image1); defaultVar: product(%attribs.zoovy:prod_image1); format:imageURL;' width='75' height='75' /></div>
 
-		<h4 data-bind='var: product(prod_name); format:text; '></h4>
-
-		<div class='ztable_row_small stid' data-bind='var: product(sku); format:text; className: stid; pretext: Sku: ;'></div>
-
-		<div>
-		qty: <input type='number' class='qtyInput numberInput' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='format:cartItemQty;extension:store_cart;useParentData:true;' />
-		<button class='displayNone'>update</button><!-- here to stop 'enter' in input above from closing modal -->
-		<span data-bind='var: product(price); format:money; currencySign: $;  hideZero:false; pretext: x ;' ></span>
-		<span data-bind='var: product(extended); format:money; currencySign: $; hideZero:false; pretext: = ;'></span>
-
+		<div class="productListTemplateCartInfoCont">
+            <h4 data-bind='var: product(prod_name); format:text; '></h4>
+    
+            <div class='ztable_row_small stid' data-bind='var: product(sku); format:text; className: stid; pretext: Sku: ;'></div>
+    
+            <div>
+                qty: <input type='number' class='qtyInput numberInput' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='format:cartItemQty;extension:store_cart;useParentData:true;' />
+                <button class='displayNone'>update</button><!-- here to stop 'enter' in input above from closing modal -->
+                <span data-bind='var: product(price); format:money; currencySign: $;  hideZero:false; pretext: x ;' ></span>
+                <span data-bind='var: product(extended); format:money; currencySign: $; hideZero:false; pretext: = ;'></span>
+                <div class='ztable_row_small prodOptions' data-bind='var: variations(%options); format:selectedOptionsDisplay;'></div>
+            </div>
 		</div>
-
-		<div class='ztable_row_small prodOptions' data-bind='var: variations(%options); format:selectedOptionsDisplay;'></div>
+		
 	</li>
 </ul>
 
