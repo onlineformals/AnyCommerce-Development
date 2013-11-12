@@ -521,16 +521,31 @@ li{
 }
 
 .footerBottomNote{
-	height: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 370px;
+	clear: both;
+    float: left;
+    height: 40px;
+    margin-left: 280px;
+    margin-top: 49px;
     position: relative;
-    width: 320px;
+    width: 350px;
 }
 .footerBottomNote p{
 	color: white;
     font-size: 12px;
+}
+
+.footerSealsSection{
+	clear: both;
+    float: left;
+}
+.footerTopPromSeal{
+	float: left;
+    margin-left: 40px;
+}
+
+.footerAuthorizeDotNetSeal{
+	float: left;
+    margin-left: 270px;	
 }
 
 
@@ -1555,7 +1570,9 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 	box-shadow: 0 4px 5px 0 #E9E9E9;
 }
 .imageContainer div.prodThumbs{
-	position:relative;
+	float: left;
+    margin-left: 49px;
+    position: relative;
 }
 .imageContainer div.prodThumbs div{
 	float: left;
@@ -1591,7 +1608,7 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 
 .prodThumbs p{
 	color: #726B5B;
-    left: 130px;
+    left: 42px;
     position: absolute;
     top: -9px;
 }
