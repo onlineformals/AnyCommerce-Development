@@ -2012,10 +2012,25 @@ div.ui-dialog-titlebar span.ui-dialog-title{
 }
 
 menu.cartAltButtonsContainer button.continueShoppingButton{
-	color: #E61652;
+	border: 1px solid #CCCCCC;
+    border-radius: 0;
+    color: #E61652;
 }
 div.checkoutButtonsContainer button.checkoutButton{
-	color: #E61652;
+	border: 1px solid #CCCCCC;
+    border-radius: 0;
+    color: #E61652;
+}
+
+.ui-draggable .ui-dialog-titlebar{
+	border: medium none;
+    border-radius: 0;
+}
+
+.cartSummaryTotalsContainer div.ui-widget h2.ui-widget-header{
+	border: medium none;
+    border-radius: 0;
+    height: 20px;
 }
 
 
@@ -2041,12 +2056,20 @@ div.checkoutButtonsContainer button.checkoutButton{
 /***********************************************************************************************************************************/
 /***********************************************************************************************************************************/
 /*****CHECKOUT TEMPLATE****/
+#checkoutContainer fieldset{
+	border-color: rgba(255, 255, 255, 0.3);
+	float: left;
+	width:100%;
+}
+
 #checkoutContainer legend{
-	color: #FFFFFF;
+	border: medium none;
+    border-radius: 0;
+    color: #FFFFFF;
+    font-family: 'Maven Pro',sans-serif;
     height: 20px;
     letter-spacing: 3px;
     width: 366px;
-	font-family: 'Maven Pro', sans-serif;
 }
 
 .accountCreateContainer{
@@ -2055,11 +2078,20 @@ div.checkoutButtonsContainer button.checkoutButton{
 }
 
 #checkoutContainer button.ui-button{
-	color: #E61652;
-    height: 23px;
+	border: 1px solid #E61652;
+    border-radius: 0;
+    color: #E61652;
+    height: 25px;
 }
 #checkoutContainer button.ui-button span.ui-button-text{
 	line-height: 0;
+}
+
+#checkoutContainer fieldset.checkoutBillingAddCont{
+    width: 50%;
+}
+#checkoutContainer fieldset.checkoutShippingAddCont{
+    width: 50%;
 }
 
 
