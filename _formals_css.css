@@ -2088,10 +2088,24 @@ div.checkoutButtonsContainer button.checkoutButton{
 }
 
 #checkoutContainer fieldset.checkoutBillingAddCont{
-    width: 50%;
+    width: 452px;
 }
 #checkoutContainer fieldset.checkoutShippingAddCont{
-    width: 50%;
+    width: 452px;
+}
+
+#checkoutContainer button.checkoutButton{
+	background-color: #E61652;
+    background-image: none;
+    border: medium none;
+    color: #FFFFFF;
+    height: 40px;
+    margin-top: 10px;
+    width: 200px;
+}
+
+.giftCardContainer{
+	margin-top: 10px;
 }
 
 

@@ -234,14 +234,7 @@ do NOT change any div id's or messaging will not work properly.
 -->
 
 
-<div id='chkoutMethodsPayTemplate'>
-
-	<div class='giftCardContainer' data-app-role="giftcardContainer">
-	<label for='giftcardCode'>Gift Certificate Code:</label>
-	<input type='text' name='giftcard' size='16'  data-app-event='orderCreate|addTriggerButtonClick' />
-	<button data-app-event='orderCreate|execGiftcardAdd'>add</button> 
-	<small data-app-role='giftcardHint' class='zhint hint displayNone'>if you wish to combine gift cards with another payment method, enter them here</small>
-	</div>
+<div id='chkoutMethodsPayTemplate'>	
 
 	<div data-app-role='paymentQContainer' class='marginBottom'>
 		<ul class='noPadOrMargin listStyleNone' data-bind='var: cart(@PAYMENTQ); format:processList; loadsTemplate:cartPaymentQTemplate;'></ul>
@@ -264,6 +257,13 @@ do NOT change any div id's or messaging will not work properly.
 		<div data-app-role='storedPaymentsContent' class='displayNone' data-bind="var: buyerWalletList(@wallets); format:processList; loadsTemplate: chkoutBuyerWalletListItem;"></div>
 
 
+	</div>
+    
+    <div class='giftCardContainer' data-app-role="giftcardContainer">
+	<label for='giftcardCode'>Gift Certificate Code:</label>
+	<input type='text' name='giftcard' size='16'  data-app-event='orderCreate|addTriggerButtonClick' />
+	<button data-app-event='orderCreate|execGiftcardAdd'>add</button> 
+	<small data-app-role='giftcardHint' class='zhint hint displayNone'>if you wish to combine gift cards with another payment method, enter them here</small>
 	</div>
 
 </div>
@@ -334,7 +334,7 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 		<button data-app-event="orderCreate|execCouponAdd" >add</button>
 	</div>
 
-	<button data-app-event="orderCreate|execCartOrderCreate">
+	<button class="checkoutButton" data-app-event="orderCreate|execCartOrderCreate">
 		Place Order
 	</button>
 
