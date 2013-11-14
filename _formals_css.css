@@ -212,7 +212,7 @@ li{
 	cursor: pointer;
     float: left;
     text-align: center;
-	margin-left: 32px;
+	margin-left: 37px;
 }
 .dropdownLinkContainer div a{
 	color: #909090;
@@ -1466,6 +1466,7 @@ div.productItemInfoContent span.prodListItemSavings span.savingsPercentage{
 	position:relative;
 	border:10px solid white;
 	margin:10px;
+	float:left;
 }
 .searchResultsProduct button.quickView{
 	background-color: rgba(230, 22, 82, 0.5);
@@ -2108,6 +2109,46 @@ div.checkoutButtonsContainer button.checkoutButton{
 	margin-top: 10px;
 }
 
+
+
+
+
+
+
+
+/***********************************************************************************************************************************/
+/***********************************************************************************************************************************/
+/*****SEARCH TEMPLATE****/
+
+/***********************************************************************************************************************************/
+/*****FILTERED SEARCH SIDEBAR****/
+.filterContainerSearch{
+	border: 1px solid #AAAAAA;
+    float: left;
+    width: 218px;
+	margin-right: 20px;
+}
+
+/***********************************************************************************************************************************/
+/*****PRODUCT LISTS CONTAINER****/
+.previewListContainer{
+	float: left;
+    width: 100%;
+}
+
+/***********************************************************************************************************************************/
+/*****FILTERED SEARCH RESULTS LIST****/
+.searchFilterResults{
+	list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/***********************************************************************************************************************************/
+/*****RESULTS LIST****/
+#resultsProductListContainer{
+}
 
 
 

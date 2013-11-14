@@ -38,10 +38,10 @@ var _store_filter = function() {
 //key is safe id. value is name of the filter form.
 	filterMap : {
 		
-			//TEST FORM - REMOVE BEFORE GOING LIVE
-			".shop_by_designer.ballgowns_by_mac_duggal":{
-			"filter": "masterFilterSearchForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			//SEARCH PAGE
+			"searchPage":{
+			"filter": "SearchPageFilterSearchForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			
 			//DESIGNER PAGES

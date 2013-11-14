@@ -464,6 +464,126 @@ app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',func
 		
 }]);
 
+app.rq.push(['templateFunction','searchTemplate','onCompletes',function(P) {
+	//if(P.preservePage){ alert("You hit the back button");}
+	
+	var $context = $(app.u.jqSelector('#',P.parentID));
+	var $page = $(app.u.jqSelector('#',P.parentID));
+	
+	//****FILTERED SEARCH CODE****
+	$('.fsCheckbox').attr('checked', false);
+	$("#resultsProductListContainer").show(); 
+	$(".searchFilterResults").hide();    
+	app.u.dump("BEGIN searchTemplate onCompletes for filtering");
+	var $form = $("[name='SearchPageFilterSearchForm']",'#appFilters').clone().appendTo($('.filterContainerSearch',$page));
+	$form.on('submit.filterSearch',function(event){
+		event.preventDefault()
+		app.u.dump(" -> Filter form submitted.");
+		app.ext._store_filter.a.execFilter($form,$page);
+				});
+	
+		if(typeof app.ext._store_filter.filterMap["searchPage"].exec == 'function')	{
+			app.ext._store_filter.filterMap["searchPage"].exec($form,P)
+			}
+	
+	//make all the checkboxes auto-submit the form.
+		$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+			$form.submit(); 
+			//app.u.dump("Filter search actvated");
+			$("#resultsProductListContainer").hide();  
+			
+			$group1 = $('.fsCheckbox');
+			if($group1.filter(':checked').length === 0){
+				//app.u.dump("All checkboxes removed. Filter search deactivated.");
+				$("#resultsProductListContainer", $context).show(); 
+				$(".searchFilterResults", $context).hide(); 
+				$(".resultsHeader", $context).show();   
+			}
+			else{
+				//app.u.dump("All checkboxes removed. Filter search still active.");
+				$("#resultsProductListContainer", $context).hide(); 
+				$(".searchFilterResults", $context).show();  
+				$(".resultsHeader", $context).hide();  
+			}  
+		});
+				
+			
+		
+		$('.resetButtonSearchPage', $context).click(function(){
+			$('.fsCheckbox').attr('checked', false);
+			$("#resultsProductListContainer").show(); 
+			$(".searchFilterResults").hide();    
+		});
+		
+		if($('.catGhostCell', $context).data('heightVal')){
+			var catGhostCellHeight = $('.catGhostCell', $context).data('heightVal');
+			app.u.dump("$('.catGhostCell', $context).data('heightVal') exists. Assigning height value");
+			$(".catGhostCell", $context).css("height",catGhostCellHeight);
+		}
+		else{
+			$('.catGhostCell', $context).data('heightVal', '').append();
+			app.u.dump("$('.catGhostCell', $context).data('heightVal') doesn't exists. Make it.");
+		}
+		
+		//ASSIGN EXPAND/COLLAPSE VALUES TO FILTER FORM
+		var $sidebarContext = $(".filterContainerSearch").parent().parent();
+		//app.u.dump($sidebarContext);
+		
+		if($('.filterPriceCat', $context).length){
+			$('.filterCategoryCont', '.filterPriceCat').show();
+			$('.filterCatTitle', '.filterPriceCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+			$('.filterPriceCat').data('collapseOrExpanded',true).append();
+		}
+		
+		if($('.filterDressTypeCat', $context).length){
+			$('.filterCategoryCont', '.filterDressTypeCat').show();
+			$('.filterCatTitle', '.filterDressTypeCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+			$('.filterDressTypeCat').data('collapseOrExpanded',true).append();
+		}
+		
+		if($('.filterDesignerCat', $context).length){
+			$('.filterCategoryCont', '.filterDesignerCat').show();
+			$('.filterCatTitle', '.filterDesignerCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+			$('.filterDesignerCat').data('collapseOrExpanded',true).append();
+		}
+		
+		if($('.filterColorCat', $context).length){
+			$('.filterCategoryCont', '.filterColorCat').show();
+			$('.filterCatTitle', '.filterColorCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+			$('.filterColorCat').data('collapseOrExpanded',true).append();
+		}
+		
+		if($('.filterHemlineCat', $context).length){
+			$('.filterCategoryCont', '.filterHemlineCat').show();
+			$('.filterCatTitle', '.filterHemlineCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+			$('.filterHemlineCat').data('collapseOrExpanded',true).append();
+		}
+		
+		if($('.filterSilhouetteCat', $context).length){
+			$('.filterCategoryCont', '.filterSilhouetteCat').show();
+			$('.filterCatTitle', '.filterSilhouetteCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+			$('.filterSilhouetteCat').data('collapseOrExpanded',true).append();
+		}
+		
+		if($('.filterNecklineCat', $context).length){
+			$('.filterCategoryCont', '.filterNecklineCat').show();
+			$('.filterCatTitle', '.filterNecklineCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+			$('.filterNecklineCat').data('collapseOrExpanded',true).append();
+		}
+		
+		if($('.filterSaleCat', $context).length){
+			$('.filterCategoryCont', '.filterSaleCat').show();
+			$('.filterCatTitle', '.filterSaleCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+			$('.filterSaleCat').data('collapseOrExpanded',true).append();
+		}
+		
+		if($('.filterTrendsCat', $context).length){
+			$('.filterCategoryCont', '.filterTrendsCat').show();
+			$('.filterCatTitle', '.filterTrendsCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+			$('.filterTrendsCat').data('collapseOrExpanded',true).append();
+		}
+}]);
+
 /*
 pp.rq.push(['templateFunction','categoryProductListTemplate','onDeparts',function(P) {
 	var $context = $(app.u.jqSelector('#',P.parentID));
