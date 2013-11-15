@@ -1183,7 +1183,7 @@ this will likely become more flexible in the future. ###
                         <a href='#' onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">Add to Wishlist</a>
                 	</menu>
                     <p> | </p>
-                    <a target="_blank" onclick="javascript:window.open('mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: + window.location');">Tell a friend</a> <!-- onclick="javascript:window.location='mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: ' + window.location;">Tell a friend</a>-->
+                    <a target="_blank" onclick="javascript:window.open('mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: ' + window.location);">Tell a friend</a> <!-- onclick="javascript:window.location='mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: ' + window.location;">Tell a friend</a>-->
                     <p> | </p>
                     <a onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>Write a Review</a>
                     <p> | </p>
@@ -1421,7 +1421,7 @@ this will likely become more flexible in the future. ###
                         <a href='#' onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">Add to Wishlist</a>
                 	</menu>
                     <p> | </p>
-                    <a target="_blank" onclick="javascript:window.open('mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: + window.location');">Tell a friend</a> <!-- onclick="javascript:window.location='mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: ' + window.location;">Tell a friend</a>-->
+                    <a target="_blank" onclick="javascript:window.open('mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: ' + window.location);">Tell a friend</a> <!-- onclick="javascript:window.location='mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: ' + window.location;">Tell a friend</a>-->
                     <p> | </p>
                     <a onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>Write a Review</a>
                     <p> | </p>
@@ -3607,7 +3607,7 @@ So the cart template should contain these two elements and the extension should 
 
 <section class='stdMargin'>
 
-	<div class='cartZipCodeContainer'>
+	<div class='cartZipCodeContainer displayNone';>
 	<label for='data-ship_zip'>Zip/Postal Code:</label>
 	<input type='text' size='6'  name='ship/postal' id='data-ship_zip' value='' data-bind='var: cart(ship/postal); format:popVal;' maxlength='10' onChange="app.calls.cartSet.init({'ship/postal':this.value, 'ship/region':''});
 	app.ext.store_cart.u.updateCartSummary();

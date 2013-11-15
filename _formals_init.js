@@ -118,7 +118,7 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			   $(".imageContainerBlocker", $context).hide();
 			   thumbObject.data('firstTimeHover',true).append();
 			   //app.u.dump("Setting firstTimeHover to true for " + $(this) + ".");
-		   }, 4000);
+		   }, 3000);
 		   //END CLICK BLOCK ACTIVATOR
 		   
 		  $('.largeImageContainer').zoom({
