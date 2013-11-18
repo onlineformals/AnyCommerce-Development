@@ -78,9 +78,14 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
 	<td>
 
 	<div id="loader">
-		<h3>One moment please.</h3>
 
 		<div class='alignCenter'>
+ 		
+        <img class="loadingAnimation" src="Images/loadingscreen/loading_animation_online_formals.gif" />
+        <img class="loadingLogo" src="Images/loadingscreen/logo.png" />
+        
+        <h3>Please wait while your showroom is loaded.</h3>
+        
 		<progress id="appPreViewProgressBar" max="100" value="0"></progress><br>
 		</div>
 		<div id='appPreViewProgressText'>0% Complete</div>
@@ -3282,7 +3287,7 @@ subscribeListsArticle is used for authenticated buyers
                 <p id='loginMessagingInline' class='marginBottom appMessaging'></p>
                 <div class="creatAccount">
                         <div id="gotAccount1"> 
-                                <h1 class='smallcaps'>WELCOME BACK</h1>
+                                <h1 class='smallcaps'>ALREADY HAVE AN ACCOUNT?</h1>
                                 <!-- Third parameter is id of message destination -->
                                 <form action='#' onSubmit='app.ext._store_formals.a.loginFrmSubmit($("input[name=login]",$(this)).val(),$("input[name=password]",$(this)).val(),$("#loginMessagingInline")); return false;' id='modalLoginForm1'>
                                         <input type='hidden' name='loginCallback' id='loginCallback' value='' /><!-- used to save a callback action in -->
@@ -3298,7 +3303,7 @@ subscribeListsArticle is used for authenticated buyers
                                 <!--<form action='#' class='inputsAsBreaks'  onSubmit="app.ext.myRIA.u.handleAppBuyerCreate($(this)); return false;">-->
                                 <form action='#' class='inputsAsBreaks'  onSubmit="app.ext._store_formals.u.handleAppLoginCreate($(this)); return false;">
                                         <input type="hidden" name="vendor" value="thesev"/>
-                                        <h1>First Time With Us?</h1><input type='hidden' name='form' value='wholesale' />
+                                        <h1>FIRST TIME WITH US?</h1><input type='hidden' name='form' value='wholesale' />
                                         <div class="fieldM"><span class="field">First Name</span> <input name='firstname' type='text' size='30' class='textfname' placeholder='First Name' required='required' />
                                         <span class="field mname">Middle Initial</span> <input name='middlename' type='text' size='3' class='textfmname' />
                                         <b>Last Name</b> <input name='lastname' type='text' size='30' placeholder='Last Name' required='required' class='textflast'/></div>
@@ -4011,13 +4016,13 @@ The 'data-action' attribute is used to assign an onclick.
         <div id='loginFormContainer'>
                 <div class='createAccount'>
                         <h1 class='smallcaps'>First Time With Us?</h1>
-                        <p>If you have never made a purchase at this web site and have never subscribed to this store's mailing list,
-                                please choose this option.</p>
+                        <p>If you have never made a purchase at Online Formals and have never subscribed to the mailing list,
+                                please click this option.</p>
                         <button class='modalCreateButton tertiaryColorHover' onClick="return showContent('customer',{'show':'createaccount'});">Create an Account</button>
                 </div>
 
                 <div id="gotAccount"> 
-                        <h1 class='smallcaps'>Welcome Back</h1>
+                        <h1 class='smallcaps'>Already Have An Account?</h1>
                         <!-- Third parameter is id of message destination -->
                         <form action='#' onSubmit='app.ext._store_formals.a.loginFrmSubmit($("input[name=login]",$(this)).val(),$("input[name=password]",$(this)).val(),$("#loginMessaging")); return false;' id='modalLoginForm'>
                                 <input type='hidden' name='loginCallback' id='loginCallback' value='' /><!-- used to save a callback action in -->

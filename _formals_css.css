@@ -20,6 +20,44 @@ li{
 }
 
 
+
+
+/***********************************************************************************************************************************/
+/***********************************************************************************************************************************/
+/*****appPreView TEMPLATE****/
+
+
+#loader h3{
+	color: #909090;
+    float: left;
+    margin-left: 25px;
+    margin-top: 10px;
+}
+
+.loadingAnimation{
+	clear: left;
+    float: left;
+}
+.loadingLogo{
+	float: left;
+    margin-top: 49px;
+}
+#appPreViewProgressBar{
+	clear: left;
+    float: left;
+    margin-left: 130px;
+    margin-top: 15px;
+	border: 1px solid #E61652;
+}
+progress::-moz-progress-bar { background: #E61652; }
+#appPreViewProgressText{
+	clear: left;
+    float: left;
+    margin-left: 160px;
+	color: #909090;
+}
+
+
 /***********************************************************************************************************************************/
 /***********************************************************************************************************************************/
 /*****HEADER****/
@@ -2151,6 +2189,58 @@ div.checkoutButtonsContainer button.checkoutButton{
 }
 
 
+
+
+
+
+
+
+
+/***********************************************************************************************************************************/
+/***********************************************************************************************************************************/
+/*****CUSTOMER TEMPLATES****/
+
+.sideline a{
+	color: #E61652;
+    font-weight: 500;
+}
+
+
+/***********************************************************************************************************************************/
+/*****ACCOUNT CREATION TEMPLATE****/
+.createAccount{
+}
+.createAccount h1{
+	color: #E61652;
+}
+.createAccount p{
+	color: #909090;
+}
+.createAccount button{
+	background-color: #E61652;
+    border: 0 none;
+    color: #FFFFFF;
+    padding: 7px;
+}
+
+#gotAccount{
+	margin-top: 30px;
+}
+#gotAccount h1{
+	color: #E61652;
+}
+#gotAccount form#modalLoginForm{
+}
+#gotAccount form#modalLoginForm fieldset input.ui-button-text{
+	background-color: #E61652;
+    border: 0 none;
+    color: #FFFFFF;
+	border-radius: 0;
+	margin-top: 10px;
+}
+#gotAccount a{
+	color: #909090;
+}
 
 
 
