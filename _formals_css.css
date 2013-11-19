@@ -2204,6 +2204,22 @@ div.checkoutButtonsContainer button.checkoutButton{
 	color: #E61652;
     font-weight: 500;
 }
+.mainColumn{
+	float: right;
+    margin-right: 10px;
+    width: 63%;
+}
+.mainColumn h1{
+	color: #E61652;
+}
+.mainColumn input.ui-button-text{
+	background-color: #E61652;
+    background-image: none;
+    border: 0 none;
+    border-radius: 0;
+    color: #FFFFFF;
+    padding: 7px;
+}
 
 
 /***********************************************************************************************************************************/
@@ -2241,6 +2257,47 @@ div.checkoutButtonsContainer button.checkoutButton{
 #gotAccount a{
 	color: #909090;
 }
+
+.creatAccount h1{
+	color: #E61652;
+}
+
+.creatAccount input.createButton {
+	background-color: #E61652;
+    border: medium none;
+    border-radius: 0;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 10px;
+    padding: 7px 10px;
+}
+.creatAccount input.ui-button-text{
+	background-color: #E61652;
+    border: medium none;
+    border-radius: 0;
+    color: #FFFFFF;
+    font-weight: 700;
+    padding: 7px 10px;
+}
+.creatAccount a{
+	color:#666666;
+}
+
+.creatAccount span{
+	color:#666666;
+	font-weight:bold;
+}
+.creatAccount b{
+	color:#666666;
+}
+.creatAccount div.selectField{
+	color:#666666;
+}
+.creatAccount select{
+	color:#666666;
+}
+
 
 
 
