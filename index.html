@@ -388,7 +388,7 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
                 	<li><a href="#homepage?." class="pointer bindByAnchor">Home</a></li>
                     <li><a href='#top' onClick="return showContent('company',{'show':'about'});" class="pointer">About Us</a></li>
                     <li><a href='#top' onClick="return showContent('company',{'show':'faq'});" class="pointer">FAQs</a></li>
-                    <li><a href="blog.onlineformals.com" target="_blank" class="pointer">Blog</a></li>
+                    <li><a href="http://blog.onlineformals.com" target="_blank" class="pointer">Blog</a></li>
                     <li><a href="" class="pointer">Testimonials</a></li>
                 </ul>
                 <ul class="footerLinkList">
@@ -1679,9 +1679,9 @@ this will likely become more flexible in the future. ###
         	<div class="sizeChartSectionTitleBar">
             	<h6>MEASURE</h6>
             </div>
-            <p><span>BUST</span> - Measure around the fullest part of your bust section.<br />(Without wearing a padded bra)</p>
-            <p><span>WAIST</span> - Measure around your natural waistline, making sure you keep the measuring tape snug, but not extremely tight. Approximately 1 1/2" - 2" above your belly button.</p>
-            <p><span>HIPS</span> - Measure around the fullest part of your hips. This is approxiamtely 8" below your waistline for Misses sizes or 7" for Petite sizes.</p>
+            <p><span>BUST</span> - Without wearing a padded bra, measure around the fullest part of your bust.</p>
+            <p><span>WAIST</span> - Measure around your natural waistline, which is approximately 2" above your belly button but different for every person! Be sure to keep the measuring tape snug but not extremely tight.</p>
+            <p><span>HIPS</span> - Measure around the fullest part of your hips with your feet together.</p>
         </div>
     </div>
     <div class="sizeChartStepTwoCont">
@@ -1693,7 +1693,7 @@ this will likely become more flexible in the future. ###
             <div class="sizeChartSectionTitleBar">
                 <h6>REFERENCE</h6>
             </div>
-            <p>Be sure to use the appropriate manufacturer size chart when making your dress selections. <br /><span>TIP</span> : If your size is in between, we recommend choosing the larger size.</p>
+            <p>Be sure to use the appropriate manufacturer size chart when making your size selection. <br /><span>TIP</span> : If your measurements are between sizes, we recommend choosing the larger size.</p>
             <ul>
             	<li><a onClick="app.ext._store_formals.a.sizingChartModalScrollToChart(525)">BG HAUTE</a></li>
                 <li><a onClick="app.ext._store_formals.a.sizingChartModalScrollToChart(735)">CASSANDRA STONE</a></li>
@@ -1739,7 +1739,7 @@ this will likely become more flexible in the future. ###
             <div class="sizeChartSectionTitleBar">
                 <h6>ORDER</h6>
             </div>
-            <p class="sizingModalStepThreeDesc">Order with confidence, knowing that you have selected a dress that is the correct size and will fit beautifully!</p>
+            <p class="sizingModalStepThreeDesc">Order with confidence! If you need any assistance in selecting your size, please contact us at 888-280-4179.</p>
             
             <!--BG HAUTE-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
@@ -4088,15 +4088,14 @@ The 'data-action' attribute is used to assign an onclick.
 
 
 
-<div id='loginFormForModal' class='loginOption displayNone' title='Please log in'>
+<div id='loginFormForModal' class='loginOption displayNone' title='Please Log In'>
         <!-- the contents of this div/id are toggled on/off when login/logout occurs. don't change the ID -->
         <p id='loginMessaging' class='marginBottom appMessaging'></p>
 
         <div id='loginFormContainer'>
                 <div class='createAccount'>
                         <h1 class='smallcaps'>First Time With Us?</h1>
-                        <p>If you have never made a purchase at Online Formals and have never subscribed to the mailing list,
-                                please click this option.</p>
+                        <p>Create an account to start your wish list and receive exclusive updates and fashionable news!</p>
                         <button class='modalCreateButton tertiaryColorHover' onClick="return showContent('customer',{'show':'createaccount'});">Create an Account</button>
                 </div>
 
@@ -4111,7 +4110,7 @@ The 'data-action' attribute is used to assign an onclick.
                                         <input type='submit' value='Log In' class='smallcaps ui-button-text ui-button ui-corner-all secondaryColorHover' />
                                 </fieldset>
                         </form>
-                        <a href="#" onClick="app.calls.appBuyerPasswordRecover.init($('input[name=login]', $(this).parent()).val(),{'callback':'showMessaging','message':'Thank you, will receive an email shortly','targetID':'loginMessaging'}); app.model.dispatchThis('immutable'); return false;">Forgot your password?<br> Enter your username and click hear to retrieve it!</a>
+                        <a href="#" onClick="app.calls.appBuyerPasswordRecover.init($('input[name=login]', $(this).parent()).val(),{'callback':'showMessaging','message':'Thank you, will receive an email shortly','targetID':'loginMessaging'}); app.model.dispatchThis('immutable'); return false;">Forgot your password?<br> Enter your e-mail address and click here to retrieve it!</a>
                 </div>
         </div><!-- /recoverPasswordContainer -->
         <div id='loginSuccessContainer' class='center displayNone'>

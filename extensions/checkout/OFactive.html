@@ -155,7 +155,7 @@ This template is also used in the myAccount page, which is why a default using _
 
 	<div class='billCountry' data-app-role='billCountry'><select name='bill/countrycode' data-bind='var: cart(bill/countrycode); defaultVar: cart(bill/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;' required='required' data-app-event="orderCreate|execCountryUpdate" ></select></div>
 
-	<div><input type='tel' name='bill/phone' placeholder='phone number' required='required' value='' data-bind='var: cart(bill/phone); defaultVar: cart(bill/phone); format:popVal;'  /> <span class='hint zhint'>in case of billing/delivery problems</span></div>
+	<div><input type='tel' name='bill/phone' placeholder='phone number' required='required' value='' data-bind='var: cart(bill/phone); defaultVar: cart(bill/phone); format:popVal;'  /> <span class='hint zhint'></span></div>
 
 </section>
 
@@ -297,7 +297,7 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 <table class='fullWidth gridTable'>
 <thead>
 <tr>
-	<th colspan='2' class='alignLeft'>product information</th>
+	<th colspan='2' class='alignLeft'>Product Information</th>
 	<th class='alignRight'>qty</th>
 	<th class='alignRight'>price</th>
 	<th class='alignRight'>item total</th>
