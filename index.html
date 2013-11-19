@@ -389,7 +389,7 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
                     <li><a href='#top' onClick="return showContent('company',{'show':'about'});" class="pointer">About Us</a></li>
                     <li><a href='#top' onClick="return showContent('company',{'show':'faq'});" class="pointer">FAQs</a></li>
                     <li><a href="http://blog.onlineformals.com" target="_blank" class="pointer">Blog</a></li>
-                    <li><a href="" class="pointer">Testimonials</a></li>
+                    <li><a href="#!category?navcat=.testimonials" class="pointer bindByAnchor">Testimonials</a></li>
                 </ul>
                 <ul class="footerLinkList">
                 	<li><a href='#top' onClick="return showContent('company',{'show':'contact'});" class="pointer">Contact Us</a></li>
@@ -921,6 +921,23 @@ don't modify the 'data-templateid' unless you are changing template names and up
             </div>
     	</div>    
     </div>
+</div>
+
+
+<div id='testimonialsTemplate' class='loadingBG categoryTemplate'>
+	<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+
+	<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" src='images/blank.gif' alt='' />
+
+	<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
+
+	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+
+	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
+
+	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
+
+	<p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 </div>
 
 

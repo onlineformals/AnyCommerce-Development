@@ -19,7 +19,9 @@
 var _store_formals = function() {
 	var r= {
 		vars : {
-			catTemplates : {	
+			catTemplates : {
+				".testimonials" : "testimonialsTemplate",	
+			
 				".designers.bg_haute" : "categoryProductListTemplate",
 				".designers.cassandra_stone" : "categoryProductListTemplate",
 				".designers.faviana" : "categoryProductListTemplate",
