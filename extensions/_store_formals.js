@@ -180,6 +180,7 @@ var _store_formals = function() {
 			},
 			homepageCategoryMouseOut : function($tag) {
 				//app.u.dump("mouse over function successully ran.")
+				$(".homepageCatTitleBar", $tag).css({'background':'none'});
 				$(".homepageCatTitleBar", $tag).css({'background-color':'rgba(900,900,900,.8)'});
 				$(".homepageCatTitle", $tag).css({'color':'#333333'});
 			},
@@ -197,14 +198,14 @@ var _store_formals = function() {
 			homepageCarouselProdItemMouseOver : function($tag) {
 				//app.u.dump("mouse over function successully ran.")
 				$tag.css({'border':'10px solid #e61652'});
-				$(".productItemInfo", $tag).css({'background-color':'rgba(230,22,82,.5)'});
+				//$(".productItemInfo", $tag).css({'background-color':'rgba(230,22,82,.5)'});
 				$(".productItemInfoContent", $tag).hide();
 				$(".productItemInfoMoreInfo", $tag).show();
 			},
 			homepageCarouselProdItemMouseOut : function($tag) {
 				//app.u.dump("mouse over function successully ran.")
 				$tag.css({'border':'10px solid white'});
-				$(".productItemInfo", $tag).css({'background-color':'rgba(900,900,900,.8)'});
+				//$(".productItemInfo", $tag).css({'background-color':'rgba(900,900,900,.8)'});
 				$(".productItemInfoContent", $tag).show();
 				$(".productItemInfoMoreInfo", $tag).hide();
 			},
