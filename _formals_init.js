@@ -46,6 +46,19 @@ app.rq.push(['script',0,app.vars.baseURL+'resources/jquery.ui.anyplugins.js']); 
 //add tabs to product data.
 //tabs are handled this way because jquery UI tabs REALLY wants an id and this ensures unique id's between product
 app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
+	
+	//INTERNET EXPLORER WARNING MESSAGE
+	if($('.headerIE8WarningCont').data('messageShown')){
+	}
+	else{
+		$('.headerIE8WarningCont').data('messageShown',false);
+	}
+	if($('.headerIE8WarningCont').data('messageShown') === false)
+	{
+		$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+		$('.headerIE8WarningCont').data('messageShown',true).append();
+	}
+	
 	var $context = $(app.u.jqSelector('#',P.parentID));
 	var $tabContainer = $( ".tabbedProductContent",$context);
 		if($tabContainer.length)	{
@@ -141,6 +154,19 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 }]);
 	
 app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
+	
+	//INTERNET EXPLORER WARNING MESSAGE
+	if($('.headerIE8WarningCont').data('messageShown')){
+	}
+	else{
+		$('.headerIE8WarningCont').data('messageShown',false);
+	}
+	if($('.headerIE8WarningCont').data('messageShown') === false)
+	{
+		$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+		$('.headerIE8WarningCont').data('messageShown',true).append();
+	}
+	
 	//Carousel horizontal sliders - homepage banner
 	function carouselHPBanner(){ $(".carouselHPBannerList").carouFredSel
 	({
@@ -207,6 +233,18 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 
 
 app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
+	
+	//INTERNET EXPLORER WARNING MESSAGE
+	if($('.headerIE8WarningCont').data('messageShown')){
+	}
+	else{
+		$('.headerIE8WarningCont').data('messageShown',false);
+	}
+	if($('.headerIE8WarningCont').data('messageShown') === false)
+	{
+		$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+		$('.headerIE8WarningCont').data('messageShown',true).append();
+	}
 	
 	var $context = $(app.u.jqSelector('#',P.parentID));
 	
@@ -582,6 +620,111 @@ app.rq.push(['templateFunction','searchTemplate','onCompletes',function(P) {
 			$('.filterCatTitle', '.filterTrendsCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
 			$('.filterTrendsCat').data('collapseOrExpanded',true).append();
 		}
+}]);
+
+app.rq.push(['templateFunction','companyTemplate','onCompletes',function(P) {
+	//INTERNET EXPLORER WARNING MESSAGE
+	if($('.headerIE8WarningCont').data('messageShown')){
+	}
+	else{
+		$('.headerIE8WarningCont').data('messageShown',false);
+	}
+	if($('.headerIE8WarningCont').data('messageShown') === false)
+	{
+		$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+		$('.headerIE8WarningCont').data('messageShown',true).append();
+	}
+}]);
+app.rq.push(['templateFunction','customerTemplate','onCompletes',function(P) {
+	//INTERNET EXPLORER WARNING MESSAGE
+	if($('.headerIE8WarningCont').data('messageShown')){
+	}
+	else{
+		$('.headerIE8WarningCont').data('messageShown',false);
+	}
+	if($('.headerIE8WarningCont').data('messageShown') === false)
+	{
+		$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+		$('.headerIE8WarningCont').data('messageShown',true).append();
+	}
+}]);
+app.rq.push(['templateFunction','searchTemplate','onCompletes',function(P) {
+	//INTERNET EXPLORER WARNING MESSAGE
+	if($('.headerIE8WarningCont').data('messageShown')){
+	}
+	else{
+		$('.headerIE8WarningCont').data('messageShown',false);
+	}
+	if($('.headerIE8WarningCont').data('messageShown') === false)
+	{
+		$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+		$('.headerIE8WarningCont').data('messageShown',true).append();
+	}
+}]);
+app.rq.push(['templateFunction','testimonialsTemplate','onCompletes',function(P) {
+	//INTERNET EXPLORER WARNING MESSAGE
+	if($('.headerIE8WarningCont').data('messageShown')){
+	}
+	else{
+		$('.headerIE8WarningCont').data('messageShown',false);
+	}
+	if($('.headerIE8WarningCont').data('messageShown') === false)
+	{
+		$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+		$('.headerIE8WarningCont').data('messageShown',true).append();
+	}
+}]);
+app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',function(P) {
+	//INTERNET EXPLORER WARNING MESSAGE
+	if($('.headerIE8WarningCont').data('messageShown')){
+	}
+	else{
+		$('.headerIE8WarningCont').data('messageShown',false);
+	}
+	if($('.headerIE8WarningCont').data('messageShown') === false)
+	{
+		$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+		$('.headerIE8WarningCont').data('messageShown',true).append();
+	}
+}]);
+app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
+	//INTERNET EXPLORER WARNING MESSAGE
+	if($('.headerIE8WarningCont').data('messageShown')){
+	}
+	else{
+		$('.headerIE8WarningCont').data('messageShown',false);
+	}
+	if($('.headerIE8WarningCont').data('messageShown') === false)
+	{
+		$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+		$('.headerIE8WarningCont').data('messageShown',true).append();
+	}
+}]);
+app.rq.push(['templateFunction','checkoutTemplate','onCompletes',function(P) {
+	//INTERNET EXPLORER WARNING MESSAGE
+	if($('.headerIE8WarningCont').data('messageShown')){
+	}
+	else{
+		$('.headerIE8WarningCont').data('messageShown',false);
+	}
+	if($('.headerIE8WarningCont').data('messageShown') === false)
+	{
+		$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+		$('.headerIE8WarningCont').data('messageShown',true).append();
+	}
+}]);
+app.rq.push(['templateFunction','pageNotFoundTemplate','onCompletes',function(P) {
+	//INTERNET EXPLORER WARNING MESSAGE
+	if($('.headerIE8WarningCont').data('messageShown')){
+	}
+	else{
+		$('.headerIE8WarningCont').data('messageShown',false);
+	}
+	if($('.headerIE8WarningCont').data('messageShown') === false)
+	{
+		$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+		$('.headerIE8WarningCont').data('messageShown',true).append();
+	}
 }]);
 
 /*

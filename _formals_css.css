@@ -212,6 +212,11 @@ progress::-moz-progress-bar { background: #E61652; }
     text-decoration: none;
 }
 
+.headerIE8WarningCont{
+	z-index:5;
+	position:absolute;
+}
+
 /***********************************************************************************************************************************/
 /**HEADER BOTTOM AREA**/
 .headerBottomSect{
@@ -251,7 +256,7 @@ progress::-moz-progress-bar { background: #E61652; }
 	cursor: pointer;
     float: left;
     text-align: center;
-	margin-left: 30px;
+	margin-left: 25px;
 }
 .dropdownLinkContainer div a{
 	color: #909090;

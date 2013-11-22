@@ -162,6 +162,7 @@ var _store_formals = function() {
 						height += $(this).outerHeight(true);
 					});*/
 					$dropdown.stop().animate({"height":height+"px"}, 500);
+					$dropdown.css({'border-top':'7px dotted #909090'});
 					$dropdown.css({'border-top':'7px dotted rgba(200, 200, 200, 0.5)'});
 					$dropdown.css({'border-bottom':'10px solid #E61652'});
 				},
