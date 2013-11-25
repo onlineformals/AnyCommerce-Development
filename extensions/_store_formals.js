@@ -295,8 +295,7 @@ var _store_formals = function() {
 				}
 			},
 			
-			money : function($tag,data)	{
-			
+			money : function($tag,data)	{			
 //			app.u.dump('BEGIN view.formats.money');
 			var amount = data.bindData.isElastic ? (data.value / 100) : data.value;
 			if(amount)	{
@@ -318,6 +317,13 @@ var _store_formals = function() {
 					}
 				}
 			}, //money
+			vimeoVideo : function($tag,data){
+			var width = data.bindData.width ? data.bindData.width : 560
+			var height = data.bindData.height ? data.bindData.height : 315
+			var r = "<iframe width='"+width+"' height='"+height+"' src='"+(document.location.protocol === 'https:' ? 'https:' : 'http:')+"//player.vimeo.com/video/"+data.value+"' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
+			$tag.append(r);
+			},
+			
 		}
 	}
 	return r;

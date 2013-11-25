@@ -1391,6 +1391,9 @@ this will likely become more flexible in the future. ###
                         	<div data-bind="var: product(user:youtube_videoid); format: assignAttribute; attribute: data-youtubeid;">
                                 <img class="pointer" src="blank.gif" data-bind="var: product(user:youtube_videoid); format:youtubeThumbnail; extension:myRIA;" onClick="app.ext.myRIA.a.showYoutubeInModal($(this).parent().data('youtubeid')); return false;" alt="" />
                             </div>
+                            <div data-bind="var: product(user:vimeo_videoid); format: assignAttribute; attribute: data-vimeoid;">
+                            	<div data-bind='var: product(user:vimeo_videoid); format:vimeoVideo; extension:_store_formals;'></div>
+                            </div>
                             <!--<div data-bind='var:product(youtube_videoid);format:assignAttribute; attribute:data-videoid;' onClick="app.ext.myRIA.a.showYoutubeInModal($(this).attr('data-videoid'));"></div>-->
                             <!--<div data-bind='var: product(user:youtube_videoid); format:youtubeVideo;'></div>-->
                         </div>
