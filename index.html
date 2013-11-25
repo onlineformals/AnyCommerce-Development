@@ -905,7 +905,10 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='categoryProductListTemplate' class='loadingBG categoryTemplate' data-app-role='categoryPage'>
 
 	<div class="centeringContainer">
-    	<img class="searchTab" onClick="app.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent());" src="Images/categorypage/filteredsearch/search_tab.png" />
+    	<div class="searchTab">
+        	<img onClick="app.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent());" src="Images/categorypage/filteredsearch/search_tab.png" />
+        	<p>Can't find what your looking for? Try adding filters to your search!</p>
+        </div>
     	<div class="catProdListSidebar">
         	<!--
             <img class="floatRight" onClick="app.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent().parent());" src="Images/categorypage/filteredsearch/search_tab_open.png" />

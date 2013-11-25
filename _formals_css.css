@@ -1506,7 +1506,17 @@ catProdListProductListCont div.loadingBG{
     position: absolute;
     top: -20px;
 	left:0;
-	z-index:4;
+}
+.searchTab img{
+	position: absolute;
+    z-index: 4;
+}
+.searchTab p{
+	color: #909090;
+    float: right;
+    margin-left: 70px;
+    width: 205px;
+	
 }
 
 div.productItemInfoContent h5.prodListItemProdMSRP{
