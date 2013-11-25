@@ -205,7 +205,11 @@ progress::-moz-progress-bar { background: #E61652; }
 }
 .headerSearchContainer p{
 	color: #666666;
-	font-size:14px;
+    float: left;
+    font-size: 14px;
+    margin-left: 5px;
+    margin-right: 3px;
+	margin-top:2px;
 }
 .headerSearchContainer a{
 	color: #E61552;
@@ -215,6 +219,10 @@ progress::-moz-progress-bar { background: #E61652; }
 .headerIE8WarningCont{
 	z-index:5;
 	position:absolute;
+}
+
+#scNnon{
+	float: left;
 }
 
 /***********************************************************************************************************************************/
