@@ -1347,7 +1347,7 @@ this will likely become more flexible in the future. ###
                             <li class='prodSizeChartTab'><a href='#prodSizeChart'>SIZE CHART</a></li>
                             <li class='prodReviewsTab'><a href='#prodReviews'>REVIEWS</a></li>
                             <li class='prodAccessoriesTab displayNone' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a href='#prodAccessories'>ACCESSORIES</a></li>
-                            <li class='prodVideoTab displayNone' data-bind='var: product(user:youtube_videoid); format:showIfSet;'><a href='#prodVideo'>VIDEOS</a></li>
+                            <li class='prodVideoTab'><a href='#prodVideo'>VIDEOS</a></li>
                         </ul>
                     
                         <!--
@@ -1388,6 +1388,11 @@ this will likely become more flexible in the future. ###
                         </div>
                         
                         <div class='tabContent' data-anytab-content='prodVideo'>
+                        	<div data-bind='var: product(user:youtube_videoid); format:hideIfSet;'>
+                            	<div data-bind='var: product(user:vimeo_videoid); format:hideIfSet;'>
+                                	<p>No videos have been uploaded for this product yet.</p>
+                                </div>
+                            </div>
                         	<div data-bind="var: product(user:youtube_videoid); format: assignAttribute; attribute: data-youtubeid;">
                                 <img class="pointer" src="blank.gif" data-bind="var: product(user:youtube_videoid); format:youtubeThumbnail; extension:myRIA;" onClick="app.ext.myRIA.a.showYoutubeInModal($(this).parent().data('youtubeid')); return false;" alt="" />
                             </div>
