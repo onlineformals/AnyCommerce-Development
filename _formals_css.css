@@ -1516,7 +1516,7 @@ catProdListProductListCont div.loadingBG{
     float: right;
     margin-left: 70px;
     width: 240px;
-	
+	margin-top:10px;
 }
 
 div.productItemInfoContent h5.prodListItemProdMSRP{
