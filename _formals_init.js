@@ -19,6 +19,7 @@ app.rq.push(['extension',0,'myRIA','app-quickstart.js','startMyProgram']);
 //CUSTOM EXTENSIONS
 app.rq.push(['extension',0,'_store_formals','extensions/_store_formals.js']);
 app.rq.push(['extension',0,'prodlist_infinite','extensions/prodlist_infinite.js']);
+app.rq.push(['extension',0,'_store_banner','extensions/_store_banner.js']);
 
 app.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.2.1/jquery.carouFredSel-6.2.1-packed.js']);
 app.rq.push(['script',0,app.vars.baseURL+'zoom-master/jquery.zoom.js']);
@@ -249,7 +250,7 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 	var $context = $(app.u.jqSelector('#',P.parentID));
 	
 	//Carousel horizontal sliders - category banner
-	function carouselCPBanner(){ $(".carouselCPBannerList", $context).carouFredSel
+	/*function carouselCPBanner(){ $(".carouselCPBannerList", $context).carouFredSel
 	({
 		width   : 960,
 		//height	: 440,
@@ -261,6 +262,7 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 	});
 	}
 	setTimeout(carouselCPBanner, 2000);
+	
 	
 	
 		//Carousel title bar - homepage product lists
@@ -298,6 +300,7 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
     	$(".catProductListTitleCarousel").trigger("prev", 1);
 		$(".catProductListCarouselContainer").trigger("prev", 1);
     });
+	*/
 }]);
 
 
