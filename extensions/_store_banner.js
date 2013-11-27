@@ -39,15 +39,7 @@ var _store_banner = function() {
                                 }).fail(function(){app.u.throwMessage("BANNERS FAILED TO LOAD - there is a bug in _banners.json"); app.u.dump("BANNERS FAILED TO LOAD - there is a bug in _banners.json");});
                                 //if there is any functionality required for this extension to load, put it here. such as a check for async google, the FB object, etc. return false if dependencies are not present. don't check for other extensions.
                                 r = true;
-
-                                app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P){
-										var $context = $(app.u.jqSelector('#',P.parentID));
-                                        app.ext._store_banner.u.showCategoryBanners($context);
-                                }])
-								app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',function(P){
-										var $context = $(app.u.jqSelector('#',P.parentID));
-                                        app.ext._store_banner.u.showCategoryBanners($context);
-                                }])
+								
                                 return r;
                                 },
                         onError : function()        {

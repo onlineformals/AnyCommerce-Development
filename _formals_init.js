@@ -301,6 +301,9 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 		$(".catProductListCarouselContainer").trigger("prev", 1);
     });
 	*/
+	
+	
+	app.ext._store_banner.u.showCategoryBanners($context);
 }]);
 
 
@@ -502,7 +505,7 @@ app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',func
 			$('.filterTrendsCat').data('collapseOrExpanded',true).append();
 		}
 		
-		
+		app.ext._store_banner.u.showCategoryBanners($context);		
 }]);
 
 app.rq.push(['templateFunction','searchTemplate','onCompletes',function(P) {

@@ -17,6 +17,14 @@
                         "title"              : "testtwo",
 						"height"		 	 : "400",
                         "prodLink"           : "BG14-EO1015"
+                },
+				
+				"promdesignersjaszcouture" : {
+                        "src"                : "T/testimage1.png",  
+                        "alt"                : "testtwo",
+                        "title"              : "testtwo",
+						"height"		 	 : "400",
+                        "prodLink"           : "BG14-EO1015"
                 }
         }
 }
