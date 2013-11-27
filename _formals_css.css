@@ -1702,6 +1702,7 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
     left: 42px;
     position: absolute;
     top: -9px;
+	width: 350px;
 }
 /***********************************************************************************************************************************/
 /*****CONTENT CONTAINER****/
