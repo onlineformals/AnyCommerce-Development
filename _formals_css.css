@@ -162,9 +162,9 @@ progress::-moz-progress-bar { background: #E61652; }
 .headerSearchContainer{
 	float: right;
     height: 85px;
-    margin-right: 60px;
+    margin-right: 55px;
     margin-top: 45px;
-    width: 300px;
+    width: 305px;
 }
 .headerSearchContainer form{
 	margin: 0;
@@ -264,7 +264,7 @@ progress::-moz-progress-bar { background: #E61652; }
 	cursor: pointer;
     float: left;
     text-align: center;
-	margin-left: 25px;
+	margin-left: 35px;
 }
 .dropdownLinkContainer div a{
 	color: #909090;
@@ -309,7 +309,7 @@ progress::-moz-progress-bar { background: #E61652; }
 	margin-top:10px;
 }
 .navBarDesigner{
-	margin-left: 0;
+	margin-left: 10px;
 }
 .navBarProm{
 }

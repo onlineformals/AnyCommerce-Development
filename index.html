@@ -50,6 +50,21 @@ css files should be included before any .js file to ensure they are downloaded i
 <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700' rel='stylesheet' type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Maven+Pro:400,500,900,700' rel='stylesheet' type='text/css'>
 
+<!--CUSTOM INLINE STYLING FOR IE8's RETARDEDNESS-->
+<!--[if gte IE 8]>
+    <style type="text/css">
+        
+        .dropdownLinkContainer{
+            margin-left: 29px;
+        }
+
+        .navBarDesigner{
+            margin-left: 8px;
+        }
+    </style>
+<![endif]-->
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="resources/jquery.ui.widget.min.js"></script><!-- here so that plugins that may load before the jqueryui lib load without error -->
 <script type="text/javascript" src="loadscript.js"></script>
@@ -159,6 +174,7 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
 		<div class="centeringContainer">
 			<div class="topNavContainer">
                 <div class="navBarDesigner dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
+                
                     <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.designers'});"><a>DESIGNERS</a></div>
                 	<div class="dropdown headerDropdown leftAlign">
                         <ul>
