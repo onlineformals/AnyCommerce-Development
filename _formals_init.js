@@ -371,6 +371,11 @@ var filterForNum = 0;
 
 app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',function(P) {
 	var $context = $(app.u.jqSelector('#',P.parentID));
+	
+	$('.fsCheckbox').attr('checked', false);
+	$(".nativeProductList").show(); 
+	$(".searchFilterResults").hide();
+	
 	//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 	
 	app.ext._store_filter.vars.catPageID = $(app.u.jqSelector('#',P.parentID));  
@@ -397,14 +402,32 @@ app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',func
 	
 	//make all the checkboxes auto-submit the form.
 			$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
-				$form.submit();      
-				});
-			}
+				$form.submit(); 
+				//app.u.dump("Filter search actvated");
+				$("#resultsProductListContainer").hide();  
+				
+				$group1 = $('.fsCheckbox');
+				if($group1.filter(':checked').length === 0){
+					//app.u.dump("All checkboxes removed. Filter search deactivated.");
+					$(".nativeProductList", $context).show(); 
+					$(".searchFilterResults", $context).hide(); 
+				}
+				else{
+					//app.u.dump("All checkboxes removed. Filter search still active.");
+					$(".nativeProductList", $context).hide(); 
+					$(".searchFilterResults", $context).show();  
+				}  
+			});
 		}
+	}
+		
+				
+			
 		
 		$('.resetButton', $context).click(function(){
-		$context.empty().remove();
-		showContent('category',{'navcat':P.navcat});
+			$('.fsCheckbox').attr('checked', false);
+			$(".nativeProductList").show(); 
+			$(".searchFilterResults").hide();    
 		});
 		
 		//**ADD ID/FOR VALUES FOR CHECKBOX VISUAL MODIFIER**
