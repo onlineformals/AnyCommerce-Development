@@ -1804,6 +1804,7 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 	float: left;
     margin-bottom: 5px;
     margin-top: 10px;
+	width: 450px;
 }
 
 .tabbedProductContentTD{
