@@ -207,7 +207,6 @@ progress::-moz-progress-bar { background: #E61652; }
 	color: #666666;
     float: left;
     font-size: 14px;
-    margin-left: 5px;
     margin-right: 3px;
 	margin-top:2px;
 }
