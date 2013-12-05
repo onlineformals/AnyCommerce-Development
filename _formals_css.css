@@ -209,6 +209,7 @@ progress::-moz-progress-bar { background: #E61652; }
     font-size: 14px;
     margin-right: 3px;
 	margin-top:2px;
+	margin-left:0;
 }
 .headerSearchContainer a{
 	color: #E61552;
