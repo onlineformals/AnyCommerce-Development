@@ -335,6 +335,9 @@ if the P.pid and data-pid do not match, empty the modal before openeing/populati
 					app.calls.appReviewAdd.init(frmObj,{"callback":"showMessaging","parentID":formID,"message":"Thank you for your review. Pending approval, it will be added to the store."},'mutable');
 					app.model.dispatchThis('mutable');
 					$('#'+formID).hide(); //hide existing form to avoid confusion.
+					//app.u.dump("Begin review modal closing functionality");
+					//app.u.dump($("#reviewFrmTemplate"))
+					$("#review-modal").dialog('close');
 					}
 				else	{
 					//report errors.
