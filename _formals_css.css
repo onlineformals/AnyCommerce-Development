@@ -162,12 +162,12 @@ progress::-moz-progress-bar { background: #E61652; }
 .headerSearchContainer{
 	float: right;
     height: 85px;
-    margin-right: 55px;
+    margin-right: 45px;
     margin-top: 45px;
-    width: 305px;
+    width: 315px;
 }
 .headerSearchContainer form{
-	margin: 0;
+	margin: 0 0 0 5px;
     padding: 0;
     width: 300px;
 }
@@ -207,9 +207,9 @@ progress::-moz-progress-bar { background: #E61652; }
 	color: #666666;
     float: left;
     font-size: 14px;
-    margin-right: 1px;
-	margin-top: 2px;
-	margin-left: 0;
+    margin-left: 1px;
+    margin-right: 3px;
+    margin-top: 2px;
 }
 .headerSearchContainer a{
 	color: #E61552;
