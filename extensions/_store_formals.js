@@ -277,12 +277,12 @@ var _store_formals = function() {
                                                 }
                                         }
                                         
-                                        formObj._vendor = "OF";
+                                        formObj._vendor = "onlineformals";
                                         app.calls.appBuyerCreate.init(formObj,tagObj,'immutable');
                                         app.model.dispatchThis('immutable');
                                 }
                                 else {
-                                        $('#globalMessaging').anymessage({'message':'$form not passed into myRIA.u.handleBuyerAccountCreate','gMessage':true});
+                                        $('#globalMessaging').anymessage({'message':'$form not passed into _store_formals.u.handleBuyerAccountCreate','gMessage':true});
                                 }
                         }
 		},//END u FUNCTIONS
