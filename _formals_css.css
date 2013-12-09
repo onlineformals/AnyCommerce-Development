@@ -2365,6 +2365,15 @@ div.checkoutButtonsContainer button.checkoutButton{
 #contactForm{
 }
 
+.contactContentContainer div#scnXRT{
+	display: block !important;
+    margin-bottom: 12px;
+}
+.contactUsChat{
+	display: inline-block;
+    float: left;
+}
+
 
 
 
