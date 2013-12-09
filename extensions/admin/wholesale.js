@@ -56,7 +56,29 @@ var admin_wholesale = function() {
 //you may or may not need it.
 				app.u.dump('BEGIN admin_wholesale.callbacks.init.onError');
 				}
-			}
+			}, //INIT
+
+
+		wholesaleSearchResults: {
+			onSuccess : function(_rtag)	{
+				if(_rtag.jqObj)	{
+					if(_rtag.datapointer && app.data[_rtag.datapointer])	{
+						if(app.data[_rtag.datapointer]['@ROWS'].length)	{
+							_rtag.jqObj.anycontent(_rtag);
+							}
+						else	{
+							$('#globalMessaging').anymessage({"message":"There were zero items returns in your search of warehouse "+_rtag.jqObj.closest("[data-app-role='slimLeftContainer']").data("geo")+"."});
+							}
+						}
+					else	{
+						$('#globalMessaging').anymessage({"message":"In admin_wholesale.callbacks.wholesaleSearchResults, either _rtag.datapointer ["+_rtag.datapointer+"] is empty or app.data[rd.datapointer] [typeof: "+typeof app.data[rd.datapointer]+"] is empty.","gMessage":true});
+						}
+					}
+				else	{
+					$('#globalMessaging').anymessage({"message":"In admin_wholesale.callbacks.wholesaleSearchResults, no jqObj specified in _tag/_rtag.","gMessage":true});
+					}
+				}
+			} //wholesaleSearchResults
 		}, //callbacks
 
 
@@ -76,19 +98,53 @@ var admin_wholesale = function() {
 						"<button data-app-event='admin|refreshDMI'>Refresh Coupon List<\/button>",
 						"<button data-app-event='admin_wholesale|warehouseCreateShow' data-title='Create a New Warehouse'>Add Warehouse</button>"
 						],
-					'thead' : ['ID','Code','Title','State','Zip','Latency','Cutoff','Created',''],
-					'tbodyDatabind' : "var: users(@WAREHOUSES); format:processList; loadsTemplate:warehouseResultsRowTemplate;",
+					'thead' : ['Code','Zone','Title','Zone Type','Preference','# Positions',''],
+					'tbodyDatabind' : "var: users(@ROWS); format:processList; loadsTemplate:warehouseResultsRowTemplate;",
 					'cmdVars' : {
 						'_cmd' : 'adminWarehouseList',
+						'zones' : 1,
 						'_tag' : {
 							'datapointer':'adminWarehouseList'
 							}
 						}
 					});
 				app.model.dispatchThis('mutable');
+				}, //showWarehouseManager
+
+			showWarehouseUtilities : function($target){
+				$target.intervaledEmpty();
+				$target.anycontent({'templateID':'whimInterfaceTemplate','data':{}});
+				$target.showLoading({'message':'Fetching list of warehouses'})
+				app.model.addDispatchToQ({
+						'_cmd' : 'adminWarehouseList',
+						'_tag' : {
+							'datapointer':'adminWarehouseList',
+							'callback': function(rd)	{
+if(app.model.responseHasErrors(rd)){
+	$target.anymessage({'message':rd});
+	}
+else	{
+	$target.anycontent(rd);
+	var whim = app.model.dpsGet('admin_wholesale','whim') || {};
+//	app.u.dump(" -> dps.whim: "); app.u.dump(whim);
+	if(whim.geo)	{
+		$("[data-geo='666']",$target).trigger('click',{'skipDPSUpdate':true})
+		}
+	}
+
+								},
+							'translateOnly' : true,
+							'jqObj' : $target
+							}
+						},'mutable');
+				app.model.dispatchThis('mutable');
+				
+				$("[data-app-role='slimLeftNav']",$target).accordion();
+				//target is likely a tab and I don't want to delegate to a tab at this time.
+				app.u.handleEventDelegation($("[data-app-role='slimLeftNav']",$target));
+				app.u.handleEventDelegation($("[data-app-role='slimLeftContentSection']",$target));
 				},
 
-			
 			showPriceSchedules : function($target)	{
 				$target.empty();
 				app.ext.admin.i.DMICreate($target,{
@@ -110,8 +166,7 @@ var admin_wholesale = function() {
 					});
 				app.model.dispatchThis('mutable');
 				},
-			
-			
+
 			showOrganizationManager : function($target,vars)	{
 //				app.u.dump("BEGIN admin_wholesale.a.showOrganizationManager");
 				vars = vars || {};
@@ -131,7 +186,7 @@ var admin_wholesale = function() {
 					}
 				
 				}, //showOrganizationManager
-			
+
 			showOrganizationEditor : function($target,vars)	{
 				app.u.dump("BEGIN admin_wholesale.a.showOrganizationEditor");
 				if($target && vars && vars.orgID)	{
@@ -161,11 +216,11 @@ var admin_wholesale = function() {
 					$('#globalMessaging').anymessage({'message':'In admin_wholesale.e.showOrganizationUpdate, unable to determine orgID.','gMessage':true});
 					}
 				},
-			
+
 			//smTarget (supply manager target) is the jquery object of where it should be placed, ususally a tab.
 			showSupplierManager : function($target)	{
 				app.ext.admin.calls.adminPriceScheduleList.init({},'mutable'); //need this for create and update.
-				app.ext.admin.i.DMICreate($target,{
+				var $DMI = app.ext.admin.i.DMICreate($target,{
 					'header' : 'Supplier Manager',
 					'className' : 'supplierManager',
 //add button doesn't use admin|createDialog because extra inputs are needed for cmd/tag and the template is shared w/ update.
@@ -174,7 +229,8 @@ var admin_wholesale = function() {
 						"<button class='marginLeft' data-app-event='admin_wholesale|adminSupplierUnorderedItemListShow' data-mode='all'>Unordered Items</button>",
 						"<button class='marginLeft' data-app-event='admin_wholesale|adminSupplierCreateShow'>Add Supplier</button>"
 						],
-					'thead' : ['Name','ID','Type','Mode',''],
+					'thead' : ['','Name','ID','Type','Mode',''],
+					'controls' : "<button data-app-click='admin|checkAllCheckboxesExec' class='applyButton marginRight'>Select All<\/button><span class='applyButtonset smallButton'>Modify Selected:	<button data-app-click='admin_wholesale|supplierBatchExec' data-verb='INVENTORY'>Get Inventory</button><button data-app-click='admin_wholesale|supplierBatchExec' data-verb='PROCESS' title='Will cause any pending orders to be set to a supplier'>Process Orders</button><button data-app-click='admin_wholesale|supplierBatchExec' data-verb='TRACKING'>Update Tracking</button><\/span>",
 					'tbodyDatabind' : "var: users(@SUPPLIERS); format:processList; loadsTemplate:supplierListItemTemplate;",
 					'cmdVars' : {
 						'_cmd' : 'adminSupplierList',
@@ -183,70 +239,100 @@ var admin_wholesale = function() {
 							}
 						}
 					});
+				app.u.handleButtons($DMI.closest('.dualModeContainer').anydelegate());
+				
 				app.model.dispatchThis('mutable');
 				}, //showSupplierManager
 
 			showSupplierEditor : function($editorContainer,VENDORID) {
 				if($editorContainer instanceof jQuery && VENDORID)	{
-$editorContainer.showLoading({"message":"Fetching supplier details"});
-app.model.addDispatchToQ({
-	'_cmd':'adminSupplierDetail',
-	'VENDORID' : VENDORID,
-	'_tag':	{
-		'datapointer' : 'adminSupplierDetail|'+VENDORID,
-		'callback':function(rd)	{
-			$editorContainer.hideLoading();
-			if(app.model.responseHasErrors(rd)){
-				$editorContainer.anymessage({'message':rd})
-				}
-			else	{
-				$editorContainer.anycontent({'templateID':'supplierUpdateTemplate','datapointer':rd.datapointer,'showLoading':false,'dataAttribs':{'vendorid':VENDORID}});
-				app.ext.admin.u.handleAppEvents($editorContainer);
-				$(".applyAnycb",$editorContainer).parent().anycb(); //anycb gets executed on the labels, not the checkbox.
-				
-			//make into anypanels.
-				$("div.panel",$editorContainer).each(function(){
-					var PC = $(this).data('app-role'); //panel content (general, productUpdates, etc)
-					$(this).data('vendorid',VENDORID).anypanel({'wholeHeaderToggle':false,'showClose':false,'state':'persistent','extension':'admin_wholesale','name':PC,'persistent':true});
-					});
-			
-			//make inputs 'know' when they've been added and update the button.
-				app.ext.admin.u.applyEditTrackingToInputs($editorContainer);
-			
-			//make panels draggable
-				var sortCols = $('.twoColumn').sortable({  
-					connectWith: '.twoColumn',
-					handle: 'h2',
-					cursor: 'move',
-					placeholder: 'placeholder',
-					forcePlaceholderSize: true,
-					opacity: 0.4,
-			//the 'stop' below is to stop panel content flicker during drag, caused by mouseover effect for configuration options.
-					stop: function(event, ui){
-						$(ui.item).find('h2').click();
-						var dataObj = new Array();
-						sortCols.each(function(){
-							var $col = $(this);
-							dataObj.push($col.sortable( "toArray",{'attribute':'data-app-role'} ));
-							});
-						app.ext.admin.u.dpsSet('admin_wholesale','editorPanelOrder',dataObj); //update the localStorage session var.
-			//			app.u.dump(' -> dataObj: '); app.u.dump(dataObj);
-						}
-					});
-			
-				app.ext.admin_wholesale.u.handleFormConditionalDelegation($('form',$editorContainer));
-				}
+					$editorContainer.showLoading({"message":"Fetching supplier details"});
+					app.model.addDispatchToQ({
+						'_cmd':'adminSupplierDetail',
+						'VENDORID' : VENDORID,
+						'_tag':	{
+							'datapointer' : 'adminSupplierDetail|'+VENDORID,
+							'callback':function(rd)	{
+								$editorContainer.hideLoading();
+								if(app.model.responseHasErrors(rd)){
+									$editorContainer.anymessage({'message':rd})
+									}
+								else	{
+									$editorContainer.anycontent({'templateID':'supplierUpdateTemplate','datapointer':rd.datapointer,'showLoading':false,'dataAttribs':{'vendorid':VENDORID}});
+									app.ext.admin.u.handleAppEvents($editorContainer);
+									$(".applyAnycb",$editorContainer).parent().anycb(); //anycb gets executed on the labels, not the checkbox.
 
-			}
-		}
-	},'mutable');
-app.model.dispatchThis('mutable');
+//for FBA, most panel inputs get 'locked'
+									if(app.data[rd.datapointer].FORMAT == 'FBA' || app.data[rd.datapointer].CODE == 'FBA')	{
+										$(".panel[data-panel-id='supplierOurFBAConfig']",$editorContainer).show()
+										$('.panel',$editorContainer).not("[data-panel-id='supplierOurFBAConfig']").find(":input").attr('disabled','disabled');
+										$("select[name='FORMAT']",$editorContainer).val('FBA');
+										$('select[name="INVENTORY_CONNECTOR"]',$editorContainer).prop('disabled','').removeProp('disabled').find("option[value='GENERIC']").hide();
+										
+										$("input[name='PREFERENCE']",$editorContainer).prop('disabled','').removeProp('disabled');
+//to compensate for a bug where FORMAT was getting dropped.
+//if code is FBA, force format to FBA. this is a reserved name (user formats are more characters).
+										if(!app.data[rd.datapointer].FORMAT)	{
+											$("select[name='FORMAT']",$editorContainer).val('FBA').addClass('edited');
+											}
+										}
+//format can not change once set.
+									else if(app.data[rd.datapointer].FORMAT)	{
+										$("select[name='FORMAT']",$editorContainer).prop('disabled','disabled');
+										}
+//disallow FBA except for the reserved code.
+									else if(app.data[rd.datapointer].CODE != 'FBA')	{
+										$("select[name='FORMAT'] option[value='FBA']",$editorContainer).prop('disabled','disabled');
+										}
+									else	{}
+
+								//make into anypanels.
+									$("div.panel",$editorContainer).each(function(){
+										var PC = $(this).data('app-role'); //panel content (general, productUpdates, etc)
+										$(this).data('vendorid',VENDORID).anypanel({'wholeHeaderToggle':false,'showClose':false,'state':'persistent','extension':'admin_wholesale','name':PC,'persistent':true});
+										});
+								//### the panels are sortable, BUT this code doesn't allow for persistance. address when time permits.
+								
+								//make inputs 'know' when they've been added and update the button.
+									app.ext.admin.u.applyEditTrackingToInputs($editorContainer);
+
+
+								
+								//make panels draggable
+									var sortCols = $('.twoColumn').sortable({  
+										connectWith: '.twoColumn',
+										handle: 'h2',
+										cursor: 'move',
+										placeholder: 'placeholder',
+										forcePlaceholderSize: true,
+										opacity: 0.4,
+								//the 'stop' below is to stop panel content flicker during drag, caused by mouseover effect for configuration options.
+										stop: function(event, ui){
+											$(ui.item).find('h2').click();
+											var dataObj = new Array();
+											sortCols.each(function(){
+												var $col = $(this);
+												dataObj.push($col.sortable( "toArray",{'attribute':'data-app-role'} ));
+												});
+											app.model.dpsSet('admin_wholesale','editorPanelOrder',dataObj); //update the localStorage session var.
+								//			app.u.dump(' -> dataObj: '); app.u.dump(dataObj);
+											}
+										});
+
+									
+
+									app.ext.admin.u.handleFormConditionalDelegation($('form',$editorContainer));
+									}
+					
+								}
+							}
+						},'mutable');
+					app.model.dispatchThis('mutable');
 					}
 				else	{
 					$("#globalMessaging").anymessage({'message':'In admin_wholesale.a.showSupplierEditor, either $editorContainer ['+typeof $editorContainer+'] or VENDORID ['+VENDORID+'] undefined','gMessage':true});
 					}
 				} //showSupplierEditor
-
 
 			}, //a [actions]
 
@@ -273,7 +359,20 @@ app.model.dispatchThis('mutable');
 					if(data.value.ORG && data.value.ORG.SCHEDULE)	{$select.val(data.value.ORG.SCHEDULE)} //preselect schedule, if set.
 
 					}
-				} //wholesaleScheduleSelect
+				}, //wholesaleScheduleSelect
+
+			warehouseCodeOrZone : function($tag,data)	{
+//			app.u.dump(data.value); 
+				if(data.value._OBJECT == 'GEO')	{
+					$tag.text(data.value.GEO);
+					}
+				else if(data.value._OBJECT == 'ZONE')	{
+					$tag.append("<span class='ui-icon ui-icon-arrow-1-e marginLeft'></span>")
+					}
+				else	{
+					$tag.text("Unrecognized _object");// something new?
+					}
+				}
 			}, //renderFormats
 		
 		
@@ -299,16 +398,63 @@ app.model.dispatchThis('mutable');
 //				app.u.dump(" -> newSfo:"); app.u.dump(newSfo);
 				return newSfo;
 				}, //adminWarehouseMacroCreate
-			'ZONE-CREATE-LOCATIONS' : function(sfo)	{
-				die()
+
+			'ZONE-CREATE' : function(sfo)	{
+				sfo = sfo || {};
+//a new object, which is sanitized and returned.
+				var newSfo = {
+					'_cmd':'adminWarehouseMacro',
+					'GEO' : sfo.GEO,
+					'_tag':sfo._tag,
+					'@updates':new Array()
+					};
+				delete sfo.GEO;
+				delete sfo._tag; //removed from original object so serialization into key value pair string doesn't include it.
+				delete sfo._macrobuilder;
+				newSfo['@updates'].push('ZONE-CREATE?'+$.param(sfo));
+				
+				return newSfo;
+				}, //ZONE-CREATE
+
+			'ZONE-POSITIONS' : function(sfo,$form)	{
+				sfo = sfo || {};
+//a new object, which is sanitized and returned.
+				var newSfo = {
+					'_cmd':'adminWarehouseMacro',
+					'GEO' : sfo.GEO,
+					'ZONE' : sfo.ZONE, //alertnatively, ZONE 'can' be specified on the update itself, if multiple zones are being updated in the same place.
+					'_tag':sfo._tag,
+					'@updates':new Array()
+					}; 
+				delete sfo._tag; //removed from original object so serialization into key value pair string doesn't include it.
+				delete sfo._macrobuilder;
+			
+				$("[data-table='ZONE_STANDARD'] tbody",$form).find('tr.edited').each(function(){
+					var $tr = $(this);
+					if($tr.hasClass('rowTaggedForRemove') && $tr.hasClass('isNewRow'))	{
+						//is a new row that is tagged for delete. don't do anything with it.
+						}
+					else if($tr.hasClass('rowTaggedForRemove'))	{
+						newSfo['@updates'].push('ZONE-POSITIONS-DELETE?'+$.param(app.u.getWhitelistedObject($tr.data(),['uuid'])));
+						}
+					else	{
+						if(!$tr.data('uuid')){$tr.data('uuid',app.u.guidGenerator())}
+						newSfo['@updates'].push('ZONE-POSITIONS-ADD?'+$.param(app.u.getWhitelistedObject($tr.data(),['row','shelf','shelf_end','slot','slot_end','uuid'])));
+						}
+					});
+				
+//				app.u.dump(" -> newSfo:"); app.u.dump(newSfo);
+				return newSfo;
+				
 				},
+
 			'WAREHOUSE-UPDATE' : function(sfo)	{
 				app.u.dump("BEGIN admin_wholesale.macrobuilders.warehouse-update");
 				sfo = sfo || {};
 //a new object, which is sanitized and returned.
 				var newSfo = {
 					'_cmd':'adminWarehouseMacro',
-					'WAREHOUSE' : sfo.CODE,
+					'GEO' : sfo.GEO,
 					'_tag':sfo._tag,
 					'@updates':new Array()
 					}; 
@@ -317,21 +463,7 @@ app.model.dispatchThis('mutable');
 				newSfo['@updates'].push('WAREHOUSE-UPDATE?'+$.param(sfo));
 //				app.u.dump(" -> newSfo:"); app.u.dump(newSfo);
 				return newSfo;
-				}, //adminWarehouseMacroCreate
-
-
-	
-/*
-macros:
-SET
-OURSET
-ORDERSET -> 
-SHIPSET ->
-INVENTORYSET ->
-TRACKINGSET ->
-
-*/
-			
+				}, //WAREHOUSE-UPDATE
 			
 			adminSupplierMacro : function(sfo,$form)	{
 				sfo = sfo || {};
@@ -343,7 +475,7 @@ TRACKINGSET ->
 					}
 				
 				var
-					cmds = new Array("SET","OURSET","ORDERSET","SHIPSET","INVENTORYSET","TRACKINGSET"),
+					cmds = new Array("SET","ORDERSET","SHIPSET","INVENTORYSET","TRACKINGSET"), //The list of valid fieldsets to save. OURSET is left out intentionally. see below.
 					L = cmds.length;
 				
 				for(var i = 0; i < L; i += 1)	{
@@ -357,8 +489,17 @@ TRACKINGSET ->
 						
 						}
 					}
+				
+				//ourset data is destructive, so EVERY field in the fieldset gets updated if anything has changed.
+				var $oursetFieldset = $("fieldset[data-app-role='OURSET']",$form);
+				if($('.edited',$oursetFieldset).length)	{
+					newSfo['@updates'].push("OURSET?"+$.param($oursetFieldset.serializeJSON({'cb':true})));
+					}
+				else	{} //no changes.
+
+//				app.u.dump(newSfo['@updates']);
 				return newSfo
-				}
+				} //adminSupplierMacro
 			}, //macroBuilders
 
 ////////////////////////////////////   EVENTS [e]   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                    
@@ -375,30 +516,102 @@ TRACKINGSET ->
 						'templateID':'warehouseAddUpdateTemplate',
 						'showLoading':false //will get passed into anycontent and disable showLoading.
 						});
+					$(".hideForCreate",$D).hide();
 					$D.dialog('open');
 //These fields are used for processForm on save.
 					$('form',$D).first().append("<input type='hidden' name='_macrobuilder' value='admin_wholesale|WAREHOUSE-CREATE'  \/><input type='hidden' name='_tag/callback' value='showMessaging' \/><input type='hidden' name='_tag/message' value='The warehouse has been successfully created.' \/><input type='hidden' name='_tag/updateDMIList' value='"+$btn.closest("[data-app-role='dualModeContainer']").attr('id')+"' /><input type='hidden' name='_tag/jqObjEmpty' value='true' \/>");
 					});
 				}, //warehouseCreateShow
 
+
+
+			wholesaleZoneAddRow : function($btn)	{
+				$btn.button({icons: {primary: "ui-icon-plus"},text: true});
+				$btn.off('click.wholesaleZoneAddRow').on('click.wholesaleZoneAddRow',function(event){
+					event.preventDefault();
+					if($btn.data('loadstemplate'))	{
+						var $tr = app.renderFunctions.createTemplateInstance($btn.data('loadstemplate'));
+						$btn.closest('table').find('tbody:first').append($tr);
+						app.u.handleAppEvents($tr);
+						}
+					else	{
+						$btn.closest('form').anymessage({"message":"In admin_wholesale.e.wholesaleZoneAddRow, no data-loadstemplate specified on trigger element.",'gMessage':true})
+						}
+					});
+				}, //wholesaleZoneAddRow
+
 			warehouseDetailDMIPanel : function($btn)	{
 				$btn.button({icons: {primary: "ui-icon-pencil"},text: false});
-				$btn.off('click.warehouseDetailDMIPanel').on('click.warehouseDetailDMIPanel',function(event){
-					event.preventDefault();
-					var	CODE = $btn.closest('tr').data('warehouse_code');
+				
+				if($btn.closest('tr').data('zone_type') == 'RECEIVING' || $btn.closest('tr').data('zone_type') == 'UNSTRUCTURED')	{
+					$btn.hide();
+					}
+				else	{
+					$btn.off('click.warehouseDetailDMIPanel').on('click.warehouseDetailDMIPanel',function(event){
+						event.preventDefault();
+						var data = $btn.closest('tr').data();
 					
-					var $panel = app.ext.admin.i.DMIPanelOpen($btn,{
-						'templateID' : 'warehouseAddUpdateTemplate',
-						'panelID' : 'warehouse_'+CODE,
-						'header' : 'Edit Warehouse: '+CODE,
-						'data' : app.data.adminWarehouseList['@WAREHOUSES'][$btn.closest('tr').data('obj_index')],
-						'handleAppEvents' : false
+						if(data._object == 'GEO' || data._object == 'ZONE')	{
+	//these are the shared values for the DMI panel.
+							var panelObj = {
+								'panelID' : 'warehouse_'+data.geo,
+								'handleAppEvents' : true
+								}
+	
+							if(data._object == 'ZONE')	{
+								panelObj.templateID = 'warehouseZoneStandardTemplate';
+								panelObj.header = 'Edit Zone: '+data.zone;
+								}
+							else	{
+								panelObj.templateID = 'warehouseAddUpdateTemplate';
+								panelObj.header = 'Edit Warehouse: '+data.geo;
+								}
+							
+							var $panel = app.ext.admin.i.DMIPanelOpen($btn,panelObj);
+	
+							if(data._object == 'GEO')	{
+								$("[name='GEO']",$panel).closest('label').hide().val(data.geo); //warehouse code isn't editable. hide it. setting 'disabled' will remove from serializeJSON.
+								$('form',$panel).append("<input type='hidden' name='_macrobuilder' value='admin_wholesale|WAREHOUSE-UPDATE' /><input type='hidden' name='_tag/callback' value='showMessaging' /><input type='hidden' name='_tag/message' value='The warehouse has been successfully updated.' /><input type='hidden' name='_tag/updateDMIList' value='"+$panel.closest("[data-app-role='dualModeContainer']").attr('id')+"' />");
+								}
+							else	{
+								$('form',$panel).append("<input type='hidden' name='GEO' value='"+data.geo+"' />");
+								$('form',$panel).append("<input type='hidden' name='ZONE' value='"+data.zone+"' />");
+								}
+							$panel.showLoading({'message':'Fetching warehouse details'});
+							app.model.addDispatchToQ({
+								'_cmd':'adminWarehouseDetail',
+								'GEO' : data.geo,
+								'_tag':	{
+									'datapointer' : 'adminWarehouseDetail|'+data.geo,
+									'callback':function(rd)	{
+										if(app.model.responseHasErrors(rd)){
+											$('#globalMessaging').anymessage({'message':rd});
+											}
+										else	{
+											//success content goes here.
+											if(data._object == 'GEO')	{
+												$panel.anycontent({'translateOnly':true,'datapointer':rd.datapointer});
+												}
+											else	{
+												$panel.anycontent({
+													'translateOnly':true,
+													'data':app.data[rd.datapointer]['%ZONES'][data.zone]
+													});
+												app.u.handleAppEvents($panel);
+												}
+											}
+										}
+									}
+								},'mutable');
+							app.model.dispatchThis('mutable');
+							}
+						else	{
+							$('#globalMessaging').anymessage({"message":"In admin_wholesale.e.warehouseDetailDMIPanel, unrecognized data._object ["+data._object+"]. Must be GEO or ZONE.","gMessage":true});
+							}
+	
+	
 						});
-					$("[name='CODE']",$panel).closest('label').hide(); //warehouse code isn't editable. hide it. setting 'disabled' will remove from serializeJSON.
-					$('form',$panel).append("<input type='hidden' name='_macrobuilder' value='admin_wholesale|WAREHOUSE-UPDATE' /><input type='hidden' name='_tag/callback' value='showMessaging' /><input type='hidden' name='_tag/message' value='The warehouse has been successfully updated.' /><input type='hidden' name='_tag/updateDMIList' value='"+$panel.closest("[data-app-role='dualModeContainer']").attr('id')+"' />");
-//					$('.buttonset',$panel).prepend("<button data-app-event='admin_wholesale|warehouseZoneCreateShow'>Add Zone<\/button>");
-					app.u.handleAppEvents($panel);
-					});
+					}
 				}, //warehouseDetailDMIPanel
 
 			warehouseRemoveConfirm : function($btn)	{
@@ -406,16 +619,42 @@ TRACKINGSET ->
 				$btn.off('click.warehouseRemoveExec').on('click.warehouseRemoveExec',function(event){
 					event.preventDefault();
 					
-					var CODE = $btn.closest('tr').data('warehouse_code');
+					var $tr = $btn.closest('tr');
+					var GEO = $tr.data('geo');
 					var $D = app.ext.admin.i.dialogConfirmRemove({
-						'message':'Are you sure you want to delete warehouse '+CODE+'? There is no undo for this action.',
-						'removeButtonText' : 'Delete Warehouse',
+						'message':'Are you sure you want to delete '+($tr.data('_object') == 'GEO' ? (" warehouse "+GEO) : (" zone "+$tr.data('zone')))+'? There is no undo for this action.',
+						'removeButtonText' : 'Delete',
 						'removeFunction':function(vars,$modal){
-							var $panel = $(app.u.jqSelector('#','warehouse_'+CODE));
+							var $panel = $(app.u.jqSelector('#','warehouse_'+GEO));
 							if($panel.length)	{
 								$panel.anypanel('destroy'); //make sure there is no editor for this warehouse still open.
 								}
-							app.model.addDispatchToQ({'_cmd':'adminWarehouseMacro','WAREHOUSE':CODE,'@updates':["WAREHOUSE-DELETE"]},'immutable');
+							
+							if($tr.data('_object') == 'ZONE')	{
+								app.model.addDispatchToQ({
+									'_cmd':'adminWarehouseMacro',
+									'GEO' : GEO,
+									'_tag': {
+										'callback' : 'showMessaging',
+										'jqObj' : $('#globalMessaging'),
+										'message' : 'Zone '+$tr.data('zone')+' has been deleted.'
+										},
+									'@updates':["ZONE-DELETE?ZONE="+$tr.data('zone')]
+									},'immutable');
+								}
+							else	{
+								app.model.addDispatchToQ({
+									'_cmd':'adminWarehouseMacro',
+									'GEO':GEO,
+									'_tag': {
+										'callback' : 'showMessaging',
+										'jqObj' : $('#globalMessaging'),
+										'message' : 'Warehouse '+GEO+' has been deleted.'
+										},
+									'@updates':["WAREHOUSE-DELETE"]},'immutable');
+								}
+							
+							
 							app.model.addDispatchToQ({'_cmd':'adminWarehouseList','_tag':{'datapointer':'adminWarehouseList','callback':'DMIUpdateResults','extension':'admin','jqObj':$btn.closest("[data-app-role='dualModeContainer']")}},'immutable');
 							app.model.dispatchThis('immutable');
 							$modal.dialog('close');
@@ -426,23 +665,225 @@ TRACKINGSET ->
 					});
 				}, //warehouseRemoveConfirm
 
-			warehouseZoneCreateShow : function($btn,vars)	{
-				$btn.button();
-				$btn.off('click.warehouseZoneCreateShow').on('click.warehouseZoneCreateShow',function(event){
+			warehouseZoneCreateShow : function($btn)	{
+				$btn.button({icons: {primary: "ui-icon-plus"},text: true});
+				$btn.off('click.wholesaleZoneCreateShow').on('click.wholesaleZoneCreateShow',function(event){
 					event.preventDefault();
-					
-					var CODE = $btn.closest('form').find("[name='CODE']").val();
-					
-					var $D = app.ext.admin.i.dialogCreate({
-						'title':'Add New Zone For Warehouse '+CODE,
-						'templateID':'warehouseZoneCreateUpdateTemplate',
-						'showLoading':false //will get passed into anycontent and disable showLoading.
-						});
-					$D.dialog('open');
-//These fields are used for processForm on save.
-					$('form',$D).first().append("<input type='hidden' name='CODE' value='"+CODE+"' \/><input type='hidden' name='_macrobuilder' value='admin_wholesale|ZONE-CREATE-LOCATIONS'  \/><input type='hidden' name='_tag/callback' value='showMessaging' \/><input type='hidden' name='_tag/message' value='The zone has been successfully created.' \/><input type='hidden' name='_tag/jqObjEmpty' value='true' \/>");
+					var GEO = $btn.closest('form').find("input[name='GEO']").val();
+					if(GEO)	{
+						var $D = app.ext.admin.i.dialogCreate({
+							'title' : 'Add a New Zone',
+							'templateID' : 'warehouseAddLocationTemplate',
+							'data' : {'GEO':GEO},
+							appendTo : $btn.closest('.ui-anypanel-content'), //This adds the dialog as a child to the anypanel content. That means the dialog can look up the DOM tree to 'find' things.
+							'showLoading' : false
+							});
+						$D.dialog('open');
+						
+						$('form',$D).append("<input type='hidden' name='_tag/updateDMIList' value='"+$btn.closest("[data-app-role='dualModeContainer']").attr('id')+"' />");
+						}
+					else	{
+						$btn.closest('form').anymessage({"message":"In admin_wholesale.e.wholesaleZoneCreateShow, unable to ascertain the warehouse code.",'gMessage':true});
+						}
 					});
 				}, //warehouseZoneCreateShow
+
+
+
+////////////////  WMS UTILITIES AKA:			 		WHIM
+
+
+
+			whimWarehouseSelect : function($ele,p)	{
+//				app.u.dump(" -> $ele.data('geo'): "+$ele.data('geo'));
+				p = p || {};
+				if($ele.data('geo'))	{
+					$ele.closest("[data-app-role='slimLeftContainer']").data("geo",$ele.data('geo')).find("h1").text("Warehouse "+$ele.data('geo')); //set the geo attribute to the warehouse id. this is used for all the warehouse utilities till changed.
+					$ele.parent().find('.ui-selected').removeClass('ui-selected');
+					$ele.addClass('ui-selected');
+// a click is triggered when the page is loaded on the warehouse last opened. In that case, we want all code executed except a dpsSet
+// it's already set because dps is where the page load got the geo from in the firstplace
+					if(p.skipDPSUpdate)	{}
+					else	{
+						var whim = app.model.dpsGet('admin_wholesale',"whim") || {};
+						whim.geo = $ele.data('geo');
+						app.model.dpsSet('admin_wholesale',"whim",whim);
+						}
+					}
+				else	{
+					$('#globalMessaging').anymessage({"message":"In admin_wholesale.e.whimWarehouseSelect, geo not set on trigger element.","gMessage":true});
+					}
+				}, //whimWarehouseSelect
+
+			whimSearchMacroExec : function($ele,p)	{
+				var $tbody = $ele.closest("[data-app-role='whimContainer']").find("[data-app-role='whimResultsTbody']");
+				var $form =$ele.closest('form');
+				$tbody.empty(); //the results should stack w/ each search. clear them.
+				$tbody.closest('table').show(); //table is hidden by default so the thead doesn't show up when unnecessary.
+
+				if(app.u.validateForm($form))	{
+					app.model.addDispatchToQ({
+						'_cmd':'adminWarehouseInventoryQuery',
+						'GEO' : $ele.closest("[data-app-role='slimLeftContainer']").data("geo"),
+						'SKUS' : $("textarea[name='skus']",$form).val(),
+						'_tag':	{
+							'datapointer' : 'adminWarehouseInventoryQuery',
+							'callback':'wholesaleSearchResults',
+							'extension' : 'admin_wholesale',
+							jqObj : $tbody
+							}
+						},'mutable');
+					app.model.dispatchThis('mutable');
+					}
+				else {} //form validation handles error display.
+				}, //whimSearchMacroExec
+
+//triggered when one of the li's in the whim nav menu is clicked. opens a specific utility, based on data-utility.
+			whimShow : function($ele,p)	{
+				var $slimLeft = $ele.closest("[data-app-role='slimLeftContainer']");
+				var $target = $ele.closest("[data-app-role='slimLeftContainer']").find("[data-app-role='slimLeftContentSection']");
+				
+				if($slimLeft.data('geo'))	{
+
+					$ele.closest("[data-app-role='slimLeftNav']").find('li.ui-state-focus').removeClass('ui-state-focus');
+					$ele.addClass('ui-state-focus');
+					
+					if($ele.data('utility'))	{
+						$target.slideUp('fast',function(){
+							$target.empty().anycontent({
+								'templateID' : 'whimTemplate_'+$ele.data('utility'),
+								'showLoading' : false
+								}).slideDown('fast');
+							$('form',$target).append("<input type='hidden' name='GEO' value='"+$ele.closest("[data-app-role='slimLeftContainer']").data("geo")+"' />");
+							app.u.handleCommonPlugins($target);
+							app.u.handleButtons($target);
+							});
+						}
+					else	{
+						$target.anymessage({"message":"In admin_wholesale.e.whimShow, data-utility not set on trigger element.","gMessage":true})
+						}
+					}
+				else	{
+					$target.anymessage({"message":"Please select a warehouse from the list below prior to selecting a utility."})
+					}
+				}, //whimShow
+
+			whimSetSKULocation : function($ele,p)	{
+				var $form = $ele.closest('form');
+				if(app.u.validateForm($form))	{
+					var sfo = $form.serializeJSON();
+					sfo.UUID = app.u.guidGenerator();
+					var $li = $("<li \/>");
+					var $ul = $ele.closest("[data-app-role='whimContainer']").find("[data-app-role='whimLocationUpdateLog']");
+					$li.html("<span class='wait floatLeft marginRight'></span> "+ sfo.SKU + " + "+sfo.QTY+" " + sfo.LOC).prependTo($ul);
+
+					var updates = new Array();
+					updates.push("SKU-LOCATION-ADD?"+$.param(sfo));
+					
+					app.model.addDispatchToQ({
+						'_cmd':'adminWarehouseMacro',
+						'GEO' : $ele.closest("[data-app-role='slimLeftContainer']").data("geo"),
+						'@updates' : updates,
+						'_tag':	{
+							'callback':function(rd)	{
+								$('.wait',$li).addClass('ui-icon').removeClass('wait')
+								if(app.model.responseHasErrors(rd)){
+									$('.ui-icon',$li).addClass('ui-state-error ui-icon-alert');
+									$li.anymessage({'message':rd,'persistant':true});
+									}
+								else	{
+									$('input',$form).each(function(){$(this).val("")}); //clear inputs for next sku.
+									$('.ui-icon',$li).addClass('ui-icon-check');
+									//success content goes here.
+									}
+								}
+							}
+						},'immutable');
+					app.model.dispatchThis('immutable');
+
+					}
+				else	{
+					//form validation 
+					}
+				},
+
+//////////////////// SUPPLIERS
+
+
+			adminSupplierInventoryAddShow : function($btn)	{
+				$btn.button({icons: {primary: "ui-icon-plus"},text: true});
+				$btn.off('click.adminSupplierInventoryAddShow').on('click.adminSupplierInventoryAddShow',function(event){
+					event.preventDefault();
+					var vendor = $btn.closest('tr').data('code');
+					if(vendor)	{
+						var $D = app.ext.admin.i.dialogCreate({
+							'title':'Add Inventory for supplier '+vendor,
+							'templateID':'supplierInventoryAddTemplate',
+							'showLoading':false //will get passed into anycontent and disable showLoading.
+							});
+						$D.find('form').append("<input type='hidden' name='vendor' value='"+vendor+"' />")
+						$D.dialog('open');
+						$D.anydelegate();
+						}
+					else	{
+						$('#globalMessaging').anymessage({"message":"In admin_wholesale.e.adminSupplierInventoryAddShow, unable to ascertain vendor id.","gMessage":true});
+						}
+					
+					});
+				},
+
+
+// There is a function in WHIM that is VERY similar to this.  Once supplier is using delegated events instead of appevents, combine the two ###
+			adminSupplierInventoryAddExec : function($btn)	{
+				
+				$btn.button({icons: {primary: "ui-icon-plus"},text: true});
+				$btn.off('click.adminSupplierInventoryAddShow').on('click.adminSupplierInventoryAddShow',function(event){
+					event.preventDefault();
+
+					var $form = $btn.closest('form');
+					if(app.u.validateForm($form))	{
+						
+						var
+							sfo = $form.serializeJSON(),
+							$li = $("<li \/>");
+
+						if(sfo.vendor)	{
+							sfo.UUID = app.u.guidGenerator();
+							$li.html("<span class='wait floatLeft marginRight'></span> "+ sfo.SKU + " + "+sfo.QTY).prependTo($btn.closest("[data-app-role='supplierInventoryUpdateContainer']").find("[data-app-role='supplierInventoryUpdateLog']"));
+							
+							app.model.addDispatchToQ({
+								'_cmd':'adminSupplierAction',
+								'VENDORID' : sfo.vendor,
+								'@updates' : ["SKU:LINK?"+$.param(sfo)],
+								'_tag':	{
+									'callback':function(rd)	{
+										$('.wait',$li).addClass('ui-icon').removeClass('wait')
+										if(app.model.responseHasErrors(rd)){
+											$('.ui-icon',$li).addClass('ui-state-error ui-icon-alert');
+											$li.anymessage({'message':rd,'persistant':true});
+											}
+										else	{
+											$(".resetMeOnComplete",$form).each(function(){$(this).val("")}); //clear inputs for next sku. only target class so hiddens et all don't get nuked.
+											$('.ui-icon',$li).addClass('ui-icon-check');
+											//success content goes here.
+											}
+										}
+									}
+								},'immutable');
+							app.model.dispatchThis('immutable');
+							}
+						else	{
+							$form.anymessage({"message":"In admin_wholesale.e.adminSupplierInventoryAddExec, unable to ascertain vendor (should be a hidden input in form)","gMessage":"true"})
+							}
+	
+						}
+					else	{
+						//form validation 
+						}				
+					
+					});
+				
+				},
 
 
 //executed from within the 'list' mode (most likely) and will prompt the user in a modal to confirm, then will delete the user */
@@ -452,7 +893,7 @@ TRACKINGSET ->
 
 					event.preventDefault();
 					
-					const VENDORID = $btn.closest('tr').data('code');
+					var VENDORID = $btn.closest('tr').data('code');
 					var $DMI = $btn.closest("[data-app-role='dualModeContainer']");
 					
 					var $D = app.ext.admin.i.dialogConfirmRemove({
@@ -488,150 +929,188 @@ TRACKINGSET ->
 					$D.dialog('open');
 //These fields are used for processForm on save.
 //They're here instead of in the form directly so that the form/template can be recycled for edit.
-					$('form',$D).first().append("<input type='hidden' name='_tag/updateDMIList' value='"+$btn.closest("[data-app-role='dualModeContainer']").attr('id')+"' \/>");
-					app.ext.admin_wholesale.u.handleFormConditionalDelegation($('form',$D));
+					$('form',$D).first().append("<input type='hidden' name='DMIID' value='"+$btn.closest("[data-app-role='dualModeContainer']").attr('id')+"' \/>");
+					app.ext.admin.u.handleFormConditionalDelegation($('form',$D));
 					app.u.handleAppEvents($D,{"$context":$btn.closest("[data-app-role='supplierManager']").parent()})
 					})
 				}, //showSupplierCreate
+
+
+//applied to 'create user' button. just opens the modal.
+			adminSupplierCreateExec : function($btn)	{
+				$btn.button();
+				$btn.off('click.showSupplierCreate').on('click.showSupplierCreate',function(event){
+					event.preventDefault();
+					var $form = $btn.closest('form');
+					if(app.u.validateForm($form))	{
+
+var sfo = $form.serializeJSON();
+sfo._cmd = 'adminSupplierCreate'
+
+if(sfo['INIT-DEFAULTS'])	{
+	sfo['@updates'] = ["INIT-DEFAULTS"];
+	delete sfo['INIT-DEFAULTS']
+	}
+
+if(sfo.FORMAT == 'FBA')	{sfo.VENDORID = 'FBA'}
+
+sfo._tag =	{
+	'callback':'showMessaging',
+	'jqObj' : $form,
+	'jqObjEmpty' : true,
+	'updateDMIList' : sfo.DMIID,
+	'message' : 'Thank you, the supplier has been added.'
+	}
+delete sfo.DMIID; //is no longer necessary.
+if(sfo.FORMAT == 'FBA')	{
+	sfo.NAME = "Fulfillment by Amazon"
+	}
+app.model.addDispatchToQ(sfo,'immutable');
+
+//after the initial dispatch so that the VENDOR is created by the time the macro is run.
+/*
+if(sfo.FORMAT == 'FBA')	{
+	app.model.addDispatchToQ({
+		'_cmd' : 'adminSupplierMacro',
+		'VENDOR' : 'FBA',
+		'@updates' : []
+		},'immutable');
+	}
+*/
+app.model.dispatchThis('immutable');	
+
+						}
+					else	{}//validation handles display logic too
+					});
+				}, //showSupplierCreate
+
 
 //this button action is applied to the order list in both 'orders' and 'unordered items'.
 //it'll validate to make sure an action is chosen as well as at least one order.
 //It'll then update those orders w/ the chosen action.
 //All things being equal, it'll then refresh the list of orders.
-			adminSupplierActionOrder : function($btn)	{
-				$btn.button();
-				$btn.off('click.adminSupplierActionOrder').on('click.adminSupplierActionOrder',function(){
-app.u.dump("BEGIN admin_wholesale.e.adminSupplierActionOrder click event");
+			adminSupplierActionOrder : function($ele,P)	{
+
+				app.u.dump("BEGIN admin_wholesale.e.adminSupplierActionOrder click event");
+				var
+					$D = $ele.closest('.ui-dialog-content'), 
+					$form = $ele.closest('form');
+
+				if(app.u.validateForm($form))	{
+					
 					var
-						$D = $btn.closest('.ui-dialog-content'), 
-						$form = $btn.closest('form');
+						sfo = $form.serializeJSON(),
+						VENDORID = $ele.closest('.ui-dialog-content').data('vendorid'); 
 
-					if(app.u.validateForm($form))	{
-						
-						var
-							sfo = $form.serializeJSON(),
-							VENDORID = $btn.closest('.ui-dialog-content').data('vendorid'); 
+					sfo._cmd = 'adminSupplierAction';
+					sfo['@updates'] = new Array();
+					sfo._tag = {
+						callback : 'showMessaging',
+						message : 'Your changes have been saved.',
+						jqObj : $D
+						}
 
-						sfo._cmd = 'adminSupplierAction';
-						sfo['@updates'] = new Array();
-						sfo._tag = {
-							callback : 'showMessaging',
-							message : 'Your changes have been saved.',
-							jqObj : $D
+
+					for(index in sfo)	{
+						if(index.indexOf('orderid_') == 0)	{
+							sfo['@updates'].push(sfo.action+"?orderid="+index.substring(8));
 							}
-
-
-						for(index in sfo)	{
-							if(index.indexOf('orderid_') == 0)	{
-								sfo['@updates'].push(sfo.action+"?orderid="+index.substring(8));
+						}
+					
+					
+					
+					if(sfo['@updates'].length)	{
+						
+						app.model.addDispatchToQ(sfo,'immutable');
+						
+						if($D.data('mode'))	{
+							if($D.data('mode') == 'adminSupplierUnorderedItemList')	{
+								$('tbody',$form).empty().showLoading({"message":"Performing action and fetching updated list of orders"})
+								app.model.addDispatchToQ({
+									_cmd : 'adminSupplierUnorderedItemList',
+									FILTER : 'OPEN',
+									VENDORID : VENDORID,
+									_tag : {
+										datapointer : 'adminSupplierOrderList|'+VENDORID,
+										callback : 'anycontent',
+										jqObj : $('tbody',$form)
+										}
+									},'immutable')					
 								}
-							}
-						
-						
-						
-						if(sfo['@updates'].length)	{
-							
-							app.model.addDispatchToQ(sfo,'immutable');
-							
-							if($D.data('mode'))	{
-								if($D.data('mode') == 'adminSupplierUnorderedItemList')	{
-									$('tbody',$form).empty().showLoading({"message":"Performing action and fetching updated list of orders"})
-									app.model.addDispatchToQ({
-										_cmd : 'adminSupplierUnorderedItemList',
-										FILTER : 'OPEN',
-										VENDORID : VENDORID,
-										_tag : {
-											datapointer : 'adminSupplierOrderList|'+VENDORID,
-											callback : 'anycontent',
-											jqObj : $('tbody',$form)
-											}
-										},'immutable')					
-									}
-								else if($D.data('mode') == 'adminSupplierOrderList')	{
-									$('tbody',$form).empty().showLoading({"message":"Performing action and fetching updated list of orders"})
-									app.model.addDispatchToQ({
-										_cmd : 'adminSupplierOrderList',
-										FILTER : 'RECENT',
-										VENDORID : VENDORID,
-										_tag : {
-											datapointer : 'adminSupplierOrderList|'+VENDORID,
-											callback : 'anycontent',
-											jqObj : $('tbody',$form)
-											}
-										},'immutable')					
-									}
-								else	{
-									$D.anymessage({'message':'Invalid mode for this viewer. The request to change order status is still being attempted, but this list will not auto-refresh after that request finishes.'});
-									}
-								
-				
-								
+							else if($D.data('mode') == 'adminSupplierOrderList')	{
+								$('tbody',$form).empty().showLoading({"message":"Performing action and fetching updated list of orders"})
+								app.model.addDispatchToQ({
+									_cmd : 'adminSupplierOrderList',
+									FILTER : 'RECENT',
+									VENDORID : VENDORID,
+									_tag : {
+										datapointer : 'adminSupplierOrderList|'+VENDORID,
+										callback : 'anycontent',
+										jqObj : $('tbody',$form)
+										}
+									},'immutable')					
 								}
 							else	{
-								$D.anymessage({'message':'Unable to ascertain a mode for this viewer. The request to change order status is still being attempted, but this list will not auto-refresh after that request finishes.'});
+								$D.anymessage({'message':'Invalid mode for this viewer. The request to change order status is still being attempted, but this list will not auto-refresh after that request finishes.'});
 								}
-								
-							app.model.dispatchThis('immutable'); //dispatch for update runs whether 'list' updated or not.
+							
+			
+							
 							}
 						else	{
-							$form.anymessage({"message":"Please select at least one order to perform this action on."})
+							$D.anymessage({'message':'Unable to ascertain a mode for this viewer. The request to change order status is still being attempted, but this list will not auto-refresh after that request finishes.'});
 							}
-
+							
+						app.model.dispatchThis('immutable'); //dispatch for update runs whether 'list' updated or not.
 						}
-					else	{} //validate form handles error display.
-					});
+					else	{
+						$form.anymessage({"message":"Please select at least one order to perform this action on."})
+						}
 
+					}
+				else	{} //validate form handles error display.
 
 
 				},
 
 
 			adminSupplierActionDeAssociate : function($btn)	{
-				$btn.button();
-				$btn.off('click.adminSupplierActionDeAssociate').on('click.adminSupplierActionDeAssociate',function(){
+				var
+					$form = $btn.closest('form'),
+					VENDORID = $btn.closest('.ui-dialog-content').data('vendorid'),
+					cmdObj = {
+					_cmd : 'adminSupplierAction',
+					'@updates' : new Array(),
+					VENDORID : VENDORID,
+					_tag : {
+						callback : 'showMessaging',
+						message : 'Your changes have been saved.',
+						jqObj : $form
+						}
+					}
 
-					var
-						$form = $btn.closest('form'),
-						VENDORID = $btn.closest('.ui-dialog-content').data('vendorid'),
-						cmdObj = {
-						_cmd : 'adminSupplierAction',
-						'@updates' : new Array(),
+				$(":checkbox:checked",$form).each(function(){
+					cmdObj['@updates'].push("SKU:UNLINK?SKU="+$(this).closest("[data-sku]").attr('data-sku'));
+					})
+				if(cmdObj['@updates'].length)	{
+					$form.showLoading({"message":"De-associating product and fetching updated list"});
+					('tbody',$form).empty();
+					app.model.addDispatchToQ(cmdObj,'immutable');
+					app.model.addDispatchToQ({
+						_cmd : 'adminSupplierInventoryList',
+						FILTER : 'OPEN',
 						VENDORID : VENDORID,
 						_tag : {
-							callback : 'showMessaging',
-							message : 'Your changes have been saved.',
-							jqObj : $form
+							datapointer : 'adminSupplierInventoryList|'+VENDORID,
+							callback : 'anycontent',
+							jqObj : $('tbody',$form)
 							}
-						}
-
-					$(":checkbox:checked",$form).each(function(){
-						cmdObj['@updates'].push("PRODUCT:DELINK?sku="+$(this).attr('name'));
-						})
-					
-					if(cmdObj['@updates'].length)	{
-						$form.showLoading({"message":"De-associating product and fetching updated list"});
-						('tbody',$form).empty();
-						app.model.addDispatchToQ(cmdObj,'immutable');
-						app.model.addDispatchToQ({
-							_cmd : 'adminSupplierProductList',
-							FILTER : 'OPEN',
-							VENDORID : VENDORID,
-							_tag : {
-								datapointer : 'adminSupplierProductList|'+VENDORID,
-								callback : 'anycontent',
-								jqObj : $('tbody',$form)
-								}
-							},'immutable');
-						app.model.dispatchThis('immutable');
-						}
-					else	{
-						$D.anymessage({'message':'Please select at least one product from the list below.'});
-						}
-
-					});
-
-
-
+						},'immutable');
+					app.model.dispatchThis('immutable');
+					}
+				else	{
+					$D.anymessage({'message':'Please select at least one product from the list below.'});
+					}
 				},
 
 
@@ -709,6 +1188,27 @@ app.u.dump("BEGIN admin_wholesale.e.adminSupplierActionOrder click event");
 				}, //showSupplierEditor
 
 	
+			supplierBatchExec : function($ele,p)	{
+				app.u.dump(" -> BEGIN admin_wholesale.e.supplierBatchExec");
+				if($ele.data('verb'))	{
+					app.u.dump(" -> verb: "+$ele.data('verb'));
+					$ele.closest('.dualModeContainer').find(":checked").each(function(){
+						var $row = $(this).closest('tr');
+						app.u.dump(" -> $row.data('code'): "+$row.data('code'));
+						if($row.data('code'))	{
+							app.ext.admin_batchJob.a.adminBatchJobCreate({'type':'SUPPLIER/'+$row.data('code')+'/'+$ele.data('verb')});
+							}
+						else	{
+							$('#globalMessaging').anymessage({"message":"In admin_wholesale.e.supplierBatchExec, unable to ascertain vendor code.","gMessage":true});
+							}
+						});
+					}
+				else	{
+					//no data-verb
+					$('#globalMessaging').anymessage({"message":"In admin_wholesale.e.supplierBatchExec, no data-verb set on trigger element.","gMessage":true});
+					}
+				},
+	
 			adminSupplierUnorderedItemListShow : function($btn)	{
 				$btn.button();
 				
@@ -761,55 +1261,57 @@ app.u.dump("BEGIN admin_wholesale.e.adminSupplierActionOrder click event");
 					});
 				},
 
-
-//this is used in the list and also in the detail.
-//so the vendorid is ascertained using 'code' because that's what comes in the list response.
+//This code opens either the supplier specific inventory or order list.
+//the button is present both in the 'list' and in the 'detail'.
+//The vendorid is ascertained using 'code' because that's what comes in the list response.
 // and it uses closest data- instead of closest tr because in detail mode, the buttons aren't in a tr.
-			adminSupplierProdOrderListShow : function($btn)	{
-				$btn.button();
+//the code that uses this still uses app events. The dialog this opens uses delegated events.
+			adminSupplierProdOrderListShow : function($ele,P)	{
+				$ele.button();
 
-				if($btn.data('mode') == 'product' || $btn.data('mode') == 'order')	{
+				if($ele.data('mode') == 'product' || $ele.data('mode') == 'order')	{
 
-$btn.off('click.adminSupplierProdOrderListShow').on('click.adminSupplierProdOrderListShow',function(event){
+$ele.off('click.adminSupplierProdOrderListShow').on('click.adminSupplierProdOrderListShow',function(event){
 	event.preventDefault();
-	const VENDORID = $btn.closest("[data-code]").data('code');
+	var VENDORID = $ele.closest("[data-code]").data('code');
 	
 	if(VENDORID)	{
 
 		var $D = app.ext.admin.i.dialogCreate({
-			'templateID': ($btn.data('mode') == 'order') ? 'supplierOrderListTemplate' : 'supplierItemListTemplate',
-			'title': $btn.data('mode')+" list for vendor "+VENDORID,
+			'templateID': ($ele.data('mode') == 'order') ? 'supplierOrderListTemplate' : 'supplierItemListTemplate',
+			'title': $ele.data('mode')+" list for vendor "+VENDORID,
 			'showLoading' : false
 			});
 		$D.data('vendorid',VENDORID);
 		$D.dialog('option','modal',false);
 		$D.dialog('option','width','70%');
 		$D.dialog('option','height',($(window).height() / 2));
-		$D.dialog( "option", "appendTo", $btn.closest("[data-app-role='dualModeContainer']")); //jq v 1.10. must be before open
-		$('form',$D).showLoading({'message':'Fetching '+$btn.data('mode')+' list...'}).append("<input type='hidden' name='VENDORID' value='"+VENDORID+"' \/>");
+		$D.dialog( "option", "appendTo", $ele.closest("[data-app-role='dualModeContainer']")); //jq v 1.10. must be before open
+		$('form',$D).showLoading({'message':'Fetching '+$ele.data('mode')+' list...'}).append("<input type='hidden' name='VENDORID' value='"+VENDORID+"' \/>");
 		$D.dialog('open');
 		
 		var cmdObj = {
 			'VENDORID':VENDORID,
 			'_tag':	{
 				'callback': 'anycontent',
+				'handleEventDelegation' : true,
 				'jqObj' : $('form',$D)
 				}
 			}
 		
-		if($btn.data('mode') == 'order')	{
+		if($ele.data('mode') == 'order')	{
 			$D.data('mode','adminSupplierOrderList'); //used by button on form submit. form template also used by unordereditems
 			cmdObj._cmd = 'adminSupplierOrderList';
 			cmdObj.FILTER = 'RECENT';
 			cmdObj._tag.datapointer = 'adminSupplierOrderList|'+VENDORID;
 			}
-		else if($btn.data('mode') == 'product')	{
-			cmdObj._cmd = 'adminSupplierProductList';
+		else if($ele.data('mode') == 'product')	{
+			cmdObj._cmd = 'adminSupplierInventoryList';
 //			cmdObj.FILTER = 'OPEN';
-			cmdObj._tag.datapointer = 'adminSupplierProductList|'+VENDORID;
+			cmdObj._tag.datapointer = 'adminSupplierInventoryList|'+VENDORID;
 			}
 		else {} //should never get here. unrecognized mode.
-		
+	
 		app.model.addDispatchToQ(cmdObj,'mutable');
 		app.model.dispatchThis('mutable');
 
@@ -822,7 +1324,7 @@ $btn.off('click.adminSupplierProdOrderListShow').on('click.adminSupplierProdOrde
 					
 					}
 				else	{
-					$btn.button('disable');
+					$ele.button('disable');
 					}
 				}, //adminSupplierOrderListShow
 				
@@ -982,7 +1484,7 @@ $btn.off('click.adminSupplierProdOrderListShow').on('click.adminSupplierProdOrde
 				$btn.button({icons: {primary: "ui-icon-pencil"},text: false});
 				$btn.off('click.priceScheduleUpdateShow').on('click.priceScheduleUpdateShow',function(event){
 					event.preventDefault();
-					const SID = $btn.closest('tr').data('sid'); //schedule id
+					var SID = $btn.closest('tr').data('sid'); //schedule id
 					
 					var $panel = app.ext.admin.i.DMIPanelOpen($btn,{
 						'templateID' : 'priceScheduleUpdateTemplate',
@@ -1149,79 +1651,7 @@ $btn.off('click.adminSupplierProdOrderListShow').on('click.adminSupplierProdOrde
 		u : {
 
 
-			handleFormConditionalDelegation : function($container)	{
-				$container.on('keyup',function(e)	{
-//					app.u.dump(" -> e.target.nodeName.toLowerCase(): "+e.target.nodeName.toLowerCase());
-					if(e.target.nodeName.toLowerCase() == 'input'){
-						var $input = $(e.target);
-						
-						if($input.data('input-format'))	{
 
-							if($input.data('input-format').indexOf('uppercase') > -1)	{
-								$input.val($input.val().toUpperCase());
-								}
-							
-							if($input.data('input-format').indexOf('alphanumeric') > -1)	{
-								$input.val($input.val().replace(/\W/g, ''));
-								}
-							
-							}
-						}
-					});
-				
-				$container.on('click',function(e){
-					var $ele = $(e.target);
-//					app.u.dump(" -> e.target.nodeName.toLowerCase(): "+e.target.nodeName.toLowerCase());
-
-					
-					if(e.target.nodeName.toLowerCase() == 'option' || e.target.nodeName.toLowerCase() == 'select'){
-//						app.u.dump('is option or select');
-//FF registers a click on the option. Chrome on the select.
-//to be consistent, put select into focus.						
-						if(e.target.nodeName.toLowerCase() == 'option'){
-							$ele = $ele.closest('select');
-							}
-//						app.u.dump(" -> $ele.is('select'): "+$ele.is('select'));
-//						app.u.dump(" -> $ele.data('panel-selector'): "+$ele.data('panel-selector'));
-/*
-panel-selector:
-on a select, set data-panel-selector=".someClass"
-on each option, set data-show-panel=""
-on each panel, which MUST be within the same form, set data-panel-id="" where the value matches the data-show-panel set in the option.
-so when the option with data-show-panel="supplierShippingConnectorGeneric" is selected, the panel with data-panel-id="supplierShippingConnectorGeneric" is displayed
-and all .someClass are hidden (value of data-panel-selector)
-
-*/
-						if($ele.data('panel-selector'))    {
-							var	$form = $ele.closest('form'); //used for context.
-				
-							$($ele.data('panel-selector'),$form).hide(); //hide all panels w/ matching selector.
-							var $option = $('option:selected',$ele);
-							if(!$option.data('show-panel'))	{} //no panel defined. do nada
-							else if($option.data('show-panel'))	{
-								var panels = new Array();
-								if($option.data('show-panel').indexOf(','))	{panels = $option.data('show-panel').split(',')}
-								else {panels.push($option.data('show-panel'))};
-								for(var i = 0; i < panels.length; i += 1)	{
-									$("[data-panel-id='"+panels[i]+"']",$form).show(); //panel defined and it exists. show it.
-									}
-								}
-							else	{
-								$form.anymessage({'message':"The option selected has a panel defined ["+$option.data('show-panel')+"], but none exists within the form specified.",'gMessage':true}); //panel defined but does not exist. throw error.
-								}
-							}
-						}
-					});				
-//after adding the listeners, need to trigger some clicks.
-
-//trigger the hide/show panel on select options.
-				$("select[data-panel-selector]",$container).each(function(){
-					if($('option:selected',$(this)).data('show-panel'))	{
-						$('option:selected',$(this)).trigger('click');
-						}
-					});
-
-				}
 
 			}
 

@@ -108,7 +108,7 @@
 	<!-- postal not required for international. don't add it. -->
 	<div class='label'><input type='text'  name='postal' placeholder='zip/postal code'  size='14' value='' data-bind='var: org(ORG.postal); format:popVal;' maxlength='10' /></div>
 
-	<div class='label'><input name='countrycode' size='9' maxlength="9" data-min-length='2' plceholder='country code'  data-bind='var: org(ORG.countrycode); format:popVal;' /></div>
+	<div class='label'><input name='countrycode' size='9' maxlength="9" data-minlength='2' plceholder='country code'  data-bind='var: org(ORG.countrycode); format:popVal;' /></div>
 
 </fieldset>
 
@@ -120,7 +120,7 @@
 		<label data-bind="useParentData:true; format:wholesaleScheduleSelect; extension:admin_wholesale;">Schedule: </label>
 	</div>
 	<label><input type='checkbox' name='ALLOW_PO' data-bind='var: org(ORG.ALLOW_PO); format:popVal;' />Allow Purchase Orders</label>
-	<label><input type='checkbox' name='RESALE' data-bind='var: org(ORG.RESALE); format:popVal;' />Allow Resale</label>
+	<label><input type='checkbox' name='RESALE' data-bind='var: org(ORG.RESALE); format:popVal;' />Allow Resale/Tax Exempt</label>
 	<label><input type='checkbox' name='IS_LOCKED' data-bind='var: org(ORG.IS_LOCKED); format:popVal;' />Is Locked</label>
 	<div class='label'><input type='text' name='RESALE_PERMIT' placeholder='resale permit' value='' data-bind='var: org(ORG.RESALE_PERMIT); format:popVal;' /></div>
 	<div class='label'><input type='number' name='CREDIT_LIMIT' placeholder='credit limit' value='' data-bind='var: org(ORG.CREDIT_LIMIT); format:popVal;' /></div>
@@ -131,7 +131,7 @@
 <div class='alignedInputs labelsAsBreaks floatLeft threeColumn'>
 	<fieldset class='marginBottom'>
 		<legend>Company Logo</legend>
-		<img width="160" height="70" src="/images/blank.gif" data-app-role='organizationLogo'  data-bind='var: org(ORG.LOGO); format:imageURL;bgcolor:TTTTTT; defaultValue: i/imagenotfound;' >
+		<img width="160" height="70" src="app-admin/images/blank.gif" data-app-role='organizationLogo'  data-bind='var: org(ORG.LOGO); format:imageURL;bgcolor:TTTTTT; defaultValue: i/imagenotfound;' >
 		<a data-app-event="admin_wholesale|showMediaLib4OrganizationLogo" href="#"><b>[Edit]</b></a>
 		<input type='text' name='LOGO' class='displayNone' /><!-- use text input cuz hidden inputs don't support change events -->
 	</fieldset>
@@ -174,13 +174,16 @@
 <!-- used in the list mode for each supplier -->
 <table>
 <tr id='supplierListItemTemplate'>
+	<td class='hideInMinifyMode'><input class='allowBulkCheck' type='checkbox' /></td><!-- bind a change event that adds/remves ui-selected class on tr -->
 	<td class='lookLikeLink' data-bind="var:supplier(NAME); format:text;" data-app-event='admin_wholesale|showSupplierEditor'></td>
 	<td data-bind="var:supplier(CODE); format:text;"></td>
 	<td data-bind="var:supplier(FORMAT); format:text;"></td>
 	<td data-bind="var:supplier(MODE); format:text;" class='hideInMinimalMode'></td>
 	<td class='alignRight'>
 	<button class='marginRight hideInMinimalMode' data-app-event='admin_wholesale|adminSupplierRemoveExec'>Remove this Supplier</button>
-	<button class='marginLeft hideInMinimalMode' data-app-event='admin_wholesale|adminSupplierProdOrderListShow' data-mode='product'>Products</button>
+	<button class='marginLeft hideInMinimalMode' data-app-event='admin_wholesale|adminSupplierProdOrderListShow' data-mode='product'>Inventory</button>
+	<button class='marginLeft hideInMinimalMode' data-app-event='admin_wholesale|adminSupplierInventoryAddShow'>Add Inventory</button>
+<!--	<button class='marginLeft hideInMinimalMode' data-app-event='admin_wholesale|adminSupplierProdOrderListShow' data-mode='product'>Products</button> -->
 	<button class='marginLeft hideInMinimalMode' data-app-event='admin_wholesale|adminSupplierProdOrderListShow' data-mode='order'>Orders</button>
 	<button class='marginLeft hideInMinimalMode' data-app-event='admin_wholesale|adminSupplierUnorderedItemListShow' data-mode='vendor'>Unordered Items</button>
 	<button class='marginLeft' data-app-event='admin_wholesale|showSupplierEditor'>Edit this Supplier</button>
@@ -199,14 +202,16 @@
 	<td data-bind="var:order(CONF_GMT); defaultVal:Never; format:text;"></td>
 </tr>
 
-<tr id='supplierItemListItemTemplate'>
+<tr id='supplierItemListItemTemplate' class='isProductContainer' data-clone='true'>
 	<td><input type='checkbox' data-bind='var:product(pid);format:assignAttribute; attribute:name;' /></td>
-	<td data-bind="var:order(pid); format:text;"></td>
-	<td></td>
-	<td data-bind="var:product(zoovy:prod_name); format:text;"></td>
-	<td ></td>
-	<td data-bind="var:product(zoovy:base_cost); format:text;"></td>
-	<td data-bind="var:product(zoovy:base_price); defaultVal:Never; format:text;"></td>
+	<td data-bind="var:detail(PID); format:text;"></td>
+	<td data-bind="var:detail(SKU); format:text;"></td>
+	<td data-bind="var:detail(QTY); format:text;"></td>
+	<td data-bind="var:detail(COST_I); format:money; isElastic:true;"></td><!-- stored in the same manner as elastic -->
+	<td data-bind="var:detail(NOTE); defaultVal:Never; format:text;"></td>
+	<td>
+	<button class='applyButton' data-app-click='admin_prodEdit|productTaskPidToggle' data-bind="var: detail(PID); format:assignAttribute; attribute:data-pid;" data-icon-primary='ui-icon-circle-plus' data-text='false' data-clone='true'>Add as Product Task</button>
+	</td>
 </tr>
 
 
@@ -214,6 +219,33 @@
 
 
 
+
+
+<div id='supplierInventoryAddTemplate' data-app-role='supplierInventoryUpdateContainer'>
+
+<form action='#' onsubmit="return false">
+<fieldset class='labelsAsBreaks'>
+
+	<label>
+		<span>SKU</span>
+		<input type='text' name='SKU' value='' class='resetMeOnComplete' data-input-keyup="input-format" data-input-format='pid uppercase' />
+		<span class='toolTip' title="This field is 'sku', not product id. If the product has inventory-able options, you must enter the entire sku."></span>
+	</label>
+
+	
+	<label>
+		<span>Quantity</span>
+		<input type='number' step='1' min='0' name='QTY' value='0' class='number resetMeOnComplete' />
+	</label>
+
+	<button data-app-event="admin_wholesale|adminSupplierInventoryAddExec">Add</button>
+</fieldset>
+</form>
+
+
+<ul data-app-role='supplierInventoryUpdateLog'></ul>
+
+</div>
 
 
 
@@ -233,6 +265,7 @@
 	<th class='alignLeft'>SKU</th>
 	<th class='alignLeft'>Status</th>
 	<th class='alignLeft'>Vendor Order ID</th>
+	<th class='alignLeft'>Note</th>
 </tr>
 </thead>
 <!-- orders is what's returned in order view. items is what's returned in unorderitems -->
@@ -253,8 +286,9 @@
 	</td>
 	<td data-bind="var:supplier(QTY); format:text;"></td>
 	<td data-bind="var:supplier(SKU); format:text;"></td>
-	<td data-bind="var:supplier(STATUS); format:text;"></td>
+	<td data-bind="var:supplier(VENDOR_STATUS); format:text;"></td>
 	<td data-bind="var:supplier(VENDOR_ORDER_DBID); format:text;"></td>
+	<td data-bind="var:supplier(NOTE); format:text;"></td>
 </tr>
 </table>
 
@@ -278,7 +312,7 @@
 		<option value="ORDER:RESET">Reset to closed / resend</option>
 		<option value="ORDER:REDISPATCH">Re-dispatch</option>-->
 	</select>
-	<button data-app-event="admin_wholesale|adminSupplierActionOrder" class='smallButton'>Perform Action</button>
+	<button data-app-click="admin_wholesale|adminSupplierActionOrder" class='smallButton applyButton'>Perform Action</button>
 	</div>
 </div>
 <table class='gridTable fullWidth applyAnytable' data-app-role='supplierOrderListTable'>
@@ -305,22 +339,22 @@
 <div id='supplierItemListTemplate'>
 <form action='#' onsubmit="return false">
 <div class='clearfix ui-widget-header ui-corner-top smallPadding'>
-	<button class='floatRight' data-app-event="admin_wholesale|adminSupplierActionDeAssociate">Disassociate Product</button>
+	<button class='floatRight applyButton' data-app-click="admin_wholesale|adminSupplierActionDeAssociate">Disassociate Product</button>
 </div>
 
 <table class='gridTable fullWidth applyAnytable'>
 <thead>
 <tr>
 	<th data-anytable-nosort='true'></th>
+	<th class='alignLeft'>PID</th>
 	<th class='alignLeft'>SKU</th>
-	<th class='alignLeft'>Inventory</th>
-	<th class='alignLeft'>Name</th>
-	<th class='alignLeft'>Shipping</th>
+	<th class='alignLeft'>Qty</th>
 	<th class='alignLeft'>Cost</th>
-	<th class='alignLeft'>Price</th>
+	<th class='alignLeft'>Note</th>
+	<th data-anytable-nosort='true'></th>
 </tr>
 </thead>
-<tbody data-bind="var:vendor(@SKUS); format: productList; extension: store_prodlist; loadsTemplate:supplierItemListItemTemplate; withInventory:1;">
+<tbody data-bind="var:vendor(@ROWS); format: processList; loadsTemplate:supplierItemListItemTemplate;">
 </tbody>
 </table>
 </form>
@@ -335,19 +369,32 @@
 
 <form action='#' autocomplete="on">
 
-<input type='hidden' name='_cmd' value='adminSupplierCreate' />
-<input type='hidden' name='_tag/callback' value='showMessaging' />
-<input type='hidden' name='_tag/message' value='Thank you, the supplier has been added.' />
-<input type='hidden' name='_tag/jqObjEmpty' value='true' />
-
 <fieldset class='labelsAsBreaks'>
 	<legend>Add a New Supplier</legend>
+
 	
-	<div class='label'>
-	<input placeholder='supplier id' type="text" name="VENDORID" value="" maxlength="6" data-min-length='6' size="6" required='required' data-input-format="alphanumeric,uppercase" />
-	<span class='hint'>A unique 6 character alphanumeric code used for this supplier.</span>
-	</div>
-	<div class='alignCenter'><button data-app-event='admin|processForm'>Add Supplier</button></div>
+				
+	<label><span>Role</span>
+	<select name='FORMAT' required='required' data-input-change="panel-selector" data-panel-selector=".supplierFormatPanel">
+		<option value='NONE'  data-show-panel='supplierFormatVendorID'>None / Disabled</option>
+		<option value='STOCK' data-show-panel='supplierFormatVendorID'>Stock/Vendor : orders are shipped from vendor to your warehouse(s)</option>
+		<option value='DROPSHIP' data-show-panel='supplierFormatVendorID'>Dropship : orders will be shipped to customer out of vendors inventory</option>
+		<option value='FULFILL' data-show-panel='supplierFormatVendorID'>Fulfillment/3PL : outsourced warehouse/logistics services</option>
+		<option value='FBA' >FBA: fulfillment by amazon</option>
+		<option value='RIVER' data-show-panel='supplierFormatVendorID'>River : transmits wire-speed copies of all orders for integrations</option>
+	</select>
+	</label>
+
+	<input type='hidden' name='INIT-DEFAULTS' value='1' /><!-- if set, API will set some sane defaults -->
+	
+	<label class='label displayNone supplierFormatPanel' data-panel-id='supplierFormatVendorID' >
+		<span>Supplier ID</span>
+		<input type="text" name="VENDORID" value="" maxlength="6" data-minlength='6' size="6" required='required' data-input-format="alphanumeric,uppercase" data-validation-rules='skipIfHidden' />
+		<span class='toolTip' title="A unique 6 character alphanumeric code used for this supplier.">?</span>
+	</label>
+
+	
+	<div class='alignCenter'><button data-app-event='admin_wholesale|adminSupplierCreateExec'>Add Supplier</button></div>
 </fieldset>
 </form>
 
@@ -398,6 +445,20 @@
 			<div class='clearfix'>
 			
 			<fieldset data-app-role='SET'>
+
+				<label><!-- an input for format must be present because OURSET is destructive-->
+				<span>Role</span> <select data-bind="var:vendor(FORMAT); format:popVal;" name='FORMAT' required='required' >
+					<option value=''>Please choose</option>
+					<option value='NONE'  data-show-panel='supplierFormatVendorID'>None / Disabled</option>
+					<option value='STOCK' data-show-panel='supplierFormatVendorID'>Stock/Vendor : orders are shipped from vendor to your warehouse(s)</option>
+					<option value='DROPSHIP' data-show-panel='supplierFormatVendorID'>Dropship : orders will be shipped to customer out of vendors inventory</option>
+					<option value='FULFILL' data-show-panel='supplierFormatVendorID'>Fulfillment/3PL : outsourced warehouse/logistics services</option>
+					<option value='FBA' data-change-input='VENDORID' data-change-newval='FBA'>FBA: fulfillment by Amazon</option>
+					<option value='RIVER' data-show-panel='supplierFormatVendorID'>River : transmits wire-speed copies of all orders for integrations</option>
+				</select>
+				<span class='toolTip' title="The format, once set, can not be changed.">?</span>
+				</label>
+
 		
 				<label data-bind='var: supplier(MARKUP); format:showIfSet;' class='displayNone'>
 					<span>Markup</span>
@@ -425,7 +486,7 @@
 				</label>
 				
 				<label>
-					<span>Website</span>
+					<span>Website URL (http://www.domain.com)</span>
 					<input name='WEBSITE' value='' size='30' maxlength='40' type='url' data-bind='var: supplier(WEBSITE); format:popVal;' />
 				</label>
 				
@@ -459,9 +520,8 @@
 			<h2>Invoice Information</h2>
 			<div class='clearfix'>
 			<p class='hint'>The contents of this panel are transmitted to Supplier with every order.</p>
-			<fieldset data-app-role='OUR'>
-		
-			
+			<fieldset data-app-role='OURSET'>
+						
 				<label>
 					<span>Company name</span>
 					<input name='company_name' value='' size='30' maxlength='40' type='text' data-bind='var: supplier(%OUR.company_name); format:popVal;' />
@@ -470,7 +530,7 @@
 			
 				<label>
 					<span>Address</span>
-					<input name='address' value='' size='30' maxlength='40' type='text' data-bind='var: supplier(%OUR.address); format:popVal;' />
+					<input name='address1' value='' size='30' maxlength='40' type='text' data-bind='var: supplier(%OUR.address1); format:popVal;' />
 				</label>
 				<label>
 					<span>Address 2</span>
@@ -506,9 +566,10 @@
 					<span>Email</span>
 					<input name='email' value='' size='30' maxlength='40' type='text' data-bind='var: supplier(%OUR.email); format:popVal;' />
 				</label>
-				
+
 		
 			</fieldset>
+
 			
 			</div>
 		</div><!-- /general panel -->
@@ -540,11 +601,12 @@
 
 				<label>
 					<span>Connector:</span>
-					<select name='SHIP_CONNECTOR' data-bind="var:vendor(SHIP_CONNECTOR); format:popVal;" data-panel-selector=".supplierShippingConnector">
+					<select name='SHIP_CONNECTOR' data-bind="var:vendor(SHIP_CONNECTOR); format:popVal;" data-input-change="panel-selector" data-panel-selector=".supplierShippingConnector">
 						<option value='NONE' data-show-panel='supplierShippingConnectorNone'>None</option>
 						<option value='FREE'>Free</option>
 						<option value='FIXED' data-show-panel='supplierShippingConnectorFixed,supplierShippingConnectorHandling'>Fixed</option>
 						<option value='ZONE' data-show-panel='supplierShippingConnectorZone,supplierShippingConnectorHandling'>Zone</option>
+						<option value='FBA' data-show-panel='supplierOurFBAConfig'>Amazon FBA</option>
 					</select />
 				</label>
 
@@ -586,17 +648,17 @@
 					
 					<label class='marginLeft'>
 						<span>Per Order</span> $
-						<input type="number" step='.01' min='0' name="%SHIP.hnd_perorder" value="" size="5" data-bind="var:vendor(%SHIP.hnd_perorder); format:popVal;" />
+						<input type="number" step='.01' min='0' name="hnd_perorder" value="" size="5" data-bind="var:vendor(%SHIP.hnd_perorder); format:popVal;" />
 					</label>
 					
 					<label class='marginLeft'>
 						<span>Per Item</span> $
-						<input type="number" step='.01' min='0' name="%SHIP.hnd_peritem" value="" size="5" data-bind="var:vendor(%SHIP.hnd_peritem); format:popVal;" />
+						<input type="number" step='.01' min='0' name="hnd_peritem" value="" size="5" data-bind="var:vendor(%SHIP.hnd_peritem); format:popVal;" />
 					</label>
 					
 					<label class='marginLeft'>
 						<span>Per Unique Item</span> $
-						<input type="number" step='.01' min='0' name="%SHIP.hnd_perunititem" value="" size="5" data-bind="var:vendor(%SHIP.hnd_perunititem); format:popVal;" />
+						<input type="number" step='.01' min='0' name="hnd_perunititem" value="" size="5" data-bind="var:vendor(%SHIP.hnd_perunititem); format:popVal;" />
 					</label>
 				</div>
 		
@@ -612,15 +674,47 @@
 
 	<div class='twoColumn column2' data-app-column='2' data-bind='var:order(CODE);format:assignAttribute; attribute:data-code;'>
 
+
+		<div class='panel labelsAsBreaks alignedLabels supplierOurFBAConfig displayNone' data-panel-id='supplierOurFBAConfig'>
+			<h2>FBA Configuration</h2>
+			<div class='clearfix'>
+			<p class='hint'>To use FBA your supplier code MUST be named "FBA"</p>
+			<fieldset data-app-role='OURSET'>				
+				<label>
+					<span>FBA Marketplace ID</span>
+					<input name='fba_marketplaceid' data-bind='var:supplier(%OUR.fba_marketplaceid); format:popVal;' />
+				</label>
+				<label>
+					<span>FBA Merchant ID</span>
+					<input name='fba_merchantid' data-bind='var:supplier(%OUR.fba_merchantid); format:popVal;' />
+				</label>
+			</fieldset>
+			</div>
+		</div>
+
+
+
 		<div class='panel labelsAsBreaks alignedLabels alignedInputs' data-app-role='InventoryDownload'>
-			<h2>Setup: Inventory Download</h2>
+			<h2>Setup: Inventory Preferences &amp; Download</h2>
 			<div>
+			
+			<fieldset data-app-role='SET'>
+			
+			<label>
+				<span>Preference</span>
+				<input type='number' name='PREFERENCE' value='' data-bind="var:vendor(PREFERENCE); format:popVal;" max='100' step='1' min='1' size='3' />
+			</label>
+			
+			</fieldset>
+			
+			
 			<fieldset data-app-role='INVENTORYSET'>
 				<label>
 					<span>Connector:</span>
-					<select name='INVENTORY_CONNECTOR' data-bind="var:vendor(INVENTORY_CONNECTOR); format:popVal;" data-panel-selector=".supplierInventoryConnector" data-trigger='click'>
+					<select name='INVENTORY_CONNECTOR' data-bind="var:vendor(INVENTORY_CONNECTOR); format:popVal;" data-input-change="panel-selector" data-panel-selector=".supplierInventoryConnector" data-trigger='click'>
 						<option value='NONE'>None</option>
 						<option value='GENERIC' data-show-panel='supplierInventoryConnectorGeneric'>Generic</option>
+						<option value='FBA' data-show-panel='supplierOurFBAConfig'>Amazon FBA</option>
 					</select />
 				</label>
 
@@ -657,17 +751,21 @@
 
 			<div>
 			<fieldset data-app-role='ORDERSET'>
-				<label><span>Order formatting</span>
-				<select name='FORMAT' data-bind="var:vendor(FORMAT); format:popVal;">
-					<option value='NONE'>None</option>
-					<option value='STOCK'>Stock</option>
-					<option value='DROPSHIP'>Dropship</option>
-					<option value='FULFILL'>Fulfill</option>
-				</select>
+
+				<label>
+					<span>Connector: </span>
+					<select name="ORDER_CONNECTOR" data-bind="var:vendor(ORDER_CONNECTOR); format:popVal;" data-input-change="panel-selector" data-panel-selector=".supplierAutomaticOrderingConnector">
+						<option value="NONE">None</option>
+						<option value="EMAIL" data-show-panel='supplierAutomaticOrderingEMAIL'>Email</option>
+						<option value="FTP" data-show-panel='supplierAutomaticOrderingFTP'>FTP</option>
+						<option value="API" data-show-panel='supplierAutomaticOrderingAPI'>API</option>
+						<option value="AMZSQS" data-show-panel='supplierAutomaticOrderingAMZSQS'>Amazon SQS</option>
+						<option value='FBA' data-show-panel='supplierOurFBAConfig'>Amazon FBA</option>
+					</select>
 				</label>
 
 				<label><span>Version</span>
-				<select name='export_format' data-bind="var: supplier(%ORDER.export_format); format:popVal;"  data-panel-selector=".supplierExportFormat">
+				<select name='export_format' data-bind="var: supplier(%ORDER.export_format); format:popVal;" data-input-change="panel-selector" data-input-change="panel-selector" data-panel-selector=".supplierExportFormat">
 					<option value=''>-</option>
 					<option value='XML#201240'>v.201240 XML - valid until: 2015-10-15</option>
 					<option value='XSLT#201240'  data-show-panel='supplierExportFormatXSLT'>v.201240 XML w/XSLT- valid until: 2015-10-15</option>
@@ -691,19 +789,11 @@
 				<label><input type='checkbox' class='applyAnycb' name='notes' data-bind="var: supplier(%ORDER.notes); format:popVal;" />Include order notes</label>
 				<label><input type='checkbox' class='applyAnycb' name='field_cost' data-bind="var: supplier(%ORDER.field_cost); format:popVal;" />Show cost field</label>
 				<label><input type='checkbox' class='applyAnycb' name='dont_show_zezro_qtys' data-bind="var: supplier(%ORDER.notes); format:popVal;" />Hide zero quantity items</label>
-				<label><input type='checkbox' class='applyAnycb' name='dispatch_on_create' data-bind="var: supplier(%ORDER.dispatch_on_create); format:popVal;" />Dispatch on create (off recommended)</label>
+<!--
+* 201338 -> not supported as of 201338
+				<label><input type='checkbox' class='applyAnycb' name='dispatch_on_create' data-bind="var: supplier(%ORDER.dispatch_on_create); format:popVal;" />Dispatch on create (off recommended)</label>-->
 				<label><input type='checkbox' class='applyAnycb' name='dispatch_full_order' data-bind="var: supplier(%ORDER.dispatch_full_order); format:popVal;" />Transmit full order contents (off recommended)</label>
 				
-				<label>
-					<span>Connector: </span>
-					<select name="ORDER_CONNECTOR" data-bind="var:vendor(ORDER_CONNECTOR); format:popVal;" data-panel-selector=".supplierAutomaticOrderingConnector">
-						<option value="NONE">None</option>
-						<option value="EMAIL" data-show-panel='supplierAutomaticOrderingEMAIL'>Email</option>
-						<option value="FTP" data-show-panel='supplierAutomaticOrderingFTP'>FTP</option>
-						<option value="API" data-show-panel='supplierAutomaticOrderingAPI'>API</option>
-						<option value="AMZSQS" data-show-panel='supplierAutomaticOrderingAMZSQS'>Amazon SQS</option>
-					</select>
-				</label>
 
 			
 			
@@ -835,7 +925,7 @@
 	</label>
 	<label>
 		<span>Warehouse Code:</span>
-		<input type="text" value="" name="CODE" size="3" maxlength="3" data-minlength='3' data-app-event='admin|alphaNumeric' data-bind='var:warehouse(WAREHOUSE_CODE); format:popVal;' />
+		<input type="text" value="" name="GEO" size="3" maxlength="3" data-minlength='3' data-app-event='admin|alphaNumeric' data-bind='var:warehouse(GEO); format:popVal;' />
 		<span class='toolTip' title="A 3 digit code consisting of letters A-Z and 0-9. Warehouse code will usually be the three digit code for the nearest airport.">?</span>
 	</label>
 	
@@ -868,39 +958,162 @@
 
 </fieldset>
 
-<div class='buttonset alignRight'>
-	<button data-app-event="admin|processForm">Save</button>
+
+<div class='buttonset '>
+	<button data-app-event='admin_wholesale|warehouseZoneCreateShow' class='hideForCreate'>Add New Zone</button><!-- hidden in 'create' mode -->
+	<button class='floatRight' data-app-event="admin|processForm">Save</button>
 </div>
+
+</form>
+</div>
+
+
+
+<div id='warehouseZoneStandardTemplate'>
+
+<form action='#' onSubmit='return false'>
+<input type='hidden' name='_macrobuilder' value='admin_wholesale|ZONE-POSITIONS' />
+<input type='hidden' name='_tag/restoreInputsFromTrackingState' value='true' />
+<input type='hidden' name='_tag/removeFromDOMItemsTaggedForDelete' value='true' />
+<input type='hidden' name='_tag/callback' value='showMessaging' />
+<input type='hidden' name='_tag/message' value='Your changes have been saved.' />
+
+
+<fieldset class='clearfix'>
+
+	<div class='twoColumn'>
+	<table data-app-role='dataTable' data-table='ZONE_STANDARD' class='gridTable fullWidth'>
+	<thead>
+	<tr>
+		<th>Row</th>
+		<th>Shelf Begin</th>
+		<th>End</th>
+		<th>Slot Begin</th>
+		<th>End</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody data-bind="var: shipment(@POSITIONS); format:processList; loadsTemplate:zonePositionRowTemplate_STANDARD;"></tbody>
+	</table>
+	</div>
+
+	<div class='twoColumn column2 labelsAsBreaks alignedLabels'>
+		<input type='hidden' name='uuid' value='' /><!-- if an editor is introduced, populate this field w/ the rest of the form -->
+		<label><span>Row</span><input type='number' name='row' value='' size='5' data-bind="var: location(row); format:popVal;" class='skipTrack' /></label>
+		<label><span>Shelf begin</span><input type='text' name='shelf' value='' size='5' data-bind="var: location(shelf); format:popVal;" class='skipTrack' /></label>
+		<label><span>Shelf end</span><input type='text' name='shelf_end' value='' size='5' data-bind="var: location(shelf_end); format:popVal;" class='skipTrack' /></label>
+		<label><span>Slot begin</span><input type='text' name='slot' value='' size='5' data-bind="var: location(slot); format:popVal;" class='skipTrack' /></label>
+		<label><span>Slot end</span><input type='text' name='slot_end' value='' size='5' data-bind="var: location(slot_end); format:popVal;" class='skipTrack' /></label>
+		<button data-app-event="admin_config|dataTableAddExec">Apply Position</button>
+	</div>
+</fieldset>
+
+<button data-app-event='admin|processForm'>Save Changes</button>
 
 </form>
 
 
+</div>
+
+
+
 
 <table>
+
+<!-- used in the standard zone position data-table -->
+<tr id='zonePositionRowTemplate_STANDARD'>
+	<td data-bind="var: location(row); format:text;"></td>
+	<td data-bind="var: location(shelf); format:text;"></td>
+	<td data-bind="var: location(shelf_end); format:text;"></td>
+	<td data-bind="var: location(slot); format:text;"></td>
+	<td data-bind="var: location(slot_end); format:text;"></td>
+	<td><button data-app-event="admin|tagRowForRemove">Delete Zone</button></td>
+</tr>
+
+
+
+<!-- used for list of warehouses -->
 <tr id='warehouseResultsRowTemplate'>
-	<td data-bind="var: warehouse(ID); format:text;"></td>
-	<td data-bind="var: warehouse(WAREHOUSE_CODE); format:text;"></td>
-	<td data-bind="var: warehouse(WAREHOUSE_TITLE); format:text;"></td>
-	<td data-bind="var: warehouse(WAREHOUSE_STATE); format:text;" class='hideInDetailMode'></td>
-	<td data-bind="var: warehouse(WAREHOUSE_ZIP); format:text;" class='hideInDetailMode'></td>
-	<td data-bind="var: warehouse(SHIPPING_CUTOFF_HOUR_PST); format:text;" class='hideInDetailMode'></td>
-	<td data-bind="var: warehouse(SHIPPING_LATENCY_IN_DAYS); format:text;" class='hideInDetailMode'></td>
-	<td data-bind="var: warehouse(CREATED_TS); format:text;" class='hideInDetailMode'></td>
+	<td data-bind="useParentData:true; format:warehouseCodeOrZone; extension:admin_wholesale;"></td>
+	<td data-bind="var: warehouse(ZONE); format:text;"></td>
+	<td data-bind="var: warehouse(WAREHOUSE_TITLE); defaultVar:(ZONE_TITLE); format:text;"></td>
+	<td data-bind="var: warehouse(ZONE_TYPE); format:text;"></td>
+	<td data-bind="var: warehouse(ZONE_PREFERENCE); format:text;"></td>
+	<td data-bind="var: warehouse(@POSITIONS.length); format:text;"></td>
 	<td class='alignRight'>
 <button data-app-event="admin_wholesale|warehouseRemoveConfirm">Remove</button>
 <button data-app-event="admin_wholesale|warehouseDetailDMIPanel">Edit</button>
 	</td>
 </tr>
 
-
-
+<!-- used in warehouse detail for each 'standard' zone type -->
+<tr id='wholesaleZoneStandardRowTemplate'>
+	<td data-bind="var: location(ZONE); format:text;"></td>
+	<td data-bind="var: location(ZONE_TITLE); format:text;" /></td>
+	<td data-bind="var: location(ZONE_TYPE); format:text;" /></td>
+	<td><button data-app-event="admin|tagRowForRemove">Delete Zone</button></td>
+</tr>
 
 
 </table>
 
 
 
+
+<div id='warehouseAddLocationTemplate'>
+
+<h1>Add a New Warehouse Location</h1>
+
+<form action='#' onSubmit='return false'>
+
+<input type='hidden' name='GEO' value='' data-bind="var: warehouse(GEO); format:popVal;" /><!-- required for adding a location -->
+
+<input type='hidden' name='_macrobuilder' value='admin_wholesale|ZONE-CREATE' />
+<input type='hidden' name='_tag/callback' value='showMessaging' />
+<input type='hidden' name='_tag/jqObjEmpty' value='true' />
+<input type='hidden' name='_tag/message' value='The new location has been added.' />
+
+
+
+<fieldset class='labelsAsBreaks alignedLabels'>
+	
+	<label>
+		<span>Zone</span>
+		<input type='text' name='ZONE' value='' maxlength="3" size='3' required='required' />
+	</label>
+	<label>
+		<span>Zone title</span>
+		<input type="text" size="50" maxlength="100" name="ZONE_TITLE" value="" />
+		<span class='toolTip' title="An optional title describing the zone">?</span>
+	</label>
+	
+	<label>
+		<span>Zone type</span>
+		<select name='ZONE_TYPE' required='required'>
+			<option value=''>please choose</option>
+			<option value='STANDARD'>standard (row/shelf/bin)</option>
+			<option value='UNSTRUCTURED'>unstructured</option>
+			<option value='RECEIVING'>receiving</option>
+		</select>
+	</label>
+	<label>
+		<span>Zone preference</span>
+		<input type="number" step='1' min='0' size="3" maxlength="3" name="ZONE_PREFERENCE" value="" />
+		<span class='toolTip' title="Zones with a higher preference are picked from first.">?</span>
+	</label>
+
+</fieldset>
+
+<div class='buttonset'>
+	<button data-app-event='admin|processForm'>Save Location</button>
 </div>
+
+</form>
+
+
+</div>
+
+
 
 
 
@@ -1062,83 +1275,158 @@ Promotions and Coupons are DIFFERENT merchandising strategies. If you do not wan
 
 
 
-<div id='warehouseZoneCreateUpdateTemplate'>
+<!--
 
-<form action='#' onSubmit="return false" class='labelsAsBreaks'>
-<fieldset>
+WAREHOUSE UTITLITIES
+for updateing inventory records per pid/sku (setting location)
 
-	<label>
-		<span>Warehouse Code</span>
-		<span data-bind="var: warehouse(code);format:text;"></span>
-	</label>
-	<label>
-		<span>Zone Code</span>
-		<input type="text" size="3" maxlength="3" name="ZONE_CODE" value="" />
-		<span class='toolTip' title="Each zone should have a unique 3 digit code that designates that area. Pick lists and associated policies will vary by zone - some smaller warehouses may have only a single zone.">?</span>
-	</label>
+-->
 
-	<label>
-		<span>Zone Title</span>
-		<input type="text" size="50" maxlength="50" name="ZONE_TITLE" value="" />
-		<span class='toolTip' title="An optional title describing the zone">?</span>
-	</label>
-	<label>
-		<span>Zone Preference</span>
-		<input type="text" size="3" maxlength="3" name="ZONE_PREFERENCE" value="" />
-		<span class='toolTip' title="Zones with a higher preference are picked from first.">?</span>
-	</label>
 
-	<label>
-		<span>Zone Type</span>
-		<select name="ZONE_TYPE" data-app-event='admin|showSiblingFieldset'>
-			<option value="RECEIVING">Receiving Zone: Useful for cross dock shipping</option>
-			<option value="STANDARD">Standard: Row/Shelf/Bin</option>
-		</select>
-	</label>
-
-</fieldset>
-
-<!-- fieldsets for rule type selection go here -->
-	<div data-app-role='connectorFieldsetContainer'>
+<div id='whimInterfaceTemplate' class='page pageUser slimLeftContainer' data-app-role='slimLeftContainer'>
 	
-	<fieldset data-app-role='RECEIVING' class='displayNone'>
-	<!-- no locations for receiving -->
-	</fieldset>
-	
-	<fieldset data-app-role='STANDARD' class='displayNone'>
-		<legend>Locations</legend>
 
-<div class='floatRight'>
-<table>
-<tbody>
-<tr>
-	<td>Begin</td>
-	<td>Row: <input type="text" maxlength="3" size="3" name="begin-row"> (ex: 1A)</td>
-	<td>Shelf: <input type="text" maxlength="3" size="3" name="begin-shelf"> (ex: S1)</td>
-	<td>Slot: <input type="text" maxlength="3" size="3" name="begin-slot"> (ex: 00)</td>
-</tr>
-<tr>
-	<td>End</td>
-	<td>Row: <input type="text" maxlength="3" size="3" name="end-row"> (ex: 1B)</td>
-	<td>Shelf: <input type="text" maxlength="3" size="3" name="end-shelf"> (ex: S9)</td>
-	<td>Slot: <input type="text" maxlength="3" size="3" name="end-slot"> (ex: 99)</td>
-</tr>
-</tbody>
-</table>
-<p class="hint">Note: warehouse positions are sorted/picked alphanumerically (ex: 1-11 would be sorted: 1,10,11,2,3,4,5,6,7,8,9) so it is often better to use leading zeros (ex. 001 instead of 1) to make sorting easier.</p>
-</div>
+	<section class='slimLeftNav' data-app-role='slimLeftNav'>
+		
+		<h4>Receiving</h4>
+		<ul>
+			<li>Manifested (coming soon)</li>
+			<li data-utility='receiving_unmanifested' class='pointer' data-app-click="admin_wholesale|whimShow" title="Add SKU's to existing WMS locations.">Unmanifested</li>
+		</ul>
 
+		<h4>Picking</h4>
+		<ul>
+			<li>Batch (coming soon)</li>
+			<li>Invoice(s)(coming soon)</li>
+		</ul>
 
-<div class='floatLeft'>
+		<h4>Counting</h4>
+		<ul>
+			<li>Verify (coming soon)</li>
+			<li>Zone Suggest (coming soon)</li>
+		</ul>
+
+		<h4>Fix Mistakes</h4>
+		<ul>
+			<li>Move Location (coming soon)</li>
+			<li data-utility='fix_locationLookup' class='pointer' data-app-click="admin_wholesale|whimShow" title="Enter a single or multiple skus and the WMS locations for each will appear.">Location lookup</li>
+			<li>GEO Selection (coming soon)</li>
+		</ul>
+
+	</section>
+
+	<section class='slimLeftContentSection ui-widget'>
+		<h1 class='ui-corner-top ui-widget-header stdPadding' data-app-role='pageTitle'>WHIM</h1>
+		<div data-app-role='slimLeftContentSection' class='ui-widget-content stdPadding'>
+			<p data-bind="var: warehouses(@ROWS); format:showIfSet;" class='displayNone'>Please select a warehouse from the list below prior to using a WMS utility.</p>
+			<p data-bind="var: warehouses(@ROWS); format:hideIfSet;">It appears you have not created any warehouses. Please create a warehouse through utilities &#187; warehouse manager prior to using this interface.</p>
+			<ul class='noPadOrMargin listStyleNone' data-bind="var: warehouses(@ROWS); format:processList; loadsTemplate:whimWarehouseItemTemplate;"></ul>
+		</div>
+	</section>
+
 
 </div>
 
 
+<ul>
+	<li id='whimWarehouseItemTemplate' class='smallPadding pointer' data-app-click='admin_wholesale|whimWarehouseSelect' data-bind='var: warehouse(GEO); format:assignAttribute; attribute:data-geo;'>
+		<span data-bind="var: warehouse(GEO); format:text;"></span> - 
+		<span data-bind="var: warehouse(WAREHOUSE_TITLE); format:text;"></span>
+	</li>
+</ul>
 
-	</fieldset>
-	</div>
 
+
+
+<div id='whimTemplate_picking_batch' data-app-role='whimContainer'>
+<h1>Batch</h1>
+<form action='#' onSubmit='return false' class='labelsAsBreaks alignedInputs marginBottom'>
+
+<label>
+	<span>Batch # <span class='toolTip' title="Leave blank for a list of all open batches.">?</span></span>
+	<input type='search' name='batch' ></textarea>
+</label>
+
+<button>Lookup</button>
 </form>
 
+<table class='fullWidth gridTable applyAnytable'>
+<thead>
+	<th>SKU</th>
+	<th>Qty</th>
+	<th>geo</th>
+	<th>zone</th>
+	<th>pos</th>
+	<th>Note</th>
+</thead>
+<tbody data-app-role='whimResultsTbody' data-bind="var: inventory(@ROWS); format:processList; loadsTemplate:whimResultsRowTemplate;"></tbody>
+</table>
+</div>
+
+
+
+
+<div id='whimTemplate_fix_locationLookup' data-app-role='whimContainer'>
+<h1>Get Inventory Location by SKUs</h1>
+<form action='#' onSubmit='return false' class='labelsAsBreaks alignedInputs marginBottom'>
+
+<label>
+	<span>Skus <span class='toolTip' title="Input a comma separated list of skus.">?</span></span>
+	<textarea name='skus' cols='40' rows='10' required='required'></textarea>
+</label>
+
+<button data-app-click="admin_wholesale|whimSearchMacroExec" class='applyButton'>Lookup</button>
+</form>
+
+<table class='fullWidth gridTable applyAnytable'>
+<thead>
+	<th>SKU</th>
+	<th>Qty</th>
+	<th>geo</th>
+	<th>zone</th>
+	<th>pos</th>
+	<th>Note</th>
+</thead>
+<tbody data-app-role='whimResultsTbody' data-bind="var: inventory(@ROWS); format:processList; loadsTemplate:whimResultsRowTemplate;"></tbody>
+</table>
+</div>
+
+
+
+
+
+<table>
+<tr id='whimResultsRowTemplate'>
+	<td data-bind="var: sku(SKU); format:text;"></td>
+	<td data-bind="var: sku(QTY); format:text;"></td>
+	<td data-bind="var: sku(WMS_GEO); format:text;"></td>
+	<td data-bind="var: sku(WMS_ZONE); format:text;"></td>
+	<td data-bind="var: sku(WMS_POS); format:text;"></td>
+	<td data-bind="var: sku(NOTE); format:text;"></td>
+</tr>
+</table>
+
+
+
+
+<div id='whimTemplate_receiving_unmanifested' data-app-role='whimContainer'>
+<h1>Add Inventory to Location by SKU</h1>
+<form action='#' onSubmit='return false' class='labelsAsBreaks alignedLabels'>
+<table>
+<tr>
+	<td>SKU</td>
+	<td><input type='text' name='SKU' value='' size='25' required='required' /></td>
+	<td>Zone*Position</td>
+	<td><input type='text' name='LOC' value='' size='25'  required='required' /></td>
+	<td>Qty</td>
+	<td>+<input type='number' min='0' step='1' name='QTY' value='' size='25'  required='required' /></td>
+	
+	<td><button class='applyButton' data-app-click="admin_wholesale|whimSetSKULocation">Set as a Location</button></td>
+</tr>
+</table>
+</form>
+
+<ul data-app-role='whimLocationUpdateLog'></ul>
 
 </div>
+

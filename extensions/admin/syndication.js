@@ -43,7 +43,7 @@ var admin_syndication = function() {
 //the list of templates in theseTemplate intentionally has a lot of the templates left off.  This was done intentionally to keep the memory footprint low. They'll get loaded on the fly if/when they are needed.
 				app.model.fetchNLoadTemplates(app.vars.baseURL+'extensions/admin/syndication.html',theseTemplates);
 				
-				var ebayxsl = $.ajax(app.vars.baseURL+'extensions/admin/resources/syi_attributes.xsl',{
+				/*var ebayxsl = $.ajax(app.vars.baseURL+'extensions/admin/resources/syi_attributes.xsl',{
 					success : function(data,b,c)	{
 						app.ext.admin_syndication.vars.ebayXSL = c.responseText;
 						},
@@ -54,7 +54,7 @@ var admin_syndication = function() {
 						app.u.dump(b);
 						app.u.dump(c);
 						}
-					})
+					})*/
 				r = true;
 
 				return r;
@@ -68,7 +68,7 @@ var admin_syndication = function() {
 //when this macro response syntax gets adopted elsewhere, move this to admin extension.
 // this was not the method that got implemented. processForm was.
 		handleMacroUpdate : {
-			onSuccess : function(_rtag)	{
+			onSuccess : function(_rtag,macroResponses)	{
 				app.u.dump("BEGIN admin_syndication.callbacks.handleMacroUpdate.onSuccess");
 				app.u.dump(" -> typeof _rtag.jqObj: "+typeof _rtag.jqObj);
 				var $target;
@@ -81,7 +81,16 @@ var admin_syndication = function() {
 					$target = $('#globalMessaging');
 					}
 				
-				$target.anymessage(app.u.successMsgObject('Your changes have been saved'))
+				
+				if(macroResponses && macroResponses['@RESPONSES'])	{
+					macroResponses.persistent = true; //leave messages open.
+					$target.anymessage(macroResponses);
+					}
+				else	{
+					$target.anymessage(app.u.successMsgObject('Your changes have been saved')); //generic success message if no @RESPONSES are set.
+					}
+//				
+//				app.u.dump(" -> _rtag"); app.u.dump(_rtag);
 
 //if everything was successful, revert the form to a pre-change state.
 				$("[data-app-role='saveButton']",$target).button('disable').find('.numChanges').text(""); //make save buttons not clickable.
@@ -128,7 +137,7 @@ var admin_syndication = function() {
 			},
 		anycontentPlus : {
 			onSuccess : function(_rtag)	{
-//				app.u.dump("BEGIN callbacks.anycontent");
+//				app.u.dump("BEGIN callbacks.anycontentPlus");
 
 				if(_rtag && _rtag.jqObj && typeof _rtag.jqObj == 'object')	{
 					
@@ -187,9 +196,11 @@ var admin_syndication = function() {
 						vars.inputid = null;
 						
 						var $D = $('#ebayCategoryChooser');
+						var $ItemSpecificsArea = $("[data-app-role='ebayItemSpecificsContainer']",$D);
 						if($D.length)	{
-							$("[data-app-role='ebayCategoryChooserXSLContainer']",$D).empty(); //remove old content.
-							$("[data-app-role='ebayCategoryChooserItemSpecificsFieldset']",$D).find(".inputContainer").empty().remove();
+							//$("[data-app-role='ebayCategoryChooserXSLContainer']",$D).empty(); //remove old content.
+							//$("[data-app-role='ebayCategoryChooserItemSpecificsFieldset']",$D).find(".inputContainer").empty().remove();
+							$ItemSpecificsArea.empty();
 							$("[data-app-role='ebayCategoryList']",$D).empty(); //clear categories. they get re-fetched if it's a new product and if not, they'll be in memory.
 							$D.removeData('categoryselect inputid pathid pid categoryid'); //clear old values from previous product/category selection
 							}
@@ -219,7 +230,7 @@ var admin_syndication = function() {
 							if(vars.pathid = $path.attr('id'))	{} //value for input id is set in if.
 							else	{
 								vars.pathid = 'span_'+app.u.guidGenerator();
-								$input.attr('id',vars.pathid)
+								$path.attr('id',vars.pathid)
 								}
 							}
 
@@ -237,22 +248,8 @@ var admin_syndication = function() {
 									app.ext.admin_syndication.u.ebayShowTreeByChild($input.val());
 									}
 								$("[data-app-role='ebayCategoryChooserTable']",$D).anycontent(rd);
-							//	app.u.dump(" -> item specifics: "+app.data[rd.datapointer]['ebay:itemspecifics']);
-								if(app.data[rd.datapointer]['ebay:itemspecifics'])	{
-									var
-										rows = app.data[rd.datapointer]['ebay:itemspecifics'].split("\n"),
-										L = (rows.length - 1),
-										$o = $("<div \/>"); //each row is appended to this and then the children are added to the fieldset
-							
-									for(var i = 0; i < L; i += 1)	{
-										var kvp = rows[i].split(/:(.+)?/);
-							//skip blanks.
-										if(kvp[0])	{
-											$o.append("<div class='inputContainer marginTop'><input type='text' placeholder='Detail Title' value='"+kvp[0]+"' name='cs_name"+i+"' class='marginRight' \/><input type='text' placeholder='Detail Value' value='"+kvp[1]+"' name='cs_value"+i+"' \/><\/div>");
-											}
-										}
-									$("[data-app-role='ebayCategoryChooserItemSpecificsFieldset']",$D).prepend($o.children()); //prepend so they appear before button.
-									}
+								app.u.handleAppEvents($D);
+								// app.u.dump(" -> item specifics: "+app.data[rd.datapointer]['ebay:itemspecifics']);
 								}
 							}},'mutable');
 						app.model.dispatchThis('mutable');
@@ -337,7 +334,8 @@ $extrasTab.show().find('a').text('Tokens & Profiles');
 //go get 
 app.ext.admin.calls.adminSyndicationDetail.init('EBF',{},'mutable');
 app.model.addDispatchToQ({'_cmd':'adminEBAYProfileList','_tag': {'datapointer':'adminEBAYProfileList'}},'mutable');
-app.model.addDispatchToQ({'_cmd':'adminEBAYTemplateList','_tag': {'datapointer':'adminEBAYTemplateList'}},'mutable');
+// * 201336 -> moved this so templates are not requested till template chooser is opened.
+//app.model.addDispatchToQ({'_cmd':'adminEBAYTemplateList','_tag': {'datapointer':'adminEBAYTemplateList'}},'mutable');
 app.model.addDispatchToQ({'_cmd':'adminEBAYTokenList','_tag': {'datapointer':'adminEBAYTokenList','callback' : function(rd){
 	$target.hideLoading();
 	if(app.model.responseHasErrors(rd)){
@@ -564,8 +562,16 @@ pass in an LI.  expects certain data params to be set on the li itself. specific
 					var
 						categoryid = $li.data('categoryid'),
 						$chooser = $('#ebayCategoryChooser'),
-						$XSLContentArea = $chooser.find("[data-app-role='ebayCategoryChooserXSLContainer']"),
+						$ItemSpecificsArea = $chooser.find("[data-app-role='ebayItemSpecificsContainer']"),
 						data = $chooser.data();
+						
+						// if eBay site=0 just save categoryid (176984)
+						// if eBay site!=0 (ebay motors site=100), save categoryid.site (38627.100)
+						if($li.data('site')) { 
+							categoryid = categoryid+'.'+$li.data('site');
+							}
+							
+							
 //categoryselect is necessary so that it can be determined whether or not items specifics should be displayed.
 					if(data.categoryselect) 	{
 
@@ -575,13 +581,12 @@ pass in an LI.  expects certain data params to be set on the li itself. specific
 //if the children have already been generated, just toggle them on click (display on/off).
 						if($('ul',$li).length)	{
 							app.u.dump(" -> toggle");
-							//on a toggle, XSLContentArea is not emptied (at this time).
+							//on a toggle, ebayItemSpecificsContainer is not emptied (at this time).
 							//already have categories. toggle ul
 							$('ul',$li).first().toggle();
 							}
 
 						else if(Number($li.data('leaf')) >= 1 && data.categoryselect == 'secondary')	{
-
 							app.model.addDispatchToQ({
 								'_cmd' : 'adminProductUpdate',
 								'@updates' : ["SET-EBAY?category2="+categoryid],
@@ -596,7 +601,9 @@ pass in an LI.  expects certain data params to be set on the li itself. specific
 									}
 								}
 							if(data.inputid)	{
-								$(app.u.jqSelector('#',data.inputid)).val(categoryid).effect('highlight', {}, 2500);
+								//This 'update' is triggered when a leaf is selected that has no item specifics.
+								$(app.u.jqSelector('#',data.inputid)).val(categoryid).effect('highlight', {}, 2500).addClass('edited');
+								app.ext.admin.u.handleSaveButtonByEditedClass($(app.u.jqSelector('#',data.inputid)).closest('form')); //updates the save button change count.
 								$chooser.dialog('close');
 								}
 							else	{
@@ -606,21 +613,29 @@ pass in an LI.  expects certain data params to be set on the li itself. specific
 
 						else if(Number($li.data('leaf')) >= 1)	{
 							app.u.dump(" -> leaf!");
+							//app.u.dump(data);
+							
 							$chooser.data('categoryid',categoryid); //only set the category ID if a leaf. prohibits a non-leaf category from being selected accidentally.
 							$('.activeListItem',$chooser).removeClass('activeListItem');
 							$li.addClass('activeListItem');
-							$XSLContentArea.empty();
+							
 							$chooser.showLoading({'message':'Fetching item specifics data'});
 							
-							var dispatch = app.ext.admin_syndication.u.buildEBAYXSLCmd(categoryid,data.pid);
+							var dispatch = app.ext.admin_syndication.u.fetchEBAYRecommendationsCmd(categoryid,data.pid);
 							dispatch._tag.callback = function(rd){
 								$chooser.hideLoading();
 								if(app.model.responseHasErrors(rd)){
-									$XSLContentArea.anymessage({'message':rd})
+									$ItemSpecificsArea.anymessage({'message':rd})
 									}
 								else	{
-									$XSLContentArea.append(app.data[rd.datapointer].html);
+									$ItemSpecificsArea.ebaySpecificsFormBuild(app.data[rd.datapointer]);
+									//$ItemSpecificsArea.ebaySpecificsFormBuild(app.data[rd.datapointer]);
+									//app.u.dump(app.data[rd.datapointer]);
 									$('#APIForm').show(); //form is hidden by default
+									// chooser block can become long when you browse the category tree
+									// and ItemSpecificsForm appears on the top -> scroll there
+									$('#ebayCategoryChooser').animate({ scrollTop:0 }, 600);
+									
 									app.u.handleAppEvents($chooser);
 									}
 								}
@@ -630,7 +645,7 @@ pass in an LI.  expects certain data params to be set on the li itself. specific
 
 						else	{
 //							app.u.dump(" -> get subcats");
-							$XSLContentArea.empty(); //this will get re-populated on another leaf click.
+							$ItemSpecificsArea.empty(); //this will get re-populated on another leaf click.
 							$('#APIForm').hide(); //cleans up the ui to hide this. inappropriate buttons are hidden.
 							var $ul = $("<ul \/>",{'id':'children4_'+$li.data('categoryid'),'data-bind':'var: ebay(@CHILDREN); format: processList; loadsTemplate:ebayCategoryListitemTemplate;'});
 							$ul.addClass('noPadOrMargin marginLeft').appendTo($li)
@@ -654,46 +669,45 @@ pass in an LI.  expects certain data params to be set on the li itself. specific
 				}, //handleEBAYChild
 
 			buildEBAYCategoryPath : function(categoryid)	{
-				var r = false; // what is returned. either the path (as a string) or false if the path could not be generated.
-				if(categoryid && app.data['adminEBAYCategory|'+app.model.version+'|'+categoryid])	{
-					if(app.data['adminEBAYCategory|'+app.model.version+'|'+categoryid]['%INFO'] && app.data['adminEBAYCategory|'+app.model.version+'|'+categoryid]['@PARENTS'])	{
-						var
-							parents = app.data['adminEBAYCategory|'+app.model.version+'|'+categoryid]['@PARENTS'], //shortcut
-							L = (parents.length - 1);
-						//loop thru backwards because oldest parent is at bottom of array.
-						for(var i = L; i >= 0; i -= 1)	{
-							r += parents[i].name + " / ";
-							}
-						
-						r += app.data['adminEBAYCategory|'+app.model.version+'|'+categoryid]['%INFO'].name
-						
-						}
-					else	{
-						app.u.dump("In admin_syndication.u.buildEBAYCategoryPath, ebay category data is in memory, but either %INFO or @PARENTS is not present.");
+				var r = '', site=0;
+				categoryid = categoryid.toString();
+				// if categoryid looks like '1234.100' - split it on catID + siteID
+				if(categoryid.search(/\./) != -1) {
+					var data = categoryid.split(/\./);
+					categoryid = data[0];
+					site = data[1];
+					}
+					
+				// iterate category tree DOM and build full eBay category path - as a readable string
+				if(categoryid && $('li[data-categoryid="'+categoryid+'"][data-site="'+site+'"]').length) {
+					var $el = $('li[data-categoryid="'+categoryid+'"][data-site="'+site+'"]');
+					r = '/' + $el.attr('data-name');
+					while($el && $el.attr('data-parent_id')) {
+						$el = $('li[data-categoryid="'+$el.attr('data-parent_id')+'"]');
+						r = '/' + $el.attr('data-name') + r;
 						}
 					}
 				else	{
-					app.u.dump("In admin_syndication.u.buildEBAYCategoryPath, unable to build category path. either categoryid ["+categoryid+"] not passed or ebay category data doesn't exist in memory.");
+					app.u.dump("In admin_syndication.u.buildEBAYCategoryPath, unable to build category path for ["+categoryid+"]");
 					}
 				return r;
 				}, //buildEBAYCategoryPath
 
-			buildEBAYXSLCmd : function(categoryid,pid)	{
+			fetchEBAYRecommendationsCmd : function(categoryid,pid)	{
 				return {
 					"_cmd" : "adminEBAYCategory",
 					"pid" : pid,
 					"categoryid" : categoryid,
-					"xsl" : app.ext.admin_syndication.vars.ebayXSL,
-					"form" : $("[data-app-role='ebayCategoryChooserXSLContainer']",'#APIForm').serialize(), //sent as KvP cuz all the checkboxes have the same name. why wouldn't they? #@!%ing ebay.
 					"_tag" : {
 						'datapointer' : 'adminEBAYCategory|'+app.model.version+'|'+categoryid
 						}
 					}
-				}, //buildEBAYXSLCmd
-				
+				}, //fetchEBAYRecommendationsCmd (old buildEBAYXSLCmd)
+
+// NOT USED ANY MORE - jquery.ebay-specifics-form.js plugin handles this
 //for item specifics, can't just serialize the fieldset because the wikihash format wants the data formatted differently.
 // there are two inputs on each row, the value of 1 is the key and the value of the second is the value.			
-			buildItemSpecificsMacro : function()	{
+/*			buildItemSpecificsMacro : function()	{
 				var	$fieldset = $("[data-app-role='ebayCategoryChooserItemSpecificsFieldset']",'#APIForm');
 				var kvp = "";
 				$('.inputContainer',$fieldset).each(function(){
@@ -703,19 +717,20 @@ pass in an LI.  expects certain data params to be set on the li itself. specific
 						}
 					})
 				return "SET-EBAY?itemspecifics="+encodeURIComponent(kvp);
-				}, //buildItemSpecificsMacro
+				}, //buildItemSpecificsMacro */
 
 			ebayShowTreeByChild : function(categoryid)	{
 					app.u.dump("BEGIN admin_syndication.u.ebayShowTreeByChild");
 					app.u.dump(' -> categoryid: '+categoryid);
+					//app.u.dump(vars);
 					$('#APIForm').show(); //make sure form is visible.
-					var $chooser = $('#ebayCategoryChooser');					
+					var $chooser = $('#ebayCategoryChooser');
+					var $ItemSpecificsArea = $("[data-app-role='ebayItemSpecificsContainer']",$chooser);
 					$chooser.data('categoryid',categoryid); //update the 'global' data object to reference the category now in focus.
 					
 					var	
 						data = $chooser.data() || {},
-						$messageDiv = $chooser.find("[data-app-role='eBayCatChooserMessaging']:first"),
-						$XSLContentArea = $chooser.find("[data-app-role='ebayCategoryChooserXSLContainer']:first");
+						$messageDiv = $chooser.find("[data-app-role='eBayCatChooserMessaging']:first");
 
 					if(categoryid)	{
 
@@ -728,7 +743,6 @@ if(categoryid && data.pid)	{
 	app.ext.admin.calls.adminEBAYCategory.init({
 		'categoryid':categoryid,
 		'pid' : data.pid,
-		'xsl' : app.ext.admin_syndication.vars.ebayXSL
 		},{'callback' : function(rd){
 
 			if(app.model.responseHasErrors(rd)){
@@ -762,10 +776,15 @@ if(categoryid && data.pid)	{
 							else	{$li.find('span:first').trigger('click');} //category hasn't been loaded yet, trigger a click.
 							}
 						$chooser.hideLoading();
-						$XSLContentArea.empty().append(leafData.html);
-						app.u.handleAppEvents($chooser);
-						$("[data-categoryid='"+categoryid+"']:first",$chooser).addClass('activeListItem');
-						$('#APIForm').show(); //form is hidden by default
+						if($chooser.data('categoryselect') == 'primary') {
+							$ItemSpecificsArea.ebaySpecificsFormBuild(leafData);
+							app.u.handleAppEvents($chooser);
+							$("[data-categoryid='"+categoryid+"']:first",$chooser).addClass('activeListItem');
+							$('#APIForm').show(); //form is hidden by default
+							// chooser block can become long when you browse the category tree
+							// and ItemSpecificsForm appears on the top -> scroll there
+							$('#ebayCategoryChooser').animate({ scrollTop:0 }, 600);
+							}
 						}
 					}},'mutable');
 				app.model.dispatchThis('mutable');
@@ -790,7 +809,7 @@ else	{
 						}
 					}, //ebayShowTreeByChild
 
-			getUpdatedEBAYAttributesForm : function($form)	{
+/*			getUpdatedEBAYAttributesForm : function($form)	{
 
 				app.u.dump("BEGIN admin_syndication.u.updateSpecifics");
 
@@ -823,7 +842,7 @@ else	{
 				else	{
 					$('#APIForm').anymessage({'message':'In admin_syndication.u.getUpdatedEBAYAttributesForm, either $form ['+typeof $form+'] not passed or unable to determine categoryid from XSL content area ['+typeof $XSLContentArea+']','gMessage':true});
 					}
-				}, //getUpdatedEBAYAttributesForm
+				}, //getUpdatedEBAYAttributesForm */
 
 // !!! delete this once the templateEditor code is all refactored.
 			handleEBAYTemplateSelect : function(vars)	{
@@ -1015,6 +1034,7 @@ if(mode == 'test' || mode == 'update')	{
 					//their contents need formatted and saved to the serialized form object.
 					function setShippingServices(type)	{
 						//type needs to be 'dom' or 'int'
+						// @ship_domservices  @ship_intservices
 						var $shipping = $("[data-app-role='ebayShippingTbody_"+type+"']:first",$form).find('tr');
 						if($shipping.length)	{
 							sfo['@ship_'+type+'services'] = new Array();
@@ -1037,13 +1057,22 @@ if(mode == 'test' || mode == 'update')	{
 									}
 								
 								if(!$tr.hasClass("rowTaggedForRemove")) {sfo['@ship_'+type+'services'].push(obj);}
-								if(sfo['@ship_'+type+'services'].length >= 2)	{return false} //exit now. only 3 allowed.
+								if(sfo['@ship_'+type+'services'].length >= 4)	{return false} //exit now. only 4 allowed.
 								})
 							}
 						}
 					
 					setShippingServices('dom');
-					setShippingServices('int');
+					if(sfo['InternationalShipping\\@BOOLEAN'] == 1)	{
+						setShippingServices('int');
+						}
+					else	{
+//international shipping is disabled, so nuke all international settings. This is how eBay wants the data (empty if disabled)
+						sfo['Item\\ShipToLocations\\@ARRAY'] = [];
+						sfo['Item\\ShippingDetails\\InternationalInsuranceDetails\\InsuranceOption'] = "";
+						sfo['Item\\ShippingDetails\\InternationalInsuranceDetails\\InsuranceFee@CURRENCY'] = "";
+						sfo['@ship_intservices'] = [];
+						}
 //form inputs used in shipping. shouldn't be saved into the profile. Won't hurt, but let's keep it clean.
 delete sfo.cost
 delete sfo.farcost
@@ -1059,20 +1088,20 @@ if(sfo["Item\\DisableBuyerRequirements\\@BOOLEAN"] == 0)	{
 			}
 		}
 	}
-app.u.dump(sfo);
+// app.u.dump(sfo);
 					sfo._cmd = CMD;
 					sfo._tag = {
 						'callback' : function(rd)	{
+							var dp = rd.datapointer;
+							if(!dp && rd._rtag)	{dp = rd._rtag.datapointer}; //depending on whether @msgs has errors, the response format changes.
 							$tab.hideLoading();
-							if(app.model.responseHasErrors(rd)){
-								$('#globalMessaging').anymessage({'message':rd});
-								}
-							else	{
+//for test mode, don't check for errors in the response. the mechanism used to return the profile errors is the same as a potential api error.
+//which means rd may be the exact response and data[datapointer] may not be set or the opposite.
 								if(mode == 'test')	{
 									var
 										$D = $("<div \/>",{'title':'Profile '+sfo.PROFILE+' Error Report'}),
 										$ul = $("<ul \/>"),
-										errs = app.data[rd.datapointer]['@MSGS'],
+										errs = rd['@MSGS'] || app.data[dp]['@MSGS'],
 										L = errs.length
 
 									for(var i = 0; i < L; i += 1)	{
@@ -1084,8 +1113,12 @@ app.u.dump(sfo);
 									
 									}
 								else	{
-									app.ext.admin_syndication.a.showEBAYLaunchProfileEditor($tab,sfo.PROFILE);
-									$('#globalMessaging').anymessage(app.u.successMsgObject('Your changes have been saved'));
+									if(app.model.responseHasErrors(rd)){
+										$('#globalMessaging').anymessage({'message':rd});
+										}
+									else	{
+										app.ext.admin_syndication.a.showEBAYLaunchProfileEditor($tab,sfo.PROFILE);
+										$('#globalMessaging').anymessage(app.u.successMsgObject('Your changes have been saved'));
 									}
 								}
 							}
@@ -1160,95 +1193,101 @@ if unchecked AND USPS show cost, addcost   (there is no farcost for USPS)
 
 /*
 run when the 'save' button is pushed in the ebay category/item specifics modal.
-first, it does an adminEBAYCategory and passes the XSL and form contents. This is to get the most up to data XML that is returned by that call
- -> NOTE: once transform is handled within the app itself, that extra call won't be necessary
-After that, it puts together the adminProductUpdate call, which has up to three updates:
- 1. item specifics, based on the 'custom detail' button are added.
- 2. the category id is set.
- 3. ebay attributes are set (this is the form returned in the adminEBAYCategory call when XSL is sent.
-
+ 1. jquery.ebay-specifics-form.js -> ebaySpecificsFormSave() is launched - validates the whole form and returns
+    a string ready-to-save into ebay:itemspecifics
+ 2. specifics string is passed to adminProductUpdate -> ebay:itemspecifics
+ 3. the category id is set.
 after that cmd is sent, the modal is closed and the original input is updated. If path was passed as the third param in showEBAYCategoryChooserInModal, it is also updated.
 */			
 			ebaySaveCatAndUpdateItemSpecifics : function($btn)	{
 				$btn.button();
 				$btn.off('click.ebayUpdateItemSpecifics').on('click.ebayUpdateItemSpecifics',function(){
-
-				var
-					$form = $btn.closest('form'),
-					$chooser = $('#ebayCategoryChooser'),
-					data = $chooser.data(),
-					categoryid = $chooser.data('categoryid');
+					var
+						$chooser = $('#ebayCategoryChooser'),
+						data = $chooser.data(),
+						categoryid = $chooser.data('categoryid'),
+						$form = $btn.closest('form');
+					var $ItemSpecificsArea = $("[data-app-role='ebayItemSpecificsContainer']",$chooser);
 					
-					if(data.pid && data.categoryselect && data.inputid && categoryid)	{
+					var res = $ItemSpecificsArea.ebaySpecificsFormSave();
 
+					if(data.pid && data.categoryselect && data.inputid && categoryid && !res.error)	{
+						
+						// let say - previously user saved something to ebay:itemspecifics
+						// and now he reviews and wants to save the *empty* item specifics, but
+						// if we just pass "SET-EBAY?itemspecifics=" to adminProductUpdate - nothing happens...
+						// so let's pass "SET-EBAY?itemspecifics=\n" there (URI encoded of course)
+						if(!res.specificsStr || !res.specificsStr.length) { res.specificsStr = "\n"; }
+						
+						$chooser.showLoading({'message':'Saving changes'});
+						var obj = {
+							'_cmd' : 'adminProductUpdate',
+							'@updates' : new Array(),
+							'pid' : data.pid,
+							'_tag' : {
+								'callback' : function(responseData){ //didn't use rd as param name here just to avoid confusion.
+									if(app.model.responseHasErrors(responseData)){
+										$form.anymessage({'message':responseData})
+										}
+									else	{
+										$('#ebayCategoryChooser').dialog('close');
+										}
+									}
+								}
+							}
 
+						/*if($("[data-app-role='ebayCategoryChooserItemSpecificsFieldset']",$form).find('.inputContainer').length)	{
+							app.u.dump(" -> there are item specifics. add a macro.");
+							obj['@updates'].push(app.ext.admin_syndication.u.buildItemSpecificsMacro());
+							}*/
+						
+						//set the category.
+						obj['@updates'].push("SET-EBAY?category"+(data.categoryselect == 'primary' ? '' : 2)+"="+categoryid);
+						
+						// set ebay:itemspecifics
+						obj['@updates'].push("SET-EBAY?itemspecifics="+encodeURIComponent(res.specificsStr));
 
-$chooser.showLoading({'message':'Saving changes'});
-var dispatch = app.ext.admin_syndication.u.buildEBAYXSLCmd(categoryid,data.pid);
-dispatch.form = $form.serialize(); //sent as KvP cuz all the checkboxes have the same name. why wouldn't they? #@!%ing ebay.
-dispatch._tag.callback = function(rd)	{
+						if(data.pathid)	{
+							var path = app.ext.admin_syndication.u.buildEBAYCategoryPath(categoryid);
+							if(path)	{ 
+								$(app.u.jqSelector('#',data.pathid)).text(path);
+								}
+							else	{
+								$('.appMessaging').anymessage({"message":"In admin.u.handleEBAYChildren, unable to determine path for categoryid. As long as the category ID populated the form as needed, this is not a big deal. Dev: see console for details."});
+								}
+							}
 
-	if(app.model.responseHasErrors(rd)){
-		$form.anymessage({'message':rd})
-		}
-	else	{
-//this object is what is used on the adminProductUpdate call.
-		var obj = {
-			'_cmd' : 'adminProductUpdate',
-			'@updates' : new Array(),
-			'pid' : data.pid,
-			'_tag' : {
-				'callback' : function(responseData){ //didn't use rd as param name here just to avoid confusion.
-					if(app.model.responseHasErrors(responseData)){
-						$form.anymessage({'message':responseData})
+						//update the original input.
+						$(app.u.jqSelector('#',data.inputid)).val(categoryid).addClass('edited');
+						app.ext.admin.u.handleSaveButtonByEditedClass($(app.u.jqSelector('#',data.inputid)).closest('form')); //updates the save button change count.
+						
+						app.model.destroy("adminEBAYCategory|"+app.model.version+"|"+data.pid+"|0"); //this data changes as a result of the product update.
+						// ^ this works??
+						
+						// Bl***dy h*ll, CACHING!!! I saved the form, returned to review it - and OLD data is there!
+						// because it sits in localStorage and app.data as 'adminEBAYCategory|cat|cat|pid'
+						if(window.localStorage) {
+							$.each(window.localStorage, function(key,value) {
+									if(key.search(/adminEBAYCategory/i) != -1) {
+										delete window.localStorage[key];
+										}
+								});
+							}
+						if(app.data) {
+							$.each(app.data, function(key,value) {
+									if(key.search(/adminEBAYCategory/i) != -1) {
+										delete app.data[key];
+										}
+								});
+							}
+
+						//app.u.dump(" OBJ: "); app.u.dump(obj);
+						app.model.addDispatchToQ(obj,'immutable');			
+						app.model.dispatchThis('immutable');
 						}
-					else	{
-						$('#ebayCategoryChooser').dialog('close');
-						}
-					}
-				}
-			}
-
-		if($("[data-app-role='ebayCategoryChooserItemSpecificsFieldset']",$form).find('.inputContainer').length)	{
-			app.u.dump(" -> there are item specifics. add a macro.");
-			obj['@updates'].push(app.ext.admin_syndication.u.buildItemSpecificsMacro());
-			}
-		
-//		app.u.dump(" -> obj follows:"); app.u.dump(obj); die();
-		//set the category.
-		obj['@updates'].push("SET-EBAY?category"+(data.categoryselect == 'primary' ? '' : 2)+"="+categoryid);
-		
-		obj['@updates'].push("SET-EBAY?attributeset="+encodeURIComponent(app.data[rd.datapointer]['ebay:attributeset']));
-		
-		app.model.destroy("adminEBAYCategory|"+app.model.version+"|"+data.pid+"|0"); //this data changes as a result of the product update.
-		if(data.pathid)	{
-			var path = app.ext.admin_syndication.u.buildEBAYCategoryPath(categoryid);
-			if(path)	{$(app.u.jqSelector('#',data.pathid)).text(path)}
-			else	{
-				$('.appMessaging').anymessage({"message":"In admin.u.handleEBAYChildren, unable to determine path for categoryid. As long as the category ID populated the form as needed, this is not a big deal. Dev: see console for details."});
-				}
-			}
-		
-		//update the original input.
-		$(app.u.jqSelector('#',data.inputid)).val(categoryid);					
-								
-		//app.u.dump(" OBJ: "); app.u.dump(obj);
-		app.model.addDispatchToQ(obj,'immutable');			
-		app.model.dispatchThis('immutable');
-
-		}
-	};
-
-app.model.addDispatchToQ(dispatch,'immutable');
-app.model.dispatchThis('immutable');
-
-
-
-						}
-					else	{
+					else if(!data.pid || !data.categoryselect || !data.inputid || !categoryid)	{
 						$form.anymessage({'message':'In admin_syndication.e.ebaySaveCatAndUpdateItemSpecifics, unable to ascertain the pid ['+data.pid+'] and/or categoryselect ['+data.categoryselect+'] and/or categoryid ['+categoryid+'] , expected to find them on $(\'#ebayCategoryChooser\').data()','gMessage':true});
 						}
-
 					});
 				}, //ebaySaveCatAndUpdateItemSpecifics
 			
@@ -1359,8 +1398,9 @@ app.model.dispatchThis('immutable');
 					app.ext.admin_batchJob.a.adminBatchJobCreate({
 						'guid' : app.u.guidGenerator(),
 						'profile' : $btn.closest('tr').data('profile'),
-						'type' : 'EBAY_UPDATE',
-						'function' : 'refresh'
+						'function' : 'refresh',
+						'type':'UTILITY/EBAY_UPDATE',
+						'%vars':{'function':'refresh','profile':$btn.closest('tr').data('profile')}
 						});	
 
 					})
@@ -1560,11 +1600,65 @@ app.model.dispatchThis('immutable');
 				
 				}, //ebayTokenDeleteButtonset
 
+			ebayTokenVerify : function($btn)	{
+				$btn.button();
+				$btn.off('click.ebayTokenVerify').on('click.ebayTokenVerify',function(){
+					//get a token and use that in the redirect to ebay.					
+					app.model.addDispatchToQ({
+						'_cmd':'adminPartnerSet',
+						'partner' : 'EBAY',
+						'SessionID' : app.data.adminPartnerGet.SessionID,
+						'RuName' : app.data.adminPartnerGet.RuName,
+						'_tag':	{
+							'datapointer' : 'adminPartnerSet',
+							'callback':function(rd){
+								if(app.model.responseHasErrors(rd)){
+									$('#globalMessaging').anymessage({'message':rd});
+									}
+								else	{
+									$('#globalMessaging').anymessage({'message':'eBay authorization is now complete.','errtype':'success'});
+									//reload the ebay interface so that presence of valid token enables UI as needed.
+									app.ext.admin_syndication.a.showDSTDetails('EBF',$btn.closest("[data-app-role='slimLeftContentSection']"))
+									}
+								}
+							}
+						},'mutable');
+					app.model.dispatchThis('mutable');						
+					})
+				},
+
+
 			ebayTokenLinkTo : function($btn)	{
 				$btn.button();
 				$btn.off('click.ebayGetToken').on('click.ebayGetToken',function(){
-					var url = $btn.data('sandbox') ==1 ? 'https://signin.sandbox.ebay.com/saw-cgi/eBayISAPI.dll?SignIn&runame=Zoovy-gtagruve-tly&ruparams='+encodeURIComponent('linkFrom=ebay-token&partner=EBAY&trigger=adminPartnerSet&sb=1') : 'https://signin.ebay.com/saw-cgi/eBayISAPI.dll?SignIn&runame=Zoovy-gtagruv3-ronj&ruparams='+encodeURIComponent('linkFrom=ebay-token&partner=EBAY&trigger=adminPartnerSet')
-					linkOffSite(url); //ruparams are what we get back on the URI, as well as ebaytkn, tknexp and username (which is the ebay username).
+//get a token and use that in the redirect to ebay.					
+app.model.addDispatchToQ({
+	'_cmd':'adminPartnerGet',
+	'partner' : 'EBAY',
+	'_tag':	{
+		'datapointer' : 'adminPartnerGet',
+		'callback':function(rd){
+			if(app.model.responseHasErrors(rd)){
+				$('#globalMessaging').anymessage({'message':rd});
+				}
+			else	{
+				if(app.data[rd.datapointer].SessionID && app.data[rd.datapointer].RuName)	{
+				//show the button the user needs to click. disable the rest to avoid confusion.
+					$btn.parent().find('button').button('disable').end().find("button[data-app-event='admin_syndication|ebayTokenVerify']").button('enable').show().end().anymessage({'message':'Upon returning from eBay, you MUST push the complete authorization button below to finish the process','errtype':'todo','persistent':true});
+					//no, that's not a typo, ebay is expecting SessID. We left it as SessionID because that's how it is referred to EVERYWHERE else.
+					linkOffSite(($btn.data('sandbox') == 1 ? 'https://signin.sandbox.ebay.com' : 'https://signin.ebay.com') + '/ws/eBayISAPI.dll?SignIn&RuName='+app.data[rd.datapointer].RuName+'&SessID='+encodeURIComponent(app.data[rd.datapointer].SessionID),'ebay.com to continue this registration process','',true);
+					}
+				else	{
+					$('#globalMessaging').anymessage({'message':'The response for appPartnerGet did not include SessionID ['+app.data[rd.datapointer].SessionID+'] and/or RuName ['+app.data[rd.datapointer].RuName+']. Both are required.','gMessage':true,'errtype':'fail-soft'});
+					}
+				}
+			}
+		}
+	},'mutable');
+app.model.dispatchThis('mutable');					
+					
+//					var url = $btn.data('sandbox') ==1 ? 'https://signin.sandbox.ebay.com/saw-cgi/eBayISAPI.dll?SignIn&runame=Zoovy-gtagruve-tly&ruparams='+encodeURIComponent('linkFrom=ebay-token&partner=EBAY&trigger=adminPartnerSet&sb=1&domain='+document.domain) : 'https://signin.ebay.com/saw-cgi/eBayISAPI.dll?SignIn&runame=Zoovy-gtagruv3-ronj&ruparams='+encodeURIComponent('linkFrom=ebay-token&partner=EBAY&trigger=adminPartnerSet&domain='+document.domain);
+//					linkOffSite(url); //ruparams are what we get back on the URI, as well as ebaytkn, tknexp and username (which is the ebay username).
 					});
 				}, //ebayTokenLinkTo
 
@@ -1616,43 +1710,6 @@ app.model.dispatchThis('immutable');
 					});
 				}, //ebayServiceAddShow
 
-			adminEBAYProfileZipDownloadExec : function($btn)	{
-				$btn.button();
-				$btn.off('click.adminEBAYProfileZipDownload').on('click.adminEBAYProfileZipDownload',function(){
-					var profile = $btn.data('profile');
-					$(app.u.jqSelector('#',app.ext.admin.vars.tab+'Content')).showLoading({'message':'Building a zip file of the template. One moment please...'});
-					app.model.addDispatchToQ({
-						'_cmd' : 'adminEBAYProfileZipDownload',
-						'base64' : true,
-						'PROFILE' : profile,
-						'FILENAME' : profile+'.zip',
-						'_tag' : {
-							'callback':'fileDownloadInModal',
-							'extension':'admin',
-							'datapointer':'adminEBAYProfileZipDownload|'+profile,
-							'jqObj' : $(app.u.jqSelector('#',app.ext.admin.vars.tab+'Content'))
-							}
-						},'immutable');
-					app.model.dispatchThis('immutable');
-					});
-				}, //adminEBAYProfileZipDownloadExec
-
-			adminEBAYProfileZipUploadExec : function($btn)	{
-				$btn.button();
-				$btn.off('click.adminEBAYProfileZipUploadExec').on('click.adminEBAYProfileZipUploadExec',function(){
-					var profile = $btn.data('profile');
-					var $D = app.ext.admin.i.dialogCreate({
-						'title' : 'eBay Template Zip File Upload',
-						'templateID' : 'ebayZipUploadTemplate',
-						data : {} //blank data because translation needs to occur (template calls another template)
-						});
-					$D.dialog('option','height','400');
-					$('form',$D).append("<input type='hidden' name='profile' value='"+profile+"' \/>");
-					$D.dialog('open');
-					app.ext.admin_medialib.u.convertFormToJQFU($('form',$D),'adminEBAYProfileFileUpload');
-					});
-				}, //adminEBAYProfileZipUploadExec
-
 
 			ebayBuyerRequirementsToggle : function($ele)	{
 				function handleSelect()	{
@@ -1664,10 +1721,27 @@ app.model.dispatchThis('immutable');
 						}
 					}
 				handleSelect();
-				$ele.off('click.hideInputsByCheckbox').on('click.hideInputsByCheckbox',function(){
+				$ele.off('change.ebayBuyerRequirementsToggle').on('change.ebayBuyerRequirementsToggle',function(){
 					handleSelect();
 					});
 				}, //ebayBuyerRequirementsToggle
+
+			ebayInternationalShippingToggle : function($ele)	{
+				// I have no idea why this doesn't work.
+				function handleClick()	{
+					if ($ele.is(":checked"))	{
+						$('.eBayIntShippingToggle',$ele.closest('.ui-widget-content')).show();
+						}
+					else	{
+						$('.eBayIntShippingToggle',$ele.closest('.ui-widget-content')).hide();
+						$('.eBayItemShipToLocations option:selected',$ele.closest('.ui-widget-content')).prop('selected','');
+						}
+					}
+				handleClick();
+				$ele.off('click.ebayInternationalShippingToggle').on('click.ebayInternationalShippingToggle',function(){
+					handleClick();
+					});
+				}, //ebayInternationalShippingToggle
 
 			ebayReturnsToggle : function($ele)	{
 				function handleSelect()	{
@@ -1745,13 +1819,19 @@ app.model.dispatchThis('immutable');
 								$('tr.edited',$form).each(function(){
 									var $tr = $(this);
 									if($tr.hasClass('rowTaggedForRemove') && $tr.hasClass('isNewRow'))	{
+										$tr.empty().remove();
 										//if it's a new row that was deleted before a save occured, no macro needed to remove it.
 										}
 									else if($tr.hasClass('rowTaggedForRemove'))	{
-										macros.push("AMZ-THESAURUS-DELETE?ID="+$tr.data('thid'));
+										macros.push("AMZ-THESAURUS-DELETE?guid="+$tr.data('guid'));
+										$tr.empty().remove();
 										}
 									else if($tr.hasClass('isNewRow'))	{
-										macros.push("AMZ-THESAURUS-SAVE?"+app.ext.admin.u.getSanitizedKVPFromObject($tr.data()));
+										//  getWhitelistedObject
+										if(!$tr.data('guid'))	{
+											$tr.data('guid',app.u.guidGenerator())
+											}
+										macros.push("AMZ-THESAURUS-SAVE?"+$.param(app.u.getWhitelistedObject($tr.data(),['guid','name','itemtype','isgiftwrapavailable','isgiftmessageavailable','subjectcontent','targetaudience','search_terms']))); //THID is not in whitelist because data saves it as lowercase and we need it upper.
 										}
 									else	{
 										//HUH! shouldn't have gotten here.
@@ -1759,7 +1839,7 @@ app.model.dispatchThis('immutable');
 										}
 									});
 								}
-							app.u.dump("macros: "); app.u.dump(macros);
+//							app.u.dump("macros: "); app.u.dump(macros);
 							$form.showLoading({'message':'Updating Marketplace Settings...'});
 							app.ext.admin.calls.adminSyndicationMacro.init(DST,macros,{'callback':'handleMacroUpdate','extension':'admin_syndication','jqObj':$form},'immutable');
 							app.ext.admin.calls.adminSyndicationDetail.init(DST,{},'immutable');
@@ -1790,13 +1870,13 @@ app.model.dispatchThis('immutable');
 
 			adminSyndicationUnsuspendAndClearErrorMacro : function($btn)	{
 				$btn.button();
-				$btn.off('click.adminSyndicationUnsuspendMacro').on('click.adminSyndicationUnsuspendMacro',function(){
+				$btn.off('click.adminSyndicationUnsuspendAndClearErrorMacro').on('click.adminSyndicationUnsuspendAndClearErrorMacro',function(){
 					var DST = $btn.closest("[data-dst]").data('dst');
 					if(DST)	{
 						var $tbody = $btn.closest('.ui-tabs-panel').find('tbody')
 						$tbody.empty().showLoading({'message':'Clearing errors...'})
-						app.ext.admin.calls.adminSyndicationMacro.init(DST,['UNSUSPEND','CLEAR-FEED-ERRORS'],{},'immutable');
-						app.ext.admin.calls.adminSyndicationFeedErrors.init(DST,{'callback' : 'anycontentPlus','extension':'admin_syndication','jqObj':$tbody},'mutable');
+						app.ext.admin.calls.adminSyndicationMacro.init(DST,['UNSUSPEND','CLEAR-FEED-ERRORS'],{'callback' : 'showMessaging','message':'Your errors have been cleared','jqObj':$('#globalMessaging')},'immutable');
+						app.ext.admin.calls.adminSyndicationFeedErrors.init(DST,{'callback' : 'anycontentPlus','extension':'admin_syndication','jqObj':$tbody},'immutable');
 						app.model.dispatchThis('immutable');
 						}
 					else	{
