@@ -409,6 +409,10 @@ var _store_filter = function() {
 			"filter": "PageantMnmCoutForm",
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
+			".pageant.designers.sherri_hill":{
+			"filter": "PageantSherriHillForm",
+			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
 			".pageant.designers.tony_bowls":{
 			"filter": "PageantTonyBowlsForm",
 			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}

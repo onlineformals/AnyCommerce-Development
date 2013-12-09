@@ -114,6 +114,7 @@ var _store_formals = function() {
 				".pageant.designers.la_femme" : "categoryProductListTemplate",
 				".pageant.designers.mac_duggal" : "categoryProductListTemplate",
 				".pageant.designers.mnm_couture" : "categoryProductListTemplate",
+				".pageant.designers.sherri_hill" : "categoryProductListTemplate",
 				".pageant.designers.tony_bowls" : "categoryProductListTemplate",
 				".pageant.children_s_pageant" : "categoryProductListTemplate",
 				
