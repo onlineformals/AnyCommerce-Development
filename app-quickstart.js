@@ -2782,11 +2782,16 @@ buyer to 'take with them' as they move between  pages.
 						
 					else if(catSafeID == zGlobals.appSettings.rootcat || infoObj.pageType == 'homepage')	{
 						infoObj.templateID = 'homepageTemplate'
-						}
-					else	{
-						infoObj.templateID = 'categoryTemplate'
-						}
-					infoObj.state = 'onInits';
+						}            		
+						else if(app.ext._store_formals.vars.catTemplates[catSafeID]){
+             			app.u.dump("category list template option selected");
+              			infoObj.templateID = app.ext._store_formals.vars.catTemplates[catSafeID]
+            		}
+          			else{
+              			app.u.dump("category default template option selected");
+              			infoObj.templateID = 'categoryTemplate'
+					}
+infoObj.state = 'onInits';
 					var parentID = infoObj.parentID || infoObj.templateID+'_'+app.u.makeSafeHTMLId(catSafeID);
 					infoObj.parentID = parentID;
 					app.ext.myRIA.u.handleTemplateFunctions(infoObj);

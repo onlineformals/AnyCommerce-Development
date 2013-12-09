@@ -708,12 +708,9 @@ don't modify the 'data-templateid' unless you are changing template names and up
         <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
         <div class="catTopCarousel">
             <div class="carouselCPBannerList">
-                <!--
-                <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/carousel/testbanner-1.png" /></a></li>
-                <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/carousel/testbanner-1.png" /></a></li>
-                <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/carousel/testbanner-1.png" /></a></li>
-                <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/carousel/testbanner-1.png" /></a></li>
-            	-->
+                <div class="catProdListCustomTextArea displayNone" data-bind="var: category(%page.description); format: showIfSet;">
+                    <h1 data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></h1>
+                </div>
             </div>
             <!--
             <img class="prevCPBannerCaro" src="Images/Homepage/caroleft.png" />
