@@ -3254,158 +3254,149 @@ if you change these, you should move them above this comment so that when you (o
 
 
 <!-- loadingBG needed on this for app init (content may take a moment to load) -->
-<div id='companyTemplate' class='clearfix loadingBG'>
+<div id='companyTemplate' class='clearfix'>
 
 	<div class="centeringContainer">
-    <div class='sideline' >
-<nav id='companyNav'>
-<ul class='listStyleNone noPadOrMargin'>
-	<li><a href='#company?show=about'>About Us</a></li>
-	<li><a href='#company?show=contact'>Contact Information</a></li>
-	<li><a href='#company?show=faq'>FAQ</a></li>
-	<li><a href='#company?show=payment'>Payment Policy</a></li>
-	<li><a href='#company?show=privacy'>Privacy Statement</a></li>
-	<li><a href='#company?show=return'>Return Policy</a></li>
-	<li><a href='#company?show=shipping'>Shipping Information</a></li>
-</ul>
-</nav>
-	</div>
-
-	<div class='mainColumn'>
-<!-- .textContentArea is used as a selector in quickstart.js because article tag type isn't ie8 friendly -->
-		<div id='aboutArticle' class='textContentArea article'>
-			<h1>About Us</h1>
-			<!--
-            <div data-bind='var: profile(zoovy:about); format:wiki; wikiFormats:myRIA;' id='aboutUsContent'></div>
-            -->
-            <p>Established in 2004, Onlineformals.com has become a trusted e-commerce leader in the special occasion industry. Specializing in Prom, Pageant, and Social Occasion attire, we also offer the latest styles in formal shoes and accessories.<p>
-            Our personal relationships with the most respected garment manufacturers in the business enable us to bring you the latest styles and trends at cost effective prices. With our improved website functionality and the addition of our unique showroom that provides a personal shopping experience, finding your dress will be easier than ever!</p>
-            <p><b><u>Why Buy From Us</b></u></p>
-            <p><b>Authenticity.</b> We are an Authorized Retailer for every designer we carry giving you confidence that you are purchasing a 100% Authentic gown. We are also &ldquo;Top Prom Website&rdquo; Approved!<br></p>
-            <p><b>Customer Service</b> provided by friendly and knowledgeable staff that can answer any questions and assist with your order.<br></p>
-            <p><b>Peace of mind</b> when placing your order&#150;our clearly stated return policy allows for easy exchanges!<br></p>
-            <p><b>Security</b> provided by GeoTrust and credit card processing through Authorize.net.</p>
-
+    	<div class='sideline' >
+            <nav id='companyNav'>
+                <ul class='listStyleNone noPadOrMargin'>
+                <!-- these are generated via javascript, based on the myRIA.pages object. -->
+                </ul>
+            </nav>
 		</div>
 
+        <div class='mainColumn'>
+        <!-- .textContentArea is used as a selector in quickstart.js because article tag type isn't ie8 friendly -->
+            <div id='aboutArticle' class='textContentArea article'>
+                <h1>About Us</h1>
+                <!--
+                <div data-bind='var: profile(zoovy:about); format:wiki; wikiFormats:myRIA;' id='aboutUsContent'></div>
+                -->
+                <p>Established in 2004, Onlineformals.com has become a trusted e-commerce leader in the special occasion industry. Specializing in Prom, Pageant, and Social Occasion attire, we also offer the latest styles in formal shoes and accessories.<p>
+                Our personal relationships with the most respected garment manufacturers in the business enable us to bring you the latest styles and trends at cost effective prices. With our improved website functionality and the addition of our unique showroom that provides a personal shopping experience, finding your dress will be easier than ever!</p>
+                <p><b><u>Why Buy From Us</u></b></p>
+                <p><b>Authenticity.</b> We are an Authorized Retailer for every designer we carry giving you confidence that you are purchasing a 100% Authentic gown. We are also &ldquo;Top Prom Website&rdquo; Approved!<br></p>
+                <p><b>Customer Service</b> provided by friendly and knowledgeable staff that can answer any questions and assist with your order.<br></p>
+                <p><b>Peace of mind</b> when placing your order&#150;our clearly stated return policy allows for easy exchanges!<br></p>
+                <p><b>Security</b> provided by GeoTrust and credit card processing through Authorize.net.</p>
+    
+            </div>
+    
+    
+            <div id='contactArticle' class='displayNone textContentArea'>
+                <h1>Contact Information</h1>
+                <div class="contactContentContainer">
+                    <p><b>Phone</b>:  888.280.4179</p>
+                    <p><b>E-mail</b>:  info@onlineformals.com</p>
+                    <p class="contactUsChat"><b>Chat</b>: </p><div id="cinXRT" style="z-index:100;position:absolute"></div><div id="scnXRT" style="display:inline"></div><div id="sdnXRT" style="display:none"></div><script type="text/javascript">var senXRT=document.createElement("script");senXRT.type="text/javascript";var senXRTs=(location.protocol.indexOf("https")==0?"https":"http")+"://image.providesupport.com/js/1rj9nh21p5xso04swicqmmfdv0/safe-textlink.js?ps_h=nXRT&ps_t="+new Date().getTime()+"&online-link-html=Chat%20With%20A%20Stylist%21&offline-link-html=Chat%20With%20A%20Stylist%21";setTimeout("senXRT.src=senXRTs;document.getElementById('sdnXRT').appendChild(senXRT)",1)</script><noscript><div style="display:inline"><a href="http://www.providesupport.com?messenger=1rj9nh21p5xso04swicqmmfdv0">Live Chat Help</a></div></noscript>
+                    <p><b>Live Customer Support Hours</b></p>
+                    <p>Monday - Friday • 8:00 am-5:00 pm EST</p>
+                    <p>Saturday • 8:00 am-12:00 pm EST</p>
+                    <p>Sunday • Closed</p>
+                    <p><b>Visit</b>:  Click <a class="pointer" onClick="return showContent('category',{'navcat':'.designers.sherri_hill'});">here</a> for information about visiting our Showroom!</p>
+                </div>    
+    
+                <form action='#' onSubmit="app.calls.appSendMessage.init($(this).serializeJSON(),{'callback':'showMessaging','parentID':'contactFormMessaging','message':'Thank you, your message has been sent'},'immutable'); app.model.dispatchThis('immutable');  return false;" id='contactForm' name='contactForm'>
+                <fieldset>
+                    <legend>Contact Us</legend>
+                    <div id='contactFormMessaging'></div>
+                    <div><label for='contactFormSender'>Email Address: </label><input type='email' name='sender' required='required' id='contactFormSender' /></div>
+                    <div><label for='contactFormSubject'>Subject: </label><input type='text' name='subject' id='contactFormSubject' /></div>
+                    <div><label for='contactFormOID'>Order ID: </label><input type='text' name='OID' id='contactFormOID' /></div>
+                    <div><label for='contactFormBody'>Message: </label><textarea name='body' required='required' id='contactFormBody'></textarea></div>
+                    <div class='alignRight'><input type='submit' class='ui-button-text ui-button ui-state-default ui-corner-all' value='Send Message' />
+                    </div>
+                </fieldset>
+                </form>
+                <div data-bind='var: profile(zoovy:contact); format:wiki; wikiFormats:myRIA;' id='contactContent'></div>
+            </div>
+    
+    
+    
+            <div id='faqArticle' class='displayNone textContentArea'>
+                <h1>Frequently Asked Questions</h1>
+                <div id='faqContent' class='loadingBG ui-accordion ui-widget ui-helper-reset ui-accordion-icons appAccordianesque'></div>
+            </div>
+    
+    
+    
+            <div class='displayNone textContentArea' id='paymentArticle'>
+                <h1>Payment Policy</h1>
+                <p>We accept:<br>
+                -Visa<br>
+                -Mastercard<br>
+                -American Express<br>
+                -Discover<br>
+                -Paypal<br>
+                -Personal Check<br>
+                -Money Order<br>
+                -Western Union<br>
+                </p>
+    
+                <!--
+                <div data-bind='var: profile(zoovy:payment_policy); format:wiki; wikiFormats:myRIA;' id='paymentContent'></div>
+                -->
+            </div>
+    
+    
+            <div class='displayNone textContentArea' id='privacyArticle'>
+                <h1>Privacy Statement</h1>
+                <p>Your privacy is important to us. Under no circumstances will onlineformals.com, its employees, affiliates or subsidiaries share your personal information with any third parties for the purposes of marketing or solicitation. Your personal information will be held in the strictest of confidence and only used to process your online transaction that you place through the use of our site.</p>
+            </div>
+    
+    
+    
+    
+            <div class='displayNone textContentArea' id='returnArticle'>
+                <h1>Return Policy</h1>
+                <h2><b><I>Your satisfaction is important to us.</I></b></h2>
+    
+                <p>Onlineformals offers store credits on purchases (valid for a 1-year period) with the exception of the following items which are NOT returnable:</p>
+                
+                <p>-Bridal Gowns</p>
+                <p>-Items Marked "Final Sale"</p>
+                <p>-Shoes</p>
+                <p>-Jewelry</p> 
+                <p>-Undergarments</p>
+                <p>-Items purchased using a store credit from a previous return</p>
+                
+                <p><b>We do not offer refunds</b> and the conditions below must be met to process your return request: </p>
+                
+                <p>You must e-mail us at returns@onlineformals.com within <b><u>5 days</u></b> of receiving your item(s) and request a Return Authorization number.  The subject must read RA Request.  You must state the reason for your return in the message.</p>
+                <p>Your request will be reviewed and, if valid, you will be issued a Return Authorization number.</p>
+                <p>The merchandise must be mailed back within <b><u>3 days</b></u> of receiving your Return Authorization number.
+                 *Please write your RA number on the outside of the box. </p>
+                <P>Merchandise must be mailed to:</p>
+                <p>Onlineformals, Inc.<br>
+                2308 Pierce Lane<br>
+                Virginia Beach, VA 23453</p>
+                <p>The merchandise must be sent back in the original packaging with all tags, hangers and receipts enclosed.</p> 
+                <p>It is strongly suggested that you use UPS or Federal Express and ship your parcel fully insured.  The United States Postal Service (Post Office) doesn't provide a point to point tracking service and is not recommended.  *We are not responsible for any loss or damage of your returned shipment. </p>
+                <p>Upon receipt we will carefully inspect the merchandise for signs of wear to include: tears, snags, stains and odors.  If the merchandise is damaged in any way it will be sent back at the buyers expense and we will not be able to provide store credit.</p>
+                <p>If the merchandise is received in new condition (as when shipped) we will provide a store credit for the amount of the item being returned <b>less a $35.00 return fee.</b>  This fee covers our shipping costs associated with your new gown.  If you need a more expedited method of shipment, please contact us for an express shipping price quote.</p>
+                <p>Store credits are valid for a period of one year from your original date of purchase.  We will provide your store credit code via email.
+                To redeem your store credit simply use the code at checkout when purchasing your new item.</p>
+                <p><b>Items purchased using a store credit are not returnable</b>, meaning that once you receive your replacement item(s), it cannot be returned.</p>
+                <p>Any items sent back without a RA number will be sent back at the buyers expense.</p>
+                <p>Please call us at 888-280-4179 or e-mail us at info@onlineformals.com with any questions regarding our return policy.</p>
+                <!--
+                <div data-bind='var: profile(zoovy:return_policy); format:wiki; wikiFormats:myRIA;' id='returnContent'></div>
+                -->
+            </div>
+    
+    
+    
+            <div class='displayNone textContentArea' id='shippingArticle'>
+                <h1>Shipping Information</h1>
+                <p>Our goal is to get your order to your front door as quickly as we can!</p>
+                <p>All in-stock merchandise will ship out within two business days. Speed of delivery will depend upon the shipping method you select at checkout. If you are in doubt about shipping time or have a special request, please call us at 888-280-4179 or e-mail us at info@onlineformals.com and we can go over all available options.</p>
+                <p>If the merchandise is not in stock, we will notify you immediately by e-mail and/or phone. In this case, we will provide the estimated ship date and discuss any available options for delivery of your order in time for your wear date.</p>
+                <!--
+                <div data-bind='var: profile(zoovy:shipping_policy); format:wiki; wikiFormats:myRIA;' id='shippingContent'></div>
+                -->
+            </div>
 
-		<div id='contactArticle' class='displayNone textContentArea'>
-			<h1>Contact Information</h1>
-            <div class="contactContentContainer">
-                <p><b>Phone</b>:  888.280.4179</p>
-				<p><b>E-mail</b>:  info@onlineformals.com</p>
-                <p class="contactUsChat"><b>Chat</b>: </p><div id="cinXRT" style="z-index:100;position:absolute"></div><div id="scnXRT" style="display:inline"></div><div id="sdnXRT" style="display:none"></div><script type="text/javascript">var senXRT=document.createElement("script");senXRT.type="text/javascript";var senXRTs=(location.protocol.indexOf("https")==0?"https":"http")+"://image.providesupport.com/js/1rj9nh21p5xso04swicqmmfdv0/safe-textlink.js?ps_h=nXRT&ps_t="+new Date().getTime()+"&online-link-html=Chat%20With%20A%20Stylist%21&offline-link-html=Chat%20With%20A%20Stylist%21";setTimeout("senXRT.src=senXRTs;document.getElementById('sdnXRT').appendChild(senXRT)",1)</script><noscript><div style="display:inline"><a href="http://www.providesupport.com?messenger=1rj9nh21p5xso04swicqmmfdv0">Live Chat Help</a></div></noscript>
-                <p><b>Live Customer Support Hours</b></p>
-                <p>Monday - Friday • 8:00 am-5:00 pm EST</p>
-                <p>Saturday • 8:00 am-12:00 pm EST</p>
-                <p>Sunday • Closed</p>
-
-				<p><b>Visit</b>:  Click <a class="pointer" onClick="return showContent('category',{'navcat':'.designers.sherri_hill'});">here</a> for information about visiting our Showroom!</p>
-
-
-            </div>    
-
-            <form action='#' onSubmit="app.calls.appSendMessage.init($(this).serializeJSON(),{'callback':'showMessaging','parentID':'contactFormMessaging','message':'Thank you, your message has been sent'},'immutable'); app.model.dispatchThis('immutable');  return false;" id='contactForm' name='contactForm'>
-			<fieldset>
-				<legend>Contact Us</legend>
-				<div id='contactFormMessaging'></div>
-				<div><label for='contactFormSender'>Email Address: </label><input type='email' name='sender' required='required' id='contactFormSender' /></div>
-				<div><label for='contactFormSubject'>Subject: </label><input type='text' name='subject' id='contactFormSubject' /></div>
-				<div><label for='contactFormOID'>Order ID: </label><input type='text' name='OID' id='contactFormOID' /></div>
-				<div><label for='contactFormBody'>Message: </label><textarea name='body' required='required' id='contactFormBody'></textarea></div>
-				<div class='alignRight'><input type='submit' class='ui-button-text ui-button ui-state-default ui-corner-all' value='Send Message' />
-				</div>
-			</fieldset>
-			</form>
-			<div data-bind='var: profile(zoovy:contact); format:wiki; wikiFormats:myRIA;' id='contactContent'></div>
 		</div>
-
-
-
-		<div id='faqArticle' class='displayNone textContentArea'>
-			<h1>Frequently Asked Questions</h1>
-			<div id='faqContent' class='loadingBG ui-accordion ui-widget ui-helper-reset ui-accordion-icons appAccordianesque'></div>
-		</div>
-
-
-
-		<div class='displayNone textContentArea' id='paymentArticle'>
-			<h1>Payment Policy</h1>
-            <p>We accept:<br>
-            -Visa<br>
-            -Mastercard<br>
-            -American Express<br>
-            -Discover<br>
-            -Paypal<br>
-            -Personal Check<br>
-            -Money Order<br>
-            -Western Union<br>
-            </p>
-
-            <!--
-            <div data-bind='var: profile(zoovy:payment_policy); format:wiki; wikiFormats:myRIA;' id='paymentContent'></div>
-			-->
-        </div>
-
-
-		<div class='displayNone textContentArea' id='privacyArticle'>
-			<h1>Privacy Statement</h1>
-	<p>Your privacy is important to us. Under no circumstances will onlineformals.com, its employees, affiliates or subsidiaries share your personal information with any third parties for the purposes of marketing or solicitation. Your personal information will be held in the strictest of confidence and only used to process your online transaction that you place through the use of our site.</p>
-		</div>
-
-
-
-
-		<div class='displayNone textContentArea' id='returnArticle'>
-			<h1>Return Policy</h1>
-			<b><I><h2>Your satisfaction is important to us.</b></I></h2> <p>
-
-            Onlineformals offers store credits on purchases (valid for a 1-year period) with the exception of the following items which are NOT returnable:<p>
-            
-            -Bridal Gowns<p>
-            -Items Marked "Final Sale"<p>
-            -Shoes<p>
-            -Jewelry<p> 
-            -Undergarments<p>
-            -Items purchased using a store credit from a previous return<p>
-            
-            <b>We do not offer refunds</b> and the conditions below must be met to process your return request: <p>
-            
-            You must e-mail us at returns@onlineformals.com within <b><u>5 days</u></b> of receiving your item(s) and request a Return Authorization number.  The subject must read RA Request.  You must state the reason for your return in the message.<p>
-            Your request will be reviewed and, if valid, you will be issued a Return Authorization number.<p>
-            The merchandise must be mailed back within <b><u>3 days</b></u> of receiving your Return Authorization number.
-             *Please write your RA number on the outside of the box. <p>
-            Merchandise must be mailed to:<p>
-            Onlineformals, Inc.<br>
-            2308 Pierce Lane<br>
-            Virginia Beach, VA 23453<p>
-            The merchandise must be sent back in the original packaging with all tags, hangers and receipts enclosed.<p> 
-            It is strongly suggested that you use UPS or Federal Express and ship your parcel fully insured.  The United States Postal Service (Post Office) doesn't provide a point to point tracking service and is not recommended.  *We are not responsible for any loss or damage of your returned shipment. <p>
-            Upon receipt we will carefully inspect the merchandise for signs of wear to include: tears, snags, stains and odors.  If the merchandise is damaged in any way it will be sent back at the buyers expense and we will not be able to provide store credit.<p>
-            If the merchandise is received in new condition (as when shipped) we will provide a store credit for the amount of the item being returned <b>less a $35.00 return fee.</b>  This fee covers our shipping costs associated with your new gown.  If you need a more expedited method of shipment, please contact us for an express shipping price quote.<p>
-            Store credits are valid for a period of one year from your original date of purchase.  We will provide your store credit code via email.
-            To redeem your store credit simply use the code at checkout when purchasing your new item.<p>
-            <b>Items purchased using a store credit are not returnable</b>, meaning that once you receive your replacement item(s), it cannot be returned.<p>
-            Any items sent back without a RA number will be sent back at the buyers expense.<p>
-            Please call us at 888-280-4179 or e-mail us at info@onlineformals.com with any questions regarding our return policy.
-            <!--
-            <div data-bind='var: profile(zoovy:return_policy); format:wiki; wikiFormats:myRIA;' id='returnContent'></div>
-			-->
-        </div>
-
-
-
-		<div class='displayNone textContentArea' id='shippingArticle'>
-			<h1>Shipping Information</h1>
-            <p>Our goal is to get your order to your front door as quickly as we can!</p>
-            <p>All in-stock merchandise will ship out within two business days. Speed of delivery will depend upon the shipping method you select at checkout. If you are in doubt about shipping time or have a special request, please call us at 888-280-4179 or e-mail us at info@onlineformals.com and we can go over all available options.</p>
-            <p>If the merchandise is not in stock, we will notify you immediately by e-mail and/or phone. In this case, we will provide the estimated ship date and discuss any available options for delivery of your order in time for your wear date.</p>
-            <!--
-            <div data-bind='var: profile(zoovy:shipping_policy); format:wiki; wikiFormats:myRIA;' id='shippingContent'></div>
-			-->
-        </div>
-
-	</div>
 
 	</div>
 
