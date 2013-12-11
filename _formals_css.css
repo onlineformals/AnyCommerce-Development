@@ -2151,6 +2151,7 @@ span#inStoreCheckoutButton button.checkoutButton{
 .cartButtons span{
 	float: left;
     margin: 0;
+	clear: left;
 }
 
 #inStoreCheckoutButton{
@@ -2166,6 +2167,9 @@ span#inStoreCheckoutButton button.checkoutButton{
 	border: medium none;
     border-radius: 0;
     height: 20px;
+}
+.cartZipCodeContainer{
+	display:none;
 }
 
 
