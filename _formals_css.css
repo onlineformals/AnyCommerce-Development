@@ -2092,11 +2092,20 @@ div.sizeChartStepContent p.sizingModalStepThreeDesc{
 /*****CART TEMPLATE****/
 #cartStuffList{
 }
+.cartStuffContainer{
+	width: 70%;
+}
+.cartSummaryContainer{
+	padding:10px;
+}
 ul#cartStuffList li button.removeButton{
 	background-image:url(Images/cartpage/removeIcon.png);
 	border: medium none;
     height: 17px;
     width: 17px;
+}
+ul#cartStuffList li button.removeButton span{
+	display:none;
 }
 
 div.ui-dialog-titlebar span.ui-dialog-title{
@@ -2104,15 +2113,48 @@ div.ui-dialog-titlebar span.ui-dialog-title{
 	font-family: 'Maven Pro', sans-serif;
 }
 
-menu.cartAltButtonsContainer button.continueShoppingButton{
-	border: 1px solid #CCCCCC;
+#cartTemplateCostSummary{
+	float: left;
+    margin-bottom: 10px;
+    text-align: left;
+    width: 100%;
+}
+#cartTemplateShippingContainer{
+	float: left;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.cartAltButtonsContainer{
+}
+div.cartButtons span.continueShoppingSpan button.continueShoppingButton{
+	background-color: #EFEFEF;
+    background-image: none;
+    border: 1px solid #CCCCCC;
     border-radius: 0;
     color: #E61652;
 }
-div.checkoutButtonsContainer button.checkoutButton{
-	border: 1px solid #CCCCCC;
+.checkoutButtonsContainer{
+}
+span#inStoreCheckoutButton button.checkoutButton{
+	background-color: #EFEFEF;
+    background-image: none;
+    border: 1px solid #CCCCCC;
     border-radius: 0;
     color: #E61652;
+    margin-bottom: 10px;
+}
+.cartSummaryTotalsContainer div div.cartButtons{
+	background:none;
+	
+}
+.cartButtons span{
+	float: left;
+    margin: 0;
+}
+
+#inStoreCheckoutButton{
+	margin-top: 10px;
 }
 
 .ui-draggable .ui-dialog-titlebar{
