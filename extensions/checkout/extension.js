@@ -1561,7 +1561,7 @@ app.u.dump("BEGIN orderCreate.e.cartItemAddWithChooser (Click!)");
 				}, //showBuyerAddressUpdate
 
 			tagAsAccountCreate : function($cb)	{
-				$cb.anycb({text : {on : 'yes',off : 'no'}});
+				//$cb.anycb({text : {on : 'yes',off : 'no'}});
 				$cb.off('change.tagAsAccountCreate').on('change.tagAsAccountCreate',function()	{
 					app.ext.cco.calls.cartSet.init({'want/create_customer': $cb.is(':checked') ? 1 : 0}); //val of a cb is on or off, but we want 1 or 0.
 					app.model.destroy('cartDetail');
@@ -1574,7 +1574,7 @@ app.u.dump("BEGIN orderCreate.e.cartItemAddWithChooser (Click!)");
 				}, //tagAsAccountCreate
 			
 			tagAsBillToShip : function($cb)	{
-				$cb.anycb({text : {on : 'yes',off : 'no'}});
+				//$cb.anycb({text : {on : 'yes',off : 'no'}});
 				$cb.off('change.tagAsBillToShip').on('change.tagAsBillToShip',function()	{
 					var $form = $cb.closest('form');
 
