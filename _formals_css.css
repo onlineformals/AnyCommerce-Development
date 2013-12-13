@@ -80,7 +80,7 @@ progress::-moz-progress-bar { background: #E61652; }
 }
 .headerLoginLink{
 	height: 100%;
-    width: 240px;
+    width: 440px;
 }
 .headerLoginLink h5{
 	color: #979797;
@@ -91,10 +91,11 @@ progress::-moz-progress-bar { background: #E61652; }
 }
 .headerLoginLink h6{
 	color: #979797;
-    float: right;
+    float: left;
     font-size: 14px;
     font-weight: 500;
-	margin-top:3px;
+    margin-left: 5px;
+    margin-top: 3px;
 }
 .headerLoginLink a{
 	color: #E61552;
