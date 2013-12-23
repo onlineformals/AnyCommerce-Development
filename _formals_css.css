@@ -1615,7 +1615,9 @@ div.ui-dialog-titlebar button.ui-dialog-titlebar-close span{
 }
 
 div.quickviewProductSharingLinkContainer{
-	padding-left: 5px;
+	clear: left;
+    float: left;
+    padding-left: 5px;
     padding-top: 2px;
     width: 423px;
 }
