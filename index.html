@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201346.ay",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201346.az",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "OFactive",//can be passive, active or required
@@ -705,7 +705,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='categoryTemplate' class='loadingBG categoryTemplate'>
 
 	<div class="centeringContainer">
-        <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+        <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(path); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
         <div class="catTopCarousel">
             <div class="carouselCPBannerList">
                 <div class="catProdListCustomTextArea displayNone" data-bind="var: category(%page.description); format: showIfSet;">
@@ -784,7 +784,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='categoryTemplateProm' class='loadingBG categoryTemplate'>
 
 	<div class="centeringContainer">
-        <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+        <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(path); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
     
         <div class="catSidebar">
         	<h3>Our Designers</h3>
@@ -933,7 +933,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
         	-->
         </div>
         <div class="catProdListContentArea"> 
-            <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+            <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(path); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
             <div class="carouselCPBannerList">
                 <div class="catProdListCustomTextArea displayNone" data-bind="var: category(%page.description); format: showIfSet;">
                     <h1 data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></h1>
@@ -951,8 +951,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 <div id='testimonialsTemplate' class='loadingBG categoryTemplate'>
 	<div class="centeringContainer">
-        <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
-    
+        <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(path); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>    
         <!--
         <img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" src='images/blank.gif' alt='' />
     
@@ -1077,22 +1076,22 @@ container ul should have lineItemProdlist class on it instead of productList
 			<div class='ui-widget ui-widget-content ui-corner-all'>
 				<img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='160' height='160' />
 				<div class='buttonList ui-widget ui-widget-header ui-corner-all alignCenter'>
-
-<button class='ui-state-default ui-corner-all' title='add item to cart' onClick="showContent('product',{'pid':$(this).closest('[data-pid]').attr('data-pid')});">
-<span class="ui-icon ui-icon-cart"></span>
-</button>
-
-<button class='ui-state-default ui-corner-all' title='more information' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">
-<span class="ui-icon ui-icon-info"></span>
-</button>
-
-<button class='ui-state-default ui-corner-all' title='write a review for this item' onClick="app.ext.store_crm.u.showReviewFrmInModal({'pid':$(this).closest('[data-pid]').attr('data-pid'),'templateID':'reviewFrmTemplate'});">
-<span class="ui-icon ui-icon-star"></span>
-</button>
-
-<button class='ui-state-default ui-corner-all' title='remove item from list' onClick="app.ext.myRIA.a.removeItemFromBuyerList({'stid':$(this).closest('[data-pid]').attr('data-pid'),'listID':$(this).closest('[data-buyerlistid]').attr('data-buyerlistid')},{'parentID':$(this).closest('li').attr('id')});">
-<span class="ui-icon ui-icon-trash"></span>
-</button>
+    
+                    <button class='ui-state-default ui-corner-all' title='add item to cart' onClick="showContent('product',{'pid':$(this).closest('[data-pid]').attr('data-pid')});">
+                    <span class="ui-icon ui-icon-cart"></span>
+                    </button>
+                    
+                    <button class='ui-state-default ui-corner-all' title='more information' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">
+                    <span class="ui-icon ui-icon-info"></span>
+                    </button>
+                    
+                    <button class='ui-state-default ui-corner-all' title='write a review for this item' onClick="app.ext.store_crm.u.showReviewFrmInModal({'pid':$(this).closest('[data-pid]').attr('data-pid'),'templateID':'reviewFrmTemplate'});">
+                    <span class="ui-icon ui-icon-star"></span>
+                    </button>
+                    
+                    <button class='ui-state-default ui-corner-all' title='remove item from list' onClick="app.ext.myRIA.a.removeItemFromBuyerList({'stid':$(this).closest('[data-pid]').attr('data-pid'),'listID':$(this).closest('[data-buyerlistid]').attr('data-buyerlistid')},{'parentID':$(this).closest('li').attr('id')});">
+                    <span class="ui-icon ui-icon-trash"></span>
+                    </button>
 
 				</div>
 			</div>
