@@ -20,7 +20,11 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
+<<<<<<< HEAD
 	"release":"201346.ax",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+=======
+	"release":"201346.az",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+>>>>>>> 539ce116b11996aad12310f8bd2cc040a11fafb7
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "OFactive",//can be passive, active or required
@@ -568,19 +572,24 @@ src="Images/Homepage/subcats/testchildren.png" FOR THE IMAGE FILE, AND <p class=
         <div class="homepageSubCatListContainer">
             <div class="homepageSubCatItemTop pointer" onClick="return showContent('category',{'navcat':''});"> <!--onMouseOver="app.ext._store_formals.a.homepageSubCatMouseOver($(this))" onMouseOut="app.ext._store_formals.a.homepageSubCatMouseOut($(this))"-->
                 <img src="Images/Homepage/subcats/testchildren.png" />
-                <div class="homepageSubCatTitleBar">
+                <div class="homepageSubCatTitleBar homepageSubCatTitleBar1">
                     <p class="homepageSubCatTitle">Children's</p>
                 </div>
             </div>
             <div class="homepageSubCatItemTop pointer" onClick="return showContent('category',{'navcat':'.prom'});">
+<<<<<<< HEAD
                 <img src="Images/Homepage/subcats/prom2014small.png" />
 		<div class="homepageSubCatTitleBar">
+=======
+                <img src="Images/Homepage/subcats/prom2014.png" />
+				<div class="homepageSubCatTitleBar homepageSubCatTitleBar2">
+>>>>>>> 539ce116b11996aad12310f8bd2cc040a11fafb7
                     <p class="homepageSubCatTitle"></p>
                 </div>
             </div>
             <div class="homepageSubCatItemTop pointer" onClick="return showContent('category',{'navcat':''});">
                 <img src="Images/Homepage/subcats/testaccessories.png" />
-                <div class="homepageSubCatTitleBar">
+                <div class="homepageSubCatTitleBar homepageSubCatTitleBar3">
                     <p class="homepageSubCatTitle">Accessories</p>
                 </div>
             </div>
@@ -607,25 +616,25 @@ src="Images/Homepage/categories/testprom.png" FOR THE IMAGE FILE, AND <p class="
         <div class="homepageCategoryListContainer">
             <div class="homepageCategoryItemTop pointer" onClick="return showContent('category',{'navcat':'.prom'});"> <!--onMouseOver="app.ext._store_formals.a.homepageCategoryMouseOver($(this))" onMouseOut="app.ext._store_formals.a.homepageCategoryMouseOut($(this))"-->
                 <img src="Images/Homepage/categories/prom.jpg" />
-                <div class="homepageCatTitleBar">
+                <div class="homepageCatTitleBar homepageCatTitleBar1">
                     <p class="homepageCatTitle">Prom</p>
                 </div>
             </div>
             <div class="homepageCategoryItemTop pointer" onClick="return showContent('category',{'navcat':'.evening'});">
                 <img src="Images/Homepage/categories/evening.jpg" />
-                <div class="homepageCatTitleBar">
+                <div class="homepageCatTitleBar homepageCatTitleBar2">
                     <p class="homepageCatTitle">Evening</p>
                 </div>
             </div>
             <div class="homepageCategoryItemTop pointer" onClick="return showContent('category',{'navcat':'.cocktail'});">
                 <img src="Images/Homepage/categories/cocktail.jpg" />
-                <div class="homepageCatTitleBar">
+                <div class="homepageCatTitleBar homepageCatTitleBar3">
                     <p class="homepageCatTitle">Cocktail</p>
                 </div>
             </div>
             <div class="homepageCategoryItemTop pointer" onClick="return showContent('category',{'navcat':'.plus_size'});">
                 <img src="Images/Homepage/categories/plus.jpg" />
-                <div class="homepageCatTitleBar">
+                <div class="homepageCatTitleBar homepageCatTitleBar4">
                     <p class="homepageCatTitle">Plus Size</p>
                 </div>
             </div>
@@ -705,7 +714,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='categoryTemplate' class='loadingBG categoryTemplate'>
 
 	<div class="centeringContainer">
-        <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+        <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(path); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
         <div class="catTopCarousel">
             <div class="carouselCPBannerList">
                 <div class="catProdListCustomTextArea displayNone" data-bind="var: category(%page.description); format: showIfSet;">
@@ -784,7 +793,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='categoryTemplateProm' class='loadingBG categoryTemplate'>
 
 	<div class="centeringContainer">
-        <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+        <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(path); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
     
         <div class="catSidebar">
         	<h3>Our Designers</h3>
@@ -933,7 +942,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
         	-->
         </div>
         <div class="catProdListContentArea"> 
-            <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+            <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(path); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
             <div class="carouselCPBannerList">
                 <div class="catProdListCustomTextArea displayNone" data-bind="var: category(%page.description); format: showIfSet;">
                     <h1 data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></h1>
@@ -951,8 +960,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 <div id='testimonialsTemplate' class='loadingBG categoryTemplate'>
 	<div class="centeringContainer">
-        <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
-    
+        <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(path); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>    
         <!--
         <img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" src='images/blank.gif' alt='' />
     
@@ -1077,22 +1085,22 @@ container ul should have lineItemProdlist class on it instead of productList
 			<div class='ui-widget ui-widget-content ui-corner-all'>
 				<img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='160' height='160' />
 				<div class='buttonList ui-widget ui-widget-header ui-corner-all alignCenter'>
-
-<button class='ui-state-default ui-corner-all' title='add item to cart' onClick="showContent('product',{'pid':$(this).closest('[data-pid]').attr('data-pid')});">
-<span class="ui-icon ui-icon-cart"></span>
-</button>
-
-<button class='ui-state-default ui-corner-all' title='more information' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">
-<span class="ui-icon ui-icon-info"></span>
-</button>
-
-<button class='ui-state-default ui-corner-all' title='write a review for this item' onClick="app.ext.store_crm.u.showReviewFrmInModal({'pid':$(this).closest('[data-pid]').attr('data-pid'),'templateID':'reviewFrmTemplate'});">
-<span class="ui-icon ui-icon-star"></span>
-</button>
-
-<button class='ui-state-default ui-corner-all' title='remove item from list' onClick="app.ext.myRIA.a.removeItemFromBuyerList({'stid':$(this).closest('[data-pid]').attr('data-pid'),'listID':$(this).closest('[data-buyerlistid]').attr('data-buyerlistid')},{'parentID':$(this).closest('li').attr('id')});">
-<span class="ui-icon ui-icon-trash"></span>
-</button>
+    
+                    <button class='ui-state-default ui-corner-all' title='add item to cart' onClick="showContent('product',{'pid':$(this).closest('[data-pid]').attr('data-pid')});">
+                    <span class="ui-icon ui-icon-cart"></span>
+                    </button>
+                    
+                    <button class='ui-state-default ui-corner-all' title='more information' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">
+                    <span class="ui-icon ui-icon-info"></span>
+                    </button>
+                    
+                    <button class='ui-state-default ui-corner-all' title='write a review for this item' onClick="app.ext.store_crm.u.showReviewFrmInModal({'pid':$(this).closest('[data-pid]').attr('data-pid'),'templateID':'reviewFrmTemplate'});">
+                    <span class="ui-icon ui-icon-star"></span>
+                    </button>
+                    
+                    <button class='ui-state-default ui-corner-all' title='remove item from list' onClick="app.ext.myRIA.a.removeItemFromBuyerList({'stid':$(this).closest('[data-pid]').attr('data-pid'),'listID':$(this).closest('[data-buyerlistid]').attr('data-buyerlistid')},{'parentID':$(this).closest('li').attr('id')});">
+                    <span class="ui-icon ui-icon-trash"></span>
+                    </button>
 
 				</div>
 			</div>

@@ -227,6 +227,56 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
     	$(".hpProductListTitleCarousel").trigger("prev", 1);
 		$(".hpProductListCarouselContainer").trigger("prev", 1);
     });
+	
+	//TITLEBAR HIDING FUNCTIONALITY.
+	if($(".homepageSubCatTitleBar1").children().text().length === 0){
+		$(".homepageSubCatTitleBar1").hide();
+	}
+	else{
+		$(".homepageSubCatTitleBar1").show();
+	}
+	
+	if($(".homepageSubCatTitleBar2").children().text().length === 0){
+		$(".homepageSubCatTitleBar2").hide();
+	}
+	else{
+		$(".homepageSubCatTitleBar2").show();
+	}
+	
+	if($(".homepageSubCatTitleBar3").children().text().length === 0){
+		$(".homepageSubCatTitleBar3").hide();
+	}
+	else{
+		$(".homepageSubCatTitleBar3").show();
+	}
+	
+	if($(".homepageCatTitleBar1").children().text().length === 0){
+		$(".homepageCatTitleBar1").hide();
+	}
+	else{
+		$(".homepageCatTitleBar1").show();
+	}
+	
+	if($(".homepageCatTitleBar2").children().text().length === 0){
+		$(".homepageCatTitleBar2").hide();
+	}
+	else{
+		$(".homepageCatTitleBar2").show();
+	}
+	
+	if($(".homepageCatTitleBar3").children().text().length === 0){
+		$(".homepageCatTitleBar3").hide();
+	}
+	else{
+		$(".homepageCatTitleBar3").show();
+	}
+	
+	if($(".homepageCatTitleBar4").children().text().length === 0){
+		$(".homepageCatTitleBar4").hide();
+	}
+	else{
+		$(".homepageCatTitleBar4").show();
+	}
 }]);
 
 

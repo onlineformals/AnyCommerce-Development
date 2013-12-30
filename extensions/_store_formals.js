@@ -294,7 +294,7 @@ var _store_formals = function() {
 			if(data.value)	{
 				$tag.show().css('display','inline'); //IE isn't responding to the 'show', so the display:inline is added as well.
 				}
-			},
+			}, //END showIfSetInline
 			
 			money : function($tag,data)	{			
 //			app.u.dump('BEGIN view.formats.money');
@@ -317,13 +317,14 @@ var _store_formals = function() {
 					$tag.html(r);
 					}
 				}
-			}, //money
+			}, //END money
+			
 			vimeoVideo : function($tag,data){
 			var width = data.bindData.width ? data.bindData.width : 440
 			var height = data.bindData.height ? data.bindData.height : 275
 			var r = "<iframe width='"+width+"' height='"+height+"' src='"+(document.location.protocol === 'https:' ? 'https:' : 'http:')+"//player.vimeo.com/video/"+data.value+"' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
 			$tag.append(r);
-			},
+			} //END vimeoVideo
 			
 		}
 	}
