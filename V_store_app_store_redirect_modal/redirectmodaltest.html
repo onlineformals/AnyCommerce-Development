@@ -83,13 +83,13 @@ $(document).ready(function() {
    sessionStorage.redirectToAppSessionNoCheck = false;
   }
   $('<div class="redirectToSiteApp"> '+
-  '<h3>For a superior shopping experience, try our new app site!</h3>' +
-  '<button onclick="handleRedirect(); return false;">Try New App Site</button>' +
-  '<button class="bugLaterButton" onclick="bugLater()">Use This Site</button>' +
+  '<h3>For an improved shopping experience, use our new site!</h3>' +
+  '<button onclick="handleRedirect(); return false;">New App Site</button>' +
+  '<button class="bugLaterButton" onclick="bugLater()">Old Site</button>' +
   '<div>' +
    '<img onclick="handleRedirect(); return false;" src="http://app.onlineformals.com/Images/Homepage/headerlogo.png" />' +
   '</div>' +
-  '<button class="autoRedirectButton" onclick="autoRedirect()">Always redirect to app site whenever visiting www.onlineformals.com</button>' +
+  '<button class="autoRedirectButton" onclick="autoRedirect()">Always redirect to the new site whenever visiting www.onlineformals.com</button>' +
   //'<button onclick="resetRedirectPreferences()">Reset Preferences</button>' +
   '</div>').appendTo('head');
   
