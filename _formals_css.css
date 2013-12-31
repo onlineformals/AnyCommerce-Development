@@ -640,6 +640,7 @@ progress::-moz-progress-bar { background: #E61652; }
     width: 940px;
 	margin-top:20px;
 	overflow:hidden;
+	height:350px;
 }
 .homepageCarouselContainer div.caroufredsel_wrapper{
 	margin:0 !important;
