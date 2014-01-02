@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201346.bd",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201346.be",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "OFactive",//can be passive, active or required
@@ -512,7 +512,7 @@ src="Images/Homepage/topbanner/testbanner.png" FOR THE IMAGE FILE.
 -->       	
 		<div class="homepageBannerContainer">
         	<!--Remove the overflow hidden style when installing the new banner*/-->
-            <a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/topbanner/testbanner.png" /></a>
+            <a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/Homepage/topbanner/topbanner.png" /></a>
         </div>
 <!--
 /******************************************************************************************************************************************************************/
@@ -566,8 +566,8 @@ src="Images/Homepage/subcats/testchildren.png" FOR THE IMAGE FILE, AND <p class=
 /******************************************************************************************************************************************************************/ 
 -->   
         <div class="homepageSubCatListContainer">
-            <div class="homepageSubCatItemTop pointer" onClick="return showContent('category',{'navcat':''});"> <!--onMouseOver="app.ext._store_formals.a.homepageSubCatMouseOver($(this))" onMouseOut="app.ext._store_formals.a.homepageSubCatMouseOut($(this))"-->
-                <img src="Images/Homepage/subcats/testchildren.png" />
+            <div class="homepageSubCatItemTop pointer" onClick="return showContent('category',{'navcat':'in_stock'});"> <!--onMouseOver="app.ext._store_formals.a.homepageSubCatMouseOver($(this))" onMouseOut="app.ext._store_formals.a.homepageSubCatMouseOut($(this))"-->
+                <img src="Images/Homepage/subcats/instock.png" />
                 <div class="homepageSubCatTitleBar homepageSubCatTitleBar1">
                     <p class="homepageSubCatTitle">Children's</p>
                 </div>
@@ -578,8 +578,8 @@ src="Images/Homepage/subcats/testchildren.png" FOR THE IMAGE FILE, AND <p class=
                     <p class="homepageSubCatTitle"></p>
                 </div>
             </div>
-            <div class="homepageSubCatItemTop pointer" onClick="return showContent('category',{'navcat':''});">
-                <img src="Images/Homepage/subcats/testaccessories.png" />
+            <div class="homepageSubCatItemTop pointer" onClick="return showContent('category',{'navcat':'prom.trends.sequins'});">
+                <img src="Images/Homepage/subcats/sequins.png" />
                 <div class="homepageSubCatTitleBar homepageSubCatTitleBar3">
                     <p class="homepageSubCatTitle">Accessories</p>
                 </div>
