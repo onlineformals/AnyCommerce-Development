@@ -2537,3 +2537,60 @@ input[type=checkbox].filterCB:checked + label.break {
 	margin-bottom: 5px;
     margin-left: 37px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*************************************************************************************
+	media querries - responsive design
+*************************************************************************************/
+
+/****800 X 480 TABLET****/
+@media screen and (max-width: 970px) {
+
+/**QUICKVIEW TEMPLATE**/
+.normalResolutionImage{
+	display:none;
+}
+.800480ResolutionImage{
+	display:block;
+}
+.imageContainer{
+	width:47%;
+}
+
+.prodViewerAddToCartForm{
+	width: 230px;
+}
+
+div.quickViewProdSummaryContainer div.productSizingChartModalLinkContainer a{
+	font-size: 10px;
+	margin-top: 0;
+}
+.productSizingChartModalLinkContainer{
+	margin-left: 1px;
+    margin-top: 67px;
+    width: 45px;
+}
+
+div.quickviewProductSharingLinkContainer{
+	margin-left: -195px;
+}
+
+.QuickviewTabContentSizingChart{
+	margin-left: -195px;
+}
+
+}
