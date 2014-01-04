@@ -2663,4 +2663,78 @@ div.quickviewProductSharingLinkContainer a{
 
 	
 }
-/*END 480 X 320 TABLET*/
+/*END 480 X 320 CELLPHONE*/
+
+
+/*320 X 480 CELLPHONE*/
+@media screen and (max-width: 479px) {
+
+.normalResolutionImage{
+	display:none;
+}
+.eightHundredWidthResolutionImage{
+	display:block;
+}
+.fourEigthyResolutionImage{
+	display:none;
+}
+.largeImageContainer {
+    height: 100%;
+    width: 100%;
+}
+.imageContainer {
+    margin-left: -25px;
+    padding-right: 0;
+    width: 100%;
+}
+
+.prodTempContentContainer{
+	width:100%;
+}
+.prodTempContentContainer div.prodSummaryContainer h1{
+    float: left;
+    font-size: 20px;
+    width: 100%;
+}
+.productAuthSeal{
+	clear: both;
+    float: left;
+    margin-left: 60px;
+}
+.prodViewerAddToCartForm{
+	margin-left: 0;
+    width: 230px;
+}
+div.quickViewProdSummaryContainer div.productSizingChartModalLinkContainer a{
+	font-size: 10px;
+	margin-top: 0;
+}
+.productSizingChartModalLinkContainer{
+	margin-bottom: 10px;
+    margin-left: 0;
+    margin-top: -15px;
+    width: 100%;
+}
+
+div.quickviewProductSharingLinkContainer{
+	height: 45px;
+    margin-left: 0;
+    width: 230px;
+}
+.productSharingLinkContainer menu.CRMButtonMenu{
+	margin-bottom: 0;
+}
+div.quickviewProductSharingLinkContainer p{
+	margin-bottom: 0;
+}
+div.quickviewProductSharingLinkContainer a{
+	font-size: 16px;
+}
+
+.QuickviewTabContentSizingChart{
+	margin-left: 0;
+}
+
+	
+}
+/*END 320 X 480 CELLPHONE*/
