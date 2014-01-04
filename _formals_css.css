@@ -1641,6 +1641,9 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 	margin-top:10px;
 }
 
+.normalResolutionImage{
+	display:block;
+}
 
 
 
@@ -2564,8 +2567,15 @@ input[type=checkbox].filterCB:checked + label.break {
 .normalResolutionImage{
 	display:none;
 }
-.800480ResolutionImage{
+.eightHundredWidthResolutionImage{
 	display:block;
+}
+.fourEigthyResolutionImage{
+	display:none;
+}
+.largeImageContainer {
+    height: 331px;
+    width: 290px;
 }
 .imageContainer{
 	width:47%;
@@ -2594,3 +2604,63 @@ div.quickviewProductSharingLinkContainer{
 }
 
 }
+/*END 800 X 480 TABLET*/
+
+
+
+
+
+/*BEGIN 480 X 320 CELLPHONE*/
+@media screen and (max-width: 790px) {
+	
+.normalResolutionImage{
+	display:none;
+}
+.eightHundredWidthResolutionImage{
+	display:none;
+}
+.fourEigthyResolutionImage{
+	display:block;
+}
+.largeImageContainer {
+    height: 250px;
+    width: 195px;
+}
+.imageContainer {
+    width: 46%;
+}
+
+.prodTempContentContainer div.prodSummaryContainer h1{
+    font-size: 20px;
+    width: 190px;
+}
+
+.prodViewerAddToCartForm{
+	margin-left: -145px;
+    width: 230px;
+}
+div.quickViewProdSummaryContainer div.productSizingChartModalLinkContainer a{
+	font-size: 10px;
+	margin-top: 0;
+}
+.productSizingChartModalLinkContainer{
+	margin-left: 5px;
+    margin-top: 71px;
+    width: 67px;
+}
+
+div.quickviewProductSharingLinkContainer{
+	margin-left: -210px;
+    width: 385px;
+}
+div.quickviewProductSharingLinkContainer a{
+	font-size: 16px;
+}
+
+.QuickviewTabContentSizingChart{
+	margin-left: -210px;
+}
+
+	
+}
+/*END 480 X 320 TABLET*/
