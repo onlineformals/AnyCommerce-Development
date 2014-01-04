@@ -2561,7 +2561,7 @@ input[type=checkbox].filterCB:checked + label.break {
 *************************************************************************************/
 
 /****800 X 480 TABLET****/
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1000px) {
 
 /**QUICKVIEW TEMPLATE**/
 .normalResolutionImage{
