@@ -173,6 +173,16 @@ var _store_formals = function() {
 					$(".dropdown", $tag).css({'border-top':'none'});
 					$(".dropdown", $tag).css({'border-bottom':'none'});
 				},
+				
+				hideAllDropdowns : function() {
+					$(".dropdown").css({'visibility':'hidden'});
+					$(".dropdown").stop().animate({"height":"0px"}, 100);
+					$(".dropdown").css({'border-top':'none'});
+					$(".dropdown").css({'border-bottom':'none'});
+					setTimeout(function(){
+						$(".dropdown").css({'visibility':'visible'});
+				   }, 300);
+				},
 			//END HEADER DROPDOWN MENUS
 			
 			homepageCategoryMouseOver : function($tag) {
