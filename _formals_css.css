@@ -2573,7 +2573,7 @@ input[type=checkbox].filterCB:checked + label.break {
 .fourEigthyResolutionImage{
 	display:none;
 }
-.largeImageContainer {
+.quickviewLargeImageContainer {
     height: 331px;
     width: 290px;
 }
@@ -2585,11 +2585,11 @@ input[type=checkbox].filterCB:checked + label.break {
 	width: 230px;
 }
 
-div.quickViewProdSummaryContainer div.productSizingChartModalLinkContainer a{
+div.quickViewProdSummaryContainer div.quickviewProductSizingChartModalLinkContainer a{
 	font-size: 10px;
 	margin-top: 0;
 }
-.productSizingChartModalLinkContainer{
+.quickviewProductSizingChartModalLinkContainer{
 	margin-left: 1px;
     margin-top: 67px;
     width: 45px;
@@ -2622,7 +2622,7 @@ div.quickviewProductSharingLinkContainer{
 .fourEigthyResolutionImage{
 	display:block;
 }
-.largeImageContainer {
+.quickviewLargeImageContainer {
     height: 250px;
     width: 195px;
 }
@@ -2639,11 +2639,11 @@ div.quickviewProductSharingLinkContainer{
 	margin-left: -145px;
     width: 230px;
 }
-div.quickViewProdSummaryContainer div.productSizingChartModalLinkContainer a{
+div.quickViewProdSummaryContainer div.quickviewProductSizingChartModalLinkContainer a{
 	font-size: 10px;
 	margin-top: 0;
 }
-.productSizingChartModalLinkContainer{
+.quickviewProductSizingChartModalLinkContainer{
 	margin-left: 5px;
     margin-top: 71px;
     width: 67px;
@@ -2678,7 +2678,7 @@ div.quickviewProductSharingLinkContainer a{
 .fourEigthyResolutionImage{
 	display:none;
 }
-.largeImageContainer {
+.quickviewLargeImageContainer {
     height: 100%;
     width: 100%;
 }
@@ -2705,11 +2705,11 @@ div.quickviewProductSharingLinkContainer a{
 	margin-left: 0;
     width: 230px;
 }
-div.quickViewProdSummaryContainer div.productSizingChartModalLinkContainer a{
+div.quickViewProdSummaryContainer div.quickviewProductSizingChartModalLinkContainer a{
 	font-size: 10px;
 	margin-top: 0;
 }
-.productSizingChartModalLinkContainer{
+.quickviewProductSizingChartModalLinkContainer{
 	margin-bottom: 10px;
     margin-left: 0;
     margin-top: -15px;
