@@ -1713,6 +1713,92 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
     top: -9px;
 	width: 350px;
 }
+
+/***********************************************************************************************************************************/
+/*****MOBILE IMAGE CONTAINER****/
+/*800x480 IMAGES*/
+.imageContainerMobileEightHundred{
+	display: block;
+    float: left;
+    width: 300px;
+}
+.imageContainerMobileEightHundred div.productMainImageContainer{
+	float: left;
+}
+.imageContainerMobileEightHundred img{
+	border: 10px solid #FFFFFF;
+    box-shadow: 0 4px 5px 0 #E9E9E9;
+}
+.imageContainerMobileEightHundred div.prodThumbs{
+	float: left;
+    margin-top: 10px;
+    width: 100%;
+}
+.imageContainerMobileEightHundred div.prodThumbs div{
+	float: left;
+    margin: 5px 10px;
+}
+.imageContainerMobileEightHundred div.prodThumbs div img{
+	border: 5px solid #FFFFFF;
+    box-shadow: 0 4px 5px 0 #E9E9E9;
+}
+
+/*480x320 IMAGES*/
+.imageContainerMobileFourEighty{
+	display: block;
+    float: left;
+    width: 170px;
+}
+.imageContainerMobileFourEighty div.productMainImageContainer{
+	float: left;
+}
+.imageContainerMobileFourEighty img{
+	border: 10px solid #FFFFFF;
+    box-shadow: 0 4px 5px 0 #E9E9E9;
+}
+.imageContainerMobileFourEighty div.prodThumbs{
+	float: left;
+    margin-top: 10px;
+    width: 100%;
+}
+.imageContainerMobileFourEighty div.prodThumbs div{
+	float: left;
+    margin: 5px 10px;
+}
+.imageContainerMobileFourEighty div.prodThumbs div img{
+	border: 5px solid #FFFFFF;
+    box-shadow: 0 4px 5px 0 #E9E9E9;
+}
+
+/*320x480 IMAGES*/
+.imageContainerMobileThreeTwenty{
+	display: block;
+    float: left;
+    width: 280px;
+}
+.imageContainerMobileThreeTwenty div.productMainImageContainer{
+	float: left;
+}
+.imageContainerMobileThreeTwenty img{
+	border: 10px solid #FFFFFF;
+    box-shadow: 0 4px 5px 0 #E9E9E9;
+}
+.imageContainerMobileThreeTwenty div.prodThumbs{
+	float: left;
+    margin-top: 10px;
+    width: 100%;
+}
+.imageContainerMobileThreeTwenty div.prodThumbs div{
+	float: left;
+    margin: 5px 10px;
+}
+.imageContainerMobileThreeTwenty div.prodThumbs div img{
+	border: 5px solid #FFFFFF;
+    box-shadow: 0 4px 5px 0 #E9E9E9;
+}
+
+
+
 /***********************************************************************************************************************************/
 /*****CONTENT CONTAINER****/
 .prodTempContentContainer{
@@ -2562,6 +2648,20 @@ input[type=checkbox].filterCB:checked + label.break {
 
 /****800 X 480 TABLET****/
 @media screen and (max-width: 1000px) {
+/**PRODUCT TEMPLATE**/
+.imageContainerMobileEightHundred{
+	display:block;
+}
+.imageContainerMobileFourEighty{
+	display:none;
+}
+.imageContainerMobileThreeTwenty{
+	display:none;
+}
+.imageContainer{
+	display:none;
+}
+
 
 /**QUICKVIEW TEMPLATE**/
 .normalResolutionImage{
@@ -2613,6 +2713,28 @@ div.quickviewProductSharingLinkContainer{
 /*BEGIN 480 X 320 CELLPHONE*/
 @media screen and (max-width: 790px) {
 	
+/**PRODUCT TEMPLATE**/
+.imageContainerMobileEightHundred{
+	display:none;
+}
+.imageContainerMobileFourEighty{
+	display:block;
+}
+.imageContainerMobileThreeTwenty{
+	display:none;
+}
+.imageContainer{
+	display:none;
+}
+
+.productPage div div.prodTempContentContainer div.prodSummaryContainer img.productAuthSeal{
+	float: left;
+}
+.productPage div div.prodTempContentContainer div.prodSummaryContainer form.prodViewerAddToCartForm {
+	margin-left:0;
+}
+
+/**QUICKVIEW TEMPLATE**/
 .normalResolutionImage{
 	display:none;
 }
@@ -2669,6 +2791,29 @@ div.quickviewProductSharingLinkContainer a{
 /*320 X 480 CELLPHONE*/
 @media screen and (max-width: 479px) {
 
+/**PRODUCT TEMPLATE**/
+.imageContainerMobileEightHundred{
+	display:none;
+}
+.imageContainerMobileFourEighty{
+	display:none;
+}
+.imageContainerMobileThreeTwenty{
+	display:block;
+}
+.imageContainer{
+	display:none;
+}
+
+.productSharingLinkContainer{
+	clear:left;
+}
+.tabbedProductContentTD{
+	clear:left;
+}
+
+
+/**QUICKVIEW TEMPLATE**/
 .normalResolutionImage{
 	display:none;
 }

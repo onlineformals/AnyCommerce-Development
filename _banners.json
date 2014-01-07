@@ -3,7 +3,8 @@
 {
         "categoryBanners" : {
 			
-                "designers" : {
+                /* EXAMPLE BANNERS
+				"designers" : {
                         "src"            : "T/testimage1.png",  
                         "alt"            : "New Arrivals",
                         "title"          : "New Arrivals",
@@ -26,6 +27,7 @@
 						"height"		 	 : "400",
                         "prodLink"           : "BG14-EO1015"
                 }
+				*/
 				
 				
 				
