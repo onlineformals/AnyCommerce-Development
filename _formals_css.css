@@ -2533,6 +2533,7 @@ span#inStoreCheckoutButton button.checkoutButton{
 	border:1px solid #EEEEEE;
 	height:24px;
 	position:relative;
+	cursor:pointer;
 }
 .faqAuthGuaranteeCont div.faqTitleCont span{
 }
@@ -2576,6 +2577,7 @@ span#inStoreCheckoutButton button.checkoutButton{
 	border:1px solid #EEEEEE;
 	height:24px;
 	position:relative;
+	cursor:pointer;
 }
 .faqReturnPolicy div.faqTitleCont span{
 }
@@ -2619,6 +2621,7 @@ span#inStoreCheckoutButton button.checkoutButton{
 	border:1px solid #EEEEEE;
 	height:24px;
 	position:relative;
+	cursor:pointer;
 }
 .faqPrivacyPolicy div.faqTitleCont span{
 }
@@ -2662,6 +2665,7 @@ span#inStoreCheckoutButton button.checkoutButton{
 	border:1px solid #EEEEEE;
 	height:24px;
 	position:relative;
+	cursor:pointer;
 }
 .faqPriceGuarantee div.faqTitleCont span{
 }
