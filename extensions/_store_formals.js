@@ -263,6 +263,28 @@ var _store_formals = function() {
 					showContent('customer',{'show':'myaccount'})
 			}, //loginFrmSubmit
 			
+			collapseExpandFAQ : function($tagContext){
+				if($(".faqContentCont", $tagContext).is(':hidden')){
+					$(".faqContentCont", $tagContext).data('collapseExpand',false).append();
+					//app.u.dump("collapseExpand Data did not exist for this drop down. Created it.");
+					//app.u.dump($(".faqContentCont", $tagContext).data('collapseExpand'));
+
+				}
+				else{
+				}
+				
+				if ($(".faqContentCont", $tagContext).data('collapseExpand') === false){
+					$(".faqContentCont", $tagContext).slideDown(1000);
+					$(".faqContentCont", $tagContext).data('collapseExpand',true).append();
+					//app.u.dump("FAQ was hidden. Now showing.");
+				}
+				else{
+					$(".faqContentCont", $tagContext).slideUp(1000);
+					$(".faqContentCont", $tagContext).data('collapseExpand',false).append();
+					//app.u.dump("FAQ was showing. Now hidden.");
+				}
+			} //END collapseExpandFAQ
+			 
 		},//END a FUNCTIONS
 		
 		u : {

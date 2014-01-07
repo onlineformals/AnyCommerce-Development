@@ -2518,6 +2518,185 @@ span#inStoreCheckoutButton button.checkoutButton{
 
 
 
+/***********************************************************************************************************************************/
+/*****FAQ TEMPLATE****/
+
+.faqAuthGuaranteeCont{
+	margin-bottom: 5px;
+    margin-top: 5px;
+}
+.faqAuthGuaranteeCont div.faqTitleCont{
+	background-color:#EEEEEE;
+	border-radius:4px;
+	padding:8px;
+	padding-left:12px;
+	border:1px solid #EEEEEE;
+	height:24px;
+	position:relative;
+}
+.faqAuthGuaranteeCont div.faqTitleCont span{
+}
+.faqAuthGuaranteeCont div.faqTitleCont div{
+	background-color:rgba(238,238,238,0.5);
+	position:absolute;
+	left:4px;
+	width:20px;
+	height:20px;
+}
+.faqAuthGuaranteeCont div.faqTitleCont h3{
+	color: #726B5B;
+    font-weight: normal;
+}
+.faqAuthGuaranteeCont div.faqContentCont{
+	display:none;
+	border:1px solid #AAAAAA;
+	border-top:none;
+	padding: 1em 2.2em;
+}
+.faqAuthGuaranteeCont div.faqContentCont p{
+	font-size: 18px;
+}
+.faqAuthGuaranteeCont div.faqContentCont p span{
+	color: #CCCCCC;
+    display: inline-block;
+    font-size: 1.4em;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.faqReturnPolicy{
+	margin-bottom: 5px;
+    margin-top: 5px;
+}
+.faqReturnPolicy div.faqTitleCont{
+	background-color:#EEEEEE;
+	border-radius:4px;
+	padding:8px;
+	padding-left:12px;
+	border:1px solid #EEEEEE;
+	height:24px;
+	position:relative;
+}
+.faqReturnPolicy div.faqTitleCont span{
+}
+.faqReturnPolicy div.faqTitleCont div{
+	background-color:rgba(238,238,238,0.5);
+	position:absolute;
+	left:4px;
+	width:20px;
+	height:20px;
+}
+.faqReturnPolicy div.faqTitleCont h3{
+	color: #726B5B;
+    font-weight: normal;
+}
+.faqReturnPolicy div.faqContentCont{
+	display:none;
+	border:1px solid #AAAAAA;
+	border-top:none;
+	padding: 1em 2.2em;
+}
+.faqReturnPolicy div.faqContentCont p{
+	font-size: 18px;
+}
+.faqReturnPolicy div.faqContentCont p span{
+	color: #CCCCCC;
+    display: inline-block;
+    font-size: 1.4em;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.faqPrivacyPolicy{
+	margin-bottom: 5px;
+    margin-top: 5px;
+}
+.faqPrivacyPolicy div.faqTitleCont{
+	background-color:#EEEEEE;
+	border-radius:4px;
+	padding:8px;
+	padding-left:12px;
+	border:1px solid #EEEEEE;
+	height:24px;
+	position:relative;
+}
+.faqPrivacyPolicy div.faqTitleCont span{
+}
+.faqPrivacyPolicy div.faqTitleCont div{
+	background-color:rgba(238,238,238,0.5);
+	position:absolute;
+	left:4px;
+	width:20px;
+	height:20px;
+}
+.faqPrivacyPolicy div.faqTitleCont h3{
+	color: #726B5B;
+    font-weight: normal;
+}
+.faqPrivacyPolicy div.faqContentCont{
+	display:none;
+	border:1px solid #AAAAAA;
+	border-top:none;
+	padding: 1em 2.2em;
+}
+.faqPrivacyPolicy div.faqContentCont p{
+	font-size: 18px;
+}
+.faqPrivacyPolicy div.faqContentCont p span{
+	color: #CCCCCC;
+    display: inline-block;
+    font-size: 1.4em;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.faqPriceGuarantee{
+	margin-bottom: 5px;
+    margin-top: 5px;
+}
+.faqPriceGuarantee div.faqTitleCont{
+	background-color:#EEEEEE;
+	border-radius:4px;
+	padding:8px;
+	padding-left:12px;
+	border:1px solid #EEEEEE;
+	height:24px;
+	position:relative;
+}
+.faqPriceGuarantee div.faqTitleCont span{
+}
+.faqPriceGuarantee div.faqTitleCont div{
+	background-color:rgba(238,238,238,0.5);
+	position:absolute;
+	left:4px;
+	width:20px;
+	height:20px;
+}
+.faqPriceGuarantee div.faqTitleCont h3{
+	color: #726B5B;
+    font-weight: normal;
+}
+.faqPriceGuarantee div.faqContentCont{
+	display:none;
+	border:1px solid #AAAAAA;
+	border-top:none;
+	padding: 1em 2.2em;
+}
+.faqPriceGuarantee div.faqContentCont p{
+	font-size: 18px;
+}
+.faqPriceGuarantee div.faqContentCont p span{
+	color: #CCCCCC;
+    display: inline-block;
+    font-size: 1.4em;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+
+
+
+
 
 
 
