@@ -1,8 +1,9 @@
 {
    "$top_prom_pics" : {},
    ".evening.designers.sherri_hill" : {},
-   "$touch_ups_2009" : {},
    ".prom.designers.lm_collection" : {},
+   "$touch_ups_2009" : {},
+   ".prom.designers.mnm_couture" : {},
    ".shop_by_designer.mac_duggal_couture" : {
       "meta_keywords" : "",
       "meta_description" : "Click here for Authentic Mac Duggal Couture Dresses at the Lowest Prices! Returns Accepted!  Free Shipping!",
@@ -12,7 +13,6 @@
       "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
       "description" : "<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Mac Duggal</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>45</TD>\n<TD>48</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24.5</TD>\n<TD>25.5</TD>\n<TD>26.5</TD>\n<TD>27.5</TD>\n<TD>28.5</TD>\n<TD>29.5</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>37</TD>\n<TD>40</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41</TD>\n<TD>42.5</TD>\n<TD>44.5</TD>\n<TD>47.5</TD>\n<TD>50.5</TD></TR></TABLE></center>\n"
    },
-   ".prom.designers.mnm_couture" : {},
    "$evening_couture" : {},
    ".cocktail.styles" : {},
    ".plus_size" : {},
@@ -85,29 +85,29 @@
       "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Mac Duggal</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>45</TD>\n<TD>48</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24.5</TD>\n<TD>25.5</TD>\n<TD>26.5</TD>\n<TD>27.5</TD>\n<TD>28.5</TD>\n<TD>29.5</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>37</TD>\n<TD>40</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41</TD>\n<TD>42.5</TD>\n<TD>44.5</TD>\n<TD>47.5</TD>\n<TD>50.5</TD></TR></TABLE></center>\n\n"
    },
    ".cocktail.styles.babydoll" : {},
-   "$jovani_prom_2013" : {},
    "$new_list" : {},
+   "$jovani_prom_2013" : {},
    ".shop_by_designer.sherri_hill" : {
       "meta_keywords" : "",
       "meta_description" : "Click here for Authentic Sherri Hill Prom Dresses and Sherri Hill Homecoming Dresses.  Lowest Prices! Free Shipping! Returns Accepted!",
       "picture1" : "sherri_hill_prom_2008/so1001_2",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Sherri Hill</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>00</TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31.5</TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>39</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>44</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>33.5</TD>\n<TD>35.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>43.5</TD>\n<TD>45</TD>\n<TD>47</TD></TR></TABLE></center>\n<p>\n",
+      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Sherri Hill</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>00</TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31.5</TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>39</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>44</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>33.5</TD>\n<TD>35.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>43.5</TD>\n<TD>45</TD>\n<TD>47</TD></TR></TABLE></center>\n<p>\n<b>VIEW THE ENTIRE COLLECTION</b> - Select 60 items per page from the Sort Order Drop Down Menu.",
       "page_title" : "Sherri Hill Prom Dresses | Sherri Hill Homecoming Dresses",
       "head_title" : "Sherri Hill Prom Dresses | Sherri Hill Homecoming Dresses ",
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
+      "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
    },
    "$jasz_couture_2013" : {},
-   ".designers.mignon" : {},
    ".9.alisha_hill" : {
       "meta_keywords" : "Alisha Hill, Shoes",
       "meta_description" : "Shoes by Alisha Hill offered at www.onlineformals.com",
       "page_title" : "Alisha Hill Shoes",
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=&SHOWSKU=&SHOWPRICE=1&"
    },
+   ".designers.mignon" : {},
    ".best_sellers" : {
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=LIST%3A%24featured_items_homepage&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
-      "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=LIST%3A%24homepage_new_&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
+      "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=LIST%3A%24app_best_sellers&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
       "description" : ""
    },
    ".accessories" : {},
@@ -123,6 +123,7 @@
    ".cocktail.styles.lace" : {},
    "$julie_france" : {},
    ".prom.designers.jasz_couture" : {},
+   "$allure_quinceanera" : {},
    ".9a" : {
       "meta_keywords" : "Natural Bra, Bra, Undergarment, Strapless, Invisible, Miracle, Miracle Bra, Shawls, Scarfs, Hang bags, Handbags, Purse, Purses",
       "meta_description" : "A large selection of Hangbags, Shawls, Scarfs and invisible bras. Famous designers at discount prices.",
@@ -130,17 +131,6 @@
       "title" : "Accent your wardrobe with this fine selction of Special Occasion <font color = pink> <i> <b>Accessories</b></font> </i><p> <b>PRODUCTS COMING SOON!</b>",
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
       "description" : ""
-   },
-   "$allure_quinceanera" : {},
-   "$new_year_s_eve_dresses_in_stock" : {},
-   ".shop_by_designer.la_femme" : {
-      "meta_keywords" : "",
-      "meta_description" : "Click here for Authentic La Femme Prom Dresses and Homecoming Dresses.  Returns accepted!",
-      "page_title" : "La Femme Prom Dresses | La Femme Homecoming Dresses",
-      "head_title" : "La Femme Prom Dresses | La Femme Homecoming Dresses",
-      "prodlist" : "&SORTBY=NAME_DESC&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
-      "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"15\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>La Femme</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>00</TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32</TD>\n<TD>33</TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>36</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD>\n<TD>53</TD>\n<TD>55</TD></TR></TABLE></center>"
    },
    ".shop_by_designer.faviana_glamour" : {
       "meta_keywords" : "Faviana, Glamour, Celebrity, Dresses, Evening, Cocktail, Party, Prom, Dresses",
@@ -150,12 +140,23 @@
       "prodlist_custom" : "&SORTBY=SKU_DESC&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
       "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"9\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Faviana Glamour</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31.5</TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>41.5</TD>\n<TD>42.5</TD></TR></TABLE></center>\n"
    },
+   ".shop_by_designer.la_femme" : {
+      "meta_keywords" : "",
+      "meta_description" : "Click here for Authentic La Femme Prom Dresses and Homecoming Dresses.  Returns accepted!",
+      "page_title" : "La Femme Prom Dresses | La Femme Homecoming Dresses",
+      "head_title" : "La Femme Prom Dresses | La Femme Homecoming Dresses",
+      "prodlist" : "&SORTBY=NAME_DESC&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
+      "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
+      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"15\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>La Femme</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>00</TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32</TD>\n<TD>33</TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>36</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD>\n<TD>53</TD>\n<TD>55</TD></TR></TABLE></center>\n<p>\n<h3><u><b>To View the Entire Collection</b></h3></u><br>\n- Select 100 items per page or VIEW ALL from the Sort Order Drop Down Menu.  "
+   },
+   "$new_year_s_eve_dresses_in_stock" : {},
    ".shop_by_category.plus_size_gowns" : {
       "prodlist" : "&SORTBY=SKU_DESC&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
-      "prodlist_custom" : "&SORTBY=NAME&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
+      "prodlist_custom" : "&SORTBY=SKU_DESC&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
       "description" : "\n\n\n\n\n \n"
    },
    "$paris_2013" : {},
+   "$prom_2011_best_sellers" : {},
    ".shop_by_designer.gigi_by_la_femme" : {
       "meta_keywords" : "",
       "meta_description" : "Click here for Authentic GiGi Prom and Homecoming Dresses!",
@@ -165,8 +166,8 @@
       "prodlist_custom" : "&SORTBY=SKU_DESC&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&",
       "description" : "The GIGI Collection (a division of La Femme Fashion) is known in the industry for their high-end designer styles. There are dresses for every look - including Prom, Homecoming and Social Occasion.  From Sexy and Unique to Short and Sassy. <p>\n\nGIGI dresses are regularly featured in Seventeen Magazine, Teen Magazine and Your Prom.  Every choice is a good choice when wearing a GiGi. <p>\n\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"15\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>GIGI</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>00</TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32</TD>\n<TD>33</TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>36</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD>\n<TD>53</TD>\n<TD>55</TD></TR></TABLE></center>"
    },
-   "$prom_2011_best_sellers" : {},
-   ".accessories.under_the_dress" : {},
+   ".cocktail" : {},
+   "$bg_haute_2013" : {},
    ".shop_by_designer.faviana" : {
       "meta_keywords" : "",
       "meta_description" : "Click here for Authentic Faviana dresses at the lowest price!",
@@ -177,11 +178,9 @@
       "prodlist" : "&SORTBY=NAME_DESC&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
       "prodlist_custom" : "&SORTBY=SKU_DESC&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
    },
-   "$bg_haute_2013" : {},
-   ".cocktail" : {},
+   ".accessories.under_the_dress" : {},
    ".pageant.designers.jasz_couture" : {},
    ".cocktail.designers.mignon" : {},
-   ".pageant.designers.johnathan_kayne" : {},
    ".shop_by_designer.fabulouss___plus_size" : {
       "meta_keywords" : "Fabulouss, Plus, Size, 2010, Prom, Dresses, Gowns, Large, Teen, Dance.",
       "meta_description" : "Click here for Plus Size dresses by the Mac Duggal Fabulouss collection!",
@@ -190,8 +189,9 @@
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
       "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"10\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Fabulouss</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>14W</TD>\n<TD>16W</TD>\n<TD>18W</TD>\n<TD>20W</TD>\n<TD>22W</TD>\n<TD>24W</TD>\n<TD>26W</TD>\n<TD>28W</TD>\n<TD>30W</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD>\n<TD>54</TD>\n<TD>56</TD>\n<TD>58</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>36</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD>\n<TD>53</TD>\n<TD>55</TD>\n<TD>57</TD>\n<TD>59</TD>\n<TD>61</TD></TR></TABLE></center>\n"
    },
-   "$sherri_hill_2013" : {},
+   ".pageant.designers.johnathan_kayne" : {},
    ".evening.designers.tony_bowls" : {},
+   "$sherri_hill_2013" : {},
    ".designers.tony_bowls" : {},
    ".testimonials" : {
       "missouri" : "",
@@ -200,23 +200,23 @@
    ".shop_by_category.evening_couture" : {
       "meta_keywords" : "",
       "meta_description" : "Click here for the best Evening Couture dresses by the hottest designers!",
-      "description" : "",
+      "description" : "<p>\n<b>VIEW THE ENTIRE COLLECTION</b> - Select 60 items per page from the Sort Order Drop Down Menu.",
       "of10_banner_topwide1" : "ALT=&IMG=&LINK=",
       "page_title" : "Evening Couture Dresses",
       "head_title" : "Evening Couture Dresses",
       "prodlist" : "&SORTBY=PRICE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
-      "prodlist_custom" : "&SORTBY=SKU&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
+      "prodlist_custom" : "&SORTBY=SKU_DESC&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
    },
    "$mac_duggal_prom_2011" : {},
    ".prom.designers.gigi" : {},
-   ".showroom" : {},
-   ".9.coloriffics" : {},
+   "$2013_homecoming" : {},
    ".shop_accessories.accessories" : {
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&SIZE=15&SHOWSKU=&",
       "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
       "description" : "Julie France Body Shapers are seamless, microfiber shapewear garments made of superior quality, lightweight, resilient stretch materials designed specifically to work with the bodies muscular structure. <p>\nEngineered using innovative, seamless three-dimensional technology to form zone-specific contouring panels - Julie France Body Shapers provide perfect slimming and shaping support. <p>\nInvisible Under Clothing...Immediate Results! <p>\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"8\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Julie France</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>S/P</TD>\n<TD>M</TD>\n<TD>L</TD>\n<TD>XL</TD>\n<TD>1X</TD>\n<TD>2X</TD>\n<TD>3X</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>33.5-35.5</TD>\n<TD>36-38</TD>\n<TD>38.5-40.5</TD>\n<TD>41-43</TD>\n<TD>44-47.5</TD>\n<TD>48-51.5</TD>\n<TD>52-54</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>26.5-28</TD>\n<TD>28.5-30.5</TD>\n<TD>31-33</TD>\n<TD>33.5-35.5</TD>\n<TD>36-39</TD>\n<TD>39.5-43</TD>\n<TD>43.5-45.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>36-37.5</TD>\n<TD>38-40.5</TD>\n<TD>41-43</TD>\n<TD>43.5-45.5</TD>\n<TD>46-49.5</TD>\n<TD>50-53.5</TD>\n<TD>54-56</TD></TR></TABLE></center>\n"
    },
-   "$2013_homecoming" : {},
+   ".9.coloriffics" : {},
+   ".showroom" : {},
    ".cocktail.styles.sequins___beads" : {},
    ".1" : {
       "meta_keywords" : "",
@@ -242,14 +242,6 @@
    },
    ".prom.trends" : {},
    ".pageant.designers.mac_duggal" : {},
-   ".shop_by_designer.terani_couture" : {
-      "meta_keywords" : "",
-      "meta_description" : "Click here for Authentic Terani Couture Prom and Homecoming Dresses.  Lowest Prices! Free Shipping! Returns Accepted!",
-      "page_title" : "Terani Couture Prom Dresses | Terani Couture Homecoming Dresses",
-      "head_title" : "Terani Couture Prom Dresses | Terani Couture Homecoming Dresses",
-      "prodlist_custom" : "&SORTBY=NAME_DESC&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Terani</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>38</TD>\n<TD>39.5</TD>\n<TD>41.5</TD>\n<TD>43.5</TD>\n<TD>46.5</TD>\n<TD>49.5</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>36</TD>\n<TD>39</TD>\n<TD>46</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>41</TD>\n<TD>42.5</TD>\n<TD>44.5</TD>\n<TD>46.5</TD>\n<TD>49.5</TD>\n<TD>52.5</TD></TR></TABLE></center>"
-   },
    "$homepage_new_" : {},
    ".shop_accessories.shoes" : {
       "prodlist" : "&SORTBY=NAME&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
@@ -278,19 +270,19 @@
    },
    ".evening" : {},
    ".evening.designers.mignon" : {},
-   ".pageant" : {},
-   "$related_product_list" : {},
    ".cocktail.designers.lm_collection" : {},
+   "$related_product_list" : {},
+   ".pageant" : {},
    ".accessories.shoes.touch_ups" : {},
-   "$flash_2013" : {},
    "$la_femme_fall_2012" : {},
+   "$flash_2013" : {},
    ".prom" : {},
    "$sugar_2013" : {},
    ".prom.designers.mignon" : {},
-   ".prom.designers" : {},
    ".shop_accessories.handbags" : {
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=LIST%3A%24shop_accessories_handbags&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&"
    },
+   ".prom.designers" : {},
    ".shop-by-price.100" : {
       "meta_keywords" : "Shop, By, Price, Cheap, Less, Discount",
       "meta_description" : "Shop by Price $100 or Less at Onlineformals",
@@ -319,13 +311,13 @@
       "picture1" : "",
       "picture3" : "",
       "prodlist" : "&SORTBY=NAME&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
-      "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
+      "prodlist_custom" : "&SORTBY=SKU&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
       "description" : "<b>Need it Fast?  Need it Now?</b>  Our In-Stock dresses ship same day M-F for any order placed before 3:00 EST.\n  \n\nIf you would like us to check stock on any other style please give us a call toll free at 888-280-4179. \n\n\nSeveral of our designers will drop ship your dresses directly to you.  This means that you can receive your dress quicker for last minute events. <p>\nNeed your dress tomorrow?  Give us a call for a stock check.  There's a good chance we can make it happen."
    },
    ".pageant.designers.sherri_hill" : {},
    ".evening.celebrity_inspired" : {},
-   ".designers.sherri_hill" : {},
    "$short_list_2013" : {},
+   ".designers.sherri_hill" : {},
    ".shop_by_category.little_girl_s_pageant_dresses" : {
       "meta_keywords" : "Little, Girls, Pageant, Dresses, Flower, Girl, Gowns, Tots, Tiara, Crown, Winning, Child, Beauty",
       "meta_description" : "Little Girl's Pageant Dresses at Onlineformals",
@@ -335,7 +327,7 @@
       "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"9\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Children's</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>31</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>21</TD>\n<TD>22</TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25.5</TD>\n<TD>27</TD>\n<TD>29</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29.5</TD>\n<TD>31</TD>\n<TD>33</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist to Hem (Long)</b></TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>34.5</TD>\n<TD>37</TD>\n<TD>39.5</TD>\n<TD>42</TD>\n<TD>45.5</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Waist to Hem (Short)</b></TD>\n<TD>10</TD>\n<TD>13</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>17</TD>\n<TD>18</TD>\n<TD>19</TD></TR></TABLE></center>\n\n\n\n"
    },
    ".designers.jasz_couture" : {},
-   ".designers.night_moves" : {},
+   "$mac_duggal_ballgowns_2013" : {},
    ".shop_by_designer.mnm_couture" : {
       "meta_keywords" : "",
       "meta_description" : "Click here for Authentic MNM Couture Dresses at the Lowest Prices! Returns Accepted!  Free Shipping!",
@@ -345,19 +337,11 @@
       "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
       "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"14\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>MNM Couture</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>35</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40.5</TD>\n<TD>41.5</TD>\n<TD>43.5</TD>\n<TD>45.5</TD>\n<TD>47.5</TD>\n<TD>49.5</TD>\n<TD>50</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>26</TD>\n<TD>26.5</TD>\n<TD>27.5</TD>\n<TD>29.5</TD>\n<TD>30.5</TD>\n<TD>31.5</TD>\n<TD>33.5</TD>\n<TD>35.5</TD>\n<TD>37.5</TD>\n<TD>39.5</TD>\n<TD>41.5</TD>\n<TD>43.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>41.5</TD>\n<TD>42.5</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD>\n<TD>54</TD></TR></TABLE></center>\n"
    },
-   "$mac_duggal_ballgowns_2013" : {},
-   "$babydoll_2011" : {},
-   "$faviana_2013" : {},
+   ".designers.night_moves" : {},
    "$la_femme_2013" : {},
+   "$faviana_2013" : {},
+   "$babydoll_2011" : {},
    ".prom.trends.lace" : {},
-   ".prom.designers.shail_k" : {},
-   ".shop_by_designer.faviana.faviana_celebrity_gowns" : {
-      "meta_keywords" : "",
-      "meta_description" : "Click here for Authentic Faviana Celebrity inspired dresses!",
-      "page_title" : "Faviana Celebrity Inspired Dresses",
-      "head_title" : "Faviana Celebrity Inspired Dresses",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"10\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Faviana</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31.5</TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30</TD>\n<TD>31.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>41.5</TD>\n<TD>42.5</TD>\n<TD>44</TD></TR></TABLE></center>\n"
-   },
    ".5a" : {
       "meta_keywords" : "Onlineformals.com, sale, discount, bargain, clearance",
       "meta_description" : "Dresses on sale at Onlineformals.com",
@@ -370,10 +354,17 @@
       "prodlist" : "&SORTBY=PRICE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=0&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
    },
+   ".shop_by_designer.faviana.faviana_celebrity_gowns" : {
+      "meta_keywords" : "",
+      "meta_description" : "Click here for Authentic Faviana Celebrity inspired dresses!",
+      "page_title" : "Faviana Celebrity Inspired Dresses",
+      "head_title" : "Faviana Celebrity Inspired Dresses",
+      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"10\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Faviana</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31.5</TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30</TD>\n<TD>31.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>41.5</TD>\n<TD>42.5</TD>\n<TD>44</TD></TR></TABLE></center>\n"
+   },
+   ".prom.designers.shail_k" : {},
    "$le_gala_2013" : {},
    "$shail_k" : {},
    "$johnathan_kayne_2013" : {},
-   ".prom.styles.ballgown___a_line" : {},
    ".shop-by-price.500_plus" : {
       "meta_keywords" : "Shop, By, Price, Discount, Less, Sale, Special, Onlineformals",
       "meta_description" : "Shop by Price $500 or more at Onlineformals",
@@ -382,13 +373,14 @@
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&",
       "description" : ""
    },
+   ".prom.styles.ballgown___a_line" : {},
+   ".plus_size.styles.a_line___ballgown" : {},
    ".shop_by_designer.sugar_by_mac_duggal" : {
       "meta_description" : "Click here for Authentic Mac Duggal Sugar Dresses.  Lowest Prices! Free Shipping! Returns Accepted!",
       "page_title" : "Mac Duggal Sugar Dresses",
       "head_title" : "Mac Duggal Sugar Dresses",
       "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"9\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Sugar Children's</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>31</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>21</TD>\n<TD>22</TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25.5</TD>\n<TD>27</TD>\n<TD>29</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29.5</TD>\n<TD>31</TD>\n<TD>33</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist to Hem (Long)</b></TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>34.5</TD>\n<TD>37</TD>\n<TD>39.5</TD>\n<TD>42</TD>\n<TD>45.5</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Waist to Hem (Short)</b></TD>\n<TD>10</TD>\n<TD>13</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>17</TD>\n<TD>18</TD>\n<TD>19</TD></TR></TABLE></center>\n"
    },
-   ".plus_size.styles.a_line___ballgown" : {},
    ".shop_by_designer.bg_haute" : {
       "meta_keywords" : "",
       "of10_banner_topwide1" : "ALT=&IMG=&LINK=",
@@ -401,8 +393,8 @@
    "$mignon_2013" : {},
    ".new_arrivals" : {
       "prodlist" : "&SORTBY=NAME_DESC&FORMAT=BIGTHUMB&SRC=LIST%3A%242010_homecoming_dresses&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
-      "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=LIST%3A%242013_homecoming&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "<p>\n<img src=\"//static.zoovy.com/img/onlineformals/W772-H200-Bffffff/logos/ofc_wb_new_arrivals_in\" width=\"772\" height=\"200\" border=\"0\">\n<p>\n\nWhether you're looking for a flirty party dress, an elegant dress to wear as a wedding guest or a fun and flirty prom dress - we have you covered.<p>\n \nWe carry trend setting styles from the top designers.  New dresses arrive daily.  Shop with confidence knowing you are getting the most gorgeous dress at the best price. <p>\n\n\n\n\n\n\n\n"
+      "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=LIST%3A%24app_-_new_arrivals&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
+      "description" : "\n\n\n\n\n\n\n\n"
    },
    ".prom.trends.vintage" : {},
    ".accessories.jewelry" : {},
@@ -480,7 +472,8 @@
    "$mac_duggal_couture_2011" : {},
    ".plus_size.designers.faviana" : {},
    ".accessories.under_the_dress.shapewear" : {},
-   ".prom.designers.night_moves" : {},
+   ".plus_size.styles.mermaid" : {},
+   "$faviana_glamour" : {},
    ".shop_by_designer.paris_by_tony_bowls" : {
       "meta_keywords" : "",
       "meta_description" : "Click here for Authentic Paris by Tony Bowls Dresses.  Lowest Prices! Free Shipping! Returns Accepted!",
@@ -489,8 +482,8 @@
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
       "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"14\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Paris</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31</TD>\n<TD>32</TD>\n<TD>33</TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>22</TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29.5</TD>\n<TD>31</TD>\n<TD>33</TD>\n<TD>35.5</TD>\n<TD>38</TD>\n<TD>40.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41.5</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD></TR></TABLE></center>"
    },
-   "$faviana_glamour" : {},
-   ".plus_size.styles.mermaid" : {},
+   ".prom.designers.night_moves" : {},
+   "$night_moves_2011" : {},
    ".shop_by_category.specials___clearance" : {
       "meta_keywords" : "Sale, Clearance, Special, Discount, Onlineformals",
       "meta_description" : "Dresses on sale at Onlineformals",
@@ -500,9 +493,8 @@
       "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
       "description" : "\n"
    },
-   "$night_moves_2011" : {},
-   ".shop_accessories" : {},
    "$mnm_2013" : {},
+   ".shop_accessories" : {},
    ".shop_by_designer.tony_bowls" : {
       "meta_keywords" : "",
       "meta_description" : "Click here for Authentic Tony Bowls Evening Dresses.  Lowest Prices! Free Shipping! Returns Accepted!",
@@ -522,20 +514,20 @@
    },
    ".accessories.shoes" : {},
    "$app_best_sellers" : {},
-   "$gigi_2012" : {},
    ".cocktail.designers.shail_k" : {},
+   "$gigi_2012" : {},
    ".cocktail.designers.sherri_hill" : {},
-   ".prom.designers.tony_bowls" : {},
-   "$favianacelebritygowns" : {},
    ".evening.designers.mnm_couture" : {},
+   "$favianacelebritygowns" : {},
+   ".prom.designers.tony_bowls" : {},
    ".plus_size.designers" : {},
    ".designers.mac_duggal" : {},
    ".plus_size.styles.empire" : {},
    ".prom.styles.high_low" : {},
-   ".prom.styles" : {},
-   "$cassandra_stone_2013" : {},
-   "$la_femme_2012" : {},
    ".designers.faviana" : {},
+   "$la_femme_2012" : {},
+   "$cassandra_stone_2013" : {},
+   ".prom.styles" : {},
    ".cocktail.designers.johnathan_kayne" : {},
    ".evening.designers" : {},
    ".prom.designers.faviana" : {},
@@ -548,8 +540,8 @@
    },
    ".shop_by_category" : {},
    "$mnm_couture" : {},
-   ".designers.johnathan_kayne" : {},
    ".designers.bg_haute" : {},
+   ".designers.johnathan_kayne" : {},
    ".shop_by_designer.mac_duggal_ballgowns" : {
       "meta_keywords" : "",
       "meta_description" : "Click here for Authentic Mac Duggal Ballgowns at the Lowest Prices! Returns Accepted!  Free Shipping!",
@@ -558,8 +550,8 @@
       "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Mac Duggal</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>45</TD>\n<TD>48</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24.5</TD>\n<TD>25.5</TD>\n<TD>26.5</TD>\n<TD>27.5</TD>\n<TD>28.5</TD>\n<TD>29.5</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>37</TD>\n<TD>40</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41</TD>\n<TD>42.5</TD>\n<TD>44.5</TD>\n<TD>47.5</TD>\n<TD>50.5</TD></TR></TABLE></center>"
    },
    "$homecoming_short_2013" : {},
-   ".designers.lm_collection" : {},
    ".prom.styles.short" : {},
+   ".designers.lm_collection" : {},
    ".designers.la_femme" : {},
    ".9" : {
       "meta_keywords" : "Alisha Hill, Shoes, Prom 2007, Footwear, Heels, Shoe, Touch Ups, Benjamin Walk, Prom, Prom Shoes, Prom 2005 Shoes, Heels, Pumps, Blinking, Light Up",
@@ -581,14 +573,13 @@
    "$temptation_2013" : {},
    "$sherri_hill_2012" : {},
    ".designers.le_gala" : {},
-   "$terani_couture_2012" : {},
    "$app_new_to_sale" : {},
+   "$terani_couture_2012" : {},
    ".prom.trends.beads" : {},
-   "$faviana_2012" : {},
    ".plus_size.designers.night_moves" : {},
+   "$faviana_2012" : {},
    "$macduggal2014" : {},
    ".designers.scala" : {},
-   ".prom.designers.le_gala" : {},
    ".5" : {
       "meta_keywords" : "",
       "picture1cfg" : "H=200,W=102",
@@ -604,7 +595,7 @@
       "meta_description" : "Click here for your Authentic 2014 Prom Dress.  We are an Authorized Retailer.  Free Shipping!  Returns Accepted! ",
       "link1" : "",
       "picture3" : "",
-      "description" : "<h2>Prom 2014 dresses being added daily.  Stay tuned for our new and improved website experience and new showroom.</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "description" : "<h2>Prom 2014 dresses being added daily.  Stay tuned for our new and improved website experience and new showroom.</h2>\n<p>\n<h3><u><b>To View the Entire 2014 Prom Collection</b></h3></u><br>\n- Select 100 items per page or VIEW ALL from the Sort Order Drop Down Menu.  You may also Shop by Designer on the left navigation bar.<p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
       "of10_banner_topright2" : "ALT=Sherri+Hill+Prom+2013+Dresses&IMG=banners_for_cart%2fofc_wb_sherri_hill_pip_tmd_1%2epng&LINK=http%3a%2f%2fwww%2eonlineformals%2ecom%2fcategory%2f5%2eshop_by_designer%2esherri_hill%2f",
       "description3" : "",
       "of10_banner_topwide1" : "ALT=&IMG=&LINK=",
@@ -626,19 +617,20 @@
       "head_title" : "Prom 2014 Dresses | Prom 2014 Gowns",
       "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
    },
+   ".prom.designers.le_gala" : {},
    "$homecoming_2013" : {},
-   ".prom.designers.scala" : {},
    "$night_moves_plus_size" : {},
+   ".prom.designers.scala" : {},
    ".designers.cassandra_stone" : {},
    ".plus_size.styles.short" : {},
-   "$dancing_with_the_stars_2011" : {},
    ".shop_accessories.jewelry" : {
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&"
    },
+   "$dancing_with_the_stars_2011" : {},
    ".accessories.under_the_dress.bra_cups" : {},
    ".designers.paris" : {},
-   "$quick_ship" : {},
    "$app_featured_products" : {},
+   "$quick_ship" : {},
    ".pageant.designers" : {},
    ".accessories.shoes.coloriffics" : {},
    ".shop_by_designer.night_moves_plus_size" : {
@@ -660,16 +652,16 @@
    },
    "$giftcardofferlist" : {},
    ".cocktail.designers.faviana" : {},
-   ".prom.trends.sequins" : {},
    ".shop-by-price" : {},
+   ".prom.trends.sequins" : {},
    "$celebrity_gowns" : {},
    "$la_femme_evening_2013" : {},
    ".in_stock" : {},
    ".designers" : {},
-   "$blank_list_for_best_sellers" : {},
    "$atr_list" : {},
-   ".prom.designers.cassandra_stone" : {},
+   "$blank_list_for_best_sellers" : {},
    ".evening.designers.scala" : {},
+   ".prom.designers.cassandra_stone" : {},
    "$mac_duggal_couture_2013" : {},
    ".shop_accessories.shoes_by_touch_ups" : {
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
@@ -678,8 +670,8 @@
    },
    "$lm_collection_2012" : {},
    "$in_stock" : {},
-   ".prom.styles.mermaid" : {},
    "$fabulouss_2011" : {},
+   ".prom.styles.mermaid" : {},
    "$under_your_dress" : {},
    ".shop_by_category.cocktail___party_dresses" : {
       "of10_banner_topwide1" : "ALT=&IMG=&LINK=",
@@ -689,13 +681,14 @@
       "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=LIST%3A%24homecoming_short_2013&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
       "description" : ""
    },
-   "$gigi_2013" : {},
    ".shop_by_designer.la_femme_evening" : {
       "meta_description" : "Click here for Authentic La Femme Evening Dresses.  Returns Accepted!",
       "page_title" : "La Femme Evening Dresses",
       "head_title" : "La Femme Evening Dresses",
       "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"15\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>La Femme</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>00</TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32</TD>\n<TD>33</TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>36</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD>\n<TD>53</TD>\n<TD>55</TD></TR></TABLE></center>"
    },
+   "$gigi_2013" : {},
+   "undefined" : {},
    ".evening.designers.mac_duggal" : {},
    ".shop_accessories.shoes_by_coloriffics" : {
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
@@ -710,7 +703,6 @@
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&",
       "description" : ""
    },
-   "$terani_2013" : {},
    ".savings_and_promotions" : {
       "meta_keywords" : "Onlineformals, Coupon, Codes, Discounts, Promotions, Sale, Clearance",
       "meta_description" : "Savings and Promotions at Onlineformals.  Get your coupon code here.",
@@ -718,6 +710,7 @@
       "head_title" : "Onlineformals.com Coupon Codes",
       "description" : "<table width='100%'>\n<tr>\n<td valign='top'>\n<!-- put your content under this line -->\n\nDomestic orders over $200 and International orders over $400 will receive FREE shipping plus a garment bag. No coupon code needed.  \n<p>\n<b>Want the Total Package?</b>  Purchase any dress over $300 in our <a href=\"http://www.onlineformals.com/category/shop_by_category.in_stock___quick_ship/\">In-Stock Section</a> and receive a <b>$50 credit</b> toward the shoes of your choice.  If we don't have the dress of your dreams in stock, we'll order it from the designer and give you a <b>$30 credit</b> toward shoes.<p>  \n\nIn addition to the shoe credit, you will also receive a <b>FREE jewelry item</b> and <b>garment bag</b>!  Just enter the code <b>PROM13</b> in the coupon code area at checkout and your shoe credit will be applied and your free items will be included with your order.  \n<p>\n\nNeed some nail polish to go with your dress?  How about some fresh new music to listen to while you get ready for your dance?  Purchase any dress over $350 and receive a $20 gift card from your choice of two premium retailers: Amazon or Target!  Use promo codes <b>AMAZON or TARGET</b> to receive the card with your order.  This offer cannot be combined with any other offers. \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<!-- put your content above this line -->\n</td>\n<td valign='top'>\n\n<form action=\"%SUBSCRIBE_URL%\" method=\"post\" style=\"margin:0px;\">\n<input type=\"hidden\" name=\"check\" value=\"1\">\n<table cellspacing=\"3\" cellpadding=\"0\" border=\"0\">\n<tr>\n\t<td align='left' NOWRAP><span class=\"zsmall\">Email Address:</span></td>\n\t<td align=\"right\"><input type=\"text\" class=\"zform_textbox\" maxlength=\"50\" name=\"email\" value=\"\"></td>\n</tr>\n<tr>\n\t<td align='left'><span class=\"zsmall\">Full Name:</span></td>\n\t<td align=\"right\"><input type=\"text\" class=\"zform_textbox\" maxlength=\"50\" name=\"fullname\" value=\"\"></td>\n</tr>\n<tr>\n\t<td colspan=\"2\"><input type=\"submit\" class=\"zform_button\" value=\"Subscribe\"></td>\n</tr>\n</table>\n</form>\n\n</td>\n</tr>\n</table>"
    },
+   "$terani_2013" : {},
    ".shop_by_designer.mac_duggal_flash" : {},
    "$jovani_top_10_picks" : {},
    ".shop_by_designer.faviana.faviana_plus_size_dresses" : {
@@ -728,6 +721,7 @@
       "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Faviana Extra Size</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>18E</TD>\n<TD>20E</TD>\n<TD>22E</TD>\n<TD>24E</TD>\n<TD>12W</TD>\n<TD>14W</TD>\n<TD>16W</TD>\n<TD>18W</TD>\n<TD>20W</TD>\n<TD>22W</TD>\n<TD>24W</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>43</TD>\n<TD>44.5</TD>\n<TD>46</TD>\n<TD>47.5</TD>\n<TD>49.5</TD>\n<TD>51.5</TD>\n<TD>53.5</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>33.5</TD>\n<TD>35.5</TD>\n<TD>37.5</TD>\n<TD>39.5</TD>\n<TD>36.5</TD>\n<TD>38</TD>\n<TD>39.5</TD>\n<TD>41</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD>\n<TD>47.5</TD>\n<TD>49</TD>\n<TD>50.5</TD>\n<TD>52</TD>\n<TD>54</TD>\n<TD>56</TD>\n<TD>58</TD></TR></TABLE></center>"
    },
    "$shop_accessories_shoes" : {},
+   ".plus_size.styles" : {},
    ".shop-by-price.400-500" : {
       "meta_keywords" : "Shop, By, Price, Cheap, Sale, Discount, Less, Onlineformals",
       "meta_description" : "Shop by Price $400 - $500 at Onlineformals",
@@ -736,15 +730,14 @@
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&",
       "description" : ""
    },
-   ".plus_size.styles" : {},
    ".cocktail.designers.mac_duggal" : {},
    "." : {},
-   ".pageant.designers.la_femme" : {},
    ".cocktail.designers.scala" : {},
+   ".pageant.designers.la_femme" : {},
+   ".designers.shail_k" : {},
    ".shop_by_category.quinceanera" : {
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=LIST%3A%24allure_quinceanera&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&"
    },
-   ".designers.shail_k" : {},
    "$homepage_bestsell" : {},
    ".shop_accessories.shoes_by_johnathan_kayne" : {
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
@@ -758,7 +751,7 @@
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
       "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"14\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Le Gala</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31</TD>\n<TD>32</TD>\n<TD>33</TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>22</TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29.5</TD>\n<TD>31</TD>\n<TD>33</TD>\n<TD>35.5</TD>\n<TD>38</TD>\n<TD>40.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41.5</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD></TR></TABLE></center>\n\n"
    },
-   "$scala_2013" : {},
+   "$lm_2013" : {},
    ".shop_by_designer.jasz_couture" : {
       "meta_keywords" : "",
       "meta_description" : "Click here for Authentic Jasz Couture Prom Dresses at the lowest prices.  Returns accepted!",
@@ -768,17 +761,10 @@
       "prodlist_custom" : "&SORTBY=NAME_DESC&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
       "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"15\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Jasz Couture</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>00</TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>36</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37,5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>41.5</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD>\n<TD>53</TD>\n<TD>55</TD></TR></TABLE></center>"
    },
-   "$lm_2013" : {},
+   "$scala_2013" : {},
    ".plus_size.designers.fabulouss" : {},
-   "$tony_bowls_2010" : {},
    ".prom.styles.empire" : {},
-   ".zebra" : {
-      "meta_keywords" : "Onlineformals, Store Location, Virginia Beach, VA",
-      "meta_description" : "Onlineformals, Inc. store location",
-      "picture1" : "logos/outside1",
-      "page_title" : "Onlineformals Store Location",
-      "description" : "<b><u>FOR RETURNS ONLY</u></b><p>\n<b>Onlineformals, Inc.</b><br>\nwww.onlineformals.com<br>\n2308 Pierce Lane<br>\nVirginia Beach, VA 23453<br>\n888.280.4179 (Toll Free)<br>\n\n<b>Virginia Beach Showroom Coming Soon</b><p>\n\n<b>Live Customer Service Hours</b><br>\nMonday - Friday 8:00 am - 5:00 pm EST<br>\nSaturday 8:00 am - 12:00 pm EST<br>\nSunday - Closed<p>\n\n\nYou may also contact us via e-mail 24 hours a day at info@onlineformals.com<br>\nE-mails will be answered the same business day during regular business hours. <p>\n\n\n\n\n\n\n\n\n\n"
-   },
+   "$tony_bowls_2010" : {},
    ".9b" : {
       "meta_keywords" : "Size Charts, onlineformals, gown, dress, bridal, prom",
       "meta_description" : "",
@@ -786,5 +772,12 @@
       "picture1cfg" : "H=,W=",
       "page_title" : "Size Charts",
       "description" : "<center>Please reference the specific manufacturer size chart when making your dress selections</center><p>\n\n<center><h2>-How To Measure-</h2></center><p>\n \t  \t \n<b><u>BUST</b></u> - Measure around the fullest part of your bust section. (Without wearing a padded bra) <p>\n<b><u>WAIST</b></u> - Measure around your natural waistline making certain you keep the measuring tape snug, but not extremely tight. Approximately 1 1/2\" - 2\" above your belly button.<p>\n<b><u>HIPS</b></u> - Measure around the fullest part of your hips. This is approximately 8\" below your waistline for Misses Sizes, or 7\" for Petite Sizes. <p>\n\n<center><b><i>Tip:</b></i> If your size is in-between we recommend choosing the larger size.</center><p>\n\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"11\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>BG Haute</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>39</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>44</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>33.5</TD>\n<TD>35.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>43.5</TD>\n<TD>45</TD>\n<TD>47</TD></TR></TABLE></center>\n\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Cassandra Stone</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>45</TD>\n<TD>48</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24.5</TD>\n<TD>25.5</TD>\n<TD>26.5</TD>\n<TD>27.5</TD>\n<TD>28.5</TD>\n<TD>29.5</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>37</TD>\n<TD>40</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41</TD>\n<TD>42.5</TD>\n<TD>44.5</TD>\n<TD>47.5</TD>\n<TD>50.5</TD></TR></TABLE></center>\n\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"10\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Cassandra Stone Plus Size</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>14W</TD>\n<TD>16W</TD>\n<TD>18W</TD>\n<TD>20W</TD>\n<TD>22W</TD>\n<TD>24W</TD>\n<TD>26W</TD>\n<TD>28W</TD>\n<TD>30W</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD>\n<TD>54</TD>\n<TD>56</TD>\n<TD>58</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>36</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD>\n<TD>53</TD>\n<TD>55</TD>\n<TD>57</TD>\n<TD>59</TD>\n<TD>61</TD></TR></TABLE></center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"10\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Fabulouss</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>14W</TD>\n<TD>16W</TD>\n<TD>18W</TD>\n<TD>20W</TD>\n<TD>22W</TD>\n<TD>24W</TD>\n<TD>26W</TD>\n<TD>28W</TD>\n<TD>30W</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD>\n<TD>54</TD>\n<TD>56</TD>\n<TD>58</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>36</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD>\n<TD>53</TD>\n<TD>55</TD>\n<TD>57</TD>\n<TD>59</TD>\n<TD>61</TD></TR></TABLE></center>\n\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"10\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Faviana</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31.5</TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30</TD>\n<TD>31.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>41.5</TD>\n<TD>42.5</TD>\n<TD>44</TD></TR></TABLE></center>\n\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Faviana Extra Size</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>18E</TD>\n<TD>20E</TD>\n<TD>22E</TD>\n<TD>24E</TD>\n<TD>12W</TD>\n<TD>14W</TD>\n<TD>16W</TD>\n<TD>18W</TD>\n<TD>20W</TD>\n<TD>22W</TD>\n<TD>24W</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>43</TD>\n<TD>44.5</TD>\n<TD>46</TD>\n<TD>47.5</TD>\n<TD>49.5</TD>\n<TD>51.5</TD>\n<TD>53.5</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>33.5</TD>\n<TD>35.5</TD>\n<TD>37.5</TD>\n<TD>39.5</TD>\n<TD>36.5</TD>\n<TD>38</TD>\n<TD>39.5</TD>\n<TD>41</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD>\n<TD>47.5</TD>\n<TD>49</TD>\n<TD>50.5</TD>\n<TD>52</TD>\n<TD>54</TD>\n<TD>56</TD>\n<TD>58</TD></TR></TABLE></center>\n\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"9\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Faviana Glamour</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31.5</TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>41.5</TD>\n<TD>42.5</TD></TR></TABLE></center>\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"15\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>GIGI</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>00</TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32</TD>\n<TD>33</TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>36</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD>\n<TD>53</TD>\n<TD>55</TD></TR></TABLE></center>\n\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"15\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Jasz Couture</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>00</TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>36</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37,5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>41.5</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD>\n<TD>53</TD>\n<TD>55</TD></TR></TABLE></center></center>\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"11\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Johnathan Kayne</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31</TD>\n<TD>32</TD>\n<TD>33</TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38.5</TD>\n<TD>40</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30.5</TD>\n<TD>32</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41</TD>\n<TD>42.5</TD>\n<TD>44</TD></TR></TABLE></center>\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"15\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>La Femme</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>00</TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32</TD>\n<TD>33</TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>36</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD>\n<TD>53</TD>\n<TD>55</TD></TR></TABLE></center>\n<center>\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"14\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Le Gala</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31</TD>\n<TD>32</TD>\n<TD>33</TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>22</TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29.5</TD>\n<TD>31</TD>\n<TD>33</TD>\n<TD>35.5</TD>\n<TD>38</TD>\n<TD>40.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41.5</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD></TR></TABLE></center>\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"11\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>LM Collection</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31.5</TD>\n<TD>32.5</TD>\n<TD>33</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>41.5</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>25.5</TD>\n<TD>26.5</TD>\n<TD>27.5</TD>\n<TD>28.5</TD>\n<TD>29.5</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>33.5</TD>\n<TD>35</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>43.5</TD>\n<TD>45</TD></TR></TABLE></center>\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Mac Duggal</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>45</TD>\n<TD>48</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24.5</TD>\n<TD>25.5</TD>\n<TD>26.5</TD>\n<TD>27.5</TD>\n<TD>28.5</TD>\n<TD>29.5</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>37</TD>\n<TD>40</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41</TD>\n<TD>42.5</TD>\n<TD>44.5</TD>\n<TD>47.5</TD>\n<TD>50.5</TD></TR></TABLE></center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"11\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Mignon</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31.5</TD>\n<TD>32.5</TD>\n<TD>33</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>41.5</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>25.5</TD>\n<TD>26.5</TD>\n<TD>27.5</TD>\n<TD>28.5</TD>\n<TD>29.5</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>33.5</TD>\n<TD>35</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>43.5</TD>\n<TD>45</TD></TR></TABLE></center><center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"14\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>MNM Couture</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>35</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40.5</TD>\n<TD>41.5</TD>\n<TD>43.5</TD>\n<TD>45.5</TD>\n<TD>47.5</TD>\n<TD>49.5</TD>\n<TD>50</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>26</TD>\n<TD>26.5</TD>\n<TD>27.5</TD>\n<TD>29.5</TD>\n<TD>30.5</TD>\n<TD>31.5</TD>\n<TD>33.5</TD>\n<TD>35.5</TD>\n<TD>37.5</TD>\n<TD>39.5</TD>\n<TD>41.5</TD>\n<TD>43.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>41.5</TD>\n<TD>42.5</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD>\n<TD>54</TD></TR></TABLE></center>\n\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"17\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Night Moves</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD>\n<TD>26</TD>\n<TD>28</TD>\n<TD>30</TD>\n<TD>32</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32</TD>\n<TD>33</TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36.5</TD>\n<TD>38</TD>\n<TD>39.5</TD>\n<TD>41</TD>\n<TD>42.5</TD>\n<TD>44.5</TD>\n<TD>46.5</TD>\n<TD>48.5</TD>\n<TD>50.5</TD>\n<TD>53.5</TD>\n<TD>56.5</TD>\n<TD>59.5</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>23.5</TD>\n<TD>24.5</TD>\n<TD>25.5</TD>\n<TD>26.5</TD>\n<TD>28</TD>\n<TD>30</TD>\n<TD>31.5</TD>\n<TD>33</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>38.5</TD>\n<TD>40.5</TD>\n<TD>43.5</TD>\n<TD>46.5</TD>\n<TD>49.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>41.5</TD>\n<TD>43</TD>\n<TD>44.5</TD>\n<TD>46</TD>\n<TD>47.5</TD>\n<TD>49.5</TD>\n<TD>51.5</TD>\n<TD>53.5</TD>\n<TD>56.5</TD>\n<TD>59.5</TD>\n<TD>62.5</TD></TR></TABLE></center>\n\n<center>\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"14\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Paris</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31</TD>\n<TD>32</TD>\n<TD>33</TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>22</TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29.5</TD>\n<TD>31</TD>\n<TD>33</TD>\n<TD>35.5</TD>\n<TD>38</TD>\n<TD>40.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41.5</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD></TR></TABLE></center>\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"10\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Scala</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>39</TD>\n<TD>40.5</TD>\n<TD>42</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>25</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>33.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>43.5</TD>\n<TD>45</TD></TR></TABLE></center>\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Shail K</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>39</TD>\n<TD>40.5</TD>\n<TD>42</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>33.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>43.5</TD>\n<TD>45</TD></TR></TABLE></center>\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Sherri Hill</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>00</TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31.5</TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>39</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>44</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>33.5</TD>\n<TD>35.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>43.5</TD>\n<TD>45</TD>\n<TD>47</TD></TR></TABLE></center>\n\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Terani</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>38</TD>\n<TD>39.5</TD>\n<TD>41.5</TD>\n<TD>43.5</TD>\n<TD>46.5</TD>\n<TD>49.5</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>36</TD>\n<TD>39</TD>\n<TD>46</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>41</TD>\n<TD>42.5</TD>\n<TD>44.5</TD>\n<TD>46.5</TD>\n<TD>49.5</TD>\n<TD>52.5</TD></TR></TABLE></center>\n\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Tony Bowls</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31</TD>\n<TD>32</TD>\n<TD>33</TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>22</TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29.5</TD>\n<TD>31</TD>\n<TD>33</TD>\n<TD>35.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41.5</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD></TR></TABLE></center>\n"
+   },
+   ".zebra" : {
+      "meta_keywords" : "Onlineformals, Store Location, Virginia Beach, VA",
+      "meta_description" : "Onlineformals, Inc. store location",
+      "picture1" : "logos/outside1",
+      "page_title" : "Onlineformals Store Location",
+      "description" : "<b><u>FOR RETURNS ONLY</u></b><p>\n<b>Onlineformals, Inc.</b><br>\nwww.onlineformals.com<br>\n2308 Pierce Lane<br>\nVirginia Beach, VA 23453<br>\n888.280.4179 (Toll Free)<br>\n\n<b>Virginia Beach Showroom Coming Soon</b><p>\n\n<b>Live Customer Service Hours</b><br>\nMonday - Friday 8:00 am - 5:00 pm EST<br>\nSaturday 8:00 am - 12:00 pm EST<br>\nSunday - Closed<p>\n\n\nYou may also contact us via e-mail 24 hours a day at info@onlineformals.com<br>\nE-mails will be answered the same business day during regular business hours. <p>\n\n\n\n\n\n\n\n\n\n"
    }
 }
