@@ -956,8 +956,12 @@ don't modify the 'data-templateid' unless you are changing template names and up
             </div>
             <div class="catProdListProductListCont">
             	<div class="catGhostCell"></div>
-                <ul class='listStyleNone fluidList noPadOrMargin productList nativeProductList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
-            	<ul class="searchFilterResults productList" data-app-role='productList'>
+				<div class="nativeProductList">
+					<ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
+            	</div>
+				<div class="searchFilterResults">
+					<ul class="searchFilterResults productList" data-app-role='productList'>
+				</div>
             </div>
     	</div>    
     </div>

@@ -893,7 +893,6 @@ $('fieldset',$form).each(function(){
 
 //and requires at least 2 inputs, so add a match_all.
 //if there are no filters, don't add it. the return is also used to determine if any filters are present
-// * doesn't do anything. added by clinton. removed by JT.
  	if(filters.and.length == 1)	{
 		filters.and.push({match_all:{}})
  		}
