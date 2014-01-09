@@ -1,0 +1,35 @@
+
+
+{
+        "categoryBanners" : {
+			
+				"designers" : {
+                        "src"            : "T/testimage1.png",  
+                        "alt"            : "New Arrivals",
+                        "title"          : "New Arrivals",
+                        "height"		 : "400",
+						"catLink"        : ".designers.bg_haute"
+                },
+				
+				"designersbghaute" : {
+                        "src"                : "T/testimage1.png",  
+                        "alt"                : "testtwo",
+                        "title"              : "testtwo",
+						"height"		 	 : "400",
+                        "prodLink"           : "BG14-EO1015"
+                },
+				
+				"promdesignersjaszcouture" : {
+                        "src"                : "T/testimage1.png",  
+                        "alt"                : "testtwo",
+                        "title"              : "testtwo",
+						"height"		 	 : "400",
+                        "prodLink"           : "BG14-EO1015"
+                },
+                
+				
+				
+				
+				
+        }
+}

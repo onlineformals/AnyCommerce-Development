@@ -20,6 +20,9 @@ var _store_formals = function() {
 	var r= {
 		vars : {
 			catTemplates : {
+			
+				".showroom":"showroomTemplate",
+			
 				".testimonials" : "testimonialsTemplate",	
 			
 				".designers.bg_haute" : "categoryProductListTemplate",
