@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201346.bp",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201346.bq",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "OFactive",//can be passive, active or required
@@ -539,6 +539,8 @@ src="Images/Homepage/carousel/testbanner-1.png" FOR THE IMAGE FILE.
 -->   
 		<div class="homepageCarouselContainer">
             <ul class="carouselHPBannerList">
+		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.prom'});"><img src="Images/Homepage/carousel/prom2014.png" /></a></li>
+		<li><a class="pointer" onClick="return showContent('category',{'navcat':'designers.la_femme'});"><img src="Images/Homepage/carousel/lafemme.png" /></a></li>
 		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.sherri_hill'});"><img src="Images/Homepage/carousel/sherrihnew.png" /></a></li>
                 <li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.mac_duggal'});"><img src="Images/Homepage/carousel/13_001_11_ofc-Macduggal-350h.png" /></a></li>
                 <li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.jasz_couture'});"><img src="Images/Homepage/carousel/jaszbanner.png" /></a></li>
@@ -573,7 +575,7 @@ src="Images/Homepage/subcats/testchildren.png" FOR THE IMAGE FILE, AND <p class=
                 </div>
             </div>
             <div class="homepageSubCatItemTop pointer" onClick="return showContent('category',{'navcat':'.prom'});">
-                <img src="Images/Homepage/subcats/prom2014border.png" />
+                <img src="Images/Homepage/subcats/promnoborder.jpg" />
 				<div class="homepageSubCatTitleBar homepageSubCatTitleBar2">
                     <p class="homepageSubCatTitle"></p>
                 </div>
