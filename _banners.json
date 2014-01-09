@@ -26,6 +26,38 @@
                         "title"              : "testtwo",
 						"height"		 	 : "400",
                         "prodLink"           : "BG14-EO1015"
+                },
+                
+				"prom" : {
+                        "src"                : "T/sherrihnew.png",  
+                        "alt"                : "sherrihill",
+                        "title"              : "SherriHill",
+						"height"		 	 : "350",
+                        "catLink"           : ".designers.sherri_hill"        
+                },
+                
+				"prom" : {
+                        "src"                : "T/macduggal.png",  
+                        "alt"                : "macduggal",
+                        "title"              : "MacDuggal",
+						"height"		 	 : "350",
+                        "catLink"           : ".designers.mac_duggal"
+                },
+                
+				"prom" : {
+                        "src"                : "T/lafemme.png",  
+                        "alt"                : "lafemme",
+                        "title"              : "LaFemme",
+						"height"		 	 : "350",
+                        "catLink"           : ".designers.la_femme"
+                },
+                
+				"prom" : {
+                        "src"                : "T/jaszbanner.png",  
+                        "alt"                : "jasz",
+                        "title"              : "Jasz",
+						"height"		 	 : "350",
+                        "catLink"           : ".designers.jasz_couture"        
                 }
 				*/
 				
