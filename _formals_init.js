@@ -808,16 +808,6 @@ app.rq.push(['templateFunction','pageNotFoundTemplate','onCompletes',function(P)
 
 
 app.rq.push(['templateFunction','showroomTemplate','onCompletes',function(P) {
-  function initialize() {
-	var map_canvas = document.getElementById('map_canvas');
-	var mapOptions = {
-      center: new google.maps.LatLng(44.5403, -78.5463),
-      zoom: 8,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-    var map = new google.maps.Map(map_canvas);
-  }
-  google.maps.event.addDomListener(window, 'load', initialize());
 }]);
 
 /*
