@@ -2894,7 +2894,7 @@ margin-top:10px;
     height: 331px;
     width: 290px;
 }
-.imageContainer{
+.imageContainerQuickview{
 	width:47%;
 }
 
@@ -2965,7 +2965,7 @@ div.quickviewProductSharingLinkContainer{
     height: 250px;
     width: 195px;
 }
-.imageContainer {
+.imageContainerQuickview {
     width: 46%;
 }
 
@@ -3044,7 +3044,7 @@ div.quickviewProductSharingLinkContainer a{
     height: 100%;
     width: 100%;
 }
-.imageContainer {
+.imageContainerQuickview {
     margin-left: -25px;
     padding-right: 0;
     width: 100%;
