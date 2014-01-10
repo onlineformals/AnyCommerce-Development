@@ -385,7 +385,7 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
 
 <div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
 
-<div class="footer">
+<div class='footer'>
 	<div class="footerNewsletterBar">
     	<div class="centeringContainer">
         	<img src="Images/Homepage/footernewslettericon.png" />
@@ -1590,12 +1590,12 @@ this will likely become more flexible in the future. ###
 <!-- a template used for a quickview link off of a category page -->
 <div id='productTemplateQuickView' class="quickViewTemplate">
 
-        <div class='imageContainer'>
+        <div class='imageContainerQuickview'>
         	<!--<div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});' data-bind="var:product(zoovy:prod_image1); format:assignAttribute; attribute:data-pid;">-->
                 <div class='largeImageContainer quickviewLargeImageContainer'>
                     <div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
                         <!--<div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer'></div>-->
-                        <div class="normalResolutionImage displayNone" data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'><img src='blank.gif' class='prodBigImage prodMainImage' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='450' height='560' /></div>
+                        <div class="normalResolutionImage" data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'><img src='blank.gif' class='prodBigImage prodMainImage' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='450' height='560' /></div>
                         <div class="eightHundredWidthResolutionImage displayNone" data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'><img src='blank.gif' class='prodBigImage prodMainImage' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='270' height='311' /></div>
                         <div class="fourEigthyResolutionImage displayNone" data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'><img src='blank.gif' class='prodBigImage prodMainImage' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='180' height='224' /></div>
 
@@ -3444,7 +3444,7 @@ if you change these, you should move them above this comment so that when you (o
                     <p>Monday - Friday &bull; 8:00 am-5:00 pm EST</p>
                     <p>Saturday &bull; 8:00 am-12:00 pm EST</p>
                     <p>Sunday &bull; Closed</p>
-                    <p><b>Visit</b>:  Click <a class="pointer" onClick="return showContent('category',{'navcat':'.designers.sherri_hill'});">here</a> for information about visiting our Showroom!</p>
+                    <p><b>Visit</b>:  Click <a class="pointer contactUsShowroomLink" onClick="return showContent('category',{'navcat':'.showroom'});">here</a> for information about visiting our Showroom!</p>
                 </div>    
     
                 <form action='#' onSubmit="app.calls.appSendMessage.init($(this).serializeJSON(),{'callback':'showMessaging','parentID':'contactFormMessaging','message':'Thank you, your message has been sent'},'immutable'); app.model.dispatchThis('immutable');  return false;" id='contactForm' name='contactForm'>

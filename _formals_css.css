@@ -1645,6 +1645,13 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 	display:block;
 }
 
+.imageContainerQuickview{
+	width: 47%;
+	float: left;
+    position: relative;
+	padding-right: 24px;
+}
+
 
 
 /***********************************************************************************************************************************/
@@ -2510,6 +2517,13 @@ span#inStoreCheckoutButton button.checkoutButton{
 .contactUsChat{
 	display: inline-block;
     float: left;
+}
+
+.contactUsShowroomLink{
+	text-decoration: underline;
+}
+.contactUsShowroomLink:hover{
+	color: #E61652;
 }
 
 
