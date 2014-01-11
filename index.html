@@ -725,12 +725,12 @@ don't modify the 'data-templateid' unless you are changing template names and up
         <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(path); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
         <div class="catTopCarousel">
             <div class="carouselCPBannerList">
-                <div class="catProdListCustomTextArea displayNone" data-bind="var: category(%page.description); format: showIfSet;">
-                    <h1 data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></h1>
-                </div>
             </div>
             <img class="prevCPBannerCaro" src="Images/Homepage/caroleft.png" />
             <img class="nextCPBannerCaro" src="Images/Homepage/caroright.png" />
+            <div class="catProdListCustomTextArea displayNone" data-bind="var: category(%page.description); format: showIfSet;">
+                <h1 data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></h1>
+            </div>
         </div>
         
         <ul class='listStyleNone fluidList clearfix noPadOrMargin categoryList' data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;"></ul><!-- outputs a list of subcategories -->
@@ -950,12 +950,13 @@ don't modify the 'data-templateid' unless you are changing template names and up
         <div class="catProdListContentArea"> 
             <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(path); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
             <div class="carouselCPBannerList">
-                <div class="catProdListCustomTextArea displayNone" data-bind="var: category(%page.description); format: showIfSet;">
-                    <h1 data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></h1>
-                </div>
             </div>
             <img class="prevCPBannerCaroProdList" src="Images/Homepage/caroleft.png" />
             <img class="nextCPBannerCaroProdList" src="Images/Homepage/caroright.png" />
+            <div class="catProdListCustomTextArea displayNone" data-bind="var: category(%page.description); format: showIfSet;">
+                <h1 data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></h1>
+            </div>
+
             <div class="catProdListProductListCont">
             	<div class="catGhostCell"></div>
 				<div class="nativeProductList">
