@@ -80,14 +80,14 @@ var _store_banner = function() {
                                         if(app.ext._store_banner.vars.categoryBanners) {
                                                 $container.addClass('bannersRendered');
 												var urlString = location.href;
- 												app.u.dump("urlString = " + urlString);
+ 												//app.u.dump("urlString = " + urlString);
 												//**REPLACE category/ with navcat=. if testing locally and vice versa**
 												var urlString2 = urlString.split("navcat=.");
-												app.u.dump("urlString2 = " + urlString2);
+												//app.u.dump("urlString2 = " + urlString2);
 												var urlString3 = urlString2[1].replace(/\./g, '');
 												var urlString4 = urlString3.replace(/\_/g, '');
 												var navCatID = urlString4.replace(/\//g, '');
-												app.u.dump("navCatID = " + navCatID);
+												//app.u.dump("navCatID = " + navCatID);
                                                 $($container).removeClass('loadingBG').append(app.ext._store_banner.u.makeBanner(app.ext._store_banner.vars.categoryBanners[navCatID],960,"ffffff"));
 										}
                                         else {
@@ -97,29 +97,44 @@ var _store_banner = function() {
                         },
                                                 
 						makeBanner : function(bannerJSON, w, b) {
-                                var $img = $(app.u.makeImage({
-                                        tag : true,
-                                        w           : w,
-                                        h           : bannerJSON.height,
-                                        b           : b,
-                                        name        : bannerJSON.src,
-                                        alt         : bannerJSON.alt,
-                                        title       : bannerJSON.title
-                                }));
-                                if(bannerJSON.prodLink) {
-                                        $img.addClass('pointer').data('pid', bannerJSON.prodLink).click(function() {
-                                                showContent('product',{'pid':$(this).data('pid')});
-                                        });
-                                }
-                                else if(bannerJSON.catLink) {
-                                        $img.addClass('pointer').data('navcat', bannerJSON.catLink).click(function() {
-                                                showContent('category',{'navcat':$(this).data('navcat')});
-                                        });
-                                }
-                                else {
-                                        //just a banner!
-                                }
-                                return $img;
+							
+								var $imgCont;
+								
+                                for(var i=0;i<bannerJSON.bannersPerCat;i++){
+									//app.u.dump("banner create itteration = " + i);
+									var $img = $(app.u.makeImage({
+											tag : true,
+											w           : w,
+											h           : bannerJSON.height[i],
+											b           : b,
+											name        : bannerJSON.src[i],
+											alt         : bannerJSON.alt[i],
+											title       : bannerJSON.title[i]
+									}));
+									if(bannerJSON.prodLink) {
+											$img.addClass('pointer').data('pid', bannerJSON.prodLink[i]).click(function() {
+													showContent('product',{'pid':$(this).data('pid')});
+											});
+									}
+									else if(bannerJSON.catLink) {
+											$img.addClass('pointer').data('navcat', bannerJSON.catLink[i]).click(function() {
+													showContent('category',{'navcat':$(this).data('navcat')});
+											});
+									}
+									else {
+											//just a banner!
+									}
+									app.u.dump($img);
+									
+									if(i === 0){
+										$imgCont = $img;
+									}
+									else{
+										$imgCont.after($img);
+									}
+								}
+								
+                                return $imgCont;
                         }
                 
                 }, //u [utilities]
