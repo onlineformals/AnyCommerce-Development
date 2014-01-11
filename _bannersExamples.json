@@ -3,30 +3,25 @@
 {
         "categoryBanners" : {
 			
-				"designers" : {
-                        "src"            : "T/testimage1.png",  
-                        "alt"            : "New Arrivals",
-                        "title"          : "New Arrivals",
-                        "height"		 : "400",
-						"catLink"        : ".designers.bg_haute"
+				"prom" : {
+                        "src"               : ["T/sherrihnew.png","T/macduggal.png"],  
+                        "alt"               : ["sherrihill","macduggal"],
+                        "title"             : ["SherriHill","MacDuggal"],
+						"height"		 	: ["350","350"],
+						"bannersPerCat"		: "2",
+                        "catLink"           : [".designers.sherri_hill",".designers.mac_duggal"]        
                 },
 				
-				"designersbghaute" : {
-                        "src"                : "T/testimage1.png",  
-                        "alt"                : "testtwo",
-                        "title"              : "testtwo",
-						"height"		 	 : "400",
-                        "prodLink"           : "BG14-EO1015"
-                },
+				"promdesignersbghaute" : {
+                        "src"               : ["T/sherrihnew.png"],  
+                        "alt"               : ["sherrihill"],
+                        "title"             : ["SherriHill"],
+						"height"		 	: ["350"],
+						"bannersPerCat"		: "1",
+                        "prodLink"           : ["BG14-EO1015"]        
+                }
 				
-				"promdesignersjaszcouture" : {
-                        "src"                : "T/testimage1.png",  
-                        "alt"                : "testtwo",
-                        "title"              : "testtwo",
-						"height"		 	 : "400",
-                        "prodLink"           : "BG14-EO1015"
-                },
-                
+				                
 				
 				
 				

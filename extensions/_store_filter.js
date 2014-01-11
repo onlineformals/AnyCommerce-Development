@@ -592,8 +592,8 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterPriceCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catProdListBanner', $context).height();
-							var ghostCell = sidebar - banner - 50;
+							var banner = $('.catTopCarousel', $context).height();
+							var ghostCell = sidebar - banner - 405;
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -603,8 +603,8 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterPriceCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catProdListBanner', $context).height();
-							var ghostCell = sidebar - banner - 50;
+							var banner = $('.catTopCarousel', $context).height();
+							var ghostCell = sidebar - banner - 405;
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -617,8 +617,8 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterDressTypeCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catProdListBanner', $context).height();
-							var ghostCell = sidebar - banner - 50;
+							var banner = $('.catTopCarousel', $context).height();
+							var ghostCell = sidebar - banner - 405;
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -628,8 +628,8 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterDressTypeCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catProdListBanner', $context).height();
-							var ghostCell = sidebar - banner - 50;
+							var banner = $('.catTopCarousel', $context).height();
+							var ghostCell = sidebar - banner - 405;
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -642,8 +642,8 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterDesignerCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catProdListBanner', $context).height();
-							var ghostCell = sidebar - banner - 50;
+							var banner = $('.catTopCarousel', $context).height();
+							var ghostCell = sidebar - banner - 405;
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -653,8 +653,8 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterDesignerCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catProdListBanner', $context).height();
-							var ghostCell = sidebar - banner - 50;
+							var banner = $('.catTopCarousel', $context).height();
+							var ghostCell = sidebar - banner - 405;
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -667,8 +667,8 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterColorCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catProdListBanner', $context).height();
-							var ghostCell = sidebar - banner - 50;
+							var banner = $('.catTopCarousel', $context).height();
+							var ghostCell = sidebar - banner - 405;
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -678,8 +678,8 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterColorCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catProdListBanner', $context).height();
-							var ghostCell = sidebar - banner - 50;
+							var banner = $('.catTopCarousel', $context).height();
+							var ghostCell = sidebar - banner - 405;
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -692,8 +692,8 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterHemlineCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catProdListBanner', $context).height();
-							var ghostCell = sidebar - banner - 50;
+							var banner = $('.catTopCarousel', $context).height();
+							var ghostCell = sidebar - banner - 405;
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -703,8 +703,8 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterHemlineCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catProdListBanner', $context).height();
-							var ghostCell = sidebar - banner - 50;
+							var banner = $('.catTopCarousel', $context).height();
+							var ghostCell = sidebar - banner - 405;
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -717,8 +717,8 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterSilhouetteCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catProdListBanner', $context).height();
-							var ghostCell = sidebar - banner - 50;
+							var banner = $('.catTopCarousel', $context).height();
+							var ghostCell = sidebar - banner - 405;
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -728,8 +728,8 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterSilhouetteCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catProdListBanner', $context).height();
-							var ghostCell = sidebar - banner - 50;
+							var banner = $('.catTopCarousel', $context).height();
+							var ghostCell = sidebar - banner - 405;
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -742,8 +742,8 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterNecklineCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catProdListBanner', $context).height();
-							var ghostCell = sidebar - banner - 50;
+							var banner = $('.catTopCarousel', $context).height();
+							var ghostCell = sidebar - banner - 405;
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -753,8 +753,8 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterNecklineCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catProdListBanner', $context).height();
-							var ghostCell = sidebar - banner - 50;
+							var banner = $('.catTopCarousel', $context).height();
+							var ghostCell = sidebar - banner - 405;
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -767,8 +767,8 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterSaleCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catProdListBanner', $context).height();
-							var ghostCell = sidebar - banner - 50;
+							var banner = $('.catTopCarousel', $context).height();
+							var ghostCell = sidebar - banner - 405;
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -778,8 +778,8 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterSaleCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catProdListBanner', $context).height();
-							var ghostCell = sidebar - banner - 50;
+							var banner = $('.catTopCarousel', $context).height();
+							var ghostCell = sidebar - banner - 405;
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -792,8 +792,8 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterTrendsCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catProdListBanner', $context).height();
-							var ghostCell = sidebar - banner - 50;
+							var banner = $('.catTopCarousel', $context).height();
+							var ghostCell = sidebar - banner - 405;
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -803,8 +803,8 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterTrendsCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catProdListBanner', $context).height();
-							var ghostCell = sidebar - banner - 50;
+							var banner = $('.catTopCarousel', $context).height();
+							var ghostCell = sidebar - banner - 405;
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -813,8 +813,8 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 				catProdListFilterExpandContract : function($context){
 					//app.u.dump(context);
 					var sidebar = $('.catProdListSidebar', $context).height();
-					var banner = $('.catProdListBanner', $context).height();
-					var ghostCell = sidebar - banner - 50;
+					var banner = $('.catTopCarousel', $context).height();
+					var ghostCell = sidebar - banner - 405;
 					$('.catGhostCell', $context).data('heightVal', ghostCell).append();
 					$(".catGhostCell", $context).css("height",ghostCell);
 					

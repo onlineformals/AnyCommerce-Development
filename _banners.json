@@ -13,12 +13,12 @@
                 },
 				
 				"promdesignersbghaute" : {
-                        "src"               : ["T/sherrihnew.png"],  
-                        "alt"               : ["sherrihill"],
-                        "title"             : ["SherriHill"],
-						"height"		 	: ["350"],
-						"bannersPerCat"		: "1",
-                        "catLink"           : [".designers.sherri_hill"]        
+                        "src"               : ["T/sherrihnew.png","T/macduggal.png"],  
+                        "alt"               : ["sherrihill","macduggal"],
+                        "title"             : ["SherriHill","MacDuggal"],
+						"height"		 	: ["350","350"],
+						"bannersPerCat"		: "2",
+                        "catLink"           : [".designers.sherri_hill",".designers.mac_duggal"]        
                 }
                 
 				
