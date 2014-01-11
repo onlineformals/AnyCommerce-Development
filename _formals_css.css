@@ -924,6 +924,7 @@ li.productItem:hover div div.productItemInfo{
 }
 .carouselCPBannerList{
 	padding-left: 0;
+	overflow:hidden;
 }
 .carouselCPBannerList li{
 	list-style:none;
@@ -935,12 +936,12 @@ li.productItem:hover div div.productItemInfo{
 	 cursor: pointer;
     left: 20px;
     position: absolute;
-    top: 200px;
+    top: 160px;
 }
 .nextCPBannerCaro{
 	position:absolute;
 	right:20px;
-	top:200px;
+	top:160px;
 	cursor:pointer;
 }
 
@@ -1378,6 +1379,19 @@ li.productItem:hover div div.productItemInfo{
 	float: left;
     width: 100%;
 	position:relative;
+}
+
+.prevCPBannerCaroProdList{
+	 cursor: pointer;
+    left: 20px;
+    position: absolute;
+    top: 200px;
+}
+.nextCPBannerCaroProdList{
+	position:absolute;
+	right:20px;
+	top:200px;
+	cursor:pointer;
 }
 
 /***********************************************************************************************************************************/

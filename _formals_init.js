@@ -300,13 +300,17 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 	var $context = $(app.u.jqSelector('#',P.parentID));
 	
 	//Carousel horizontal sliders - category banner
-	/*function carouselCPBanner(){ $(".carouselCPBannerList", $context).carouFredSel
+	function carouselCPBanner(){ $(".carouselCPBannerList", $context).carouFredSel
 	({
 		width   : 960,
 		//height	: 440,
 		items   : 1,
 		scroll: 1,
-		auto : false,
+		auto : {
+			duration    : 500,
+			timeoutDuration: 5000,
+			pauseOnHover: true
+		},
 		prev : ".prevCPBannerCaro",
 		next : ".nextCPBannerCaro"
 	});
@@ -316,6 +320,7 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 	
 	
 		//Carousel title bar - homepage product lists
+	/*
 	function carouselCatProductListTitle(){ $(".catProductListTitleCarousel").carouFredSel
 	({
 		width   : 400,
@@ -421,6 +426,23 @@ var filterForNum = 0;
 
 app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',function(P) {
 	var $context = $(app.u.jqSelector('#',P.parentID));
+	
+	function carouselCPBanner(){ $(".carouselCPBannerList", $context).carouFredSel
+	({
+		width   : 960,
+		//height	: 440,
+		items   : 1,
+		scroll: 1,
+		auto : {
+			duration    : 500,
+			timeoutDuration: 5000,
+			pauseOnHover: true
+		},
+		prev : ".prevCPBannerCaroProdList",
+		next : ".nextCPBannerCaroProdList"
+	});
+	}
+	setTimeout(carouselCPBanner, 2000);
 	
 	$('.fsCheckbox').attr('checked', false);
 	$(".nativeProductList").show(); 
