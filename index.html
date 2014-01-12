@@ -1691,15 +1691,15 @@ this will likely become more flexible in the future. ###
                 
                 <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this), {'action':'modal'}); return false;">
             
+                    <div class='productSizingChartModalLinkContainer quickviewProductSizingChartModalLinkContainer'>
+                        <a onClick="$('#SizingChartTemplate').dialog({'modal':'true', 'title':'','width':825, height:700, 'dialogClass' : 'SizingChartModal'});"> Need help with your size?</a>
+                    </div>
                     <fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone variationsContainer'></fieldset>
                     <fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; pretext:Quantity: ; defaultValue:1;' class='borderNone displayNone'></fieldset>
             
                     <input type='submit' value='ADD TO BAG' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;'  />
                 </form>
                 
-                <div class="productSizingChartModalLinkContainer quickviewProductSizingChartModalLinkContainer">
-                	<a onClick="$('#SizingChartTemplate').dialog({'modal':'true', 'title':'','width':825, height:700, 'dialogClass' : 'SizingChartModal'});"> Need help with your size?</a>
-                </div>
                 
                 <div class="productSharingLinkContainer quickviewProductSharingLinkContainer">
                 	<menu data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu'>

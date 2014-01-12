@@ -829,6 +829,25 @@ app.rq.push(['templateFunction','pageNotFoundTemplate','onCompletes',function(P)
 }]);
 
 
+app.rq.push(['templateFunction','productTemplateQuickView','onCompletes',function(P) {
+	
+	var $context = $(app.u.jqSelector('#',P.parentID));
+	
+	
+	if($(".variation_D5", $context).length){
+		app.u.dump(".variation_D5 exists. Adding sizing chat link");
+		$(".variation_D5", $context).after("<div class='productSizingChartModalLinkContainer quickviewProductSizingChartModalLinkContainer'>"
+		+ "<a onClick=\"$('#SizingChartTemplate').dialog({'modal':'true', 'title':'','width':825, height:700, 'dialogClass' : 'SizingChartModal'});\"> Need help with your size?</a>"
+		+ "</div>");
+	}
+	else{
+		app.u.dump(".variation_D5 does not exists. Doing nothing");
+	}
+	
+
+}]);
+
+
 app.rq.push(['templateFunction','showroomTemplate','onCompletes',function(P) {
 }]);
 
