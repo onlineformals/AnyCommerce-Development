@@ -2879,6 +2879,11 @@ margin-top:10px;
 
 /****800 X 480 TABLET****/
 @media screen and (max-width: 1000px) {
+
+/**HEADER**/
+.dropdown{
+	display:none;
+}
 /**PRODUCT TEMPLATE**/
 .imageContainerMobileEightHundred{
 	display:block;
@@ -2939,6 +2944,10 @@ div.quickviewProductSharingLinkContainer{
 /*BEGIN 480 X 320 CELLPHONE*/
 @media screen and (max-width: 790px) {
 	
+/**HEADER**/
+.dropdown{
+	display:none;
+}	
 /**PRODUCT TEMPLATE**/
 .imageContainerMobileEightHundred{
 	display:none;
@@ -3012,6 +3021,10 @@ div.quickviewProductSharingLinkContainer a{
 /*320 X 480 CELLPHONE*/
 @media screen and (max-width: 479px) {
 
+/**HEADER**/
+.dropdown{
+	display:none;
+}
 /**PRODUCT TEMPLATE**/
 .imageContainerMobileEightHundred{
 	display:none;
