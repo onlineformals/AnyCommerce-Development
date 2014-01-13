@@ -2528,6 +2528,13 @@ span#inStoreCheckoutButton button.checkoutButton{
 	display: block !important;
     margin-bottom: 12px;
 }
+.contactContentContainer div#scnXRT a span{
+	text-decoration: underline;
+	color: #E61652;
+}
+.contactContentContainer div#scnXRT a span:hover{
+	color: black;
+}
 .contactUsChat{
 	display: inline-block;
     float: left;
@@ -2535,9 +2542,10 @@ span#inStoreCheckoutButton button.checkoutButton{
 
 .contactUsShowroomLink{
 	text-decoration: underline;
+	color: #E61652;
 }
 .contactUsShowroomLink:hover{
-	color: #E61652;
+	color: black;
 }
 
 
