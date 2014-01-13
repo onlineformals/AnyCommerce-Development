@@ -811,9 +811,18 @@ progress::-moz-progress-bar { background: #E61652; }
 	border:10px solid white;
 	margin:10px;
 }
+li.productItem:hover{
+	border:10px solid #e61652;
+}
 li.productItem:hover div div.productItemInfo{
 	background: rgba(200, 54, 54, 0.5);
 	background-color:rgba(230,22,82,.5);
+}
+li.productItem:hover div.productItemInfoContent{
+	display:none;
+}
+li.productItem:hover div.productItemInfoMoreInfo{
+	display:block;
 }
 .productItemInfo{
 	position:absolute;

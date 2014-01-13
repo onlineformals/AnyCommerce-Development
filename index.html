@@ -1055,13 +1055,13 @@ Used for the product in a product list (prodlist), usually in the body of a cate
 the loadingBG class is removed (must be that classname) when the template is translated.
 remember to NOT put the button inside the 'onclick' container or two events will occur onclick.
 -->
-<li id='productListTemplate' class='loadingBG productItem' onMouseOver="$('.quickView',$(this)).show(); app.ext._store_formals.a.homepageCarouselProdItemMouseOver($(this));" onMouseOut="$('.quickView').hide(); app.ext._store_formals.a.homepageCarouselProdItemMouseOut($(this));" >
+<li id='productListTemplate' class='loadingBG productItem' onMouseOver="$('.quickView',$(this)).show();" onMouseOut="$('.quickView').hide();" > <!--app.ext._store_formals.a.homepageCarouselProdItemMouseOver($(this)); app.ext._store_formals.a.homepageCarouselProdItemMouseOut($(this));-->
 
 	<button class='floatRight pointer quickView displayNone' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">Quickview</button>
 
 	<div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
 		<div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
-		<img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='200' height='280' />
+            <img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='200' height='280' />
 		</div>
 
 		<div class="productItemInfo">
