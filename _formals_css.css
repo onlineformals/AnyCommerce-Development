@@ -1597,6 +1597,7 @@ div.productItemInfoContent span.prodListItemSavings span.savingsPercentage{
     border: medium none;
     border-radius: 3px 3px 3px 3px;
     color: #FFFFFF;
+	z-index:1;
 }
 
 /***********************************************************************************************************************************/
