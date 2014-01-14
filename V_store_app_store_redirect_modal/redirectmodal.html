@@ -28,9 +28,7 @@
 
 //FUNCTIONS
 function handleRedirect() {
- var urlString = document.write(location.href);
- var transferCartID = urlString.split("=");
- window.location = "http://app.onlineformals.com&c=" + transferCartID[1];
+ window.location = "http://app.onlineformals.com";
  console.log("var Function was added");
 }
 function bugLater(){
@@ -42,9 +40,7 @@ function bugLater(){
 function autoRedirect(){
  localStorage.redirectToAppVar = true;
  $('.redirectToSiteApp').dialog('close');
- var urlString = document.write(location.href);
- var transferCartID = urlString.split("=");
- window.location = "http://app.onlineformals.com&c=" + transferCartID[1];
+ window.location = "http://app.onlineformals.com";
 }
 function resetRedirectPreferences(){
  localStorage.redirectToAppVar = false;
@@ -96,9 +92,7 @@ $(document).ready(function() {
     '</div>').appendTo('head');
     $('.autoRedirectToSiteApp').dialog({'modal':'true', 'width':400, height:270});
     function foo1(){
-	 var urlString = document.write(location.href);
-	 var transferCartID = urlString.split("=");
-     window.location = "http://app.onlineformals.com&c=" + transferCartID[1];
+     window.location = "http://app.onlineformals.com";
     }
     var autoRedirectTimer;
     redirectTimer = foo1;
