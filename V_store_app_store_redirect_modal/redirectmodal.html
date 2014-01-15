@@ -67,6 +67,7 @@ $(document).ready(function() {
   else{
    sessionStorage.redirectToAppSessionNoCheck = false;
   }
+  if(window.location !== "http://www.onlineformals.com/"){
   $('<div class="redirectToSiteApp"> '+
   '<h3>For an improved shopping experience, use our new site!</h3>' +
   '<button onclick="handleRedirect(); return false;">New App Site</button>' +
@@ -107,6 +108,7 @@ $(document).ready(function() {
      console.log("sessionStorage = " + sessionStorage.redirectToAppSessionNoCheck);
      console.log("localStorage = " + localStorage.redirectToAppVar);
     }
+   }
   }
  }
  else{
