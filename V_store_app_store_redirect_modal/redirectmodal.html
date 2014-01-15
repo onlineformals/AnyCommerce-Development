@@ -67,7 +67,10 @@ $(document).ready(function() {
   else{
    sessionStorage.redirectToAppSessionNoCheck = false;
   }
-  if(window.location !== "http://www.onlineformals.com/"){
+  console.log("window.location = " + window.location);
+  var urlLocation = window.location;
+  console.log("urlLocation = " + urlLocation);
+  if(urlLocation == "http://www.onlineformals.com/"){
   $('<div class="redirectToSiteApp"> '+
   '<h3>For an improved shopping experience, use our new site!</h3>' +
   '<button onclick="handleRedirect(); return false;">New App Site</button>' +
