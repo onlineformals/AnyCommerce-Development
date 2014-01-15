@@ -408,8 +408,9 @@ progress::-moz-progress-bar { background: #E61652; }
 }
 
 .footerNewsletterBar div.centeringContainer img{
-	float:left;
-	margin-top:38px;
+	float: left;
+    margin-left: 245px;
+    margin-top: 38px;
 }
 .footNewsTextCont{
 	width:330px;
@@ -429,10 +430,10 @@ progress::-moz-progress-bar { background: #E61652; }
 }
 
 .footNewsSignupCont{
-	float: right;
+	float: left;
     height: 55px;
+    margin-left: 20px;
     margin-top: 30px;
-    width: 500px;
 }
 .footNewsSignupCont form#subscribeFrm{
 }
