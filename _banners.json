@@ -1,12 +1,18 @@
 
 
 {
-        "categoryBanners" : {
+	"categoryBanners" : {
 
-				
+		"prom" : {
+			"src"               : ["T/14_002_01_dress_giveaway_940wx350h_fnl.png","T/14_002_01_instock_promo_940wx350h_fnl.png","T/14_002_01_prom_package_940wx350h_fnl.png"],  
+			"alt"               : ["dressGiveaway","instockPromo","promPackage"],
+			"title"             : ["DressGiveaway","InstockPromo","PromPackage"],
+			"height"		 	: ["350","350","350"],
+			"bannersPerCat"		: "3"
+		}
                 
 				
 			
 				
-        }
+	}
 }

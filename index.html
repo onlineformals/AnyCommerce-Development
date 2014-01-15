@@ -394,12 +394,14 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
             	<h3>JOIN OUR NEWSLETTER</h3>
             </div>
             <div class="footNewsSignupCont">
-                <form action='#' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe($(this)); return false">
+                <form action='' id='subscribeFrm' name='subscribeFrm' >
                     <fieldset class='userInfo'>
-                        <input type="text" name='fullname' value='' placeholder="   Name" class="subName" id='subscribeFullname' />
+                        <!--
+						<input type="text" name='fullname' value='' placeholder="   Name" class="subName" id='subscribeFullname' />
                         <input type="email" name='login' value='' placeholder="   E-mail Address" class="subEmail" id='subscribeLogin' />
                         <fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
-                        <input class="subButton pointer" type="submit" value="Join" id="" />
+						-->
+                        <input class="subButton pointer" type="submit" value="Join" href='#top' onClick="return showContent('customer',{'show':'myaccount'});" />
                     </fieldset>
                 </form>
             </div>
@@ -3651,8 +3653,7 @@ if you change these, you should move them above this comment so that when you (o
 	<div class='sideline' >
 	<nav id='customerNav'>
 	<ul class='listStyleNone noPadOrMargin'>
-<!-- before restoring this, test cuz news form on left was causing some conflicts
-		<li><a href='#customer?show=subscriberLists'>Newsletter Subscription</a></li> -->
+		<li><a href='#customer?show=subscriberLists'>Newsletter Subscription</a></li>
 		<li><a href='#customer?show=myaccount'>My Account</a></li>
 		<li><a href='#customer?show=changepassword'>Change Password</a></li>
 		<li><a href='#customer?show=orders'>Order History</a></li>
