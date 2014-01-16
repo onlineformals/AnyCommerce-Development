@@ -69,7 +69,32 @@ function bugLater(){
 function autoRedirect(){
  localStorage.redirectToAppVar = true;
  $('.redirectToSiteApp').dialog('close');
- window.location = "http://app.onlineformals.com";
+ var windowUrl = location.href;
+	if(windowUrl.indexOf("product")>= 0){
+		var urlString = location.href;
+		//console.log("location.href = " + location.href);
+		var urlString2 = urlString.split("/product/");
+		//console.log("urlString2 = " + urlString2);
+		var urlString3 = urlString2[1];
+		//console.log("urlString3 = " + urlString3);
+		var urlString4 = urlString3.split("/");
+		//console.log("urlString4 = " + urlString4);
+		var prodSku = urlString4[0];
+		//console.log("prodSku = " + prodSku);
+		window.location = "http://app.onlineformals.com/product/"+prodSku+"/";
+ 	}
+	else if(windowUrl.indexOf("category")>= 0){
+		var urlString = location.href;
+		//console.log("location.href = " + location.href);
+		var urlString2 = urlString.split("/category/");
+		//console.log("urlString2 = " + urlString2);
+		var catTitle = urlString2[1];
+		//console.log("catTitle = " + catTitle);
+		window.location = "http://app.onlineformals.com/category/"+catTitle;
+	}
+	else{
+		window.location = "http://app.onlineformals.com";
+	}
 }
 function resetRedirectPreferences(){
  localStorage.redirectToAppVar = false;
@@ -125,7 +150,32 @@ $(document).ready(function() {
     '</div>').appendTo('head');
     $('.autoRedirectToSiteApp').dialog({'modal':'true', 'width':400, height:270});
     function foo1(){
-     window.location = "http://app.onlineformals.com";
+     var windowUrl = location.href;
+	if(windowUrl.indexOf("product")>= 0){
+		var urlString = location.href;
+		//console.log("location.href = " + location.href);
+		var urlString2 = urlString.split("/product/");
+		//console.log("urlString2 = " + urlString2);
+		var urlString3 = urlString2[1];
+		//console.log("urlString3 = " + urlString3);
+		var urlString4 = urlString3.split("/");
+		//console.log("urlString4 = " + urlString4);
+		var prodSku = urlString4[0];
+		//console.log("prodSku = " + prodSku);
+		window.location = "http://app.onlineformals.com/product/"+prodSku+"/";
+ 	}
+	else if(windowUrl.indexOf("category")>= 0){
+		var urlString = location.href;
+		//console.log("location.href = " + location.href);
+		var urlString2 = urlString.split("/category/");
+		//console.log("urlString2 = " + urlString2);
+		var catTitle = urlString2[1];
+		//console.log("catTitle = " + catTitle);
+		window.location = "http://app.onlineformals.com/category/"+catTitle;
+	}
+	else{
+		window.location = "http://app.onlineformals.com";
+	}
     }
     var autoRedirectTimer;
     redirectTimer = foo1;
@@ -144,7 +194,32 @@ $(document).ready(function() {
  }
  else{
   console.log("Storage is not supported. Redirecting to app");
-  window.location = "http://app.onlineformals.com";
+  var windowUrl = location.href;
+	if(windowUrl.indexOf("product")>= 0){
+		var urlString = location.href;
+		//console.log("location.href = " + location.href);
+		var urlString2 = urlString.split("/product/");
+		//console.log("urlString2 = " + urlString2);
+		var urlString3 = urlString2[1];
+		//console.log("urlString3 = " + urlString3);
+		var urlString4 = urlString3.split("/");
+		//console.log("urlString4 = " + urlString4);
+		var prodSku = urlString4[0];
+		//console.log("prodSku = " + prodSku);
+		window.location = "http://app.onlineformals.com/product/"+prodSku+"/";
+ 	}
+	else if(windowUrl.indexOf("category")>= 0){
+		var urlString = location.href;
+		//console.log("location.href = " + location.href);
+		var urlString2 = urlString.split("/category/");
+		//console.log("urlString2 = " + urlString2);
+		var catTitle = urlString2[1];
+		//console.log("catTitle = " + catTitle);
+		window.location = "http://app.onlineformals.com/category/"+catTitle;
+	}
+	else{
+		window.location = "http://app.onlineformals.com";
+	}
  }
 });
 </script>
