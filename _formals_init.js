@@ -24,7 +24,7 @@ app.rq.push(['extension',0,'_store_banner','extensions/_store_banner.js']);
 app.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.2.1/jquery.carouFredSel-6.2.1-packed.js']);
 app.rq.push(['script',0,app.vars.baseURL+'zoom-master/jquery.zoom.js']);
 
-//app.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
+app.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
 app.rq.push(['extension',1,'tools_ABtesting','extensions/tools_ABtesting.js']);
 app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js']);
 //app.rq.push(['extension',1,'resellerratings_survey','extensions/partner_buysafe_guarantee.js','startExtension']); /// !!! needs testing.
