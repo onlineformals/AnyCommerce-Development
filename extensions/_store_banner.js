@@ -82,7 +82,12 @@ var _store_banner = function() {
 												var urlString = location.href;
  												//app.u.dump("urlString = " + urlString);
 												//**REPLACE category/ with navcat=. if testing locally and vice versa**
-												var urlString2 = urlString.split("category/");
+												if(urlString.indexOf("file:") >= 0){
+													urlString2 = urlString.split("navcat=.");
+												}
+												else{
+													urlString2 = urlString.split("category/");
+												}
 												//app.u.dump("urlString2 = " + urlString2);
 												var urlString3 = urlString2[1].replace(/\./g, '');
 												var urlString4 = urlString3.replace(/\_/g, '');
@@ -100,37 +105,39 @@ var _store_banner = function() {
 							
 								var $imgCont;
 								
-                                for(var i=0;i<bannerJSON.bannersPerCat;i++){
-									//app.u.dump("banner create itteration = " + i);
-									var $img = $(app.u.makeImage({
-											tag : true,
-											w           : w,
-											h           : bannerJSON.height[i],
-											b           : b,
-											name        : bannerJSON.src[i],
-											alt         : bannerJSON.alt[i],
-											title       : bannerJSON.title[i]
-									}));
-									if(bannerJSON.prodLink) {
-											$img.addClass('pointer').data('pid', bannerJSON.prodLink[i]).click(function() {
-													showContent('product',{'pid':$(this).data('pid')});
-											});
-									}
-									else if(bannerJSON.catLink) {
-											$img.addClass('pointer').data('navcat', bannerJSON.catLink[i]).click(function() {
-													showContent('category',{'navcat':$(this).data('navcat')});
-											});
-									}
-									else {
-											//just a banner!
-									}
-									app.u.dump($img);
-									
-									if(i === 0){
-										$imgCont = $img;
-									}
-									else{
-										$imgCont.after($img);
+                                if(bannerJSON != undefined){
+									for(var i=0;i<bannerJSON.bannersPerCat;i++){
+										//app.u.dump("banner create itteration = " + i);
+										var $img = $(app.u.makeImage({
+												tag : true,
+												w           : w,
+												h           : bannerJSON.height[i],
+												b           : b,
+												name        : bannerJSON.src[i],
+												alt         : bannerJSON.alt[i],
+												title       : bannerJSON.title[i]
+										}));
+										if(bannerJSON.prodLink) {
+												$img.addClass('pointer').data('pid', bannerJSON.prodLink[i]).click(function() {
+														showContent('product',{'pid':$(this).data('pid')});
+												});
+										}
+										else if(bannerJSON.catLink) {
+												$img.addClass('pointer').data('navcat', bannerJSON.catLink[i]).click(function() {
+														showContent('category',{'navcat':$(this).data('navcat')});
+												});
+										}
+										else {
+												//just a banner!
+										}
+										app.u.dump($img);
+										
+										if(i === 0){
+											$imgCont = $img;
+										}
+										else{
+											$imgCont.after($img);
+										}
 									}
 								}
 								
