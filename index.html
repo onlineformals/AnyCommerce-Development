@@ -3459,7 +3459,8 @@ if you change these, you should move them above this comment so that when you (o
                     <p><b>Visit</b>:  Click <a class="pointer contactUsShowroomLink" onClick="return showContent('category',{'navcat':'.showroom'});">here</a> for information about visiting our Showroom!</p>
                 </div>    
     
-                <form action='#' onSubmit="app.calls.appSendMessage.init($(this).serializeJSON(),{'callback':'showMessaging','parentID':'contactFormMessaging','message':'Thank you, your message has been sent'},'immutable'); app.model.dispatchThis('immutable');  return false;" id='contactForm' name='contactForm'>
+                
+				<!--<form action='#' onSubmit="app.calls.appSendMessage.init($(this).serializeJSON(),{'callback':'showMessaging','parentID':'contactFormMessaging','message':'Thank you, your message has been sent'},'immutable'); app.model.dispatchThis('immutable');  return false;" id='contactForm' name='contactForm'>
                 <fieldset>
                     <legend>Contact Us</legend>
                     <div id='contactFormMessaging'></div>
@@ -3471,6 +3472,7 @@ if you change these, you should move them above this comment so that when you (o
                     </div>
                 </fieldset>
                 </form>
+				-->
                 <div data-bind='var: profile(zoovy:contact); format:wiki; wikiFormats:myRIA;' id='contactContent'></div>
             </div>
     
