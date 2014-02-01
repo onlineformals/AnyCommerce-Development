@@ -49,7 +49,101 @@ function handleRedirect() {
 		//console.log("urlString2 = " + urlString2);
 		var catTitle = urlString2[1];
 		//console.log("catTitle = " + catTitle);
-		window.location = "http://app.onlineformals.com/category/"+catTitle;
+		switch(catTitle){
+		case "shop_by_category.in_stock___quick_ship/" :
+			window.location = "http://app.onlineformals.com/category/in_stock/";
+		break;
+		case "shop_by_designer.bg_haute/" :
+			window.location = "http://app.onlineformals.com/category/designers.bg_haute/";
+		break;
+		case "shop_by_designer.cassandra_stone/" :
+			window.location = "http://app.onlineformals.com/category/designers.cassandra_stone/";
+		break;
+		case "shop_by_designer.faviana/" :
+			window.location = "http://app.onlineformals.com/category/designers.faviana/";
+		break;
+		case "shop_by_designer.gigi_by_la_femme/" :
+			window.location = "http://app.onlineformals.com/category/designers.gigi/";
+		break;
+		case "shop_by_designer.jasz_couture/" :
+			window.location = "http://app.onlineformals.com/category/designers.jasz_couture/";
+		break;
+		case "shop_by_designer.johnathan_kayne/" :
+			window.location = "http://app.onlineformals.com/category/designers.johnathan_kayne/";
+		break;
+		case "shop_by_designer.la_femme/" :
+			window.location = "http://app.onlineformals.com/category/designers.la_femme/";
+		break;
+		case "shop_by_designer.le_gala_by_tony_bowls/" :
+			window.location = "http://app.onlineformals.com/category/designers.le_gala/";
+		break;
+		case "shop_by_designer.lm_collection/" :
+			window.location = "http://app.onlineformals.com/category/designers.lm_collection/";
+		break;
+		case "shop_by_designer.mac_duggal/" :
+			window.location = "http://app.onlineformals.com/category/designers.mac_duggal/";
+		break;
+		case "shop_by_designer.mignon/" :
+			window.location = "http://app.onlineformals.com/category/designers.mignon/";
+		break;
+		case "shop_by_designer.mnm_couture/" :
+			window.location = "http://app.onlineformals.com/category/designers.mnm_couture/";
+		break;
+		case "shop_by_designer.night_moves/" :
+			window.location = "http://app.onlineformals.com/category/designers.night_moves/";
+		break;
+		case "shop_by_designer.paris_by_tony_bowls/" :
+			window.location = "http://app.onlineformals.com/category/designers.paris/";
+		break;
+		case "shop_by_designer.scala/" :
+			window.location = "http://app.onlineformals.com/category/designers.scala/";
+		break;
+		case "shop_by_designer.shail_k/" :
+			window.location = "http://app.onlineformals.com/category/designers.shail_k/";
+		break;
+		case "shop_by_designer.sherri_hill/" :
+			window.location = "http://app.onlineformals.com/category/designers.sherri_hill/";
+		break;
+		case "shop_by_designer.tony_bowls/" :
+			window.location = "http://app.onlineformals.com/category/designers.tony_bowls/";
+		break;
+		case "shop_accessories.accessories/" :
+			window.location = "http://app.onlineformals.com/category/accessories.under_the_dress/";
+		break;
+		case "shop_accessories.jewelry/" :
+			window.location = "http://app.onlineformals.com/category/accessories.jewelry/";
+		break;
+		case "shop_accessories.shoes_by_coloriffics/" :
+			window.location = "http://app.onlineformals.com/category/accessories.shoes.coloriffics/";
+		break;
+		case "shop_accessories.shoes_by_touch_ups/" :
+			window.location = "http://app.onlineformals.com/category/accessories.shoes.touch_ups/";
+		break;
+		case "category/5/" :
+			window.location = "http://app.onlineformals.com/category/prom/";
+		break;
+		case "category/4/" :
+			window.location = "http://app.onlineformals.com/category/pageant/";
+		break;
+		case "shop_by_category.celebrity_gowns/" :
+			window.location = "http://app.onlineformals.com/category/evening.celebrity_inspired/";
+		break;
+		case "shop_by_category.cocktail___party_dresses/" :
+			window.location = "http://app.onlineformals.com/category/cocktail/";
+		break;
+		case "shop_by_category.evening_couture/" :
+			window.location = "http://app.onlineformals.com/category/evening/";
+		break;
+		case "shop_by_category.little_girl_s_pageant_dresses/" :
+			window.location = "http://app.onlineformals.com/category/pageant/";
+		break;
+		case "shop_by_category.plus_size_gowns/" :
+			window.location = "http://app.onlineformals.com/category/plus_size/";
+		break;
+		default:
+			window.location = "http://app.onlineformals.com/category/"+catTitle;
+		break;
+		}
 	}
 	else{
 		window.location = "http://app.onlineformals.com";
@@ -85,7 +179,102 @@ function autoRedirect(){
 		//console.log("urlString2 = " + urlString2);
 		var catTitle = urlString2[1];
 		//console.log("catTitle = " + catTitle);
-		window.location = "http://app.onlineformals.com/category/"+catTitle;
+		switch(catTitle){
+			case "shop_by_category.in_stock___quick_ship/" :
+				window.location = "http://app.onlineformals.com/category/in_stock/";
+			break;
+			case "shop_by_designer.bg_haute/" :
+				window.location = "http://app.onlineformals.com/category/designers.bg_haute/";
+			break;
+			case "shop_by_designer.cassandra_stone/" :
+				window.location = "http://app.onlineformals.com/category/designers.cassandra_stone/";
+			break;
+			case "shop_by_designer.faviana/" :
+				window.location = "http://app.onlineformals.com/category/designers.faviana/";
+			break;
+			case "shop_by_designer.gigi_by_la_femme/" :
+				window.location = "http://app.onlineformals.com/category/designers.gigi/";
+			break;
+			case "shop_by_designer.jasz_couture/" :
+				window.location = "http://app.onlineformals.com/category/designers.jasz_couture/";
+			break;
+			case "shop_by_designer.johnathan_kayne/" :
+				window.location = "http://app.onlineformals.com/category/designers.johnathan_kayne/";
+			break;
+			case "shop_by_designer.la_femme/" :
+				window.location = "http://app.onlineformals.com/category/designers.la_femme/";
+			break;
+			case "shop_by_designer.le_gala_by_tony_bowls/" :
+				window.location = "http://app.onlineformals.com/category/designers.le_gala/";
+			break;
+			case "shop_by_designer.lm_collection/" :
+				window.location = "http://app.onlineformals.com/category/designers.lm_collection/";
+			break;
+			case "shop_by_designer.mac_duggal/" :
+				window.location = "http://app.onlineformals.com/category/designers.mac_duggal/";
+			break;
+			case "shop_by_designer.mignon/" :
+				window.location = "http://app.onlineformals.com/category/designers.mignon/";
+			break;
+			case "shop_by_designer.mnm_couture/" :
+				window.location = "http://app.onlineformals.com/category/designers.mnm_couture/";
+			break;
+			case "shop_by_designer.night_moves/" :
+				window.location = "http://app.onlineformals.com/category/designers.night_moves/";
+			break;
+			case "shop_by_designer.paris_by_tony_bowls/" :
+				window.location = "http://app.onlineformals.com/category/designers.paris/";
+			break;
+			case "shop_by_designer.scala/" :
+				window.location = "http://app.onlineformals.com/category/designers.scala/";
+			break;
+			case "shop_by_designer.shail_k/" :
+				window.location = "http://app.onlineformals.com/category/designers.shail_k/";
+			break;
+			case "shop_by_designer.sherri_hill/" :
+				window.location = "http://app.onlineformals.com/category/designers.sherri_hill/";
+			break;
+			case "shop_by_designer.tony_bowls/" :
+				window.location = "http://app.onlineformals.com/category/designers.tony_bowls/";
+			break;
+			case "shop_accessories.accessories/" :
+				window.location = "http://app.onlineformals.com/category/accessories.under_the_dress/";
+			break;
+			case "shop_accessories.jewelry/" :
+				window.location = "http://app.onlineformals.com/category/accessories.jewelry/";
+			break;
+			case "shop_accessories.shoes_by_coloriffics/" :
+				window.location = "http://app.onlineformals.com/category/accessories.shoes.coloriffics/";
+			break;
+			case "shop_accessories.shoes_by_touch_ups/" :
+				window.location = "http://app.onlineformals.com/category/accessories.shoes.touch_ups/";
+			break;
+			case "category/5/" :
+				window.location = "http://app.onlineformals.com/category/prom/";
+			break;
+			case "category/4/" :
+				window.location = "http://app.onlineformals.com/category/pageant/";
+			break;
+			case "shop_by_category.celebrity_gowns/" :
+				window.location = "http://app.onlineformals.com/category/evening.celebrity_inspired/";
+			break;
+			case "shop_by_category.cocktail___party_dresses/" :
+				window.location = "http://app.onlineformals.com/category/cocktail/";
+			break;
+			case "shop_by_category.evening_couture/" :
+				window.location = "http://app.onlineformals.com/category/evening/";
+			break;
+			case "shop_by_category.little_girl_s_pageant_dresses/" :
+				window.location = "http://app.onlineformals.com/category/pageant/";
+			break;
+			case "shop_by_category.plus_size_gowns/" :
+				window.location = "http://app.onlineformals.com/category/plus_size/";
+			break;
+			default:
+				window.location = "http://app.onlineformals.com/category/"+catTitle;
+			break;
+		}
+
 	}
 	else{
 		window.location = "http://app.onlineformals.com";
@@ -166,7 +355,102 @@ $(document).ready(function() {
 		//console.log("urlString2 = " + urlString2);
 		var catTitle = urlString2[1];
 		//console.log("catTitle = " + catTitle);
-		window.location = "http://app.onlineformals.com/category/"+catTitle;
+				switch(catTitle){
+			case "shop_by_category.in_stock___quick_ship/" :
+				window.location = "http://app.onlineformals.com/category/in_stock/";
+			break;
+			case "shop_by_designer.bg_haute/" :
+				window.location = "http://app.onlineformals.com/category/designers.bg_haute/";
+			break;
+			case "shop_by_designer.cassandra_stone/" :
+				window.location = "http://app.onlineformals.com/category/designers.cassandra_stone/";
+			break;
+			case "shop_by_designer.faviana/" :
+				window.location = "http://app.onlineformals.com/category/designers.faviana/";
+			break;
+			case "shop_by_designer.gigi_by_la_femme/" :
+				window.location = "http://app.onlineformals.com/category/designers.gigi/";
+			break;
+			case "shop_by_designer.jasz_couture/" :
+				window.location = "http://app.onlineformals.com/category/designers.jasz_couture/";
+			break;
+			case "shop_by_designer.johnathan_kayne/" :
+				window.location = "http://app.onlineformals.com/category/designers.johnathan_kayne/";
+			break;
+			case "shop_by_designer.la_femme/" :
+				window.location = "http://app.onlineformals.com/category/designers.la_femme/";
+			break;
+			case "shop_by_designer.le_gala_by_tony_bowls/" :
+				window.location = "http://app.onlineformals.com/category/designers.le_gala/";
+			break;
+			case "shop_by_designer.lm_collection/" :
+				window.location = "http://app.onlineformals.com/category/designers.lm_collection/";
+			break;
+			case "shop_by_designer.mac_duggal/" :
+				window.location = "http://app.onlineformals.com/category/designers.mac_duggal/";
+			break;
+			case "shop_by_designer.mignon/" :
+				window.location = "http://app.onlineformals.com/category/designers.mignon/";
+			break;
+			case "shop_by_designer.mnm_couture/" :
+				window.location = "http://app.onlineformals.com/category/designers.mnm_couture/";
+			break;
+			case "shop_by_designer.night_moves/" :
+				window.location = "http://app.onlineformals.com/category/designers.night_moves/";
+			break;
+			case "shop_by_designer.paris_by_tony_bowls/" :
+				window.location = "http://app.onlineformals.com/category/designers.paris/";
+			break;
+			case "shop_by_designer.scala/" :
+				window.location = "http://app.onlineformals.com/category/designers.scala/";
+			break;
+			case "shop_by_designer.shail_k/" :
+				window.location = "http://app.onlineformals.com/category/designers.shail_k/";
+			break;
+			case "shop_by_designer.sherri_hill/" :
+				window.location = "http://app.onlineformals.com/category/designers.sherri_hill/";
+			break;
+			case "shop_by_designer.tony_bowls/" :
+				window.location = "http://app.onlineformals.com/category/designers.tony_bowls/";
+			break;
+			case "shop_accessories.accessories/" :
+				window.location = "http://app.onlineformals.com/category/accessories.under_the_dress/";
+			break;
+			case "shop_accessories.jewelry/" :
+				window.location = "http://app.onlineformals.com/category/accessories.jewelry/";
+			break;
+			case "shop_accessories.shoes_by_coloriffics/" :
+				window.location = "http://app.onlineformals.com/category/accessories.shoes.coloriffics/";
+			break;
+			case "shop_accessories.shoes_by_touch_ups/" :
+				window.location = "http://app.onlineformals.com/category/accessories.shoes.touch_ups/";
+			break;
+			case "category/5/" :
+				window.location = "http://app.onlineformals.com/category/prom/";
+			break;
+			case "category/4/" :
+				window.location = "http://app.onlineformals.com/category/pageant/";
+			break;
+			case "shop_by_category.celebrity_gowns/" :
+				window.location = "http://app.onlineformals.com/category/evening.celebrity_inspired/";
+			break;
+			case "shop_by_category.cocktail___party_dresses/" :
+				window.location = "http://app.onlineformals.com/category/cocktail/";
+			break;
+			case "shop_by_category.evening_couture/" :
+				window.location = "http://app.onlineformals.com/category/evening/";
+			break;
+			case "shop_by_category.little_girl_s_pageant_dresses/" :
+				window.location = "http://app.onlineformals.com/category/pageant/";
+			break;
+			case "shop_by_category.plus_size_gowns/" :
+				window.location = "http://app.onlineformals.com/category/plus_size/";
+			break;
+			default:
+				window.location = "http://app.onlineformals.com/category/"+catTitle;
+			break;
+		}
+
 	}
 	else{
 		window.location = "http://app.onlineformals.com";
@@ -210,7 +494,102 @@ $(document).ready(function() {
 		//console.log("urlString2 = " + urlString2);
 		var catTitle = urlString2[1];
 		//console.log("catTitle = " + catTitle);
-		window.location = "http://app.onlineformals.com/category/"+catTitle;
+				switch(catTitle){
+			case "shop_by_category.in_stock___quick_ship/" :
+				window.location = "http://app.onlineformals.com/category/in_stock/";
+			break;
+			case "shop_by_designer.bg_haute/" :
+				window.location = "http://app.onlineformals.com/category/designers.bg_haute/";
+			break;
+			case "shop_by_designer.cassandra_stone/" :
+				window.location = "http://app.onlineformals.com/category/designers.cassandra_stone/";
+			break;
+			case "shop_by_designer.faviana/" :
+				window.location = "http://app.onlineformals.com/category/designers.faviana/";
+			break;
+			case "shop_by_designer.gigi_by_la_femme/" :
+				window.location = "http://app.onlineformals.com/category/designers.gigi/";
+			break;
+			case "shop_by_designer.jasz_couture/" :
+				window.location = "http://app.onlineformals.com/category/designers.jasz_couture/";
+			break;
+			case "shop_by_designer.johnathan_kayne/" :
+				window.location = "http://app.onlineformals.com/category/designers.johnathan_kayne/";
+			break;
+			case "shop_by_designer.la_femme/" :
+				window.location = "http://app.onlineformals.com/category/designers.la_femme/";
+			break;
+			case "shop_by_designer.le_gala_by_tony_bowls/" :
+				window.location = "http://app.onlineformals.com/category/designers.le_gala/";
+			break;
+			case "shop_by_designer.lm_collection/" :
+				window.location = "http://app.onlineformals.com/category/designers.lm_collection/";
+			break;
+			case "shop_by_designer.mac_duggal/" :
+				window.location = "http://app.onlineformals.com/category/designers.mac_duggal/";
+			break;
+			case "shop_by_designer.mignon/" :
+				window.location = "http://app.onlineformals.com/category/designers.mignon/";
+			break;
+			case "shop_by_designer.mnm_couture/" :
+				window.location = "http://app.onlineformals.com/category/designers.mnm_couture/";
+			break;
+			case "shop_by_designer.night_moves/" :
+				window.location = "http://app.onlineformals.com/category/designers.night_moves/";
+			break;
+			case "shop_by_designer.paris_by_tony_bowls/" :
+				window.location = "http://app.onlineformals.com/category/designers.paris/";
+			break;
+			case "shop_by_designer.scala/" :
+				window.location = "http://app.onlineformals.com/category/designers.scala/";
+			break;
+			case "shop_by_designer.shail_k/" :
+				window.location = "http://app.onlineformals.com/category/designers.shail_k/";
+			break;
+			case "shop_by_designer.sherri_hill/" :
+				window.location = "http://app.onlineformals.com/category/designers.sherri_hill/";
+			break;
+			case "shop_by_designer.tony_bowls/" :
+				window.location = "http://app.onlineformals.com/category/designers.tony_bowls/";
+			break;
+			case "shop_accessories.accessories/" :
+				window.location = "http://app.onlineformals.com/category/accessories.under_the_dress/";
+			break;
+			case "shop_accessories.jewelry/" :
+				window.location = "http://app.onlineformals.com/category/accessories.jewelry/";
+			break;
+			case "shop_accessories.shoes_by_coloriffics/" :
+				window.location = "http://app.onlineformals.com/category/accessories.shoes.coloriffics/";
+			break;
+			case "shop_accessories.shoes_by_touch_ups/" :
+				window.location = "http://app.onlineformals.com/category/accessories.shoes.touch_ups/";
+			break;
+			case "category/5/" :
+				window.location = "http://app.onlineformals.com/category/prom/";
+			break;
+			case "category/4/" :
+				window.location = "http://app.onlineformals.com/category/pageant/";
+			break;
+			case "shop_by_category.celebrity_gowns/" :
+				window.location = "http://app.onlineformals.com/category/evening.celebrity_inspired/";
+			break;
+			case "shop_by_category.cocktail___party_dresses/" :
+				window.location = "http://app.onlineformals.com/category/cocktail/";
+			break;
+			case "shop_by_category.evening_couture/" :
+				window.location = "http://app.onlineformals.com/category/evening/";
+			break;
+			case "shop_by_category.little_girl_s_pageant_dresses/" :
+				window.location = "http://app.onlineformals.com/category/pageant/";
+			break;
+			case "shop_by_category.plus_size_gowns/" :
+				window.location = "http://app.onlineformals.com/category/plus_size/";
+			break;
+			default:
+				window.location = "http://app.onlineformals.com/category/"+catTitle;
+			break;
+		}
+
 	}
 	else{
 		window.location = "http://app.onlineformals.com";
