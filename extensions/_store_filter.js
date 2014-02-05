@@ -836,6 +836,33 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.catGhostCell', $context).show();
 						$('.catProdListSidebar', $context).data('collapseOrExpanded',true).append();
 					}
+				},
+				
+				showFilterResultsOnPriceChange : function($context){
+					//Make all altering of the price slider submit the form and show results list.
+						$context.submit(); 
+						//app.u.dump("The price slider was moved.");
+						$("#resultsProductListContainer",$context).hide();  
+		
+						$group1 = $('.fsCheckbox',$context);
+						$priceGroup = $( ".sliderValue",$context ).val().toString();
+						
+						if($(".sliderValue",$context).val() == "$0 - $1000"){
+							//app.u.dump("Price slider is set to stock. Checking For filter options being checked.");
+							if($group1.filter(':checked').length === 0){
+								//app.u.dump("No filter options checked. Showing stock product list.");
+								$(".nativeProductList", ($context.parent().parent().parent())).show(); 
+								$(".searchFilterResults", ($context.parent().parent().parent())).hide(); 
+							}
+							else{
+								//app.u.dump("One or more filter options were checked. Still showing filter search results.");
+							}
+						}
+						else{
+							//app.u.dump("Price slider is set to custom value. Showing Search results.");
+							$(".nativeProductList", ($context.parent().parent().parent())).hide(); 
+							$(".searchFilterResults", ($context.parent().parent().parent())).show();  
+						}  
 				}
 			
 			}, //actions
@@ -896,6 +923,7 @@ $('fieldset',$form).each(function(){
  	if(filters.and.length == 1)	{
 		filters.and.push({match_all:{}})
  		}
+		app.u.dump("$( '.sliderValue',$form ).val() = " + $( ".sliderValue",$form ).val())
 
 return filters;				
 				
@@ -931,7 +959,7 @@ return filters;
 					max: props.MAX,
 					values: [ props.MIN, props.MAX ],
 					stop : function(){
-						$form.submit();
+						app.ext._store_filter.a.showFilterResultsOnPriceChange($form);
 						},
 					slide: function( event, ui ) {
 						$( ".sliderValue",$form ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );

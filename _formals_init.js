@@ -424,6 +424,12 @@ app.rq.push(['templateFunction','categoryTemplateProm','onCompletes',function(P)
 var filterIDNum = 0;
 var filterForNum = 0;
 
+
+
+
+
+
+
 app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',function(P) {
 	var $context = $(app.u.jqSelector('#',P.parentID));
 	
@@ -472,24 +478,27 @@ app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',func
 				app.ext._store_filter.filterMap[P.navcat].exec($form,P)
 				}
 	
-	//make all the checkboxes auto-submit the form.
-			$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+	//make all the checkboxes auto-submit the form and show results list.
+			$(":checkbox",$context).off('click.formSubmit').on('click.formSubmit',function() {
 				$form.submit(); 
-				//app.u.dump("Filter search actvated");
-				$("#resultsProductListContainer").hide();  
+				//app.u.dump("A filter checkbox was clicked.");
+				$("#resultsProductListContainer",$context).hide();  
 				
-				$group1 = $('.fsCheckbox');
-				if($group1.filter(':checked').length === 0){
-					//app.u.dump("All checkboxes removed. Filter search deactivated.");
+				$group1 = $('.fsCheckbox',$context);
+				
+				if(($group1.filter(':checked').length === 0) && ($(".sliderValue",$context).val() == "$0 - $1000")){
+					//app.u.dump("All checkboxes removed. Showing stock product list.");
 					$(".nativeProductList", $context).show(); 
 					$(".searchFilterResults", $context).hide(); 
 				}
 				else{
-					//app.u.dump("All checkboxes removed. Filter search still active.");
+					//app.u.dump("Checkbox is active. Showing Search results.");
 					$(".nativeProductList", $context).hide(); 
 					$(".searchFilterResults", $context).show();  
 				}  
 			});
+			
+			//app.u.dump($(".sliderValue",$context));
 		}
 	}
 		
