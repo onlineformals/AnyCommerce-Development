@@ -544,7 +544,7 @@ if(app.ext._store_filter.u.validateFilterProperties($form))	{
 //	app.u.dump(" -> validated Filter Properties.")
 	var query = {
 		"mode":"elastic-native",
-		"size":50,
+		"size":300,
 		"filter" : app.ext._store_filter.u.buildElasticFilters($form),
 		}//query
 //	app.u.dump(" -> Query: "); app.u.dump(query);
