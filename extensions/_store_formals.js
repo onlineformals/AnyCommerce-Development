@@ -74,6 +74,8 @@ var _store_formals = function() {
 				".prom.trends.sequins" : "categoryProductListTemplate",
 				".prom.trends.vintage" : "categoryProductListTemplate",
 				
+				".prom.sale" : "categoryProductListTemplate",
+				
 				".evening.designers.bg_haute" : "categoryProductListTemplate",
 				".evening.designers.jasz_couture" : "categoryProductListTemplate",
 				".evening.designers.jovani" : "categoryProductListTemplate",
