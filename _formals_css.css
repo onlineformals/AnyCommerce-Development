@@ -11,12 +11,15 @@ body{
 	min-width:960px;
 	width:100%;
 	margin:0;
+	font-style:normal;
 }
 h1, h2, h3, h4, h5, h6, p, a, div, input, button, legend, span, label{
 	font-family: 'Maven Pro', sans-serif;
+	font-style:normal;
 }
 li{
 	font-family: 'Maven Pro', sans-serif;
+	font-style:normal;
 }
 a{
 	cursor:pointer;
@@ -26,10 +29,6 @@ body a[target=GT__SIP]{
 	position: fixed;
     bottom: 0;
     left: 0;
-}
-
-cite, em, var, dfn {
-    font-style:normal;
 }
 
 
