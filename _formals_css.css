@@ -28,6 +28,10 @@ body a[target=GT__SIP]{
     left: 0;
 }
 
+cite, em, var, dfn {
+    font-style:normal;
+}
+
 
 
 
