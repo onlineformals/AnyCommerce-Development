@@ -8,94 +8,96 @@ The chkout prefix is reserved for checkout.
 item list and summary are separate just to give more control over location.
 -->
 <div id='checkoutTemplate' class='checkoutFormContainer' data-app-role='checkout'>
-	<div class="centeringContainer">
-		<form action='#'>
-		<input type='hidden' name='bill/shortcut' data-bind="var: cart(bill/shortcut); format:popVal;" />
-		<input type='hidden' name='ship/shortcut' data-bind="var: cart(ship/shortcut); format:popVal;" />
 
-	<!-- define panel order -->
-		<fieldset data-app-role='chkoutPreflight' class='marginBottom'>
-			<legend class='headerPadding' >EMAIL / ACCOUNT LOGIN</legend>
-			<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutPreflightTemplate; useParentData:true;'></div>
-		</fieldset>
+	<form action='#'>
+	<input type='hidden' name='bill/shortcut' data-bind="var: cart(bill/shortcut); format:popVal;" />
+	<input type='hidden' name='ship/shortcut' data-bind="var: cart(ship/shortcut); format:popVal;" />
 
-
-
-		<fieldset data-app-role='chkoutAccountCreate' class='displayNone marginBottom'>
-			<legend class='headerPadding' >ACCOUNT CREATION</legend>
-			<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutAccountCreateTemplate; '></div>
-		</fieldset>
+<!-- define panel order -->
+	<fieldset data-app-role='chkoutPreflight' class='marginBottom'>
+		<legend class='headerPadding' >Email / Account Login</legend>
+		<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutPreflightTemplate; useParentData:true;'></div>
+		<div data-app-role='buyerLogout' class='displayNone pointer' data-app-event='orderCreate|buyerLogout'>
+			Not you? <span class='lookLikeLink zlink'>click here</span>.
+		</div>
+	</fieldset>
 
 
 
-		<fieldset data-app-role='chkoutAddressBill' data-app-addresstype='bill' class='marginBottom checkoutBillingAddCont'>
-			<legend class='headerPadding' >BILLING ADDRESS</legend>
-			<p data-app-role='addressExists' class='displayNone clearfix'>Click the checkmark of the address you would like to use</p>
-			
-			<div class='panelContent displayNone addressList' data-app-role='addressExists' data-bind='var: buyer(@bill); format:processList; loadsTemplate: chkoutBuyerAddressTemplate;'></div><!-- for return customers -->
-			
-			<div class='clearfix marginBottom' data-app-role='addressExists'><button data-app-event='orderCreate|showBuyerAddressAdd' data-app-addresstype='bill'>Add New Address</button></div>
-			
-			<div class='panelContent' data-app-role='addressNew' data-bind='format:loadsTemplate; loadsTemplate: chkoutAddressBillTemplate;'></div><!-- for new customers -->
-			
-			<div data-app-role='billToShipContainer' >
-			<label>
-			<input type='checkbox' name='want/bill_to_ship' data-bind="var: cart(want/bill_to_ship); format:popVal; hideZero:false;" checked='checked' data-app-event='orderCreate|tagAsBillToShip' />
-			ship to billing address
-			</label>
-			</div>
-		</fieldset>
+	<fieldset data-app-role='chkoutAccountCreate' class='displayNone marginBottom'>
+		<legend class='headerPadding' >Account Creation</legend>
+		<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutAccountCreateTemplate; '></div>
+	</fieldset>
 
 
 
-		<fieldset data-app-role='chkoutAddressShip'  data-app-addresstype='ship' class='displayNone marginBottom checkoutShippingAddCont'>
-			<legend class='headerPadding' >SHIPPING ADDRESS</legend>
-			<div class='panelContent displayNone addressList' data-app-role='addressExists' data-bind='var: buyer(@ship); format:processList; loadsTemplate: chkoutBuyerAddressTemplate;'></div><!-- for return customers -->
-			<div class='panelContent' data-app-role='addressNew' data-bind='format:loadsTemplate; loadsTemplate: chkoutAddressShipTemplate;'></div><!-- for new customers -->
-			<div class='clearfix' data-app-role='addressExists'><button data-app-event='orderCreate|showBuyerAddressAdd' data-app-addresstype='ship'>Add New Shipping Address</button></div>
-		</fieldset>
-
-
-
-		<fieldset data-app-role='chkoutMethodsShip' class='marginBottom'>
-			<legend class='headerPadding' >SHIPPING METHODS</legend>
-			<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutMethodsShipTemplate;'></div>
-		</fieldset>
-
-
+	<fieldset data-app-role='chkoutAddressBill' data-app-addresstype='bill' class='marginBottom'>
+		<legend class='headerPadding' >Billing Address</legend>
+		<p data-app-role='addressExists' class='displayNone clearfix'>Click the checkmark of the address you would like to use</p>
 		
-		<fieldset data-app-role='chkoutMethodsPay' class='marginBottom'>
-			<legend class='headerPadding' >PAYMENT CHOICES</legend>
-			<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutMethodsPayTemplate;'></div>
-		</fieldset>
+		<div class='panelContent displayNone addressList' data-app-role='addressExists' data-bind='var: buyer(@bill); format:processList; loadsTemplate: chkoutBuyerAddressTemplate;'></div><!-- for return customers -->
+		
+		<div class='clearfix marginBottom' data-app-role='addressExists'><button data-app-event='orderCreate|showBuyerAddressAdd' data-app-addresstype='bill'>Add New Address</button></div>
+		
+		<div class='panelContent' data-app-role='addressNew' data-bind='format:loadsTemplate; loadsTemplate: chkoutAddressBillTemplate;'></div><!-- for new customers -->
+		
+		<div data-app-role='billToShipContainer' >
+		<label>
+		<input type='checkbox' name='want/bill_to_ship' data-bind="var: cart(want/bill_to_ship); format:popVal; hideZero:false;" checked='checked' data-app-event='orderCreate|tagAsBillToShip' />
+		ship to billing address
+		</label>
+		</div>
+	</fieldset>
 
 
 
-	<!-- totals et all -->
-		<fieldset data-app-role='chkoutNotes' class='marginBottom'>
-			<legend class='headerPadding' >ORDER NOTES/SPECIAL INSTRUCTIONS</legend>
-			<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutNotesTemplate;'></div>
-		</fieldset>
+	<fieldset data-app-role='chkoutAddressShip'  data-app-addresstype='ship' class='displayNone marginBottom'>
+		<legend class='headerPadding' >Shipping Address</legend>
+		<div class='panelContent displayNone addressList' data-app-role='addressExists' data-bind='var: buyer(@ship); format:processList; loadsTemplate: chkoutBuyerAddressTemplate;'></div><!-- for return customers -->
+		<div class='panelContent' data-app-role='addressNew' data-bind='format:loadsTemplate; loadsTemplate: chkoutAddressShipTemplate;'></div><!-- for new customers -->
+		<div class='clearfix' data-app-role='addressExists'><button data-app-event='orderCreate|showBuyerAddressAdd' data-app-addresstype='ship'>Add New Shipping Address</button></div>
+	</fieldset>
 
 
 
-	<!-- line items -->	
-		<fieldset data-app-role='chkoutCartItemsList' class='marginBottom'>
-			<legend class='headerPadding' >CONTENTS</legend>
-			<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutCartContentsTemplate;'></div>
-		</fieldset>
+	<fieldset data-app-role='chkoutMethodsShip' class='marginBottom'>
+		<legend class='headerPadding' >Shipping Methods</legend>
+		<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutMethodsShipTemplate;'></div>
+	</fieldset>
 
 
-
-	<!-- totals et all -->
-		<fieldset data-app-role='chkoutCartSummary' class='marginBottom'>
-			<legend class='headerPadding' >SUMMARY</legend>
-			<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutCartSummaryTemplate;'></div>
-		</fieldset>
-
-		</form>
 	
-	</div>
+	<fieldset data-app-role='chkoutMethodsPay' class='marginBottom'>
+		<legend class='headerPadding' >Payment Choices</legend>
+		<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutMethodsPayTemplate;'></div>
+	</fieldset>
+
+
+
+<!-- totals et all -->
+	<fieldset data-app-role='chkoutNotes' class='marginBottom'>
+		<legend class='headerPadding' >Order Notes/Special Instructions</legend>
+		<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutNotesTemplate;'></div>
+	</fieldset>
+
+
+
+<!-- line items -->	
+	<fieldset data-app-role='chkoutCartItemsList' class='marginBottom'>
+		<legend class='headerPadding' >Contents</legend>
+		<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutCartContentsTemplate;'></div>
+	</fieldset>
+
+
+
+<!-- totals et all -->
+	<fieldset data-app-role='chkoutCartSummary' class='marginBottom'>
+		<legend class='headerPadding' >Summary</legend>
+		<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutCartSummaryTemplate;'></div>
+	</fieldset>
+
+	</form>
+	
 </div>
 
 
@@ -107,17 +109,13 @@ item list and summary are separate just to give more control over location.
 
 <div data-app-role='login'>
 
-	<div>If you have an account with us, please enter your email and password below to login. Otherwise, enter a valid email address so we can contact you if necessary regarding your order.</div>
-	
-    <input type='email' name='bill/email' size='30' placeholder="email address" data-bind="var:cart(bill/email); defaultVar:cart(customer/login); format:popVal;" data-app-event='orderCreate|execBuyerEmailUpdate' /><br />
-	
-    <div data-app-role='loginPasswordContainer' class='displayNone floatLeft'>
+	<div data-app-role='loginPasswordContainer' class='displayNone floatRight passwordContainer'>
+		<div>If you have an account with us, please enter your password below to login</div>
 		<input type='password' placeholder='password' size='30' name='password' /><button data-app-event='orderCreate|execBuyerLogin'>login</button>
 	</div>
-    
-    <label class='accountCreateContainer'><input type='checkbox' name='want/create_customer' data-app-event='orderCreate|tagAsAccountCreate' />Create customer account</label>
 
-
+	<input type='email' required='required' name='bill/email' size='30' placeholder="email address" data-bind="var:cart(bill/email); defaultVar:cart(customer/login); format:popVal;" data-app-event='orderCreate|execBuyerEmailUpdate' /><br />
+	<label class='accountCreateContainer'><input type='checkbox' name='want/create_customer' data-app-event='orderCreate|tagAsAccountCreate' />Create customer account</label>
 </div>
 
 </section>
@@ -153,9 +151,9 @@ This template is also used in the myAccount page, which is why a default using _
 	<!-- postal not required for international. don't add it. -->
 	<div><input type='text'  name='bill/postal' placeholder='zip/postal code' required='required' size='14' value='' data-bind='var: cart(bill/postal); defaultVar: cart(bill/postal); format:popVal;' maxlength='10'  data-app-event='orderCreate|execAddressUpdate' /></div>
 
-	<div class='billCountry' data-app-role='billCountry'><select name='bill/countrycode' data-bind='var: cart(bill/countrycode); defaultVar: cart(bill/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;' required='required' data-app-event="orderCreate|execCountryUpdate" ></select></div>
+	<div class='billCountry' data-app-role='billCountry'><select name='bill/countrycode' placeholder='country' data-bind='var: cart(bill/countrycode); defaultVar: cart(bill/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;forceRender:1;' required='required' data-app-event="orderCreate|execCountryUpdate" ></select></div>
 
-	<div><input type='tel' name='bill/phone' placeholder='phone number' required='required' value='' data-bind='var: cart(bill/phone); defaultVar: cart(bill/phone); format:popVal;'  /> <span class='hint zhint'></span></div>
+	<div><input type='tel' name='bill/phone' placeholder='phone number' required='required' value='' data-bind='var: cart(bill/phone); defaultVar: cart(bill/phone); format:popVal;'  /> <span class='hint zhint'>in case of billing/delivery problems</span></div>
 
 </section>
 
@@ -186,7 +184,7 @@ don't add required to any inputs because if bill to ship is checked, NONE of the
 	
 	<div><input type='text'  name='ship/postal' placeholder='zip/postal code' required='required' size='14' value='' data-bind='var: cart(ship/postal); defaultVar: cart(ship/postal); format:popVal;' maxlength='10' data-app-event='orderCreate|execAddressUpdate'/></div>
 
-	<div class='shipCountry' data-app-role='shipCountry'><select name='ship/countrycode' data-bind='var: cart(ship/countrycode); defaultVar: cart(ship/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;'  data-app-event="orderCreate|execCountryUpdate" ></select></div>
+	<div class='shipCountry' data-app-role='shipCountry'><select name='ship/countrycode' placeholder='country' data-bind='var: cart(ship/countrycode); defaultVar: cart(ship/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;forceRender:1;'  data-app-event="orderCreate|execCountryUpdate" ></select></div>
 
 </section>
 
@@ -234,7 +232,14 @@ do NOT change any div id's or messaging will not work properly.
 -->
 
 
-<div id='chkoutMethodsPayTemplate'>	
+<div id='chkoutMethodsPayTemplate'>
+
+	<div class='giftCardContainer' data-app-role="giftcardContainer">
+	<label for='giftcardCode'>Gift Certificate Code:</label>
+	<input type='text' name='giftcard' size='16'  data-app-event='orderCreate|addTriggerButtonClick' />
+	<button data-app-event='orderCreate|execGiftcardAdd'>add</button> 
+	<small data-app-role='giftcardHint' class='zhint hint displayNone'>if you wish to combine gift cards with another payment method, enter them here</small>
+	</div>
 
 	<div data-app-role='paymentQContainer' class='marginBottom'>
 		<ul class='noPadOrMargin listStyleNone' data-bind='var: cart(@PAYMENTQ); format:processList; loadsTemplate:cartPaymentQTemplate;'></ul>
@@ -257,13 +262,6 @@ do NOT change any div id's or messaging will not work properly.
 		<div data-app-role='storedPaymentsContent' class='displayNone' data-bind="var: buyerWalletList(@wallets); format:processList; loadsTemplate: chkoutBuyerWalletListItem;"></div>
 
 
-	</div>
-    
-    <div class='giftCardContainer' data-app-role="giftcardContainer">
-	<label for='giftcardCode'>Gift Certificate Code:</label>
-	<input type='text' name='giftcard' size='16'  data-app-event='orderCreate|addTriggerButtonClick' />
-	<button data-app-event='orderCreate|execGiftcardAdd'>add</button> 
-	<small data-app-role='giftcardHint' class='zhint hint displayNone'>if you wish to combine gift cards with another payment method, enter them here</small>
 	</div>
 
 </div>
@@ -297,7 +295,7 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 <table class='fullWidth gridTable'>
 <thead>
 <tr>
-	<th colspan='2' class='alignLeft'>Product Information</th>
+	<th colspan='2' class='alignLeft'>product information</th>
 	<th class='alignRight'>qty</th>
 	<th class='alignRight'>price</th>
 	<th class='alignRight'>item total</th>
@@ -328,21 +326,16 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 
 	<div data-bind='var: cart(sum/balance_due_total); format:orderBalance; className:orderBalanceDue; hideZero:false; currencySign: $; pretext:Balance Due: ; extension:cco;'></div>
 
-	<div class='couponEntryContainer' data-app-role='couponContainer'>
+	<div class='couponEntryContainer clearfix marginBottom' data-app-role='couponContainer'>
 		<label for='coupon'>Coupon/Promo Code:</label>
 		<input type='text' name='coupon' size='8'  data-app-event='orderCreate|addTriggerButtonClick' />
 		<button data-app-event="orderCreate|execCouponAdd" >add</button>
 	</div>
 
-	<button class="checkoutButton" data-app-event="orderCreate|execCartOrderCreate">
+
+	<button data-app-event="orderCreate|execCartOrderCreate">
 		Place Order
 	</button>
-	
-	<!--
-	<div class="footerGeotrustSeal">
-		<script language="javascript" type="text/javascript" src="//smarticon.geotrust.com/si.js"></script>
-	</div>
-	-->
 
 <div data-app-role='referenceNumber' class='displayNone'>
 	<label>Purchase Order/Reference #: </label>
@@ -386,7 +379,7 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 
 <div id='chkoutBuyerWalletListItem'>
 	<label>
-		<input type='radio' name='want/payby' value='' data-bind="var: wallet(ID); format:popVal;" />
+		<input type='radio' name='want/payby' value='' data-bind="var: wallet(ID); format:setVal;" />
 		<span data-bind="var: wallet(TD); format:text;"></span>
 		<span data-bind="var: wallet(TD); format: walletName2Icon; extension:cco;"></span>
 	</label>
@@ -419,9 +412,9 @@ do NOT change the input name or id or checkout will likely break.
 	<div class='floatRight ocmThirdParty'>
 		<h2>What next?</h2>
 <!-- the twitter and facebook actions are added post checkout. The order contents are included as part of the message -->
-		<div class='ocm ocmFacebookComment pointer zlink marginBottom'><img src='fb_comment-133x32.png' width='132' height='32' alt='Comment on Facebook' /></div>
-		<div class='ocm ocmTwitterComment pointer zlink marginBottom' ><img src='tweet-133x32.png' width='132' height='32' alt='Tweet about it!' /></div>
-		<div class='ocm ocmContinue pointer zlink marginBottom'><img src='continue_shopping-133x32.png' width='132' height='32' alt='continue shopping' /></div>
+		<div class='ocm ocmFacebookComment pointer zlink marginBottom checkoutSprite  '></div>
+		<div class='ocm ocmTwitterComment pointer zlink marginBottom checkoutSprit ' ></div>
+		<div class='ocm ocmContinue pointer zlink marginBottom checkoutSprite'></div>
 
 	</div>
 
@@ -517,9 +510,9 @@ do NOT change the input name or id or checkout will likely break.
 
 
 <div id='cvvcidHelp' class='displayNone' title='Where to find your CVV/CID and why we ask for it'>
-	<img src='sec_code-159x100.gif' alt='Visa/MC/Discover card security code' width='238' height='150'  />
-	<img src='sec_code_amex-159x100.gif' alt='AMEX card security code' width='238' height='150' />
 	<p>For higher security and more efficient processing of your payment, you must provide a card security code to make this purchase. For Visa, MasterCard and Discover the security code is the last section of numbers in the signature area on the back of the card. For American Express the security code is the 4-digit number found in small print next to your account number on the front, usually above it on the right.</p>
+	<div class='checkoutSprite secCode_vmd' title='Visa/MC/Discover card security code'></div>
+	<div class='checkoutSprite secCode_amex' title='AMEX card security code'></div>
 </div>
 
 
@@ -550,7 +543,7 @@ If this gets recycled, test in order history after making changes.
 	
 	<td>
 	<div class='prodThumbContainer marginRight'>
-	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='55' height='55' />
+	<img src='/media/graphics/blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='55' height='55' />
 	</div>
 	</td>
 	
