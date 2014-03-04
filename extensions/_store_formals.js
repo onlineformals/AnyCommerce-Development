@@ -16,7 +16,8 @@
 
 ************************************************************** */
 
-var _store_formals = function() {
+var _store_formals = function(_app) {
+	var theseTemplates = new Array('');
 	var r= {
 		vars : {
 			catTemplates : {
@@ -138,18 +139,847 @@ var _store_formals = function() {
 		callbacks : {
 			init : {
 				onSuccess : function(){
-					app.u.dump('BEGIN app.ext_store_formals.callbacks.init.onSuccess');
+					_app.u.dump('BEGIN _app.ext_store_formals.callbacks.init.onSuccess');
 				},
 				onError : function() {
-					app.u.dump('BEGIN app.ext_store_formals.callbacks.init.onError');
+					_app.u.dump('BEGIN _app.ext_store_formals.callbacks.init.onError');
 				}
 			},
 			startExtension : {
 				onSuccess : function (){
-					app.u.dump('BEGIN app.ext_store_formals.callbacks.startExtension.onSuccess')
+					_app.u.dump('BEGIN _app.ext_store_formals.callbacks.startExtension.onSuccess')
+					//add tabs to product data.
+					//tabs are handled this way because jquery UI tabs REALLY wants an id and this ensures unique id's between product
+					_app.templates.productTemplate.on('complete',function(event, $context, infoObj){
+						
+						//INTERNET EXPLORER WARNING MESSAGE
+						if($('.headerIE8WarningCont').data('messageShown')){
+						}
+						else{
+							$('.headerIE8WarningCont').data('messageShown',false);
+						}
+						if($('.headerIE8WarningCont').data('messageShown') === false)
+						{
+							$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+							$('.headerIE8WarningCont').data('messageShown',true).append();
+						}
+						
+						//var $context = $(_app.u.jqSelector('#',infoObj.parentID));
+						
+						/*
+						var $tabContainer = $( ".tabbedProductContent",$context);
+							if($tabContainer.length)	{
+								if($tabContainer.data("widget") == 'anytabs'){} //tabs have already been instantiated. no need to be redundant.
+								else	{
+									$tabContainer.anytabs();
+									}
+								}
+							else	{} //couldn't find the tab to tabificate.
+						*/
+							
+							
+							//HOVER ZOOM FEATURE
+							 
+							 var image = $('.prodMainImage',$context).parent().attr('data-imgsrc');
+							 var imageURL = _app.u.makeImage({
+							   "name" : image,
+							   "w" : 1000,
+							   "h" : 1150,
+							   "b" : "FFFFFF"
+							   });
+							 $('.largeImageContainer').zoom({
+							  url: imageURL,
+							  on:'mouseover',
+							  onZoomIn: function(){
+							   // the active class causes the curser to be switched to a zoom out image - this occurs when the image has zoom
+							   $('.largeImageContainer').addClass('active');
+							   },
+							  onZoomOut: function(){
+							   // restores the zoom in curser after zoom out
+							   $('.largeImageContainer').removeClass('active');
+							   }});
+							 $('.thumbnail',$context).on('mouseenter.productHover', function(){
+							  $('.largeImageContainer').trigger('zoom.destroy');
+							  var newImage = $(this).parent().attr('data-imgsrc');
+							  
+							  //IMAGE VIEWER CLICK BLOCKER
+							  var thumbObject = $(this);
+							  if(thumbObject.data("firstTimeHover")){
+								  //_app.u.dump("firstTimeHover exists for " + $(this) + ". Doing nothing.")
+							  }
+							  else{
+								  //_app.u.dump("firstTimeHover does not exists for " + $(this) + ". Adding it set to false.")
+								  thumbObject.data('firstTimeHover',false).append();
+							  }
+							  
+							  if (thumbObject.data('firstTimeHover') === false){
+								  //_app.u.dump("Running image blocker for " + $(this) + ".")
+								  var imageContainerSize = $('.imageContainer', $context).height();
+								  //_app.u.dump(imageContainerSize);
+								  $(".imageContainerBlocker", $context).css("height",imageContainerSize);
+								  $(".imageContainerBlocker", $context).show();
+							  }
+							  //END IMAGE CLICK BLOCKER
+							
+							  $('.prodMainImage',$context).attr('src', _app.u.makeImage({
+							   "name" : newImage,
+							   "w" : 450,
+							   "h" : 560,
+							   "b" : "FFFFFF"
+							   }));
+							  var newImageURL = _app.u.makeImage({
+							   "name" : newImage,
+							   "w" : 1000,
+							   "h" : 1150,
+							   "b" : "FFFFFF"
+							   });
+							   
+							   //CLICK BLOCKER ACTIVATOR
+							   setTimeout(function(){
+								   $(".imageContainerBlocker", $context).hide();
+								   thumbObject.data('firstTimeHover',true).append();
+								   //_app.u.dump("Setting firstTimeHover to true for " + $(this) + ".");
+							   }, 3000);
+							   //END CLICK BLOCK ACTIVATOR
+							   
+							  $('.largeImageContainer').zoom({
+							   url: newImageURL,
+							   on:'mouseover',
+							   onZoomIn: function(){
+								$('.largeImageContainer').addClass('active');
+								//_app.u.dump("we're running addClass");
+								},
+							   onZoomOut: function(){
+								$('.largeImageContainer').removeClass('active');
+								}
+							   });
+							});
+							
+							function productHoverZoomClick(){
+								$(".zoomImg", $context).before("<div onClick='_app.ext.store_product.u.showPicsInModal({\"pid\":$(this).attr(\"data-pid\")});' data-bind=\"var:product(zoovy:prod_image1; format:assignAttribute; attribute:data-pid;\">");
+								$(".zoomImg", $context).after("</div>");
+							}
+					});
+					
+					_app.templates.homepageTemplate.on('complete',function(event, $context, infoObj){
+						
+						//INTERNET EXPLORER WARNING MESSAGE
+						if($('.headerIE8WarningCont').data('messageShown')){
+						}
+						else{
+							$('.headerIE8WarningCont').data('messageShown',false);
+						}
+						if($('.headerIE8WarningCont').data('messageShown') === false)
+						{
+							$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+							$('.headerIE8WarningCont').data('messageShown',true).append();
+						}
+						
+						//Carousel horizontal sliders - homepage banner
+						function carouselHPBanner(){ $(".carouselHPBannerList").carouFredSel
+						({
+							width   : 940,
+							//height	: 350,
+							items   : 1,
+							scroll: 1,
+							auto : {
+								duration    : 500,
+								timeoutDuration: 5000,
+								pauseOnHover: true
+							},
+							prev : ".prevHPBannerCaro",
+							next : ".nextHPBannerCaro"
+						});
+						}
+						setTimeout(carouselHPBanner, 2000);
+						
+						//Carousel title bar - homepage product lists
+						function carouselHPProductListTitle(){ $(".hpProductListTitleCarousel").carouFredSel
+						({
+							width   : 400,
+							height	: 112,
+							items   : 1,
+							scroll: 1,
+							auto : false,
+							/*auto : {
+								duration    : 500,
+								timeoutDuration: 5000,
+								pauseOnHover: true
+							},*/
+							//pagination  : ".hpProductListPag"
+						});
+						}
+						setTimeout(carouselHPProductListTitle, 2000);
+						
+						//Carousel Content bar - homepage product lists
+						function carouselHPProductList(){ $(".hpProductListCarouselContainer").carouFredSel
+						({
+							width   : 960,
+							//height	: 670,
+							items   : 1,
+							scroll: 1,
+							auto : false,
+						});
+						}
+						$(".loadingBG", ".hpProductListCarouselContainer").remove();
+						_app.u.dump("loadingBG has been removed from bottom carousel");
+						
+						setTimeout(carouselHPProductList, 2000);
+						
+						$(".hpProductListNext").click(function() {
+							$(".hpProductListTitleCarousel").trigger("next", 1);
+							$(".hpProductListCarouselContainer").trigger("next", 1);
+						});
+						$(".hpProductListPrev").click(function() {
+							$(".hpProductListTitleCarousel").trigger("prev", 1);
+							$(".hpProductListCarouselContainer").trigger("prev", 1);
+						});
+						
+						//TITLEBAR HIDING FUNCTIONALITY.
+						if($(".homepageSubCatTitleBar1").children().text().length === 0){
+							$(".homepageSubCatTitleBar1").hide();
+						}
+						else{
+							$(".homepageSubCatTitleBar1").show();
+						}
+						
+						if($(".homepageSubCatTitleBar2").children().text().length === 0){
+							$(".homepageSubCatTitleBar2").hide();
+						}
+						else{
+							$(".homepageSubCatTitleBar2").show();
+						}
+						
+						if($(".homepageSubCatTitleBar3").children().text().length === 0){
+							$(".homepageSubCatTitleBar3").hide();
+						}
+						else{
+							$(".homepageSubCatTitleBar3").show();
+						}
+						
+						if($(".homepageCatTitleBar1").children().text().length === 0){
+							$(".homepageCatTitleBar1").hide();
+						}
+						else{
+							$(".homepageCatTitleBar1").show();
+						}
+						
+						if($(".homepageCatTitleBar2").children().text().length === 0){
+							$(".homepageCatTitleBar2").hide();
+						}
+						else{
+							$(".homepageCatTitleBar2").show();
+						}
+						
+						if($(".homepageCatTitleBar3").children().text().length === 0){
+							$(".homepageCatTitleBar3").hide();
+						}
+						else{
+							$(".homepageCatTitleBar3").show();
+						}
+						
+						if($(".homepageCatTitleBar4").children().text().length === 0){
+							$(".homepageCatTitleBar4").hide();
+						}
+						else{
+							$(".homepageCatTitleBar4").show();
+						}
+					});
+					
+					
+					
+					
+					
+					_app.templates.categoryTemplate.on('complete',function(event, $context, infoObj){
+						
+						//INTERNET EXPLORER WARNING MESSAGE
+						if($('.headerIE8WarningCont').data('messageShown')){
+						}
+						else{
+							$('.headerIE8WarningCont').data('messageShown',false);
+						}
+						if($('.headerIE8WarningCont').data('messageShown') === false)
+						{
+							$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+							$('.headerIE8WarningCont').data('messageShown',true).append();
+						}
+						
+						//var $context = $(_app.u.jqSelector('#',infoObj.parentID));
+						
+						//Carousel horizontal sliders - category banner
+						function carouselCPBanner(){ $(".carouselCPBannerList", $context).carouFredSel
+						({
+							width   : 960,
+							//height	: 440,
+							items   : 1,
+							scroll: 1,
+							auto : {
+								duration    : 500,
+								timeoutDuration: 5000,
+								pauseOnHover: true
+							},
+							prev : ".prevCPBannerCaro",
+							next : ".nextCPBannerCaro"
+						});
+						}
+						setTimeout(carouselCPBanner, 2000);
+						
+						
+						
+							//Carousel title bar - homepage product lists
+						/*
+						function carouselCatProductListTitle(){ $(".catProductListTitleCarousel").carouFredSel
+						({
+							width   : 400,
+							height	: 112,
+							items   : 1,
+							scroll: 1,
+							auto : false,
+						});
+						}
+						setTimeout(carouselCatProductListTitle, 2000);
+						
+						//Carousel Content bar - homepage product lists
+						function carouselCatProductList(){ $(".catProductListCarouselContainer").carouFredSel
+						({
+							width   : 960,
+							//height	: 695,
+							items   : 1,
+							scroll: 1,
+							auto : false,
+						});
+						}
+						$(".loadingBG", ".catProductListCarouselContainer").remove();
+						_app.u.dump("loadingBG has been removed from bottom carousel");
+						
+						setTimeout(carouselCatProductList, 2000);
+						
+						$(".catProductListNext").click(function() {
+							$(".catProductListTitleCarousel").trigger("next", 1);
+							$(".catProductListCarouselContainer").trigger("next", 1);
+						});
+						$(".catProductListPrev").click(function() {
+							$(".catProductListTitleCarousel").trigger("prev", 1);
+							$(".catProductListCarouselContainer").trigger("prev", 1);
+						});
+						*/
+						
+						
+						_app.ext._store_banner.u.showCategoryBanners($context);
+					});
+					
+					
+					
+					
+					_app.templates.categoryTemplateProm.on('complete',function(event, $context, infoObj){
+						
+						//var $context = $(_app.u.jqSelector('#',infoObj.parentID));
+						
+						//Carousel horizontal sliders - category banner
+						function carouselCPBannerProm(){ $(".carouselCPBannerListProm", $context).carouFredSel
+						({
+							width   : 700,
+							//height	: 440,
+							items   : 1,
+							scroll: 1,
+							auto : false,
+							prev : ".prevCPBannerCaroProm",
+							next : ".nextCPBannerCaroProm"
+						});
+						}
+						setTimeout(carouselCPBannerProm, 2000);
+						
+						
+							//Carousel title bar - homepage product lists
+						function carouselCatProductListTitleProm(){ $(".catProductListTitleCarouselProm").carouFredSel
+						({
+							width   : 400,
+							height	: 112,
+							items   : 1,
+							scroll: 1,
+							auto : false,
+						});
+						}
+						setTimeout(carouselCatProductListTitleProm, 2000);
+						
+						//Carousel Content bar - homepage product lists
+						function carouselCatProductListProm(){ $(".catProductListCarouselContainerProm").carouFredSel
+						({
+							width   : 700,
+							//height	: 695,
+							items   : 1,
+							scroll: 1,
+							auto : false,
+						});
+						}
+						$(".loadingBG", ".catProductListCarouselContainerProm").remove();
+						_app.u.dump("loadingBG has been removed from bottom carousel");
+						
+						setTimeout(carouselCatProductListProm, 2000);
+						
+						$(".catProductListNextProm").click(function() {
+							$(".catProductListTitleCarouselProm").trigger("next", 1);
+							$(".catProductListCarouselContainerProm").trigger("next", 1);
+						});
+						$(".catProductListPrevProm").click(function() {
+							$(".catProductListTitleCarouselProm").trigger("prev", 1);
+							$(".catProductListCarouselContainerProm").trigger("prev", 1);
+						});
+					});
+					
+					
+					var filterIDNum = 0;
+					var filterForNum = 0;
+					
+					
+					
+					
+					
+					
+					
+					_app.templates.categoryProductListTemplate.on('complete',function(event, $context, infoObj){
+						//var $context = $(_app.u.jqSelector('#',infoObj.parentID));
+						
+						function carouselCPBanner(){ $(".carouselCPBannerList", $context).carouFredSel
+						({
+							width   : 960,
+							//height	: 440,
+							items   : 1,
+							scroll: 1,
+							auto : {
+								duration    : 500,
+								timeoutDuration: 5000,
+								pauseOnHover: true
+							},
+							prev : ".prevCPBannerCaroProdList",
+							next : ".nextCPBannerCaroProdList"
+						});
+						}
+						setTimeout(carouselCPBanner, 2000);
+						
+						$('.fsCheckbox').attr('checked', false);
+						$(".nativeProductList").show(); 
+						$(".searchFilterResults").hide();
+						
+						//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+						
+						_app.ext._store_filter.vars.catPageID = $(_app.u.jqSelector('#',infoObj.parentID));  
+						
+						_app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
+						if(_app.ext._store_filter.filterMap[P.navcat])	{
+					
+							_app.u.dump(" -> safe id DOES have a filter.");
+					
+							var $page = $(_app.u.jqSelector('#',infoObj.parentID));
+							_app.u.dump(" -> $page.length: "+$page.length);
+							if($page.data('filterAdded'))	{} //filter is already added, don't add again.
+							else	{
+								$page.data('filterAdded',true)
+								var $form = $("[name='"+_app.ext._store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.catProdListSidebar',$page));
+								$form.on('submit.filterSearch',function(event){
+									event.preventDefault()
+									_app.u.dump(" -> Filter form submitted.");
+									_app.ext._store_filter.a.execFilter($form,$page);
+									});
+						
+								if(typeof _app.ext._store_filter.filterMap[P.navcat].exec == 'function')	{
+									_app.ext._store_filter.filterMap[P.navcat].exec($form,infoObj)
+									}
+						
+						//make all the checkboxes auto-submit the form and show results list.
+								$(":checkbox",$context).off('click.formSubmit').on('click.formSubmit',function() {
+									$form.submit(); 
+									//_app.u.dump("A filter checkbox was clicked.");
+									$("#resultsProductListContainer",$context).hide();  
+									
+									$group1 = $('.fsCheckbox',$context);
+									
+									if(($group1.filter(':checked').length === 0) && ($(".sliderValue",$context).val() == "$0 - $1000")){
+										//_app.u.dump("All checkboxes removed. Showing stock product list.");
+										$(".nativeProductList", $context).show(); 
+										$(".searchFilterResults", $context).hide(); 
+									}
+									else{
+										//_app.u.dump("Checkbox is active. Showing Search results.");
+										$(".nativeProductList", $context).hide(); 
+										$(".searchFilterResults", $context).show();  
+									}  
+								});
+								
+								//_app.u.dump($(".sliderValue",$context));
+							}
+						}
+							
+									
+								
+							
+							$('.resetButton', $context).click(function(){
+								$('.fsCheckbox').attr('checked', false);
+								$(".nativeProductList").show(); 
+								$(".searchFilterResults").hide();    
+							});
+							
+							//**ADD ID/FOR VALUES FOR CHECKBOX VISUAL MODIFIER**
+							/*
+							$('.filterCB', $context).each(function() {
+								$(this).attr('id', 'filterCB'+filterIDNum);
+								filterIDNum += 1;
+							});
+							$('.break', $context).each(function() {
+								$(this).attr('for', 'filterCB'+filterForNum);
+								filterForNum += 1;
+							});
+							*/
+							
+							
+							//IF RE-VISITING A CAT PAGE, RETURNS HEIGHT OF GHOST ELEMENT TO EITHER FULL FILTER FORM SIZE OR COLLAPSED.
+							if($('.catGhostCell', $context).data('heightVal')){
+								var catGhostCellHeight = $('.catGhostCell', $context).data('heightVal');
+								_app.u.dump("$('.catGhostCell', $context).data('heightVal') exists. Assigning height value");
+								$(".catGhostCell", $context).css("height",catGhostCellHeight);
+							}
+							else{
+								$('.catGhostCell', $context).data('heightVal', '').append();
+								_app.u.dump("$('.catGhostCell', $context).data('heightVal') doesn't exists. Make it.");
+							}
+							
+							//ASSIGN EXPAND/COLLAPSE VALUES TO FILTER FORM
+							var $sidebarContext = $(".catProdListSidebar").parent().parent();
+							//_app.u.dump($sidebarContext);
+							
+							if($('.layeredSearch', $context).length){
+								if($('.catProdListSidebar', $context).data('collapseOrExpanded')){
+									_app.u.dump("$('.catProdListSidebar', $context).data('collapseOrExpanded') exists. Do nothing.");
+								}
+								else{
+									_app.u.dump("$('.catProdListSidebar', $context).data('collapseOrExpanded') doesn't exists. Make it.");
+									$('.catProdListSidebar', $context).data('collapseOrExpanded',false).append();
+								}
+								
+								_app.u.dump("Filter form found, showing search tab");
+							}
+							else{
+								$('.searchTab', $context).hide();
+								_app.u.dump("Filter form not found, hiding search tab");
+							}
+							
+							if($('.filterPriceCat', $context).length){
+								$('.filterCategoryCont', '.filterPriceCat').show();
+								$('.filterCatTitle', '.filterPriceCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+								$('.filterPriceCat').data('collapseOrExpanded',true).append();
+							}
+							
+							if($('.filterDressTypeCat', $context).length){
+								$('.filterCategoryCont', '.filterDressTypeCat').show();
+								$('.filterCatTitle', '.filterDressTypeCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+								$('.filterDressTypeCat').data('collapseOrExpanded',true).append();
+							}
+							
+							if($('.filterDesignerCat', $context).length){
+								$('.filterCategoryCont', '.filterDesignerCat').show();
+								$('.filterCatTitle', '.filterDesignerCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+								$('.filterDesignerCat').data('collapseOrExpanded',true).append();
+							}
+							
+							if($('.filterColorCat', $context).length){
+								$('.filterCategoryCont', '.filterColorCat').show();
+								$('.filterCatTitle', '.filterColorCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+								$('.filterColorCat').data('collapseOrExpanded',true).append();
+							}
+							
+							if($('.filterHemlineCat', $context).length){
+								$('.filterCategoryCont', '.filterHemlineCat').show();
+								$('.filterCatTitle', '.filterHemlineCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+								$('.filterHemlineCat').data('collapseOrExpanded',true).append();
+							}
+							
+							if($('.filterSilhouetteCat', $context).length){
+								$('.filterCategoryCont', '.filterSilhouetteCat').show();
+								$('.filterCatTitle', '.filterSilhouetteCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+								$('.filterSilhouetteCat').data('collapseOrExpanded',true).append();
+							}
+							
+							if($('.filterNecklineCat', $context).length){
+								$('.filterCategoryCont', '.filterNecklineCat').show();
+								$('.filterCatTitle', '.filterNecklineCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+								$('.filterNecklineCat').data('collapseOrExpanded',true).append();
+							}
+							
+							if($('.filterSaleCat', $context).length){
+								$('.filterCategoryCont', '.filterSaleCat').show();
+								$('.filterCatTitle', '.filterSaleCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+								$('.filterSaleCat').data('collapseOrExpanded',true).append();
+							}
+							
+							if($('.filterTrendsCat', $context).length){
+								$('.filterCategoryCont', '.filterTrendsCat').show();
+								$('.filterCatTitle', '.filterTrendsCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+								$('.filterTrendsCat').data('collapseOrExpanded',true).append();
+							}
+							
+							_app.ext._store_banner.u.showCategoryBanners($context);		
+					});
+					
+					_app.templates.searchTemplate.on('complete',function(event, $context, infoObj){
+						//if(infoObj.preservePage){ alert("You hit the back button");}
+						
+						//var $context = $(_app.u.jqSelector('#',infoObj.parentID));
+						var $page = $context;
+						
+						//****FILTERED SEARCH CODE****
+						$('.fsCheckbox').attr('checked', false);
+						$("#resultsProductListContainer").show(); 
+						$(".searchFilterResults").hide();    
+						_app.u.dump("BEGIN searchTemplate onCompletes for filtering");
+						var $form = $("[name='SearchPageFilterSearchForm']",'#appFilters').clone().appendTo($('.filterContainerSearch',$page));
+						$form.on('submit.filterSearch',function(event){
+							event.preventDefault()
+							_app.u.dump(" -> Filter form submitted.");
+							_app.ext._store_filter.a.execFilter($form,$page);
+									});
+						
+							if(typeof _app.ext._store_filter.filterMap["searchPage"].exec == 'function')	{
+								_app.ext._store_filter.filterMap["searchPage"].exec($form,infoObj)
+								}
+						
+						//make all the checkboxes auto-submit the form.
+							$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+								$form.submit(); 
+								//_app.u.dump("Filter search actvated");
+								$("#resultsProductListContainer").hide();  
+								
+								$group1 = $('.fsCheckbox');
+								if($group1.filter(':checked').length === 0){
+									//_app.u.dump("All checkboxes removed. Filter search deactivated.");
+									$("#resultsProductListContainer", $context).show(); 
+									$(".searchFilterResults", $context).hide(); 
+									$(".resultsHeader", $context).show();   
+								}
+								else{
+									//_app.u.dump("All checkboxes removed. Filter search still active.");
+									$("#resultsProductListContainer", $context).hide(); 
+									$(".searchFilterResults", $context).show();  
+									$(".resultsHeader", $context).hide();  
+								}  
+							});
+									
+								
+							
+							$('.resetButtonSearchPage', $context).click(function(){
+								$('.fsCheckbox').attr('checked', false);
+								$("#resultsProductListContainer").show(); 
+								$(".searchFilterResults").hide();    
+							});
+							
+							if($('.catGhostCell', $context).data('heightVal')){
+								var catGhostCellHeight = $('.catGhostCell', $context).data('heightVal');
+								_app.u.dump("$('.catGhostCell', $context).data('heightVal') exists. Assigning height value");
+								$(".catGhostCell", $context).css("height",catGhostCellHeight);
+							}
+							else{
+								$('.catGhostCell', $context).data('heightVal', '').append();
+								_app.u.dump("$('.catGhostCell', $context).data('heightVal') doesn't exists. Make it.");
+							}
+							
+							//ASSIGN EXPAND/COLLAPSE VALUES TO FILTER FORM
+							var $sidebarContext = $(".filterContainerSearch").parent().parent();
+							//_app.u.dump($sidebarContext);
+							
+							if($('.filterPriceCat', $context).length){
+								$('.filterCategoryCont', '.filterPriceCat').show();
+								$('.filterCatTitle', '.filterPriceCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+								$('.filterPriceCat').data('collapseOrExpanded',true).append();
+							}
+							
+							if($('.filterDressTypeCat', $context).length){
+								$('.filterCategoryCont', '.filterDressTypeCat').show();
+								$('.filterCatTitle', '.filterDressTypeCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+								$('.filterDressTypeCat').data('collapseOrExpanded',true).append();
+							}
+							
+							if($('.filterDesignerCat', $context).length){
+								$('.filterCategoryCont', '.filterDesignerCat').show();
+								$('.filterCatTitle', '.filterDesignerCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+								$('.filterDesignerCat').data('collapseOrExpanded',true).append();
+							}
+							
+							if($('.filterColorCat', $context).length){
+								$('.filterCategoryCont', '.filterColorCat').show();
+								$('.filterCatTitle', '.filterColorCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+								$('.filterColorCat').data('collapseOrExpanded',true).append();
+							}
+							
+							if($('.filterHemlineCat', $context).length){
+								$('.filterCategoryCont', '.filterHemlineCat').show();
+								$('.filterCatTitle', '.filterHemlineCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+								$('.filterHemlineCat').data('collapseOrExpanded',true).append();
+							}
+							
+							if($('.filterSilhouetteCat', $context).length){
+								$('.filterCategoryCont', '.filterSilhouetteCat').show();
+								$('.filterCatTitle', '.filterSilhouetteCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+								$('.filterSilhouetteCat').data('collapseOrExpanded',true).append();
+							}
+							
+							if($('.filterNecklineCat', $context).length){
+								$('.filterCategoryCont', '.filterNecklineCat').show();
+								$('.filterCatTitle', '.filterNecklineCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+								$('.filterNecklineCat').data('collapseOrExpanded',true).append();
+							}
+							
+							if($('.filterSaleCat', $context).length){
+								$('.filterCategoryCont', '.filterSaleCat').show();
+								$('.filterCatTitle', '.filterSaleCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+								$('.filterSaleCat').data('collapseOrExpanded',true).append();
+							}
+							
+							if($('.filterTrendsCat', $context).length){
+								$('.filterCategoryCont', '.filterTrendsCat').show();
+								$('.filterCatTitle', '.filterTrendsCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
+								$('.filterTrendsCat').data('collapseOrExpanded',true).append();
+							}
+					});
+					
+					_app.templates.companyTemplate.on('complete',function(event, $context, infoObj){
+						//INTERNET EXPLORER WARNING MESSAGE
+						if($('.headerIE8WarningCont').data('messageShown')){
+						}
+						else{
+							$('.headerIE8WarningCont').data('messageShown',false);
+						}
+						if($('.headerIE8WarningCont').data('messageShown') === false)
+						{
+							$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+							$('.headerIE8WarningCont').data('messageShown',true).append();
+						}
+					});
+					_app.templates.customerTemplate.on('complete',function(event, $context, infoObj){
+						//INTERNET EXPLORER WARNING MESSAGE
+						if($('.headerIE8WarningCont').data('messageShown')){
+						}
+						else{
+							$('.headerIE8WarningCont').data('messageShown',false);
+						}
+						if($('.headerIE8WarningCont').data('messageShown') === false)
+						{
+							$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+							$('.headerIE8WarningCont').data('messageShown',true).append();
+						}
+					});
+					_app.templates.searchTemplate.on('complete',function(event, $context, infoObj){
+						//INTERNET EXPLORER WARNING MESSAGE
+						if($('.headerIE8WarningCont').data('messageShown')){
+						}
+						else{
+							$('.headerIE8WarningCont').data('messageShown',false);
+						}
+						if($('.headerIE8WarningCont').data('messageShown') === false)
+						{
+							$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+							$('.headerIE8WarningCont').data('messageShown',true).append();
+						}
+					});
+					_app.templates.testimonialsTemplate.on('complete',function(event, $context, infoObj){
+						//INTERNET EXPLORER WARNING MESSAGE
+						if($('.headerIE8WarningCont').data('messageShown')){
+						}
+						else{
+							$('.headerIE8WarningCont').data('messageShown',false);
+						}
+						if($('.headerIE8WarningCont').data('messageShown') === false)
+						{
+							$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+							$('.headerIE8WarningCont').data('messageShown',true).append();
+						}
+					});
+					_app.templates.categoryProductListTemplate.on('complete',function(event, $context, infoObj){
+						//INTERNET EXPLORER WARNING MESSAGE
+						if($('.headerIE8WarningCont').data('messageShown')){
+						}
+						else{
+							$('.headerIE8WarningCont').data('messageShown',false);
+						}
+						if($('.headerIE8WarningCont').data('messageShown') === false)
+						{
+							$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+							$('.headerIE8WarningCont').data('messageShown',true).append();
+						}
+					});
+					_app.templates.productTemplate.on('complete',function(event, $context, infoObj){
+						//INTERNET EXPLORER WARNING MESSAGE
+						if($('.headerIE8WarningCont').data('messageShown')){
+						}
+						else{
+							$('.headerIE8WarningCont').data('messageShown',false);
+						}
+						if($('.headerIE8WarningCont').data('messageShown') === false)
+						{
+							$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+							$('.headerIE8WarningCont').data('messageShown',true).append();
+						}
+					});
+					_app.templates.checkoutTemplate.on('complete',function(event, $context, infoObj){
+						//INTERNET EXPLORER WARNING MESSAGE
+						if($('.headerIE8WarningCont').data('messageShown')){
+						}
+						else{
+							$('.headerIE8WarningCont').data('messageShown',false);
+						}
+						if($('.headerIE8WarningCont').data('messageShown') === false)
+						{
+							$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+							$('.headerIE8WarningCont').data('messageShown',true).append();
+						}
+					});
+					_app.templates.pageNotFoundTemplate.on('complete',function(event, $context, infoObj){
+						//INTERNET EXPLORER WARNING MESSAGE
+						if($('.headerIE8WarningCont').data('messageShown')){
+						}
+						else{
+							$('.headerIE8WarningCont').data('messageShown',false);
+						}
+						if($('.headerIE8WarningCont').data('messageShown') === false)
+						{
+							$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+							$('.headerIE8WarningCont').data('messageShown',true).append();
+						}
+					});
+					
+					
+					_app.templates.productTemplateQuickView.on('complete',function(event, $context, infoObj){
+						
+						//var $context = $(_app.u.jqSelector('#',P.parentID));
+						
+						
+						if($(".variation_D5", $context).length){
+							_app.u.dump(".variation_D5 exists. Adding sizing chat link");
+							$(".variation_D5", $context).after("<div class='productSizingChartModalLinkContainer quickviewProductSizingChartModalLinkContainer'>"
+							+ "<a onClick=\"$('#SizingChartTemplate').dialog({'modal':'true', 'title':'','width':825, height:700, 'dialogClass' : 'SizingChartModal'});\"> Need help with your size?</a>"
+							+ "</div>");
+						}
+						else{
+							_app.u.dump(".variation_D5 does not exists. Doing nothing");
+						}
+						
+					
+					});
+					
+					
+					_app.templates.showroomTemplate.on('complete',function(event, $context, infoObj){
+					});
+					
+					/*
+					pp.rq.push(['templateFunction','categoryProductListTemplate','onDeparts',function(P) {
+						var $context = $(_app.u.jqSelector('#',P.parentID));
+						if($('.layeredSearch', $context).length){
+							$('.catProdListSidebar', $context).hide();
+							$(".catGhostCell", $context).css("height","0");
+						}
+					}]);
+					*/
 				},
 				onError : function (){
-					app.u.dump('BEGIN app_store_formals.callbacks.startExtension.onError');
+					_app.u.dump('BEGIN _app_store_formals.callbacks.startExtension.onError');
 				}
 			},
 		},
@@ -191,36 +1021,36 @@ var _store_formals = function() {
 			//END HEADER DROPDOWN MENUS
 			
 			homepageCategoryMouseOver : function($tag) {
-				//app.u.dump("mouse over function successully ran.")
+				//_app.u.dump("mouse over function successully ran.")
 				$(".homepageCatTitleBar", $tag).css({'background-color':'rgba(230,22,82,.5)'});
 				$(".homepageCatTitle", $tag).css({'color':'white'});
 			},
 			homepageCategoryMouseOut : function($tag) {
-				//app.u.dump("mouse over function successully ran.")
+				//_app.u.dump("mouse over function successully ran.")
 				$(".homepageCatTitleBar", $tag).css({'background':'none'});
 				$(".homepageCatTitleBar", $tag).css({'background-color':'rgba(900,900,900,.8)'});
 				$(".homepageCatTitle", $tag).css({'color':'#333333'});
 			},
 			homepageSubCatMouseOver : function($tag) {
-				//app.u.dump("mouse over function successully ran.")
+				//_app.u.dump("mouse over function successully ran.")
 				$(".homepageSubCatTitleBar", $tag).css({'background-color':'rgba(230,22,82,.5)'});
 				$(".homepageSubCatTitle", $tag).css({'color':'white'});
 			},
 			homepageSubCatMouseOut : function($tag) {
-				//app.u.dump("mouse over function successully ran.")
+				//_app.u.dump("mouse over function successully ran.")
 				$(".homepageSubCatTitleBar", $tag).css({'background-color':'rgba(900,900,900,.8)'});
 				$(".homepageSubCatTitle", $tag).css({'color':'#333333'});
 			},
 			
 			homepageCarouselProdItemMouseOver : function($tag) {
-				//app.u.dump("mouse over function successully ran.")
+				//_app.u.dump("mouse over function successully ran.")
 				$tag.css({'border':'10px solid #e61652'});
 				//$(".productItemInfo", $tag).css({'background-color':'rgba(230,22,82,.5)'});
 				$(".productItemInfoContent", $tag).hide();
 				$(".productItemInfoMoreInfo", $tag).show();
 			},
 			homepageCarouselProdItemMouseOut : function($tag) {
-				//app.u.dump("mouse over function successully ran.")
+				//_app.u.dump("mouse over function successully ran.")
 				$tag.css({'border':'10px solid white'});
 				//$(".productItemInfo", $tag).css({'background-color':'rgba(900,900,900,.8)'});
 				$(".productItemInfoContent", $tag).show();
@@ -228,12 +1058,12 @@ var _store_formals = function() {
 			},
 			
 			categorySubCatMouseOver : function($tag) {
-				//app.u.dump("mouse over function successully ran.")
+				//_app.u.dump("mouse over function successully ran.")
 				$(".homepageSubCatTitleBar", $tag).css({'background-color':'rgba(230,22,82,.5)'});
 				$(".catName", $tag).css({'color':'white'});	
 			},
 			categorySubCatMouseOut : function($tag) {
-				//app.u.dump("mouse over function successully ran.")
+				//_app.u.dump("mouse over function successully ran.")
 				$(".homepageSubCatTitleBar", $tag).css({'background-color':'rgba(900,900,900,.8)'});
 				$(".catName", $tag).css({'color':'#333333'});
 			},
@@ -250,17 +1080,17 @@ var _store_formals = function() {
 					var errors = '';
 					$errorDiv = errorDiv.empty(); //make sure error screen is empty. do not hide or callback errors won't show up.
 
-					if(app.u.isValidEmail(email) == false){
+					if(_app.u.isValidEmail(email) == false){
 							errors += "Please provide a valid email address<br \/>";
 							}
 					if(!password)        {
 							errors += "Please provide your password<br \/>";
 							}
 					if(errors == ''){
-							app.calls.appBuyerLogin.init({"login":email,"password":password},{'callback':'authenticateBuyer','extension':'myRIA'});
-							app.calls.refreshCart.init({},'immutable'); //cart needs to be updated as part of authentication process.
-//                                        app.calls.buyerProductLists.init('forgetme',{'callback':'handleForgetmeList','extension':'store_prodlist'},'immutable');
-							app.model.dispatchThis('immutable');
+							_app.calls.appBuyerLogin.init({"login":email,"password":password},{'callback':'authenticateBuyer','extension':'myRIA'});
+							_app.calls.refreshCart.init({},'immutable'); //cart needs to be updated as part of authentication process.
+//                                        _app.calls.buyerProductLists.init('forgetme',{'callback':'handleForgetmeList','extension':'store_prodlist'},'immutable');
+							_app.model.dispatchThis('immutable');
 							}
 					else {
 							$errorDiv.anymessage({'message':errors});
@@ -271,8 +1101,8 @@ var _store_formals = function() {
 			collapseExpandFAQ : function($tagContext){
 				if($(".faqContentCont", $tagContext).is(':hidden')){
 					$(".faqContentCont", $tagContext).data('collapseExpand',false).append();
-					//app.u.dump("collapseExpand Data did not exist for this drop down. Created it.");
-					//app.u.dump($(".faqContentCont", $tagContext).data('collapseExpand'));
+					//_app.u.dump("collapseExpand Data did not exist for this drop down. Created it.");
+					//_app.u.dump($(".faqContentCont", $tagContext).data('collapseExpand'));
 
 				}
 				else{
@@ -281,12 +1111,12 @@ var _store_formals = function() {
 				if ($(".faqContentCont", $tagContext).data('collapseExpand') === false){
 					$(".faqContentCont", $tagContext).slideDown(1000);
 					$(".faqContentCont", $tagContext).data('collapseExpand',true).append();
-					//app.u.dump("FAQ was hidden. Now showing.");
+					//_app.u.dump("FAQ was hidden. Now showing.");
 				}
 				else{
 					$(".faqContentCont", $tagContext).slideUp(1000);
 					$(".faqContentCont", $tagContext).data('collapseExpand',false).append();
-					//app.u.dump("FAQ was showing. Now hidden.");
+					//_app.u.dump("FAQ was showing. Now hidden.");
 				}
 			} //END collapseExpandFAQ
 			 
@@ -299,25 +1129,25 @@ var _store_formals = function() {
                                         var formObj = $form.serializeJSON();
                                         
                                         if(formObj.pass !== formObj.pass2) {
-                                                app.u.throwMessage('Sorry, your passwords do not match! Please re-enter your password');
+                                                _app.u.throwMessage('Sorry, your passwords do not match! Please re-enter your password');
                                                 return;
                                         }
                                         
                                         var tagObj = {
                                                 'callback':function(rd) {
-                                                        if(app.model.responseHasErrors(rd)) {
+                                                        if(_app.model.responseHasErrors(rd)) {
                                                                 $form.anymessage({'message':rd});
                                                         }
                                                         else {
                                                                 showContent('customer',{'show':'myaccount'});
-                                                                app.u.throwMessage(app.u.successMsgObject("Your account has been created!"));
+                                                                _app.u.throwMessage(_app.u.successMsgObject("Your account has been created!"));
                                                         }
                                                 }
                                         }
                                         
                                         formObj._vendor = "onlineformals";
-                                        app.calls.appBuyerCreate.init(formObj,tagObj,'immutable');
-                                        app.model.dispatchThis('immutable');
+                                        _app.calls.appBuyerCreate.init(formObj,tagObj,'immutable');
+                                        _app.model.dispatchThis('immutable');
                                 }
                                 else {
                                         $('#globalMessaging').anymessage({'message':'$form not passed into _store_formals.u.handleBuyerAccountCreate','gMessage':true});
@@ -334,17 +1164,17 @@ var _store_formals = function() {
 			}, //END showIfSetInline
 			
 			money : function($tag,data)	{			
-//			app.u.dump('BEGIN view.formats.money');
+//			_app.u.dump('BEGIN view.formats.money');
 			var amount = data.bindData.isElastic ? (data.value / 100) : data.value;
 			if(amount)	{
 				var r,o,sr;
-				r = app.u.formatMoney(amount,data.bindData.currencySign,'',data.bindData.hideZero);
-//					app.u.dump(' -> attempting to use var. value: '+data.value);
-//					app.u.dump(' -> currencySign = "'+data.bindData.currencySign+'"');
+				r = _app.u.formatMoney(amount,data.bindData.currencySign,'',data.bindData.hideZero);
+//					_app.u.dump(' -> attempting to use var. value: '+data.value);
+//					_app.u.dump(' -> currencySign = "'+data.bindData.currencySign+'"');
 
 //				**SPAN IS APPENDED TO ALL OF THE PRICE TEXT, RATHER THAN JUST THE CENTS**
 				if(r.substr(0,1))	{
-//					app.u.dump(' -> r = '+r);
+//					_app.u.dump(' -> r = '+r);
 					sr = r.split(r.substr(0,1));
 					o = sr[0];
 					if(sr[1])	{o += '<span class="productPriceText">$'+sr[1]+'<\/span>'}
