@@ -80,7 +80,7 @@ css files should be included before any .js file to ensure they are downloaded i
 <script type="text/javascript">
 $(document).ready(function(){
 	window.myApp = new initApp({
-		"release":"201401.a",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201401.aa",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
@@ -996,7 +996,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 
 
-<div id='categoryProductListTemplate' class='loadingBG categoryTemplate' data-app-role='categoryPage'>
+<div id='categoryProductListTemplate' class='loadingBG categoryTemplate'>
 
 	<div class="centeringContainer">
     	<div class="searchTab" title="Need help finding exactly the dress you want? Click the magnifying glass to narrow your results with our filtered search!">
@@ -4616,6 +4616,8 @@ The 'data-action' attribute is used to assign an onclick.
 
 
 
+<!--****FILTERED SEARCH FORMS****-->
+<div id='appFilters' class='displayNone'>
 <!--SEARCH PAGE FORM-->
 
 <form action='#' name='SearchPageFilterSearchForm' id='SearchPageFilterSearchForm' class='layeredSearch'>
@@ -14419,16 +14421,16 @@ The 'data-action' attribute is used to assign an onclick.
 
 
 
-
-
-
-
-
-
-
-
 </div>
 <!--****END FILTER FORMS****-->
+
+
+
+
+
+
+
+
 
 
 
