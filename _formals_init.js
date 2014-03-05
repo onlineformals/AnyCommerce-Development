@@ -39,14 +39,14 @@ myApp.rq.push(['extension',0,'_store_filter','extensions/_store_filter.js']);
 myApp.rq.push(['extension',0,'prodlist_infinite','extensions/prodlist_infinite.js']);
 myApp.rq.push(['extension',0,'_store_banner','extensions/_store_banner.js']);
 
-app.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.2.1/jquery.carouFredSel-6.2.1-packed.js']);
-app.rq.push(['script',0,app.vars.baseURL+'zoom-master/jquery.zoom.js']);
+myApp.rq.push(['script',0,myApp.vars.baseURL+'carouFredSel-6.2.1/jquery.carouFredSel-6.2.1-packed.js']);
+myApp.rq.push(['script',0,myApp.vars.baseURL+'zoom-master/jquery.zoom.js']);
 
-//app.rq.push(['script',0,(document.location.protocol == 'file:') ? app.vars.testURL+'jquery/config.js' : app.vars.baseURL+'jquery/config.js']); //The config.js is dynamically generated.
-//app.rq.push(['script',0,app.vars.baseURL+'model.js']); //'validator':function(){return (typeof zoovyModel == 'function') ? true : false;}}
-//app.rq.push(['script',0,app.vars.baseURL+'includes.js']); //','validator':function(){return (typeof handlePogs == 'function') ? true : false;}})
+//myApp.rq.push(['script',0,(document.location.protocol == 'file:') ? myApp.vars.testURL+'jquery/config.js' : myApp.vars.baseURL+'jquery/config.js']); //The config.js is dynamically generated.
+//myApp.rq.push(['script',0,myApp.vars.baseURL+'model.js']); //'validator':function(){return (typeof zoovyModel == 'function') ? true : false;}}
+//myApp.rq.push(['script',0,myApp.vars.baseURL+'includes.js']); //','validator':function(){return (typeof handlePogs == 'function') ? true : false;}})
 
-//app.rq.push(['script',0,app.vars.baseURL+'controller.js']);
+//myApp.rq.push(['script',0,myApp.vars.baseURL+'controller.js']);
 
 myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/jquery.showloading-v1.0.jt.js']); //used pretty early in process..
 myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/jquery.ui.anyplugins.js']); //in zero pass in case product page is first page.

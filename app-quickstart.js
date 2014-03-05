@@ -30,7 +30,6 @@ var myRIA = function(_app) {
 //the list of templates that are commonly edited (same order as they appear in appTemplates
 			'homepageTemplate',	'categoryTemplate',
 			'categoryListTemplate',
-			'categoryProductListTemplate',
 			'categoryListTemplateRootCats',
 			'productListTemplate',
 			'productListTemplateATC',
@@ -39,6 +38,10 @@ var myRIA = function(_app) {
 			'productTemplate',
 			'productTemplateQuickView',
 			'pageNotFoundTemplate',
+//CUSTOM TEMPLATES
+			'categoryProductListTemplate',
+			'testimonialsTemplate',
+			'showroomTemplate',
 //the list of templates that, in most cases, are left alone. Also in the same order as appTemplates
 			'breadcrumbTemplate',
 			'companyTemplate',
