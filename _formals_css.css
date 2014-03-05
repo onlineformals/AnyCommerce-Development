@@ -822,7 +822,7 @@ progress::-moz-progress-bar { background: #E61652; }
 	border:10px solid white;
 	margin:10px;
 }
-li.productItem:hover{
+.hpProductListCarouselContainer ul.productList li.productItem:hover{
 	border:10px solid #e61652;
 }
 li.productItem:hover div div.productItemInfo{

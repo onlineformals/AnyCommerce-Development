@@ -2902,7 +2902,7 @@ _app.templates[tagObj.templateID].find('[data-bind]').each(function()	{
 				var listPath = attribute.split('.')[0]
 				tagObj.lists.push(listPath); //attribute formatted as $listname.@products
 //** 201318 -> numRequests could have been getting set to zero, causing no dispatch to go
-				numRequests += _app.ext.calls.appNavcatDetail.init({'path':listPath,'detail':'fast'});
+				numRequests += _app.calls.appNavcatDetail.init({'path':listPath,'detail':'fast'});
 				}
 			else if(namespace == 'list')	{
 				// no src is set.
