@@ -169,7 +169,7 @@ ANIMATION TESTING
 <div class='header'>
     <div class="headerTopSect">
         <div class="centeringContainer">
-    		<div class="floatLeft headerLoginLink"><h5>Welcome, <span class='username'>Guest!</span> <h6><a href='#top' onClick="return showContent('customer',{'show':'myaccount'});">Sign in</a> or <a href='#top' onClick="return showContent('customer',{'show':'myaccount'});">Register.</a></h6></h5></div>
+    		<div class="floatLeft headerLoginLink"><h5>Welcome, <span class='username'>Guest!</span> <h6><a href='#top' onClick="return showContent('customer',{'show':'myaccount'});">Sign in</a> or <a href='#top' onClick="return showContent('customer',{'show':'createaccount'});">Register.</a></h6></h5></div>
             <div class="floatRight headerTopNavLink"><a class="pointer" href='#top' onclick="return showContent('company',{'show':'contact'});">Help</a><a class="pointer headerTopCenterLink" href='#top' onClick="return showContent('customer',{'show':'myaccount'});">My Account</a><a class="pointer" href='#top' onClick="return showContent('customer',{'show':'lists'});">Wishlist</a></div>
             <div class="floatRight headerCartLink"><a class="pointer bindByAnchor" href="#cart?."><span class="cartItemCount">0</span> item(s) </a> <h6> - </h6><a class="pointer bindByAnchor" href="#cart?.">View Shopping Bag</a></div>
         </div>
@@ -1502,12 +1502,13 @@ this will likely become more flexible in the future. ###
                 </div>
                 <div class="productDescriptionContainer" data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
                 
-                <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="myApp.ext.myRIA.u.addItemToCart($(this), {'action':'modal'}); return false;">
+                <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' data-app-submit='myRIA|productAdd2Cart' data-show='modal'>
             
-                    <fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone variationsContainer'></fieldset>
-                    <fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; pretext:Quantity: ; defaultValue:1;' class='borderNone displayNone'></fieldset>
+                    <fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>
+					<fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; pretext:Quantity: ; defaultValue:1;' class='borderNone'></fieldset>
             
-                    <input type='submit' value='ADD TO BAG' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;'  />
+                    <input type='submit' value='ADD TO BAG' class='ui-button ui-button-text ui-corner-all ui-state-default applyButton addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;'  />
+                    <!--<input type='submit' value='ADD TO BAG' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;'  />-->
                 </form>
                 
                 <div class="productSizingChartModalLinkContainer">
@@ -3585,7 +3586,6 @@ if you change these, you should move them above this comment so that when you (o
 
 <!-- loadingBG needed on this for app init (content may take a moment to load) -->
 <div id='companyTemplate' class='clearfix'>
-
 	<div class="centeringContainer">
     	<div class='sideline' >
             <nav id='companyNav'>
@@ -3822,7 +3822,7 @@ if you change these, you should move them above this comment so that when you (o
 
 <!-- loadingBG needed on this for app init (content may take a moment to load) -->
 <div id='customerTemplate' class='clearfix'>
-
+<div class="centeringContainer">
 	<div class='sideline' >
 	<nav id='customerNav'>
 	<ul class='listStyleNone noPadOrMargin'>
@@ -4042,6 +4042,7 @@ subscribeListsArticle is used for authenticated buyers
 		</div>
 
 	</div>
+    </div>
 
 </div>
 

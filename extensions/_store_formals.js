@@ -1079,6 +1079,15 @@ var _store_formals = function(_app) {
                                         }
                                         
                                         formObj._vendor = "onlineformals";
+										formObj.todonote = "Account Contact Name: " + formObj.firstname+" "+formObj.lastname+"\n";
+										formObj.todonote += "Address: " +formObj.address1+"\n";
+										if(formObj.address2 && formObj.address2 !== ""){
+											formObj.todonote += formObj.address2+"\n";
+										}
+										formObj.todonote += formObj.city+","+formObj.region+" "+formObj.postal+"\n";
+										formObj.todonote += "Email: " + formObj.email+"\n";
+										formObj.todonote += "Phone: " + formObj.phone+"\n";
+										formObj.todonote += "Date Created: "+(new Date()).toDateString();
                                         _app.calls.appBuyerCreate.init(formObj,tagObj,'immutable');
                                         _app.model.dispatchThis('immutable');
                                 }
