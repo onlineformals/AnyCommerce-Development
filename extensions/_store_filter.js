@@ -813,8 +813,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 				catProdListFilterExpandContract : function($context){
 					//app.u.dump(context);
 					var sidebar = $('.catProdListSidebar', $context).height();
-					var banner = $('.catTopCarousel', $context).height();
-					var ghostCell = sidebar - banner - 405;
+					app.u.dump("sidebar = " + sidebar);
+					var banner = $('.carouselCPBannerList ', $context).height();
+					app.u.dump("banner = " + banner);
+					if(banner == 0){
+						app.u.dump("No banner detected. Reducing ghost cell size");
+						var ghostCell = sidebar - 55;
+					}
+					else{
+						app.u.dump("Banner detected. Increasing ghost cell size");
+						var ghostCell = sidebar - banner - 55;
+					}
+					app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 					$('.catGhostCell', $context).data('heightVal', ghostCell).append();
 					$(".catGhostCell", $context).css("height",ghostCell);
 					
