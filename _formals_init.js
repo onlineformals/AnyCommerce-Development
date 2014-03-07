@@ -450,9 +450,9 @@ app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',func
 	}
 	setTimeout(carouselCPBanner, 2000);
 	
-	$('.fsCheckbox').attr('checked', false);
-	$(".nativeProductList").show(); 
-	$(".searchFilterResults").hide();
+	//$('.fsCheckbox').attr('checked', false);
+	//$(".nativeProductList").show(); 
+	//$(".searchFilterResults").hide();
 	
 	//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 	
