@@ -822,10 +822,14 @@ progress::-moz-progress-bar { background: #E61652; }
 	border:10px solid white;
 	margin:10px;
 }
+.hpProductListCarouselContainer ul.productList li.productItem:hover{
+	border:10px solid #e61652;
+}
 li.productItem:hover{
 	border:10px solid #e61652;
 }
 li.productItem:hover div div.productItemInfo{
+	background-color:#E61652;
 	background: rgba(200, 54, 54, 0.5);
 	background-color:rgba(230,22,82,.5);
 }
@@ -1588,7 +1592,21 @@ div.productItemInfoContent span.prodListItemSavings span.savingsPercentage{
 	margin:10px;
 	float:left;
 }
+.searchResultsProduct:hover{
+	border:10px solid #e61652;
+}
+.searchResultsProduct:hover div.productItemInfo{
+	background-color:#E61652;
+	background-color: rgba(230, 22, 82, 0.5);
+}
+.searchResultsProduct:hover div.productItemInfoContent{
+	display:none;
+}
+.searchResultsProduct:hover div.productItemInfoMoreInfo{
+	display:block;
+}
 .searchResultsProduct button.quickView{
+	background-color:#E61652;
 	background-color: rgba(230, 22, 82, 0.5);
     border: medium none;
     border-radius: 3px 3px 3px 3px;

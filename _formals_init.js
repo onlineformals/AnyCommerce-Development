@@ -359,65 +359,7 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 	
 	
 	app.ext._store_banner.u.showCategoryBanners($context);
-}]);
 
-
-
-
-app.rq.push(['templateFunction','categoryTemplateProm','onCompletes',function(P) {
-	
-	var $context = $(app.u.jqSelector('#',P.parentID));
-	
-	//Carousel horizontal sliders - category banner
-	function carouselCPBannerProm(){ $(".carouselCPBannerListProm", $context).carouFredSel
-	({
-		width   : 700,
-		//height	: 440,
-		items   : 1,
-		scroll: 1,
-		auto : false,
-		prev : ".prevCPBannerCaroProm",
-		next : ".nextCPBannerCaroProm"
-	});
-	}
-	setTimeout(carouselCPBannerProm, 2000);
-	
-	
-		//Carousel title bar - homepage product lists
-	function carouselCatProductListTitleProm(){ $(".catProductListTitleCarouselProm").carouFredSel
-	({
-		width   : 400,
-		height	: 112,
-		items   : 1,
-		scroll: 1,
-		auto : false,
-	});
-	}
-	setTimeout(carouselCatProductListTitleProm, 2000);
-	
-	//Carousel Content bar - homepage product lists
-	function carouselCatProductListProm(){ $(".catProductListCarouselContainerProm").carouFredSel
-	({
-		width   : 700,
-		//height	: 695,
-		items   : 1,
-		scroll: 1,
-		auto : false,
-	});
-	}
-	$(".loadingBG", ".catProductListCarouselContainerProm").remove();
-	app.u.dump("loadingBG has been removed from bottom carousel");
-	
-	setTimeout(carouselCatProductListProm, 2000);
-	
-	$(".catProductListNextProm").click(function() {
-    	$(".catProductListTitleCarouselProm").trigger("next", 1);
-		$(".catProductListCarouselContainerProm").trigger("next", 1);
-    });
-	$(".catProductListPrevProm").click(function() {
-    	$(".catProductListTitleCarouselProm").trigger("prev", 1);
-		$(".catProductListCarouselContainerProm").trigger("prev", 1);
-    });
 }]);
 
 

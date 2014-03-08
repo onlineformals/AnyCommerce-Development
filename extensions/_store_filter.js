@@ -592,8 +592,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterPriceCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catTopCarousel', $context).height();
-							var ghostCell = sidebar - banner - 405;
+							//app.u.dump("sidebar = " + sidebar);
+							var banner = $('.carouselCPBannerList ', $context).height();
+							//app.u.dump("banner = " + banner);
+							if(banner == 0){
+								//app.u.dump("No banner detected. Reducing ghost cell size");
+								var ghostCell = sidebar - 55;
+							}
+							else{
+								//app.u.dump("Banner detected. Increasing ghost cell size");
+								var ghostCell = sidebar - banner - 55;
+							}
+							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -603,8 +613,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterPriceCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catTopCarousel', $context).height();
-							var ghostCell = sidebar - banner - 405;
+							//app.u.dump("sidebar = " + sidebar);
+							var banner = $('.carouselCPBannerList ', $context).height();
+							//app.u.dump("banner = " + banner);
+							if(banner == 0){
+								//app.u.dump("No banner detected. Reducing ghost cell size");
+								var ghostCell = sidebar - 55;
+							}
+							else{
+								//app.u.dump("Banner detected. Increasing ghost cell size");
+								var ghostCell = sidebar - banner - 55;
+							}
+							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -617,8 +637,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterDressTypeCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catTopCarousel', $context).height();
-							var ghostCell = sidebar - banner - 405;
+							//app.u.dump("sidebar = " + sidebar);
+							var banner = $('.carouselCPBannerList ', $context).height();
+							//app.u.dump("banner = " + banner);
+							if(banner == 0){
+								//app.u.dump("No banner detected. Reducing ghost cell size");
+								var ghostCell = sidebar - 55;
+							}
+							else{
+								//app.u.dump("Banner detected. Increasing ghost cell size");
+								var ghostCell = sidebar - banner - 55;
+							}
+							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -628,8 +658,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterDressTypeCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catTopCarousel', $context).height();
-							var ghostCell = sidebar - banner - 405;
+							//app.u.dump("sidebar = " + sidebar);
+							var banner = $('.carouselCPBannerList ', $context).height();
+							//app.u.dump("banner = " + banner);
+							if(banner == 0){
+								//app.u.dump("No banner detected. Reducing ghost cell size");
+								var ghostCell = sidebar - 55;
+							}
+							else{
+								//app.u.dump("Banner detected. Increasing ghost cell size");
+								var ghostCell = sidebar - banner - 55;
+							}
+							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -642,8 +682,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterDesignerCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catTopCarousel', $context).height();
-							var ghostCell = sidebar - banner - 405;
+							//app.u.dump("sidebar = " + sidebar);
+							var banner = $('.carouselCPBannerList ', $context).height();
+							//app.u.dump("banner = " + banner);
+							if(banner == 0){
+								//app.u.dump("No banner detected. Reducing ghost cell size");
+								var ghostCell = sidebar - 55;
+							}
+							else{
+								//app.u.dump("Banner detected. Increasing ghost cell size");
+								var ghostCell = sidebar - banner - 55;
+							}
+							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -653,8 +703,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterDesignerCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catTopCarousel', $context).height();
-							var ghostCell = sidebar - banner - 405;
+							//app.u.dump("sidebar = " + sidebar);
+							var banner = $('.carouselCPBannerList ', $context).height();
+							//app.u.dump("banner = " + banner);
+							if(banner == 0){
+								//app.u.dump("No banner detected. Reducing ghost cell size");
+								var ghostCell = sidebar - 55;
+							}
+							else{
+								//app.u.dump("Banner detected. Increasing ghost cell size");
+								var ghostCell = sidebar - banner - 55;
+							}
+							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -667,8 +727,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterColorCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catTopCarousel', $context).height();
-							var ghostCell = sidebar - banner - 405;
+							//app.u.dump("sidebar = " + sidebar);
+							var banner = $('.carouselCPBannerList ', $context).height();
+							//app.u.dump("banner = " + banner);
+							if(banner == 0){
+								//app.u.dump("No banner detected. Reducing ghost cell size");
+								var ghostCell = sidebar - 55;
+							}
+							else{
+								//app.u.dump("Banner detected. Increasing ghost cell size");
+								var ghostCell = sidebar - banner - 55;
+							}
+							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -678,8 +748,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterColorCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catTopCarousel', $context).height();
-							var ghostCell = sidebar - banner - 405;
+							//app.u.dump("sidebar = " + sidebar);
+							var banner = $('.carouselCPBannerList ', $context).height();
+							//app.u.dump("banner = " + banner);
+							if(banner == 0){
+								//app.u.dump("No banner detected. Reducing ghost cell size");
+								var ghostCell = sidebar - 55;
+							}
+							else{
+								//app.u.dump("Banner detected. Increasing ghost cell size");
+								var ghostCell = sidebar - banner - 55;
+							}
+							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -692,8 +772,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterHemlineCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catTopCarousel', $context).height();
-							var ghostCell = sidebar - banner - 405;
+							//app.u.dump("sidebar = " + sidebar);
+							var banner = $('.carouselCPBannerList ', $context).height();
+							//app.u.dump("banner = " + banner);
+							if(banner == 0){
+								//app.u.dump("No banner detected. Reducing ghost cell size");
+								var ghostCell = sidebar - 55;
+							}
+							else{
+								//app.u.dump("Banner detected. Increasing ghost cell size");
+								var ghostCell = sidebar - banner - 55;
+							}
+							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -703,8 +793,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterHemlineCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catTopCarousel', $context).height();
-							var ghostCell = sidebar - banner - 405;
+							//app.u.dump("sidebar = " + sidebar);
+							var banner = $('.carouselCPBannerList ', $context).height();
+							//app.u.dump("banner = " + banner);
+							if(banner == 0){
+								//app.u.dump("No banner detected. Reducing ghost cell size");
+								var ghostCell = sidebar - 55;
+							}
+							else{
+								//app.u.dump("Banner detected. Increasing ghost cell size");
+								var ghostCell = sidebar - banner - 55;
+							}
+							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -717,8 +817,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterSilhouetteCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catTopCarousel', $context).height();
-							var ghostCell = sidebar - banner - 405;
+							//app.u.dump("sidebar = " + sidebar);
+							var banner = $('.carouselCPBannerList ', $context).height();
+							//app.u.dump("banner = " + banner);
+							if(banner == 0){
+								//app.u.dump("No banner detected. Reducing ghost cell size");
+								var ghostCell = sidebar - 55;
+							}
+							else{
+								//app.u.dump("Banner detected. Increasing ghost cell size");
+								var ghostCell = sidebar - banner - 55;
+							}
+							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -728,8 +838,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterSilhouetteCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catTopCarousel', $context).height();
-							var ghostCell = sidebar - banner - 405;
+							//app.u.dump("sidebar = " + sidebar);
+							var banner = $('.carouselCPBannerList ', $context).height();
+							//app.u.dump("banner = " + banner);
+							if(banner == 0){
+								//app.u.dump("No banner detected. Reducing ghost cell size");
+								var ghostCell = sidebar - 55;
+							}
+							else{
+								//app.u.dump("Banner detected. Increasing ghost cell size");
+								var ghostCell = sidebar - banner - 55;
+							}
+							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -742,8 +862,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterNecklineCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catTopCarousel', $context).height();
-							var ghostCell = sidebar - banner - 405;
+							//app.u.dump("sidebar = " + sidebar);
+							var banner = $('.carouselCPBannerList ', $context).height();
+							//app.u.dump("banner = " + banner);
+							if(banner == 0){
+								//app.u.dump("No banner detected. Reducing ghost cell size");
+								var ghostCell = sidebar - 55;
+							}
+							else{
+								//app.u.dump("Banner detected. Increasing ghost cell size");
+								var ghostCell = sidebar - banner - 55;
+							}
+							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -753,8 +883,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterNecklineCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catTopCarousel', $context).height();
-							var ghostCell = sidebar - banner - 405;
+							//app.u.dump("sidebar = " + sidebar);
+							var banner = $('.carouselCPBannerList ', $context).height();
+							//app.u.dump("banner = " + banner);
+							if(banner == 0){
+								//app.u.dump("No banner detected. Reducing ghost cell size");
+								var ghostCell = sidebar - 55;
+							}
+							else{
+								//app.u.dump("Banner detected. Increasing ghost cell size");
+								var ghostCell = sidebar - banner - 55;
+							}
+							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -767,8 +907,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterSaleCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catTopCarousel', $context).height();
-							var ghostCell = sidebar - banner - 405;
+							//app.u.dump("sidebar = " + sidebar);
+							var banner = $('.carouselCPBannerList ', $context).height();
+							//app.u.dump("banner = " + banner);
+							if(banner == 0){
+								//app.u.dump("No banner detected. Reducing ghost cell size");
+								var ghostCell = sidebar - 55;
+							}
+							else{
+								//app.u.dump("Banner detected. Increasing ghost cell size");
+								var ghostCell = sidebar - banner - 55;
+							}
+							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -778,8 +928,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterSaleCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catTopCarousel', $context).height();
-							var ghostCell = sidebar - banner - 405;
+							//app.u.dump("sidebar = " + sidebar);
+							var banner = $('.carouselCPBannerList ', $context).height();
+							//app.u.dump("banner = " + banner);
+							if(banner == 0){
+								//app.u.dump("No banner detected. Reducing ghost cell size");
+								var ghostCell = sidebar - 55;
+							}
+							else{
+								//app.u.dump("Banner detected. Increasing ghost cell size");
+								var ghostCell = sidebar - banner - 55;
+							}
+							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -792,8 +952,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterTrendsCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catTopCarousel', $context).height();
-							var ghostCell = sidebar - banner - 405;
+							//app.u.dump("sidebar = " + sidebar);
+							var banner = $('.carouselCPBannerList ', $context).height();
+							//app.u.dump("banner = " + banner);
+							if(banner == 0){
+								//app.u.dump("No banner detected. Reducing ghost cell size");
+								var ghostCell = sidebar - 55;
+							}
+							else{
+								//app.u.dump("Banner detected. Increasing ghost cell size");
+								var ghostCell = sidebar - banner - 55;
+							}
+							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -803,8 +973,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterTrendsCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							var banner = $('.catTopCarousel', $context).height();
-							var ghostCell = sidebar - banner - 405;
+							//app.u.dump("sidebar = " + sidebar);
+							var banner = $('.carouselCPBannerList ', $context).height();
+							//app.u.dump("banner = " + banner);
+							if(banner == 0){
+								//app.u.dump("No banner detected. Reducing ghost cell size");
+								var ghostCell = sidebar - 55;
+							}
+							else{
+								//app.u.dump("Banner detected. Increasing ghost cell size");
+								var ghostCell = sidebar - banner - 55;
+							}
+							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -813,18 +993,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 				catProdListFilterExpandContract : function($context){
 					//app.u.dump(context);
 					var sidebar = $('.catProdListSidebar', $context).height();
-					app.u.dump("sidebar = " + sidebar);
+					//app.u.dump("sidebar = " + sidebar);
 					var banner = $('.carouselCPBannerList ', $context).height();
-					app.u.dump("banner = " + banner);
+					//app.u.dump("banner = " + banner);
 					if(banner == 0){
-						app.u.dump("No banner detected. Reducing ghost cell size");
+						//app.u.dump("No banner detected. Reducing ghost cell size");
 						var ghostCell = sidebar - 55;
 					}
 					else{
-						app.u.dump("Banner detected. Increasing ghost cell size");
+						//app.u.dump("Banner detected. Increasing ghost cell size");
 						var ghostCell = sidebar - banner - 55;
 					}
-					app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
+					//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 					$('.catGhostCell', $context).data('heightVal', ghostCell).append();
 					$(".catGhostCell", $context).css("height",ghostCell);
 					

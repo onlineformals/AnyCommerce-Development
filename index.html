@@ -460,6 +460,10 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
 					<div class="AuthorizeNetSeal"> <script type="text/javascript" language="javascript">var ANS_customer_id="2ac6c99b-53f8-4abd-bc2e-a2d6a6f8dd53";</script> <script type="text/javascript" language="javascript" src="//verify.authorize.net/anetseal/seal.js" ></script> <a href="http://www.authorize.net/" id="AuthorizeNetText" target="_blank">Accepts Credit Cards</a> </div>
 				</div>
 				
+				<div class="footerRapidSSLSeal">
+					<img src="Images/Homepage/footer/RapidSSL_SEAL-90x50.gif" />
+				</div>
+				
                 
 				<div class="footerGeotrustSeal">
 					<script language="javascript" type="text/javascript" src="//smarticon.geotrust.com/si.js"></script>
@@ -1180,7 +1184,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 
 SANITY -> if you change the height and width of this image, change the .minimalMode .searchResultsProduct in qs_styles.css to match
 -->
-<li id='productListTemplateResults' class='loadingBG searchResultsProduct' onMouseOver="$('.quickView',$(this)).show(); app.ext._store_formals.a.homepageCarouselProdItemMouseOver($(this));" onMouseOut="$('.quickView').hide(); app.ext._store_formals.a.homepageCarouselProdItemMouseOut($(this));" >
+<li id='productListTemplateResults' class='loadingBG searchResultsProduct' onMouseOver="$('.quickView',$(this)).show();" onMouseOut="$('.quickView').hide();" >
 	<button class='floatRight pointer quickView displayNone' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">Quickview</button>
 
 	<div class='pointer' onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
@@ -1194,6 +1198,12 @@ SANITY -> if you change the height and width of this image, change the .minimalM
         
                 <h6 data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
                 
+				<h5 class='prodListItemProdMSRP prodMSRP' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true; pretext: MSRP: ;'></h5>
+                <!--
+				<span class='prodListItemSavings savings'>
+                    <span class='savingsDifference' data-bind='var: product(pid); format:priceRetailSavingsDifference; extension:myRIA; pretext: You save: ;'></span>
+                    <span class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></span>
+                </span>
                 <!--<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>-->
         <!-- 	<span data-bind='var: reviews(reviews.total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
 			</div>

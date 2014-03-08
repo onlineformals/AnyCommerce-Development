@@ -19,6 +19,10 @@
 var _store_formals = function() {
 	var r= {
 		vars : {
+			scrollPosHist : "",
+			scrollPosBackHit : "",
+			scrollPosArrayIndex : "",
+
 			catTemplates : {
 			
 				".showroom":"showroomTemplate",
