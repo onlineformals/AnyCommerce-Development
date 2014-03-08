@@ -609,12 +609,12 @@ progress::-moz-progress-bar { background: #E61652; }
 }
 .footerTopPromSeal{
 	float: left;
-    margin-left: 275px;
+    margin-left: 140px;
     margin-top: 3px;
 }
 .footerAuthorizeDotNetSeal{
 	float: left;
-    margin-left: 110px;
+    margin-left: 175px;
 }
 .footerGeotrustSeal{
 	float: left;
@@ -622,6 +622,9 @@ progress::-moz-progress-bar { background: #E61652; }
     margin-top: 10px;
 }
 .footerRapidSSLSeal{
+	float: left;
+    margin-left: 175px;
+    margin-top: 10px;
 }
 
 
