@@ -944,7 +944,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 						if(app.ext.myRIA.vars.session.recentCategories[0] != infoObj.navcat)	{
 							app.ext.myRIA.vars.session.recentCategories.unshift(infoObj.navcat);
 							}
-						
+						infoObj.performJumpToTop = false; //dont jump to top.
 						infoObj.parentID = app.ext.myRIA.u.showPage(infoObj); //### look into having showPage return infoObj instead of just parentID.
 						break;
 	
@@ -1046,7 +1046,6 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 						window.location.hash = hash;
 						}
 					}
-				infoObj.performJumpToTop = false; //dont jump to top.
 				if(infoObj.performJumpToTop)	{$('html, body').animate({scrollTop : 0},1000)} //new page content loading. scroll to top.				
 //transition appPreView out on init.
 				if($('#appPreView').is(':visible'))	{
