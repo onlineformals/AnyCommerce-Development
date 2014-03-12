@@ -42,10 +42,10 @@ var store_backScrollPosition = function() {
 						var $context = $(app.u.jqSelector('#',P.parentID));
 						app.u.dump($context);
 						if($context.hasClass("initialLoadComplete")){
-							app.u.dump("initialLoadComplete exists. Do nothing")
+							//app.u.dump("initialLoadComplete exists. Do nothing")
 						}
 						else{
-							app.u.dump("initialLoadComplete does not exists. Adding it")
+							//app.u.dump("initialLoadComplete does not exists. Adding it")
 							$context.addClass("initialLoadComplete");
 						}
 					}]);
@@ -56,33 +56,33 @@ var store_backScrollPosition = function() {
 						  if(app.ext.myRIA.template[t].onDeparts){
 							app.ext.myRIA.template[t].onDeparts.push(function(){
 								if(app.ext.store_backScrollPosition.vars.scrollPosBackHit === 1){
-									app.u.dump("Begin returning scroll position to previous location");
-									app.u.dump("back button was hit.");
-									app.u.dump(app.ext.store_backScrollPosition.vars.scrollPosBackHit);
-									app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosArrayIndex = " + app.ext.store_backScrollPosition.vars.scrollPosArrayIndex);
-									app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosHist[app.ext.store_backScrollPosition.vars.scrollPosArrayIndex] = " + app.ext.store_backScrollPosition.vars.scrollPosHist[app.ext.store_backScrollPosition.vars.scrollPosArrayIndex]);
+									//app.u.dump("Begin returning scroll position to previous location");
+									//app.u.dump("back button was hit.");
+									//app.u.dump(app.ext.store_backScrollPosition.vars.scrollPosBackHit);
+									//app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosArrayIndex = " + app.ext.store_backScrollPosition.vars.scrollPosArrayIndex);
+									//app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosHist[app.ext.store_backScrollPosition.vars.scrollPosArrayIndex] = " + app.ext.store_backScrollPosition.vars.scrollPosHist[app.ext.store_backScrollPosition.vars.scrollPosArrayIndex]);
 									if(app.ext.store_backScrollPosition.vars.scrollPosArrayIndex === 0){
 										function scrollToPosition1(){
 											$('html, body').animate({scrollTop : app.ext.store_backScrollPosition.vars.scrollPosHist[app.ext.store_backScrollPosition.vars.scrollPosArrayIndex]},1000);
 											app.ext.store_backScrollPosition.vars.scrollPosBackHit = 0;
-											app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosArrayIndex = 0");
-											app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosHist[app.ext.store_backScrollPosition.vars.scrollPosArrayIndex] = " + app.ext.store_backScrollPosition.vars.scrollPosHist[app.ext.store_backScrollPosition.vars.scrollPosArrayIndex]);
-											app.u.dump("Ran scrollToPosition1");
+											//app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosArrayIndex = 0");
+											//app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosHist[app.ext.store_backScrollPosition.vars.scrollPosArrayIndex] = " + app.ext.store_backScrollPosition.vars.scrollPosHist[app.ext.store_backScrollPosition.vars.scrollPosArrayIndex]);
+											//app.u.dump("Ran scrollToPosition1");
 										}
 										setTimeout(scrollToPosition1, 2000);
 								}
 								else{
 									function scrollToPosition2(){
-										app.u.dump("Begin returning scroll position to previous location");
+										//app.u.dump("Begin returning scroll position to previous location");
 										//app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosArrayIndex before reduction = " + app.ext.store_backScrollPosition.vars.scrollPosArrayIndex);
 										app.ext.store_backScrollPosition.vars.scrollPosArrayIndex = app.ext.store_backScrollPosition.vars.scrollPosArrayIndex - 1;
-										app.u.dump("index passed into scrollTo = " + app.ext.store_backScrollPosition.vars.scrollPosArrayIndex);
-										app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosHist = " + app.ext.store_backScrollPosition.vars.scrollPosHist);
-										app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosHist[app.ext.store_backScrollPosition.vars.scrollPosArrayIndex] = " + app.ext.store_backScrollPosition.vars.scrollPosHist[app.ext.store_backScrollPosition.vars.scrollPosArrayIndex]);
+										//app.u.dump("index passed into scrollTo = " + app.ext.store_backScrollPosition.vars.scrollPosArrayIndex);
+										//app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosHist = " + app.ext.store_backScrollPosition.vars.scrollPosHist);
+										//app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosHist[app.ext.store_backScrollPosition.vars.scrollPosArrayIndex] = " + app.ext.store_backScrollPosition.vars.scrollPosHist[app.ext.store_backScrollPosition.vars.scrollPosArrayIndex]);
 										$('html, body').animate({scrollTop : app.ext.store_backScrollPosition.vars.scrollPosHist[app.ext.store_backScrollPosition.vars.scrollPosArrayIndex]},1000);
 										app.ext.store_backScrollPosition.vars.scrollPosBackHit = 0;
 										app.ext.store_backScrollPosition.vars.scrollPosArrayIndex = app.ext.store_backScrollPosition.vars.scrollPosArrayIndex - 1;
-										app.u.dump("Ran scrollToPosition2");
+										//app.u.dump("Ran scrollToPosition2");
 									}
 									setTimeout(scrollToPosition2, 2000);
 								}
@@ -97,18 +97,18 @@ var store_backScrollPosition = function() {
 						for( var t in app.ext.myRIA.template ){
 						  if(app.ext.myRIA.template[t].onCompletes){
 							app.ext.myRIA.template[t].onCompletes.push(function(){
-								app.u.dump("Begin adding scroll position to array");
-								app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosBackHit = " + app.ext.store_backScrollPosition.vars.scrollPosBackHit);
+								//app.u.dump("Begin adding scroll position to array");
+								//app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosBackHit = " + app.ext.store_backScrollPosition.vars.scrollPosBackHit);
 								if(app.ext.store_backScrollPosition.vars.scrollPosHist === ""){
-									app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosHist is null");
+									//app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosHist is null");
 									app.ext.store_backScrollPosition.vars.scrollPosHist = window.pageYOffset;
 									app.ext.store_backScrollPosition.vars.scrollPosArrayIndex = 0;
-									app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosHist = " + app.ext.store_backScrollPosition.vars.scrollPosHist);
-									app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosArrayIndex = " + app.ext.store_backScrollPosition.vars.scrollPosArrayIndex);
+									//app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosHist = " + app.ext.store_backScrollPosition.vars.scrollPosHist);
+									//app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosArrayIndex = " + app.ext.store_backScrollPosition.vars.scrollPosArrayIndex);
 								}
 								else{
 									if(app.ext.store_backScrollPosition.vars.scrollPosArrayIndex === 0){
-										app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosHist is 0");
+										//app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosHist is 0");
 										var newArray = new Array();
 										var currentIndex = app.ext.store_backScrollPosition.vars.scrollPosArrayIndex;
 										newArray[0] = app.ext.store_backScrollPosition.vars.scrollPosHist;
@@ -116,11 +116,11 @@ var store_backScrollPosition = function() {
 										app.ext.store_backScrollPosition.vars.scrollPosHist = newArray;
 										currentIndex = currentIndex + 1;
 										app.ext.store_backScrollPosition.vars.scrollPosArrayIndex = currentIndex;
-										app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosHist = " + app.ext.store_backScrollPosition.vars.scrollPosHist);
-										app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosArrayIndex = " + app.ext.store_backScrollPosition.vars.scrollPosArrayIndex);
+										//app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosHist = " + app.ext.store_backScrollPosition.vars.scrollPosHist);
+										//app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosArrayIndex = " + app.ext.store_backScrollPosition.vars.scrollPosArrayIndex);
 									}
 									else{
-										app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosHist does not = 0");
+										//app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosHist does not = 0");
 										var oldArray = new Array();
 										var currentIndex = app.ext.store_backScrollPosition.vars.scrollPosArrayIndex;
 										oldArray = app.ext.store_backScrollPosition.vars.scrollPosHist;
@@ -128,8 +128,8 @@ var store_backScrollPosition = function() {
 										oldArray[currentIndex] = window.pageYOffset;
 										app.ext.store_backScrollPosition.vars.scrollPosHist = oldArray;
 										app.ext.store_backScrollPosition.vars.scrollPosArrayIndex = currentIndex;
-										app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosHist = " + app.ext.store_backScrollPosition.vars.scrollPosHist);
-										app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosArrayIndex = " + app.ext.store_backScrollPosition.vars.scrollPosArrayIndex);
+										//app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosHist = " + app.ext.store_backScrollPosition.vars.scrollPosHist);
+										//app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosArrayIndex = " + app.ext.store_backScrollPosition.vars.scrollPosArrayIndex);
 									}
 								}
 							});

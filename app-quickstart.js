@@ -945,7 +945,8 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 							app.ext.myRIA.vars.session.recentCategories.unshift(infoObj.navcat);
 							}
 						if ($(infoObj).hasClass("initialLoadComplete")) {
-							app.u.dump("initialLoadComplete found. Preventing scrollTop")
+							//app.u.dump($(infoObj));
+							//app.u.dump("initialLoadComplete found. Preventing scrollTop")
 							infoObj.performJumpToTop = false; //dont jump to top.
 						}
 						else{
