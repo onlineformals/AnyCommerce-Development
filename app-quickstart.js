@@ -2000,6 +2000,7 @@ if(ps.indexOf('?') >= 1)	{
 //				app.u.dump("BEGIN handlePopState");
 //				app.u.dump(infoObj);
 
+				app.ext.store_backScrollPosition.vars.scrollPosBackHit = 1;
 //on initial load, infoObj will be blank.
 				if(infoObj)	{
 					infoObj.back = 0;
