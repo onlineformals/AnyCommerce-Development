@@ -38,6 +38,19 @@ var store_backScrollPosition = function() {
 			startExtension : {
 				onSuccess : function (){
 					app.u.dump('BEGIN app.ext.store_backScrollPosition.callbacks.startExtension.onSuccess')
+
+					var $context = $(app.u.jqSelector('#',P.parentID));
+
+					//FIRST TIME LOAD CATEGORY CLASS SELECTOR
+					app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
+						if($('.categoryTemplate ',$context).hasClass("initialLoadDone")){
+						}
+						else{
+							$('.categoryTemplate ',$context).addClass("initialLoadDone");
+						}
+					});	
+
+					//BACK BUTTON FUNCTIONALITY
 					function addScrollPosSet(){
 						for( var t in app.ext.myRIA.template ){
 						  if(app.ext.myRIA.template[t].onDeparts){

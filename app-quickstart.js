@@ -881,7 +881,7 @@ fallback is to just output the value.
 what is returned. is set to true if pop/pushState NOT supported. 
 if the onclick is set to return showContent(... then it will return false for browser that support push/pop state but true
 for legacy browsers. That means old browsers will use the anchor to retain 'back' button functionality.
-*/
+*/				var $context = $(app.u.jqSelector('#',P.parentID));
 				var r = false;
 				var $old = $("#mainContentArea :visible:first"); //used for transition (actual and validation).
 //clicking to links (two product, for example) in a short period of time was rendering both pages at the same time.
@@ -944,7 +944,10 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 						if(app.ext.myRIA.vars.session.recentCategories[0] != infoObj.navcat)	{
 							app.ext.myRIA.vars.session.recentCategories.unshift(infoObj.navcat);
 							}
-						infoObj.performJumpToTop = false; //dont jump to top.
+						if($('.categoryTemplate ',$context).hasClass("initialLoadDone")){
+							infoObj.performJumpToTop = false; //dont jump to top.
+						}
+						
 						infoObj.parentID = app.ext.myRIA.u.showPage(infoObj); //### look into having showPage return infoObj instead of just parentID.
 						break;
 	
