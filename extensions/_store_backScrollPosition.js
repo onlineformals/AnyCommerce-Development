@@ -36,7 +36,20 @@ var store_backScrollPosition = function() {
 				}
 			},
 			startExtension : {
-				onSuccess : function (){
+				onSuccess : function (p){
+
+					app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
+						var $context = $(app.u.jqSelector('#',P.parentID));
+						app.u.dump($context);
+						if($context.hasClass("initialLoadComplete")){
+							app.u.dump("initialLoadComplete exists. Do nothing")
+						}
+						else{
+							app.u.dump("initialLoadComplete does not exists. Adding it")
+							$context.addClass("initialLoadComplete");
+						}
+					}]);
+
 					app.u.dump('BEGIN app.ext.store_backScrollPosition.callbacks.startExtension.onSuccess')
 					function addScrollPosSet(){
 						for( var t in app.ext.myRIA.template ){

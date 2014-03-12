@@ -944,7 +944,13 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 						if(app.ext.myRIA.vars.session.recentCategories[0] != infoObj.navcat)	{
 							app.ext.myRIA.vars.session.recentCategories.unshift(infoObj.navcat);
 							}
-						infoObj.performJumpToTop = false; //dont jump to top.
+						if ($(infoObj).hasClass("initialLoadComplete")) {
+							app.u.dump("initialLoadComplete found. Preventing scrollTop")
+							infoObj.performJumpToTop = false; //dont jump to top.
+						}
+						else{
+							app.u.dump("initialLoadComplete not found. Performing scrollTop")
+						}
 						infoObj.parentID = app.ext.myRIA.u.showPage(infoObj); //### look into having showPage return infoObj instead of just parentID.
 						break;
 	
