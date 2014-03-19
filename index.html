@@ -3,13 +3,15 @@
 <head>
 <meta charset="utf-8">
 
-<!-- do not populate or add meta data or title, the SEO layer will add it -->
+<!-- do not populate or add meta data, the SEO layer will add it -->
+<title>OnlineFormals.com</title><!-- this will get populated by the SEO layer -->
 
 <!-- used for optional social media extensions -->
 <meta property="og:type" content="" id='ogType' >
 <meta property="og:image" content="" id='ogImage' >
 <meta property="og:description" content="" id='ogDescription' >
 
+<meta name=viewport content="width=device-width, initial-scale=1">
 
 <base href='' /><!-- leave blank so it works for a local file. updated to / if protocol is not file: -->
 
@@ -19,26 +21,19 @@
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-2216669-4']);
 _gaq.push(['_trackPageview']);
-var myCreole;
-
-var app = {vars:{
-	"release":"201346.dn",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
-	"_clientid":"zmvc",
-	"baseURL":"", //used in non-local mode.
-	"checkoutAuthMode" : "active",//can be passive, active or required
-	"testURL":"http://www.onlineformals.com/" //used ONLY if protocol is file: (for testing)
-	},u:{},rq:[]};
+var myCreole, baseURL;
 
 //set base url so images, css, js, etc all load from appropriate location once deployed.
 //baseURL as blank lets loadScript function run off local copy when testing locally.
 if(document.location.protocol == 'file:')	{
-	app.vars.baseURL  = "";
+	baseURL  = "";
 	}
 else	{
-	app.vars.baseURL = document.location.protocol+"//"+document.domain+"/";
+	baseURL = document.location.protocol+"//"+document.domain+"/";
 	}
-document.getElementsByTagName('base')[0].href = app.vars.baseURL;
+document.getElementsByTagName('base')[0].href = baseURL;
 </script>
+
 
 
 <!--
@@ -47,7 +42,7 @@ css files should be included before any .js file to ensure they are downloaded i
 -->
 <link rel="stylesheet" type="text/css" href="app-quickstart.css" />
 <link rel="stylesheet" type="text/css" href="_formals_css.css" />
-<!--<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/ui-lightness/jquery-ui.css" />-->
+<!--<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/ui-lightness/jquery-ui.css" />-->
 <link rel="stylesheet" type="text/css" href="jquery-ui-1.10.3.custom/css/Online-Formals/jquery-ui-1.10.3.custom.css" />
 <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700' rel='stylesheet' type='text/css' />
 <link href='https://fonts.googleapis.com/css?family=Maven+Pro:400,500,900,700' rel='stylesheet' type='text/css'>
@@ -67,17 +62,42 @@ css files should be included before any .js file to ensure they are downloaded i
 <![endif]-->
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script src="resources/jquery.ui.widget.min.js"></script><!-- here so that plugins that may load before the jqueryui lib load without error -->
-<script type="text/javascript" src="loadscript.js"></script>
+<!-- jquery and jquery ui are pivotal to the functionality of the app. load them early -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+<script src="controller.js"></script>
+<script src="model.js"></script>
 
 <!--CUSTOM SCRIPTS GO HERE-->
 
 
 
 
+<!-- ### TODO -> test how the load process goes w/ these in init. if includes is moved, move the new Parse  -->
+<script src="resources/jquery.ui.anyplugins.js"></script>
+<script type="text/javascript" src="includes.js"></script>
+
 <script type="text/javascript">
-app.u.loadScript(app.vars.baseURL+"_formals_init.js");
+$(document).ready(function(){
+
+	window.myApp = new initApp({
+		"release":"201402.a",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
+		"baseURL":baseURL, //used in non-local mode.
+		"checkoutAuthMode" : "active",//can be passive, active or required
+		"testURL":"http://www.onlineformals.com/", //used ONLY if protocol is file: (for testing)
+		"addjQueryPointer" : true,
+		"initComplete" : function(t){
+			dump(" -> init is complete");
+			t.u.loadScript('_formals_init.js',function(){
+				var progress = t.u.loadResources(); //the object returns by loadResources will get updated as the resources finish loading.
+				t.u.showProgress(progress);
+				});
+			$('#appversion').text(t.vars.release);
+			}
+		});
+	myCreole = new Parse.Simple.Creole();
+	});
 </script>
 
 
@@ -97,6 +117,7 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
 	<td>
 
 	<div id="loader">
+		<h3>One moment please.</h3>
 
 		<div class='alignCenter'>
  		
@@ -122,12 +143,20 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
 
 <div id='appView' class='displayNone'>
 
+<!--
+ANIMATION TESTING
+<div style="background: black; float: left;">
+	<div data-animation-mouseenter="cogs?animFunc=fwd" data-animation-mouseout="cogs?animFunc=back" style="width: 55px; height: 55px;" id="cogs"></div>
+</div>
+-->
+
+
 <!-- VIEW CONTENT -->
 <!-- leave the appView div, put your your html here ...  -->
 
 	<!--
 	** REMINDER : DO NOT PUT ANY GRAPHICS/CONTENT THAT SHOULD NOT APPEAR ON EVERY PAGE IN THE VIEW (HERE)
-	**				  INSTEAD PUT THEM INTO <div id="homepageTemplate"></div>
+	**				  INSTEAD PUT THEM INTO <div id='homepageTemplate'></div>
 	-->
 	
 <div id='globalMessaging' class='appMessaging'></div><!-- DO NOT REMOVE - used for some high level error handling (usually appears below breadcrumb nav or top bar) -->
@@ -484,6 +513,40 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
 
 
 
+<!--
+*************************************************************************************************************
+**
+**
+**										C A R T   M E S S A G E   U I      S T A R T S      H E R E
+**
+** A mechanism where buyers and merchants can communicate in real time.
+**
+*************************************************************************************************************
+-->
+
+
+
+<div id='cartMessenger' class='displayNone seoStrip' data-app-role='cartMessenger' title="help">
+	<form novalidate='novalidate' onSubmit="return false">
+		<div class='messageHistoryContainer'>
+			<section data-app-role='messageHistory'></section>
+		</div>
+		<fieldset data-app-role='messageInput' class='smallButton messageInputContainer displayNone'>
+			<textarea name='message' required='required' class='fullWidth' rows='5' placeholder='send a message'></textarea>
+			<button class='applyButton' data-app-click='cart_message|chatPostExec' data-app-role='messageSubmitButton'>Send Message</button>
+		</fieldset>
+		<input type='text' placeholder='first name' name='bill/firstname' value='' data-tlc="bind $var 'bill.firstname'; apply --select=$var;" data-app-blur='cco|cartSetAttrib' />
+		<section data-app-role='messageCommands' class='messageCommandsContainer'>
+		<button class='applyButton displayNone show4ActiveChat' data-app-click="quickstart|cartMessagePageSend" title='Show the associate what page I am on.'>Send Page</button>
+		<button data-app-click="cart_message|cartCSRShortcutExec" class='applyButton hide4ActiveChat'>Cart Shortcut</button><!-- if the buyer is already on the phone w/ the merchant, they could use this so the admin can access the cart -->
+		</section>
+	</form>
+</div>
+
+
+
+
+
 
 
 
@@ -502,7 +565,7 @@ app.u.loadScript(app.vars.baseURL+"_formals_init.js");
 -->
 
 
-<div id='appTemplates' class='displayNone'>
+<div id='appTemplates' class='displayNone seoStrip'>
 
 
 <!--
@@ -697,20 +760,14 @@ END HOMEPAGE FOUR TALL AD BANNER BARS SECTION
     </div>
 	
     <!--
-	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
+	<ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList"></ul>
 
-	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; before:<h2>Featured Items</h2>; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+	<ul data-tlc="bind $var '.@products'; store_prodlist#productlist  --hidesummary='1' --withReviews='1' --withVariations='1' --withInventory='1' --templateid='productListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin productList"></ul>
 
-<!-- a sample of how to format an elastic native search in a data-bind -->
-	<!--
-    <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+	<p data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
 
-	<a href="#" onClick="return showContent('search',{'TAG':'IS_BESTSELLER'});">See all Best Sellers</a>
-
-<!-- a sample of how to get a 'list' src onto the page. -->
-	<!--
-    <ul data-bind="var: list($models.@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+	<ul data-tlc="quickstart#searchbytag --tag='IS_BESTSELLER' --title='Best Sellers' --size='8' --templateid='productListTemplateResultsNoPreview';" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+	<ul data-tlc="bind $var '.$listName.@products'; store_prodlist#productlist  --hidesummary='1' --withReviews='1' --withVariations='1' --withInventory='1' --templateid='productListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin productList"></ul>
 	-->
 
 </div>
@@ -729,32 +786,32 @@ used to organize content when a category is clicked.
 each of the 'sections' are used to load another template. don't change the id.
 don't modify the 'data-templateid' unless you are changing template names and updating everywhere appropriate.
 -->
-<div id='categoryTemplate' class='loadingBG categoryTemplate'>
+<div id="categoryTemplate" class=" categoryTemplate">
 
 	<div class="centeringContainer">
-        <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(path); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+        <ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>
         <div class="catTopCarousel">
             <div class="carouselCPBannerList">
             </div>
             <img class="prevCPBannerCaro" src="Images/Homepage/caroleft.png" />
             <img class="nextCPBannerCaro" src="Images/Homepage/caroright.png" />
-            <div class="catProdListCustomTextArea displayNone" data-bind="var: category(%page.description); format: showIfSet;">
-                <h1 data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></h1>
+            <div class="catProdListCustomTextArea displayNone" data-tlc="bind $var '.%page.description'; showIfSet;">
+                <h1 data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></h1>
             </div>
         </div>
         
-        <ul class='listStyleNone fluidList clearfix noPadOrMargin categoryList' data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;"></ul><!-- outputs a list of subcategories -->
+        <ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList"></ul><!-- outputs a list of subcategories -->
         
-        <div class="catCustomTextArea displayNone" data-bind="var: category(%page.description); format: showIfSet;">
-            <h1 data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></h1>
+        <div class="catCustomTextArea displayNone" data-tlc="bind $var '.%page.description'; showIfSet;">
+            <h1 data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></h1>
         </div>
         
          <div class="catBottomCarousel">         	
-            <div class="catProductListTitleCarouselBar displayNone" data-bind="var: category(@products); format: showIfSet;">
+            <div class="catProductListTitleCarouselBar displayNone" data-tlc="bind $var '.@products'; format: showIfSet;">
             	<h3>Featured Styles</h3>
             </div>
             <div class="catProductListContentArea">
-                <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
+                <ul data-tlc="bind $var '.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate';" class="listStyleNone fluidList clearfix noPadOrMargin productList"></ul><!-- outputs the product list -->
             </div>
         </div>
         <!--
@@ -773,30 +830,29 @@ don't modify the 'data-templateid' unless you are changing template names and up
             <div class="catProductListContentArea">
                 <div class="catProductListCarouselArea">
                     <div class="catProductListCarouselContainer">
-                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
-                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_best_sellers.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
-                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_new_arrivals.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
-                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_celebrity_trends.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
-                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_new_to_sale.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
+                        <ul data-tlc="bind $var '.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate';" class="listStyleNone fluidList clearfix noPadOrMargin productList">
+			<ul data-tlc="bind $var '.$app_best_sellers.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate';" class="listStyleNone fluidList clearfix noPadOrMargin productList">
+			<ul data-tlc="bind $var '.$app_new_arrivals.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate';" class="listStyleNone fluidList clearfix noPadOrMargin productList">
+			<ul data-tlc="bind $var '.$app_celebrity_trends.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate';" class="listStyleNone fluidList clearfix noPadOrMargin productList">
+			<ul data-tlc="bind $var '.$app_new_to_sale.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate';" class="listStyleNone fluidList clearfix noPadOrMargin productList">
+			
                     </div>
                     <div class="catProductListPag"></div>
                 </div>
             </div>
         </div>
         <!--
-        <img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" src='images/blank.gif' alt='' />
+        <img data-tlc="bind $var '.%page.banner1'; quickstart#banner  --height='250' --width='750' --legacy;" src="images/blank.gif" alt="">
     
-        <h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
-    
-        <p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-    
-        <ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
-    
-        <!--
-        <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
-    
-        <!--
-        <p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+        <h2 data-tlc="bind $var '.%page.header'; if (is $var --notblank;) {{apply --append;}};"></h2>
+
+	<p data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
+
+	<ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList"></ul><!-- outputs a list of subcategories -->
+
+	<ul data-tlc="bind $var '.@products'; store_prodlist#productlist  --withReviews='1' --withInventory='1' --withVariations='1' --itemsperpage='25' --templateid='productListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin productList"></ul><!-- outputs the product list -->
+
+	<p data-tlc="bind $var '.%page.description2'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
         -->
     </div>
    
@@ -805,141 +861,6 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 
 
-
-<div id='categoryTemplateProm' class='loadingBG categoryTemplate'>
-
-	<div class="centeringContainer">
-        <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(path); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
-    
-        <div class="catSidebar">
-        	<h3>Our Designers</h3>
-            <ul>
-            	<li><a href="#!category?navcat=.prom.designers.bg_haute" class="pointer bindByAnchor">BG Haute</a></li>
-                <li><a href="#!category?navcat=.prom.designers.cassandra_stone" class="pointer bindByAnchor">Cassandra Stone</a></li>
-                <li><a href="#!category?navcat=.prom.designers.faviana" class="pointer bindByAnchor">Faviana</a></li>
-                <li><a href="#!category?navcat=.prom.designers.gigi" class="pointer bindByAnchor">Gigi</a></li>
-                <li><a href="#!category?navcat=.prom.designers.jasz_couture" class="pointer bindByAnchor">Jasz Couture</a></li>
-                <li><a href="#!category?navcat=.prom.designers.johnathan_kayne" class="pointer bindByAnchor">Johnathan Kayne</a></li>
-                <!--<li><a href="#!category?navcat=.prom.designers.jovani" class="pointer bindByAnchor">Jovani</a></li>-->
-                <li><a href="#!category?navcat=.prom.designers.la_femme" class="pointer bindByAnchor">La Femme</a></li>
-                <li><a href="#!category?navcat=.prom.designers.le_gala" class="pointer bindByAnchor">Le Gala</a></li>
-                <li><a href="#!category?navcat=.prom.designers.lm_collection" class="pointer bindByAnchor">LM Collection</a></li>
-                <li><a href="#!category?navcat=.prom.designers.mac_duggal" class="pointer bindByAnchor">Mac Duggal</a></li>
-                <li><a href="#!category?navcat=.prom.designers.mignon" class="pointer bindByAnchor">Mignon</a></li>
-                <li><a href="#!category?navcat=.prom.designers.mnm_couture" class="pointer bindByAnchor">MNM Couture</a></li>
-                <li><a href="#!category?navcat=.prom.designers.night_moves" class="pointer bindByAnchor">Night Moves</a></li>
-                <li><a href="#!category?navcat=.prom.designers.paris" class="pointer bindByAnchor">Paris</a></li>
-                <li><a href="#!category?navcat=.prom.designers.scala" class="pointer bindByAnchor">Scala</a></li>
-                <li><a href="#!category?navcat=.prom.designers.shail_k" class="pointer bindByAnchor">Shail K</a></li>
-                <li><a href="#!category?navcat=.prom.designers.sherri_hill" class="pointer bindByAnchor">Sherri Hill</a></li>
-                <li><a href="#!category?navcat=.prom.designers.tony_bowls" class="pointer bindByAnchor">Tony Bowls</a></li>
-                <!--
-                <li style="margin-left:6px;"><a href="#!category?navcat=.prom.designers.faviana" class="pointer bindByAnchor"><img src="Images/categorypage/logos/faviana-logo1.png" /></a></li>
-                <li><a href="#!category?navcat=.prom.designers.gigi" class="pointer bindByAnchor"><img src="Images/categorypage/logos/GIGI_LOGO_white.jpg" /></a></li>
-                <li><a href="#!category?navcat=.prom.designers.jasz_couture" class="pointer bindByAnchor"><img src="Images/categorypage/logos/jasz-couture-logo.jpg" /></a></li>
-                <li><a href="#!category?navcat=.prom.designers.johnathan_kayne" class="pointer bindByAnchor"><img src="Images/categorypage/logos/JohnahtanKayneLogo.jpg" /></a></li>
-                <li><a href="#!category?navcat=.prom.designers.jovani" class="pointer bindByAnchor"><img src="Images/categorypage/logos/JOVANI LOGO - PINK.jpg" /></a></li>
-                <li><a href="#!category?navcat=.prom.designers.la_femme" class="pointer bindByAnchor"><img src="Images/categorypage/logos/LAFEMME_LOGO.jpg" /></a></li>
-                <li><a href="#!category?navcat=.prom.designers.le_gala" class="pointer bindByAnchor">Le Gala</a></li>
-                <li><a href="#!category?navcat=.prom.designers.lm_collection" class="pointer bindByAnchor"><img src="Images/categorypage/logos/lmcollection.jpg" /></a></li>
-                <li><a href="#!category?navcat=.prom.designers.mac_duggal" class="pointer bindByAnchor"><img src="Images/categorypage/logos/macduggal.jpg" /></a></li>
-                <li><a href="#!category?navcat=.prom.designers.mignon" class="pointer bindByAnchor"><img src="Images/categorypage/logos/mignon.jpg" /></a></li>
-                <li><a href="#!category?navcat=.prom.designers.mnm_couture" class="pointer bindByAnchor"><img src="Images/categorypage/logos/mnmcouture.png" /></a></li>
-                <li><a href="#!category?navcat=.prom.designers.night_moves" class="pointer bindByAnchor"><img src="Images/categorypage/logos/night_moves.jpg" /></a></li>
-                <li><a href="#!category?navcat=.prom.designers.paris" class="pointer bindByAnchor"><img src="Images/categorypage/logos/TBParisLogo.jpg" /></a></li>
-                <li><a href="#!category?navcat=.prom.designers.scala" class="pointer bindByAnchor"><img src="Images/categorypage/logos/Scala_Logo.jpg" /></a></li>
-                <li><a href="#!category?navcat=.prom.designers.shail_k" class="pointer bindByAnchor"><img src="Images/categorypage/logos/SHAIL-K.png" /></a></li>
-                <li><a href="#!category?navcat=.prom.designers.sherri_hill" class="pointer bindByAnchor"><img src="Images/categorypage/logos/logo-black.png" /></a></li>
-                <li><a href="#!category?navcat=.prom.designers.tony_bowls" class="pointer bindByAnchor"><img src="Images/categorypage/logos/TonyBowlsLogo.gif" /></a></li>
-            	-->
-            </ul>
-            <br />
-            <h3>Trending</h3>
-            <ul>
-            	<li><a href="#!category?navcat=.prom.trends.beads" class="pointer bindByAnchor">Beads</a></li>
-                <li><a href="#!category?navcat=.prom.trends.high_low" class="pointer bindByAnchor">High-Low</a></li>
-                <li><a href="#!category?navcat=.prom.trends.lace" class="pointer bindByAnchor">Lace</a></li>
-                <li><a href="#!category?navcat=.prom.trends.mermaid" class="pointer bindByAnchor">Mermaid</a></li>
-                <li><a href="#!category?navcat=.prom.trends.polka_dots" class="pointer bindByAnchor">Polka Dots</a></li>
-                <li><a href="#!category?navcat=.prom.trends.sequins" class="pointer bindByAnchor">Sequins</a></li>
-                <li><a href="#!category?navcat=.prom.trends.short" class="pointer bindByAnchor">Short</a></li>
-                <li><a href="#!category?navcat=.prom.trends.strapless" class="pointer bindByAnchor">Strapless</a></li>
-                <li><a href="#!category?navcat=.prom.trends.vintage" class="pointer bindByAnchor">Vintage</a></li>
-            </ul>
-        </div>
-        
-        <div class="catContentAreaProm">
-        	
-            <div class="catTopCarouselProm">
-                <ul class="carouselCPBannerListProm">
-                    <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/categorypage/topbanner/testimage1.png" /></a></li>
-                    <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/categorypage/topbanner/testimage1.png" /></a></li>
-                    <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/categorypage/topbanner/testimage1.png" /></a></li>
-                    <li><a class="pointer" onClick="return showContent('category',{'navcat':''});"><img src="Images/categorypage/topbanner/testimage1.png" /></a></li>
-                </ul>
-                <img class="prevCPBannerCaroProm" src="Images/Homepage/caroleft.png" />
-                <img class="nextCPBannerCaroProm" src="Images/Homepage/caroright.png" />
-            </div>
-            
-            <ul class='listStyleNone fluidList clearfix noPadOrMargin categoryList categoryListProm' data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;"></ul><!-- outputs a list of subcategories -->
-            
-            <div class="catCustomTextAreaProm displayNone" data-bind="var: category(%page.description); format: showIfSet;">
-            	<h1 data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></h1>
-            </div>
-            
-            <div class="catBottomCarouselProm">         	
-                <div class="catProductListTitleCarouselBarProm displayNone" data-bind="var: category(@products); format: showIfSet;">
-                    <h3>Featured Products</h3>
-                </div>
-                <div class="catProductListContentAreaProm">
-                    <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
-                </div>
-        	</div>
-            
-            <!--
-            <div class="catBottomCarouselProm">         	
-                <div class="catProductListTitleCarouselBarProm">
-                    <ul class="catProductListTitleCarouselProm">
-                        <li><h3>Featured Products</h3></li>
-                        <li><h3>Best Sellers</h3></li>
-                        <li><h3>New Arrivals</h3></li>
-                        <li><h3>Celebrity Trends</h3></li>
-                        <li><h3>New to Sale</h3></li>
-                    </ul>
-                    <img class="catProductListPrevProm" src="Images/Homepage/caroleft.png" />
-                    <img class="catProductListNextProm" src="Images/Homepage/caroright.png" />
-                </div>
-                <div class="catProductListContentAreaProm">
-                    <div class="catProductListCarouselAreaProm">
-                        <div class="catProductListCarouselContainerProm">
-                            <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
-                            <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_best_sellers.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
-                            <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_new_arrivals.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
-                            <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_celebrity_trends.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
-                            <ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: list($app_new_to_sale.@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
-                        </div>
-                        <div class="catProductListPagProm"></div>
-                    </div>
-                </div>
-    		</div>
-            <!--
-            <img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" src='images/blank.gif' alt='' />
-        
-            <h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
-        
-            <p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-        
-            <ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
-        
-            <!--
-            <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
-        
-        	<!--
-            <p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-            -->
-        </div>
-    </div>   
-</div>
 
 
 
@@ -958,20 +879,20 @@ don't modify the 'data-templateid' unless you are changing template names and up
         	-->
         </div>
         <div class="catProdListContentArea"> 
-            <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(path); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+            <ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>
             <div class="carouselCPBannerList">
             </div>
             <img class="prevCPBannerCaroProdList" src="Images/Homepage/caroleft.png" />
             <img class="nextCPBannerCaroProdList" src="Images/Homepage/caroright.png" />
-            <div class="catProdListCustomTextArea displayNone" data-bind="var: category(%page.description); format: showIfSet;">
-                <h1 data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></h1>
+            <div class="catProdListCustomTextArea displayNone" data-tlc="bind $var '.%page.description'; showIfSet;">
+                <h1 data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></h1>
             </div>
 
             <div class="catProdListProductListCont">
             	<div class="catGhostCell"></div>
 				<div class="nativeProductList">
-					<ul class='listStyleNone fluidList noPadOrMargin productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;"></ul>
-            	</div>
+					<ul data-tlc="bind $var '.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate';" class="listStyleNone fluidList clearfix noPadOrMargin productList"></ul><!-- outputs the product list -->
+            			</div>
 				<div class="searchFilterResults">
 					<ul class="searchFilterResults productList" data-app-role='productList'>
 				</div>
@@ -983,21 +904,21 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 <div id='testimonialsTemplate' class='loadingBG categoryTemplate'>
 	<div class="centeringContainer">
-        <ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(path); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>    
+        <ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>    
         <!--
-        <img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" src='images/blank.gif' alt='' />
-    
-        <h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
+        <img data-tlc="bind $var '.%page.banner1'; quickstart#banner  --height='250' --width='750' --legacy;" src="images/blank.gif" alt="">
+
+	<h2 data-tlc="bind $var '.%page.header'; if (is $var --notblank;) {{apply --append;}};"></h2>
         -->
     
-        <p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+        <p data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
     
         <!--
-        <ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
-    
-        <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-    
-        <p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+        <ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList"></ul><!-- outputs a list of subcategories -->
+
+	<ul data-tlc="bind $var '.@products'; store_prodlist#productlist  --withReviews='1' --withInventory='1' --withVariations='1' --itemsperpage='25' --templateid='productListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin productList"></ul><!-- outputs the product list -->
+
+	<p data-tlc="bind $var '.%page.description2'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
         -->
 	</div>
 </div>
@@ -1041,18 +962,18 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <!-- used to display a category within a 'list', usually in the body of a category or the homepage. -->
 <ul>
 <li id='categoryListTemplate' class="categoryListTemplate">
-	<div class='pointer categoryListTemplateCont' onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" onMouseOver="app.ext._store_formals.a.categorySubCatMouseOver($(this))" onMouseOut="app.ext._store_formals.a.categorySubCatMouseOut($(this))">
-		<div class='thumbContainer'><img src='blank.gif' class='catThumb' alt='' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='220' height='220' /></div>
-		<div class="homepageSubCatTitleBar"><div class='catName white2LGray'><span data-bind='var: category(pretty); format:catText; extension: myRIA;'></span></div></div>
+	<div class='pointer categoryListTemplateCont' data-tlc="bind $var '.'; store_routing#seoanchor --type='category' --seo; apply --attrib='href';" onMouseOver="app.ext._store_formals.a.categorySubCatMouseOver($(this))" onMouseOut="app.ext._store_formals.a.categorySubCatMouseOut($(this))">
+		<div class="thumbContainer"><img data-tlc="bind $var '.%meta.CAT_THUMB'; if (is $var --notblank){{apply --img --media=$var --width=220 --height=220 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="catThumb" alt="" height="220" width="220"></div>
+		<div class="homepageSubCatTitleBar"><div class="catName white2LGray"><span data-tlc="bind $var '.pretty'; quickstart#cattext  --legacy;"></span></div></div>
 	</div>
 </li>
 
 
-<li id='categoryListTemplateRootCats'>
-	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
-		<div class='thumbContainer'><img src='blank.gif' class='catThumb' alt='' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='35' height='35' /></div>
-		<div class='catName'><span data-bind='var: category(pretty); format:catText; extension: myRIA;'></span></div>
-	</div>
+<li id="categoryListTemplateRootCats">
+	<a data-tlc="bind $var '.'; store_routing#seoanchor --type='category' --seo; apply --attrib='href';">
+		<div class="thumbContainer"><img data-tlc="bind $var '.%meta.CAT_THUMB'; if (is $var --notblank){{apply --img --media=$var --width=35 --height=35 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="catThumb" alt="" height="35" width="35"></div>
+		<div class="catName"><span data-tlc="bind $var '.pretty'; quickstart#cattext  --legacy; apply --append;"></span></div>
+	</a>
 </li>
 
 </ul>
@@ -1065,39 +986,36 @@ Used for the product in a product list (prodlist), usually in the body of a cate
 the loadingBG class is removed (must be that classname) when the template is translated.
 remember to NOT put the button inside the 'onclick' container or two events will occur onclick.
 -->
-<li id='productListTemplate' class='loadingBG productItem' onMouseOver="$('.quickView',$(this)).show();" onMouseOut="$('.quickView').hide();" > <!--app.ext._store_formals.a.homepageCarouselProdItemMouseOver($(this)); app.ext._store_formals.a.homepageCarouselProdItemMouseOut($(this));-->
+<li id="productListTemplate" class="loadingBG productItem" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();">
 
-	<button class='floatRight pointer quickView displayNone' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">Quickview</button>
+	<button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
 
-	<div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
-		<div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
-            <img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='200' height='280' />
+	<div data-tlc="bind $pid '.pid'; bind $seo '.%attribs.zoovy:prod_name'; bind $href ''; store_routing#productlink --pid=$pid --seo=$seo; apply --attrib='href';" class="blockLink">
+		<div data-tlc="bind $var '.pid'; quickstart#addpicslider  --legacy; apply --append;" class="prodThumbContainer">
+           		<img data-tlc="bind $var '.%attribs.zoovy:prod_thumb'; if(is $var --blank;){{bind $var '.%attribs.zoovy:prod_image1';}}; if(is $var --notblank;){{apply --img --media=$var --width=120 --height=120 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="prodThumb" alt="" height=200" width="280">
 		</div>
 
 		<div class="productItemInfo">
-            <div class="productItemInfoContent">
-                <h5 data-bind='var: product(zoovy:prod_name); format:truncText; numCharacters: 32;'></h5>
+            		<div class="productItemInfoContent">
+                		<h5 data-tlc="bind $var '.%attribs.zoovy:prod_name'; truncText --numCharacters=32; if (is $var --notblank;) {{apply --append;}};"></h5>
         
-                <h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
+                		<h6 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='Our Price: '; apply --append;}};"></h6>
                 
-				<h5 class='prodListItemProdMSRP prodMSRP' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true; pretext: MSRP: ;'></h5>
-                <span class='prodListItemSavings savings'>
-                    <span class='savingsDifference' data-bind='var: product(pid); format:priceRetailSavingsDifference; extension:myRIA; pretext: You save: ;'></span>
-                    <span class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></span>
-                </span>
+				<h5 class='prodListItemProdMSRP prodMSRP' data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='MSRP: '; apply --append;}};"></h5>
+                		<span class="prodListItemSavings savings">
+					<span data-useparentdata='1' data-tlc="quickstart#priceretailsavingsdifference  --legacy; apply --append;" class="savingsDifference"></span>
+					<span data-useparentdata='1' data-tlc="quickstart#priceretailsavingspercentage  --legacy; apply --append;" class="savingsPercentage"></span>
+				</span>
 
-                
-                <!--<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>-->
-        <!-- 	<span data-bind='var: reviews(reviews.total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
 			</div>
-            <div class="productItemInfoMoreInfo"><h1>MORE DETAILS</h1></div>
-        </div>
-    </div>
+            		<div class="productItemInfoMoreInfo"><h1>MORE DETAILS</h1></div>
+        	</div>
+    	</div>
 	
 	<!--
-    <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this),{'action':'modal'}); return false;">
-		<input type='hidden' name='qty' value='1' />
-		<button data-bind='format:addToCartButton; extension:myRIA; useParentData:true;'>more details</button>
+    	<form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix" action="#" onsubmit="return false" data-app-submit="quickstart|productAdd2Cart" data-show="modal">
+		<input name="qty" value="1" type="hidden">
+		<button data-tlc="quickstart#addtocartbutton  --legacy; apply --append;" data-bind="format:addtocartbutton; extension:quickstart; useParentData:true;" class='applyButton'>more details</button>
 	</form>
     -->
 	
@@ -1108,63 +1026,52 @@ remember to NOT put the button inside the 'onclick' container or two events will
 for product lists with addToCart feature (accessories, for example)
 container ul should have lineItemProdlist class on it instead of productList
 -->
-<li id='productListTemplateATC' class='loadingBG  ' >
-	<div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
+<li id="productListTemplateATC" class="loadingBG  ">
+	<div data-tlc="bind $var '.pid'; apply --attrib='data-pid';">
 
-		<div class='prodThumbContainer floatLeft'>
-		<img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='120' height='120' />
+		<div class="prodThumbContainer floatLeft">
+		<img data-tlc="bind $var '.%attribs.zoovy:prod_image1'; apply --img --media=$var --width=120 --height=120 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="120" width="120">
 		</div>
 
-		<h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
+		<h5 data-tlc="bind $var '.%attribs.zoovy:prod_name'; if (is $var --notblank;) {{apply --append;}};"></h5>
 
-		<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
+		<h6 data-tlc="bind $var '.%attribs.zoovy:base_price';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='Our Price: ';  apply --append;}};"></h6>
 
-		<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
+		<span data-tlc="bind $var '.reviews.average'; if(is $var --notblank) {{format --prepend='review_'; apply --add --class=$var; }};" class="reviewSprite"></span>
 	
-		<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this)); return false;">
+		<form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="modal">
 	
-			<fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>
-			<fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; pretext:Quantity: ; defaultValue:0;' class='borderNone'></fieldset>
+			<fieldset data-tlc="bind $var '.pid'; store_product#atcvariations  --legacy; apply --append;" class="borderNone"></fieldset>
+			<fieldset data-tlc="bind $var '.'; store_product#atcquantityinput  --defaultvalue='0' --legacy;" class="borderNone"></fieldset>
 	
-			<input type='submit' value='Add to Cart' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;'  />
+			<input data-tlc="bind $var '.pid'; store_product#addtocartbutton  --legacy; apply --append;" value="Add to Cart" class="applyButton addtocartbutton displayNone" type="submit">
 		</form>
 
 	</div>
 </li>
 
 
-<li id='productListTemplateBuyerList' class='loadingBG clearfix' >
-	<div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' >
+<li id="productListTemplateBuyerList" class="loadingBG clearfix">
+	<div data-tlc="bind $var '.pid'; apply --attrib='data-pid';">
 
-		<div class='prodThumbContainer floatLeft'>
-			<div class='ui-widget ui-widget-content ui-corner-all'>
-				<img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='160' height='160' />
-				<div class='buttonList ui-widget ui-widget-header ui-corner-all alignCenter'>
-    
-                    <button class='ui-state-default ui-corner-all' title='add item to cart' onClick="showContent('product',{'pid':$(this).closest('[data-pid]').attr('data-pid')});">
-                    <span class="ui-icon ui-icon-cart"></span>
-                    </button>
-                    
-                    <button class='ui-state-default ui-corner-all' title='more information' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">
-                    <span class="ui-icon ui-icon-info"></span>
-                    </button>
-                    
-                    <button class='ui-state-default ui-corner-all' title='write a review for this item' onClick="app.ext.store_crm.u.showReviewFrmInModal({'pid':$(this).closest('[data-pid]').attr('data-pid'),'templateID':'reviewFrmTemplate'});">
-                    <span class="ui-icon ui-icon-star"></span>
-                    </button>
-                    
-                    <button class='ui-state-default ui-corner-all' title='remove item from list' onClick="app.ext.myRIA.a.removeItemFromBuyerList({'stid':$(this).closest('[data-pid]').attr('data-pid'),'listID':$(this).closest('[data-buyerlistid]').attr('data-buyerlistid')},{'parentID':$(this).closest('li').attr('id')});">
-                    <span class="ui-icon ui-icon-trash"></span>
-                    </button>
+		<div class="prodThumbContainer floatLeft">
+			<div class="ui-widget ui-widget-content ui-corner-all">
+				<img data-tlc="bind $var '.%attribs.zoovy:prod_image1'; apply --img --media=$var --width=160 --height=160 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="160" width="160">
+				<div class="buttonList ui-widget ui-widget-header ui-corner-all alignCenter">
+
+<a data-tlc="bind $var '.'; store_routing#seoanchor --type='product' --seo; apply --attrib='href';" class='applyButton' data-text='true' data-icon-primary='ui-icon-cart'>Add To Cart</a>
+<a href='#' data-app-click="quickstart|quickviewShow" class='applyButton' data-text='true' data-icon-primary='ui-icon-info'>Details</a>
+<a href='#' data-app-click="store_crm|productReviewShow" class='applyButton' data-text='true' data-icon-primary='ui-icon-star'>Write Review</a>
+<a href='#' data-app-click="store_crm|productBuyerListRemoveExec" class='applyButton' data-text='true' data-icon-primary='ui-icon-trash'>Remove From List</a>
 
 				</div>
 			</div>
 		</div>
-		<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite floatRight' ></span>
+		<span data-tlc="bind $var '.reviews.average'; if(is $var --notblank) {{format --prepend='review_'; apply --add --class=$var; }};" class="reviewSprite floatRight"></span>
 
-		<h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
+		<h5 data-tlc="bind $var '.%attribs.zoovy:prod_name'; if (is $var --notblank;) {{apply --append;}};"></h5>
 
-		<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
+		<h6 data-tlc="bind $var '.%attribs.zoovy:base_price';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='Our Price: ';  apply --append;}};"></h6>
 
 
 	</div>
