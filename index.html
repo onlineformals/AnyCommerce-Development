@@ -121,8 +121,8 @@ $(document).ready(function(){
 
 		<div class='alignCenter'>
  		
-        <img class="loadingAnimation" src="Images/loadingscreen/loading_animation_online_formals.gif" />
-        <img class="loadingLogo" src="Images/loadingscreen/logo.png" />
+        <img class="loadingAnimation" src="Images/loadingscreen/loading_animation_online_formals.gif" alt="" />
+        <img class="loadingLogo" src="Images/loadingscreen/logo.png" alt="" />
         
         <h3>Please wait while your showroom is loaded.</h3>
         
@@ -143,372 +143,374 @@ $(document).ready(function(){
 
 <div id='appView' class='displayNone'>
 
-<!--
-ANIMATION TESTING
-<div style="background: black; float: left;">
-	<div data-animation-mouseenter="cogs?animFunc=fwd" data-animation-mouseout="cogs?animFunc=back" style="width: 55px; height: 55px;" id="cogs"></div>
-</div>
--->
-
-
-<!-- VIEW CONTENT -->
-<!-- leave the appView div, put your your html here ...  -->
-
 	<!--
-	** REMINDER : DO NOT PUT ANY GRAPHICS/CONTENT THAT SHOULD NOT APPEAR ON EVERY PAGE IN THE VIEW (HERE)
-	**				  INSTEAD PUT THEM INTO <div id='homepageTemplate'></div>
+	ANIMATION TESTING
+	<div style="background: black; float: left;">
+		<div data-animation-mouseenter="cogs?animFunc=fwd" data-animation-mouseout="cogs?animFunc=back" style="width: 55px; height: 55px;" id="cogs"></div>
+	</div>
 	-->
-	
-<div id='globalMessaging' class='appMessaging'></div><!-- DO NOT REMOVE - used for some high level error handling (usually appears below breadcrumb nav or top bar) -->
 
-<!-- These add specific functionality for the app. In most cases, you want to leave them alone. -->
-<div id='appNav'>
-	<!--
-    button class='displayNone prodDetailNextItemButton' data-app-role='prodDetailNextItemButton'>Next</button>
-	<button class='displayNone prodDetailPrevItemButton' data-app-role='prodDetailPrevItemButton'>Previous</button>
-    -->
-</div>
-<div class='header'>
-    <div class="headerTopSect">
-        <div class="centeringContainer">
-    		<div class="floatLeft headerLoginLink"><h5>Welcome, <span class='username'>Guest!</span> <h6><a href='#top' onClick="return showContent('customer',{'show':'myaccount'});">Sign in</a> or <a href='#top' onClick="return showContent('customer',{'show':'myaccount'});">Register.</a></h6></h5></div>
-            <div class="floatRight headerTopNavLink"><a class="pointer" href='#top' onclick="return showContent('company',{'show':'contact'});">Help</a><a class="pointer headerTopCenterLink" href='#top' onClick="return showContent('customer',{'show':'myaccount'});">My Account</a><a class="pointer" href='#top' onClick="return showContent('customer',{'show':'lists'});">Wishlist</a></div>
-            <div class="floatRight headerCartLink"><a class="pointer bindByAnchor" href="#cart?."><span class="cartItemCount">0</span> item(s) </a> <h6> - </h6><a class="pointer bindByAnchor" href="#cart?.">View Shopping Bag</a></div>
-        </div>
-    </div>
-    <div class="headerMidSect">
-    	<div class="centeringContainer">
-        	<div class="headerLogoContainer">
-            	<a href="#homepage?." class='bindByAnchor pointer'><img src="Images/Homepage/headerlogo.png" /></a>
-            </div>
-            <div class="headerSearchContainer">
-            	<form name='headerSearchFrm' action='#' class='productSearchForm' method="get" id="searchFunc">
-					<input type='search' name='KEYWORDS' class="productSearchKeyword handleDefault secondary" placeholder="Find it here..." id="searchBar"/>
-					<input class="search pointer" type="submit" value="Search" id="searchButton" />
-   		    	</form>
-                <!--
-                <form name='headerSearchFrm' action='#' class='marginTop' method="get">
-                    <fieldset>
-                        <input type='search' name='KEYWORDS' value='Find it here...' class="productSearchKeyword handleDefault secondary" id="searchBarInput" />
-                        <input class="search" type="submit" value="SEARCH" id="searchBarButton" />
-                    </fieldset>
-            	</form>
-                -->
-                <p class="headerSearchLinks">Questions? <div id="ci41p3" style="z-index:100;position:absolute"></div><div id="sc41p3" style="display:inline"></div><div id="sd41p3" style="display:none"></div><script type="text/javascript">var se41p3=document.createElement("script");se41p3.type="text/javascript";var se41p3s=(location.protocol.indexOf("https")==0?"https":"http")+"://image.providesupport.com/js/1rj9nh21p5xso04swicqmmfdv0/safe-textlink.js?ps_h=41p3&ps_t="+new Date().getTime()+"&online-link-html=Chat%20With%20A%20Stylist&offline-link-html=Chat%20With%20A%20Stylist";setTimeout("se41p3.src=se41p3s;document.getElementById('sd41p3').appendChild(se41p3)",1)</script><noscript><div style="display:inline"><a href="http://www.providesupport.com?messenger=1rj9nh21p5xso04swicqmmfdv0">Live Chat Help</a></div></noscript></p> <p>or</p> <a class="pointer" href='#top' onclick="return showContent('company',{'show':'contact'});">Contact Us</a>
-            </div>
-            <!--[if lte IE 8]>
-                <div class="headerIE8WarningCont">
-                </div>
-            <![endif]-->
-            
-        </div>
-    </div>
-	<div class="headerBottomSect">
-		<div class="centeringContainer">
-			<div class="topNavContainer">
-                <div class="navBarDesigner dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
-                
-                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.designers'});"><a>DESIGNERS</a></div>
-                	<div class="dropdown headerDropdown leftAlign">
-                        <ul>
-                        	<li class="headerDropdownTitle">DESIGNERS</li>
-                        	<li class="headerDropdownLink"><a href="#!category?navcat=.designers.bg_haute" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">BG Haute</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.designers.cassandra_stone" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Cassandra Stone</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.designers.faviana" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Faviana</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.designers.gigi" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Gigi</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.designers.jasz_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jasz Couture</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.designers.johnathan_kayne" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Johnathan Kayne</a></li>
-                            <!--<li class="headerDropdownLink"><a href="#!category?navcat=.designers.jovani" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jovani</a></li>-->
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.designers.la_femme" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">La Femme</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.designers.le_gala" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Le Gala</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.designers.lm_collection" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">LM Collection</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.designers.mac_duggal" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.designers.mignon" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mignon</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.designers.mnm_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">MNM Couture</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.designers.night_moves" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Night Moves</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.designers.paris" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Paris</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.designers.scala" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Scala</a></li>
-                		</ul>
-                        <ul>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.designers.shail_k" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Shail K</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.designers.sherri_hill" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Sherri Hill</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.designers.tony_bowls" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Tony Bowls</a></li>
-                		</ul>
-                	</div>
-                </div>
-                <div class="navBarProm dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
-                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.prom'});"><a>PROM</a></div>
-                	<div class="dropdown headerDropdown leftAlign">
-                        <ul>
-                        	<li class="headerDropdownTitle">DESIGNERS</li>
-                        	<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.bg_haute" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">BG Haute</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.cassandra_stone" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Cassandra Stone</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.faviana" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Faviana</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.gigi" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Gigi</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.jasz_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jasz Couture</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.johnathan_kayne" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Johnathan Kayne</a></li>
-                            <!--<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.jovani" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jovani</a></li>-->
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.la_femme" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">La Femme</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.le_gala" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Le Gala</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.lm_collection" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">LM Collection</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.mac_duggal" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.mignon" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mignon</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.mnm_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">MNM Couture</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.night_moves" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Night Moves</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.paris" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Paris</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.scala" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Scala</a></li>
-                		</ul>
-                        <ul>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.shail_k" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Shail K</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.sherri_hill" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Sherri Hill</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.tony_bowls" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Tony Bowls</a></li>
 
-                        	<li class="headerDropdownTitle stackedDropdownLI">STYLES</li>
-                        	<li class="headerDropdownLink"><a href="#!category?navcat=.prom.styles.ballgown___a_line" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Ballgown & A Line</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.styles.empire" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Empire</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.styles.high_low" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">High-Low</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.styles.mermaid" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mermaid</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.styles.short" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Short</a></li>
-                            
-                            <li class="headerDropdownTitle stackedDropdownLI">TRENDS</li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.beads" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Beads</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.lace" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Lace</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.polka_dots" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Polka Dots</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.sequins" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Sequins</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.vintage" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Vintage</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="navBarEvening dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
-                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.evening'});"><a>EVENING</a></div>
-                	<div class="dropdown headerDropdown leftAlign">
-                        <ul>
-                        	<li class="headerDropdownTitle">DESIGNERS</li>
-                        	<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.bg_haute" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">BG Haute</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.jasz_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jasz Couture</a></li>
-                            <!--<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.jovani" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jovani</a></li>-->
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.la_femme" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">La Femme</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.mac_duggal" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.mignon" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mignon</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.mnm_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">MNM Couture</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.scala" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Scala</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.shail_k" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Shail K</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.sherri_hill" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Sherri Hill</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.tony_bowls" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Tony Bowls</a></li>
-                		</ul>
-                        <ul>
-                        	<li class="headerDropdownTitle"><a href="#!category?navcat=.evening.celebrity_inspired" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">CELEBRITY INSPIRED</a></li>
-                            <!--
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.shop_accessories" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Test Cat - prom</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.shop_by_designer" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Test Cat</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.shop_by_designer.ballgowns_by_mac_duggal" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Test sub cat</a></li>
-                			<li class="headerDropdownLink"><a href='#!product?pid=SHERRI14-11045' class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Test product</a></li>
-                        	-->
-                        </ul>
-                	</div>
-                </div>
-                <div class="navBarCocktail dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
-                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.cocktail'});"><a>COCKTAIL</a></div>
-                	<div class="dropdown headerDropdown leftAlign">
-                        <ul>
-                        	<li class="headerDropdownTitle">DESIGNERS</li>
-                        	<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.faviana" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Faviana</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.gigi" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Gigi</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.johnathan_kayne" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Johnathan Kayne</a></li>
-                            <!--<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.jovani" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jovani</a></li>-->
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.la_femme" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">La Femme</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.lm_collection" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">LM Collection</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.mac_duggal" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.mignon" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mignon</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.scala" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Scala</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.shail_k" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Shail K</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.sherri_hill" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Sherri Hill</a></li>
-                		</ul>
-                        <ul>
-                        	<li class="headerDropdownTitle">STYLES</li>
-                        	<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.styles.sequins___beads" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Sequins & Beads</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.styles.lace" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Lace</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.styles.babydoll" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Babydoll</a></li>
-                		</ul>
-                	</div>
-                </div>
-                <div class="navBarPlusSize dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
-                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.plus_size'});"><a>PLUS SIZE</a></div>
-                	<div class="dropdown headerDropdown leftAlign">
-                        <ul>
-                        	<li class="headerDropdownTitle">DESIGNERS</li>
-                        	<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.designers.fabulouss" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Fabulouss</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.designers.faviana" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Faviana</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.designers.night_moves" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Night Moves</a></li>
-                		</ul>
-                        <ul>
-                        	<li class="headerDropdownTitle">STYLES</li>
-                        	<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.styles.a_line___ballgown" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">A Line & Ballgown</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.styles.empire" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Empire</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.styles.mermaid" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mermaid</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.styles.short" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Short</a></li>
-                		</ul>
-                	</div>
-                </div>
-                <div class="navBarPageant dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
-                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.pageant'});"><a>PAGEANT</a></div>
-                	<div class="dropdown headerDropdown leftAlign">
-                        <ul>
-                        	<li class="headerDropdownTitle">DESIGNERS</li>
-                        	<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.jasz_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jasz Couture</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.johnathan_kayne" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Johnathan Kayne</a></li>
-                            <!--<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.jovani" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jovani</a></li>-->
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.la_femme" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">La Femme</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.mac_duggal" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.mnm_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">MNM Couture</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.sherri_hill" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Sherri Hill</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.tony_bowls" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Tony Bowls</a></li>
-                		</ul>
-                        <ul>
-                        	<!--
-                            <li class="headerDropdownTitle"><a href="#!category?navcat=.pageant.children_s_pageant" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">CHILDREN’S PAGEANT</a></li>
-                			-->
-                        </ul>
-                	</div>
-                </div>
-                <div class="navBarBridal dropdownLinkContainer"> <!--onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))"-->
-                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.bridal'});"><a>BRIDAL</a></div>
-                	<div class="dropdown headerDropdown leftAlign">
-                        <ul>
-                        	<li class="headerDropdownLink"><a href="#!category?navcat=." class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">link</a></li>
-                		</ul>
-                        <ul>
-                        	<li class="headerDropdownLink"><a href="#!category?navcat=." class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">link</a></li>
-                		</ul>
-                	</div>
-                </div>
-                <div class="navBarAccessories dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
-                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.accessories'});"><a>ACCESSORIES</a></div>
-                	<div class="dropdown headerDropdown leftAlign">
-                        <ul>
-                        	<li class="headerDropdownTitle">SHOES</li>
-                        	<li class="headerDropdownLink"><a href="#!category?navcat=.accessories.shoes.touch_ups" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Touch Ups</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.accessories.shoes.coloriffics" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Coloriffics</a></li>
-                            <li class="headerDropdownTitle stackedDropdownLI"><a href="#!category?navcat=.accessories.jewelry" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">JEWELRY</a></li>
-                		</ul>
-                        <ul>
-                        	<li class="headerDropdownTitle">UNDER THE DRESS</li>
-                        	<li class="headerDropdownLink"><a href="#!category?navcat=.accessories.under_the_dress.bra_cups" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Bra Cups</a></li>
-                            <li class="headerDropdownLink"><a href="#!category?navcat=.accessories.under_the_dress.shapewear" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Shapewear</a></li>
-                		</ul>
-                	</div>
-                </div>
-                <div class="navBarStock dropdownLinkContainer"> <!--onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))"-->
-                    <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.in_stock'});"><a>IN STOCK</a></div>
-                	<div class="dropdown headerDropdown leftAlign">
-                        <ul>
-                        	<li class="headerDropdownLink"><a href="#!category?navcat=." class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">link</a></li>
-                		</ul>
-                        <ul>
-                        	<li class="headerDropdownLink"><a href="#!category?navcat=." class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">link</a></li>
-                		</ul>
-                	</div>
-                </div>
-            </div>
+	<!-- VIEW CONTENT -->
+	<!-- leave the appView div, put your your html here ...  -->
+
+		<!--
+		** REMINDER : DO NOT PUT ANY GRAPHICS/CONTENT THAT SHOULD NOT APPEAR ON EVERY PAGE IN THE VIEW (HERE)
+		**				  INSTEAD PUT THEM INTO <div id='homepageTemplate'></div>
+		-->
+		
+	<div id='globalMessaging' class='appMessaging'></div><!-- DO NOT REMOVE - used for some high level error handling (usually appears below breadcrumb nav or top bar) -->
+
+	<!-- These add specific functionality for the app. In most cases, you want to leave them alone. -->
+	<div id='appNav'>
+		<!--
+		button class='displayNone prodDetailNextItemButton' data-app-role='prodDetailNextItemButton'>Next</button>
+		<button class='displayNone prodDetailPrevItemButton' data-app-role='prodDetailPrevItemButton'>Previous</button>
+		-->
+	</div>
+	<div class='header'>
+		<div class="headerTopSect">
+			<div class="centeringContainer">
+				<div class="floatLeft headerLoginLink"><h5>Welcome, <span class='username'>Guest!</span><a href='#top' onClick="return showContent('customer',{'show':'myaccount'});">Sign in</a> or <a href='#top' onClick="return showContent('customer',{'show':'myaccount'});">Register.</a></h5></div>
+				<div class="floatRight headerTopNavLink"><a class="pointer" href='#top' onclick="return showContent('company',{'show':'contact'});">Help</a><a class="pointer headerTopCenterLink" href='#top' onClick="return showContent('customer',{'show':'myaccount'});">My Account</a><a class="pointer" href='#top' onClick="return showContent('customer',{'show':'lists'});">Wishlist</a></div>
+				<div class="floatRight headerCartLink"><a class="pointer bindByAnchor" href="#cart?."><span class="cartItemCount">0</span> item(s) </a> <h6> - </h6><a class="pointer bindByAnchor" href="#cart?.">View Shopping Bag</a></div>
+			</div>
+		</div>
+		<div class="headerMidSect">
+			<div class="centeringContainer">
+				<div class="headerLogoContainer">
+					<a href="#homepage?." class='bindByAnchor pointer'><img src="Images/Homepage/headerlogo.png" alt="" /></a>
+				</div>
+				<div class="headerSearchContainer">
+					<form name='headerSearchFrm' action='#' class='productSearchForm' method="get" id="searchFunc">
+						<input type='search' name='KEYWORDS' class="productSearchKeyword handleDefault secondary" placeholder="Find it here..." id="searchBar"/>
+						<input class="search pointer" type="submit" value="Search" id="searchButton" />
+					</form>
+					<!--
+					<form name='headerSearchFrm' action='#' class='marginTop' method="get">
+						<fieldset>
+							<input type='search' name='KEYWORDS' value='Find it here...' class="productSearchKeyword handleDefault secondary" id="searchBarInput" />
+							<input class="search" type="submit" value="SEARCH" id="searchBarButton" />
+						</fieldset>
+					</form>
+					-->
+					<p class="headerSearchLinks">Questions? <div id="ci41p3" style="z-index:100;position:absolute"></div><div id="sc41p3" style="display:inline"></div><div id="sd41p3" style="display:none"></div><script type="text/javascript">var se41p3=document.createElement("script");se41p3.type="text/javascript";var se41p3s=(location.protocol.indexOf("https")==0?"https":"http")+"://image.providesupport.com/js/1rj9nh21p5xso04swicqmmfdv0/safe-textlink.js?ps_h=41p3&ps_t="+new Date().getTime()+"&online-link-html=Chat%20With%20A%20Stylist&offline-link-html=Chat%20With%20A%20Stylist";setTimeout("se41p3.src=se41p3s;document.getElementById('sd41p3').appendChild(se41p3)",1)</script><noscript><div style="display:inline"><a href="http://www.providesupport.com?messenger=1rj9nh21p5xso04swicqmmfdv0">Live Chat Help</a></div></noscript></p> <p>or</p> <a class="pointer" href='#top' onclick="return showContent('company',{'show':'contact'});">Contact Us</a>
+				</div>
+				<!--[if lte IE 8]>
+					<div class="headerIE8WarningCont">
+					</div>
+				<![endif]-->
+				
+			</div>
+		</div>
+		<div class="headerBottomSect">
+			<div class="centeringContainer">
+				<div class="topNavContainer">
+					<div class="navBarDesigner dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
+					
+						<div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.designers'});"><a>DESIGNERS</a></div>
+						<div class="dropdown headerDropdown leftAlign">
+							<ul>
+								<li class="headerDropdownTitle">DESIGNERS</li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.bg_haute" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">BG Haute</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.cassandra_stone" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Cassandra Stone</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.faviana" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Faviana</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.gigi" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Gigi</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.jasz_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jasz Couture</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.johnathan_kayne" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Johnathan Kayne</a></li>
+								<!--<li class="headerDropdownLink"><a href="#!category?navcat=.designers.jovani" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jovani</a></li>-->
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.la_femme" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">La Femme</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.le_gala" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Le Gala</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.lm_collection" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">LM Collection</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.mac_duggal" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.mignon" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mignon</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.mnm_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">MNM Couture</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.night_moves" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Night Moves</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.paris" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Paris</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.scala" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Scala</a></li>
+							</ul>
+							<ul>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.shail_k" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Shail K</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.sherri_hill" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Sherri Hill</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.tony_bowls" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Tony Bowls</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="navBarProm dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
+						<div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.prom'});"><a>PROM</a></div>
+						<div class="dropdown headerDropdown leftAlign">
+							<ul>
+								<li class="headerDropdownTitle">DESIGNERS</li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.bg_haute" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">BG Haute</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.cassandra_stone" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Cassandra Stone</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.faviana" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Faviana</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.gigi" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Gigi</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.jasz_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jasz Couture</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.johnathan_kayne" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Johnathan Kayne</a></li>
+								<!--<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.jovani" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jovani</a></li>-->
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.la_femme" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">La Femme</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.le_gala" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Le Gala</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.lm_collection" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">LM Collection</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.mac_duggal" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.mignon" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mignon</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.mnm_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">MNM Couture</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.night_moves" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Night Moves</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.paris" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Paris</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.scala" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Scala</a></li>
+							</ul>
+							<ul>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.shail_k" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Shail K</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.sherri_hill" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Sherri Hill</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.tony_bowls" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Tony Bowls</a></li>
+
+								<li class="headerDropdownTitle stackedDropdownLI">STYLES</li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.styles.ballgown___a_line" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Ballgown & A Line</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.styles.empire" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Empire</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.styles.high_low" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">High-Low</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.styles.mermaid" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mermaid</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.styles.short" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Short</a></li>
+								
+								<li class="headerDropdownTitle stackedDropdownLI">TRENDS</li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.beads" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Beads</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.lace" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Lace</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.polka_dots" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Polka Dots</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.sequins" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Sequins</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.vintage" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Vintage</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="navBarEvening dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
+						<div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.evening'});"><a>EVENING</a></div>
+						<div class="dropdown headerDropdown leftAlign">
+							<ul>
+								<li class="headerDropdownTitle">DESIGNERS</li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.bg_haute" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">BG Haute</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.jasz_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jasz Couture</a></li>
+								<!--<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.jovani" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jovani</a></li>-->
+								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.la_femme" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">La Femme</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.mac_duggal" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.mignon" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mignon</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.mnm_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">MNM Couture</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.scala" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Scala</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.shail_k" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Shail K</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.sherri_hill" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Sherri Hill</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.tony_bowls" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Tony Bowls</a></li>
+							</ul>
+							<ul>
+								<li class="headerDropdownTitle"><a href="#!category?navcat=.evening.celebrity_inspired" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">CELEBRITY INSPIRED</a></li>
+								<!--
+								<li class="headerDropdownLink"><a href="#!category?navcat=.shop_accessories" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Test Cat - prom</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.shop_by_designer" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Test Cat</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.shop_by_designer.ballgowns_by_mac_duggal" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Test sub cat</a></li>
+								<li class="headerDropdownLink"><a href='#!product?pid=SHERRI14-11045' class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Test product</a></li>
+								-->
+							</ul>
+						</div>
+					</div>
+					<div class="navBarCocktail dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
+						<div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.cocktail'});"><a>COCKTAIL</a></div>
+						<div class="dropdown headerDropdown leftAlign">
+							<ul>
+								<li class="headerDropdownTitle">DESIGNERS</li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.faviana" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Faviana</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.gigi" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Gigi</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.johnathan_kayne" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Johnathan Kayne</a></li>
+								<!--<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.jovani" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jovani</a></li>-->
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.la_femme" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">La Femme</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.lm_collection" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">LM Collection</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.mac_duggal" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.mignon" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mignon</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.scala" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Scala</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.shail_k" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Shail K</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.sherri_hill" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Sherri Hill</a></li>
+							</ul>
+							<ul>
+								<li class="headerDropdownTitle">STYLES</li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.styles.sequins___beads" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Sequins & Beads</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.styles.lace" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Lace</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.styles.babydoll" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Babydoll</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="navBarPlusSize dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
+						<div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.plus_size'});"><a>PLUS SIZE</a></div>
+						<div class="dropdown headerDropdown leftAlign">
+							<ul>
+								<li class="headerDropdownTitle">DESIGNERS</li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.designers.fabulouss" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Fabulouss</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.designers.faviana" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Faviana</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.designers.night_moves" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Night Moves</a></li>
+							</ul>
+							<ul>
+								<li class="headerDropdownTitle">STYLES</li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.styles.a_line___ballgown" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">A Line & Ballgown</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.styles.empire" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Empire</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.styles.mermaid" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mermaid</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.styles.short" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Short</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="navBarPageant dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
+						<div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.pageant'});"><a>PAGEANT</a></div>
+						<div class="dropdown headerDropdown leftAlign">
+							<ul>
+								<li class="headerDropdownTitle">DESIGNERS</li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.jasz_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jasz Couture</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.johnathan_kayne" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Johnathan Kayne</a></li>
+								<!--<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.jovani" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jovani</a></li>-->
+								<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.la_femme" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">La Femme</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.mac_duggal" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.mnm_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">MNM Couture</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.sherri_hill" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Sherri Hill</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.tony_bowls" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Tony Bowls</a></li>
+							</ul>
+							<ul>
+								<!--
+								<li class="headerDropdownTitle"><a href="#!category?navcat=.pageant.children_s_pageant" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">CHILDREN’S PAGEANT</a></li>
+								-->
+							</ul>
+						</div>
+					</div>
+					<div class="navBarBridal dropdownLinkContainer"> <!--onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))"-->
+						<div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.bridal'});"><a>BRIDAL</a></div>
+						<div class="dropdown headerDropdown leftAlign">
+							<ul>
+								<li class="headerDropdownLink"><a href="#!category?navcat=." class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">link</a></li>
+							</ul>
+							<ul>
+								<li class="headerDropdownLink"><a href="#!category?navcat=." class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">link</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="navBarAccessories dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
+						<div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.accessories'});"><a>ACCESSORIES</a></div>
+						<div class="dropdown headerDropdown leftAlign">
+							<ul>
+								<li class="headerDropdownTitle">SHOES</li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.accessories.shoes.touch_ups" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Touch Ups</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.accessories.shoes.coloriffics" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Coloriffics</a></li>
+								<li class="headerDropdownTitle stackedDropdownLI"><a href="#!category?navcat=.accessories.jewelry" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">JEWELRY</a></li>
+							</ul>
+							<ul>
+								<li class="headerDropdownTitle">UNDER THE DRESS</li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.accessories.under_the_dress.bra_cups" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Bra Cups</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.accessories.under_the_dress.shapewear" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Shapewear</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="navBarStock dropdownLinkContainer"> <!--onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))"-->
+						<div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.in_stock'});"><a>IN STOCK</a></div>
+						<div class="dropdown headerDropdown leftAlign">
+							<ul>
+								<li class="headerDropdownLink"><a href="#!category?navcat=." class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">link</a></li>
+							</ul>
+							<ul>
+								<li class="headerDropdownLink"><a href="#!category?navcat=." class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">link</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
+
+	<div class='footer'>
+		<div class="footerNewsletterBar">
+			<div class="centeringContainer">
+				<img src="Images/Homepage/footernewslettericon.png" alt="" />
+				<div class="footNewsTextCont">
+					<p>Exclusive Offers. New Arrivals. Fashionable News.</p>
+					<h3>JOIN OUR NEWSLETTER</h3>
+				</div>
+				<div class="footNewsSignupCont">
+					<form action='' id='subscribeFrm' name='subscribeFrm' >
+						<fieldset class='userInfo'>
+							<!--
+							<input type="text" name='fullname' value='' placeholder="   Name" class="subName" id='subscribeFullname' />
+							<input type="email" name='login' value='' placeholder="   E-mail Address" class="subEmail" id='subscribeLogin' />
+							<fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
+							-->
+							<input class="subButton pointer" type="submit" value="Join" href='#top' onClick="return showContent('customer',{'show':'myaccount'});" />
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="footerContentContainer">
+			<div class="centeringContainer">
+				<div class="footerLinkListContainer">
+					<ul class="footerLinkList">
+						<li><a href="#homepage?." class="pointer bindByAnchor">Home</a></li>
+						<li><a href='#top' onClick="return showContent('company',{'show':'about'});" class="pointer">About Us</a></li>
+						<li><a href='#top' onClick="return showContent('company',{'show':'faq'});" class="pointer">FAQs</a></li>
+						<li><a href="http://blog.onlineformals.com" target="_blank" class="pointer">Blog</a></li>
+						<li><a href="#!category?navcat=.testimonials" class="pointer bindByAnchor">Testimonials</a></li>
+					</ul>
+					<ul class="footerLinkList">
+						<li><a href='#top' onClick="return showContent('company',{'show':'contact'});" class="pointer">Contact Us</a></li>
+						<li><a href='#top' onClick="window.scrollTo(0,0); $('#SizingChartTemplate').dialog({'modal':'true', 'title':'','width':825, height:700, 'dialogClass' : 'SizingChartModal'});" class="pointer">Size Charts</a></li>
+						<li><a href='#top' onClick="return showContent('company',{'show':'return'});" class="pointer">Policies</a></li>
+						<li><a href='#top' onClick="return showContent('company',{'show':'shipping'});" class="pointer">Shipping</a></li>
+						<li><a href='#top' onClick="return showContent('customer',{'show':'myaccount'});" class="pointer">My Account</a></li>
+					</ul>
+				</div>
+				<div class="footerSocialMediaContainer">
+					<a href="https://www.facebook.com/onlineformals" target="_blank" class="footerFB footerSocMedIcon pointer"></a>
+					<a href="https://twitter.com/onlineformals" target="_blank" class="footerTwit footerSocMedIcon pointer"></a>
+					<a href="http://pinterest.com/onlineformals/" target="_blank" class="footerPint footerSocMedIcon pointer"></a>
+					<a href="http://www.youtube.com/channel/UCm98znxn3wp8w-X2B2_QyDQ" target="_blank" class="footerYT footerSocMedIcon pointer"></a>
+					<a href="http://instagram.com/onlineformals" target="_blank" class="footerInsta footerSocMedIcon pointer"></a>
+					<a href="https://plus.google.com/u/0/b/101316495852914612446/101316495852914612446/posts" target="_blank" class="footerGP footerSocMedIcon pointer"></a>
+				</div>
+				
+				
+				
+				
+				<!--****************************************************************************************************************************************** -->
+				<!--****************************************************SHOWROOM BANNER SECTION*************************************************************** -->
+
+				<div class="footerShowroomLinkContainer">
+					<a href="#!category?navcat=.showroom" class="pointer bindByAnchor"><img src="Images/Homepage/footer/footershowroom.png" alt="" /></a>
+				</div>
+				
+				
+				
+				
+				
+				
+				<div class="footerSealsSection">
+					<div class="footerTopPromSeal">
+						<script type="text/javascript" language="javascript">var customer_id="105781";</script><script type="text/javascript" language="javascript" src="//www.toppromwebsites.com/validator/tpw-seal.js"></script>
+					</div>
+					
+					<!--
+					<div class="footerAuthorizeDotNetSeal">
+						<div class="AuthorizeNetSeal"> <script type="text/javascript" language="javascript">var ANS_customer_id="2ac6c99b-53f8-4abd-bc2e-a2d6a6f8dd53";</script> <script type="text/javascript" language="javascript" src="//verify.authorize.net/anetseal/seal.js" ></script> <a href="http://www.authorize.net/" id="AuthorizeNetText" target="_blank">Accepts Credit Cards</a> </div>
+					</div>
+					-->
+					
+					<div class="footerRapidSSLSeal">
+						<img src="Images/Homepage/footer/RapidSSL_SEAL-90x50.gif" alt="" />
+					</div>
+					
+					<!--
+					<div class="footerGeotrustSeal">
+						<script language="javascript" type="text/javascript" src="//smarticon.geotrust.com/si.js"></script>
+					</div>
+					-->
+				</div>
+				<div class="footerBottomNote">
+					<p>Online Formals Inc. Copyright &#169; 2013. All Rights Reserved.</p>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
-
-<div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
-
-<div class='footer'>
-	<div class="footerNewsletterBar">
-    	<div class="centeringContainer">
-        	<img src="Images/Homepage/footernewslettericon.png" />
-        	<div class="footNewsTextCont">
-            	<p>Exclusive Offers. New Arrivals. Fashionable News.</p>
-            	<h3>JOIN OUR NEWSLETTER</h3>
-            </div>
-            <div class="footNewsSignupCont">
-                <form action='' id='subscribeFrm' name='subscribeFrm' >
-                    <fieldset class='userInfo'>
-                        <!--
-						<input type="text" name='fullname' value='' placeholder="   Name" class="subName" id='subscribeFullname' />
-                        <input type="email" name='login' value='' placeholder="   E-mail Address" class="subEmail" id='subscribeLogin' />
-                        <fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
-						-->
-                        <input class="subButton pointer" type="submit" value="Join" href='#top' onClick="return showContent('customer',{'show':'myaccount'});" />
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="footerContentContainer">
-    	<div class="centeringContainer">
-            <div class="footerLinkListContainer">
-                <ul class="footerLinkList">
-                	<li><a href="#homepage?." class="pointer bindByAnchor">Home</a></li>
-                    <li><a href='#top' onClick="return showContent('company',{'show':'about'});" class="pointer">About Us</a></li>
-                    <li><a href='#top' onClick="return showContent('company',{'show':'faq'});" class="pointer">FAQs</a></li>
-                    <li><a href="http://blog.onlineformals.com" target="_blank" class="pointer">Blog</a></li>
-                    <li><a href="#!category?navcat=.testimonials" class="pointer bindByAnchor">Testimonials</a></li>
-                </ul>
-                <ul class="footerLinkList">
-                	<li><a href='#top' onClick="return showContent('company',{'show':'contact'});" class="pointer">Contact Us</a></li>
-                    <li><a href='#top' onClick="window.scrollTo(0,0); $('#SizingChartTemplate').dialog({'modal':'true', 'title':'','width':825, height:700, 'dialogClass' : 'SizingChartModal'});" class="pointer">Size Charts</a></li>
-                    <li><a href='#top' onClick="return showContent('company',{'show':'return'});" class="pointer">Policies</a></li>
-                    <li><a href='#top' onClick="return showContent('company',{'show':'shipping'});" class="pointer">Shipping</a></li>
-                    <li><a href='#top' onClick="return showContent('customer',{'show':'myaccount'});" class="pointer">My Account</a></li>
-                </ul>
-            </div>
-            <div class="footerSocialMediaContainer">
-            	<a href="https://www.facebook.com/onlineformals" target="_blank" class="footerFB footerSocMedIcon pointer"></a>
-                <a href="https://twitter.com/onlineformals" target="_blank" class="footerTwit footerSocMedIcon pointer"></a>
-                <a href="http://pinterest.com/onlineformals/" target="_blank" class="footerPint footerSocMedIcon pointer"></a>
-                <a href="http://www.youtube.com/channel/UCm98znxn3wp8w-X2B2_QyDQ" target="_blank" class="footerYT footerSocMedIcon pointer"></a>
-                <a href="http://instagram.com/onlineformals" target="_blank" class="footerInsta footerSocMedIcon pointer"></a>
-                <a href="https://plus.google.com/u/0/b/101316495852914612446/101316495852914612446/posts" target="_blank" class="footerGP footerSocMedIcon pointer"></a>
-            </div>
-			
-			
-			
-			
-			<!--****************************************************************************************************************************************** -->
-			<!--****************************************************SHOWROOM BANNER SECTION*************************************************************** -->
-
-			<div class="footerShowroomLinkContainer">
-            	<a href="#!category?navcat=.showroom" class="pointer bindByAnchor"><img src="Images/Homepage/footer/footershowroom.png" /></a>
-            </div>
-			
-			
-			
-			
-			
-			
-			<div class="footerSealsSection">
-            	<div class="footerTopPromSeal">
-            		<script type="text/javascript" language="javascript">var customer_id="105781";</script><script type="text/javascript" language="javascript" src="//www.toppromwebsites.com/validator/tpw-seal.js"></script>
-            	</div>
-				
-				<div class="footerAuthorizeDotNetSeal">
-					<div class="AuthorizeNetSeal"> <script type="text/javascript" language="javascript">var ANS_customer_id="2ac6c99b-53f8-4abd-bc2e-a2d6a6f8dd53";</script> <script type="text/javascript" language="javascript" src="//verify.authorize.net/anetseal/seal.js" ></script> <a href="http://www.authorize.net/" id="AuthorizeNetText" target="_blank">Accepts Credit Cards</a> </div>
-				</div>
-				
-				
-				<div class="footerRapidSSLSeal">
-					<img src="Images/Homepage/footer/RapidSSL_SEAL-90x50.gif" />
-				</div>
-				
-				<!--
-				<div class="footerGeotrustSeal">
-					<script language="javascript" type="text/javascript" src="//smarticon.geotrust.com/si.js"></script>
-                </div>
-				
-			</div>
-			<div class="footerBottomNote">
-            	<p>Online Formals Inc. Copyright &#169; 2013. All Rights Reserved.</p>
-            </div>
-    	</div>
-    </div>
-</div>
 <!-- ... your html ends -->
 <!-- /VIEW CONTENT -->
-</div>
+
 
 
 
@@ -599,7 +601,7 @@ src="Images/Homepage/topbanner/testbanner.png" FOR THE IMAGE FILE.
 -->       	
 		<div class="homepageBannerContainer">
         	<!--Remove the overflow hidden style when installing the new banner*/-->
-            <a class="pointer" ><img src="Images/Homepage/topbanner/topbanner.png" /></a> <!--onClick="return showContent('category',{'navcat':''});"-->
+            <a class="pointer" ><img src="Images/Homepage/topbanner/topbanner.png" alt="" /></a> <!--onClick="return showContent('category',{'navcat':''});"-->
         </div>
 <!--
 /******************************************************************************************************************************************************************/
@@ -626,15 +628,15 @@ src="Images/Homepage/carousel/testbanner-1.png" FOR THE IMAGE FILE.
 -->   
 		<div class="homepageCarouselContainer">
             <ul class="carouselHPBannerList">
-		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.la_femme'});"><img src="Images/Homepage/carousel/lafemmespring.png" /></a></li>
-		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.tony_bowls'});"><img src="Images/Homepage/carousel/tonyspring.png" /></a></li>
-		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.sherri_hill'});"><img src="Images/Homepage/carousel/sherrispring.png" /></a></li>
-		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.prom'});"><img src="Images/Homepage/carousel/prom2014.png" /></a></li>
-                <li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.mac_duggal'});"><img src="Images/Homepage/carousel/13_001_11_ofc-Macduggal-350h.png" /></a></li>
-                <li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.jasz_couture'});"><img src="Images/Homepage/carousel/jaszbanner.png" /></a></li>
+		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.la_femme'});"><img src="Images/Homepage/carousel/lafemmespring.png" alt="" /></a></li>
+		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.tony_bowls'});"><img src="Images/Homepage/carousel/tonyspring.png" alt="" /></a></li>
+		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.sherri_hill'});"><img src="Images/Homepage/carousel/sherrispring.png" alt="" /></a></li>
+		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.prom'});"><img src="Images/Homepage/carousel/prom2014.png" alt="" /></a></li>
+                <li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.mac_duggal'});"><img src="Images/Homepage/carousel/13_001_11_ofc-Macduggal-350h.png" alt="" /></a></li>
+                <li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.jasz_couture'});"><img src="Images/Homepage/carousel/jaszbanner.png" alt="" /></a></li>
             </ul>
-            <img class="prevHPBannerCaro" src="Images/Homepage/caroleft.png" />
-            <img class="nextHPBannerCaro" src="Images/Homepage/caroright.png" />
+            <img class="prevHPBannerCaro" src="Images/Homepage/caroleft.png" alt="" />
+            <img class="nextHPBannerCaro" src="Images/Homepage/caroright.png" alt="" />
         </div>		
 <!--
 /******************************************************************************************************************************************************************/
@@ -657,19 +659,19 @@ src="Images/Homepage/subcats/testchildren.png" FOR THE IMAGE FILE, AND <p class=
 -->   
         <div class="homepageSubCatListContainer">
             <div class="homepageSubCatItemTop pointer" onClick="return showContent('category',{'navcat':'.in_stock'});"> <!--onMouseOver="app.ext._store_formals.a.homepageSubCatMouseOver($(this))" onMouseOut="app.ext._store_formals.a.homepageSubCatMouseOut($(this))"-->
-                <img src="Images/Homepage/subcats/instock.png" />
+                <img src="Images/Homepage/subcats/instock.png" alt="" />
                 <div class="homepageSubCatTitleBar homepageSubCatTitleBar1">
                     <p class="homepageSubCatTitle"></p>
                 </div>
             </div>
             <div class="homepageSubCatItemTop pointer" onClick="return showContent('category',{'navcat':'.prom'});">
-                <img src="Images/Homepage/subcats/promnoborder.jpg" />
+                <img src="Images/Homepage/subcats/promnoborder.jpg" alt="" />
 				<div class="homepageSubCatTitleBar homepageSubCatTitleBar2">
                     <p class="homepageSubCatTitle"></p>
                 </div>
             </div>
             <div class="homepageSubCatItemTop pointer" onClick="return showContent('category',{'navcat':'.prom.trends.lace'});">
-                <img src="Images/Homepage/subcats/lace.png" />
+                <img src="Images/Homepage/subcats/lace.png" alt="" />
                 <div class="homepageSubCatTitleBar homepageSubCatTitleBar3">
                     <p class="homepageSubCatTitle"></p>
                 </div>
@@ -696,25 +698,25 @@ src="Images/Homepage/categories/testprom.png" FOR THE IMAGE FILE, AND <p class="
 -->
         <div class="homepageCategoryListContainer">
             <div class="homepageCategoryItemTop pointer" onClick="return showContent('category',{'navcat':'.prom'});"> <!--onMouseOver="app.ext._store_formals.a.homepageCategoryMouseOver($(this))" onMouseOut="app.ext._store_formals.a.homepageCategoryMouseOut($(this))"-->
-                <img src="Images/Homepage/categories/prom.jpg" />
+                <img src="Images/Homepage/categories/prom.jpg" alt="" />
                 <div class="homepageCatTitleBar homepageCatTitleBar1">
                     <p class="homepageCatTitle">Prom</p>
                 </div>
             </div>
             <div class="homepageCategoryItemTop pointer" onClick="return showContent('category',{'navcat':'.evening'});">
-                <img src="Images/Homepage/categories/evening.jpg" />
+                <img src="Images/Homepage/categories/evening.jpg" alt="" />
                 <div class="homepageCatTitleBar homepageCatTitleBar2">
                     <p class="homepageCatTitle">Evening</p>
                 </div>
             </div>
             <div class="homepageCategoryItemTop pointer" onClick="return showContent('category',{'navcat':'.cocktail'});">
-                <img src="Images/Homepage/categories/cocktail.jpg" />
+                <img src="Images/Homepage/categories/cocktail.jpg" alt="" />
                 <div class="homepageCatTitleBar homepageCatTitleBar3">
                     <p class="homepageCatTitle">Cocktail</p>
                 </div>
             </div>
             <div class="homepageCategoryItemTop pointer" onClick="return showContent('category',{'navcat':'.plus_size'});">
-                <img src="Images/Homepage/categories/plus.jpg" />
+                <img src="Images/Homepage/categories/plus.jpg" alt="" />
                 <div class="homepageCatTitleBar homepageCatTitleBar4">
                     <p class="homepageCatTitle">Plus Size</p>
                 </div>
@@ -894,7 +896,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 					<ul data-tlc="bind $var '.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate';" class="listStyleNone fluidList clearfix noPadOrMargin productList"></ul><!-- outputs the product list -->
             			</div>
 				<div class="searchFilterResults">
-					<ul class="searchFilterResults productList" data-app-role='productList'>
+					<ul class="searchFilterResults productList" data-app-role='productList'></ul>
 				</div>
             </div>
     	</div>    
@@ -951,6 +953,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 		Suite 103<br>
 		Virginia Beach, VA 23453<br>
 		
+		
 		<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=2492+North+Landing+Rd.+Suite+103+Virginia+Beach,+VA+23453&amp;aq=&amp;sll=33.688494,-117.317771&amp;sspn=0.16683,0.338173&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=2492+N+Landing+Rd+%23103,+Virginia+Beach,+Virginia+23456&amp;z=14&amp;ll=36.74957,-76.058948&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=2492+North+Landing+Rd.+Suite+103+Virginia+Beach,+VA+23453&amp;aq=&amp;sll=33.688494,-117.317771&amp;sspn=0.16683,0.338173&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=2492+N+Landing+Rd+%23103,+Virginia+Beach,+Virginia+23456&amp;z=14&amp;ll=36.74957,-76.058948" style="color:#0000FF;text-align:left">View Larger Map</a></small>
 
 	</div>
@@ -992,7 +995,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 
 	<div data-tlc="bind $pid '.pid'; bind $seo '.%attribs.zoovy:prod_name'; bind $href ''; store_routing#productlink --pid=$pid --seo=$seo; apply --attrib='href';" class="blockLink">
 		<div data-tlc="bind $var '.pid'; quickstart#addpicslider  --legacy; apply --append;" class="prodThumbContainer">
-           		<img data-tlc="bind $var '.%attribs.zoovy:prod_thumb'; if(is $var --blank;){{bind $var '.%attribs.zoovy:prod_image1';}}; if(is $var --notblank;){{apply --img --media=$var --width=120 --height=120 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="prodThumb" alt="" height=200" width="280">
+           		<img data-tlc="bind $var '.%attribs.zoovy:prod_thumb'; if(is $var --blank;){{bind $var '.%attribs.zoovy:prod_image1';}}; if(is $var --notblank;){{apply --img --media=$var --width=120 --height=120 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="prodThumb" alt="" height="200" width="280">
 		</div>
 
 		<div class="productItemInfo">
@@ -1334,11 +1337,11 @@ this will likely become more flexible in the future. ###
                 
                 <img class="productAuthSeal" src="Images/productpage/authorizedseal2.png" />
 
-                <hgroup class='marginBottom'>
+                <div class='marginBottom'>
                     <!--<h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Sku: '; apply --append;}};" class="stid"></h5>-->
                     <h5 class="productMfg" data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if (is $var --notblank;) {{format --prepend=' By: '; quickstart#searchlink  --legacy;}};"></h5>
                     <!--<h5 data-tlc="bind $var '.%attribs.zoovy:prod_mfgid';  if (is $var --notblank;) {{format --prepend='Mfg ID: '; apply --append;}};"></h5>-->
-                </hgroup>
+                </div>
 
                 <div class='priceContainer marginBottom'>
                     <h4 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Our Price: '; apply --append;}};" class="basePrice"></h4>
@@ -1468,16 +1471,16 @@ this will likely become more flexible in the future. ###
                         </div>
                         
                         <div class='tabContent' data-anytab-content='prodVideo'>
-                        	<div tlc="bind $var '.%attribs.user:youtube_videoid'; if(is $var --notblank) {{ apply --show; }};">
-                            	<div tlc="bind $var '.%attribs.user:vimeo_videoid'; if(is $var --notblank) {{ apply --show; }};">
+                        	<div data-tlc="bind $var '.%attribs.user:youtube_videoid'; if(is $var --notblank) {{ apply --show; }};">
+                            	<div data-tlc="bind $var '.%attribs.user:vimeo_videoid'; if(is $var --notblank) {{ apply --show; }};">
                                 	<p>No videos have been uploaded for this product yet.</p>
                                 </div>
                             </div>
-                        	<div tlc="bind $var '.%attribs.user:youtube_videoid'; apply --attrib='data-youtubeid';">
+                        	<div data-tlc="bind $var '.%attribs.user:youtube_videoid'; apply --attrib='data-youtubeid';">
                                 <img class="pointer" src="blank.gif" tlc="bind $var '.%attribs.user:youtube_videoid'; quickstart#youtubeThumbnail apply --append;" onClick="app.ext.myRIA.a.showYoutubeInModal($(this).parent().data('youtubeid')); return false;" alt="" />
                             </div>
-                            <div tlc="bind $var '.%attribs.user:vimeo_videoid'; apply --attrib='data-vimeoid';">
-                            	<div tlc="bind $var '.%attribs.user:vimeo_videoid'; _store_formals#vimeoVideo apply --append;"></div>
+                            <div data-tlc="bind $var '.%attribs.user:vimeo_videoid'; apply --attrib='data-vimeoid';">
+                            	<div data-tlc="bind $var '.%attribs.user:vimeo_videoid'; _store_formals#vimeoVideo apply --append;"></div>
                             </div>
                      
                         </div>
@@ -1659,11 +1662,11 @@ this will likely become more flexible in the future. ###
                 
                 <img class="productAuthSeal" src="Images/productpage/authorizedseal2.png" />
 
-                <hgroup class='marginBottom'>
+                <div class='marginBottom'>
                     <!--<h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Sku: '; apply --append;}};" class="stid"></h5>-->
                     <h5 class="productMfg" data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if (is $var --notblank;) {{format --prepend=' By: '; quickstart#searchlink  --legacy;}};"></h5>
                     <!--<h5 data-tlc="bind $var '.%attribs.zoovy:prod_mfgid';  if (is $var --notblank;) {{format --prepend='Mfg ID: '; apply --append;}};"></h5>-->
-                </hgroup>
+                </div>
 
                 <div class='priceContainer marginBottom'>
                     <h4 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Our Price: '; apply --append;}};" class="basePrice"></h4>
@@ -1793,16 +1796,16 @@ this will likely become more flexible in the future. ###
                         </div>
                         
                         <div class='tabContent' data-anytab-content='prodVideo'>
-                        	<div tlc="bind $var '.%attribs.user:youtube_videoid'; if(is $var --notblank) {{ apply --show; }};">
-                            	<div tlc="bind $var '.%attribs.user:vimeo_videoid'; if(is $var --notblank) {{ apply --show; }};">
+                        	<div data-tlc="bind $var '.%attribs.user:youtube_videoid'; if(is $var --notblank) {{ apply --show; }};">
+                            	<div data-tlc="bind $var '.%attribs.user:vimeo_videoid'; if(is $var --notblank) {{ apply --show; }};">
                                 	<p>No videos have been uploaded for this product yet.</p>
                                 </div>
                             </div>
-                        	<div tlc="bind $var '.%attribs.user:youtube_videoid'; apply --attrib='data-youtubeid';">
+                        	<div data-tlc="bind $var '.%attribs.user:youtube_videoid'; apply --attrib='data-youtubeid';">
                                 <img class="pointer" src="blank.gif" tlc="bind $var '.%attribs.user:youtube_videoid'; quickstart#youtubeThumbnail apply --append;" onClick="app.ext.myRIA.a.showYoutubeInModal($(this).parent().data('youtubeid')); return false;" alt="" />
                             </div>
                             <div tlc="bind $var '.%attribs.user:vimeo_videoid'; apply --attrib='data-vimeoid';">
-                            	<div tlc="bind $var '.%attribs.user:vimeo_videoid'; _store_formals#vimeoVideo apply --append;"></div>
+                            	<div data-tlc="bind $var '.%attribs.user:vimeo_videoid'; _store_formals#vimeoVideo apply --append;"></div>
                             </div>
                      
                         </div>
@@ -1901,9 +1904,8 @@ this will likely become more flexible in the future. ###
             
             <!--BG HAUTE-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
+                
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>BG HAUTE</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD><!--$(this)-->
-                </TR>
                 <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <TD>0</TD>
@@ -1953,15 +1955,13 @@ this will likely become more flexible in the future. ###
                 <TD>45</TD>
                 <TD>47</TD>
                 </TR>
-        	</TABLE></center>
+        	</TABLE>
             
             <!--CASSANDRA STONE-->
             <!--
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
-                <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>CASSANDRA STONE</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
-                </TR>
-                <TR bgcolor="#FFFFFF">
+                
+                <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>CASSANDRA STONE</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>                <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <TD>0</TD>
                 <TD>2</TD>
@@ -2010,15 +2010,14 @@ this will likely become more flexible in the future. ###
                 <TD>45</TD>
                 <TD>47</TD>
                 </TR>
-        	</TABLE></center>
+        	</TABLE>
             -->
             
             <!--CASSANDRA STONE PLUS SIZE-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
+                
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>CASSANDRA STONE PLUS SIZE</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD><!--$(this)-->
-                </TR>
-                <TR bgcolor="#FFFFFF">
+                                <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <td>14W</td>
                 <td>16W</td>
@@ -2063,14 +2062,13 @@ this will likely become more flexible in the future. ###
                 <td>59</td>
                 <td>61</td>
                 </TR>
-        	</TABLE></center>
+        	</TABLE>
             
             <!--FABULOUSS-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
+                
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>FABULOUSS</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD><!--$(this)-->
-                </TR>
-                <TR bgcolor="#FFFFFF">
+                                <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <td>14W</td>
                 <td>16W</td>
@@ -2115,14 +2113,13 @@ this will likely become more flexible in the future. ###
                 <td>59</td>
                 <td>61</td>
                 </TR>
-        	</TABLE></center>
+        	</TABLE>
             
             <!--FAVIANA-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-            <TBODY>
+            
             <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>FAVIANA</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
-            </TR>
-            <TR bgcolor="#FFFFFF">
+                            <TR bgcolor="#FFFFFF">
             <TD><b>Size</b></TD>
             <td>0</td>
             <td>2</td>
@@ -2167,14 +2164,13 @@ this will likely become more flexible in the future. ###
             <td>42.5</td>
             <td>44</td>
             </TR>
-        </TABLE></center>
+        </TABLE>
             
             <!--FAVIANA EXTRA SIZE-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
+                
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>FAVIANA EXTRA SIZE</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD><!--$(this)-->
-                </TR>
-                <TR bgcolor="#FFFFFF">
+                                <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <td>18E</td>
                 <td>20E</td>
@@ -2227,14 +2223,13 @@ this will likely become more flexible in the future. ###
                 <td>56</td>
                 <td>58</td>
                 </TR>
-        	</TABLE></center>
+        	</TABLE>
             
             <!--FAVIANA GLAMOUR-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
+                
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>FAVIANA GLAMOUR</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
-                </TR>
-                <TR bgcolor="#FFFFFF">
+                                <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <td>0</td>
                 <td>2</td>
@@ -2275,14 +2270,13 @@ this will likely become more flexible in the future. ###
                 <td>41.5</td>
                 <td>42.5</td>
                 </TR>
-        	</TABLE></center>
+        	</TABLE>
             
             <!--GIGI-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
+                
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>GIGI</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
-                </TR>
-                <TR bgcolor="#FFFFFF">
+                                <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <td>00</td>
                 <td>0</td>
@@ -2347,14 +2341,13 @@ this will likely become more flexible in the future. ###
                 <td>53</td>
                 <td>55</td>
                 </TR>
-        	</TABLE></center>
+        	</TABLE>
             
             <!--JASZ COUTURE-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
+                
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>JASZ COUTURE</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
-                </TR>
-                <TR bgcolor="#FFFFFF">
+                                <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <td>00</td>
                 <td>0</td>
@@ -2419,14 +2412,13 @@ this will likely become more flexible in the future. ###
                 <td>53</td>
                 <td>55</td>
                 </TR>
-        	</TABLE></center>
+        	</TABLE>
             
             <!--JOHNATHAN KAYNE-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
+                
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>JOHNATHAN KAYNE</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
-                </TR>
-                <TR bgcolor="#FFFFFF">
+                                <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <td>0</td>
                 <td>2</td>
@@ -2471,14 +2463,13 @@ this will likely become more flexible in the future. ###
                 <td>42.5</td>
                 <td>44</td>
                 </TR>
-        	</TABLE></center>
+        	</TABLE>
             
             <!--LA FEMME-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
+                
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>LA FEMME</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
-                </TR>
-                <TR bgcolor="#FFFFFF">
+                                <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <td>00</td>
                 <td>0</td>
@@ -2543,14 +2534,13 @@ this will likely become more flexible in the future. ###
                 <td>53</td>
                 <td>55</td>
                 </TR>
-        	</TABLE></center>
+        	</TABLE>
             
             <!--LE GALA-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
+                
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>LE GALA</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
-                </TR>
-                <TR bgcolor="#FFFFFF">
+                                <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <td>0</td>
                 <td>2</td>
@@ -2611,14 +2601,13 @@ this will likely become more flexible in the future. ###
                 <td>49</td>
                 <td>51</td>
                 </TR>
-        	</TABLE></center>
+        	</TABLE>
             
             <!--LM COLLECTION-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
+                
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>LM COLLECTION</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
-                </TR>
-                <TR bgcolor="#FFFFFF">
+                                <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <td>0</td>
                 <td>2</td>
@@ -2663,14 +2652,13 @@ this will likely become more flexible in the future. ###
                 <td>43.5</td>
                 <td>45</td>
                 </TR>
-        	</TABLE></center>
+        	</TABLE>
             
             <!--MAC DUGGAL-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
+                
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>MAC DUGGAL</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
-                </TR>
-                <TR bgcolor="#FFFFFF">
+                                <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <td>0</td>
                 <td>2</td>
@@ -2723,14 +2711,13 @@ this will likely become more flexible in the future. ###
                 <td>47.5</td>
                 <td>50.5</td>
                 </TR>
-        	</TABLE></center>
+        	</TABLE>
             
             <!--MIGNON-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
+                
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>MIGNON</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
-                </TR>
-                <TR bgcolor="#FFFFFF">
+                                <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <td>0</td>
                 <td>2</td>
@@ -2778,14 +2765,13 @@ this will likely become more flexible in the future. ###
                 <td>43.5</td>
                 <td>45</td>
                 </TR>
-        	</TABLE></center>
+        	</TABLE>
             
             <!--MNM COUTURE-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
+                
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>MNM COUTURE</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
-                </TR>
-                <TR bgcolor="#FFFFFF">
+                                <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <td>2</td>
                 <td>4</td>
@@ -2845,14 +2831,13 @@ this will likely become more flexible in the future. ###
                 <td>52</td>
                 <td>54</td>
                 </TR>
-        	</TABLE></center>
+        	</TABLE>
             
             <!--NIGHT MOVES-->
             <TABLE class="productSizeChart productNightMovesChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
+                
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>NIGHT MOVES</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
-                </TR>
-                <TR bgcolor="#FFFFFF">
+                                <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <td class="productNightMovesFont">0</td>
                 <td class="productNightMovesFont">2</td>
@@ -2935,14 +2920,13 @@ this will likely become more flexible in the future. ###
                 <td class="productNightMovesFont">59.5</td>
                 <td class="productNightMovesFont">62.5</td>
                 </TR>
-                </TABLE></center>
+                </TABLE>
             
             <!--PARIS-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
+                
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>PARIS</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
-                </TR>
-                <TR bgcolor="#FFFFFF">
+                                <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <td>0</td>
                 <td>2</td>
@@ -3006,14 +2990,13 @@ this will likely become more flexible in the future. ###
                 <td>49</td>
                 <td>51</td>
                 </TR>
-        	</TABLE></center>
+        	</TABLE>
             
              <!--SCALA-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
+                
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>SCALA</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
-                </TR>
-                <TR bgcolor="#FFFFFF">
+                                <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <td>0</td>
                 <td>2</td>
@@ -3061,14 +3044,13 @@ this will likely become more flexible in the future. ###
                 <td>43.5</td>
                 <td>45</td>
                 </TR>
-        	</TABLE></center>
+        	</TABLE>
             
             <!--SHAIL K-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
+                
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>SHAIL K</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
-                </TR>
-                <TR bgcolor="#FFFFFF">
+                                <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <td>0</td>
                 <td>2</td>
@@ -3116,14 +3098,13 @@ this will likely become more flexible in the future. ###
                 <td>43.5</td>
                 <td>45</td>
                 </TR>
-        	</TABLE></center>
+        	</TABLE>
             
             <!--SHERRI HILL-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
+                
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>SHERRI HILL</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
-                </TR>
-                <TR bgcolor="#FFFFFF">
+                                <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <TD>00</TD>
                 <TD>0</TD>
@@ -3176,14 +3157,13 @@ this will likely become more flexible in the future. ###
                 <TD>45</TD>
                 <TD>47</TD>
                 </TR>
-        	</TABLE></center>
+        	</TABLE>
             
             <!--TERANI-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
+                
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>TERANI</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
-                </TR>
-                <TR bgcolor="#FFFFFF">
+                                <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <td>0</td>
                 <td>2</td>
@@ -3239,14 +3219,13 @@ this will likely become more flexible in the future. ###
                 <td>49.5</td>
                 <td>52.5</td>
                 </TR>
-        	</TABLE></center>
+        	</TABLE>
             
             <!--TONY BOWLS-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-                <TBODY>
+                
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>TONY BOWLS</b></font></center><a onClick="app.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
-                </TR>
-                <TR bgcolor="#FFFFFF">
+                                <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
                 <td>0</td>
                 <td>2</td>
@@ -3302,7 +3281,7 @@ this will likely become more flexible in the future. ###
                 <td>45</td>
                 <td>47</td>
                 </TR>
-        	</TABLE></center>
+        	</TABLE>
             
     	</div>
     </div>
@@ -3371,266 +3350,252 @@ if you change these, you should move them above this comment so that when you (o
 <div id="companyTemplate" class="clearfix">
 
 	<div class="sideline">
-<nav id="companyNav">
-<ul class="listStyleNone noPadOrMargin">
-<!-- these are generated via javascript, based on the quickstart.pages object. -->
-</ul>
-</nav>
+		<nav id="companyNav">
+			<ul class="listStyleNone noPadOrMargin">
+			<!-- these are generated via javascript, based on the quickstart.pages object. -->
+			</ul>
+		</nav>
 	</div>
 
-        <div class='mainColumn'>
-        <!-- .textContentArea is used as a selector in quickstart.js because article tag type isn't ie8 friendly -->
-            <div id='aboutArticle' class='textContentArea article'>
-                <h1>About Us</h1>
-                <!--
-                <div data-tlc="bind $var '.zoovy:about'; render --wiki='quickstart'; if (is $var --notblank;) {{apply --append;}};" id="aboutUsContent"></div>
-                -->
-                <p>Established in 2004, Onlineformals.com has become a trusted e-commerce leader in the special occasion industry. Specializing in Prom, Pageant, and Social Occasion attire, we also offer the latest styles in formal shoes and accessories.<p>
-                Our personal relationships with the most respected garment manufacturers in the business enable us to bring you the latest styles and trends at cost effective prices. With our improved website functionality and the addition of our unique showroom that provides a personal shopping experience, finding your dress will be easier than ever!</p>
-                <p><b><u>Why Buy From Us</u></b></p>
-                <p><b>Authenticity.</b> We are an Authorized Retailer for every designer we carry giving you confidence that you are purchasing a 100% Authentic gown. We are also &ldquo;Top Prom Website&rdquo; Approved!<br></p>
-                <p><b>Customer Service</b> provided by friendly and knowledgeable staff that can answer any questions and assist with your order.<br></p>
-                <p><b>Peace of mind</b> when placing your order&#150;our clearly stated return policy allows for easy exchanges!<br></p>
-                <p><b>Security</b> provided by GeoTrust and credit card processing through Authorize.net.</p>
-    
-            </div>
-    
-    
-            <div id='contactArticle' class='displayNone textContentArea'>
-                <h1>Contact Information</h1>
-                <div class="contactContentContainer companyAddress">
-                    <p><b>Phone</b>:  888.280.4179</p>
-                    <p><b>E-mail</b>:  info@onlineformals.com</p>
-                    <p class="contactUsChat"><b>Chat</b>: </p><div id="cinXRT" style="z-index:100;position:absolute"></div><div id="scnXRT" style="display:inline"></div><div id="sdnXRT" style="display:none"></div><script type="text/javascript">var senXRT=document.createElement("script");senXRT.type="text/javascript";var senXRTs=(location.protocol.indexOf("https")==0?"https":"http")+"://image.providesupport.com/js/1rj9nh21p5xso04swicqmmfdv0/safe-textlink.js?ps_h=nXRT&ps_t="+new Date().getTime()+"&online-link-html=Chat%20With%20A%20Stylist%21&offline-link-html=Chat%20With%20A%20Stylist%21";setTimeout("senXRT.src=senXRTs;document.getElementById('sdnXRT').appendChild(senXRT)",1)</script><noscript><div style="display:inline"><a href="http://www.providesupport.com?messenger=1rj9nh21p5xso04swicqmmfdv0">Live Chat Help</a></div></noscript>
-                    <p><b>Live Customer Support Hours</b></p>
-                    <p>Monday - Friday &bull; 8:00 am-5:00 pm EST</p>
-                    <p>Saturday &bull; 8:00 am-12:00 pm EST</p>
-                    <p>Sunday &bull; Closed</p>
-                    <p><b>Visit</b>:  Click <a class="pointer contactUsShowroomLink" onClick="return showContent('category',{'navcat':'.showroom'});">here</a> for information about visiting our Showroom!</p>
-                </div>    
-    
-                
-				<form action="#" data-app-submit="store_crm|contactFormSubmit" name="contactForm">
-			<input name="msgtype" value="feedback" type="hidden">
-			<fieldset>
-				<legend>Contact Us</legend>
-				<div id="contactFormMessaging"></div>
-				<div><label><span class="prompt">Email Address</span><input name="sender" required type="email"></label></div>
-				<div><label><span class="prompt">Subject</span><input name="subject" required type="text"></label></div>
-				<div><label><span class="prompt">Order ID</span><input name="OID" type="text"></label></div>
-				<div><label><span class="prompt">Message</span><textarea name="body" required></textarea></label></div>
-				<div class="alignRight"><input class="applyButton" value="Send Message" type="submit">
-				</div>
-			</fieldset>
+	<div class='mainColumn'>
+	<!-- .textContentArea is used as a selector in quickstart.js because article tag type isn't ie8 friendly -->
+		<div id='aboutArticle' class='textContentArea article'>
+			<h1>About Us</h1>
+			<!--
+			<div data-tlc="bind $var '.zoovy:about'; render --wiki='quickstart'; if (is $var --notblank;) {{apply --append;}};" id="aboutUsContent"></div>
+			-->
+			<p>Established in 2004, Onlineformals.com has become a trusted e-commerce leader in the special occasion industry. Specializing in Prom, Pageant, and Social Occasion attire, we also offer the latest styles in formal shoes and accessories.</p>
+			<P>Our personal relationships with the most respected garment manufacturers in the business enable us to bring you the latest styles and trends at cost effective prices. With our improved website functionality and the addition of our unique showroom that provides a personal shopping experience, finding your dress will be easier than ever!</p>
+			<p><b><u>Why Buy From Us</u></b></p>
+			<p><b>Authenticity.</b> We are an Authorized Retailer for every designer we carry giving you confidence that you are purchasing a 100% Authentic gown. We are also &ldquo;Top Prom Website&rdquo; Approved!<br></p>
+			<p><b>Customer Service</b> provided by friendly and knowledgeable staff that can answer any questions and assist with your order.<br></p>
+			<p><b>Peace of mind</b> when placing your order&#150;our clearly stated return policy allows for easy exchanges!<br></p>
+			<p><b>Security</b> provided by GeoTrust and credit card processing through Authorize.net.</p>
+
+		</div>
+
+
+		<div id='contactArticle' class='displayNone textContentArea'>
+			<h1>Contact Information</h1>
+			<div class="contactContentContainer companyAddress">
+				<p><b>Phone</b>:  888.280.4179</p>
+				<p><b>E-mail</b>:  info@onlineformals.com</p>
+				<p class="contactUsChat"><b>Chat</b>: </p><div id="cinXRT" style="z-index:100;position:absolute"></div><div id="scnXRT" style="display:inline"></div><div id="sdnXRT" style="display:none"></div><script type="text/javascript">var senXRT=document.createElement("script");senXRT.type="text/javascript";var senXRTs=(location.protocol.indexOf("https")==0?"https":"http")+"://image.providesupport.com/js/1rj9nh21p5xso04swicqmmfdv0/safe-textlink.js?ps_h=nXRT&ps_t="+new Date().getTime()+"&online-link-html=Chat%20With%20A%20Stylist%21&offline-link-html=Chat%20With%20A%20Stylist%21";setTimeout("senXRT.src=senXRTs;document.getElementById('sdnXRT').appendChild(senXRT)",1)</script><noscript><div style="display:inline"><a href="http://www.providesupport.com?messenger=1rj9nh21p5xso04swicqmmfdv0">Live Chat Help</a></div></noscript>
+				<p><b>Live Customer Support Hours</b></p>
+				<p>Monday - Friday &bull; 8:00 am-5:00 pm EST</p>
+				<p>Saturday &bull; 8:00 am-12:00 pm EST</p>
+				<p>Sunday &bull; Closed</p>
+				<p><b>Visit</b>:  Click <a class="pointer contactUsShowroomLink" onClick="return showContent('category',{'navcat':'.showroom'});">here</a> for information about visiting our Showroom!</p>
+			</div>    
+
+			
+			<form action="#" data-app-submit="store_crm|contactFormSubmit" name="contactForm">
+				<input name="msgtype" value="feedback" type="hidden">
+				<fieldset>
+					<legend>Contact Us</legend>
+					<div id="contactFormMessaging"></div>
+					<div><label><span class="prompt">Email Address</span><input name="sender" required type="email"></label></div>
+					<div><label><span class="prompt">Subject</span><input name="subject" required type="text"></label></div>
+					<div><label><span class="prompt">Order ID</span><input name="OID" type="text"></label></div>
+					<div><label><span class="prompt">Message</span><textarea name="body" required></textarea></label></div>
+					<div class="alignRight"><input class="applyButton" value="Send Message" type="submit" /></div>
+				</fieldset>
 			</form>
-                <div data-tlc="bind $var '.zoovy:contact'; render --wiki='quickstart'; if (is $var --notblank;) {{apply --append;}};" id="contactContent"></div>
+			<div data-tlc="bind $var '.zoovy:contact'; render --wiki='quickstart'; if (is $var --notblank;) {{apply --append;}};" id="contactContent"></div>
 		</div>
 
 
 
 		<div id="faqArticle" class="displayNone textContentArea">
 			<h1>Frequently Asked Questions</h1>
-                <div class="faqAuthGuaranteeCont">
-                	<div class="faqTitleCont" onClick="app.ext._store_formals.a.collapseExpandFAQ($(this).parent());">
-                        <div>
-                        </div>
-                        <span class="ui-icon ui-icon-triangle-1-e floatLeft marginRight">
-                        </span>
-                        <h3>Authenticity Guarantee</h3>
-                	</div>
-                    <div class="faqContentCont">
-                    	<p><span>Q: </span>Are the gowns you sell Authentic?</p>
-                        <p><span>A: </span>Absolutely! Onlineformals.com is an authorized retailer for each designer we carry. We do not sell fake knock off dresses or any other product, as seen on many websites. We are Top Prom Website and Stop Fakes Website approved. We can also be found under the retailer section on the respective manufacturer websites. We are committed to making you feel confident you will receive an authentic dress when you place your order on Onlineformals.com</p>
-                    </div>
-                </div>
-                
-                <div class="faqReturnPolicy">
-                	<div class="faqTitleCont" onClick="app.ext._store_formals.a.collapseExpandFAQ($(this).parent());">
-                        <div>
-                        </div>
-                        <span class="ui-icon ui-icon-triangle-1-e floatLeft marginRight">
-                        </span>
-                        <h3>Return Policy</h3>
-                	</div>
-                    <div class="faqContentCont">
-                    	<p><span>Q: </span>What is your Return Policy?</p>
-                        <p><span>A: </span>                
-                        	<p>Onlineformals offers store credits on purchases (valid for a 1-year period) with the exception of the following items, which are not returnable: </p>
-                            <p>-Bridal Gowns</p>
-                            <p>-Shoes</p>
-                            <p>-Jewelery</p>
-                            <p>-Undergarments</p>
-                            <p>-Items purchased using a store credit from a previous return</p>
-                            <p><b>We do not offer refunds</b> and the conditions below must be met to process your return request:</p>
-                            <p>You must e-mail us at returns@onlineformals.com within <b>5 days</b> of receiving your item(s) and request a Return Authorization number.  Your request will be reviewed and, if valid, you will be issued a Return Authorization number.  Any items returned without a RA number will be sent back at the buyer&#39;s expense.</p>
-                            <p>The merchandise must be mailed back within <b>3 days</b> of receiving your Return Authorization number.  Please write your RA number on the outside of the box.</p>
-                            <p>Merchandise must be mailed to:</p>
-                            <p>Onlineformals.com<br />
-                            2492 North Landing Road<br />
-                            Suite 103<br />
-                            Virginia Beach, VA 23456</p>
-                            <p>The merchandise must be sent back in the original packaging with all tags, hangers and receipts enclosed.  Upon receipt we will carefully inspect the merchandise for signs of wear to include:  tears, snags, stains and odors.  If the merchandise is damaged in any way, we will not be able to provide store credit and you will be responsible for any return shipping costs. </p>
-                            <p>If the merchandise is received in new condition (as when shipped) we will provide a store credit for the amount of the item being returned <b>less a $35.00 return fee.</b> This fee covers our shipping costs associated with your new gown.  If you need a more expedited method of shipment, please contact us for an express shipping price quote.</p>
-                            <p><b>International customers using a store credit must select a paid shipping method or the order will be canceled. </b></p>
-                            <p>It is strongly suggested that you use UPS or FEDEX and ship your parcel fully insured.  The United States Postal Service doesn&#39;t provide a point-to-point tracking service and is not recommended.  We are not responsible for any loss or damage of your returned shipment. </p>
-                            <p>Store credits are valid for a period of one year from the date issued.  We will provide your store credit code via e-mail within 48 hours of receiving your return.  To redeem your credit, simply use the code in the Gift Certificate Code box at checkout when purchasing your new item.</p>
-                            <p><b>Items purchased using a store credit are not returnable,</b> meaning that once you receive your replacement item(s), it cannot be returned. </p>
-                            <p>Please call us at 888-280-4179 or e-mail us at info@onlineformals.com with any questions regarding our return policy.</p>
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="faqPrivacyPolicy">
-                	<div class="faqTitleCont" onClick="app.ext._store_formals.a.collapseExpandFAQ($(this).parent());">
-                        <div>
-                        </div>
-                        <span class="ui-icon ui-icon-triangle-1-e floatLeft marginRight">
-                        </span>
-                        <h3>Privacy Policy</h3>
-                	</div>
-                    <div class="faqContentCont">
-                    	<p><span>Q: </span>What is your Privacy Policy?</p>
-                        <p><span>A: </span>Your privacy is important to us. Under no circumstances will Onlineformals, its employees, affiliates or subsidiaries share your personal information with any third parties for the purposes of marketing or solicitation. Your personal information will be held in the strictest of confidence and only used to process your online transaction that you place through the use of our site or via phone with one of our customer service representatives. </p>
-                    </div>
-                </div>
-                
-                <div class="faqPriceGuarantee">
-                	<div class="faqTitleCont" onClick="app.ext._store_formals.a.collapseExpandFAQ($(this).parent());">
-                        <div>
-                        </div>
-                        <span class="ui-icon ui-icon-triangle-1-e floatLeft marginRight">
-                        </span>
-                        <h3>Low Price Guarantee</h3>
-                	</div>
-                    <div class="faqContentCont">
-                    	<p><span>Q: </span>What is your Low Price Guarantee?</p>
-                        <p><span>A: </span>Should you find a lower price on the exact same item we carry in our online store - we will meet the price plus 5 percent. This applies only to in stock, non-sale, non-clearance merchandise from an authorized retailer.</p>
+			<div class="faqAuthGuaranteeCont">
+				<div class="faqTitleCont" onClick="app.ext._store_formals.a.collapseExpandFAQ($(this).parent());">
+					<div></div>
+					<span class="ui-icon ui-icon-triangle-1-e floatLeft marginRight"></span>
+					<h3>Authenticity Guarantee</h3>
+				</div>
+				<div class="faqContentCont">
+					<p><span>Q: </span>Are the gowns you sell Authentic?</p>
+					<p><span>A: </span>Absolutely! Onlineformals.com is an authorized retailer for each designer we carry. We do not sell fake knock off dresses or any other product, as seen on many websites. We are Top Prom Website and Stop Fakes Website approved. We can also be found under the retailer section on the respective manufacturer websites. We are committed to making you feel confident you will receive an authentic dress when you place your order on Onlineformals.com</p>
+				</div>
+			</div>
+			
+			<div class="faqReturnPolicy">
+				<div class="faqTitleCont" onClick="app.ext._store_formals.a.collapseExpandFAQ($(this).parent());">
+					<div></div>
+					<span class="ui-icon ui-icon-triangle-1-e floatLeft marginRight"></span>
+					<h3>Return Policy</h3>
+				</div>
+				<div class="faqContentCont">
+					<p><span>Q: </span>What is your Return Policy?</p>
+					<p><span>A: </span>                
+						<p>Onlineformals offers store credits on purchases (valid for a 1-year period) with the exception of the following items, which are not returnable: </p>
+						<p>-Bridal Gowns</p>
+						<p>-Shoes</p>
+						<p>-Jewelery</p>
+						<p>-Undergarments</p>
+						<p>-Items purchased using a store credit from a previous return</p>
+						<p><b>We do not offer refunds</b> and the conditions below must be met to process your return request:</p>
+						<p>You must e-mail us at returns@onlineformals.com within <b>5 days</b> of receiving your item(s) and request a Return Authorization number.  Your request will be reviewed and, if valid, you will be issued a Return Authorization number.  Any items returned without a RA number will be sent back at the buyer&#39;s expense.</p>
+						<p>The merchandise must be mailed back within <b>3 days</b> of receiving your Return Authorization number.  Please write your RA number on the outside of the box.</p>
+						<p>Merchandise must be mailed to:</p>
+						<p>Onlineformals.com<br />
+						2492 North Landing Road<br />
+						Suite 103<br />
+						Virginia Beach, VA 23456</p>
+						<p>The merchandise must be sent back in the original packaging with all tags, hangers and receipts enclosed.  Upon receipt we will carefully inspect the merchandise for signs of wear to include:  tears, snags, stains and odors.  If the merchandise is damaged in any way, we will not be able to provide store credit and you will be responsible for any return shipping costs. </p>
+						<p>If the merchandise is received in new condition (as when shipped) we will provide a store credit for the amount of the item being returned <b>less a $35.00 return fee.</b> This fee covers our shipping costs associated with your new gown.  If you need a more expedited method of shipment, please contact us for an express shipping price quote.</p>
+						<p><b>International customers using a store credit must select a paid shipping method or the order will be canceled. </b></p>
+						<p>It is strongly suggested that you use UPS or FEDEX and ship your parcel fully insured.  The United States Postal Service doesn&#39;t provide a point-to-point tracking service and is not recommended.  We are not responsible for any loss or damage of your returned shipment. </p>
+						<p>Store credits are valid for a period of one year from the date issued.  We will provide your store credit code via e-mail within 48 hours of receiving your return.  To redeem your credit, simply use the code in the Gift Certificate Code box at checkout when purchasing your new item.</p>
+						<p><b>Items purchased using a store credit are not returnable,</b> meaning that once you receive your replacement item(s), it cannot be returned. </p>
+						<p>Please call us at 888-280-4179 or e-mail us at info@onlineformals.com with any questions regarding our return policy.</p>
+					</p>
+				</div>
+			</div>
+			
+			<div class="faqPrivacyPolicy">
+				<div class="faqTitleCont" onClick="app.ext._store_formals.a.collapseExpandFAQ($(this).parent());">
+					<div></div>
+					<span class="ui-icon ui-icon-triangle-1-e floatLeft marginRight"></span>
+					<h3>Privacy Policy</h3>
+				</div>
+				<div class="faqContentCont">
+					<p><span>Q: </span>What is your Privacy Policy?</p>
+					<p><span>A: </span>Your privacy is important to us. Under no circumstances will Onlineformals, its employees, affiliates or subsidiaries share your personal information with any third parties for the purposes of marketing or solicitation. Your personal information will be held in the strictest of confidence and only used to process your online transaction that you place through the use of our site or via phone with one of our customer service representatives. </p>
+				</div>
+			</div>
+			
+			<div class="faqPriceGuarantee">
+					<div class="faqTitleCont" onClick="app.ext._store_formals.a.collapseExpandFAQ($(this).parent());">
+						<div></div>
+						<span class="ui-icon ui-icon-triangle-1-e floatLeft marginRight"></span>
+						<h3>Low Price Guarantee</h3>
+					</div>
+					<div class="faqContentCont">
+						<p><span>Q: </span>What is your Low Price Guarantee?</p>
+						<p><span>A: </span>Should you find a lower price on the exact same item we carry in our online store - we will meet the price plus 5 percent. This applies only to in stock, non-sale, non-clearance merchandise from an authorized retailer.</p>
 
-                            <p>The price must be verifiable by providing us with the URL of the exact same item being offered at a lower cost.</p>
-                            
-                            <p>The Internet site must also have the companies full contact information clearly posted to include: Company Name, Address and Phone Number. There have been several reports of bogus/scam sites. Onlineformals.com is an Authorized verifiable retailer for each line we carry.</p>
-                            
-                            <p>This offer does not apply to previously purchased merchandise and can't be combined with any current promotions.</p>
-                    </div>
-                </div>
+							<p>The price must be verifiable by providing us with the URL of the exact same item being offered at a lower cost.</p>
+							
+							<p>The Internet site must also have the companies full contact information clearly posted to include: Company Name, Address and Phone Number. There have been several reports of bogus/scam sites. Onlineformals.com is an Authorized verifiable retailer for each line we carry.</p>
+							
+							<p>This offer does not apply to previously purchased merchandise and can't be combined with any current promotions.</p>
+					</div>
+				</div>
 
-              
-              
-              
-              
-                <!--
-                <div id='faqContent' class='loadingBG ui-accordion ui-widget ui-helper-reset ui-accordion-icons appAccordianesque'></div>
-            	-->
-            </div>
-    
-    
-    
-            <div class='displayNone textContentArea' id='paymentArticle'>
-                <h1>Payment Policy</h1>
-                <p>We accept:<br>
-                -Visa<br>
-                -Mastercard<br>
-                -American Express<br>
-                -Discover<br>
-                -Paypal<br>
-                -Personal Check<br>
-                -Money Order<br>
-                -Western Union<br>
-                </p>
-    
-                <!--
-                <div data-tlc="bind $var '.zoovy:payment_policy'; render --wiki='quickstart'; if (is $var --notblank;) {{apply --append;}};" id="paymentContent"></div>
-                -->
-            </div>
-    
-    
-            <div class='displayNone textContentArea' id='privacyArticle'>
-                <h1>Privacy Statement</h1>
-                <p>Your privacy is important to us. Under no circumstances will onlineformals.com, its employees, affiliates or subsidiaries share your personal information with any third parties for the purposes of marketing or solicitation. Your personal information will be held in the strictest of confidence and only used to process your online transaction that you place through the use of our site.</p>
-
-		<h4>About this Privacy Policy:</h4>
-	<p>The entire site, or at least specific portions of this site are assisted by Zoovy technology. Zoovy has created this privacy policy as a template for customers who are using Zoovy technology with their websites. Zoovy in no way takes responsibility for the accuracy or enforcement of this policy. For a copy of Zoovy's privacy policy (which does not necessarily apply to the customers of its customers) visit http://www.zoovy.com/legal</p>
-
-	<p>Zoovy, Inc. has created this privacy statement for this Company in order to demonstrate our joint commitment to privacy. The following discloses the information gathering and dissemination practices for this website:</p>
-
-	<h5>Zoovy.com tracks IP Addresses</h5>
-	<p>Your IP address is used to help diagnose problems with our server, and to administer the Web site, in addition your IP address is used to help identify you and your shopping cart (in conjunction with a cookie.) We also use cookies to deliver content specific to your interests and to save your password so you don't have to re-enter it each time you visit our site.</p>
+			  
+				<!--
+				<div id='faqContent' class='loadingBG ui-accordion ui-widget ui-helper-reset ui-accordion-icons appAccordianesque'></div>
+				-->
+		</div>
 
 
-	<h3>This site may contains links to other sites.</h3>
-	<p>This Company is not responsible for the privacy practices or the content of such Web sites, unless otherwise specified below your information is never shared with other companies, even those who are also using Zoovy technology. In the future Zoovy may provide you the ability to share your information across multiple websites which all utilize Zoovy technology however this will only be done at your explicit request.</p>
 
-	<h3>This site requires Unique Identifiers.</h3>
-	<p>This site uses an order form for customers to request information, products, and services, it also collects visitor's contact information (like their email address), in some circumstances their unique identifiers (like their pets name, or mothers maiden name), and financial information (like their account or credit card numbers). Contact information from the order form is used to send orders and information about our company to customers. The customer's contact information is also used to get in touch with the visitor when necessary. Users may opt-out of receiving future informational mailings; see the choice/opt-out section below, users may NOT opt out of receiving order notifications, or other contacts which are deemed essential by this Company.</p>
+		<div class='displayNone textContentArea' id='paymentArticle'>
+			<h1>Payment Policy</h1>
+			<p>We accept:<br>
+			-Visa<br>
+			-Mastercard<br>
+			-American Express<br>
+			-Discover<br>
+			-Paypal<br>
+			-Personal Check<br>
+			-Money Order<br>
+			-Western Union<br>
+			</p>
 
-	<h3>This site requires Financial Information.</h3>
-	<p>Financial information that is collected is used to bill the customer for products and services. Unique identifiers (such as pets name, and mothers maiden name) are collected from Web site visitors to verify the user's identity.</p>
+			<!--
+			<div data-tlc="bind $var '.zoovy:payment_policy'; render --wiki='quickstart'; if (is $var --notblank;) {{apply --append;}};" id="paymentContent"></div>
+			-->
+		</div>
 
-	<h3>This site may have Surveys and/or Contests.</h3>
-	<p>Our online surveys ask visitors for contact information (like their email address). We use contact data from our surveys to send the user information about our company. The customer's contact information is also used to contact the visitor when necessary. Users may opt-out of receiving future mailings; see the choice/opt-out section below. This site may also run contests in which case we may ask visitors for contact information (like their email address). Generally this information is used to verify eligibility, however we may also use contact data from our contests to send users information about this Company. The customer's contact information is also used to contact the visitor when necessary (for example winners). Users may opt-out of receiving future mailings; see the choice/opt-out section below. Financial information that is collected from our users is used to check the users' qualifications for registration and bill the user for products and services.</p>
+
+		<div class='displayNone textContentArea' id='privacyArticle'>
+			<h1>Privacy Statement</h1>
+			<p>Your privacy is important to us. Under no circumstances will onlineformals.com, its employees, affiliates or subsidiaries share your personal information with any third parties for the purposes of marketing or solicitation. Your personal information will be held in the strictest of confidence and only used to process your online transaction that you place through the use of our site.</p>
+
+			<h4>About this Privacy Policy:</h4>
+			<p>The entire site, or at least specific portions of this site are assisted by Zoovy technology. Zoovy has created this privacy policy as a template for customers who are using Zoovy technology with their websites. Zoovy in no way takes responsibility for the accuracy or enforcement of this policy. For a copy of Zoovy's privacy policy (which does not necessarily apply to the customers of its customers) visit http://www.zoovy.com/legal</p>
+
+			<p>Zoovy, Inc. has created this privacy statement for this Company in order to demonstrate our joint commitment to privacy. The following discloses the information gathering and dissemination practices for this website:</p>
+
+			<h5>Zoovy.com tracks IP Addresses</h5>
+			<p>Your IP address is used to help diagnose problems with our server, and to administer the Web site, in addition your IP address is used to help identify you and your shopping cart (in conjunction with a cookie.) We also use cookies to deliver content specific to your interests and to save your password so you don't have to re-enter it each time you visit our site.</p>
 
 
-	<h3>Third Party Cookies</h3>
-	<p>Third party vendors, including Google, use cookies to serve the badge on the website and to serve ads based on a user's prior visits to the website.  Users may opt out of Google's use of cookies by visiting the Google advertising opt-out page.</p>
+			<h3>This site may contains links to other sites.</h3>
+			<p>This Company is not responsible for the privacy practices or the content of such Web sites, unless otherwise specified below your information is never shared with other companies, even those who are also using Zoovy technology. In the future Zoovy may provide you the ability to share your information across multiple websites which all utilize Zoovy technology however this will only be done at your explicit request.</p>
 
-	<h3>This site may contain Public Forums</h3>
-	<p>This site may include chat rooms, forums, message boards, and/or news groups available to its users. Please remember that any information that is disclosed in these areas becomes public information and you should exercise caution when deciding to disclose your personal information.</p>
+			<h3>This site requires Unique Identifiers.</h3>
+			<p>This site uses an order form for customers to request information, products, and services, it also collects visitor's contact information (like their email address), in some circumstances their unique identifiers (like their pets name, or mothers maiden name), and financial information (like their account or credit card numbers). Contact information from the order form is used to send orders and information about our company to customers. The customer's contact information is also used to get in touch with the visitor when necessary. Users may opt-out of receiving future informational mailings; see the choice/opt-out section below, users may NOT opt out of receiving order notifications, or other contacts which are deemed essential by this Company.</p>
 
-	<h3>About our System Security</h3>
-	<p>This site has security measures in place to protect the loss, misuse and alteration of the information under our control. Information is stored behind a firewall, against a password protected database system. Whenever sensitive information is accessed it is transmitted using strong SSL encryption. this Company may keep a copy of your information on its own system using Zoovy's WebAPI system, this system may have its own security measures in place.</p>
+			<h3>This site requires Financial Information.</h3>
+			<p>Financial information that is collected is used to bill the customer for products and services. Unique identifiers (such as pets name, and mothers maiden name) are collected from Web site visitors to verify the user's identity.</p>
 
-	<h3>This site provides the choice to Opt In or Out</h3>
-	<p>Our site provides users the opportunity to opt-out of receiving communications from us at the point where we request information about the visitor. This site gives users the following options for removing their information from our database to not receive future communications or to no longer receive our service. Each time an information email is distributed, you have the option to use unique unsubscribe url which is attached to each outgoing email. Customers may unsubscribe at any time by simply logging into their accounts.</p>
+			<h3>This site may have Surveys and/or Contests.</h3>
+			<p>Our online surveys ask visitors for contact information (like their email address). We use contact data from our surveys to send the user information about our company. The customer's contact information is also used to contact the visitor when necessary. Users may opt-out of receiving future mailings; see the choice/opt-out section below. This site may also run contests in which case we may ask visitors for contact information (like their email address). Generally this information is used to verify eligibility, however we may also use contact data from our contests to send users information about this Company. The customer's contact information is also used to contact the visitor when necessary (for example winners). Users may opt-out of receiving future mailings; see the choice/opt-out section below. Financial information that is collected from our users is used to check the users' qualifications for registration and bill the user for products and services.</p>
 
-	<h3>We provide the ability to Correct/Update YOUR information.</h3>
-	<p>This site gives users the following options for changing and modifying information previously provided. Simply visit the customer login area of this website.</p>
-	<!-- !!! load amendments here -->
-            </div>
-    
-    
-    
-    
-            <div class='displayNone textContentArea' id='returnArticle'>
-                <h1>Return Policy</h1>
-                <p>Onlineformals offers store credits on purchases (valid for a 1-year period) with the exception of the following items, which are not returnable: </p>
-                <p>-Bridal Gowns</p>
-                <p>-Shoes</p>
-                <p>-Jewelery</p>
-                <p>-Undergarments</p>
-                <p>-Items purchased using a store credit from a previous return</p>
-                <p><b>We do not offer refunds</b> and the conditions below must be met to process your return request:</p>
-                <p>You must e-mail us at returns@onlineformals.com within <b>5 days</b> of receiving your item(s) and request a Return Authorization number.  Your request will be reviewed and, if valid, you will be issued a Return Authorization number.  Any items returned without a RA number will be sent back at the buyer&#39;s expense.</p>
-                <p>The merchandise must be mailed back within <b>3 days</b> of receiving your Return Authorization number.  Please write your RA number on the outside of the box.</p>
-                <p>Merchandise must be mailed to:</p>
-                <p>Onlineformals.com<br />
-                2492 North Landing Road<br />
-                Suite 103<br />
-                Virginia Beach, VA 23456</p>
-                <p>The merchandise must be sent back in the original packaging with all tags, hangers and receipts enclosed.  Upon receipt we will carefully inspect the merchandise for signs of wear to include:  tears, snags, stains and odors.  If the merchandise is damaged in any way, we will not be able to provide store credit and you will be responsible for any return shipping costs. </p>
-                <p>If the merchandise is received in new condition (as when shipped) we will provide a store credit for the amount of the item being returned <b>less a $35.00 return fee.</b> This fee covers our shipping costs associated with your new gown.  If you need a more expedited method of shipment, please contact us for an express shipping price quote.</p>
-                <p><b>International customers using a store credit must select a paid shipping method or the order will be canceled. </b></p>
-                <p>It is strongly suggested that you use UPS or FEDEX and ship your parcel fully insured.  The United States Postal Service doesn&#39;t provide a point-to-point tracking service and is not recommended.  We are not responsible for any loss or damage of your returned shipment. </p>
-                <p>Store credits are valid for a period of one year from the date issued.  We will provide your store credit code via e-mail within 48 hours of receiving your return.  To redeem your credit, simply use the code in the Gift Certificate Code box at checkout when purchasing your new item.</p>
-                <p><b>Items purchased using a store credit are not returnable,</b> meaning that once you receive your replacement item(s), it cannot be returned. </p>
-                <p>Please call us at 888-280-4179 or e-mail us at info@onlineformals.com with any questions regarding our return policy.</p>
 
-                <!--
-                <div data-tlc="bind $var '.zoovy:return_policy'; render --wiki='quickstart'; if (is $var --notblank;) {{apply --append;}};" id="returnContent"></div>
-                -->
-            </div>
-    
-    
-    
-            <div class='displayNone textContentArea' id='shippingArticle'>
-                <h1>Shipping Information</h1>
-                <p>Our goal is to get your order to your front door as quickly as we can!</p>
-                <p>All in-stock merchandise will ship out within two business days. Speed of delivery will depend upon the shipping method you select at checkout. If you are in doubt about shipping time or have a special request, please call us at 888-280-4179 or e-mail us at info@onlineformals.com and we can go over all available options.</p>
-                <p>If the merchandise is not in stock, we will notify you immediately by e-mail and/or phone. In this case, we will provide the estimated ship date and discuss any available options for delivery of your order in time for your wear date.</p>
-                <!--
-                <div data-tlc="bind $var '.zoovy:shipping_policy'; render --wiki='quickstart'; if (is $var --notblank;) {{apply --append;}};" id="shippingContent"></div>
-                -->
-            </div>
+			<h3>Third Party Cookies</h3>
+			<p>Third party vendors, including Google, use cookies to serve the badge on the website and to serve ads based on a user's prior visits to the website.  Users may opt out of Google's use of cookies by visiting the Google advertising opt-out page.</p>
 
+			<h3>This site may contain Public Forums</h3>
+			<p>This site may include chat rooms, forums, message boards, and/or news groups available to its users. Please remember that any information that is disclosed in these areas becomes public information and you should exercise caution when deciding to disclose your personal information.</p>
+
+			<h3>About our System Security</h3>
+			<p>This site has security measures in place to protect the loss, misuse and alteration of the information under our control. Information is stored behind a firewall, against a password protected database system. Whenever sensitive information is accessed it is transmitted using strong SSL encryption. this Company may keep a copy of your information on its own system using Zoovy's WebAPI system, this system may have its own security measures in place.</p>
+
+			<h3>This site provides the choice to Opt In or Out</h3>
+			<p>Our site provides users the opportunity to opt-out of receiving communications from us at the point where we request information about the visitor. This site gives users the following options for removing their information from our database to not receive future communications or to no longer receive our service. Each time an information email is distributed, you have the option to use unique unsubscribe url which is attached to each outgoing email. Customers may unsubscribe at any time by simply logging into their accounts.</p>
+
+			<h3>We provide the ability to Correct/Update YOUR information.</h3>
+			<p>This site gives users the following options for changing and modifying information previously provided. Simply visit the customer login area of this website.</p>
+			<!-- !!! load amendments here -->
+		</div>
+
+
+
+
+		<div class='displayNone textContentArea' id='returnArticle'>
+			<h1>Return Policy</h1>
+			<p>Onlineformals offers store credits on purchases (valid for a 1-year period) with the exception of the following items, which are not returnable: </p>
+			<p>-Bridal Gowns</p>
+			<p>-Shoes</p>
+			<p>-Jewelery</p>
+			<p>-Undergarments</p>
+			<p>-Items purchased using a store credit from a previous return</p>
+			<p><b>We do not offer refunds</b> and the conditions below must be met to process your return request:</p>
+			<p>You must e-mail us at returns@onlineformals.com within <b>5 days</b> of receiving your item(s) and request a Return Authorization number.  Your request will be reviewed and, if valid, you will be issued a Return Authorization number.  Any items returned without a RA number will be sent back at the buyer&#39;s expense.</p>
+			<p>The merchandise must be mailed back within <b>3 days</b> of receiving your Return Authorization number.  Please write your RA number on the outside of the box.</p>
+			<p>Merchandise must be mailed to:</p>
+			<p>Onlineformals.com<br />
+			2492 North Landing Road<br />
+			Suite 103<br />
+			Virginia Beach, VA 23456</p>
+			<p>The merchandise must be sent back in the original packaging with all tags, hangers and receipts enclosed.  Upon receipt we will carefully inspect the merchandise for signs of wear to include:  tears, snags, stains and odors.  If the merchandise is damaged in any way, we will not be able to provide store credit and you will be responsible for any return shipping costs. </p>
+			<p>If the merchandise is received in new condition (as when shipped) we will provide a store credit for the amount of the item being returned <b>less a $35.00 return fee.</b> This fee covers our shipping costs associated with your new gown.  If you need a more expedited method of shipment, please contact us for an express shipping price quote.</p>
+			<p><b>International customers using a store credit must select a paid shipping method or the order will be canceled. </b></p>
+			<p>It is strongly suggested that you use UPS or FEDEX and ship your parcel fully insured.  The United States Postal Service doesn&#39;t provide a point-to-point tracking service and is not recommended.  We are not responsible for any loss or damage of your returned shipment. </p>
+			<p>Store credits are valid for a period of one year from the date issued.  We will provide your store credit code via e-mail within 48 hours of receiving your return.  To redeem your credit, simply use the code in the Gift Certificate Code box at checkout when purchasing your new item.</p>
+			<p><b>Items purchased using a store credit are not returnable,</b> meaning that once you receive your replacement item(s), it cannot be returned. </p>
+			<p>Please call us at 888-280-4179 or e-mail us at info@onlineformals.com with any questions regarding our return policy.</p>
+
+			<!--
+			<div data-tlc="bind $var '.zoovy:return_policy'; render --wiki='quickstart'; if (is $var --notblank;) {{apply --append;}};" id="returnContent"></div>
+			-->
+		</div>
+
+
+
+		<div class='displayNone textContentArea' id='shippingArticle'>
+			<h1>Shipping Information</h1>
+			<p>Our goal is to get your order to your front door as quickly as we can!</p>
+			<p>All in-stock merchandise will ship out within two business days. Speed of delivery will depend upon the shipping method you select at checkout. If you are in doubt about shipping time or have a special request, please call us at 888-280-4179 or e-mail us at info@onlineformals.com and we can go over all available options.</p>
+			<p>If the merchandise is not in stock, we will notify you immediately by e-mail and/or phone. In this case, we will provide the estimated ship date and discuss any available options for delivery of your order in time for your wear date.</p>
+			<!--
+			<div data-tlc="bind $var '.zoovy:shipping_policy'; render --wiki='quickstart'; if (is $var --notblank;) {{apply --append;}};" id="shippingContent"></div>
+			-->
 		</div>
 
 	</div>
@@ -3881,7 +3846,7 @@ subscribeListsArticle is used for authenticated buyers
             <!-- productListTemplateResults gets loaded into here -->
             <div class="catGhostCell"></div>
             <ul id='resultsProductListContainer' class='listStyleNone fluidList noPadOrMargin productList'></ul>
-        	<ul class="searchFilterResults productList" data-app-role='productList'>
+        	<ul class="searchFilterResults productList" data-app-role='productList'></ul>
         </div>
         
     </div>
@@ -3945,16 +3910,6 @@ onclicks are recursive, so only add it to the parent element.
 
 
 
-
-
-
-
-
-
-
-
-
-
 <!--
 Cart template
 This is the template used both within a dialog and inline, unless implicitly overridden in showContent params.
@@ -3962,75 +3917,69 @@ This is the template used both within a dialog and inline, unless implicitly ove
 
 <div id="cartTemplate" class="clearfix"><!-- template role gets added by the myApp. don't add it yourself -->
 
-<form id='cartTemplateForm' action='#' onSubmit='return false'>
-<div class='cartContainer'>
-	<div class='cartStuffContainer'>
-	<ul data-tlc="bind $var '.@ITEMS'; controller#loop --templateid='productListTemplateCart'; if (is $var --notblank;) {{apply --append;}};" class="listStyleNone fluidList clearfix noPadOrMargin productList lineItemProdlist"></ul>
-</div>
+	<form id='cartTemplateForm' action='#' onSubmit='return false'>
+		<div class='cartContainer'>
+			<div class='cartStuffContainer'>
+				<ul data-tlc="bind $var '.@ITEMS'; controller#loop --templateid='productListTemplateCart'; if (is $var --notblank;) {{apply --append;}};" class="listStyleNone fluidList clearfix noPadOrMargin productList lineItemProdlist"></ul>
+			</div>
 
-<div class="cartSummaryTotalsContainer">
-	<div class="ui-widget ui-corner-all">
-		<div class='ui-widget-header ui-corner-top ui-header smallPadding smallButton'>
-			<button class='applyButton cartRefreshButton' data-text='false' data-icon-primary='ui-icon-refresh' data-app-click="cco|cartFetchExec">Refresh Cart</button>
-			<h2>Cart Totals</h2>
+			<div class="cartSummaryTotalsContainer">
+				<div class="ui-widget ui-corner-all">
+					<div class='ui-widget-header ui-corner-top ui-header smallPadding smallButton'>
+						<button class='applyButton cartRefreshButton' data-text='false' data-icon-primary='ui-icon-refresh' data-app-click="cco|cartFetchExec">Refresh Cart</button>
+						<h2>Cart Totals</h2>
+					</div>
+					<div class="cartSummaryContainer stdPadding ui-widget-content clearfix">
+
+						<section id='cartTemplateCostSummary' class='cartSummary'>
+
+							<div data-tlc="bind $var '.sum.items_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Subtotal: '; apply --add --class='orderSubtotal'; apply --append;}};"></div>
+
+							<div data-tlc="bind $var '.sum.tax_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Tax: '; apply --add --class='orderTax'; apply --append;}};"></div>
+
+							<div data-tlc="cco#shipinfobyid  --legacy;" class="orderShipping" data-bind="useParentData:true; format:shipinfobyid; extension:cco;"></div>
+
+							<div data-tlc="bind $var '.sum.order_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Order Total: '; apply --add --class='orderTotal'; apply --append;}};"></div>
+
+							<div data-tlc="bind $var '.sum.gfc_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Giftcard(s): '; apply --add --class='orderGiftcardTotal'; apply --append;}};"></div>
+							<div data-tlc="bind $var '.sum.pnt_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Reward Points: '; apply --add --class='rewardPointsTotal'; apply --append;}};"></div>
+							<div data-tlc="bind $var '.sum.rmc_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Returns Credit: '; apply --add --class='returnsCreditTotal'; apply --append;}};"></div>
+
+							<div data-tlc="bind $var '.sum.balance_due_total'; cco#orderbalance  --classname='orderBalanceDue' --hidezero='false' --currencysign='$' --legacy;"></div>
+
+						</section>
+
+						<section id='cartTemplateShippingContainer' data-app-role="cartTemplateShippingContainer" class="marginBottom cartTemplateShippingContainer">
+							<h3>Shipping:</h3>
+
+							<div class='cartZipCodeContainer marginBottom'>
+								<label for='data-ship_zip'>Zip/Postal Code:</label>
+								<input type='text' size='6'  name='ship/postal' id='data-ship_zip' value='' data-bind='var: cart(ship/postal); format:popVal;' maxlength='10' onChange="app.calls.cartSet.init({'ship/postal':this.value, 'ship/region':''});
+									app.ext.store_cart.u.updateCartSummary();
+									app.ext.store_cart.calls.cartShippingMethodsWithUpdate.init();
+									app.model.dispatchThis('immutable');"  />
+							</div>
+
+							<ul data-tlc="order_create#shipmethodsasradiobuttons  --legacy;" class="noPadOrMargin listStyleNone" data-bind="useParentData:true; format:shipmethodsasradiobuttons; extension: order_create;" data-app-role="shipMethodsUL"></ul>
+						</section>
+						<section class="marginBottom"></section>
+
+					</div>
+					<div class="ui-state-default cartButtons stdPadding clearfix">
+						<!-- spans are set around the buttons so each element has one consitent tag type around it -->
+						<span class="continueShoppingSpan thisButton"><button class="applyButton continueShoppingButton" data-app-click="myRIA|dialogClose">Continue Shopping</button></span>
+				
+						<span id="inStoreCheckoutButton thisButton" title="proceed to secure checkout">
+							<a class="applyButton ui-state-highlight checkoutButton" href='#!checkout'>Store Checkout</a>
+						</span>
+				
+						<span data-tlc="bind $var '.cart.cartid'; cco#paypalecbutton  --legacy;" id="paypalecbutton" class="thisButton"></span>
+				
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="cartSummaryContainer stdPadding ui-widget-content clearfix">
-
-<section id='cartTemplateCostSummary' class='cartSummary'>
-
-	<div data-tlc="bind $var '.sum.items_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Subtotal: '; apply --add --class='orderSubtotal'; apply --append;}};"></div>
-
-	<div data-tlc="bind $var '.sum.tax_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Tax: '; apply --add --class='orderTax'; apply --append;}};"></div>
-
-	<div data-tlc="cco#shipinfobyid  --legacy;" class="orderShipping" data-bind="useParentData:true; format:shipinfobyid; extension:cco;"></div>
-
-	<div data-tlc="bind $var '.sum.order_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Order Total: '; apply --add --class='orderTotal'; apply --append;}};"></div>
-
-	<div data-tlc="bind $var '.sum.gfc_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Giftcard(s): '; apply --add --class='orderGiftcardTotal'; apply --append;}};"></div>
-	<div data-tlc="bind $var '.sum.pnt_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Reward Points: '; apply --add --class='rewardPointsTotal'; apply --append;}};"></div>
-	<div data-tlc="bind $var '.sum.rmc_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Returns Credit: '; apply --add --class='returnsCreditTotal'; apply --append;}};"></div>
-
-	<div data-tlc="bind $var '.sum.balance_due_total'; cco#orderbalance  --classname='orderBalanceDue' --hidezero='false' --currencysign='$' --legacy;"></div>
-
-</section>
-
-<section id='cartTemplateShippingContainer' data-app-role="cartTemplateShippingContainer" class="marginBottom cartTemplateShippingContainer">
-	<h3>Shipping:</h3>
-
-	<div class='cartZipCodeContainer marginBottom'>
-		<label for='data-ship_zip'>Zip/Postal Code:</label>
-		<input type='text' size='6'  name='ship/postal' id='data-ship_zip' value='' data-bind='var: cart(ship/postal); format:popVal;' maxlength='10' onChange="app.calls.cartSet.init({'ship/postal':this.value, 'ship/region':''});
-			app.ext.store_cart.u.updateCartSummary();
-			app.ext.store_cart.calls.cartShippingMethodsWithUpdate.init();
-			app.model.dispatchThis('immutable');"  />
-	</div>
-
-	<ul data-tlc="order_create#shipmethodsasradiobuttons  --legacy;" class="noPadOrMargin listStyleNone" data-bind="useParentData:true; format:shipmethodsasradiobuttons; extension: order_create;" data-app-role="shipMethodsUL"></ul>
-</section>
-
-<section class="marginBottom">
-
-	
-
-</section>
-
-		</div>
-		<div class="ui-state-default cartButtons stdPadding clearfix">
-			<!-- spans are set around the buttons so each element has one consitent tag type around it -->
-			<span class="continueShoppingSpan thisButton"><button class="applyButton continueShoppingButton" data-app-click="myRIA|dialogClose">Continue Shopping</button></span>
-	
-			<span id="inStoreCheckoutButton thisButton" title="proceed to secure checkout">
-				<a class="applyButton ui-state-highlight checkoutButton" href='#!checkout'>Store Checkout</a>
-			</span>
-	
-			<span data-tlc="bind $var '.cart.cartid'; cco#paypalecbutton  --legacy;" id="paypalecbutton" class="thisButton"></span>
-	
-		</div>
-
-	</div>
-</div>
-</div>
-</form>
+	</form>
 </div><!-- /cartTemplate -->
 
 
@@ -4075,20 +4024,21 @@ used on a product layout. Some product have 'children' which may represent the s
 -->
 
 <table>
-<tbody><tr id="productListTemplateChildren">
-	<td><img data-tlc="bind $var '.%attribs.zoovy:prod_image1'; apply --img --media=$var --width=45 --height=45 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="45" width="45"></td>
-	<td data-tlc="bind $var '.%attribs.amz:grp_varvalue'; if(is $var --blank) {{bind $var 'product(zoovy:prod_name)';}}; if (is $var --notblank;) {{apply --append;}};"></td>
-	<td>
-	<form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="modal">
+	<tbody><tr id="productListTemplateChildren">
+		<td><img data-tlc="bind $var '.%attribs.zoovy:prod_image1'; apply --img --media=$var --width=45 --height=45 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="45" width="45"></td>
+		<td data-tlc="bind $var '.%attribs.amz:grp_varvalue'; if(is $var --blank) {{bind $var 'product(zoovy:prod_name)';}}; if (is $var --notblank;) {{apply --append;}};"></td>
+		<td>
+		<form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="modal">
 
-		<fieldset data-tlc="bind $var '.pid'; store_product#atcvariations  --legacy; apply --append;" class="borderNone"></fieldset>
-		<fieldset data-tlc="bind $var '.'; store_product#atcquantityinput  --defaultvalue='0' --legacy;" class="borderNone"></fieldset>
+			<fieldset data-tlc="bind $var '.pid'; store_product#atcvariations  --legacy; apply --append;" class="borderNone"></fieldset>
+			<fieldset data-tlc="bind $var '.'; store_product#atcquantityinput  --defaultvalue='0' --legacy;" class="borderNone"></fieldset>
 
-		<input data-tlc="bind $var '.pid'; store_product#addtocartbutton  --legacy; apply --append;" value="Add to Cart" class="applyButton addtocartbutton displayNone" type="submit">
-	</form>
-	</td>
-</tr>
-</tbody></table>
+			<input data-tlc="bind $var '.pid'; store_product#addtocartbutton  --legacy; apply --append;" value="Add to Cart" class="applyButton addtocartbutton displayNone" type="submit">
+		</form>
+		</td>
+	</tr>
+	</tbody>
+</table>
 
 
 
@@ -4117,18 +4067,18 @@ used on a product layout. Some product have 'children' which may represent the s
 <!-- image viewer template -->
 <div id="imageViewerTemplate">
 
-<table>
-<tbody><tr>
-	<td><img data-tlc="bind $var '.%attribs.zoovy:prod_image1'; apply --img --media=$var --width=500 --height=500 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodBigImage" alt="" height="500" width="500"></td>
-	<td>
-	<img data-tlc="bind $var '.%attribs.zoovy:prod_image2'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
-	<img data-tlc="bind $var '.%attribs.zoovy:prod_image3'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
-	<img data-tlc="bind $var '.%attribs.zoovy:prod_image4'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
-	<img data-tlc="bind $var '.%attribs.zoovy:prod_image5'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
-	<img data-tlc="bind $var '.%attribs.zoovy:prod_image6'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
-	</td>
-</tr>
-</tbody></table>
+	<table>
+	<tbody><tr>
+		<td><img data-tlc="bind $var '.%attribs.zoovy:prod_image1'; apply --img --media=$var --width=500 --height=500 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodBigImage" alt="" height="500" width="500"></td>
+		<td>
+		<img data-tlc="bind $var '.%attribs.zoovy:prod_image2'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
+		<img data-tlc="bind $var '.%attribs.zoovy:prod_image3'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
+		<img data-tlc="bind $var '.%attribs.zoovy:prod_image4'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
+		<img data-tlc="bind $var '.%attribs.zoovy:prod_image5'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
+		<img data-tlc="bind $var '.%attribs.zoovy:prod_image6'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
+		</td>
+	</tr>
+	</tbody></table>
 </div>
 
 
