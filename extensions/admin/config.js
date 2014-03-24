@@ -105,6 +105,12 @@ var admin_config = function(_app) {
 				_app.u.handleButtons($target);
 				},
 
+			passwordUpdate : function($target,P)	{
+				$target.tlc({'templateid':'passwordUpdateTemplate','verb':'template'});
+				_app.u.handleButtons($target);
+				_app.u.addEventDelegation($target);
+				},
+
 			showNotifications : function($target)	{
 				$target.intervaledEmpty();
 				_app.u.addEventDelegation($target);
@@ -150,40 +156,29 @@ var admin_config = function(_app) {
 		
 			showPluginManager : function($target)	{
 				$target.showLoading({'message':'Fetching Your Integration Data'});
-
+				_app.u.addEventDelegation($target);
 				_app.model.addDispatchToQ({
 					'_cmd':'adminConfigDetail',
 					'plugins':1,
 					'_tag':{
-						'callback': function(rd)	{
-							if(_app.model.responseHasErrors(rd)){
-								$target.anymessage({'message':rd});
-								}
-							else	{
-								$target.anycontent({'templateID' : 'pluginManagerPageTemplate','datapointer':rd.datapointer});
-								_app.u.addEventDelegation($target);
-								_app.u.handleButtons($target);
-								$("[data-app-role='slimLeftNav']",$target).accordion();
-								}
-							},
+						'callback': 'tlc',
+						'templateID' : 'pluginManagerPageTemplate',
+						'jqObj' : $target,
+						'onComplete' : function()	{$("[data-app-role='slimLeftNav']",$target).accordion();},
 						'datapointer':'adminConfigDetail|plugins'
 					}
 				},'mutable');
 				_app.model.dispatchThis('mutable');
-
 				},
 			
 			showPlugin : function($target,vars)	{
 				vars = vars || {};
-				
 				if($target instanceof jQuery && vars.plugin)	{
-//					_app.u.dump(' -> templateID: '+'pluginTemplate_'+vars.plugintype+'_'+vars.plugin);
-					$target.empty().anycontent({'templateID':'pluginTemplate_'+vars.plugin,'data':_app.ext.admin_config.u.getPluginData(vars.plugin)});
+					$target.empty().tlc({'templateid':'pluginTemplate_'+vars.plugin,'dataset':$.extend({'domain':_app.vars.domain},_app.ext.admin_config.u.getPluginData(vars.plugin))});
 					_app.u.handleCommonPlugins($target);
 					_app.u.handleButtons($target);
 					$target.parent().find('.buttonset').show();
-//					_app.u.dump(" -> $target.closest('form').length: "+$target.closest('form').length);
-					_app.ext.admin.u.applyEditTrackingToInputs($target.closest('form'));
+					$target.closest('form').anyform({'trackEdits':true});
 					}
 				else	{
 					$('#globalMessaging').anymessage({"message":"In admin_config.a.showPlugin, $target was not set or is not an instance of jQuery or vars.plugin ["+vars.plugin+"] no set.","gMessage":true});
@@ -498,6 +493,7 @@ var admin_config = function(_app) {
 					'header' : 'Coupon Manager', //left off because the interface is in a tab.
 					'className' : 'couponManager',
 					'buttons' : [
+						"<button data-app-click='admin_batchjob|adminBatchJobExec' data-type='EXPORT/RULES' data-element data-export='coupon' data-whitelist='export' class='applyButton' data-text='false' data-icon-primary='ui-icon-arrowthickstop-1-s'>Download Coupon Rules<\/button>",
 						"<button data-app-click='admin|refreshDMI' class='applyButton' data-text='false' data-icon-primary='ui-icon-arrowrefresh-1-s'>Refresh Coupon List<\/button>",
 						"<button data-app-click='admin_config|couponCreateShow' data-text='true' data-icon-primary='ui-icon-plus' class='applyButton'>Add Coupon<\/button>"
 						],
@@ -1683,7 +1679,28 @@ when an event type is changed, all the event types are dropped, then re-added.
 						}
 					else	{}
 					}
-				} //billingHandleTabContents
+				}, //billingHandleTabContents
+
+			adminPasswordUpdateExec : function($ele,p)	{
+				p.preventDefault();
+				var  $form = $ele.closest('form'), sfo = $form.serializeJSON();
+				
+				if(_app.u.validateForm($form))	{
+					dump(" -> passed standard validation");
+					if(sfo.oldpassword == sfo.newpassword1)	{
+						$form.anymessage({'errtype':'youerr','message':'The old password can not match the new password'});
+						}
+					else if(sfo.newpassword1 != sfo.newpassword2)	{
+						$form.anymessage({'errtype':'youerr','message':'The values you entered for the new password do not match. Please make sure the value for password and password again are exactly the same.'});
+						}
+					else	{
+						_app.model.addDispatchToQ({"_cmd":"adminPasswordUpdate","old":sfo.oldpassword,"new":sfo.newpassword1,"_tag":{"callback":"showMessaging","jqObj":$form,"message":"Your password has been changed."}},"immutable");
+						_app.model.dispatchThis("immutable");
+						}
+					}
+				else	{} //validate handles error display.
+				return false;
+				}
 
 
 			} //e [app Events]
