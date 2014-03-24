@@ -48,8 +48,8 @@ myApp.rq.push(['extension',0,'prodlist_infinite','extensions/prodlist_infinite.j
 //myApp.rq.push(['extension',0,'_store_filter','extensions/_store_filter.js']);
 //myApp.rq.push(['extension',0,'store_backScrollPosition','extensions/_store_backScrollPosition.js','startExtension']);
 
-myApp.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.2.1/jquery.carouFredSel-6.2.1-packed.js']);
-myApp.rq.push(['script',0,app.vars.baseURL+'zoom-master/jquery.zoom.js']);
+myApp.rq.push(['script',0,myApp.vars.baseURL+'carouFredSel-6.2.1/jquery.carouFredSel-6.2.1-packed.js']);
+myApp.rq.push(['script',0,myApp.vars.baseURL+'zoom-master/jquery.zoom.js']);
 
 myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/jsonpath.0.8.0.js']); //used pretty early in process..
 
