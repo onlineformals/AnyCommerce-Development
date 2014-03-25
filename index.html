@@ -996,12 +996,12 @@ remember to NOT put the button inside the 'onclick' container or two events will
 
 	<div data-tlc="bind $pid '.pid'; bind $seo '.%attribs.zoovy:prod_name'; bind $href ''; store_routing#productlink --pid=$pid --seo=$seo; apply --attrib='href';" class="blockLink">
 		<div data-tlc="bind $var '.pid'; quickstart#addpicslider  --legacy; apply --append;" class="prodThumbContainer">
-           		<img data-tlc="bind $var '.%attribs.zoovy:prod_thumb'; if(is $var --blank;){{bind $var '.%attribs.zoovy:prod_image1';}}; if(is $var --notblank;){{apply --img --media=$var --width=120 --height=120 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="prodThumb" alt="" height="200" width="280">
+           		<img data-tlc="bind $var '.%attribs.zoovy:prod_thumb'; if(is $var --blank;){{bind $var '.%attribs.zoovy:prod_image1';}}; if(is $var --notblank;){{apply --img --media=$var --width=200 --height=280 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="prodThumb" alt="" height="280" width="200">
 		</div>
 
 		<div class="productItemInfo">
             		<div class="productItemInfoContent">
-                		<h5 data-tlc="bind $var '.%attribs.zoovy:prod_name'; truncText --numCharacters=32; if (is $var --notblank;) {{apply --append;}};"></h5>
+                		<h5 data-tlc="bind $var '.%attribs.zoovy:prod_name'; truncText --numCharacters=32 --legacy; if (is $var --notblank;) {{apply --append;}};"></h5>
         
                 		<h6 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='Our Price: '; apply --append;}};"></h6>
                 
