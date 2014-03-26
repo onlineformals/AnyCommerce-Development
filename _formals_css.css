@@ -441,28 +441,28 @@ progress::-moz-progress-bar { background: #E61652; }
     margin-left: 120px;
     margin-top: 30px;
 }
-.footNewsSignupCont form#subscribeFrm{
+.footNewsSignupCont div#subscribeFrm{
 }
-.footNewsSignupCont form#subscribeFrm fieldset.userInfo{
+.footNewsSignupCont div#subscribeFrm div.userInfo{
 	border: medium none;
 }
-.footNewsSignupCont form#subscribeFrm fieldset.userInfo input{
+.footNewsSignupCont div#subscribeFrm div.userInfo input{
 	float:left;
 }
-.footNewsSignupCont form#subscribeFrm fieldset.userInfo input.subName{
+.footNewsSignupCont div#subscribeFrm div.userInfo input.subName{
 	border: medium none;
     height: 25px;
     margin-right: 10px;
     padding: 0;
     width: 190px;
 }
-.footNewsSignupCont form#subscribeFrm fieldset.userInfo input.subEmail{
+.footNewsSignupCont div#subscribeFrm div.userInfo input.subEmail{
 	border: medium none;
     height: 25px;
     padding: 0;
     width: 180px;
 }
-.footNewsSignupCont form#subscribeFrm fieldset.userInfo input.subButton{
+.footNewsSignupCont div#subscribeFrm div.userInfo input.subButton{
 	background-color: #333333;
     border: medium none;
     color: white;
@@ -471,7 +471,7 @@ progress::-moz-progress-bar { background: #E61652; }
     width: 80px;
 }
 
-.footNewsSignupCont form#subscribeFrm fieldset.userInfo fieldset.subscriberLists{
+.footNewsSignupCont div#subscribeFrm div.userInfo fieldset.subscriberLists{
 	padding:0;
 }
 
