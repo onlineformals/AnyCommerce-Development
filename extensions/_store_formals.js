@@ -143,6 +143,21 @@ var _store_formals = function(_app) {
 			init : {
 				onSuccess : function(){
 					_app.u.dump('BEGIN _app.ext_store_formals.callbacks.init.onSuccess');
+					_app.ext._store_formals.u.bindOnclick();
+					
+										
+				},
+				onError : function() {
+					_app.u.dump('BEGIN _app.ext_store_formals.callbacks.init.onError');
+				}
+			},
+			startExtension : {
+				onSuccess : function (){
+					_app.u.dump('BEGIN _app.ext_store_formals.callbacks.startExtension.onSuccess')
+					
+					//replacement for bindByAnchor href to make crawlable links. Currently used mainly on sitemap
+					
+					//BEGIN ONCOMPLETES/ONDEPARTS/ONINITS
 					_app.templates.productTemplate.on('complete.formals',function(infoObj){
 					//_app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 	
@@ -252,7 +267,7 @@ var _store_formals = function(_app) {
 							}
 					});
 						
-					__app.templates.homepageTemplate.on('complete.formals',function(infoObj){
+					_app.templates.homepageTemplate.on('complete.formals',function(infoObj){
 						
 						//INTERNET EXPLORER WARNING MESSAGE
 						if($('.headerIE8WarningCont').data('messageShown')){
@@ -836,6 +851,7 @@ var _store_formals = function(_app) {
 						}
 						if($('.headerIE8WarningCont').data('messageShown') === false)
 						{
+
 							$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
 							$('.headerIE8WarningCont').data('messageShown',true).append();
 						}
@@ -910,15 +926,6 @@ var _store_formals = function(_app) {
 						}
 					}]);
 					*/
-										
-				},
-				onError : function() {
-					_app.u.dump('BEGIN _app.ext_store_formals.callbacks.init.onError');
-				}
-			},
-			startExtension : {
-				onSuccess : function (){
-					_app.u.dump('BEGIN _app.ext_store_formals.callbacks.startExtension.onSuccess')
 				},
 				onError : function (){
 					_app.u.dump('BEGIN app_store_formals.callbacks.startExtension.onError');
@@ -1067,34 +1074,43 @@ var _store_formals = function(_app) {
 		u : {
 			
 			handleAppLoginCreate : function($form)        {
-                                if($form)        {
-                                        var formObj = $form.serializeJSON();
-                                        
-                                        if(formObj.pass !== formObj.pass2) {
-                                                _app.u.throwMessage('Sorry, your passwords do not match! Please re-enter your password');
-                                                return;
-                                        }
-                                        
-                                        var tagObj = {
-                                                'callback':function(rd) {
-                                                        if(_app.model.responseHasErrors(rd)) {
-                                                                $form.anymessage({'message':rd});
-                                                        }
-                                                        else {
-                                                                showContent('customer',{'show':'myaccount'});
-                                                                _app.u.throwMessage(_app.u.successMsgObject("Your account has been created!"));
-                                                        }
-                                                }
-                                        }
-                                        
-                                        formObj._vendor = "onlineformals";
-                                        _app.calls.appBuyerCreate.init(formObj,tagObj,'immutable');
-                                        _app.model.dispatchThis('immutable');
-                                }
-                                else {
-                                        $('#globalMessaging').anymessage({'message':'$form not passed into _store_formals.u.handleBuyerAccountCreate','gMessage':true});
-                                }
-                        }
+				if($form)        {
+						var formObj = $form.serializeJSON();
+						
+						if(formObj.pass !== formObj.pass2) {
+								_app.u.throwMessage('Sorry, your passwords do not match! Please re-enter your password');
+								return;
+						}
+						
+						var tagObj = {
+								'callback':function(rd) {
+										if(_app.model.responseHasErrors(rd)) {
+												$form.anymessage({'message':rd});
+										}
+										else {
+												showContent('customer',{'show':'myaccount'});
+												_app.u.throwMessage(_app.u.successMsgObject("Your account has been created!"));
+										}
+								}
+						}
+						
+						formObj._vendor = "onlineformals";
+						_app.calls.appBuyerCreate.init(formObj,tagObj,'immutable');
+						_app.model.dispatchThis('immutable');
+				}
+				else {
+						$('#globalMessaging').anymessage({'message':'$form not passed into _store_formals.u.handleBuyerAccountCreate','gMessage':true});
+				}
+			},
+			
+			//replacement for bindByAnchor href to make crawlable links. Currently used mainly on sitemap
+			bindOnclick : function() {
+				$('body').off('click', 'a[data-onclick]').on('click', 'a[data-onclick]', function(event){
+					var $this = $(this);
+					var P = _app.ext.quickstart.u.parseAnchor($this.data('onclick'));
+					return _app.ext.quickstart.a.showContent('',P);
+				});
+			}
 		},//END u FUNCTIONS
 		
 		renderFormats : {

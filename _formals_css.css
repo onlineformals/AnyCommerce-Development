@@ -252,6 +252,9 @@ progress::-moz-progress-bar { background: #E61652; }
 }
 .navTopCat{
 }
+.navTopCat a{
+	text-decoration:none;
+}
 .dropdown{
 	height:0;
 	overflow:hidden;
