@@ -158,7 +158,7 @@ var _store_formals = function(_app) {
 					//replacement for bindByAnchor href to make crawlable links. Currently used mainly on sitemap
 					
 					//BEGIN ONCOMPLETES/ONDEPARTS/ONINITS
-					_app.templates.productTemplate.on('complete.formals',function(infoObj){
+					_app.templates.productTemplate.on('complete.formals',function(event,$context,infoObj){
 					//_app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 	
 						//INTERNET EXPLORER WARNING MESSAGE
@@ -173,7 +173,7 @@ var _store_formals = function(_app) {
 							$('.headerIE8WarningCont').data('messageShown',true).append();
 						}
 						
-						var $context = $(_app.u.jqSelector('#',infoObj.parentID));
+						//var $context = $(_app.u.jqSelector('#',infoObj.parentID));
 						var $tabContainer = $( ".tabbedProductContent",$context);
 							if($tabContainer.length)	{
 								if($tabContainer.data("widget") == 'anytabs'){} //tabs have already been instantiated. no need to be redundant.
@@ -267,7 +267,7 @@ var _store_formals = function(_app) {
 							}
 					});
 						
-					_app.templates.homepageTemplate.on('complete.formals',function(infoObj){
+					_app.templates.homepageTemplate.on('complete.formals',function(event,$context,infoObj){
 						
 						//INTERNET EXPLORER WARNING MESSAGE
 						if($('.headerIE8WarningCont').data('messageShown')){
@@ -396,7 +396,7 @@ var _store_formals = function(_app) {
 					
 					
 					
-					_app.templates.categoryTemplate.on('complete.formals',function(infoObj){
+					_app.templates.categoryTemplate.on('complete.formals',function(event,$context,infoObj){
 						
 						//INTERNET EXPLORER WARNING MESSAGE
 						if($('.headerIE8WarningCont').data('messageShown')){
@@ -410,7 +410,7 @@ var _store_formals = function(_app) {
 							$('.headerIE8WarningCont').data('messageShown',true).append();
 						}
 						
-						var $context = $(_app.u.jqSelector('#',infoObj.parentID));
+						//var $context = $(_app.u.jqSelector('#',infoObj.parentID));
 						
 						//Carousel horizontal sliders - category banner
 						function carouselCPBanner(){ $(".carouselCPBannerList", $context).carouFredSel
@@ -485,8 +485,8 @@ var _store_formals = function(_app) {
 					
 					
 					
-					_app.templates.categoryProductListTemplate.on('complete.formals',function(infoObj){
-						var $context = $(_app.u.jqSelector('#',infoObj.parentID));
+					_app.templates.categoryProductListTemplate.on('complete.formals',function(event,$context,infoObj){
+						//var $context = $(_app.u.jqSelector('#',infoObj.parentID));
 						
 						function carouselCPBanner(){ $(".carouselCPBannerList", $context).carouFredSel
 						({
@@ -513,7 +513,14 @@ var _store_formals = function(_app) {
 						
 						_app.ext._store_filter.vars.catPageID = $(_app.u.jqSelector('#',infoObj.parentID));  
 						
-						_app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
+						_app.u.dump("BEGIN categoryProductListTemplate onCompletes for filtering");
+						
+						//TESTING. REMOVE AFTER TESTING COMPLETED.
+						dump(infoObj);
+						dump($context);
+						dump("_app.ext._store_filter.filterMap[infoObj.navcat] = " + _app.ext._store_filter.filterMap[infoObj.navcat]);
+						
+						
 						if(_app.ext._store_filter.filterMap[infoObj.navcat])	{
 							_app.u.dump(" -> safe id DOES have a filter.");
 					
@@ -669,10 +676,10 @@ var _store_formals = function(_app) {
 					
 					
 					
-					_app.templates.searchTemplate.on('complete.formals',function(infoObj){
+					_app.templates.searchTemplate.on('complete.formals',function(event,$context,infoObj){
 						//if(infoObj.preservePage){ alert("You hit the back button");}
 						
-						var $context = $(_app.u.jqSelector('#',infoObj.parentID));
+						//var $context = $(_app.u.jqSelector('#',infoObj.parentID));
 						var $page = $(_app.u.jqSelector('#',infoObj.parentID));
 						
 						//****FILTERED SEARCH CODE****
@@ -790,7 +797,7 @@ var _store_formals = function(_app) {
 					});
 					
 					
-					_app.templates.companyTemplate.on('complete.formals',function(infoObj){
+					_app.templates.companyTemplate.on('complete.formals',function(event,$context,infoObj){
 						//INTERNET EXPLORER WARNING MESSAGE
 						if($('.headerIE8WarningCont').data('messageShown')){
 						}
@@ -803,7 +810,7 @@ var _store_formals = function(_app) {
 							$('.headerIE8WarningCont').data('messageShown',true).append();
 						}
 					});
-					_app.templates.customerTemplate.on('complete.formals',function(infoObj){
+					_app.templates.customerTemplate.on('complete.formals',function(event,$context,infoObj){
 						//INTERNET EXPLORER WARNING MESSAGE
 						if($('.headerIE8WarningCont').data('messageShown')){
 						}
@@ -816,7 +823,7 @@ var _store_formals = function(_app) {
 							$('.headerIE8WarningCont').data('messageShown',true).append();
 						}
 					});
-					_app.templates.searchTemplate.on('complete.formals',function(infoObj){
+					_app.templates.searchTemplate.on('complete.formals',function(event,$context,infoObj){
 						//INTERNET EXPLORER WARNING MESSAGE
 						if($('.headerIE8WarningCont').data('messageShown')){
 						}
@@ -829,7 +836,7 @@ var _store_formals = function(_app) {
 							$('.headerIE8WarningCont').data('messageShown',true).append();
 						}
 					});
-					_app.templates.testimonialsTemplate.on('complete.formals',function(infoObj){
+					_app.templates.testimonialsTemplate.on('complete.formals',function(event,$context,infoObj){
 						//INTERNET EXPLORER WARNING MESSAGE
 						if($('.headerIE8WarningCont').data('messageShown')){
 						}
@@ -842,7 +849,7 @@ var _store_formals = function(_app) {
 							$('.headerIE8WarningCont').data('messageShown',true).append();
 						}
 					});
-					_app.templates.categoryProductListTemplate.on('complete.formals',function(infoObj){
+					_app.templates.categoryProductListTemplate.on('complete.formals',function(event,$context,infoObj){
 						//INTERNET EXPLORER WARNING MESSAGE
 						if($('.headerIE8WarningCont').data('messageShown')){
 						}
@@ -856,7 +863,7 @@ var _store_formals = function(_app) {
 							$('.headerIE8WarningCont').data('messageShown',true).append();
 						}
 					});
-					_app.templates.productTemplate.on('complete.formals',function(infoObj){
+					_app.templates.productTemplate.on('complete.formals',function(event,$context,infoObj){
 						//INTERNET EXPLORER WARNING MESSAGE
 						if($('.headerIE8WarningCont').data('messageShown')){
 						}
@@ -869,7 +876,7 @@ var _store_formals = function(_app) {
 							$('.headerIE8WarningCont').data('messageShown',true).append();
 						}
 					});
-					_app.templates.checkoutTemplate.on('complete.formals',function(infoObj){
+					_app.templates.checkoutTemplate.on('complete.formals',function(event,$context,infoObj){
 						//INTERNET EXPLORER WARNING MESSAGE
 						if($('.headerIE8WarningCont').data('messageShown')){
 						}
@@ -882,7 +889,7 @@ var _store_formals = function(_app) {
 							$('.headerIE8WarningCont').data('messageShown',true).append();
 						}
 					});
-					_app.templates.pageNotFoundTemplate.on('complete.formals',function(infoObj){
+					_app.templates.pageNotFoundTemplate.on('complete.formals',function(event,$context,infoObj){
 						//INTERNET EXPLORER WARNING MESSAGE
 						if($('.headerIE8WarningCont').data('messageShown')){
 						}
@@ -897,9 +904,9 @@ var _store_formals = function(_app) {
 					});
 					
 					
-					_app.templates.productTemplateQuickView.on('complete.formals',function(infoObj){
+					_app.templates.productTemplateQuickView.on('complete.formals',function(event,$context,infoObj){
 						
-						var $context = $(_app.u.jqSelector('#',infoObj.parentID));
+						//var $context = $(_app.u.jqSelector('#',infoObj.parentID));
 						
 						
 						if($(".variation_D5", $context).length){
@@ -918,7 +925,7 @@ var _store_formals = function(_app) {
 					
 					
 					/*
-					_app.templates.categoryProductListTemplate.on('depart.formals',function(infoObj){
+					_app.templates.categoryProductListTemplate.on('depart.formals',function(event,$context,infoObj){
 						var $context = $(_app.u.jqSelector('#',infoObj.parentID));
 						if($('.layeredSearch', $context).length){
 							$('.catProdListSidebar', $context).hide();

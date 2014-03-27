@@ -80,7 +80,7 @@ var _store_banner = function(_app) {
                                         if(_app.ext._store_banner.vars.categoryBanners) {
                                                 $container.addClass('bannersRendered');
 												var urlString = location.href;
- 												_app.u.dump("urlString = " + urlString);
+ 												//_app.u.dump("urlString = " + urlString);
 												//**REPLACE category/ with navcat=. if testing locally and vice versa**
 												if(urlString.indexOf("file:") >= 0){
 													urlString2 = urlString.split("#!category/.");
@@ -90,13 +90,13 @@ var _store_banner = function(_app) {
 												}
 												//_app.u.dump("urlString2 = " + urlString2);
 												var urlString3 = urlString2[1].replace(/\./g, '');
-												dump(urlString3);
+												//dump(urlString3);
 												var urlString4 = urlString3.replace(/\_/g, '');
-												dump(urlString4);
+												//dump(urlString4);
 												var urlString5 = urlString4.split("/");
-												dump(urlString5);
+												//dump(urlString5);
 												var navCatID = urlString5[0];
-												_app.u.dump("navCatID = " + navCatID);
+												//_app.u.dump("navCatID = " + navCatID);
                                                 $($container).removeClass('loadingBG').append(_app.ext._store_banner.u.makeBanner(_app.ext._store_banner.vars.categoryBanners[navCatID],960,"ffffff"));
 										}
                                         else {
