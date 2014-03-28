@@ -135,21 +135,21 @@ var _store_banner = function(_app) {
 										else {
 												//just a banner!
 										}
-										_app.u.dump($img);
 										
+										_app.u.dump($img);
 										if(i === 0){
-											//dump("Adding first banner image to image object.");
+											dump("Adding first banner image to image object.");
 											$imgCont = $img;
 											dump($imgCont);
 										}
 										else{
-											//dump("Adding next banner image to image object.");
+											dump("Adding next banner image to image object.");
 											$imgCont.after($img);
-											//dump($imgCont);
+											dump($imgCont);
 										}
 									}
 								}
-								//dump($imgCont);
+								dump($imgCont);
 								
                                 return $imgCont;
                         }
