@@ -1714,6 +1714,24 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 	padding-right: 24px;
 }
 
+div.quickviewProductSizingChartModalLinkContainer a{
+	color: #E91454;
+}
+div.quickviewProductSizingChartModalLinkContainer{
+	margin-top: -8px;
+    width: 100%;
+	text-decoration: none;
+}
+
+.productSharingLinkContainerQuickview a{
+	font-size: 16px;
+}
+
+.productMfgCont{
+	float:left;
+	clear:left;
+}
+
 
 
 /***********************************************************************************************************************************/
@@ -2335,6 +2353,9 @@ span#inStoreCheckoutButton button.checkoutButton{
 	display:none;
 }
 
+.cartSummaryTotalsContainer{
+	width: 28%;
+}
 
 
 
@@ -2344,8 +2365,11 @@ span#inStoreCheckoutButton button.checkoutButton{
 /*****productListTemplateCart TEMPLATE****/
 .productListTemplateCartInfoCont{
 	float: left;
+	width: 63%;
 }
-
+.productListTemplateCart div.prodOptions{
+	float: left;
+}
 
 
 
@@ -2982,9 +3006,9 @@ margin-top:10px;
 	width: 230px;
 }
 
-div.quickViewProdSummaryContainer div.quickviewProductSizingChartModalLinkContainer a{
+div.quickviewProductSizingChartModalLinkContainer a{
 }
-.quickviewProductSizingChartModalLinkContainer{
+div.quickviewProductSizingChartModalLinkContainer{
 }
 
 div.quickviewProductSharingLinkContainer{

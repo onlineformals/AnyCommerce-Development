@@ -136,8 +136,13 @@ _app.templates holds a copy of each of the templates declared in an extension bu
 			_app.vars._session = _app.u.getParameterByName('_session');
 			_app.u.dump(" -> session found on URI: "+_app.vars._session);
 			}
+		//in case localstorage is disabled.
+		else if(!$.support.localStorage)	{
+			_app.vars._session = _app.model.readCookie('_session');
+			}
 		else	{
 			_app.vars._session = _app.model.dpsGet('controller','_session');
+			dump("check localstorage for _session: "+_app.vars._session);
 			if(_app.vars._session)	{
 				_app.u.dump(" -> session found in DPS: "+_app.vars._session);
 				//use the local session id.
@@ -147,6 +152,9 @@ _app.templates holds a copy of each of the templates declared in an extension bu
 				_app.vars._session = _app.u.guidGenerator();
 				_app.u.dump(" -> generated new session: "+_app.vars._session);
 				_app.model.dpsSet('controller','_session',_app.vars._session);
+				if(!$.support.localStorage)	{
+					_app.model.writeCookie('_session',_app.vars._session); //for browsers w/ localstorage disabled.
+					}
 				}
 			}
 		}, //handleSession
@@ -770,8 +778,7 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 			},
 			
 		_buildMatchParams : function(route,hash,keysArr)	{
-			var regex = new RegExp(/{{(.*?)}}/g), vars = {};
-			var matchVarsArr = [];
+			var regex = new RegExp(/{{(.*?)}}/g), vars = {}, matchVarsArr = [], isMatch;
 			while(isMatch = regex.exec(route))	{matchVarsArr.push(isMatch[1]);} //isMatch[0] is the match value
 		
 			if(matchVarsArr && matchVarsArr.length)	{
@@ -802,7 +809,8 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 		//regex.exec[0] will be the match value. so comparing that to the hash will ensure no substring matches get thru.
 		//substring matches can be accomplished w/ a regex in the route.
 					if(isMatch && isMatch[0] == hash)	{
-						r = {'match' : isMatch, 'params' : _app.router._buildMatchParams(routeObj.route,hash,isMatch.splice(1))}; //isMatch is spliced because the first val is the 'match value'.
+						//IE8 requires the second param be passed into splice
+						r = {'match' : isMatch, 'params' : _app.router._buildMatchParams(routeObj.route,hash,isMatch.splice(1,isMatch.length - 1))}; //isMatch is spliced because the first val is the 'match value'.
 						}
 					}
 				else	{
@@ -894,9 +902,8 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 				}
 			return uriParams;
 			},
-	
-		init : function()	{
 
+		init : function()	{
 			//initObj is a blank object by default, but may be updated outside this process. so instead of setting it to an object, it's extended to merge the two.
 			$.extend(_app.router.initObj,{
 				hash : location.hash,
@@ -912,7 +919,23 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 				//what to do here?
 				}
 	//this would get added at end of INIT. that way, init can modify the hash as needed w/out impacting.
-			window.addEventListener("hashchange", _app.router.handleHashChange, false);
+			if (window.addEventListener) {
+				console.log(" -> addEventListener is supported and added for hash change.");
+				window.addEventListener("hashchange", _app.router.handleHashChange, false);
+				}
+			//IE 8
+			else if(window.attachEvent)	{
+				//A little black magic here for IE8 due to a hash related bug in the browser.
+				//make sure a hash is set.  Then set the hash to itself (yes, i know, but that part is key). Then wait a short period and add the hashChange event.
+				window.location.hash = window.location.hash || '#!home'; //solve an issue w/ the hash change reloading the page.
+				window.location.hash = window.location.hash;
+				setTimeout(function(){
+					window.attachEvent("onhashchange", _app.router.handleHashChange);
+					},1000);
+				}
+			else	{
+				$("#globalMessaging").anymessage({"message":"Browser doesn't support addEventListener OR attachEvent.","gMessage":true});
+				}
 			},
 	
 		handleHashChange : function()	{
@@ -1154,7 +1177,7 @@ will load everything in the RQ will a pass <= [pass]. so pass of 10 loads everyt
 				if(_app.u.numberOfLoadedResourcesFromPass(0) == _app.vars.rq.length)	{
 					_app.vars.rq = null; //this is the tmp array used by handleRQ and numberOfResourcesFromPass. Should be cleared for next pass.
 					_app.model.addExtensions(_app.vars.extensions);
-					_app.router.init();
+					_app.router.init(); ///### FUTURE -> this should be in the app / app init, not here.
 					_app.u.handleRQ(1); //this will empty the RQ.
 					_app.rq.push = _app.u.loadResourceFile; //reassign push function to auto-add the resource.
 					}
@@ -1617,7 +1640,7 @@ URI PARAM
 			kvp2Array : function(s)	{
 				var r = false;
 				if(s && s.indexOf('=') > -1)	{
-					r = s?JSON.parse('{"' + s.replace(/&/g, '","').replace(/=/g,'":"') + '"}',function(key, value) { return key===""?value:decodeURIComponent(value) }):{};
+					r = s ? JSON['parse']('{"' + s.replace(/&/g, '","').replace(/=/g,'":"') + '"}',function(key, value) { return key===""?value:decodeURIComponent(value) }) : {};
 					}
 				else	{}
 				return r;
@@ -2479,10 +2502,22 @@ name Mod 10 or Modulus 10. */
 
 //If certain privacy settings are set in a browser, even detecting if localStorage is available causes a NS_ERROR_NOT_AVAIL.
 //So we first test to make sure the test doesn't cause an error. thanks ff.
-				try{window.localStorage; jQuery.support.localStorage = true;}
+				try{
+					window.localStorage;
+					window.localStorage.setItem('test','test');
+					if(window.localStorage.getItem('test') == 'test')	{
+						jQuery.support.localStorage = true;
+						}
+					}
 				catch(e){jQuery.support.localStorage = false;}
 				
-				try{window.sessionStorage; jQuery.support.sessionStorage = true;}
+				try{
+					window.sessionStorage;
+					window.sessionStorage.setItem('test','test');
+					if(window.sessionStorage.getItem('test') == 'test')	{
+						jQuery.support.sessionStorage = true;
+						}
+					}
 				catch(e){jQuery.support.sessionStorage = false;}
 
 //update jQuery.support with whether or not placeholder is supported.
