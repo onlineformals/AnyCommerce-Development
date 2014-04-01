@@ -97,7 +97,7 @@ var _store_banner = function(_app) {
 												//dump(urlString5);
 												var navCatID = urlString5[0];
 												//_app.u.dump("navCatID = " + navCatID);
-                                                $($container).append(_app.ext._store_banner.u.makeBanner(_app.ext._store_banner.vars.categoryBanners[navCatID],960,"ffffff"));
+                                                $($container).removeClass('loadingBG').append(_app.ext._store_banner.u.makeBanner(_app.ext._store_banner.vars.categoryBanners[navCatID],960,"ffffff"));
 										}
                                         else {
                                                 setTimeout(this.showCategoryBanners,250);
@@ -108,11 +108,10 @@ var _store_banner = function(_app) {
 						makeBanner : function(bannerJSON, w, b) {
 							
 								var $imgCont;
-								//dump(_app.ext._store_banner.vars.categoryBanners);
 								
                                 if(bannerJSON != undefined){
 									for(var i=0;i<bannerJSON.bannersPerCat;i++){
-										_app.u.dump("banner create itteration = " + i);
+										//_app.u.dump("banner create itteration = " + i);
 										var $img = $(_app.u.makeImage({
 												tag : true,
 												w           : w,
@@ -138,18 +137,13 @@ var _store_banner = function(_app) {
 										_app.u.dump($img);
 										
 										if(i === 0){
-											//dump("Adding first banner image to image object.");
 											$imgCont = $img;
-											dump($imgCont);
 										}
 										else{
-											//dump("Adding next banner image to image object.");
 											$imgCont.after($img);
-											//dump($imgCont);
 										}
 									}
 								}
-								//dump($imgCont);
 								
                                 return $imgCont;
                         }
