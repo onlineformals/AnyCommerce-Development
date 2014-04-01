@@ -186,16 +186,14 @@ var _store_formals = function(_app) {
 							
 							//HOVER ZOOM FEATURE
 							 
-							 var image = $('.prodImageContainer',$context).attr('data-imgsrc');
-							 dump("var image =");
-							 dump (image);
+							 var image = $('.prodMainImage',$context).parent().attr('data-imgsrc');
 							 var imageURL = _app.u.makeImage({
 							   "name" : image,
 							   "w" : 1000,
 							   "h" : 1150,
 							   "b" : "FFFFFF"
 							   });
-							 $('.largeImageContainer', $context).zoom({
+							 $('.largeImageContainer').zoom({
 							  url: imageURL,
 							  on:'mouseover',
 							  onZoomIn: function(){
@@ -208,8 +206,6 @@ var _store_formals = function(_app) {
 							   }});
 							 $('.thumbnail',$context).on('mouseenter.productHover', function(){
 							  $('.largeImageContainer').trigger('zoom.destroy');
-							  dump("$(this).parent().attr('data-imgsrc') = ");
-							  dump($(this).parent().attr('data-imgsrc'));
 							  var newImage = $(this).parent().attr('data-imgsrc');
 							  
 							  //IMAGE VIEWER CLICK BLOCKER
