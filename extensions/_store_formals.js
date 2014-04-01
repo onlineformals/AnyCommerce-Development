@@ -179,8 +179,8 @@ var _store_formals = function(_app) {
 								if($tabContainer.data("widget") == 'anytabs'){} //tabs have already been instantiated. no need to be redundant.
 								else	{
 									$tabContainer.anytabs();
+									}
 								}
-							}
 							else	{} //couldn't find the tab to tabificate.
 							
 							
@@ -206,66 +206,65 @@ var _store_formals = function(_app) {
 							   // restores the zoom in curser after zoom out
 							   $('.largeImageContainer').removeClass('active');
 							   }});
-							 $('.thumbnail',$context).on('mouseenter', function(){
-								  dump("Thumbnail swap action activated.");
-								  $('.largeImageContainer').trigger('zoom.destroy');
-								  dump("$(this).parent().attr('data-imgsrc') = ");
-								  dump($(this).parent().attr('data-imgsrc'));
-								  var newImage = $(this).parent().attr('data-imgsrc');
-								  
-								  //IMAGE VIEWER CLICK BLOCKER
-								  var thumbObject = $(this);
-								  if(thumbObject.data("firstTimeHover")){
-									  //_app.u.dump("firstTimeHover exists for " + $(this) + ". Doing nothing.")
-								  }
-								  else{
-									  //_app.u.dump("firstTimeHover does not exists for " + $(this) + ". Adding it set to false.")
-									  thumbObject.data('firstTimeHover',false).append();
-								  }
-								  
-								  if (thumbObject.data('firstTimeHover') === false){
-									  //_app.u.dump("Running image blocker for " + $(this) + ".")
-									  var imageContainerSize = $('.imageContainer', $context).height();
-									  //_app.u.dump(imageContainerSize);
-									  $(".imageContainerBlocker", $context).css("height",imageContainerSize);
-									  $(".imageContainerBlocker", $context).show();
-								  }
-								  //END IMAGE CLICK BLOCKER
+							 $('.thumbnail',$context).on('mouseenter.productHover', function(){
+							  $('.largeImageContainer').trigger('zoom.destroy');
+							  dump("$(this).parent().attr('data-imgsrc') = ");
+							  dump($(this).parent().attr('data-imgsrc'));
+							  var newImage = $(this).parent().attr('data-imgsrc');
+							  
+							  //IMAGE VIEWER CLICK BLOCKER
+							  var thumbObject = $(this);
+							  if(thumbObject.data("firstTimeHover")){
+								  //_app.u.dump("firstTimeHover exists for " + $(this) + ". Doing nothing.")
+							  }
+							  else{
+								  //_app.u.dump("firstTimeHover does not exists for " + $(this) + ". Adding it set to false.")
+								  thumbObject.data('firstTimeHover',false).append();
+							  }
+							  
+							  if (thumbObject.data('firstTimeHover') === false){
+								  //_app.u.dump("Running image blocker for " + $(this) + ".")
+								  var imageContainerSize = $('.imageContainer', $context).height();
+								  //_app.u.dump(imageContainerSize);
+								  $(".imageContainerBlocker", $context).css("height",imageContainerSize);
+								  $(".imageContainerBlocker", $context).show();
+							  }
+							  //END IMAGE CLICK BLOCKER
 							
-								  $('.prodMainImage',$context).attr('src', _app.u.makeImage({
-									   "name" : newImage,
-									   "w" : 450,
-									   "h" : 560,
-									   "b" : "FFFFFF"
-								   }));
-								  var newImageURL = _app.u.makeImage({
-									   "name" : newImage,
-									   "w" : 1000,
-									   "h" : 1150,
-									   "b" : "FFFFFF"
-								   });
-								   
-								   //CLICK BLOCKER ACTIVATOR
-								   setTimeout(function(){
-									   $(".imageContainerBlocker", $context).hide();
-									   thumbObject.data('firstTimeHover',true).append();
-									   //_app.u.dump("Setting firstTimeHover to true for " + $(this) + ".");
-								   }, 3000);
-								   //END CLICK BLOCK ACTIVATOR
-								   
-								  $('.largeImageContainer').zoom({
-									   url: newImageURL,
-									   on:'mouseover',
-									   onZoomIn: function(){
-										$('.largeImageContainer').addClass('active');
-										//_app.u.dump("we're running addClass");
-										},
-									   onZoomOut: function(){
-										$('.largeImageContainer').removeClass('active');
-										}
-							   		});
+							  $('.prodMainImage',$context).attr('src', _app.u.makeImage({
+							   "name" : newImage,
+							   "w" : 450,
+							   "h" : 560,
+							   "b" : "FFFFFF"
+							   }));
+							  var newImageURL = _app.u.makeImage({
+							   "name" : newImage,
+							   "w" : 1000,
+							   "h" : 1150,
+							   "b" : "FFFFFF"
+							   });
+							   
+							   //CLICK BLOCKER ACTIVATOR
+							   setTimeout(function(){
+								   $(".imageContainerBlocker", $context).hide();
+								   thumbObject.data('firstTimeHover',true).append();
+								   //_app.u.dump("Setting firstTimeHover to true for " + $(this) + ".");
+							   }, 3000);
+							   //END CLICK BLOCK ACTIVATOR
+							   
+							  $('.largeImageContainer').zoom({
+							   url: newImageURL,
+							   on:'mouseover',
+							   onZoomIn: function(){
+								$('.largeImageContainer').addClass('active');
+								//_app.u.dump("we're running addClass");
+								},
+							   onZoomOut: function(){
+								$('.largeImageContainer').removeClass('active');
+								}
+							   });
 							});
-						
+							
 							function productHoverZoomClick(){
 								$(".zoomImg", $context).before("<div onClick='_app.ext.store_product.u.showPicsInModal({\"pid\":$(this).attr(\"data-pid\")});' data-bind=\"var:product(zoovy:prod_image1; format:assignAttribute; attribute:data-pid;\">");
 								$(".zoomImg", $context).after("</div>");
