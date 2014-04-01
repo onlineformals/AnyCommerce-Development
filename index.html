@@ -798,23 +798,23 @@ don't modify the 'data-templateid' unless you are changing template names and up
             </div>
             <img class="prevCPBannerCaro" src="Images/Homepage/caroleft.png" />
             <img class="nextCPBannerCaro" src="Images/Homepage/caroright.png" />
-            <div class="catProdListCustomTextArea displayNone" data-tlc="bind $var '.%page.description'; if (is $var --notblank;){{apply --append;}};">
+            <div class="catProdListCustomTextArea displayNone" data-tlc="bind $var '.%page.description'; showIfSet;">
                 <h1 data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></h1>
             </div>
         </div>
         
         <ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList"></ul><!-- outputs a list of subcategories -->
         
-        <div class="catCustomTextArea displayNone" data-tlc="bind $var '.%page.description'; if (is $var --notblank;){{apply --append;}};">
+        <div class="catCustomTextArea displayNone" data-tlc="bind $var '.%page.description'; showIfSet;">
             <h1 data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></h1>
         </div>
         
          <div class="catBottomCarousel">         	
-            <div class="catProductListTitleCarouselBar displayNone" data-tlc="bind $var '.@products'; if (is $var --notblank;){{apply --append;}};">
+            <div class="catProductListTitleCarouselBar displayNone" data-tlc="bind $var '.@products'; format: showIfSet;">
             	<h3>Featured Styles</h3>
             </div>
             <div class="catProductListContentArea">
-                <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate' --legacy;"></ul>
+                <ul data-tlc="bind $var '.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate';" class="listStyleNone fluidList clearfix noPadOrMargin productList"></ul><!-- outputs the product list -->
             </div>
         </div>
         <!--
@@ -889,7 +889,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
             </div>
             <img class="prevCPBannerCaroProdList" src="Images/Homepage/caroleft.png" />
             <img class="nextCPBannerCaroProdList" src="Images/Homepage/caroright.png" />
-            <div class="catProdListCustomTextArea displayNone" data-tlc="bind $var '.%page.description'; if (is $var --notblank;){{apply --append;}};">
+            <div class="catProdListCustomTextArea displayNone" data-tlc="bind $var '.%page.description'; showIfSet;">
                 <h1 data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></h1>
             </div>
 
