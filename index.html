@@ -750,11 +750,11 @@ END HOMEPAGE FOUR TALL AD BANNER BARS SECTION
         	<div class="centeringContainer">
             	<div class="hpProductListCarouselArea">
                 	<div class="hpProductListCarouselContainer">
-                    	<ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_featured_products.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate'  --legacy;"></ul>
-                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_best_sellers.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate' --legacy;"></ul>
-                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_-_new_arrivals.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate' --legacy;"></ul>
-                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_celebrity_trends.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate' --legacy;"></ul>
-                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_new_to_sale.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate' --legacy;"></ul>
+                    	<ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_featured_products.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplateResultsNoPreview'  --legacy;"></ul>
+                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_best_sellers.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplateResultsNoPreview' --legacy;"></ul>
+                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_-_new_arrivals.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplateResultsNoPreview' --legacy;"></ul>
+                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_celebrity_trends.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplateResultsNoPreview' --legacy;"></ul>
+                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_new_to_sale.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplateResultsNoPreview' --legacy;"></ul>
                     </div>
         			<!--<div class="hpProductListPag"></div>-->
                 </div>
@@ -1099,18 +1099,18 @@ SANITY -> if you change the height and width of this image, change the .minimalM
 <li id='productListTemplateResults' class='loadingBG searchResultsProduct' onMouseOver="$('.quickView',$(this)).show();" onMouseOut="$('.quickView').hide();" >
 	<button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
 
-	<a data-tlc="bind $var '.'; store_routing#seoanchor --type='product' --seo; apply --attrib='href';" class="pointer">
+	<div data-tlc="bind $pid '.pid'; bind $seo '.%attribs.zoovy:prod_name'; bind $href ''; store_routing#productlink --pid=$pid --seo=$seo; apply --attrib='href';" class="blockLink pointer">
 		<div class="prodThumbContainer">
-			<img data-tlc="bind $var '.images.0'; apply --img --media=$var --width=200 --height=280 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="280" width="200">
+			<img data-tlc="bind $var '.images.0'; apply --img --media=$var --width=120 --height=120 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="280" width="200">
 		</div>
 
 		<div class="productItemInfo">
             <div class="productItemInfoContent">
-		<h5 data-tlc="bind $var '.prod_name'; if (is $var --notblank;) {{format --truncText; --numCharacters='32' apply --append --legacy;}};" class="hideInMinimalMode"></h5>
+		<h5 data-tlc="bind $var '.prod_name'; if (is $var --notblank;) {{format --truncText; --numCharacters='32' apply --append;}};" class="hideInMinimalMode"></h5>
         
                 <h6 data-tlc="bind $var '.base_price';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='Our Price: ';  apply --append;}};" class="hideInMinimalMode"></h6>
                 
-		<h5 data-tlc="bind $var '.prod_msrp';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='MSRP:  ';  apply --append;}};" class="hideInMinimalMode prodListItemProdMSRP prodMSRP"></h5>
+		<h5 data-tlc="bind $var '.%attribs.zoovy:prod_msrp';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='MSRP:  ';  apply --append;}};" class="hideInMinimalMode prodListItemProdMSRP prodMSRP"></h5>
 		
                 <!--
 				<span class='prodListItemSavings savings'>
@@ -1122,21 +1122,31 @@ SANITY -> if you change the height and width of this image, change the .minimalM
 			</div>
             <div class="productItemInfoMoreInfo"><h1>MORE DETAILS</h1></div>
         </div>
-    </a>
-   
+    </div>
+    <!--<div onClick="app.ext.myRIA.a.handleProdPreview($(this).parent().attr('data-pid'));" class='pointer'>
+		<div class='prodThumbContainer'>
+		<img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='120' height='120' />
+		</div>
+
+		<h5 class='hideInMinimalMode' data-bind='var: product(prod_name); format:text;'></h5>
+
+		<h6 class='hideInMinimalMode' data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
+	</div>
+	<div class='hideInMinimalMode pointer moreDetails' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div>
+	-->
 </li>
 
 <li id="productListTemplateResultsNoPreview" class="loadingBG searchResultsProduct ">
 	<a data-tlc="bind $var '.'; store_routing#seoanchor --type='product' --seo; apply --attrib='href';" class="pointer">
 		<div class="prodThumbContainer">
-			<img data-tlc="bind $var '.%attribs.images'; if (is $var --notblank;) {{ apply --img --media=$var --width=120 --height=120 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="prodThumb" alt="" height="120" width="120">
+		<img data-tlc="bind $var '.images.0'; if (is $var --notblank;) {{apply --img --media=$var --width=120 --height=120 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="prodThumb" alt="" height="120" width="120">
 		</div>
 
-		<h5 data-tlc="bind $var '.%attribs.prod_name'; if (is $var --notblank;) {{apply --append;}};" class="hideInMinimalMode"></h5>
+		<h5 data-tlc="bind $var '.prod_name'; if (is $var --notblank;) {{apply --append;}};" class="hideInMinimalMode"></h5>
 
-		<h6 data-tlc="bind $var '.%attribs.base_price'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Our Price: '; apply --add --class='price'; apply --append;}};" class="hideInMinimalMode"></h6>
+		<h6 data-tlc="bind $var '.base_price';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='Our Price: ';  apply --append;}};" class="hideInMinimalMode"></h6>
 	</a>
-	<a class="hideInMinimalMode pointer moreDetails" data-tlc="bind $var '.'; store_routing#seoanchor --type='product' --seo; apply --attrib='href';"><div class="hideInMinimalMode pointer moreDetails">more details</div></a>
+	<a class="hideInMinimalMode pointer moreDetails" data-tlc="bind $var '.'; store_routing#seoanchor --type='product' --seo; apply --attrib='href';">more details</a>
 </li>
 </ul>
 
