@@ -25,7 +25,7 @@ to debug issues in a shopping application.
 
 */
 
-var entomologist = function(_app) {
+var entomologist = function() {
 	var theseTemplates = new Array('');
 	var r = {
 
@@ -39,16 +39,16 @@ var entomologist = function(_app) {
 		init : {
 			onSuccess : function()	{
 				var r = false; 
-				window.showDebugger = _app.ext.entomologist.a.showDebugger
+				window.showDebugger = app.ext.entomologist.a.showDebugger
 				
-				_app.model.fetchNLoadTemplates(_app.vars.baseURL + "extensions/entomologist/templates.html", []);
-				_app.u.loadCSSFile("extensions/entomologist/styles.css","entomologistCSS");
+				app.model.fetchNLoadTemplates(app.vars.baseURL + "extensions/entomologist/templates.html", []);
+				app.u.loadCSSFile("extensions/entomologist/styles.css","entomologistCSS");
 				r = true;
 
 				return r;
 				},
 			onError : function()	{
-				_app.u.dump('BEGIN admin_orders.callbacks.init.onError');
+				app.u.dump('BEGIN admin_orders.callbacks.init.onError');
 				}
 			}
 		}, //callbacks
@@ -61,27 +61,27 @@ var entomologist = function(_app) {
 			showDebugger : function(width, height){
 				width = width || 800;
 				height = height || 500;
-				if(_app.ext.entomologist.vars.$debugger){
-					_app.ext.entomologist.vars.$debugger.dialog('open');
+				if(app.ext.entomologist.vars.$debugger){
+					app.ext.entomologist.vars.$debugger.dialog('open');
 					}
 				else {
 					var $debugger = $('<div></div>');
 					$debugger.anycontent({'data':{}, 'templateID':'debuggerTemplate'});
-					_app.ext.entomologist.vars.$debugger = $debugger;
+					app.ext.entomologist.vars.$debugger = $debugger;
 					$debugger.on('click.refreshDebug', '[data-debug="refresh"]', function(){
 						if($(this).attr('data-debug-target')){
-							//_app.u.dump($('[data-debug="'+$(this).attr('data-debug-target')+'"]', $debugger));
-							_app.ext.entomologist.u.update($('[data-debug="'+$(this).attr('data-debug-target')+'"]', $debugger));
+							//app.u.dump($('[data-debug="'+$(this).attr('data-debug-target')+'"]', $debugger));
+							app.ext.entomologist.u.update($('[data-debug="'+$(this).attr('data-debug-target')+'"]', $debugger));
 							}
 						});
 						
-					$('.tabificateMe', $debugger).anytabs(); //consider adding an 'applyAnytabs' to this element and running _app.u.handleCommonPlugins($debugger);
+					$('.tabificateMe', $debugger).anytabs();
 					$debugger.dialog({'title':'Entomology Lab', 'height':height, 'width':width});
 					}
 								
-				//_app.ext.entomologist.u.update( $('[data-debug="prodDumperList"]', $debugger));
-				//_app.ext.entomologist.u.update( $('[data-debug="catDumperList"]', $debugger));
-				_app.ext.entomologist.u.update( $('[data-debug="localStorageDumperList"]', $debugger));
+				//app.ext.entomologist.u.update( $('[data-debug="prodDumperList"]', $debugger));
+				//app.ext.entomologist.u.update( $('[data-debug="catDumperList"]', $debugger));
+				app.ext.entomologist.u.update( $('[data-debug="localStorageDumperList"]', $debugger));
 				
 				
 				return "Opening Entomology Lab...";
@@ -92,7 +92,7 @@ var entomologist = function(_app) {
 
 		renderFormats : {
 			dumpData : function($tag, data){
-				_app.u.dump(data.value);
+				app.u.dump(data.value);
 				}
 			}, //renderFormats
 
@@ -100,12 +100,12 @@ var entomologist = function(_app) {
 
 		u : {
 			updateList : function($target, datapointerPrefix, templateID, useLocalStorage){
-				_app.u.dump('BEGIN _app.ext.entomologist.u.updateList');
+				app.u.dump('BEGIN app.ext.entomologist.u.updateList');
 				$target.intervaledEmpty();
 				
-					_app.u.dump(datapointerPrefix);
-					_app.u.dump(templateID);
-					_app.u.dump(useLocalStorage);
+					app.u.dump(datapointerPrefix);
+					app.u.dump(templateID);
+					app.u.dump(useLocalStorage);
 				if(useLocalStorage){
 					for(var i = 0; i < localStorage.length; i++){
 						if(localStorage.key(i).indexOf(datapointerPrefix >= 0)){
@@ -123,17 +123,17 @@ var entomologist = function(_app) {
 						}
 					}
 				else {
-					for(var index in _app.data){
+					for(var index in app.data){
 						if(index.indexOf(datapointerPrefix) >= 0){
-							//_app.u.dump(index);
-							var $listing = $('<div />').anycontent({'data':_app.data[index], 'templateID':templateID});
+							//app.u.dump(index);
+							var $listing = $('<div />').anycontent({'data':app.data[index], 'templateID':templateID});
 							$target.append($listing.children());
 							}
 						}
 					}					
 				},
 			updateTag : function($target, datapointer, templateID, useLocalStorage){
-				_app.u.dump('BEGIN _app.ext.entomologist.u.updateTag');
+				app.u.dump('BEGIN app.ext.entomologist.u.updateTag');
 				if(useLocalStorage){
 					if(localStorage.getItem(datapointer)){
 						var obj = {};
@@ -148,50 +148,50 @@ var entomologist = function(_app) {
 						}
 					}
 				else {
-					if(_app.data[datapointer]){
-						$target.intervaledEmpty().anycontent({'data':_app.data[datapointer], 'templateID':templateID});
+					if(app.data[datapointer]){
+						$target.intervaledEmpty().anycontent({'data':app.data[datapointer], 'templateID':templateID});
 						}
 				}
 				
 				},
 			update : function($target){
-				_app.u.dump('BEGIN _app.ext.entomologist.u.update');
+				app.u.dump('BEGIN app.ext.entomologist.u.update');
 				if($target.attr('data-debug-loadsTemplate') && ($target.attr('data-debug-datapointerPrefix') || $target.attr('data-debug-datapointerPrefix') === "")){
-					_app.u.dump('Looks like a list!');
+					app.u.dump('Looks like a list!');
 					this.updateList($target, $target.attr('data-debug-datapointerPrefix'), $target.attr('data-debug-loadsTemplate'), $target.attr('data-debug-localStorage'));
 					}
 				else if($target.attr('data-debug-templateID') && $target.attr('data-debug-datapointer')) {
-					_app.u.dump('Looks like a tag!');
+					app.u.dump('Looks like a tag!');
 					this.updateTag($target, $target.attr('data-debug-datapointer'), $target.attr('data-debug-templateID'), $target.attr('data-debug-localStorage'));
 					}
 				},
 			dumpData : function(datapointer, json, useLocalStorage){
 				if(useLocalStorage){
 					if(localStorage.getItem(datapointer)){
-						_app.u.dump("Data for "+datapointer+" in localStorage:");
+						app.u.dump("Data for "+datapointer+" in localStorage:");
 						if(json || localStorage.getItem(datapointer).charAt(0) != "{" || localStorage.getItem(datapointer).charAt(0) != "["){
-							_app.u.dump(localStorage.getItem(datapointer));
+							app.u.dump(localStorage.getItem(datapointer));
 							}
 						else{
-							_app.u.dump(JSON.parse(localStorage.getItem(datapointer)));
+							app.u.dump(JSON.parse(localStorage.getItem(datapointer)));
 							}
 						}
 					else {
-						_app.u.dump("-> Error: _app.ext.entomologist.u.dumpData could not find data in localStorage for "+datapointer);
+						app.u.dump("-> Error: app.ext.entomologist.u.dumpData could not find data in localStorage for "+datapointer);
 						}
 					}
 				else {
-					if(_app.data[datapointer]){
-						_app.u.dump("Data for "+datapointer+" in _app.data:");
+					if(app.data[datapointer]){
+						app.u.dump("Data for "+datapointer+" in app.data:");
 						if(json){
-							_app.u.dump(JSON.stringify(_app.data[datapointer]));
+							app.u.dump(JSON.stringify(app.data[datapointer]));
 							}
 						else{
-							_app.u.dump(_app.data[datapointer]);
+							app.u.dump(app.data[datapointer]);
 							}
 						}
 					else {
-						_app.u.dump("-> Error: _app.ext.entomologist.u.dumpData could not find data in _app.data for "+datapointer);
+						app.u.dump("-> Error: app.ext.entomologist.u.dumpData could not find data in app.data for "+datapointer);
 						}
 					}
 				}
