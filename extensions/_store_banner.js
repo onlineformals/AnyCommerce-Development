@@ -97,7 +97,7 @@ var _store_banner = function(_app) {
 												//dump(urlString5);
 												var navCatID = urlString5[0];
 												//_app.u.dump("navCatID = " + navCatID);
-												_app.ext._store_banner.u.makeBanner(_app.ext._store_banner.vars.categoryBanners[navCatID],960,"ffffff",$container);
+                                                $($container).append(_app.ext._store_banner.u.makeBanner(_app.ext._store_banner.vars.categoryBanners[navCatID],960,"ffffff"));
 										}
                                         else {
                                                 setTimeout(this.showCategoryBanners,250);
@@ -105,11 +105,10 @@ var _store_banner = function(_app) {
                                 }
                         },
                                                 
-						makeBanner : function(bannerJSON, w, b, $container) {
+						makeBanner : function(bannerJSON, w, b) {
 							
 								var $imgCont;
 								//dump(_app.ext._store_banner.vars.categoryBanners);
-								dump($imgCont);
 								
                                 if(bannerJSON != undefined){
 									for(var i=0;i<bannerJSON.bannersPerCat;i++){
@@ -125,24 +124,32 @@ var _store_banner = function(_app) {
 										}));
 										if(bannerJSON.prodLink) {
 												$img.addClass('pointer').data('pid', bannerJSON.prodLink[i]).click(function() {
-														var pid = $(this).data('pid');
-														window.location.hash = "#!product/"+pid;
+														showContent('product',{'pid':$(this).data('pid')});
 												});
 										}
 										else if(bannerJSON.catLink) {
 												$img.addClass('pointer').data('navcat', bannerJSON.catLink[i]).click(function() {
-														var navcat = $(this).data('navcat');
-														window.location.hash = "#!category/"+navcat;
+														showContent('category',{'navcat':$(this).data('navcat')});
 												});
 										}
 										else {
 												//just a banner!
 										}
 										
-										dump($img);
-										$container.append($img);
+										_app.u.dump($img);
+										if(i === 0){
+											dump("Adding first banner image to image object.");
+											$imgCont = $img;
+											dump($imgCont);
+										}
+										else{
+											dump("Adding next banner image to image object.");
+											$imgCont.after($img);
+											dump($imgCont);
+										}
 									}
 								}
+								dump($imgCont);
 								
                                 return $imgCont;
                         }
