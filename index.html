@@ -907,7 +907,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 </div>
 
 
-<div id='testimonialsTemplate' class='categoryTemplate'>
+<div id='testimonialsTemplate' class='loadingBG categoryTemplate'>
 	<div class="centeringContainer">
         <ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>    
         <!--
@@ -921,15 +921,15 @@ don't modify the 'data-templateid' unless you are changing template names and up
         <!--
         <ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList"></ul><!-- outputs a list of subcategories -->
 
-        
-        <ul data-tlc="bind $var '.@products'; store_prodlist#productlist  --withReviews='1' --withInventory='1' --withVariations='1' --itemsperpage='25' --templateid='productListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin productList"></ul><!-- outputs the product list -->
+	<ul data-tlc="bind $var '.@products'; store_prodlist#productlist  --withReviews='1' --withInventory='1' --withVariations='1' --itemsperpage='25' --templateid='productListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin productList"></ul><!-- outputs the product list -->
 
-        <p data-tlc="bind $var '.%page.description2'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
+	<p data-tlc="bind $var '.%page.description2'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
+        -->
 	</div>
 </div>
 
 
-<div id='showroomTemplate' class='showroomTemplate'>
+<div id='showroomTemplate' class='loadingBG showroomTemplate'>
 	<div class="centeringContainer">
 		<h2><b>SHOWROOM NOW OPEN -- BOOK YOUR APPOINTMENT TODAY</b></h2><p>
   
