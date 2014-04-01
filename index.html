@@ -172,8 +172,8 @@ $(document).ready(function(){
 	<div class='header'>
 		<div class="headerTopSect">
 			<div class="centeringContainer">
-				<div class="floatLeft headerLoginLink"><h5>Welcome, <span class='username'>Guest!</span><a href="#!customer/myaccount">Sign in</a> or <a href="#!customer/myaccount">Register.</a></h5></div>
-				<div class="floatRight headerTopNavLink"><a class="pointer" href="#!company/contact">Help</a><a class="pointer headerTopCenterLink" href="#!customer/myaccount">My Account</a><a class="pointer" href="#!customer/lists" >Wishlist</a></div>
+				<div class="floatLeft headerLoginLink"><h5>Welcome, <span class='username'>Guest!</span><a href='#top' onClick="return showContent('customer',{'show':'myaccount'});">Sign in</a> or <a href='#top' onClick="return showContent('customer',{'show':'myaccount'});">Register.</a></h5></div>
+				<div class="floatRight headerTopNavLink"><a class="pointer" href='#top' onclick="return showContent('company',{'show':'contact'});">Help</a><a class="pointer headerTopCenterLink" href='#top' onClick="return showContent('customer',{'show':'myaccount'});">My Account</a><a class="pointer" href='#top' onClick="return showContent('customer',{'show':'lists'});">Wishlist</a></div>
 				<div class="floatRight headerCartLink"><a class="pointer" onClick="myApp.ext.quickstart.u.showCartInModal({'templateID':'cartTemplate'});"><span class="cartItemCount">0</span> item(s) </a> <h6> - </h6><a class="pointer" onClick="myApp.ext.quickstart.u.showCartInModal({'templateID':'cartTemplate'});">View Shopping Bag</a></div>
 			</div>
 		</div>
@@ -426,16 +426,16 @@ $(document).ready(function(){
 					<h3>JOIN OUR NEWSLETTER</h3>
 				</div>
 				<div class="footNewsSignupCont">
-					<div action='' id='subscribeFrm' name='subscribeFrm' >
-						<div class='userInfo'>
+					<form action='' id='subscribeFrm' name='subscribeFrm' >
+						<fieldset class='userInfo'>
 							<!--
 							<input type="text" name='fullname' value='' placeholder="   Name" class="subName" id='subscribeFullname' />
 							<input type="email" name='login' value='' placeholder="   E-mail Address" class="subEmail" id='subscribeLogin' />
 							<fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
 							-->
-							<a href="#!customer/myaccount"><input class="subButton pointer" type="submit" value="Join" /></a>
-						</div>
-					</div>
+							<input class="subButton pointer" type="submit" value="Join" href='#top' onClick="return showContent('customer',{'show':'myaccount'});" />
+						</fieldset>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -443,18 +443,18 @@ $(document).ready(function(){
 			<div class="centeringContainer">
 				<div class="footerLinkListContainer">
 					<ul class="footerLinkList">
-						<li><a href="#!home" class="pointer bindByAnchor">Home</a></li>
-						<li><a href="#!company/about" class="pointer">About Us</a></li>
-						<li><a href="#!company/faq" class="pointer">FAQs</a></li>
+						<li><a href="#homepage?." class="pointer bindByAnchor">Home</a></li>
+						<li><a href='#top' onClick="return showContent('company',{'show':'about'});" class="pointer">About Us</a></li>
+						<li><a href='#top' onClick="return showContent('company',{'show':'faq'});" class="pointer">FAQs</a></li>
 						<li><a href="http://blog.onlineformals.com" target="_blank" class="pointer">Blog</a></li>
-						<li><a href="#!category/.testimonials" class="pointer bindByAnchor">Testimonials</a></li>
+						<li><a href="#!category?navcat=.testimonials" class="pointer bindByAnchor">Testimonials</a></li>
 					</ul>
 					<ul class="footerLinkList">
-						<li><a href="#!company/contact" class="pointer">Contact Us</a></li>
-						<li><a onClick="window.scrollTo(0,0); $('#SizingChartTemplate').dialog({'modal':'true', 'title':'','width':870, height:700, 'dialogClass' : 'SizingChartModal'});" class="pointer">Size Charts</a></li>
-						<li><a href="#!company/return" class="pointer">Policies</a></li>
-						<li><a href="#!company/shipping" class="pointer">Shipping</a></li>
-						<li><a href="#!customer/myaccount" class="pointer">My Account</a></li>
+						<li><a href='#top' onClick="return showContent('company',{'show':'contact'});" class="pointer">Contact Us</a></li>
+						<li><a href='#top' onClick="window.scrollTo(0,0); $('#SizingChartTemplate').dialog({'modal':'true', 'title':'','width':825, height:700, 'dialogClass' : 'SizingChartModal'});" class="pointer">Size Charts</a></li>
+						<li><a href='#top' onClick="return showContent('company',{'show':'return'});" class="pointer">Policies</a></li>
+						<li><a href='#top' onClick="return showContent('company',{'show':'shipping'});" class="pointer">Shipping</a></li>
+						<li><a href='#top' onClick="return showContent('customer',{'show':'myaccount'});" class="pointer">My Account</a></li>
 					</ul>
 				</div>
 				<div class="footerSocialMediaContainer">
@@ -473,7 +473,7 @@ $(document).ready(function(){
 				<!--****************************************************SHOWROOM BANNER SECTION*************************************************************** -->
 
 				<div class="footerShowroomLinkContainer">
-					<a href="#!category/.showroom" class="pointer bindByAnchor"><img src="Images/Homepage/footer/footershowroom.png" alt="" /></a>
+					<a href="#!category?navcat=.showroom" class="pointer bindByAnchor"><img src="Images/Homepage/footer/footershowroom.png" alt="" /></a>
 				</div>
 				
 				
