@@ -77,13 +77,9 @@ var admin_support = function(_app) {
 
 		a : {
 			
-			showTicketManager : function($target,P)	{
+			showTicketManager : function($target)	{
 //				_app.u.dump("BEGIN admin_support.a.showTicketManager");
-				
-				_app.ext.admin_support.a.showHelpInterface($target,P);
-				
-				$target.append("<div class='clearfix'></div>");
-				
+				$target.intervaledEmpty();
 				var $DMI = _app.ext.admin.i.DMICreate($target,{
 					'header' : 'Ticket Manager',
 					'className' : 'adminTicketList', //applies a class on the DMI, which allows for css overriding for specific use cases.
@@ -158,7 +154,7 @@ var admin_support = function(_app) {
 				vars = vars || {};
 				
 				var $DMI = _app.ext.admin.i.DMICreate($target,{
-					'header' : 'Search our Online Documentation', //left off because the interface is in a tab.
+					'header' : 'Help Documentation', //left off because the interface is in a tab.
 					'className' : 'helpDocumentation',
 					'buttons' : [],
 					'controls' : "<form class='searchBar' data-app-submit='admin_support|execHelpSearch' data-app-role='helpSearch'><input type='text' name='srsearch' value='"+( vars.title ? vars.title : '' )+"' class='hideInDetailMode'  /><button class='hideInDetailMode applyButton' data-text='false' data-icon-primary='ui-icon-search'>Search</button></form>",

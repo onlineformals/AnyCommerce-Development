@@ -145,19 +145,17 @@ used, but not pre-loaded.
 			projectidpretty : function($tag,data)	{
 //				dump(" BEGIN projectidpretty");
 				var o = data.value; //what will be Output into $tag. Defaults to project id (which is what should be in data.value
-				if(o)	{
-					if(_app.data.adminProjectList && _app.data.adminProjectList['@PROJECTS'])	{
-						dump(" projects ARE in memory");
-						var index = _app.ext.admin.u.getIndexInArrayByObjValue(_app.data.adminProjectList['@PROJECTS'],'UUID',data.value);
-	//					dump(" -> index: "+index);
-						if(index === 0 || index >= 1)	{
-							if(_app.data.adminProjectList['@PROJECTS'][index].TITLE)	{
-								o = _app.data.adminProjectList['@PROJECTS'][index].TITLE;
-								}
+				if(_app.data.adminProjectList && _app.data.adminProjectList['@PROJECTS'])	{
+//					dump(" projects ARE in memory");
+					var index = _app.ext.admin.u.getIndexInArrayByObjValue(_app.data.adminProjectList['@PROJECTS'],'UUID',data.value);
+//					dump(" -> index: "+index);
+					if(index === 0 || index >= 1)	{
+						if(_app.data.adminProjectList['@PROJECTS'][index].TITLE)	{
+							o = _app.data.adminProjectList['@PROJECTS'][index].TITLE;
 							}
 						}
-					$tag.text(o);
 					}
+				$tag.text(o);
 				},
 			projectbuttons : function($tag,data)	{
 				var $menu = $("<menu \/>").addClass('projectMenu').hide();
@@ -390,20 +388,22 @@ used, but not pre-loaded.
 					_app.model.addDispatchToQ(cmdObj,'immutable'); //this handles the update cmd.
 //This will update the hosts tbody.
 					if($domainEditor instanceof jQuery)	{
-						$domainEditor.empty().showLoading({'message':'Updating host and refreshing content...'});
-						if($domainEditor.data('isTLC'))	{
-							$domainEditor.tlc('destroy'); //ensures fresh data is used.
+						var $tbody = $("tbody[data-app-role='domainsHostsTbody']",$domainEditor);
+						if($tbody.length)	{
+							$tbody.empty();
+							_app.model.addDispatchToQ({
+								'_cmd':'adminDomainDetail',
+								'DOMAINNAME':sfo.DOMAINNAME,
+								'_tag':	{
+									'datapointer' : 'adminDomainDetail|'+sfo.DOMAINNAME,
+									'jqObj' : $tbody,
+									'callback' : 'tlc'
+									}
+								},'immutable');
 							}
-						_app.model.addDispatchToQ({
-							'_cmd':'adminDomainDetail',
-							'DOMAINNAME':sfo.DOMAINNAME,
-							'_tag':	{
-								'datapointer' : 'adminDomainDetail|'+sfo.DOMAINNAME,
-								'templateid' : 'domainUpdateTemplate',
-								'jqObj' : $domainEditor,
-								'callback' : 'tlc'
-								}
-							},'immutable');
+						else	{
+							_app.u.dump("In admin_sites.u.domainAddUpdateHost, $domainEditor was specified [length: "+$domainEditor.length+"], but tbody[data-app-role='domainsHostsTbody'] has no length, so the view will not be updated.","warn");
+							}
 						}
 					
 					_app.model.dispatchThis('immutable');

@@ -210,7 +210,7 @@ function model(_app) {
 				
 //				_app.u.dump(index+"). "+_app.q[QID][index]._cmd+" status: "+_app.q[QID][index]._tag.status);
 				
-				if(_app.q[QID][index]._tag && _app.q[QID][index]._tag.status == 'queued')	{
+				if(_app.q[QID][index]._tag.status == 'queued')	{
 					_app.q[QID][index]._tag.status = "requesting";
 //					_app.u.dump(" -> new status: "+_app.q[QID][index]._tag.status);
 					if(puuid){_app.q[QID][index]._tag.pipeUUID = puuid}
@@ -635,10 +635,9 @@ QID is the dispatchQ ID (either passive, mutable or immutable. required for the 
 		thisGetsSaved2Memory : function(cmd)	{
 			var r = true;
 			if(cmd == 'adminNavcatMacro')	{}
-// ** 201402 -> if they don't need to be saved to memory, don't put a datapointer on them. But allow them to be added if necessary.
-//			else if(this.cmdIsAnAdminUpdate(cmd))	{
-//				r = false;
-//				}
+			else if(this.cmdIsAnAdminUpdate(cmd))	{
+				r = false;
+				}
 			else	{
 				switch(cmd)	{
 					case 'appPageGet': //saved into category object earlier in process. redundant here.
@@ -1107,11 +1106,6 @@ or as a series of messages (_msg_X_id) where X is incremented depending on the n
 				carts.splice( $.inArray(cartID, carts), 1 );
 				_app.model.destroy('cartDetail|'+cartID);
 				this.dpsSet('app','carts',carts); //update localStorage.
-				//support for browsers w/ localStorage disabled.
-				if(!$.support.localStorage)	{
-					_app.model.deleteCookie('cartid');
-					}
-
 				}
 			else	{
 				$('#globalMessaging').anymessage({'message':'In model.removeCartFromSession, no cartid passed','gMessage':true});
@@ -1646,21 +1640,28 @@ methods of getting data from non-server side sources, such as cookies, local or 
 */
 
 //location should be set to 'session' or 'local'.
-// WARNING! -> any changes to writeLocal should be tested in IE8 right away.
 		writeLocal : function (key,value,location)	{
 			location = location || 'local';
 			var r = false;
+
 			if($.support[location+'Storage'])	{
-				r = true;
-				if (typeof value == "object") {value = JSON.stringify(value);}
+				if(typeof window[location+'Storage'].setItem == 'function' )	{
+					r = true;
+					if (typeof value == "object") {value = JSON.stringify(value);}
+
 //a try is used here so that if storage is full, the error is handled gracefully.
-				try	{
-					window[location+'Storage'].setItem(key, value);
+					try	{
+						window[location+'Storage'].setItem(key, value);
+						}
+					catch(e)	{
+						r = false;
+						_app.u.dump(' -> '+location+'Storage [key: '+key+'] defined but not available.');
+						_app.u.dump(e.message);
+						}
+					
 					}
-				catch(e)	{
-					r = false;
-					_app.u.dump(' -> '+location+'Storage [key: '+key+'] defined but not available.');
-					_app.u.dump(e.message);
+				else	{
+					_app.u.dump(" -> window."+location+"Storage.setItem is not a function.");
 					}
 				}
 			else	{
@@ -1686,7 +1687,6 @@ methods of getting data from non-server side sources, such as cookies, local or 
 				}
 			},
 
-// WARNING! -> any changes to readLocal should be tested in IE8 right away.
 		readLocal : function(key,location)	{
 			location = location || 'local';
 			if(!$.support[location+'Storage'])	{
@@ -1713,10 +1713,8 @@ methods of getting data from non-server side sources, such as cookies, local or 
 			}, //readLocal
 /*
 A note about cookies:
-	They're not particularly mobile friendly. All modern browsers support localStorage, even ie7 supports local/session storage, which is the main mechanism used by the model for persistent data storage.
+	They're not particularly mobile friendly. All modern browsers support localStorage, even ie7, supports local/session storage, which is the main mechanism used by the model for persistent data storage.
 	So the cookie functions are here (for now), but should probably be avoided.
-	They are used to store the session ID if localStorage is disabled.
-	Quickstart uses them to store the cartid.
 */
 		readCookie : function(c_name){
 			var i,x,y,ARRcookies=document.cookie.split(";");
@@ -1725,7 +1723,6 @@ A note about cookies:
 				y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
 				x=x.replace(/^\s+|\s+$/g,"");
 				if (x==c_name)	{
-					dump(" -> "+c_name +" cookie value: "+y);
 					return unescape(y);
 					}
 				}
@@ -1733,15 +1730,16 @@ A note about cookies:
 			},
 
 		writeCookie : function(c_name,value)	{
-			var myDate = new Date();
-			myDate.setTime(myDate.getTime()+(1*24*60*60*1000));
-			document.cookie = c_name +"=" + value + ";expires=" + myDate + ";domain="+document.domain+";path=/";
+var myDate = new Date();
+myDate.setTime(myDate.getTime()+(1*24*60*60*1000));
+document.cookie = c_name +"=" + value + ";expires=" + myDate + ";domain=.zoovy.com;path=/";
+document.cookie = c_name +"=" + value + ";expires=" + myDate + ";domain=www.zoovy.com;path=/";
 			},
 //deleting a cookie seems to cause lots of issues w/ iOS and some other mobile devices (where admin login is concerned, particularly. 
 //test before earlier.
 		deleteCookie : function(c_name)	{
-			document.cookie = c_name+ "=; expires=Thu, 01-Jan-70 00:00:01 GMT; path=/";
-			_app.u.dump(" -> DELETED cookie "+c_name);
+document.cookie = c_name+ "=; expires=Thu, 01-Jan-70 00:00:01 GMT; path=/";
+_app.u.dump(" -> DELETED cookie "+c_name);
 			},
 
 
@@ -1756,7 +1754,7 @@ A note about cookies:
 				var r = false, DPS = this.readLocal('dps','local') || {};
 //				_app.u.dump("DPS from local: "); _app.u.dump(DPS);
 				if($.isEmptyObject(DPS))	{
-					_app.u.dump(" ^^ Entire 'DPS' object is empty.");
+//					_app.u.dump(" ^^ Entire 'DPS' object is empty.");
 					// if nothing is local, no work to do. this allows an early exit.
 					} 
 				else	{
@@ -1776,9 +1774,7 @@ A note about cookies:
 //for instance, in orders, what were the most recently selected filter criteria.
 //ext and namespace (ns) are required. reduces likelyhood of nuking entire preferences object.
 			dpsSet : function(ext,ns,varObj)	{
-//				dump("BEGIN dpsSet for ext: "+ext+" and ns: "+ns);
 				if(ext && ns && (varObj || varObj == 0))	{
-//					dump(" -> have all the vars for setting");
 					var DPS = this.readLocal('dps','local') || {}; //readLocal returns false if no data local.
 					if(typeof DPS[ext] === 'object'){
 						DPS[ext][ns] = varObj;
@@ -1788,7 +1784,7 @@ A note about cookies:
 						DPS[ext][ns] = varObj;
 						} //object  exists already. update it.
 //SANITY -> can't extend, must overwrite. otherwise, turning things 'off' gets obscene.					
-//					dump(" -> writeLocal returned: "+this.writeLocal('dps',DPS,'local')); //update the localStorage session var.
+					this.writeLocal('dps',DPS,'local'); //update the localStorage session var.
 					}
 				else	{
 					_app.u.throwGMessage("Either extension ["+ext+"] or ns["+ns+"] or varObj ["+(typeof varObj)+"] not passed into admin.u.dpsSet.");
@@ -1811,7 +1807,7 @@ A note about cookies:
 							}
 						catch(e)	{
 							_app.u.dump("Could not build pegParser.","warn");
-//							_app.u.dump(buildErrorMessage(e),"error");
+							_app.u.dump(buildErrorMessage(e),"error");
 							}
 						if(success)	{
 							_app.u.dump(" -> successfully built pegParser");
