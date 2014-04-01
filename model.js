@@ -483,12 +483,6 @@ QID is the dispatchQ ID (either passive, mutable or immutable. required for the 
 //if an iseerr occurs, than even in a pipelined request, errid will be returned on 'parent' and no individual responses are returned.
 				if(responseData && (responseData['_rcmd'] == 'err' || responseData.errid))	{
 					_app.u.dump(' -> API Response for '+QID+' Q contained an error at the top level (on the pipe)','warn');
-					$('.ui-showloading').hideLoading(); //make sure all the showLoadings go away.
-					//brian says that an error 10 will always ONLY be for admin. 2014-03-20
-					if(responseData.errid == 10)	{
-						_app.u.dump(" -> errid of 10 corresponds to an expired token. ");
-						_app.ext.admin.callbacks.handleLogout.onSuccess({"msg":"You were logged out because the token you were using has expired. Please log in to continue."});
-						}
 					if(Q && Q.length)	{
 //						_app.u.dump(" -> Q.length: "+Q.length); _app.u.dump(Q);
 						for(var i = 0, L = Q.length; i < L; i += 1)	{
@@ -1234,11 +1228,7 @@ will return false if datapointer isn't in _app.data or local (or if it's too old
 //templateID is how the template will be referenced in _app.templates.
 		makeTemplate : function($templateSpec,templateID)	{
 			var r = true; //what is returned. if a template is created, true is returned.
-			if(templateID && $templateSpec)	{
-				if($templateSpec instanceof jQuery)	{}
-				else{
-					$templateSpec = $($templateSpec);
-					}
+			if(templateID && typeof $templateSpec == 'object')	{
 				_app.templates[templateID] = $templateSpec.attr('data-templateid',templateID).clone(true); //events needs to be copied from original
 				_app.templates[templateID].removeAttr('id'); //get rid of the ID to reduce likelyhood of duplicate ID's on the DOM.
 				$('#'+templateID).empty().remove(); //here for templates created from existing DOM elements. They're removed to ensure no duplicate ID's exist.
@@ -1799,7 +1789,6 @@ _app.u.dump(" -> DELETED cookie "+c_name);
 						$('#globalMessaging').anymessage({'errtype':'fail-fatal','message':'An error occured while attempting to load the grammar file. See console for details. The rendering engine will not run without that file.'});
 						},
 					'success' : function(file){
-						var success;
 						try{
 							var pegParserSource = PEG.buildParser(file);
 							window.pegParser = eval(pegParserSource); //make sure pegParser is valid.

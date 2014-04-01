@@ -1,3 +1,5 @@
+var app = app || {vars:{},u:{}}; //make sure app exists.
+app.rq = app.rq || []; //ensure array is defined. rq = resource queue.
 
 myApp.rq.push(['script',0,(document.location.protocol == 'file:') ? myApp.vars.testURL+'jsonapi/config.js' : myApp.vars.baseURL+'jsonapi/config.js',function(){
 //in some cases, such as the zoovy UI, zglobals may not be defined. If that's the case, certain vars, such as jqurl, must be passed in via P in initialize:
@@ -21,7 +23,7 @@ myApp.rq.push(['extension',0,'store_product','extensions/store_product.js']);
 myApp.rq.push(['extension',0,'cart_message','extensions/cart_message/extension.js']);
 myApp.rq.push(['extension',0,'store_crm','extensions/store_crm.js']);
 myApp.rq.push(['extension',0,'quickstart','app-quickstart.js','startMyProgram']);
-
+myApp.rq.push(['extension',0,'_store_filter','extensions/_store_filter.js']);
 
 //myApp.rq.push(['extension',0,'entomologist','extensions/entomologist/extension.js']);
 //myApp.rq.push(['extension',0,'tools_animation','extensions/tools_animation.js']);
@@ -42,11 +44,10 @@ myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/tlc.js']); //in zero pas
 myApp.rq.push(['css',1,myApp.vars.baseURL+'resources/anyplugins.css']);
 
 //CUSTOM EXTENSIONS
-//myApp.rq.push(['extension',0,'_store_formals','extensions/store_formals.js','init']);
+myApp.rq.push(['extension',0,'_store_formals','extensions/store_formals.js','init']);
 myApp.rq.push(['extension',0,'prodlist_infinite','extensions/prodlist_infinite.js']);
-//myApp.rq.push(['extension',0,'_store_banner','extensions/store_banner.js']);
-//myApp.rq.push(['extension',0,'_store_filter','extensions/_store_filter.js']);
-//myApp.rq.push(['extension',0,'store_backScrollPosition','extensions/_store_backScrollPosition.js','startExtension']);
+myApp.rq.push(['extension',0,'_store_banner','extensions/store_banner.js']);
+myApp.rq.push(['extension',0,'store_backScrollPosition','extensions/_store_backScrollPosition.js','startExtension']);
 
 myApp.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.2.1/jquery.carouFredSel-6.2.1-packed.js']);
 myApp.rq.push(['script',0,app.vars.baseURL+'zoom-master/jquery.zoom.js']);

@@ -634,9 +634,7 @@ NOTES
 						_app.renderFunctions.handleTemplateEvents($parent.find("[data-templateid='"+P.templateID+"']:first"),P);
 						});
 					
-//					$parent.dialog('open').append(_app.renderFunctions.createTemplateInstance(P.templateID,P));
-					$parent.dialog('open').append(new tlc().getTemplateInstance(P.templateID).attr('data-pid',P.pid));
-					_app.u.handleCommonPlugins($parent);
+					$parent.dialog('open').append(_app.renderFunctions.createTemplateInstance(P.templateID,P));
 					P.state = 'init';
 					_app.renderFunctions.handleTemplateEvents($parent.find("[data-templateid='"+P.templateID+"']:first"),P);
 					_app.ext.store_product.calls.appProductGet.init(P.pid,{'callback': function(rd){

@@ -255,13 +255,11 @@ else	{
 							}
 						catch(e)	{
 							$("li[data-orderid='"+_rtag.orders[i]+"']",_rtag.jqObj).find('.status').text('Error! '+e);
-							dump(" -> Error thrown by print: "); dump(e);
 							}
 						}
 					
 					if(printables)	{
-						_app.u.printByjqObj($printme); //commented out for testin.
-//						$(document.body).append($printme);
+						_app.u.printByjqObj($printme);
 						}
 					}
 				}
@@ -1577,7 +1575,7 @@ handleOrder(orders[i]);
 							}
 //now fetch the printable message for each partition being used.
 						_app.model.addDispatchToQ({"_cmd":"ping","_tag":{"callback":function(rd){
-//							dump(" -> Got to ping callback");
+							dump(" -> Got to ping callback");
 							if(okOrders.length)	{
 								//no orders came back without errors.
 								for(var i = 0; i < prts.length; i += 1)	{
@@ -2130,7 +2128,7 @@ handleOrder(orders[i]);
 					var orderID = $btn.closest("[data-orderid]").data('orderid');
 
 					if(orderID && _app.data['adminOrderDetail|'+orderID])	{
-						var partition;
+						var partition = _app.vars.partition;
 						var email = _app.data['adminOrderDetail|'+orderID].bill.email || _app.data['adminOrderDetail|'+orderID].customer.login || "";
 						var CID = _app.data['adminOrderDetail|'+orderID].customer.cid;
 						var domain = _app.data['adminOrderDetail|'+orderID].our.domain; //used to fetch the partition.
@@ -2140,10 +2138,6 @@ handleOrder(orders[i]);
 						else	{
 							_app.u.dump(" -> could not ascertain domain for order. using partition in focus.");
 							}
-						//if no partition could be found from the domain, use the partition in focus.
-						//is after the domain lookup because it could return false or undef.
-						partition = partition || _app.vars.partition;
-						_app.u.dump(" -> partition: "+partition);
 						_app.ext.admin_blast.u.showBlastToolInDialog({'OBJECT':'ORDER','PRT':partition,'EMAIL':email,'RECEIVER':'EMAIL','CID':CID});
 						}
 					else	{

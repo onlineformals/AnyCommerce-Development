@@ -398,7 +398,29 @@ var admin = function(_app) {
 				obj["_tag"] = _tag;
 				_app.model.addDispatchToQ(obj,Q);
 				}
-			}, //adminUIBuilderPanelExecute
+			}, //adminUIProductPanelList
+
+//obj requires panel and pid and sub.  sub can be LOAD or SAVE
+		adminUIProductPanelExecute : {
+			init : function(obj,_tag,Q)	{
+				if(obj && obj.panel && obj.pid && obj.sub)	{
+					_tag = _tag || {};
+//save and load 'should' always have the same data, so the datapointer is shared.
+					if(obj['sub'])	{
+						_tag.datapointer = "adminUIProductPanelExecute|"+obj.pid+"|load|"+obj.panel;
+						}
+					this.dispatch(obj,_tag,Q);
+					}
+				else	{
+					_app.u.throwGMessage("In admin.calls.adminUIProductPanelExecute, required param (panel, pid or sub) left blank. see console."); _app.u.dump(obj);
+					}
+				},
+			dispatch : function(obj,_tag,Q)	{
+				obj['_cmd'] = "adminUIProductPanelExecute";
+				obj["_tag"] = _tag;
+				_app.model.addDispatchToQ(obj,Q);	
+				}
+			}, //adminUIProductPanelExecute
 
 		adminPriceScheduleList : {
 			init : function(_tag,q)	{
@@ -786,14 +808,13 @@ SANITY -> jqObj should always be the data-app-role="dualModeContainer"
 				}
 			}, //showDataHTML
 
-//this callback is called directly by the model when an error 10 occurs.
-//no tagObj is passed into the function. test the model code after making changes here.
+
 		handleLogout : {
 			onSuccess : function(tagObj)	{
 				_app.ext.admin.u.selectivelyNukeLocalStorage(); //get rid of most local storage content. This will reduce issues for users with multiple accounts.
 				_app.model.destroy('authAdminLogin'); //clears this out of memory and local storage. This would get used during the controller init to validate the session.
 				if($.support['sessionStorage'])	{sessionStorage.clear();}
-				document.location = 'admin_logout.html' + (tagObj.msg ? "?msg="+encodeURIComponent(tagObj.msg) : "");
+				document.location = 'admin_logout.html'
 				}
 			},
 //in cases where the content needs to be reloaded after making an API call, but when a navigateTo directly won't do (because of sequencing, perhaps)
@@ -3723,7 +3744,6 @@ dataAttribs -> an object that will be set as data- on the panel.
 
 			
 //for delegated events. Also triggered by process form.
-// $ele could be the form itself or the button.
 			submitForm : function($ele,p)	{
 				var $form = $ele.closest('form');
 				p.preventDefault();
@@ -3891,6 +3911,7 @@ dataAttribs -> an object that will be set as data- on the panel.
 				},
 
 			showPasswordRecover : function($btn)	{
+				$btn.button();
 				$btn.off('click.showPasswordRecover').on('click.showPasswordRecover',function(event){
 					event.preventDefault();
 					_app.u.handleAppEvents($('#appPasswordRecover'));
@@ -3907,7 +3928,7 @@ dataAttribs -> an object that will be set as data- on the panel.
 					event.preventDefault();
 					var $form = $btn.closest('form');
 					if(_app.u.validateForm($form))	{
-						_app.model.addDispatchToQ({"_cmd":"authPasswordRecover","email":$("[name='email']",$form).val(),"_tag":{"datapointer":"authPasswordRecover","callback":"showMessaging","jqObj":$form,"message":"A temporary password has been emailed to the address provided."}},"immutable");
+						_app.model.addDispatchToQ({"_cmd":"authPasswordReset","login":$("[name='login']",$form),"_tag":{"datapointer":"authPasswordReset"}},"immutable");
 						_app.model.dispatchThis('immutable');
 						}
 					else	{} //validateForm handles error display.
