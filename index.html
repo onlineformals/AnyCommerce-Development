@@ -89,8 +89,8 @@ $(document).ready(function(){
 		"addjQueryPointer" : true,
 		"initComplete" : function(t){
 			dump(" -> init is complete");
-			//t.u.loadScript('app-quickstart-init.js',function(){
-			t.u.loadScript('_formals_init.js',function(){
+			t.u.loadScript('app-quickstart-init.js',function(){
+			//t.u.loadScript('_formals_init.js',function(){
 				var progress = t.u.loadResources(); //the object returns by loadResources will get updated as the resources finish loading.
 				t.u.showProgress(progress);
 				});
@@ -207,206 +207,206 @@ $(document).ready(function(){
 		<div class="headerBottomSect">
 			<div class="centeringContainer">
 				<div class="topNavContainer">
-					<div class="navBarDesigner dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="myApp.ext._store_formals.a.hideDropdown($(this))">
+					<div class="navBarDesigner dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
 					
 						<div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.designers'});"><a>DESIGNERS</a></div>
 						<div class="dropdown headerDropdown leftAlign">
 							<ul>
 								<li class="headerDropdownTitle">DESIGNERS</li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.bg_haute" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">BG Haute</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.cassandra_stone" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Cassandra Stone</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.faviana" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Faviana</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.gigi" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Gigi</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.jasz_couture" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Jasz Couture</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.johnathan_kayne" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Johnathan Kayne</a></li>
-								<!--<li class="headerDropdownLink"><a href="#!category?navcat=.designers.jovani" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Jovani</a></li>-->
-								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.la_femme" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">La Femme</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.le_gala" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Le Gala</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.lm_collection" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">LM Collection</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.mac_duggal" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.mignon" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Mignon</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.mnm_couture" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">MNM Couture</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.night_moves" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Night Moves</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.paris" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Paris</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.scala" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Scala</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.bg_haute" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">BG Haute</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.cassandra_stone" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Cassandra Stone</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.faviana" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Faviana</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.gigi" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Gigi</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.jasz_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jasz Couture</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.johnathan_kayne" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Johnathan Kayne</a></li>
+								<!--<li class="headerDropdownLink"><a href="#!category?navcat=.designers.jovani" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jovani</a></li>-->
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.la_femme" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">La Femme</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.le_gala" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Le Gala</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.lm_collection" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">LM Collection</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.mac_duggal" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.mignon" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mignon</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.mnm_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">MNM Couture</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.night_moves" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Night Moves</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.paris" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Paris</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.scala" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Scala</a></li>
 							</ul>
 							<ul>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.shail_k" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Shail K</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.sherri_hill" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Sherri Hill</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.tony_bowls" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Tony Bowls</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.shail_k" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Shail K</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.sherri_hill" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Sherri Hill</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.designers.tony_bowls" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Tony Bowls</a></li>
 							</ul>
 						</div>
 					</div>
-					<div class="navBarProm dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="myApp.ext._store_formals.a.hideDropdown($(this))">
+					<div class="navBarProm dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
 						<div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.prom'});"><a>PROM</a></div>
 						<div class="dropdown headerDropdown leftAlign">
 							<ul>
 								<li class="headerDropdownTitle">DESIGNERS</li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.bg_haute" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">BG Haute</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.cassandra_stone" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Cassandra Stone</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.faviana" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Faviana</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.gigi" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Gigi</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.jasz_couture" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Jasz Couture</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.johnathan_kayne" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Johnathan Kayne</a></li>
-								<!--<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.jovani" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Jovani</a></li>-->
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.la_femme" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">La Femme</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.le_gala" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Le Gala</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.lm_collection" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">LM Collection</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.mac_duggal" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.mignon" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Mignon</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.mnm_couture" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">MNM Couture</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.night_moves" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Night Moves</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.paris" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Paris</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.scala" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Scala</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.bg_haute" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">BG Haute</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.cassandra_stone" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Cassandra Stone</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.faviana" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Faviana</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.gigi" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Gigi</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.jasz_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jasz Couture</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.johnathan_kayne" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Johnathan Kayne</a></li>
+								<!--<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.jovani" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jovani</a></li>-->
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.la_femme" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">La Femme</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.le_gala" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Le Gala</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.lm_collection" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">LM Collection</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.mac_duggal" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.mignon" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mignon</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.mnm_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">MNM Couture</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.night_moves" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Night Moves</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.paris" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Paris</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.scala" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Scala</a></li>
 							</ul>
 							<ul>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.shail_k" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Shail K</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.sherri_hill" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Sherri Hill</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.tony_bowls" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Tony Bowls</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.shail_k" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Shail K</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.sherri_hill" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Sherri Hill</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.designers.tony_bowls" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Tony Bowls</a></li>
 
 								<li class="headerDropdownTitle stackedDropdownLI">STYLES</li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.styles.ballgown___a_line" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Ballgown & A Line</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.styles.empire" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Empire</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.styles.high_low" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">High-Low</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.styles.mermaid" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Mermaid</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.styles.short" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Short</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.styles.ballgown___a_line" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Ballgown & A Line</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.styles.empire" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Empire</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.styles.high_low" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">High-Low</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.styles.mermaid" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mermaid</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.styles.short" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Short</a></li>
 								
 								<li class="headerDropdownTitle stackedDropdownLI">TRENDS</li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.beads" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Beads</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.lace" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Lace</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.polka_dots" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Polka Dots</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.sequins" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Sequins</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.vintage" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Vintage</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.beads" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Beads</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.lace" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Lace</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.polka_dots" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Polka Dots</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.sequins" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Sequins</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.prom.trends.vintage" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Vintage</a></li>
 							</ul>
 						</div>
 					</div>
-					<div class="navBarEvening dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="myApp.ext._store_formals.a.hideDropdown($(this))">
+					<div class="navBarEvening dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
 						<div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.evening'});"><a>EVENING</a></div>
 						<div class="dropdown headerDropdown leftAlign">
 							<ul>
 								<li class="headerDropdownTitle">DESIGNERS</li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.bg_haute" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">BG Haute</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.jasz_couture" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Jasz Couture</a></li>
-								<!--<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.jovani" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Jovani</a></li>-->
-								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.la_femme" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">La Femme</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.mac_duggal" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.mignon" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Mignon</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.mnm_couture" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">MNM Couture</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.scala" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Scala</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.shail_k" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Shail K</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.sherri_hill" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Sherri Hill</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.tony_bowls" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Tony Bowls</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.bg_haute" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">BG Haute</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.jasz_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jasz Couture</a></li>
+								<!--<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.jovani" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jovani</a></li>-->
+								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.la_femme" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">La Femme</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.mac_duggal" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.mignon" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mignon</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.mnm_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">MNM Couture</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.scala" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Scala</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.shail_k" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Shail K</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.sherri_hill" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Sherri Hill</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.evening.designers.tony_bowls" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Tony Bowls</a></li>
 							</ul>
 							<ul>
-								<li class="headerDropdownTitle"><a href="#!category?navcat=.evening.celebrity_inspired" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">CELEBRITY INSPIRED</a></li>
+								<li class="headerDropdownTitle"><a href="#!category?navcat=.evening.celebrity_inspired" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">CELEBRITY INSPIRED</a></li>
 								<!--
-								<li class="headerDropdownLink"><a href="#!category?navcat=.shop_accessories" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Test Cat - prom</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.shop_by_designer" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Test Cat</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.shop_by_designer.ballgowns_by_mac_duggal" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Test sub cat</a></li>
-								<li class="headerDropdownLink"><a href='#!product?pid=SHERRI14-11045' class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Test product</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.shop_accessories" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Test Cat - prom</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.shop_by_designer" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Test Cat</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.shop_by_designer.ballgowns_by_mac_duggal" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Test sub cat</a></li>
+								<li class="headerDropdownLink"><a href='#!product?pid=SHERRI14-11045' class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Test product</a></li>
 								-->
 							</ul>
 						</div>
 					</div>
-					<div class="navBarCocktail dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="myApp.ext._store_formals.a.hideDropdown($(this))">
+					<div class="navBarCocktail dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
 						<div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.cocktail'});"><a>COCKTAIL</a></div>
 						<div class="dropdown headerDropdown leftAlign">
 							<ul>
 								<li class="headerDropdownTitle">DESIGNERS</li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.faviana" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Faviana</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.gigi" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Gigi</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.johnathan_kayne" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Johnathan Kayne</a></li>
-								<!--<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.jovani" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Jovani</a></li>-->
-								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.la_femme" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">La Femme</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.lm_collection" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">LM Collection</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.mac_duggal" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.mignon" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Mignon</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.scala" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Scala</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.shail_k" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Shail K</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.sherri_hill" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Sherri Hill</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.faviana" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Faviana</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.gigi" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Gigi</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.johnathan_kayne" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Johnathan Kayne</a></li>
+								<!--<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.jovani" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jovani</a></li>-->
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.la_femme" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">La Femme</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.lm_collection" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">LM Collection</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.mac_duggal" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.mignon" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mignon</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.scala" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Scala</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.shail_k" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Shail K</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.designers.sherri_hill" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Sherri Hill</a></li>
 							</ul>
 							<ul>
 								<li class="headerDropdownTitle">STYLES</li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.styles.sequins___beads" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Sequins & Beads</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.styles.lace" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Lace</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.styles.babydoll" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Babydoll</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.styles.sequins___beads" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Sequins & Beads</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.styles.lace" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Lace</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.cocktail.styles.babydoll" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Babydoll</a></li>
 							</ul>
 						</div>
 					</div>
-					<div class="navBarPlusSize dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="myApp.ext._store_formals.a.hideDropdown($(this))">
+					<div class="navBarPlusSize dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
 						<div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.plus_size'});"><a>PLUS SIZE</a></div>
 						<div class="dropdown headerDropdown leftAlign">
 							<ul>
 								<li class="headerDropdownTitle">DESIGNERS</li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.designers.fabulouss" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Fabulouss</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.designers.faviana" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Faviana</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.designers.night_moves" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Night Moves</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.designers.fabulouss" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Fabulouss</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.designers.faviana" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Faviana</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.designers.night_moves" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Night Moves</a></li>
 							</ul>
 							<ul>
 								<li class="headerDropdownTitle">STYLES</li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.styles.a_line___ballgown" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">A Line & Ballgown</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.styles.empire" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Empire</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.styles.mermaid" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Mermaid</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.styles.short" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Short</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.styles.a_line___ballgown" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">A Line & Ballgown</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.styles.empire" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Empire</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.styles.mermaid" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mermaid</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.plus_size.styles.short" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Short</a></li>
 							</ul>
 						</div>
 					</div>
-					<div class="navBarPageant dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="myApp.ext._store_formals.a.hideDropdown($(this))">
+					<div class="navBarPageant dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
 						<div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.pageant'});"><a>PAGEANT</a></div>
 						<div class="dropdown headerDropdown leftAlign">
 							<ul>
 								<li class="headerDropdownTitle">DESIGNERS</li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.jasz_couture" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Jasz Couture</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.johnathan_kayne" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Johnathan Kayne</a></li>
-								<!--<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.jovani" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Jovani</a></li>-->
-								<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.la_femme" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">La Femme</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.mac_duggal" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.mnm_couture" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">MNM Couture</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.sherri_hill" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Sherri Hill</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.tony_bowls" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Tony Bowls</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.jasz_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jasz Couture</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.johnathan_kayne" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Johnathan Kayne</a></li>
+								<!--<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.jovani" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Jovani</a></li>-->
+								<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.la_femme" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">La Femme</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.mac_duggal" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.mnm_couture" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">MNM Couture</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.sherri_hill" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Sherri Hill</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.pageant.designers.tony_bowls" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Tony Bowls</a></li>
 							</ul>
 							<ul>
 								<!--
-								<li class="headerDropdownTitle"><a href="#!category?navcat=.pageant.children_s_pageant" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">CHILDREN’S PAGEANT</a></li>
+								<li class="headerDropdownTitle"><a href="#!category?navcat=.pageant.children_s_pageant" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">CHILDREN’S PAGEANT</a></li>
 								-->
 							</ul>
 						</div>
 					</div>
-					<div class="navBarBridal dropdownLinkContainer"> <!--onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="myApp.ext._store_formals.a.hideDropdown($(this))"-->
+					<div class="navBarBridal dropdownLinkContainer"> <!--onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))"-->
 						<div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.bridal'});"><a>BRIDAL</a></div>
 						<div class="dropdown headerDropdown leftAlign">
 							<ul>
-								<li class="headerDropdownLink"><a href="#!category?navcat=." class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">link</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=." class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">link</a></li>
 							</ul>
 							<ul>
-								<li class="headerDropdownLink"><a href="#!category?navcat=." class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">link</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=." class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">link</a></li>
 							</ul>
 						</div>
 					</div>
-					<div class="navBarAccessories dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="myApp.ext._store_formals.a.hideDropdown($(this))">
+					<div class="navBarAccessories dropdownLinkContainer" onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))">
 						<div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.accessories'});"><a>ACCESSORIES</a></div>
 						<div class="dropdown headerDropdown leftAlign">
 							<ul>
 								<li class="headerDropdownTitle">SHOES</li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.accessories.shoes.touch_ups" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Touch Ups</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.accessories.shoes.coloriffics" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Coloriffics</a></li>
-								<li class="headerDropdownTitle stackedDropdownLI"><a href="#!category?navcat=.accessories.jewelry" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">JEWELRY</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.accessories.shoes.touch_ups" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Touch Ups</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.accessories.shoes.coloriffics" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Coloriffics</a></li>
+								<li class="headerDropdownTitle stackedDropdownLI"><a href="#!category?navcat=.accessories.jewelry" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">JEWELRY</a></li>
 							</ul>
 							<ul>
 								<li class="headerDropdownTitle">UNDER THE DRESS</li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.accessories.under_the_dress.bra_cups" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Bra Cups</a></li>
-								<li class="headerDropdownLink"><a href="#!category?navcat=.accessories.under_the_dress.shapewear" class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Shapewear</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.accessories.under_the_dress.bra_cups" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Bra Cups</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=.accessories.under_the_dress.shapewear" class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">Shapewear</a></li>
 							</ul>
 						</div>
 					</div>
-					<div class="navBarStock dropdownLinkContainer"> <!--onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="myApp.ext._store_formals.a.hideDropdown($(this))"-->
+					<div class="navBarStock dropdownLinkContainer"> <!--onMouseOver="app.ext._store_formals.a.showDropdown($(this))" onMouseOut="app.ext._store_formals.a.hideDropdown($(this))"-->
 						<div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.in_stock'});"><a>IN STOCK</a></div>
 						<div class="dropdown headerDropdown leftAlign">
 							<ul>
-								<li class="headerDropdownLink"><a href="#!category?navcat=." class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">link</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=." class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">link</a></li>
 							</ul>
 							<ul>
-								<li class="headerDropdownLink"><a href="#!category?navcat=." class="pointer bindByAnchor" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">link</a></li>
+								<li class="headerDropdownLink"><a href="#!category?navcat=." class="pointer bindByAnchor" onClick="app.ext._store_formals.a.hideAllDropdowns()">link</a></li>
 							</ul>
 						</div>
 					</div>
@@ -750,11 +750,11 @@ END HOMEPAGE FOUR TALL AD BANNER BARS SECTION
         	<div class="centeringContainer">
             	<div class="hpProductListCarouselArea">
                 	<div class="hpProductListCarouselContainer">
-                    	<ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_featured_products.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplateResultsNoPreview'  --legacy;"></ul>
-                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_best_sellers.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplateResultsNoPreview' --legacy;"></ul>
-                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_-_new_arrivals.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplateResultsNoPreview' --legacy;"></ul>
-                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_celebrity_trends.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplateResultsNoPreview' --legacy;"></ul>
-                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_new_to_sale.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplateResultsNoPreview' --legacy;"></ul>
+                    	<ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_featured_products.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate';"></ul>
+                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_best_sellers.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate';"></ul>
+                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_-_new_arrivals.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate';"></ul>
+                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_celebrity_trends.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate';"></ul>
+                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_new_to_sale.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate';"></ul>
                     </div>
         			<!--<div class="hpProductListPag"></div>-->
                 </div>
@@ -873,8 +873,8 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 	<div class="centeringContainer">
     	<div class="searchTab" title="Need help finding exactly the dress you want? Click the magnifying glass to narrow your results with our filtered search!">
-        	<img onClick="myApp.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent());" src="Images/categorypage/filteredsearch/search_tab.png" />
-        	<p onClick="myApp.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent());">Narrow Your Search</p>
+        	<img onClick="app.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent());" src="Images/categorypage/filteredsearch/search_tab.png" />
+        	<p onClick="app.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent());">Narrow Your Search</p>
         </div>
     	<div class="catProdListSidebar">
         	<!--
@@ -3304,7 +3304,7 @@ this will likely become more flexible in the future. ###
 
 
 <!-- 404 page -->
-<div id="pageNotFoundTemplate">
+<div id='pageNotFoundTemplate'>
 
 	<h1>Unable to find page...</h1>
 
@@ -3351,16 +3351,16 @@ if you change these, you should move them above this comment so that when you (o
 <div id="companyTemplate" class="clearfix">
 
 	<div class="sideline">
-<nav id="companyNav">
-<ul class="listStyleNone noPadOrMargin">
-<!-- these are generated via javascript, based on the quickstart.pages object. -->
-</ul>
-</nav>
+		<nav id="companyNav">
+			<ul class="listStyleNone noPadOrMargin">
+			<!-- these are generated via javascript, based on the quickstart.pages object. -->
+			</ul>
+		</nav>
 	</div>
 
-	<div class="mainColumn">
-<!-- .textContentArea is used as a selector in quickstart.js because article tag type isn't ie8 friendly -->
-		<div id="aboutArticle" class="textContentArea article">
+	<div class='mainColumn'>
+	<!-- .textContentArea is used as a selector in quickstart.js because article tag type isn't ie8 friendly -->
+		<div id='aboutArticle' class='textContentArea article'>
 			<h1>About Us</h1>
 			<!--
 			<div data-tlc="bind $var '.zoovy:about'; render --wiki='quickstart'; if (is $var --notblank;) {{apply --append;}};" id="aboutUsContent"></div>
@@ -3376,7 +3376,7 @@ if you change these, you should move them above this comment so that when you (o
 		</div>
 
 
-		<div id="contactArticle" class="displayNone textContentArea">
+		<div id='contactArticle' class='displayNone textContentArea'>
 			<h1>Contact Information</h1>
 			<div class="contactContentContainer companyAddress">
 				<p><b>Phone</b>:  888.280.4179</p>
@@ -3796,21 +3796,26 @@ subscribeListsArticle is used for authenticated buyers
 
 		<div id="changepasswordArticle" class="displayNone textContentArea">
 			<h1>Change Password</h1>
-			<form action="#" name="changePasswordForm" data-app-submit="quickstart|passwordChangeSubmit" class='alignedForm'>
-			<fieldset class="borderNone">
-			<p>For passwords, we recommend using mixed case, at least one number and one special character.</p>
-			<div class="messaging"></div>
-			<label><span class="prompt">Password</span><input name="password" size="35" required type="password" data-minlength='8'></label>
-			<label><span class="prompt">Confirm Password</span><input name="password2" required size="35" type="password" data-minlength='8'></label>
-			<div class='alignCenter'><input value="Change Password" class="loadingButton applyButton" type="submit"></div>
-			</fieldset>
-			</form>
+			<div id="changepasswordContainer">
+
+				<form action="#" name="changePasswordForm" data-app-submit="quickstart|passwordChangeSubmit">
+				<fieldset class="borderNone">
+				<div class="messaging"></div>
+				<div class="marginBottom"><label><span class="prompt">Password</span><input name="password" size="35" required type="password"></label></div>
+				<div class="marginBottom"><label><span class="prompt">Confirm Password</span><input name="password2" required size="35" type="password"></label></div>
+				<div class="marginBottom"><input value="Change Password" class="loadingButton applyButton" type="submit"></div>
+				
+				</fieldset>
+				</form>
+
+			</div>
 		</div>
 
 		<div id="listsArticle" class="displayNone textContentArea">
 			<h1>List Manager</h1>
+			<div id="listsContainer" class="prodlist "></div>
 
-			<div class='applyAccordion' data-tlc="apply --empty; bind $var '.@lists'; controller#loop --templateid='buyerListTemplate'; apply --append; bind $content '.@lists'; controller#loop --templateid='buyerListProdlistContainerTemplate'; apply --append;"></div>
+			<div id="listEditorContainer" class="displayNone "></div><!-- editor for a given list gets added here -->
 
 		</div>
 
@@ -3826,16 +3831,7 @@ subscribeListsArticle is used for authenticated buyers
 </div>
 
 
-<h2 id='buyerListTemplate' data-tlc="bind $id '.id'; apply --append; bind $items '.items'; if (is $items --notblank;) {{format --prepend=' (' --append=')'; apply --append;}};"></h2>
 
-
-
-<div id='buyerListProdlistContainerTemplate' class='buyerList' data-tlc="bind $id '.id'; apply --attrib='data-buyerlistid';">
-	<!--
-	the UL is generated automatically because the tlc bind is specific to the list id. trying to use tlc to generate tlc would probably get me committed.
-	the div is NOT added dynamically so the accordion can be generated.
-	-->
-</div>
 
 
 <div id='searchTemplate' class='searchResultsPage clearfix'>
