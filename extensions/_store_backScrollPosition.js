@@ -16,7 +16,7 @@
 
 ************************************************************** */
 
-var store_backScrollPosition = function(_app) {
+var store_backScrollPosition = function() {
 	var r= {
 		vars : {
 			scrollPosHist : "",
@@ -37,12 +37,10 @@ var store_backScrollPosition = function(_app) {
 			},
 			startExtension : {
 				onSuccess : function (p){
-				
-					app.u.dump('BEGIN app.ext.store_backScrollPosition.callbacks.startExtension.onSuccess');
-					_app.templates.categoryTemplate.on('complete.downlite',function(P){
-					//app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
+
+					app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 						var $context = $(app.u.jqSelector('#',P.parentID));
-						//app.u.dump($context);
+						app.u.dump($context);
 						if($context.hasClass("initialLoadComplete")){
 							//app.u.dump("initialLoadComplete exists. Do nothing")
 						}
@@ -50,13 +48,13 @@ var store_backScrollPosition = function(_app) {
 							//app.u.dump("initialLoadComplete does not exists. Adding it")
 							$context.addClass("initialLoadComplete");
 						}
-					});
+					}]);
 
 					app.u.dump('BEGIN app.ext.store_backScrollPosition.callbacks.startExtension.onSuccess')
 					function addScrollPosSet(){
-						for( var t in app.ext.quickstart.template ){
-						  if(app.ext.quickstart.template[t].onDeparts){
-							app.ext.quickstart.template[t].onDeparts.push(function(){
+						for( var t in app.ext.myRIA.template ){
+						  if(app.ext.myRIA.template[t].onDeparts){
+							app.ext.myRIA.template[t].onDeparts.push(function(){
 								if(app.ext.store_backScrollPosition.vars.scrollPosBackHit === 1){
 									//app.u.dump("Begin returning scroll position to previous location");
 									//app.u.dump("back button was hit.");
@@ -96,9 +94,9 @@ var store_backScrollPosition = function(_app) {
 					setTimeout(addScrollPosSet, 5000);
 					
 					function addScrollPosStoring(){
-						for( var t in app.ext.quickstart.template ){
-						  if(app.ext.quickstart.template[t].onCompletes){
-							app.ext.quickstart.template[t].onCompletes.push(function(){
+						for( var t in app.ext.myRIA.template ){
+						  if(app.ext.myRIA.template[t].onCompletes){
+							app.ext.myRIA.template[t].onCompletes.push(function(){
 								//app.u.dump("Begin adding scroll position to array");
 								//app.u.dump("app.ext.store_backScrollPosition.vars.scrollPosBackHit = " + app.ext.store_backScrollPosition.vars.scrollPosBackHit);
 								if(app.ext.store_backScrollPosition.vars.scrollPosHist === ""){
