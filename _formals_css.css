@@ -1779,7 +1779,7 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 	color: #726B5B;
     left: 42px;
     position: absolute;
-    top: -35px;
+    top: -9px;
 	width: 350px;
 }
 
@@ -1913,7 +1913,7 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 	float: left;
 	width:240px;
 }
-.prodViewerAddToCartForm input.addToCartButton {
+.prodViewerAddToCartForm input.ui-button{
 	background: none repeat scroll 0 0 #E61652;
     border: medium none;
     border-radius: 0 0 0 0;
@@ -1923,7 +1923,6 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
     letter-spacing: 6px;
     padding-left: 15px;
     padding-top: 5px;
-	padding-bottom: 5px;
     width: 175px;
 	font-weight: 600;
 }
@@ -1956,7 +1955,6 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
     float: left;
     margin-left: 10px;
     margin-right: 10px;
-	margin-top: 0;
 }
 .productSharingLinkContainer a{
 	color: #726B5B;

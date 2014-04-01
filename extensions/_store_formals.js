@@ -209,9 +209,9 @@ var _store_formals = function(_app) {
 							 $('.thumbnail',$context).on('mouseenter', function(){
 								  dump("Thumbnail swap action activated.");
 								  $('.largeImageContainer').trigger('zoom.destroy');
-								  //dump("$(this).parent().attr('data-imgsrc') = ");
-								  //dump($(this).parent().attr('data-imgsrc'));
-								  var newImage = $(this).attr('data-imgsrc');
+								  dump("$(this).parent().attr('data-imgsrc') = ");
+								  dump($(this).parent().attr('data-imgsrc'));
+								  var newImage = $(this).parent().attr('data-imgsrc');
 								  
 								  //IMAGE VIEWER CLICK BLOCKER
 								  var thumbObject = $(this);
@@ -232,7 +232,7 @@ var _store_formals = function(_app) {
 								  }
 								  //END IMAGE CLICK BLOCKER
 							
-								  $('.prodImageContainer > img',$context).attr('src', _app.u.makeImage({
+								  $('.prodMainImage',$context).attr('src', _app.u.makeImage({
 									   "name" : newImage,
 									   "w" : 450,
 									   "h" : 560,
