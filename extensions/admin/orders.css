@@ -1,3 +1,4 @@
+
 /*
 
 ########################################################
@@ -100,7 +101,7 @@ order detail
 
 .orderDetails .rightCol	textarea	{width:95%; height:80px;}
 
-
+.orderDetails .rightCol label span	{width:100px;}
 
 
 .orderDetailHeader	{padding-bottom:12px; border-bottom:1px solid #efefef;}
@@ -122,8 +123,8 @@ order detail
 
 /* compensate for some default styling to make supplemental contain wrap up right against the corresponding payment type */
 #adminOrdersPaymentMethodsContainer .labelsAsBreaks label	{margin-bottom:0;}
-.paybySupplemental	{margin-top:0; padding:.6em}
-.paybySupplemental div	{margin-bottom:.3em}
+ul.paybySupplemental	{margin-top:0;}
+
 /* payment panel */
 
 .actionInputs label, .actionInputs div, .actionInputs button	{display:inline-block; margin-left:12px;}
@@ -191,18 +192,3 @@ order detail
 	}
 #orderListTab .ordersContainer	{overflow:auto; width:400px; height:300px;}
 #orderListTab table	{font-size:.75em; width:100%;}
-
-
-
-/*
-
-########################################################
-
-
-ORDER CREATE
-
-########################################################
-
-*/
-
-.addressForm div	{margin-bottom:.3em;}
