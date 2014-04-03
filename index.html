@@ -1008,9 +1008,10 @@ remember to NOT put the button inside the 'onclick' container or two events will
             		<div class="productItemInfoContent">
                 		<h5 data-tlc="bind $var '.%attribs.zoovy:prod_name'; if (is $var --notblank;) {{format --truncate='32'; apply --append;}};"></h5>
         
-                		<h6 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='Our Price: '; apply --append;}};"></h6>
+                		<!--<h6 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='Our Price: '; apply --append;}};"></h6>-->
+						<h6 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{_store_formals#currencyprodlist --legacy; apply --append;}};"></h6>
                 
-				<h5 class='prodListItemProdMSRP prodMSRP' data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='MSRP: '; apply --append;}};"></h5>
+						<h5 class='prodListItemProdMSRP prodMSRP' data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='MSRP: '; apply --append;}};"></h5>
                 		<span class="prodListItemSavings savings">
 					<span data-useparentdata='1' data-tlc="quickstart#priceretailsavingsdifference  --legacy; apply --append;" class="savingsDifference"></span>
 					<span data-useparentdata='1' data-tlc="quickstart#priceretailsavingspercentage  --legacy; apply --append;" class="savingsPercentage"></span>
@@ -1113,7 +1114,7 @@ SANITY -> if you change the height and width of this image, change the .minimalM
             <div class="productItemInfoContent">
 		<h5 data-tlc="bind $var '.prod_name';  if (is $var --notblank;) {{format --truncate='32'; apply --append;}};" class="hideInMinimalMode"></h5>
         
-                <h6 data-tlc="bind $var '.base_price';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='Our Price: ';  apply --append;}};" class="hideInMinimalMode"></h6>
+		<h6 data-tlc="bind $var '.base_price';  if (is $var --notblank;) {{_store_formals#currencyelastic --legacy; apply --append;}};" class="hideInMinimalMode"></h6>
                 
 		<h5 data-tlc="bind $var '.prod_msrp';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='MSRP:  ';  apply --append;}};" class="hideInMinimalMode prodListItemProdMSRP prodMSRP"></h5>
 		

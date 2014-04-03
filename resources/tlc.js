@@ -581,7 +581,19 @@ This one block should get called for both img and imageurl but obviously, imageu
 //passing the command into this will verify that the format exists (whether it be core or not)
 
 	this.format_currency = function(argObj,globals)	{
+		dump("Begin currency format");
+		dump(argObj);
+		dump(globals);
 		var r = "$"+globals.binds[argObj.bind]; //+" ("+arg.value.value+")";
+		//dump(r);
+		var cents = r.split(".")
+		dump(cents[1]);
+		if(cents[1] == undefined){
+			r = r + ".00";
+		}
+		else if(cents[1].length == 2){
+		dump
+		}
 		return r;
 		} //currency
 

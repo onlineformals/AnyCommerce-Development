@@ -1163,8 +1163,75 @@ var _store_formals = function(_app) {
 			var height = data.bindData.height ? data.bindData.height : 275
 			var r = "<iframe width='"+width+"' height='"+height+"' src='"+(document.location.protocol === 'https:' ? 'https:' : 'http:')+"//player.vimeo.com/video/"+data.value+"' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
 			$tag.append(r);
-			} //END vimeoVideo
+			}, //END vimeoVideo
 			
+			
+			currencyelastic : function($tag,data)	{
+			dump("Begin currency elastic format");
+			dump(data);
+			dump($tag);
+			
+			var rawPrice = data.value;
+			var cents = ".";
+			var position = data.value.length - 2;
+			dump(position);
+			var r = "Our Price: $"+[rawPrice.slice(0, position), cents, rawPrice.slice(position)].join('');
+			
+			//var r = "Our price: $"+data.value;
+			dump(r);
+			
+			dump(r);
+			$tag.append(r);
+			}, //currencyelastic
+			
+			
+			
+			currencyprodlist : function($tag,data)	{
+			//dump("Begin currency product list format");
+			//dump(data);
+			//dump($tag);
+			
+			var r = "Our price: $"+data.value;
+			//dump(r);
+			var cents = r.split(".")
+			//dump(cents[1]);
+			if(cents[1] == undefined){
+				//dump ("No cents present. Add a .00")
+				r = r + ".00";
+			}
+			else if(cents[1].length === 1){
+			//dump(cents[1].length);
+			//dump ("cents only has one value. Adding a zero.")
+			}
+			//dump(r);
+			$tag.append(r);
+			}, //currencyprodlist
+			
+		},
+		tlcFormats : {
+			//currencyprodlist : function(argObj,globals)	{
+			currencyprodlist : function(data,thisTLC)	{
+			
+			dump("Begin currency format");
+			dump(data);
+			dump(thisTLC);
+			
+			//var r = "$"+globals.binds[argObj.bind]; 
+			var r = "Our price: $"+data.globals.binds[data.globals.focusBind];
+			dump(r);
+			var cents = r.split(".")
+			dump(cents[1]);
+			if(cents[1] == undefined){
+				dump ("No cents present. Add a .00")
+				r = r + ".00";
+			}
+			else if(cents[1].length === 1){
+			dump(cents[1].length);
+			dump ("cents only has one value. Adding a zero.")
+			}
+			dump(r);
+			return(r);
+			}, //currencyprodlist
 		}
 	}
 	return r;
