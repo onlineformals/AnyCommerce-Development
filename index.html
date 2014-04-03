@@ -1426,7 +1426,7 @@ this will likely become more flexible in the future. ###
                             <li class='prodSizeChartTab'><a href='#prodSizeChart'>SIZE CHART</a></li>
                             <li class='prodReviewsTab'><a href='#prodReviews'>REVIEWS</a></li>
                             <li data-tlc="bind $var '.%attribs.zoovy:accessory_products'; if(is $var --notblank) {{ apply --show; }};" class="prodAccessoriesTab displayNone"><a href="#prodAccessories">Accessories</a></li>
-                            <li data-tlc="bind $var '.%attribs.youtube:videoid'; if(is $var --notblank) {{ apply --show; }};" class="prodVideoTab displayNone"><a href="#prodVideo">Video</a></li>
+                            <li class="prodVideoTab"><a href="#prodVideo">Video</a></li>
                         </ul>
                     
                         <!--
@@ -1466,8 +1466,8 @@ this will likely become more flexible in the future. ###
                         </div>
                         
                         <div class='tabContent' data-anytab-content='prodVideo'>
-                        	<div data-tlc="bind $var '.%attribs.user:youtube_videoid'; if(is $var --notblank) {{ apply --show; }};">
-                            	<div data-tlc="bind $var '.%attribs.user:vimeo_videoid'; if(is $var --notblank) {{ apply --show; }};">
+                        	<div data-tlc="bind $var '.%attribs.user:youtube_videoid'; if(is $var --notblank) {{ apply --hide; }};">
+                            	<div data-tlc="bind $var '.%attribs.user:vimeo_videoid'; if(is $var --notblank) {{ apply --hide; }};">
                                 	<p>No videos have been uploaded for this product yet.</p>
                                 </div>
                             </div>
