@@ -20,7 +20,7 @@
 
 //    !!! ->   TODO: replace 'username' in the line below with the merchants username.     <- !!!
 
-var _store_banner = function(_app) {
+var _store_banner = function() {
         var theseTemplates = new Array('');
         var r = {
 
@@ -35,8 +35,8 @@ var _store_banner = function(_app) {
                         onSuccess : function()        {
                                 var r = false; //return false if extension won't load for some reason (account config, dependencies, etc).
                                 $.getJSON("_banners.json?_v="+(new Date()).getTime(), function(json) {
-                                        _app.ext._store_banner.vars.categoryBanners = json.categoryBanners
-                                }).fail(function(){_app.u.throwMessage("BANNERS FAILED TO LOAD - there is a bug in _banners.json"); _app.u.dump("BANNERS FAILED TO LOAD - there is a bug in _banners.json");});
+                                        app.ext._store_banner.vars.categoryBanners = json.categoryBanners
+                                }).fail(function(){app.u.throwMessage("BANNERS FAILED TO LOAD - there is a bug in _banners.json"); app.u.dump("BANNERS FAILED TO LOAD - there is a bug in _banners.json");});
                                 //if there is any functionality required for this extension to load, put it here. such as a check for async google, the FB object, etc. return false if dependencies are not present. don't check for other extensions.
                                 r = true;
 								
@@ -45,7 +45,7 @@ var _store_banner = function(_app) {
                         onError : function()        {
 //errors will get reported for this callback as part of the extensions loading.  This is here for extra error handling purposes.
 //you may or may not need it.
-                                _app.u.dump('BEGIN admin_orders.callbacks.init.onError');
+                                app.u.dump('BEGIN admin_orders.callbacks.init.onError');
                         }
                 }
         }, //callbacks
@@ -77,27 +77,23 @@ var _store_banner = function(_app) {
                         showCategoryBanners : function(context) {
                                 var $container = $('.carouselCPBannerList', context);
                                 if(!$container.hasClass('bannersRendered')) {
-                                        if(_app.ext._store_banner.vars.categoryBanners) {
+                                        if(app.ext._store_banner.vars.categoryBanners) {
                                                 $container.addClass('bannersRendered');
 												var urlString = location.href;
- 												//_app.u.dump("urlString = " + urlString);
+ 												//app.u.dump("urlString = " + urlString);
 												//**REPLACE category/ with navcat=. if testing locally and vice versa**
 												if(urlString.indexOf("file:") >= 0){
-													urlString2 = urlString.split("#!category/.");
+													urlString2 = urlString.split("navcat=.");
 												}
 												else{
 													urlString2 = urlString.split("category/");
 												}
-												//_app.u.dump("urlString2 = " + urlString2);
+												//app.u.dump("urlString2 = " + urlString2);
 												var urlString3 = urlString2[1].replace(/\./g, '');
-												//dump(urlString3);
 												var urlString4 = urlString3.replace(/\_/g, '');
-												//dump(urlString4);
-												var urlString5 = urlString4.split("/");
-												//dump(urlString5);
-												var navCatID = urlString5[0];
-												//_app.u.dump("navCatID = " + navCatID);
-												_app.ext._store_banner.u.makeBanner(_app.ext._store_banner.vars.categoryBanners[navCatID],960,"ffffff",$container);
+												var navCatID = urlString4.replace(/\//g, '');
+												//app.u.dump("navCatID = " + navCatID);
+                                                $($container).removeClass('loadingBG').append(app.ext._store_banner.u.makeBanner(app.ext._store_banner.vars.categoryBanners[navCatID],960,"ffffff"));
 										}
                                         else {
                                                 setTimeout(this.showCategoryBanners,250);
@@ -105,16 +101,14 @@ var _store_banner = function(_app) {
                                 }
                         },
                                                 
-						makeBanner : function(bannerJSON, w, b, $container) {
+						makeBanner : function(bannerJSON, w, b) {
 							
 								var $imgCont;
-								//dump(_app.ext._store_banner.vars.categoryBanners);
-								dump($imgCont);
 								
                                 if(bannerJSON != undefined){
 									for(var i=0;i<bannerJSON.bannersPerCat;i++){
-										_app.u.dump("banner create itteration = " + i);
-										var $img = $(_app.u.makeImage({
+										//app.u.dump("banner create itteration = " + i);
+										var $img = $(app.u.makeImage({
 												tag : true,
 												w           : w,
 												h           : bannerJSON.height[i],
@@ -125,22 +119,25 @@ var _store_banner = function(_app) {
 										}));
 										if(bannerJSON.prodLink) {
 												$img.addClass('pointer').data('pid', bannerJSON.prodLink[i]).click(function() {
-														var pid = $(this).data('pid');
-														window.location.hash = "#!product/"+pid;
+														showContent('product',{'pid':$(this).data('pid')});
 												});
 										}
 										else if(bannerJSON.catLink) {
 												$img.addClass('pointer').data('navcat', bannerJSON.catLink[i]).click(function() {
-														var navcat = $(this).data('navcat');
-														window.location.hash = "#!category/"+navcat;
+														showContent('category',{'navcat':$(this).data('navcat')});
 												});
 										}
 										else {
 												//just a banner!
 										}
+										app.u.dump($img);
 										
-										dump($img);
-										$container.append($img);
+										if(i === 0){
+											$imgCont = $img;
+										}
+										else{
+											$imgCont.after($img);
+										}
 									}
 								}
 								
