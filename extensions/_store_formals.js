@@ -1210,12 +1210,44 @@ var _store_formals = function(_app) {
 				r = r + ".00";
 			}
 			else if(cents[1].length === 1){
-			//dump(cents[1].length);
-			//dump ("cents only has one value. Adding a zero.")
+				//dump(cents[1].length);
+				//dump ("cents only has one value. Adding a zero.")
+				r = r + "0";
+			}
+			else if(cents[1] == ""){
+				//dump("Price value has a decimal but no cent values. Fixing this shenanigans");
+				r = r + "00";
 			}
 			//dump(r);
 			$tag.append(r);
 			}, //currencyprodlist
+			
+			
+			currencymsrp : function($tag,data)	{
+			//dump("Begin currency product list format");
+			//dump(data);
+			//dump($tag);
+			
+			var r = "MSRP: $"+data.value;
+			//dump(r);
+			var cents = r.split(".")
+			//dump(cents[1]);
+			if(cents[1] == undefined){
+				//dump ("No cents present. Add a .00")
+				r = r + ".00";
+			}
+			else if(cents[1].length === 1){
+				//dump(cents[1].length);
+				//dump ("cents only has one value. Adding a zero.")
+				r = r + "0";
+			}
+			else if(cents[1] == ""){
+				//dump("Price value has a decimal but no cent values. Fixing this shenanigans");
+				r = r + "00";
+			}
+			//dump(r);
+			$tag.append(r);
+			}, //currencymsrp
 			
 		},
 		tlcFormats : {
