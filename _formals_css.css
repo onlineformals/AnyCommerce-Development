@@ -252,6 +252,9 @@ progress::-moz-progress-bar { background: #E61652; }
 }
 .navTopCat{
 }
+.navTopCat a{
+	text-decoration:none;
+}
 .dropdown{
 	height:0;
 	overflow:hidden;
@@ -438,28 +441,28 @@ progress::-moz-progress-bar { background: #E61652; }
     margin-left: 120px;
     margin-top: 30px;
 }
-.footNewsSignupCont form#subscribeFrm{
+.footNewsSignupCont div#subscribeFrm{
 }
-.footNewsSignupCont form#subscribeFrm fieldset.userInfo{
+.footNewsSignupCont div#subscribeFrm div.userInfo{
 	border: medium none;
 }
-.footNewsSignupCont form#subscribeFrm fieldset.userInfo input{
+.footNewsSignupCont div#subscribeFrm div.userInfo input{
 	float:left;
 }
-.footNewsSignupCont form#subscribeFrm fieldset.userInfo input.subName{
+.footNewsSignupCont div#subscribeFrm div.userInfo input.subName{
 	border: medium none;
     height: 25px;
     margin-right: 10px;
     padding: 0;
     width: 190px;
 }
-.footNewsSignupCont form#subscribeFrm fieldset.userInfo input.subEmail{
+.footNewsSignupCont div#subscribeFrm div.userInfo input.subEmail{
 	border: medium none;
     height: 25px;
     padding: 0;
     width: 180px;
 }
-.footNewsSignupCont form#subscribeFrm fieldset.userInfo input.subButton{
+.footNewsSignupCont div#subscribeFrm div.userInfo input.subButton{
 	background-color: #333333;
     border: medium none;
     color: white;
@@ -468,7 +471,7 @@ progress::-moz-progress-bar { background: #E61652; }
     width: 80px;
 }
 
-.footNewsSignupCont form#subscribeFrm fieldset.userInfo fieldset.subscriberLists{
+.footNewsSignupCont div#subscribeFrm div.userInfo fieldset.subscriberLists{
 	padding:0;
 }
 
@@ -833,7 +836,7 @@ progress::-moz-progress-bar { background: #E61652; }
 li.productItem:hover{
 	border:10px solid #e61652;
 }
-li.productItem:hover div div.productItemInfo{
+li.productItem:hover a div.productItemInfo{
 	background-color:#E61652;
 	background: rgba(200, 54, 54, 0.5);
 	background-color:rgba(230,22,82,.5);
@@ -1533,7 +1536,7 @@ catProdListProductListCont div.loadingBG{
 	background-color:rgba(900,900,900,.8);
 }
 .productItemInfoContent{
-	margin-top: 15px;
+	margin-top: 10px;
     text-align: center;
 }
 .productItemInfoMoreInfo{
@@ -1604,6 +1607,7 @@ div.productItemInfoContent span.prodListItemSavings span.savingsPercentage{
 	background-color:#E61652;
 	background-color: rgba(230, 22, 82, 0.5);
 }
+
 .searchResultsProduct:hover div.productItemInfoContent{
 	display:none;
 }
@@ -1710,6 +1714,24 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 	padding-right: 24px;
 }
 
+div.quickviewProductSizingChartModalLinkContainer a{
+	color: #E91454;
+}
+div.quickviewProductSizingChartModalLinkContainer{
+	margin-top: -8px;
+    width: 100%;
+	text-decoration: none;
+}
+
+.productSharingLinkContainerQuickview a{
+	font-size: 16px;
+}
+
+.productMfgCont{
+	float:left;
+	clear:left;
+}
+
 
 
 /***********************************************************************************************************************************/
@@ -1727,7 +1749,7 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 /*****IMAGE CONTAINER****/
 .imageContainer{
 	float:left;
-	width:50%;
+	width:49%;
 	position:relative;
 }
 .imageContainer div img.prodBigImage{
@@ -1775,7 +1797,7 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 	color: #726B5B;
     left: 42px;
     position: absolute;
-    top: -9px;
+    top: -35px;
 	width: 350px;
 }
 
@@ -1909,7 +1931,7 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 	float: left;
 	width:240px;
 }
-.prodViewerAddToCartForm input.ui-button{
+.prodViewerAddToCartForm input.addToCartButton {
 	background: none repeat scroll 0 0 #E61652;
     border: medium none;
     border-radius: 0 0 0 0;
@@ -1919,6 +1941,7 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
     letter-spacing: 6px;
     padding-left: 15px;
     padding-top: 5px;
+	padding-bottom: 5px;
     width: 175px;
 	font-weight: 600;
 }
@@ -1951,6 +1974,7 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
     float: left;
     margin-left: 10px;
     margin-right: 10px;
+	margin-top: 0;
 }
 .productSharingLinkContainer a{
 	color: #726B5B;
@@ -2329,6 +2353,9 @@ span#inStoreCheckoutButton button.checkoutButton{
 	display:none;
 }
 
+.cartSummaryTotalsContainer{
+	width: 28%;
+}
 
 
 
@@ -2338,8 +2365,11 @@ span#inStoreCheckoutButton button.checkoutButton{
 /*****productListTemplateCart TEMPLATE****/
 .productListTemplateCartInfoCont{
 	float: left;
+	width: 63%;
 }
-
+.productListTemplateCart div.prodOptions{
+	float: left;
+}
 
 
 
@@ -2976,9 +3006,9 @@ margin-top:10px;
 	width: 230px;
 }
 
-div.quickViewProdSummaryContainer div.quickviewProductSizingChartModalLinkContainer a{
+div.quickviewProductSizingChartModalLinkContainer a{
 }
-.quickviewProductSizingChartModalLinkContainer{
+div.quickviewProductSizingChartModalLinkContainer{
 }
 
 div.quickviewProductSharingLinkContainer{
