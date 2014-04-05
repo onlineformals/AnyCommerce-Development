@@ -88,7 +88,8 @@
 		</table>
 	
 		<!-- replace -->
-		<div id='child-gets-replaced'><div data-testtype='unique' data-tlc="bind $var '.name'; apply --replace;">This should not be here.</div></div>
+		<div id='child-gets-replaced' style='border:1px solid #ccc;'><div data-testtype='unique' data-tlc="bind $var '.name'; apply --replace;">This should not be here.</div></div>
+		<div id='child-gets-replaced2' style='border:1px solid #ccc;'><div data-testtype='unique' data-tlc="bind $var '.tag'; apply --replace;">This should not be here.</div></div>
 	</section>
 
 	<section id='format-tests'>
@@ -98,8 +99,9 @@
 		<div data-testtype='output-compare' data-output='$24.95' data-tlc="bind $var '.price'; format --currency='USD'; apply --append;" data-testname="currency" ></div>
 		<div data-testtype='output-compare' data-output='4' data-tlc="bind $var '.small-array'; format --length; apply --append;" data-testname="length (array)" ></div>
 		<div data-testtype='output-compare' data-output='3' data-tlc="bind $var '.name'; format --length; apply --append;" data-testname="length (string)" ></div>
-		<div data-testtype='output-compare' data-output='this is a l' data-tlc="bind $var '.long-string'; format --chop='11'; apply --append;" data-testname="chop at 11" ></div>
+		<div data-testtype='output-compare' data-output='long string to use for testing.' data-tlc="bind $var '.long-string'; format --chop='10'; apply --append;" data-testname="chop at 11" ></div>
 		<div data-testtype='output-compare' data-output='this is a' data-tlc="bind $var '.long-string'; format --truncate='11'; apply --append;" data-testname="truncate at 11 (gets 9 chars)" ></div>
+		<div data-testtype='output-compare' data-output='unknown' data-tlc="bind $var '.undefined'; format --default='unknown'; apply --append;"  data-testname="set default"></div>
 		<div data-testtype='output-compare' data-output='this%20is%20a%20long%20string%20to%20use%20for%20testing.' data-tlc="bind $var '.long-string'; format --uriencode; apply --append;" data-testname="uriencode" ></div>
 	</section>
 	<!--

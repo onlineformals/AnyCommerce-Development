@@ -659,7 +659,28 @@ else	{
 			else if(data.value == 2 || _app.u.isThisBitOn(2,data.value))	{$tag.addClass('green')}
 			else	{} //do nothing.
 			},
-		
+		transactionAcctInfo : function($tag,data)	{
+			if(data.value)	{
+				var acctArr = data.value.split('|');
+				var cc,mm='',yy='';
+				for(var i = 0; i < acctArr.length; i += 1)	{
+					var itemArr = acctArr[i].split(':');
+					if(itemArr[0] == 'CM')	{
+						cc = itemArr[1];
+						}
+					else if(itemArr[0] == 'YY')	{
+						yy = itemArr[1];
+						}
+					else if(itemArr[0] == 'MM')	{
+						mm = itemArr[1];
+						}
+					else	{}
+					}
+				if(cc)	{
+					$tag.append("CC: "+cc+"<br>CC Exp: "+mm+"/"+yy);
+					}
+				}
+			},
 		orderFlagsAsSpans : function($tag,data)	{
 			var flags = _app.ext.admin_orders.u.getOrderFlagsAsArray(data.value),
 			L = flags.length;
@@ -999,7 +1020,7 @@ if giftcard is on there, no paypal will appear.
 						break;
 					
 					case 'customer_blast':
-						_app.ext.admin_blast.u.showBlastToolInDialog({'OBJECT':'ORDER','PRT':$row.data('prt'),'RECEIVER':'CUSTOMER','CID':$row.data('cid')});
+						_app.ext.admin_blast.u.showBlastToolInDialog({'OBJECT':'ORDER','PRT':$row.data('prt'),'RECEIVER':'CUSTOMER','CID':$row.data('cid'),'ORDERID':$row.data('orderid')});
 						break;
 					
 					case 'order_flagaspaid':
@@ -2150,7 +2171,7 @@ handleOrder(orders[i]);
 						//is after the domain lookup because it could return false or undef.
 						partition = partition || _app.vars.partition;
 						_app.u.dump(" -> partition: "+partition);
-						_app.ext.admin_blast.u.showBlastToolInDialog({'OBJECT':'ORDER','PRT':partition,'EMAIL':email,'RECEIVER':'EMAIL','CID':CID});
+						_app.ext.admin_blast.u.showBlastToolInDialog({'OBJECT':'ORDER','PRT':partition,'EMAIL':email,'RECEIVER':'EMAIL','CID':CID,'ORDERID':orderID});
 						}
 					else	{
 						_app.u.dump(" -> could not ascertain orderid for order or the order is not in memory.",'error');

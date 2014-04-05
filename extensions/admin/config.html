@@ -3001,7 +3001,6 @@ no 'min'. apparently, a negative tax amount is valid. (used when a X% is blanket
 			<b>Enquiries</b><br>
 			<label><input type='radio' name='event' required='required' value="ENQUIRY">Enquiry <span class='toolTip' title="Triggered by enquiry based events.">?</span></label>
 			<label><input type='radio' name='event' required='required' value="ENQUIRY.ORDER">Order Enquiry <span class='toolTip' title="Triggered through website 'contact us' with a confirmed order id.">?</span></label>
-			<label><input type='radio' name='event' required='required' value="CUSTOMER.ORDER.CANCEL">Customer Order Cancel <span class='toolTip' title="Triggered when a customer cancels an order.">?</span></label>
 
 			<b>Errors and Alerts</b><br>
 			<label><input type='radio' name='event' required='required' value="ERROR.SYNDICATION">Syndication Failure</label>
@@ -3013,6 +3012,22 @@ no 'min'. apparently, a negative tax amount is valid. (used when a X% is blanket
 			<label><input type='radio' name='event' required='required' value="INV.NAVCAT.HIDE">Hide from Website</label>
 			<label><input type='radio' name='event' required='required' value="INV.NAVCAT.FAIL">Website Change Failure</label>
 
+			<b>Customer</b><br>
+			<label><input type='radio' name='event' required='required' value="CUSTOMER.NEW">Customer Created <span class='toolTip' title="Customer Account initialized">?</span></label>
+			<label><input type='radio' name='event' required='required' value="CUSTOMER.ORDER.CANCEL">Customer Order Cancel <span class='toolTip' title="Triggered when a customer cancels an order.">?</span></label>
+			
+			<b>Order</b><br>
+			<label><input type='radio' name='event' required='required' value="ORDER.CREATE">Order Created <span class='toolTip' title="A new order is placed.">?</span></label>
+			<label><input type='radio' name='event' required='required' value="ORDER.SHIP">Order Shipped <span class='toolTip' title="A new order flagged as shipped.">?</span></label>
+			<!--
+			<label><input type='radio' name='event' required='required' value="ORDER.ITEM.CANCEL">Order Item Cancelled <span class='toolTip' title="Triggered when an item in the order is cancelled.">?</span></label>
+			<label><input type='radio' name='event' required='required' value="ORDER.ITEM.BACKORDER">Order Item Backorder <span class='toolTip' title="The order is cancelled.">?</span></label>
+			<label><input type='radio' name='event' required='required' value="ORDER.MOVE.RECENT">Order Status: Recent <span class='toolTip' title="The order status is changed/set to RECENT.">?</span></label>
+			<label><input type='radio' name='event' required='required' value="ORDER.MOVE.APPROVED">Order Status: Approved <span class='toolTip' title="The order status is changed/set to APPROVED.">?</span></label>
+			<label><input type='radio' name='event' required='required' value="ORDER.MOVE.PENDING">Order Status: Pending <span class='toolTip' title="The order status is changed/set to PENDING.">?</span></label>
+			<label><input type='radio' name='event' required='required' value="ORDER.MOVE.BACKORDER">Order Status: Backorder <span class='toolTip' title="The order status is changed/set to BACKORDER.">?</span></label>
+			<label><input type='radio' name='event' required='required' value="ORDER.MOVE.CANCEL">Order Status: Cancel <span class='toolTip' title="The order status is changed/set to BACKORDER.">?</span></label>
+			-->
 
 			<label>
 				<span>Method</span>
@@ -3215,13 +3230,13 @@ when adding a new plugin, make sure any private fields are saved with a ~ in fro
 		Enable ShipWorks
 	</label>
 	<p>ShipWorks will request a username and password so they can log into your store. Rather than provide them with your master password, use these:</p>
-	<div class="label"><span>Username: </span>shipworks</div>
+	<div class="label"><span>Username </span>shipworks</div>
 	<div class="label smallButton">
 		<span>Password</span>
-		<input data-tlc="bind $var '.password'; if(is $var --notblank;) {{apply --select=$var;}}; " data-minlength="20" name="~password" type="text">
+		<input data-tlc="bind $var '.~password'; if(is $var --notblank;) {{apply --select=$var;}}; " size='40'  data-minlength="20" max="40" name="~password" type="text">
 		<button class="applyButton" data-app-click="admin_config|buildGUID" data-input-name="~password">Generate Password</button>
 	</div>
-	<div data-tlc="bind $var '.domain'; if(is $var --notblank;){{format --prepend='https://www.' --append='/jsonapi/plugins/shipstation.xml'; apply --append;}}"></div>
+	<div data-tlc="bind $var '.domain'; if(is $var --notblank;){{format --prepend='https://www.' --append='/jsonapi/plugins/shipstation.xml'; apply --append;}};"></div>
 </fieldset>
 
 <fieldset id="pluginTemplate_shipstation.com">
@@ -3234,14 +3249,14 @@ when adding a new plugin, make sure any private fields are saved with a ~ in fro
 	</label>
 
 	<p>ShipStation will request a username and password so they can log into your store. Rather than provide them with your master password, use these:</p>
-	<div class="label"><span>Username: </span>shipstation</div>
+	<div class="label"><span>Username </span>shipstation</div>
 	<div class="label smallButton">
 		<span>Password</span>
-		<input data-tlc="bind $var '.password'; if(is $var --notblank;) {{apply --select=$var;}}; " data-minlength="20" name="~password" type="text">
-		<button class="applyButton" data-app-click="admin_config|buildGUID" data-input-name="~password">Generate Password</button>
+		<input data-tlc="bind $var '.~password'; if(is $var --notblank;) {{apply --select=$var;}}; " size='40'  data-minlength="20" max="40" name="~password" type="text">
+		<button class="applyButton" data-app-click="admin_config|buildGUID"data-input-name="~password">Generate Password</button>
 	</div>
 	
-	<div data-tlc="bind $var '.domain'; if(is $var --notblank;){{format --prepend='https://www.' --append='/jsonapi/plugins/shipstation.xml'; apply --append;}}"></div>
+	<div data-tlc="bind $var '.domain'; if(is $var --notblank;){{format --prepend='https://www.' --append='/jsonapi/plugins/shipstation.xml'; apply --append;}};"></div>
 
 </fieldset>
 
@@ -3257,17 +3272,15 @@ when adding a new plugin, make sure any private fields are saved with a ~ in fro
 	<p>Zoovy Desktop will request a username and password so it can access your store.
 	Use the username and password below: 
 	</p>
-	<div class="label"><span>Username: </span>username</div>
+	<div class="label"><span>Username </span> <span data-tlc="bind $var '.userid'; apply --append;"></span></div>
 	<div class="label smallButton">
 		<span>Password</span>
-		<input data-tlc="bind $var '.password'; if(is $var --notblank;) {{apply --select=$var;}}; " data-minlength="20" name="~password" type="text">
+		<input data-tlc="bind $var '.~password'; if(is $var --notblank;) {{apply --select=$var;}}; " size='40'  data-minlength="20" max="40" name="~password" type="text">
 		<button class="applyButton" data-app-click="admin_config|buildGUID" data-input-name="~password">Generate Password</button>
 	</div>
-	
-	<div data-tlc="bind $var '.domain';"></div>
+	<p>Zoovy Integrated Desktop automatically downloads users from Setup > User Manager. Users can login with their username + PIN (personal identification number). If no PIN has been set then the user will not be able to login to software</p>
 
 </fieldset>
-
 
 
 <fieldset id="pluginTemplate_auth_google">

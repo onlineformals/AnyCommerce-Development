@@ -356,7 +356,7 @@ document.write = function(v){
 //					dump("BEGIN quickstart.callbacks.showPageContent ["+tagObj.navcat+"]");
 					tagObj.dataset = {};
 					//if no %page vars were requested, this datapointer won't be set and this would error.
-					if(_app.data["appPageGet|"+tagObj.navcat] && _app.data["appPageGet|"+tagObj.navcat]['%page'])	{
+					if(_app.u.thisNestedExists("data.appPageGet|"+tagObj.navcat+".%page",_app))	{
 						tagObj.dataset = {'%page' : _app.data['appPageGet|'+tagObj.navcat]['%page']};
 						}
 					//deep extend so any non-duplicates in %page are preserved.
@@ -605,6 +605,20 @@ need to be customized on a per-ria basis.
 				_app.renderFormats.text($tag,data);
 				},
 
+
+//### later, we could make this more advanced to actually search the attribute. add something like elasticAttr:prod_mfg and if set, key off that.
+			searchlink : function($tag,data){
+				if(data.value)	{
+					var keywords = data.value.replace(/ /g,"+"),
+					infoObj = {'KEYWORDS':keywords}
+					if(data.bindData.elasticAttr){
+						infoObj.ATTRIBUTES = data.bindData.elasticAttr.split(" ");
+						}
+					$tag.append("<span class='underline pointer'>"+data.value+"<\/span>").bind('click',function(){
+						showContent('search',infoObj)
+						});
+					}
+				}, //searchLink
 
 			cpsiawarning : function($tag,data)	{
 				if(data.value)	{
@@ -982,7 +996,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 // * changed from 'empty' to showLoading because empty could be a heavy operation if mainContentArea has a lot of content.
 							$('body').showLoading({'message':'Transferring to secure login'});							
 							var SSLlocation = _app.vars.secureURL+"?cartID="+_app.model.fetchCartID();
-							SSLlocation += "#!customer/"+infoObj.show;
+							SSLlocation += "#!customer/"+infoObj.show+"/";
 							_gaq.push(['_link', SSLlocation]); //for cross domain tracking.
 							document.location = SSLlocation; //redir to secure url.
 							}
@@ -1004,7 +1018,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 // * use showloading instead of .html (which could be heavy)
 //							$('#mainContentArea').addClass('loadingBG').html("<h1>Transferring you to a secure session for checkout.<\/h1><h2>Our app will reload shortly...<\/h2>");
 							$('body').showLoading({'message':'Transferring you to a secure session for checkout'});
-							var SSLlocation = zGlobals.appSettings.https_app_url+"?cartID="+_app.model.fetchCartID()+"&_session="+_app.vars._session+"#!checkout";
+							var SSLlocation = zGlobals.appSettings.https_app_url+"?cartID="+_app.model.fetchCartID()+"&_session="+_app.vars._session+"#!checkout/";
 							_gaq.push(['_link', SSLlocation]); //for cross domain tracking.
 							document.location = SSLlocation;
 							}
@@ -1049,7 +1063,8 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 					}
 //this is low so that the individual 'shows' above can set a different default and if nothing is set, it'll default to true here.
 				infoObj.performJumpToTop = (infoObj.performJumpToTop === false) ? false : true; //specific instances jump to top. these are passed in (usually related to modals).
-		
+
+				if(infoObj.performJumpToTop)	{$('html, body').animate({scrollTop : 0},1000)} //new page content loading. scroll to top.				
 //transition appPreView out on init.
 				if($('#appPreView').is(':visible'))	{
 //					_app.ext.quickstart.pageTransition($('#appPreView'),$('#appView'));
@@ -1079,8 +1094,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 				else	{
 					dump("WARNING! in showContent and no parentID is set for the element being translated.");
 					}
-				//if a header is defined in the appview, the height of that header will be the jumpto point, which effectively 'chops' off the header w/ each page load.
-				if(infoObj.performJumpToTop)	{$('html, body').animate({scrollTop : ($('header','#appView').length ? $('header','#appView').first().height() : 0)},1000)} //new page content loading. scroll to top.
+
 //NOT POSTING THIS MESSAGE AS ASYNC BEHAVIOR IS NOT CURRENTLY QUANTIFIABLE					
 				//Used by the SEO generation utility to signal that a page has finished loading. 
 				//parent.postMessage("renderFinished","*");
@@ -1632,7 +1646,7 @@ $target.tlc({
 
 //executed on initial app load AND in some elements where user/merchant defined urls are present (banners).
 // Determines what page is in focus and returns appropriate object (r.pageType)
-// if no page content can be determined based on the url, the hash is examined and if appropriately formed, used (ex: #company/contact or #category/.something)
+// if no page content can be determined based on the url, the hash is examined and if appropriately formed, used (ex: #company?show=contact or #category?navcat=.something)
 // should be renamed getPageInfoFromURL
 			detectRelevantInfoToPage : function(URL)	{
 //				dump("BEGIN quickstart.u.detectRelevantInfoToPage. url: "+URL);
@@ -2996,12 +3010,8 @@ else	{
 							$('#globalMessaging').anymessage({'message':rd});
 							}
 						else	{
-							if($ele.data('show') == 'inline')	{
-								document.location.hash = '#!cart';
-								}
-							else	{
-								_app.ext.quickstart.u.showCartInModal({'templateID':'cartTemplate'});
-								}
+							_app.ext.quickstart.u.showCartInModal({'templateID':'cartTemplate'});
+							dump(" ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 							cartMessagePush(cartObj._cartid,'cart.itemAppend',_app.u.getWhitelistedObject(cartObj,['sku','pid','qty','quantity','%variations']));
 							}
 						}},'immutable');
@@ -3038,10 +3048,7 @@ else	{
 //add to form element. input name='KEYWORDS' is required for this simple search.
 			searchFormSubmit : function($ele,p)	{
 				p.preventDefault();
-				var sfo = $ele.serializeJSON($ele);
-				if(sfo.KEYWORDS)	{
-					document.location.hash = '#!search/keywords/'+sfo.KEYWORDS;
-					}
+				showContent('search',$ele.serializeJSON($ele));
 				return false;
 				},
 

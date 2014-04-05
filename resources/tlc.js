@@ -471,7 +471,15 @@ This one block should get called for both img and imageurl but obviously, imageu
 			
 			case 'prepend': $tag.prepend(data); break;
 			case 'append': $tag.append(data); break;
-			case 'replace': globals.tags[globals.focusTag] = $(data); $tag.replaceWith(globals.tags[globals.focusTag]);  break; //the object in memory must also be updated so that the rest of the tlc statement can modify it.
+			case 'replace': 
+				var $n = $(data); //the contents of what will replace tag may or may not be a tag.
+				if($n.length)	{
+					globals.tags[globals.focusTag] = $n; $tag.replaceWith(globals.tags[globals.focusTag]);
+					}
+				else	{
+					$tag.replaceWith(data);
+					}
+				break; //the object in memory must also be updated so that the rest of the tlc statement can modify it.
 			case 'inputvalue':
 				$tag.val(data);
 				break;
@@ -532,8 +540,12 @@ This one block should get called for both img and imageurl but obviously, imageu
 				if(p1 != p2){ r = true;} break;
 			case "gt":
 				if(Number(p1) > Number(p2)){r = true;} break;
+			case "gte":
+				if(Number(p1) >= Number(p2)){r = true;} break;
 			case "lt":
 				if(Number(p1) < Number(p2)){r = true;} break;
+			case "lte":
+				if(Number(p1) <= Number(p2)){r = true;} break;
 			case "true":
 				if(p1){r = true}; break;
 			case "false":
@@ -581,19 +593,7 @@ This one block should get called for both img and imageurl but obviously, imageu
 //passing the command into this will verify that the format exists (whether it be core or not)
 
 	this.format_currency = function(argObj,globals)	{
-		dump("Begin currency format");
-		dump(argObj);
-		dump(globals);
 		var r = "$"+globals.binds[argObj.bind]; //+" ("+arg.value.value+")";
-		//dump(r);
-		var cents = r.split(".")
-		dump(cents[1]);
-		if(cents[1] == undefined){
-			r = r + ".00";
-		}
-		else if(cents[1].length == 2){
-		dump
-		}
 		return r;
 		} //currency
 
@@ -604,6 +604,12 @@ This one block should get called for both img and imageurl but obviously, imageu
 
 	this.format_append = function(argObj,globals,arg)	{
 		var r = globals.binds[argObj.bind]+(arg.type == 'longopt' ? arg.value.value : arg.value);
+		return r;
+		} //append
+
+	this.format_default = function(argObj,globals,arg)	{
+		var r = (arg.type == 'longopt' ? arg.value.value : arg.value);
+		globals.binds[argObj.bind] = r;
 		return r;
 		} //append
 
@@ -619,7 +625,7 @@ This one block should get called for both img and imageurl but obviously, imageu
 		var r = globals.binds[argObj.bind];
 		if(globals.binds[argObj.bind] && Number(argObj.chop) && globals.binds[argObj.bind].length > argObj.chop)	{
 			r = globals.binds[argObj.bind].toString();
-			r = r.substr(0,Number(argObj.chop));
+			r = r.substr(Number(argObj.chop),r.length);
 			}
 		return r;
 		}//chop
@@ -951,19 +957,24 @@ returning a 'false' here will exit the statement loop.
 		}
 
 	this.render_wiki = function(bind,argObj)	{
-		var $tmp = $('<div \/>'); // #### TODO -> cross browser test this wiki solution. it's a little different than before.
-		myCreole['parse']($tmp[0], bind,{},argObj.wiki); //the creole parser doesn't like dealing w/ a jquery object.
-		//r = wikify($tmp.text()); //###TODO -> 
-		var r = $tmp.html();
-		$tmp.empty(); delete $tmp;
+		var r = bind;
+		//skip if bind has no value.
+		if(bind)	{
+			var $tmp = $('<div \/>'); // #### TODO -> cross browser test this wiki solution. it's a little different than before.
+			myCreole['parse']($tmp[0], bind,{},argObj.wiki); //the creole parser doesn't like dealing w/ a jquery object.
+			//r = wikify($tmp.text()); //###TODO -> 
+			r = $tmp.html();
+			$tmp.empty(); delete $tmp;
+			}
 		return r;
 		}
 
+
 	
 	this.handleCommand_render = function(cmd,globals){
-		dump(">>>>> BEGIN tlc.handleCommand_render. cmd: ");// dump(cmd);
+//		dump(">>>>> BEGIN tlc.handleCommand_render. cmd: ");// dump(cmd);
 		for(var i = 0, L = cmd.args.length; i < L; i += 1)	{
-			argObj = this.handleArg(cmd.args[i],globals);
+			var argObj = this.handleArg(cmd.args[i],globals);
 			var key = cmd.args[i].key;
 			//if key is dwiw, needs to be changed to either html or text so that it can be properly displayed. this is guesswork, but that comes along with dwiw.
 			if(key == 'dwiw' && globals.binds[globals.focusBind].indexOf('<') >= 0)	{
@@ -1012,7 +1023,17 @@ returning a 'false' here will exit the statement loop.
 		var bind = Number(globals.binds[globals.focusBind]);
 		if(!isNaN(bind))	{
 			for(var i = 0, L = cmd.args.length; i < L; i += 1)	{
-				var value = Number((cmd.args[i].type == 'longopt' && cmd.args[i].value) ? cmd.args[i].value.value : cmd.args[i].value);
+				//var value = Number((cmd.args[i].type == 'longopt' && cmd.args[i].value) ? cmd.args[i].value.value : cmd.args[i].value);
+				var value = cmd.args[i].value;
+				if(cmd.args[i].type == 'longopt'){
+					if(value.type == 'variable'){
+						value = globals.binds[value.value];
+						}
+					else {
+						value = value.value
+						}
+					}
+				value = Number(value);
 				if(!isNaN(value))	{
 					switch(cmd.args[i].key)	{
 						case "add":
