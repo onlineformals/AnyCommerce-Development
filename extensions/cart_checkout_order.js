@@ -1197,7 +1197,9 @@ in a reorder, that data needs to be converted to the variations format required 
 			paypalecbutton : function($tag,data)	{
 	
 				if(zGlobals.checkoutSettings.paypalCheckoutApiUser)	{
-					var payObj = _app.ext.cco.u.which3PCAreAvailable(data.value);
+					dump(data.value);
+ 					var payObj = _app.ext.cco.u.which3PCAreAvailable(data.value);
+ 					dump(payObj);
 					if(payObj.paypalec)	{
 						$tag.empty().append("<img width='145' id='paypalECButton' height='42' border='0' src='"+(document.location.protocol === 'https:' ? 'https:' : 'http:')+"//www.paypal.com/en_US/i/btn/btn_xpressCheckoutsm.gif' alt='' />").addClass('pointer').off('click.paypal').on('click.paypal',function(){
 //***201402 Must pass cartid parameter on the call itself -mc
@@ -1233,10 +1235,7 @@ in a reorder, that data needs to be converted to the variations format required 
 			googlecheckoutbutton : function($tag,data)	{
 	
 				if(zGlobals.checkoutSettings.googleCheckoutMerchantId && (window._gat && window._gat._getTracker))	{
-										dump(data.value);
-					var payObj = _app.ext.cco.u.which3PCAreAvailable(data.value);
-					dump(payObj);
-
+					var payObj = _app.ext.cco.u.which3PCAreAvailable(); //certain product can be flagged to disable googlecheckout as a payment option.
 					if(payObj.googlecheckout)	{
 					$tag.append("<img height=43 width=160 id='googleCheckoutButton' border=0 src='"+(document.location.protocol === 'https:' ? 'https:' : 'http:')+"//checkout.google.com/buttons/checkout.gif?merchant_id="+zGlobals.checkoutSettings.googleCheckoutMerchantId+"&w=160&h=43&style=trans&variant=text&loc=en_US' \/>").one('click',function(){
 						_app.ext.cco.calls.cartGoogleCheckoutURL.init();
