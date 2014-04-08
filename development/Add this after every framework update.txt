@@ -20,5 +20,8 @@ becomes
 					}
 
 
-2. active.js
+2. active.js:
 Add a centering container to the checkout form.
+
+3. cart_checkout_order.js:
+Add this commit: https://github.com/onlineformals/onlineformals/commit/bcf08ed5097eee5ac1e8e6b13a9c5738d65a12bc

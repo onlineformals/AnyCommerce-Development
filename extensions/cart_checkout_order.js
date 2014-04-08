@@ -215,8 +215,8 @@ calls should always return the number of dispatches needed. allows for cancellin
 				var extras = "";
 				if(window.debug1pc)	{extras = "&sender=jcheckout&fl=checkout-"+_app.model.version+debug1pc} //set debug1pc to a,p or r in console to force this versions 1pc layout on return from paypal
 				obj._cmd = "cartPaypalSetExpressCheckout";
-				obj.cancelURL = (_app.vars._clientid == '1pc') ? zGlobals.appSettings.https_app_url+"c="+_app.model.fetchCartID()+"/cart.cgis?parentID="+parentID+extras : zGlobals.appSettings.https_app_url+"?_session="+_app.vars._session+"&parentID="+parentID+"&cartID="+_app.model.fetchCartID()+"#!cart";
-				obj.returnURL =  (_app.vars._clientid == '1pc') ? zGlobals.appSettings.https_app_url+"c="+_app.model.fetchCartID()+"/checkout.cgis?parentID="+parentID+extras : zGlobals.appSettings.https_app_url+"?_session="+_app.vars._session+"&parentID="+parentID+"&cartID="+_app.model.fetchCartID()+"#!checkout?"; //? at end because paypal is going to add key value pairs to this url.
+				obj.cancelURL = (_app.vars._clientid == '1pc') ? zGlobals.appSettings.https_app_url+"c="+_app.model.fetchCartID()+"/cart.cgis?parentID="+parentID+extras : zGlobals.appSettings.https_app_url+"?_session="+_app.vars._session+"parentID="+parentID+"&cartID="+_app.model.fetchCartID()+"#!cart/";
+				obj.returnURL =  (_app.vars._clientid == '1pc') ? zGlobals.appSettings.https_app_url+"c="+_app.model.fetchCartID()+"/checkout.cgis?parentID="+parentID+extras : zGlobals.appSettings.https_app_url+"?_session="+_app.vars._session+"parentID="+parentID+"&cartID="+_app.model.fetchCartID()+"#!checkout/";
 				
 				obj._tag.datapointer = "cartPaypalSetExpressCheckout";
 				dump(" -> cartPaypalSetExpressCheckout obj: "); dump(obj);
@@ -1109,17 +1109,17 @@ in a reorder, that data needs to be converted to the variations format required 
 //will tell you which third party checkouts are available. does NOT look to see if merchant has them enabled,
 // just checks to see if the cart contents would even allow it.
 //currently, there is only a google field for disabling their checkout, but this is likely to change.
-			which3PCAreAvailable :	function(cartID){
+			which3PCAreAvailable :	function(cart){	
 	//				_app.u.dump("BEGIN control.u.which3PCAreAvailable");
 					var obj = {};
-					if(_app.data['cartDetail|'+cartID])	{
+					if(cart)	{
 		//by default, everything is available
 						obj = {
 							paypalec : true,
 							amazonpayment : true,
 							googlecheckout : true
 							}
-						var items = _app.data['cartDetail|'+cartID]['@ITEMS'], L = items.length;
+						var items = cart['@ITEMS'], L = items.length;
 						for(var i = 0; i < L; i += 1)	{
 							if(items[i]['%attribs'] && items[i]['%attribs']['gc:blocked'])	{obj.googlecheckout = false}
 							if(items[i]['%attribs'] && items[i]['%attribs']['paypalec:blocked'])	{obj.paypalec = false}
@@ -1233,7 +1233,10 @@ in a reorder, that data needs to be converted to the variations format required 
 			googlecheckoutbutton : function($tag,data)	{
 	
 				if(zGlobals.checkoutSettings.googleCheckoutMerchantId && (window._gat && window._gat._getTracker))	{
-					var payObj = _app.ext.cco.u.which3PCAreAvailable(); //certain product can be flagged to disable googlecheckout as a payment option.
+										dump(data.value);
+					var payObj = _app.ext.cco.u.which3PCAreAvailable(data.value);
+					dump(payObj);
+
 					if(payObj.googlecheckout)	{
 					$tag.append("<img height=43 width=160 id='googleCheckoutButton' border=0 src='"+(document.location.protocol === 'https:' ? 'https:' : 'http:')+"//checkout.google.com/buttons/checkout.gif?merchant_id="+zGlobals.checkoutSettings.googleCheckoutMerchantId+"&w=160&h=43&style=trans&variant=text&loc=en_US' \/>").one('click',function(){
 						_app.ext.cco.calls.cartGoogleCheckoutURL.init();
