@@ -17,7 +17,7 @@
 ************************************************************** */
 
 
-var admin_trainer = function(_app) {
+var admin_trainer = function() {
 	var theseTemplates = new Array();
 	var r = {
 
@@ -30,14 +30,14 @@ var admin_trainer = function(_app) {
 //executed when extension is loaded. should include any validation that needs to occur.
 		init : {
 			onSuccess : function()	{
-				_app.model.fetchNLoadTemplates(_app.vars.baseURL+'extensions/admin/trainer.html',theseTemplates);
-				_app.rq.push(['css',0,_app.vars.baseURL+'extensions/admin/trainer.css','trainer']);
+				app.model.fetchNLoadTemplates(app.vars.baseURL+'extensions/admin/trainer.html',theseTemplates);
+				app.rq.push(['css',0,app.vars.baseURL+'extensions/admin/trainer.css','trainer']);
 				return true;
 				},
 			onError : function()	{
 //errors will get reported for this callback as part of the extensions loading.  This is here for extra error handling purposes.
 //you may or may not need it.
-				_app.u.dump('BEGIN admin_orders.callbacks.init.onError');
+				app.u.dump('BEGIN admin_orders.callbacks.init.onError');
 				}
 			}
 		}, //callbacks
@@ -55,17 +55,16 @@ var admin_trainer = function(_app) {
 					var $trainer = $("<div \/>").appendTo($target); //put trainer into a div so that the delegation et all is NOT added to a tabContent
 					$trainer.data('slides',slidesArr).attr('data-app-role','trainerContainer');
 					for(var i = 0,L = slidesArr.length; i < L; i += 1)	{
-						_app.u.dump(i+"). "+slidesArr[i]);
+						app.u.dump(i+"). "+slidesArr[i]);
 						$("<div \/>").addClass((i == 0 ? "marginBottom" : "marginBottom displayNone")).attr("data-trainerid",slidesArr[i]).anycontent({
 							'templateID':slidesArr[i],
-							'data' : _app.model.dpsGet('trainer',slidesArr[i]) || {},
+							'data' : app.model.dpsGet('trainer',slidesArr[i]) || {},
 							'showLoading':false
 							}).appendTo($trainer);
 						}
-					_app.ext.admin_trainer.u.handleTrainerArticles($trainer);
-					_app.u.addEventDelegation($target);
-					$trainer.anyform();
-					_app.u.handleButtons($trainer);
+					app.ext.admin_trainer.u.handleTrainerArticles($trainer);
+					$trainer.anydelegate();
+					app.u.handleButtons($trainer);
 
 					if(slidesArr.length == 1)	{
 						$("[data-app-role='trainerNavigation']").hide();
@@ -133,8 +132,8 @@ var admin_trainer = function(_app) {
 						}
 					else	{
 						//no article type? uh oh.
-						_app.u.dump("An article in the trainer had no data-article-type set. here's what we do know: ","warn");
-						_app.u.dump($article.data());
+						app.u.dump("An article in the trainer had no data-article-type set. here's what we do know: ","warn");
+						app.u.dump($article.data());
 						}
 					});
 				}
@@ -149,7 +148,7 @@ var admin_trainer = function(_app) {
 			
 			handleUpdate : function($ele,p)	{
 /*
-_app.model.addDispatchToQ({
+app.model.addDispatchToQ({
 	'_cmd':'',
 	'_tag':	{
 		'datapointer' : '',
@@ -161,7 +160,7 @@ _app.model.addDispatchToQ({
 				},
 			
 			navigate : function($ele,p)	{
-_app.u.dump("Navigate!");
+app.u.dump("Navigate!");
 var
 	$trainer = $ele.closest("[data-app-role='trainerContainer']");
 	slidesArr = $trainer.data('slides');
@@ -181,6 +180,7 @@ if($trainer instanceof jQuery && $trainer.length)	{
 
 				//disable the 'next' button in the last trainer slide.
 				if( (thisTrainerIndex + 2) == slidesArr.length){
+					app.u.dump(" --------> got here. length: "+$("button[data-app-click]",$trainer2Show).length);
 					$("button[data-verb='next']",$trainer2Show).button('disable');
 					}
 				}
