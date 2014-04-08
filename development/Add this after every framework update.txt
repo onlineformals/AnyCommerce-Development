@@ -18,3 +18,7 @@ becomes
               			myApp.u.dump("category default template option selected");
               			infoObj.templateID = 'categoryTemplate'
 					}
+
+
+2. active.js
+Add a centering container to the checkout form.
