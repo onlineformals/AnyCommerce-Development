@@ -92,7 +92,7 @@ var partner_addthis = function(_app) {
  						}
  					else {
  						scriptPath += '#domready';
- 						}
+ 					}
  					_app.u.loadScript(scriptPath);
  					
  					//This is an example of how to add an addthis toolbox to a product page
@@ -115,7 +115,8 @@ var partner_addthis = function(_app) {
  							_app.ext.partner_addthis.u.toolbox($toolbox, infoObj);
  							}
  						});
- 					return true;
+ 						return true;
+					}
  				},
  				onError : function() {
  					_app.u.dump('BEGIN _app.ext.partner_addthis.callbacks.startExtension.onError');
