@@ -215,12 +215,11 @@ calls should always return the number of dispatches needed. allows for cancellin
 				var extras = "";
 				if(window.debug1pc)	{extras = "&sender=jcheckout&fl=checkout-"+_app.model.version+debug1pc} //set debug1pc to a,p or r in console to force this versions 1pc layout on return from paypal
 				obj._cmd = "cartPaypalSetExpressCheckout";
-				obj.cancelURL = (_app.vars._clientid == '1pc') ? zGlobals.appSettings.https_app_url+"c="+_app.model.fetchCartID()+"/cart.cgis?parentID="+parentID+extras : zGlobals.appSettings.https_app_url+"?_session="+_app.vars._session+"parentID="+parentID+"&cartID="+_app.model.fetchCartID()+"#!cart";
- 				obj.returnURL =  (_app.vars._clientid == '1pc') ? zGlobals.appSettings.https_app_url+"c="+_app.model.fetchCartID()+"/checkout.cgis?parentID="+parentID+extras : zGlobals.appSettings.https_app_url+"?_session="+_app.vars._session+"parentID="+parentID+"&cartID="+_app.model.fetchCartID()+"#!checkout";
+				obj.cancelURL = (_app.vars._clientid == '1pc') ? zGlobals.appSettings.https_app_url+"c="+_app.model.fetchCartID()+"/cart.cgis?parentID="+parentID+extras : zGlobals.appSettings.https_app_url+"?_session="+_app.vars._session+"&parentID="+parentID+"&cartID="+_app.model.fetchCartID()+"#!cart";
+				obj.returnURL =  (_app.vars._clientid == '1pc') ? zGlobals.appSettings.https_app_url+"c="+_app.model.fetchCartID()+"/checkout.cgis?parentID="+parentID+extras : zGlobals.appSettings.https_app_url+"?_session="+_app.vars._session+"&parentID="+parentID+"&cartID="+_app.model.fetchCartID()+"#!checkout?"; //? at end because paypal is going to add key value pairs to this url.
 				
 				obj._tag.datapointer = "cartPaypalSetExpressCheckout";
 				dump(" -> cartPaypalSetExpressCheckout obj: "); dump(obj);
-				
 				_app.model.addDispatchToQ(obj,Q || 'immutable');
 				}
 			}, //cartPaypalSetExpressCheckout	
@@ -868,8 +867,10 @@ note - dispatch isn't IN the function to give more control to developer. (you ma
 					else if(formObj['want/bill_to_ship'] && formObj['bill/shortcut'])	{
 						populateAddressFromShortcut('bill','ship');	
 						}
-//bill to ship, but no short cut (not logged in)
-					else if(formObj['want/bill_to_ship'])	{
+//bill to ship, but no short cut (not logged in).
+// ** 201402 -> was hitting on else if((formObj['want/bill_to_ship']) so > 0 added.
+					else if(formObj['want/bill_to_ship'] > 0)	{
+						dump(" -> want/bill_to_ship = "+formObj['want/bill_to_ship']);
 						for(var index in formObj)	{
 //copy billing fields into shipping. not email tho.
 							if(index.indexOf('bill/') == 0 && index != 'bill/email')	{ 
@@ -1000,7 +1001,10 @@ in a reorder, that data needs to be converted to the variations format required 
 								else	{
 									var items = (cmd == 'adminOrderDetail') ? _app.data[rd.datapointer]['@ITEMS'] : _app.data[rd.datapointer].order['@ITEMS'], L = items.length;
 									for(var i = 0; i < L; i += 1)	{
-										if(skuArr.length && !$.inArray(items[i].sku,skuArr))	{} //skuArr is defined and this item is NOT in the array. do nothing.
+										dump(i+") items[i].sku: "+items[i].sku+" and inArray: "+$.inArray(items[i].sku,skuArr));
+										if(skuArr.length && $.inArray(items[i].sku,skuArr) < 0)	{
+											 //skuArr is defined and this item is NOT in the array. do nothing.
+											}
 										else	{
 											//skuArr is either not defined (append all sku's from order) OR skuArr is defined and this item is in that array. Either way, proceed w/ append.
 											var appendObj = _app.ext.cco.u.buildCartItemAppendObj(items[i],vars.cartid); //will generate a new uuid.
@@ -1105,17 +1109,17 @@ in a reorder, that data needs to be converted to the variations format required 
 //will tell you which third party checkouts are available. does NOT look to see if merchant has them enabled,
 // just checks to see if the cart contents would even allow it.
 //currently, there is only a google field for disabling their checkout, but this is likely to change.
-			which3PCAreAvailable :	function(cart){
-					_app.u.dump("BEGIN control.u.which3PCAreAvailable");
+			which3PCAreAvailable :	function(cartID){
+	//				_app.u.dump("BEGIN control.u.which3PCAreAvailable");
 					var obj = {};
-					if(cart)	{
+					if(_app.data['cartDetail|'+cartID])	{
 		//by default, everything is available
 						obj = {
 							paypalec : true,
 							amazonpayment : true,
 							googlecheckout : true
 							}
-						var items = cart['@ITEMS'], L = items.length;
+						var items = _app.data['cartDetail|'+cartID]['@ITEMS'], L = items.length;
 						for(var i = 0; i < L; i += 1)	{
 							if(items[i]['%attribs'] && items[i]['%attribs']['gc:blocked'])	{obj.googlecheckout = false}
 							if(items[i]['%attribs'] && items[i]['%attribs']['paypalec:blocked'])	{obj.paypalec = false}
@@ -1191,12 +1195,13 @@ in a reorder, that data needs to be converted to the variations format required 
 				},
 
 			paypalecbutton : function($tag,data)	{
+	
 				if(zGlobals.checkoutSettings.paypalCheckoutApiUser)	{
 					var payObj = _app.ext.cco.u.which3PCAreAvailable(data.value);
 					if(payObj.paypalec)	{
 						$tag.empty().append("<img width='145' id='paypalECButton' height='42' border='0' src='"+(document.location.protocol === 'https:' ? 'https:' : 'http:')+"//www.paypal.com/en_US/i/btn/btn_xpressCheckoutsm.gif' alt='' />").addClass('pointer').off('click.paypal').on('click.paypal',function(){
 //***201402 Must pass cartid parameter on the call itself -mc
-							_app.ext.cco.calls.cartPaypalSetExpressCheckout.init({'getBuyerAddress':1, '_cartid':data.value},{'callback':function(rd){
+							_app.ext.cco.calls.cartPaypalSetExpressCheckout.init({'getBuyerAddress':1, '_cartid':_app.model.fetchCartID()},{'callback':function(rd){
 								$('body').showLoading({'message':'Obtaining secure PayPal URL for transfer...','indicatorID':'paypalShowLoading'});
 								if(_app.model.responseHasErrors(rd)){
 									$(this).removeClass('disabled').attr('disabled','').removeAttr('disabled');

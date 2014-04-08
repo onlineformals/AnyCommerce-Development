@@ -847,6 +847,7 @@ SANITY -> jqObj should always be the data-app-role="dualModeContainer"
 
 		showHeader : {
 			onSuccess : function(_rtag){
+				$('body').hideLoading();
 //				_app.u.dump("BEGIN admin.callbacks.showHeader");
 //				_app.u.dump(" -> _app.data["+_rtag.datapointer+"]:");	_app.u.dump(_app.data[_rtag.datapointer]);
 //account was just created, skip domain chooser.
@@ -2006,6 +2007,9 @@ vars.findertype is required. acceptable values are:
 //the entire UI experience revolves around having a domain.
 			showHeader : function(){
 //				_app.u.dump("BEGIN admin.u.showHeader");
+				
+				adminApp.router.init();
+
 //hide all preView and login data.
 				$('#appLogin').hide(); 
 				$('#appPreView').hide();
@@ -3580,7 +3584,7 @@ dataAttribs -> an object that will be set as data- on the panel.
 				vars = vars || {};
 				vars.title = vars.title || ""; //don't want 'undefind' as title if not set.
 				vars.anycontent = vars.anycontent || true; //default to runing anycontent. if no templateID specified, won't run.
-				vars.handleAppEvents = (vars.handleAppEvents == false) ? false : true; //default to runing anycontent. if no templateID specified, won't run.
+				vars.handleAppEvents = (vars.handleAppEvents == false) ? false : true; //need to be able to turn this off in case a dialog is appended to a parent.
 
 				var $D = $("<div \/>").attr('title',vars.title);
 				
@@ -3623,7 +3627,9 @@ dataAttribs -> an object that will be set as data- on the panel.
 				if(vars.handleAppEvents)	{
 					_app.u.handleAppEvents($D,vars);
 					}
-				_app.u.addEventDelegation($D);
+				if(!vars.skipDelegation)	{
+					_app.u.addEventDelegation($D);
+					}
 				$D.anyform();
 				_app.u.handleCommonPlugins($D);
 				_app.u.handleButtons($D);

@@ -2190,30 +2190,31 @@ handleOrder(orders[i]);
 					query;
 				
 				if(frmObj.keyword)	{
+					var keyword = $.trim(frmObj.keyword);
 					$('#orderListTableBody').empty();
 					$('.noOrdersMessage','#orderListTableContainer').empty().remove(); //get rid of any existing no orders messages.
 					$mainCol.showLoading({'message':'Searching orders...'});
 					if(frmObj.isDetailedSearch == 'on')	{
 						query = {'size':Number(frmObj.size) || 30,'filter' : {
 						'or' : [
-						{'has_child' : {'query' : {'query_string' : {'query' : frmObj.keyword,'default_operator':'AND'}},'type' : ['order/address']}},
-						{'has_child' : {'query' : {'query_string' : {'query' : frmObj.keyword,'default_operator':'AND'}},'type' : ['order/payment']}},
-						{'has_child' : {'query' : {'query_string' : {'query' : frmObj.keyword,'default_operator':'AND'}},'type' : ['order/shipment']}},
-						{'has_child' : {'query' : {'query_string' : {'query' : frmObj.keyword,'default_operator':'AND'}},'type' : ['order/item']}},
-						{'query' : {'query_string' : {'query' : frmObj.keyword,'default_operator':'AND'}}}
+						{'has_child' : {'query' : {'query_string' : {'query' : keyword,'default_operator':'AND'}},'type' : ['order/address']}},
+						{'has_child' : {'query' : {'query_string' : {'query' : keyword,'default_operator':'AND'}},'type' : ['order/payment']}},
+						{'has_child' : {'query' : {'query_string' : {'query' : keyword,'default_operator':'AND'}},'type' : ['order/shipment']}},
+						{'has_child' : {'query' : {'query_string' : {'query' : keyword,'default_operator':'AND'}},'type' : ['order/item']}},
+						{'query' : {'query_string' : {'query' : keyword,'default_operator':'AND'}}}
 						]},'type' : ['order'],'explain' : 1}
 						}
 					else	{
 						query = { 'filter' : {
 						  'or' : [
-							 { 'term': { 'references': frmObj.keyword  } },
-							 { 'term' : { 'email': frmObj.keyword } },
-							 { 'term' : { 'orderid': frmObj.keyword } }
+							 { 'term': { 'references': keyword  } },
+							 { 'term' : { 'email': keyword } },
+							 { 'term' : { 'orderid': keyword } }
 							 ]
 						  }}
 						}
 					
-					_app.ext.admin.calls.adminOrderSearch.init(query,{'callback':'listOrders','extension':'admin_orders','templateID':'adminOrdersOrderLineItem','keyword':frmObj.keyword},'immutable');
+					_app.ext.admin.calls.adminOrderSearch.init(query,{'callback':'listOrders','extension':'admin_orders','templateID':'adminOrdersOrderLineItem','keyword':keyword},'immutable');
 
 					_app.model.dispatchThis('immutable');
 					}
@@ -2364,22 +2365,22 @@ handleOrder(orders[i]);
 						errors = (typeof _app.ext.cco.validate[formJSON.tender] === 'function') ? _app.ext.cco.validate[formJSON.tender](formJSON) : false; //if a validation function exists for this payment type, such as credit or echeck, then check for errors. otherwise, errors is false.
 
 						_app.u.dump('errors'); _app.u.dump(errors);
-						$paymentContainer.find('.mandatory').removeClass('mandatory'); //remove css from previously failed inputs to avoid confusion.
+						$paymentContainer.find('.ui-state-error').removeClass('ui-state-error'); //remove css from previously failed inputs to avoid confusion.
 						
 
-//the mandatory class gets added to the parent of the input, so that the input, label and more get styled.
+//the ui-state-error class gets added to the parent of the input, so that the input, label and more get styled.
 						if(!formJSON.amt)	{
 							var msgObj = _app.u.errMsgObject("Please set an amount");
 							msgObj.parentID = 'adminOrdersPaymentMethodsContainer';
 							_app.u.throwMessage(msgObj);
-							$("[name='amt']",$paymentContainer).parent().addClass('mandatory');
+							$("[name='amt']",$paymentContainer).addClass('ui-state-error');
 							}
 						else if(errors)	{
 							var msgObj = _app.u.errMsgObject("Some required field(s) are missing or invalid. (indicated in red)");
 							msgObj.parentID = 'adminOrdersPaymentMethodsContainer';
 							_app.u.throwMessage(msgObj);
 							for(var index in errors)	{
-								$("[name='"+errors[index]+"']",$paymentContainer).parent().addClass('mandatory');
+								$("[name='"+errors[index]+"']",$paymentContainer).addClass('ui-state-error');
 								}
 							}
 						else	{

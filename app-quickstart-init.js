@@ -84,7 +84,7 @@ myApp.u.showProgress = function(progress)	{
 			//All pass zero resources have loaded.
 			//the app will handle hiding the loading screen.
 			myApp.router.init();//instantiates the router.
- 			myApp.u.appInitComplete();
+			myApp.u.appInitComplete();
 			}
 		else if(attempt > 150)	{
 			//hhhhmmm.... something must have gone wrong.

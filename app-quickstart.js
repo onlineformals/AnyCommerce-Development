@@ -42,7 +42,7 @@ var quickstart = function(_app) {
 			//CUSTOM TEMPLATES
 			'categoryProductListTemplate',
 			'testimonialsTemplate',
-	
+
 //the list of templates that, in most cases, are left alone. Also in the same order as appTemplates
 			'breadcrumbTemplate',
 			'companyTemplate',
@@ -221,7 +221,7 @@ document.write = function(v){
 						
 						_app.ext.quickstart.u.bindAppNav(); //adds click handlers for the next/previous buttons (product/category feature).
 	
-						//if(typeof _app.u.appInitComplete == 'function'){_app.u.appInitComplete()}; //gets run after app has been init
+//						if(typeof _app.u.appInitComplete == 'function'){_app.u.appInitComplete()}; //gets run after app has been init
 						_app.ext.quickstart.thirdParty.init();
 						
 						}}},"mutable"); //used to determine if user is logged in or not.
@@ -400,7 +400,8 @@ document.write = function(v){
 					}
 
 				tagObj.state = 'complete'; //needed for handleTemplateEvents.
-
+				_app.u.handleButtons(tagObj.jqObj);
+				_app.u.handleCommonPlugins(tagObj.jqObj);
 				_app.renderFunctions.handleTemplateEvents((tagObj.jqObj || $(_app.u.jqSelector('#',tagObj.parentID))),tagObj);
 				},
 			onError : function(responseData,uuid)	{
@@ -841,7 +842,7 @@ fallback is to just output the value.
 // will show price, then if the msrp is MORE than the price, it'll show that and the savings/percentage.
 			priceretailsavingsdifference : function($tag,data)	{
 				var o; //output generated.
-				var pData = _app.data['appProductGet|'+data.value]['%attribs'];
+				var pData = data.value;
 	//use original pdata vars for display of price/msrp. use parseInts for savings computation only.
 				var price = Number(pData['zoovy:base_price']);
 				var msrp = Number(pData['zoovy:prod_msrp']);
@@ -859,7 +860,7 @@ fallback is to just output the value.
 // will show price, then if the msrp is MORE than the price, it'll show that and the savings/percentage.
 			priceretailsavingspercentage : function($tag,data)	{
 				var o; //output generated.
-				var pData = _app.data['appProductGet|'+data.value]['%attribs'];
+				var pData = data.value;
 	//use original pdata vars for display of price/msrp. use parseInts for savings computation only.
 				var price = Number(pData['zoovy:base_price']);
 				var msrp = Number(pData['zoovy:prod_msrp']);
@@ -982,7 +983,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 // * changed from 'empty' to showLoading because empty could be a heavy operation if mainContentArea has a lot of content.
 							$('body').showLoading({'message':'Transferring to secure login'});							
 							var SSLlocation = _app.vars.secureURL+"?cartID="+_app.model.fetchCartID();
-							SSLlocation += "#!customer/"+infoObj.show;
+							SSLlocation += "#!customer/"+infoObj.show
 							_gaq.push(['_link', SSLlocation]); //for cross domain tracking.
 							document.location = SSLlocation; //redir to secure url.
 							}
@@ -2612,13 +2613,13 @@ buyer to 'take with them' as they move between  pages.
 					else if(catSafeID == zGlobals.appSettings.rootcat || infoObj.pageType == 'homepage')	{
 						infoObj.templateID = 'homepageTemplate'
 						}					
-						else if(myApp.ext._store_formals.vars.catTemplates[catSafeID]){
-							myApp.u.dump("category list template option selected");
-							infoObj.templateID = myApp.ext._store_formals.vars.catTemplates[catSafeID]
-						}
-						else{
-							myApp.u.dump("category default template option selected");
-							infoObj.templateID = 'categoryTemplate'
+					else if(myApp.ext._store_formals.vars.catTemplates[catSafeID]){
+             			myApp.u.dump("category list template option selected");
+              			infoObj.templateID = myApp.ext._store_formals.vars.catTemplates[catSafeID]
+            		}
+          			else{
+              			myApp.u.dump("category default template option selected");
+              			infoObj.templateID = 'categoryTemplate'
 					}
 					infoObj.state = 'init';
 					var parentID = infoObj.parentID || infoObj.templateID+'_'+_app.u.makeSafeHTMLId(catSafeID);
@@ -2889,7 +2890,7 @@ else	{
 				},
 	
 			cartShipMethodSelect : function($ele,P)	{
-				p.preventDefault();
+				P.preventDefault();
 				var $cart = $ele.closest("[data-template-role='cart']");
 				_app.ext.cco.calls.cartSet.init({'_cartid':$cart.data('cartid'),'want/shipping_id':$ele.val()},{},'immutable');
 				$cart.trigger('fetch',{'Q':'immutable'});

@@ -574,7 +574,7 @@ _app.u.throwMessage(responseData); is the default error handler.
 				rd._rtag.jqObj.anymessage(rd);
 				},
 			onSuccess : function(_rtag)	{
-//				_app.u.dump("BEGIN callbacks.anycontent"); _app.u.dump(_rtag);
+				_app.u.dump("BEGIN callbacks.anycontent"); // _app.u.dump(_rtag);
 				if(_rtag && _rtag.jqObj && typeof _rtag.jqObj == 'object')	{
 					
 					var $target = _rtag.jqObj; //shortcut
@@ -588,9 +588,9 @@ _app.u.throwMessage(responseData); is the default error handler.
 					
 					
 // use either delegated events OR app events, not both.
-//avoid using this. ### FUTURE -> get rid of these. the delegation should occur before here.
+//avoid using this. ### FUTURE -> get rid of these. the delegation should occur in the function that calls this. more control that way and things like dialogs being appendedTo a parent can be handled more easily.
 					if(_rtag.addEventDelegation)	{
-//						_app.u.dump(" ------> using delegated events in anycontent, not app events ");
+						_app.u.dump(" ------> using delegated events in anycontent, not app events ");
 						_app.u.addEventDelegation($target);
 						}
 					else if(_rtag.skipAppEvents)	{}
@@ -903,45 +903,45 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 				}
 			return uriParams;
 			},
-
 		init : function()	{
 			if($(document.body).data('isRouted'))	{} //only allow the router to get initiated once.
 			else	{
 				
- 				//initObj is a blank object by default, but may be updated outside this process. so instead of setting it to an object, it's extended to merge the two.
- 				$.extend(_app.router.initObj,{
- 					hash : location.hash,
- 					uriParams : _app.router.getURIParams(),
- 					hashParams : (location.hash.indexOf('?') >= 0 ? _app.u.kvp2Array(decodeURIComponent(location.hash.split("?")[1])) : {})
- 					});
- 				var routeObj = _app.router._getRouteObj(document.location.href,'init'); //strips out the #! and trailing slash, if present.
- 				if(routeObj)	{
- 					_app.router._executeCallback(routeObj);
- 					}
- 				else	{
- 					_app.u.dump(" -> Uh Oh! no valid route found for "+location.hash);
- 					//what to do here?
- 					}
- 		//this would get added at end of INIT. that way, init can modify the hash as needed w/out impacting.
- 				if (window.addEventListener) {
- 					console.log(" -> addEventListener is supported and added for hash change.");
- 					window.addEventListener("hashchange", _app.router.handleHashChange, false);
- 					$(document.body).data('isRouted',true);
- 					}
- 				//IE 8
- 				else if(window.attachEvent)	{
- 					//A little black magic here for IE8 due to a hash related bug in the browser.
- 					//make sure a hash is set.  Then set the hash to itself (yes, i know, but that part is key). Then wait a short period and add the hashChange event.
- 					window.location.hash = window.location.hash || '#!home'; //solve an issue w/ the hash change reloading the page.
- 					window.location.hash = window.location.hash;
- 					setTimeout(function(){
- 						window.attachEvent("onhashchange", _app.router.handleHashChange);
- 						},1000);
- 					$(document.body).data('isRouted',true);
- 					}
- 				else	{
- 					$("#globalMessaging").anymessage({"message":"Browser doesn't support addEventListener OR attachEvent.","gMessage":true});
- 					}
+				//initObj is a blank object by default, but may be updated outside this process. so instead of setting it to an object, it's extended to merge the two.
+				$.extend(_app.router.initObj,{
+					hash : location.hash,
+					uriParams : _app.router.getURIParams(),
+					hashParams : (location.hash.indexOf('?') >= 0 ? _app.u.kvp2Array(decodeURIComponent(location.hash.split("?")[1])) : {})
+					});
+				var routeObj = _app.router._getRouteObj(document.location.href,'init'); //strips out the #! and trailing slash, if present.
+				if(routeObj)	{
+					_app.router._executeCallback(routeObj);
+					}
+				else	{
+					_app.u.dump(" -> Uh Oh! no valid route found for "+location.hash);
+					//what to do here?
+					}
+		//this would get added at end of INIT. that way, init can modify the hash as needed w/out impacting.
+				if (window.addEventListener) {
+					console.log(" -> addEventListener is supported and added for hash change.");
+					window.addEventListener("hashchange", _app.router.handleHashChange, false);
+					$(document.body).data('isRouted',true);
+					}
+				//IE 8
+				else if(window.attachEvent)	{
+					//A little black magic here for IE8 due to a hash related bug in the browser.
+					//make sure a hash is set.  Then set the hash to itself (yes, i know, but that part is key). Then wait a short period and add the hashChange event.
+					window.location.hash = window.location.hash || '#!home'; //solve an issue w/ the hash change reloading the page.
+					window.location.hash = window.location.hash;
+					setTimeout(function(){
+						window.attachEvent("onhashchange", _app.router.handleHashChange);
+						},1000);
+					$(document.body).data('isRouted',true);
+					}
+				else	{
+					$("#globalMessaging").anymessage({"message":"Browser doesn't support addEventListener OR attachEvent.","gMessage":true});
+					}
+				
 				}
 			},
 	
@@ -1644,6 +1644,7 @@ URI PARAM
 	
 //turn a set of key value pairs (a=b&c=d) into an object. pass location.search.substring(1); for URI params or location.hash.substring(1) for hash based params
 			kvp2Array : function(s)	{
+				if(s.charAt(0) == '&')	{s = s.substring(1);} //regex below doesn't like the first char being an &.
 				var r = false;
 				if(s && s.indexOf('=') > -1)	{
 					r = s ? JSON['parse']('{"' + s.replace(/&/g, '","').replace(/=/g,'":"') + '"}',function(key, value) { return key===""?value:decodeURIComponent(value) }) : {};
