@@ -2934,8 +2934,52 @@ input[type=checkbox].filterCB:checked + label.break {
 
 .showroomTemplate{
 }
-.showroomTemplate div b{
-	Color:#E61652;
+.showroomTemplate h2{
+	text-align: center;
+}
+.showroomTemplate h2 b{
+	font-size: 40px;
+    font-weight: bold;
+	color: #E61652;
+}
+.showroomTemplate h3{
+	font-size: 18px;
+	font-weight: normal;
+}
+.showroomTemplate h3 b{
+	font-size: 18px;
+	font-weight: bold;
+}
+.showroomTemplate div.showroomLeftSection{
+	float: left;
+    margin-right: 60px;
+    width: 45%;
+}
+.showroomLeftSection h2{
+	color: #E61652;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: left;
+}
+.showroomLeftSection h3{
+	font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.showroomLeftSection p strong{
+}
+
+.showroomTemplate div.showroomRightSection{
+}
+.showroomRightSection h2{
+	margin-bottom: 15px;
+    text-align: left;
+}
+.showroomRightSection h2 strong{
+	color: #E61652;
+    font-size: 26px;
+    font-weight: bold;   
 }
 
 .showroomTemplate iframe{
