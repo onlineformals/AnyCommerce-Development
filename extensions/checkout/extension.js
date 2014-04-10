@@ -1942,9 +1942,10 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 						/*
 						$('.applyAnycb',$fieldset).each(function(){
 							$(this).anycb({text : {on : 'yes',off : 'no'}});
-							});
-							*/
+						});
+						*/
 						}
+						
 					
 					}
 				else	{

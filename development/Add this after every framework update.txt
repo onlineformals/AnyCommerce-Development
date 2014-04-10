@@ -20,7 +20,7 @@ becomes
 					}
 
 
-2. active.js:
+2. active.html in checkout folder:
 Add a centering container to the checkout form.
 
 3. cart_checkout_order.js:
