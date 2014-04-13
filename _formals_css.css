@@ -1903,7 +1903,7 @@ div.quickviewProductSizingChartModalLinkContainer{
 .productMfg{
 	color:#736a5b;
 }
-.productMfg span{
+.productMfgCont h5.productMfg a{
 	color:#e91454;
 	text-decoration:none;
 }
