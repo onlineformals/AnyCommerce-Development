@@ -26,7 +26,7 @@ For AddThis API docs, go here: http://support.addthis.com/customer/portal/articl
 
 */
 
-var partner_addthis = function(_app) {
+var partner_addthis = function() {
 	var r= {
 		
 		vars : {
@@ -44,84 +44,42 @@ var partner_addthis = function(_app) {
 		callbacks : {
 			init : {
 				onSuccess : function(){
-					/*
 					var scriptPath = (document.location.protocol == 'https:' ? 'https:' : 'http:')+'//s7.addthis.com/js/250/addthis_widget.js';
-					if(_app.ext.partner_addthis.vars.addthis_config.username && _app.ext.partner_addthis.vars.addthis_config.username !== ""){
-						scriptPath+= '#username='+_app.ext.partner_addthis.vars.addthis_config.username+'&domready';
+					if(app.ext.partner_addthis.vars.addthis_config.username && app.ext.partner_addthis.vars.addthis_config.username !== ""){
+						scriptPath+= '#username='+app.ext.partner_addthis.vars.addthis_config.username+'&domready';
 						}
 					else {
 						scriptPath += '#domready';
 						}
-					_app.u.loadScript(scriptPath);
+					app.u.loadScript(scriptPath);
 					
 					//This is an example of how to add an addthis toolbox to a product page
-					_app.rq.push(['templateFunction','productTemplate','onCompletes',function(infoObj){
-						var $context = $(_app.u.jqSelector('#',infoObj.parentID));
+					app.rq.push(['templateFunction','productTemplate','onCompletes',function(infoObj){
+						var $context = $(app.u.jqSelector('#',infoObj.parentID));
 						var $toolbox = $('.socialLinks', $context);
 						if($toolbox.hasClass('addThisRendered')){
 							//Already rendered, don't do it again.
 							}
 						else {
 							$toolbox.addClass('addThisRendered').append(
-									'<div id="socialLinks" class="addthis_toolbox addthis_default_style">'
-								+		'<a class="addthis_button_preferred_1"></a>'
-								+		'<a class="addthis_button_preferred_2"></a>'
-								+		'<a class="addthis_button_preferred_3"></a>'
-								+		'<a class="addthis_button_preferred_4"></a>'
-								+		'<a class="addthis_button_compact"></a>'
-								+	'</div>');
+							'<div id="socialLinks" class="addthis_toolbox addthis_default_style addthis_32x32_style">'
+					+		'<a class="addthis_button_preferred_1"></a>'
+					+		'<a class="addthis_button_preferred_2"></a>'
+					+		'<a class="addthis_button_preferred_3"></a>'
+					+		'<a class="addthis_button_preferred_4"></a>'
+					+		'<a class="addthis_button_compact"></a>'
+					+		'</div>');
+
 							
-							_app.ext.partner_addthis.u.toolbox($toolbox, infoObj);
+							app.ext.partner_addthis.u.toolbox($toolbox, infoObj);
 							}
 						}]);
 					return true;
-					*/
 				},
 				onError : function() {
-					_app.u.dump('BEGIN _app.ext.partner_addthis.callbacks.init.onError');
+					app.u.dump('BEGIN app.ext.partner_addthis.callbacks.init.onError');
 				}
-			},
- 			
- 			
- 			startExtension : {
- 				onSuccess : function(){
- 					dump("BEGIN _app.ext.partner_addthis.callbacks.startExtension.onSuccess");
- 					var scriptPath = (document.location.protocol == 'https:' ? 'https:' : 'http:')+'//s7.addthis.com/js/250/addthis_widget.js';
- 					if(_app.ext.partner_addthis.vars.addthis_config.username && _app.ext.partner_addthis.vars.addthis_config.username !== ""){
- 						scriptPath+= '#username='+_app.ext.partner_addthis.vars.addthis_config.username+'&domready';
- 						}
- 					else {
- 						scriptPath += '#domready';
- 					}
- 					_app.u.loadScript(scriptPath);
- 					
- 					//This is an example of how to add an addthis toolbox to a product page
- 					_app.templates.productTemplate.on('complete.formals',function(event,$context,infoObj){
- 						var $context = $(_app.u.jqSelector('#',infoObj.parentID));
- 						var $toolbox = $('.socialLinks', $context);
- 						if($toolbox.hasClass('addThisRendered')){
- 							//Already rendered, don't do it again.
- 							}
- 						else {
- 							$toolbox.addClass('addThisRendered').append(
- 									'<div id="socialLinks" class="addthis_toolbox addthis_default_style addthis_32x32_style">'
-							+		'<a class="addthis_button_preferred_1"></a>'
-							+		'<a class="addthis_button_preferred_2"></a>'
-							+		'<a class="addthis_button_preferred_3"></a>'
-							+		'<a class="addthis_button_preferred_4"></a>'
-							+		'<a class="addthis_button_compact"></a>'
-							+		'</div>');
- 							
- 							_app.ext.partner_addthis.u.toolbox($toolbox, infoObj);
- 							}
- 						});
- 						return true;
-					}
- 				},
- 				onError : function() {
- 					_app.u.dump('BEGIN _app.ext.partner_addthis.callbacks.startExtension.onError');
- 				}
-
+			}
 		},
 		
 	u : {
@@ -130,8 +88,8 @@ var partner_addthis = function(_app) {
 			
 			var call = 'toolbox';
 			var target = $tags.get();
-			var configObj = _app.ext.partner_addthis.vars.addthis_config;
-			var sharingObj = _app.ext.partner_addthis.u.buildSharingObj(infoObj);
+			var configObj = app.ext.partner_addthis.vars.addthis_config;
+			var sharingObj = app.ext.partner_addthis.u.buildSharingObj(infoObj);
 			
 			this.callAddThis(call, target, configObj, sharingObj);
 			},
@@ -139,8 +97,8 @@ var partner_addthis = function(_app) {
 			
 			var call = 'button';
 			var target = $tags.get();
-			var configObj = _app.ext.partner_addthis.vars.addthis_config;
-			var sharingObj = _app.ext.partner_addthis.u.buildSharingObj(infoObj);
+			var configObj = app.ext.partner_addthis.vars.addthis_config;
+			var sharingObj = app.ext.partner_addthis.u.buildSharingObj(infoObj);
 			
 			this.callAddThis(call, target, configObj, sharingObj);
 			},
@@ -148,8 +106,8 @@ var partner_addthis = function(_app) {
 			
 			var call = 'counter';
 			var target = $tags.get();
-			var configObj = _app.ext.partner_addthis.vars.addthis_config;
-			var sharingObj = _app.ext.partner_addthis.u.buildSharingObj(infoObj);
+			var configObj = app.ext.partner_addthis.vars.addthis_config;
+			var sharingObj = app.ext.partner_addthis.u.buildSharingObj(infoObj);
 			
 			this.callAddThis(call, target, configObj, sharingObj);
 			},
@@ -161,10 +119,10 @@ var partner_addthis = function(_app) {
 				}
 			else {
 				if(attempts > 40){
-					_app.u.dump("ADDTHIS FAILED "+call);
+					app.u.dump("ADDTHIS FAILED "+call);
 					}
 				else {
-					setTimeout(function(){_app.ext.partner_addthis.u.callAddThis(call, target,configObj, sharingObj, attempts+1);}, 250);
+					setTimeout(function(){app.ext.partner_addthis.u.callAddThis(call, target,configObj, sharingObj, attempts+1);}, 250);
 					}
 				}
 			},
@@ -174,23 +132,23 @@ var partner_addthis = function(_app) {
 			// http://support.addthis.com/customer/portal/articles/381263-addthis-client-api#configuration-sharing
 			// By default only url, title, and description are supported.
 			sharingObj = {
-				url : (document.location.protocol === "https:" ? zGlobals.appSettings.https_app_url : zGlobals.appSettings.http_app_url)+ _app.ext.quickstart.u.buildRelativePath(infoObj),
-				title : _app.ext.partner_addthis.vars.titlePrefix || "",
-				description : _app.ext.partner_addthis.vars.defaultDesc || ""
+				url : (document.location.protocol === "https:" ? zGlobals.appSettings.https_app_url : zGlobals.appSettings.http_app_url)+ app.ext.myRIA.u.buildRelativePath(infoObj),
+				title : app.ext.partner_addthis.vars.titlePrefix || "",
+				description : app.ext.partner_addthis.vars.defaultDesc || ""
 				};
 				
-			var data = _app.ext.quickstart.u.getDataFromInfoObj(infoObj);
+			var data = app.ext.myRIA.u.getDataFromInfoObj(infoObj);
 			switch(infoObj.pageType){
 				case "product" :
-					if(_app.ext.partner_addthis.vars.setTitle){
+					if(app.ext.partner_addthis.vars.setTitle){
 						sharingObj.title += data['%attribs']['zoovy:prod_name'];
 						}
-					if(_app.ext.partner_addthis.vars.setDesc){
+					if(app.ext.partner_addthis.vars.setDesc){
 						sharingObj.description = data['%attribs']['zoovy:prod_desc'];
 						}
 					break;
 				case "category" :
-					if(_app.ext.partner_addthis.vars.setTitle){
+					if(app.ext.partner_addthis.vars.setTitle){
 						sharingObj.title += data.pretty;
 						}
 					break;
