@@ -3653,7 +3653,7 @@ subscribeListsArticle is used for authenticated buyers
                         <div id="gotAccount1"> 
                                 <h1 class='smallcaps'>ALREADY HAVE AN ACCOUNT?</h1>
                                 <!-- Third parameter is id of message destination -->
-                                <form action='#' onSubmit='myApp.ext._store_formals.a.loginFrmSubmit($("input[name=login]",$(this)).val(),$("input[name=password]",$(this)).val(),$("#loginMessagingInline")); return false;' id='modalLoginForm1'>
+                                <form action='#' data-app-submit="_store_formals|accountLoginSubmit" id='modalLoginForm1'>
                                         <input type='hidden' name='loginCallback' id='loginCallback' value='' /><!-- used to save a callback action in -->
                                         <fieldset>
                                                 <input type='email' class='zform_textbox zform_email' name='login' id='modalLoginLogin' value='' size='39' placeholder='E-mail address' />

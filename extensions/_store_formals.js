@@ -139,6 +139,21 @@ var _store_formals = function(_app) {
 			},
 		},
 		
+		calls : {
+
+		appBuyerCreate : {
+			init : function(obj,_tag)	{
+				this.dispatch(obj,_tag);
+				return 1;
+				},
+			dispatch : function(obj,_tag){
+				obj._tag = _tag || {};
+				obj._cmd = "appBuyerCreate";
+				_app.model.addDispatchToQ(obj,'immutable');
+				}
+			} //appBuyerCreate
+		},
+		
 		callbacks : {
 			init : {
 				onSuccess : function(){
@@ -1109,7 +1124,9 @@ var _store_formals = function(_app) {
 						}
 						
 						formObj._vendor = "onlineformals";
-						_app.calls.appBuyerCreate.init(formObj,tagObj,'immutable');
+						dump("formObj = ");
+						dump(formObj);
+						_app.ext._store_formals.calls.appBuyerCreate.init(formObj,tagObj);
 						_app.model.dispatchThis('immutable');
 				}
 				else {
@@ -1250,6 +1267,27 @@ var _store_formals = function(_app) {
 			}, //currencymsrp
 			
 		},
+		
+		e : {
+			//add this as a data-app-submit to the login form.
+			accountLoginSubmit : function($ele,p)	{
+				p.preventDefault();
+				if(_app.u.validateForm($ele))	{
+					var sfo = $ele.serializeJSON();
+					_app.ext.cco.calls.cartSet.init({"bill/email":sfo.login,"_cartid":_app.model.fetchCartID()}) //whether the login succeeds or not, set bill/email in the cart.
+					sfo._cmd = "appBuyerLogin";
+					sfo.method = 'unsecure';
+					sfo._tag = {"datapointer":"appBuyerLogin",'callback':'authenticateBuyer','extension':'quickstart'}
+					_app.model.addDispatchToQ(sfo,"immutable");
+					_app.calls.refreshCart.init({},'immutable'); //cart needs to be updated as part of authentication process.
+					_app.model.dispatchThis('immutable');
+					showContent('customer',{'show':'myaccount'});
+					}
+				else	{} //validateForm will handle the error display.
+				return false;
+				},
+		},
+		
 		tlcFormats : {
 			//currencyprodlist : function(argObj,globals)	{
 			currencyprodlist : function(data,thisTLC)	{
