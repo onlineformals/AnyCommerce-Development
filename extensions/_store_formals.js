@@ -347,7 +347,7 @@ var _store_formals = function(_app) {
 							auto : false,
 						});
 						}
-						$(".loadingBG", ".hpProductListCarouselContainer").remove();
+						//$(".loadingBG", ".hpProductListCarouselContainer").remove();
 						//_app.u.dump("loadingBG has been removed from bottom carousel");
 						
 						setTimeout(carouselHPProductList, 2000);
