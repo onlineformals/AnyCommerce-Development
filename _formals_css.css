@@ -1930,7 +1930,7 @@ div.quickviewProductSizingChartModalLinkContainer{
 
 .prodViewerAddToCartForm {
 	float: left;
-	width:250px;
+	width:440px;
 }
 .prodViewerAddToCartForm input.addToCartButton {
 	background: none repeat scroll 0 0 #E61652;
@@ -1951,7 +1951,6 @@ div.quickviewProductSizingChartModalLinkContainer{
 	color: #E91454;
     float: left;
     font-size: 13px;
-    margin-top: 32px;
     text-decoration: underline;
     width: 165px;
 	cursor: pointer;
@@ -2029,6 +2028,7 @@ div.prodSummaryContainer div.priceContainer div.savings{
 
 .variation{
 	width:255px;
+	float:left;
 }
 
 

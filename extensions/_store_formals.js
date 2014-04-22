@@ -927,10 +927,6 @@ var _store_formals = function(_app) {
 					
 					
 					_app.templates.productTemplateQuickView.on('complete.formals',function(event,$context,infoObj){
-						
-						//var $context = $(_app.u.jqSelector('#',infoObj.parentID));
-						
-						
 						if($(".variation_D5", $context).length){
 							//_app.u.dump(".variation_D5 exists. Adding sizing chat link");
 							$(".variation_D5", $context).after("<div class='productSizingChartModalLinkContainer quickviewProductSizingChartModalLinkContainer'>"
@@ -940,8 +936,22 @@ var _store_formals = function(_app) {
 						else{
 							//_app.u.dump(".variation_D5 does not exists. Doing nothing");
 						}
-						
+					});
 					
+					_app.templates.productTemplate.on('complete.formals',function(event,$context,infoObj){
+						if($(".variation_D5", $context).length){
+							if($(".productSizingChartModalLinkContainer", $context).length){
+							}
+							else{
+								//_app.u.dump(".variation_D5 exists. Adding sizing chat link");
+								$(".variation_D5", $context).after("<div class='productSizingChartModalLinkContainer'>"
+								+ "<a onClick=\"$('#SizingChartTemplate').dialog({'modal':'true', 'title':'','width':825, height:700, 'dialogClass' : 'SizingChartModal'});\"> Need help with your size?</a>"
+								+ "</div>");
+							}
+						}
+						else{
+							//_app.u.dump(".variation_D5 does not exists. Doing nothing");
+						}
 					});
 					
 					
