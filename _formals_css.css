@@ -2327,6 +2327,11 @@ div.ui-dialog-titlebar span.ui-dialog-title{
     width: 100%;
 }
 
+.cartTemplateShippingContainer ul li label{
+	font-size: 14px;
+	letter-spacing: -0.5px;
+}
+
 .cartAltButtonsContainer{
 }
 div.cartButtons span.continueShoppingSpan button.continueShoppingButton{
