@@ -1218,7 +1218,7 @@ var _store_formals = function(_app) {
 			//dump(data);
 			//dump($tag);
 			
-			var r = "Our price: $"+data.value;
+			var r = "<span class='pricePrefix'>Our price:</span> $"+data.value;
 			//dump(r);
 			var cents = r.split(".")
 			//dump(cents[1]);
@@ -1239,13 +1239,12 @@ var _store_formals = function(_app) {
 			$tag.append(r);
 			}, //currencyprodlist
 			
-			
-			currencymsrp : function($tag,data)	{
+			cartcurrency : function($tag,data)	{
 			//dump("Begin currency product list format");
 			//dump(data);
 			//dump($tag);
 			
-			var r = "MSRP: $"+data.value;
+			var r = "$"+data.value;
 			//dump(r);
 			var cents = r.split(".")
 			//dump(cents[1]);
@@ -1264,7 +1263,80 @@ var _store_formals = function(_app) {
 			}
 			//dump(r);
 			$tag.append(r);
-			}, //currencymsrp
+			}, //cartcurrency
+			
+			currencymsrp : function($tag,data)	{
+					//dump("Begin currency product list format");
+					//dump(data);
+					//dump($tag);
+					
+					var r = "<span class='msrpPrefix'>MSRP:</span> $"+data.value;
+					//dump(r);
+					var cents = r.split(".")
+					//dump(cents[1]);
+					if(cents[1] == undefined){
+						//dump ("No cents present. Add a .00")
+						r = r + "<span class='cents'>.00</span>";
+					}
+					else if(cents[1].length === 1){
+						//dump(cents[1].length);
+						//dump ("cents only has one value. Adding a zero.")
+						var pricePieces = r.split(".");
+						r = pricePieces[0] + "<span class='cents'>.00</span>";
+					}
+					else if(cents[1] == ""){
+						//dump("Price value has a decimal but no cent values. Fixing this shenanigans");
+						var pricePieces = r.split(".");
+						r = pricePieces[0] + "<span class='cents'>.00</span>";
+					}
+					//dump(r);
+					$tag.append(r);
+				}, //currencymsrp
+				
+				priceretailsavingsdifferenceprodlistitem : function($tag,data)	{
+				var o; //output generated.
+				dump(data);
+				var pData = _app.data['appProductGet|'+data.value]['%attribs'];
+	//use original pdata vars for display of price/msrp. use parseInts for savings computation only.
+				var price = Number(pData['zoovy:base_price']);
+				var msrp = Number(pData['zoovy:prod_msrp']);
+				if(price > 0 && (msrp - price > 0))	{
+					o = _app.u.formatMoney(msrp-price,'$',2,true)
+					o = "You save: " + o;
+					$tag.append(o);
+					}
+				else	{
+					$tag.hide(); //if msrp > price, don't show savings because it'll be negative.
+					}
+				}, //priceRetailSavings
+				
+				priceretailsavingspercentageprodlistitem : function($tag,data)	{
+				var o; //output generated.
+				var pData = _app.data['appProductGet|'+data.value]['%attribs'];
+	//use original pdata vars for display of price/msrp. use parseInts for savings computation only.
+				var price = Number(pData['zoovy:base_price']);
+				var msrp = Number(pData['zoovy:prod_msrp']);
+				if(price > 0 && (msrp - price > 0))	{
+					var savings = (( msrp - price ) / msrp) * 100;
+					o = savings.toFixed(0)+'%';
+					o = "(" + o + ")";
+					$tag.append(o);
+					}
+				else	{
+					$tag.hide(); //if msrp > price, don't show savings because it'll be negative.
+					}
+				}, //priceRetailSavings	
+				
+				showhidearea : function($tag,data)	{
+					//dump("showHideCategoryVideo data object = ");
+					//dump(data);
+					if(data.value == null || data.value == ""){
+						$tag.hide();
+					}
+					else{
+						$tag.show();
+					}	
+				}//showhidearea
 			
 		},
 		

@@ -112,6 +112,9 @@ progress::-moz-progress-bar { background: #E61652; }
 	text-decoration: none;
 	font-weight: 500;
 }
+.headerLoginLink h5 a:first-of-type{
+	margin-left: 5px;
+}
 
 .headerCartLink{
 	height: 100%;
@@ -422,7 +425,7 @@ progress::-moz-progress-bar { background: #E61652; }
 	width:330px;
 	height:100%;
 	float:left;
-	margin-top:27px;
+	margin-top:13px;
 }
 .footNewsTextCont p{
 	color: white;
@@ -431,7 +434,7 @@ progress::-moz-progress-bar { background: #E61652; }
 }
 .footNewsTextCont h3{
 	color: white;
-    margin-top: -15px;
+    margin-top: -17px;
     text-align: right;
 }
 
@@ -439,7 +442,7 @@ progress::-moz-progress-bar { background: #E61652; }
 	float: left;
     height: 55px;
     margin-left: 120px;
-    margin-top: 30px;
+    margin-top: 35px;
 }
 .footNewsSignupCont div#subscribeFrm{
 }
@@ -1908,9 +1911,7 @@ div.quickviewProductSizingChartModalLinkContainer{
 	text-decoration:none;
 }
 
-.priceContainer h4{
-	color:#736a5b;
-}
+
 
 .productPriceText{
 	color: #E91454;
@@ -1929,7 +1930,7 @@ div.quickviewProductSizingChartModalLinkContainer{
 
 .prodViewerAddToCartForm {
 	float: left;
-	width:240px;
+	width:250px;
 }
 .prodViewerAddToCartForm input.addToCartButton {
 	background: none repeat scroll 0 0 #E61652;
@@ -1992,14 +1993,34 @@ div.quickviewProductSizingChartModalLinkContainer{
 	float: left;
 }
 
+.productPriceText{
+	color: #E91454;
+}
+.productPriceText span.pricePrefix{
+	color: #736A5B;
+}
+
 .prodMSRP{
 	color: #736A5B;
     font-size: 14px;
 	text-decoration: line-through;
 }
+.prodTempProdMSRP{
+	color: #E91454;
+}
+.prodTempProdMSRP span.msrpPrefix{
+	color: #736A5B;
+}
 .savings{
 	color: #E91454;
-    font-weight: 600;
+    font-size: 11px;
+    font-weight: normal;
+    margin-top: -3px;
+}
+div.prodSummaryContainer div.priceContainer div.savings{
+	color: #E91454;
+    font-size: 16px;
+    font-weight: bold;
 }
 .savings span.savingsDifference{
 }
@@ -3061,6 +3082,9 @@ div.quickviewProductSharingLinkContainer{
 
 .QuickviewTabContentSizingChart{
 	margin-left: -195px;
+}
+
+div.quickviewProductSharingLinkContainer a{
 }
 
 }

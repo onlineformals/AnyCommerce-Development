@@ -502,7 +502,7 @@ $(document).ready(function(){
 					-->
 				</div>
 				<div class="footerBottomNote">
-					<p>Online Formals Inc. Copyright &#169; 2013. All Rights Reserved.</p>
+					<p>Online Formals, Inc. Copyright &#169; 2014. All Rights Reserved.</p>
 				</div>
 			</div>
 		</div>
@@ -938,10 +938,10 @@ don't modify the 'data-templateid' unless you are changing template names and up
 		<div class="showroomLeftSection">
 			<h2>How it Works</h2>
 			<h3>1. Book your Appointment</h3>
-			<h3>2. Before your Appointment</h3>
-			<p><strong>Call</strong> 888-280-4179 or<br>
+            <p><strong>Call</strong> 888-280-4179 or<br>
 				<strong>Email</strong> <a href="appointments@onlineformals.com">appointments@onlineformals.com</a>
 			</p>
+			<h3>2. Before your Appointment</h3>
 			<p>We encourage you to review our website and in stock section prior to your arrival. We can prepare your dressing room with in-stock styles you choose beforehand, or you can do all of your shopping when you arrive--the choice is yours!</p>
 			<h3>3. What to Expect</h3>
 			<p>The typical special occasion appointment lasts one hour. We are currently booking only one appointment at a time, so the showroom is all yours--we want your experience to be as special as your event!</p>
@@ -1013,10 +1013,11 @@ remember to NOT put the button inside the 'onclick' container or two events will
 						<h6 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{_store_formals#currencyprodlist --legacy; apply --append;}};"></h6>
                 
 						<h5 class='prodListItemProdMSRP prodMSRP' data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;) {{_store_formals#currencymsrp --legacy; apply --append;}};"></h5>
-                		<span class="prodListItemSavings savings">
-					<span class="displayNone" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if(is $var --notblank;) {{ apply --show; }};">You save: </span><span data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --legacy; apply --append;" class="savingsDifference"></span>
-                <span class="displayNone" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if(is $var --notblank;) {{ apply --show; }};"> (</span><span data-tlc="bind $var '.pid'; quickstart#priceretailsavingspercentage  --legacy; apply --append;" class="savingsPercentage"></span><span class="displayNone" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if(is $var --notblank;) {{ apply --show; }};">)</span>
-				</span>
+                        <div class="displayNone savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;)  {{_store_formals#showhidearea  --legacy}};">                	
+                           <div data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --currencysign='$' --hidezero='true' --legacy;" class="savings"></div>
+                           <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingsdifferenceprodlistitem  --legacy; apply --append;" class="savingsDifference"></span>
+                           <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingspercentageprodlistitem  --legacy; apply --append;" class="savingsPercentage"></span>
+                        </div>
 
 			</div>
             		<div class="productItemInfoMoreInfo"><h1>MORE DETAILS</h1></div>
@@ -1343,12 +1344,13 @@ this will likely become more flexible in the future. ###
                 </div>
 
                 <div class='priceContainer marginBottom'>
-                    <h4 class="basePrice displayNone" data-tlc="bind $var '.%attribs.zoovy:base_price'; if(is $var --notblank;) {{ apply --show; }};">Our Price: <span class="productPriceText" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{format --currency='USD'; apply --append;}};"></span></h4>
-                    <h5 data-tlc="bind $var '.%attribs.zoovy:prod_msrp';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='MSRP: ';  apply --append;}};" class="prodMSRP"></h5>
-			<span class="savings">
-				<span class="displayNone" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if(is $var --notblank;) {{ apply --show; }};">You save: </span><span data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --legacy; apply --append;" class="savingsDifference"></span>
-                <span class="displayNone" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if(is $var --notblank;) {{ apply --show; }};"> (</span><span data-tlc="bind $var '.pid'; quickstart#priceretailsavingspercentage  --legacy; apply --append;" class="savingsPercentage"></span><span class="displayNone" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if(is $var --notblank;) {{ apply --show; }};">)</span>
-			</span>
+					<h4 class="productPriceText" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{_store_formals#currencyprodlist --legacy; apply --append;}};"></h4>
+                    <h5 class='prodTempProdMSRP prodMSRP' data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;) {{_store_formals#currencymsrp --legacy; apply --append;}};"></h5>
+			<div class="displayNone savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;)  {{_store_formals#showhidearea  --legacy}};">                	
+			   <div data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --currencysign='$' --hidezero='true' --legacy;" class="savings"></div>
+			   <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingsdifferenceprodlistitem  --legacy; apply --append;" class="savingsDifference"></span>
+			   <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingspercentageprodlistitem  --legacy; apply --append;" class="savingsPercentage"></span>
+			</div>
                 </div>
                 <div class="productDescriptionContainer" data-tlc="bind $var '.%attribs.zoovy:prod_desc'; if (is $var --notblank;) {{render --wiki='quickstart'; apply --append;}};"></div>
                 
@@ -1378,8 +1380,8 @@ this will likely become more flexible in the future. ###
                 <div class="socialLinks"></div>
 
                 <table class="marginBottom fullWidth gridTable" data-app-role="childrenSiblingsContainer">
-			<tbody data-tlc="bind $var '.%attribs.zoovy:grp_children'; store_prodlist#productlist  --hidesummary='true' --withInventory='1' --withVariations='1' --templateid='productListTemplateChildren'  --legacy; apply --append;"></tbody>
-		</table>
+					<tbody data-tlc="bind $var '.%attribs.zoovy:grp_children'; store_prodlist#productlist  --hidesummary='true' --withInventory='1' --withVariations='1' --templateid='productListTemplateChildren'  --legacy; apply --append;"></tbody>
+				</table>
                 <!--
                 <div data-bind="var: product(user:youtube_videoid); format: assignAttribute; attribute: data-youtubeid;">
                     <p data-bind="var: product(user:youtube_videoid); format:text;"></p>
@@ -1664,19 +1666,20 @@ this will likely become more flexible in the future. ###
                 
                 <img class="productAuthSeal" src="Images/productpage/authorizedseal2.png" />
 
-                <div class='marginBottom productMfgCont'>
+                <div class='marginBottom'>
                     <!--<h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Sku: '; apply --append;}};" class="stid"></h5>-->
                     <h5 class="productMfg displayNone" data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{ apply --show; }};">By: <a href='#' data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{apply --append; format --prepend='#!search/keywords/'; apply --attrib='href';}};"></a></h5>
                     <!--<h5 data-tlc="bind $var '.%attribs.zoovy:prod_mfgid';  if (is $var --notblank;) {{format --prepend='Mfg ID: '; apply --append;}};"></h5>-->
                 </div>
 
                 <div class='priceContainer marginBottom'>
-                    <h4 class="basePrice displayNone" data-tlc="bind $var '.%attribs.zoovy:base_price'; if(is $var --notblank;) {{ apply --show; }};">Our Price: <span class="productPriceText" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{format --currency='USD'; apply --append;}};"></span></h4>
-                    <h5 data-tlc="bind $var '.%attribs.zoovy:prod_msrp';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='MSRP: ';  apply --append;}};" class="prodMSRP"></h5>
-			<span class="savings">
-				<span class="displayNone" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if(is $var --notblank;) {{ apply --show; }};">You save: </span><span data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --legacy; apply --append;" class="savingsDifference"></span>
-                <span class="displayNone" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if(is $var --notblank;) {{ apply --show; }};"> (</span><span data-tlc="bind $var '.pid'; quickstart#priceretailsavingspercentage  --legacy; apply --append;" class="savingsPercentage"></span><span class="displayNone" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if(is $var --notblank;) {{ apply --show; }};">)</span>
-			</span>
+					<h4 class="productPriceText" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{_store_formals#currencyprodlist --legacy; apply --append;}};"></h4>
+                    <h5 class='prodTempProdMSRP prodMSRP' data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;) {{_store_formals#currencymsrp --legacy; apply --append;}};"></h5>
+					<div class="displayNone savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;)  {{_store_formals#showhidearea  --legacy}};">                	
+					   <div data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --currencysign='$' --hidezero='true' --legacy;" class="savings"></div>
+					   <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingsdifferenceprodlistitem  --legacy; apply --append;" class="savingsDifference"></span>
+					   <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingspercentageprodlistitem  --legacy; apply --append;" class="savingsPercentage"></span>
+					</div>
                 </div>
                 <div class="productDescriptionContainer" data-tlc="bind $var '.%attribs.zoovy:prod_desc'; if (is $var --notblank;) {{render --wiki='quickstart'; apply --append;}};"></div>
                 
@@ -1689,13 +1692,7 @@ this will likely become more flexible in the future. ###
 			<!--<input type='submit' value='ADD TO BAG' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;'  />-->
                 </form>
                 
-                <!--
-                <div class="productSizingChartModalLinkContainer">
-                	<a onClick="$('#SizingChartTemplate').dialog({'modal':'true', 'title':'','width':825, height:700, 'dialogClass' : 'SizingChartModal'});"> Need help with your size?</a>
-                </div>
-                -->
-                
-                <div class="productSharingLinkContainer productSharingLinkContainerQuickview">
+                <div class="productSharingLinkContainer quickviewProductSharingLinkContainer">
                     <a href="#" data-app-click="quickstart|productAdd2List" data-listid="wishlist">Add to Wishlist</a>
                     <p> | </p>
                     <a target="_blank" onclick="javascript:window.open('mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: ' + window.location);">Tell a friend</a> <!-- onclick="javascript:window.location='mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: ' + window.location;">Tell a friend</a>-->
@@ -1708,8 +1705,8 @@ this will likely become more flexible in the future. ###
                 <div class="socialLinks"></div>
 
                 <table class="marginBottom fullWidth gridTable" data-app-role="childrenSiblingsContainer">
-			<tbody data-tlc="bind $var '.%attribs.zoovy:grp_children'; store_prodlist#productlist  --hidesummary='true' --withInventory='1' --withVariations='1' --templateid='productListTemplateChildren'  --legacy; apply --append;"></tbody>
-		</table>
+					<tbody data-tlc="bind $var '.%attribs.zoovy:grp_children'; store_prodlist#productlist  --hidesummary='true' --withInventory='1' --withVariations='1' --templateid='productListTemplateChildren'  --legacy; apply --append;"></tbody>
+				</table>
                 <!--
                 <div data-bind="var: product(user:youtube_videoid); format: assignAttribute; attribute: data-youtubeid;">
                     <p data-bind="var: product(user:youtube_videoid); format:text;"></p>
@@ -1757,7 +1754,7 @@ this will likely become more flexible in the future. ###
                             <li class='prodSizeChartTab'><a href='#prodSizeChart'>SIZE CHART</a></li>
                             <li class='prodReviewsTab'><a href='#prodReviews'>REVIEWS</a></li>
                             <li data-tlc="bind $var '.%attribs.zoovy:accessory_products'; if(is $var --notblank) {{ apply --show; }};" class="prodAccessoriesTab displayNone"><a href="#prodAccessories">Accessories</a></li>
-                            <li data-tlc="bind $var '.%attribs.youtube:videoid'; if(is $var --notblank) {{ apply --show; }};" class="prodVideoTab displayNone"><a href="#prodVideo">Video</a></li>
+                            <li class="prodVideoTab"><a href="#prodVideo">VIDEOS</a></li>
                         </ul>
                     
                         <!--
@@ -1797,18 +1794,21 @@ this will likely become more flexible in the future. ###
                         </div>
                         
                         <div class='tabContent' data-anytab-content='prodVideo'>
-                        	<div data-tlc="bind $var '.%attribs.user:youtube_videoid'; if(is $var --notblank) {{ apply --show; }};">
-                            	<div data-tlc="bind $var '.%attribs.user:vimeo_videoid'; if(is $var --notblank) {{ apply --show; }};">
+                        	<div data-tlc="bind $var '.%attribs.user:youtube_videoid'; if(is $var --notblank;) {{ apply --hide; }}; if (is $var --notblank;) {{apply --append;}};">
+                            	<div data-tlc="bind $var '.%attribs.user:vimeo_videoid'; if(is $var --notblank;) {{ apply --hide; }}; if (is $var --notblank;) {{apply --append;}};">
                                 	<p>No videos have been uploaded for this product yet.</p>
                                 </div>
                             </div>
-                        	<div data-tlc="bind $var '.%attribs.user:youtube_videoid'; apply --attrib='data-youtubeid';">
-                                <img class="pointer" src="blank.gif" tlc="bind $var '.%attribs.user:youtube_videoid'; quickstart#youtubeThumbnail apply --append;" onClick="myApp.ext.myRIA.a.showYoutubeInModal($(this).parent().data('youtubeid')); return false;" alt="" />
+							<div class="displayNone" data-tlc="bind $var '.%attribs.user:youtube_videoid'; if(is $var --notblank;) {{ apply --show; }}; if (is $var --notblank;) {{apply --append;}};">
+								<div data-tlc="bind $var '.%attribs.user:youtube_videoid'; apply --attrib='data-youtubeid'; ">
+									<img data-tlc="bind $var '.%attribs.user:youtube_videoid'; quickstart#youtubethumbnail  --legacy;" class="pointer" src="blank.gif" onclick="myApp.ext.quickstart.a.showYoutubeInModal($(this).parent().data('youtubeid')); return false;" alt="" />
+								</div>
                             </div>
-                            <div data-tlc="bind $var '.%attribs.user:vimeo_videoid'; apply --attrib='data-vimeoid';">
-                            	<div data-tlc="bind $var '.%attribs.user:vimeo_videoid'; _store_formals#vimeoVideo apply --append;"></div>
-                            </div>
-                     
+							<div class="displayNone" data-tlc="bind $var '.%attribs.user:vimeo_videoid'; if(is $var --notblank;) {{ apply --show; }}; if (is $var --notblank;) {{apply --append;}};">
+								<div data-tlc="bind $var '.%attribs.user:vimeo_videoid'; apply --attrib='data-vimeoid'; ">
+									<div data-tlc="bind $var '.%attribs.user:vimeo_videoid'; _store_formals#vimeovideo  --legacy;"></div>
+								</div>
+							</div>
                         </div>
                         
                     </div>
@@ -2232,14 +2232,16 @@ this will likely become more flexible in the future. ###
                 <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>FAVIANA GLAMOUR</b></font></center><a onClick="myApp.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
                                 <TR bgcolor="#FFFFFF">
                 <TD><b>Size</b></TD>
-                <td>0</td>
+                <td>00</td>
+				<td>0</td>
                 <td>2</td>
                 <td>4</td>
                 <td>6</td>
                 <td>8</td>
                 <td>10</td>
                 <td>12</td>
-                <td>14</td></TR>
+                <td>14</td>
+				<td>16</td></TR>
                 <TR bgcolor="#f2f2f2">
                 <TD><b>Bust</b></TD>
                 <td>31.5</td>
@@ -2249,27 +2251,33 @@ this will likely become more flexible in the future. ###
                 <td>35.5</td>
                 <td>36.5</td>
                 <td>37.5</td>
-                <td>38.5</td></TR>
+                <td>39</td>
+				<td>40.5</td>
+				<td>42</td></TR>
                 <TR bgcolor="#FFFFFF">
                 <TD><b>Waist</b></TD>
-                <td>23</td>
-                <td>24</td>
-                <td>25</td>
-                <td>26</td>
-                <td>27</td>
-                <td>28</td>
-                <td>29</td>
-                <td>30</td></TR>
+                <td>24.5</td>
+                <td>25.5</td>
+                <td>26.5</td>
+                <td>27.5</td>
+                <td>28.5</td>
+                <td>29.5</td>
+                <td>30.5</td>
+                <td>32</td>
+				<td>33.5</td>
+				<td>35</td></TR>
                 <TR bgcolor="#f2f2f2">
                 <TD><b>Hip</b></TD>
-                <td>35.5</td>
+                <td>34.5</td>
+				<td>35.5</td>
                 <td>36.5</td>
                 <td>37.5</td>
                 <td>38.5</td>
                 <td>39.5</td>
                 <td>40.5</td>
-                <td>41.5</td>
-                <td>42.5</td>
+                <td>42</td>
+				<td>43.5</td>
+				<td>45</td>
                 </TR>
         	</TABLE>
             
@@ -3953,7 +3961,7 @@ This is the template used both within a dialog and inline, unless implicitly ove
 							<div data-tlc="bind $var '.sum.pnt_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Reward Points: '; apply --add --class='rewardPointsTotal'; apply --append;}};"></div>
 							<div data-tlc="bind $var '.sum.rmc_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Returns Credit: '; apply --add --class='returnsCreditTotal'; apply --append;}};"></div>
 
-							<div data-tlc="bind $var '.sum.balance_due_total'; cco#orderbalance  --classname='orderBalanceDue' --hidezero='false' --currencysign='$' --legacy;"></div>
+							<div data-tlc="bind $var '.sum.balance_due_total'; cco#orderbalance  --classname='orderBalanceDue' --hidezero='false' --prepend='$' --legacy;"></div>
 
 						</section>
 
@@ -4014,8 +4022,23 @@ This is the template used both within a dialog and inline, unless implicitly ove
 		<div>
 		qty: <input data-tlc="cco#cartitemqty  --legacy;" class="qtyInput numberInput" data-app-change="cco|cartItemUpdateExec" data-bind="format:cartItemQty;extension:cco;useParentData:true;" name="quantity" type="number">
 		<button class="displayNone">update</button><!-- here to stop 'enter' in input above from closing modal -->
-		<span data-tlc="bind $var '.price'; format --prepend='x '; format --currency='USD'; if (is $var --notblank;) {{apply --append;}};"></span>
-		<span data-tlc="bind $var '.extended'; format --prepend='= '; format --currency='USD'; if (is $var --notblank;) {{apply --append;}};"></span>
+		
+		<!--
+		<div class='priceContainer marginBottom'>
+					<h4 class="productPriceText" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{_store_formals#currencyprodlist --legacy; apply --append;}};"></h4>
+                    <h5 class='prodTempProdMSRP prodMSRP' data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;) {{_store_formals#currencymsrp --legacy; apply --append;}};"></h5>
+					<div class="displayNone savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;)  {{_store_formals#showhidearea  --legacy}};">                	
+					   <div data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --currencysign='$' --hidezero='true' --legacy;" class="savings"></div>
+					   <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingsdifferenceprodlistitem  --legacy; apply --append;" class="savingsDifference"></span>
+					   <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingspercentageprodlistitem  --legacy; apply --append;" class="savingsPercentage"></span>
+					</div>
+                </div>
+		-->
+		
+		<span> X </span>
+		<span data-tlc="bind $var '.price'; _store_formals#cartcurrency --legacy; apply --append;"></span>
+		<span> = </span>
+		<span data-tlc="bind $var '.extended'; _store_formals#cartcurrency --legacy; apply --append;"></span>
 	</div>
 		</div>
 
