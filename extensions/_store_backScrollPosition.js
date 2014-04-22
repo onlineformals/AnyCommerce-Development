@@ -55,7 +55,7 @@ var store_backScrollPosition = function(_app) {
 					_app.u.dump('BEGIN _app.ext.store_backScrollPosition.callbacks.startExtension.onSuccess')
 					function addScrollPosSet(){
 						for( var t in _app.templates ){
-							dump("Adding onDepart to " + t);
+							//dump("Adding onDepart to " + t);
 							_app.templates[t].on('depart.downlite',function(){
 								dump("Departing :" + t);
 								if(_app.ext.store_backScrollPosition.vars.scrollPosBackHit === 1){

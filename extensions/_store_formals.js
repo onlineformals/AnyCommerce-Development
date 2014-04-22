@@ -202,8 +202,8 @@ var _store_formals = function(_app) {
 							//HOVER ZOOM FEATURE
 							 
 							 var image = $('.prodImageContainer',$context).attr('data-imgsrc');
-							 dump("var image =");
-							 dump (image);
+							 //dump("var image =");
+							 //dump (image);
 							 var imageURL = _app.u.makeImage({
 							   "name" : image,
 							   "w" : 1000,
@@ -222,7 +222,7 @@ var _store_formals = function(_app) {
 							   $('.largeImageContainer').removeClass('active');
 							   }});
 							 $('.thumbnail',$context).on('mouseenter', function(){
-								  dump("Thumbnail swap action activated.");
+								  //dump("Thumbnail swap action activated.");
 								  $('.largeImageContainer').trigger('zoom.destroy');
 								  //dump("$(this).parent().attr('data-imgsrc') = ");
 								  //dump($(this).parent().attr('data-imgsrc'));
@@ -348,7 +348,7 @@ var _store_formals = function(_app) {
 						});
 						}
 						$(".loadingBG", ".hpProductListCarouselContainer").remove();
-						_app.u.dump("loadingBG has been removed from bottom carousel");
+						//_app.u.dump("loadingBG has been removed from bottom carousel");
 						
 						setTimeout(carouselHPProductList, 2000);
 						
@@ -535,26 +535,26 @@ var _store_formals = function(_app) {
 						
 						_app.ext._store_filter.vars.catPageID = $(_app.u.jqSelector('#',infoObj.parentID));  
 						
-						_app.u.dump("BEGIN categoryProductListTemplate onCompletes for filtering");
+						//_app.u.dump("BEGIN categoryProductListTemplate onCompletes for filtering");
 						
 						//TESTING. REMOVE AFTER TESTING COMPLETED.
-						dump(infoObj);
-						dump($context);
-						dump("_app.ext._store_filter.filterMap[infoObj.navcat] = " + _app.ext._store_filter.filterMap[infoObj.navcat]);
+						//dump(infoObj);
+						//dump($context);
+						//dump("_app.ext._store_filter.filterMap[infoObj.navcat] = " + _app.ext._store_filter.filterMap[infoObj.navcat]);
 						
 						
 						if(_app.ext._store_filter.filterMap[infoObj.navcat])	{
-							_app.u.dump(" -> safe id DOES have a filter.");
+							//_app.u.dump(" -> safe id DOES have a filter.");
 					
 							var $page = $(_app.u.jqSelector('#',infoObj.parentID));
-							_app.u.dump(" -> $page.length: "+$page.length);
+							//_app.u.dump(" -> $page.length: "+$page.length);
 							if($page.data('filterAdded'))	{} //filter is already added, don't add again.
 							else	{
 								$page.data('filterAdded',true)
 								var $form = $("[name='"+_app.ext._store_filter.filterMap[infoObj.navcat].filter+"']",'#appFilters').clone().appendTo($('.catProdListSidebar',$page));
 								$form.on('submit.filterSearch',function(event){
 									event.preventDefault()
-									_app.u.dump(" -> Filter form submitted.");
+									//_app.u.dump(" -> Filter form submitted.");
 									_app.ext._store_filter.a.execFilter($form,$page);
 									});
 						
@@ -611,12 +611,12 @@ var _store_formals = function(_app) {
 							//IF RE-VISITING A CAT PAGE, RETURNS HEIGHT OF GHOST ELEMENT TO EITHER FULL FILTER FORM SIZE OR COLLAPSED.
 							if($('.catGhostCell', $context).data('heightVal')){
 								var catGhostCellHeight = $('.catGhostCell', $context).data('heightVal');
-								_app.u.dump("$('.catGhostCell', $context).data('heightVal') exists. Assigning height value");
+								//_app.u.dump("$('.catGhostCell', $context).data('heightVal') exists. Assigning height value");
 								$(".catGhostCell", $context).css("height",catGhostCellHeight);
 							}
 							else{
 								$('.catGhostCell', $context).data('heightVal', '').append();
-								_app.u.dump("$('.catGhostCell', $context).data('heightVal') doesn't exists. Make it.");
+								//_app.u.dump("$('.catGhostCell', $context).data('heightVal') doesn't exists. Make it.");
 							}
 							
 							//ASSIGN EXPAND/COLLAPSE VALUES TO FILTER FORM
@@ -625,18 +625,18 @@ var _store_formals = function(_app) {
 							
 							if($('.layeredSearch', $context).length){
 								if($('.catProdListSidebar', $context).data('collapseOrExpanded')){
-									_app.u.dump("$('.catProdListSidebar', $context).data('collapseOrExpanded') exists. Do nothing.");
+									//_app.u.dump("$('.catProdListSidebar', $context).data('collapseOrExpanded') exists. Do nothing.");
 								}
 								else{
-									_app.u.dump("$('.catProdListSidebar', $context).data('collapseOrExpanded') doesn't exists. Make it.");
+									//_app.u.dump("$('.catProdListSidebar', $context).data('collapseOrExpanded') doesn't exists. Make it.");
 									$('.catProdListSidebar', $context).data('collapseOrExpanded',false).append();
 								}
 								
-								_app.u.dump("Filter form found, showing search tab");
+								//_app.u.dump("Filter form found, showing search tab");
 							}
 							else{
 								$('.searchTab', $context).hide();
-								_app.u.dump("Filter form not found, hiding search tab");
+								//_app.u.dump("Filter form not found, hiding search tab");
 							}
 							
 							if($('.filterPriceCat', $context).length){
@@ -708,11 +708,11 @@ var _store_formals = function(_app) {
 						$('.fsCheckbox').attr('checked', false);
 						$("#resultsProductListContainer").show(); 
 						$(".searchFilterResults").hide();    
-						_app.u.dump("BEGIN searchTemplate onCompletes for filtering");
+						//_app.u.dump("BEGIN searchTemplate onCompletes for filtering");
 						var $form = $("[name='SearchPageFilterSearchForm']",'#appFilters').clone().appendTo($('.filterContainerSearch',$page));
 						$form.on('submit.filterSearch',function(event){
 							event.preventDefault()
-							_app.u.dump(" -> Filter form submitted.");
+							//_app.u.dump(" -> Filter form submitted.");
 							_app.ext._store_filter.a.execFilter($form,$page);
 									});
 						
@@ -751,12 +751,12 @@ var _store_formals = function(_app) {
 							
 							if($('.catGhostCell', $context).data('heightVal')){
 								var catGhostCellHeight = $('.catGhostCell', $context).data('heightVal');
-								_app.u.dump("$('.catGhostCell', $context).data('heightVal') exists. Assigning height value");
+								//_app.u.dump("$('.catGhostCell', $context).data('heightVal') exists. Assigning height value");
 								$(".catGhostCell", $context).css("height",catGhostCellHeight);
 							}
 							else{
 								$('.catGhostCell', $context).data('heightVal', '').append();
-								_app.u.dump("$('.catGhostCell', $context).data('heightVal') doesn't exists. Make it.");
+								//_app.u.dump("$('.catGhostCell', $context).data('heightVal') doesn't exists. Make it.");
 							}
 							
 							//ASSIGN EXPAND/COLLAPSE VALUES TO FILTER FORM
@@ -932,13 +932,13 @@ var _store_formals = function(_app) {
 						
 						
 						if($(".variation_D5", $context).length){
-							_app.u.dump(".variation_D5 exists. Adding sizing chat link");
+							//_app.u.dump(".variation_D5 exists. Adding sizing chat link");
 							$(".variation_D5", $context).after("<div class='productSizingChartModalLinkContainer quickviewProductSizingChartModalLinkContainer'>"
 							+ "<a onClick=\"$('#SizingChartTemplate').dialog({'modal':'true', 'title':'','width':825, height:700, 'dialogClass' : 'SizingChartModal'});\"> Need help with your size?</a>"
 							+ "</div>");
 						}
 						else{
-							_app.u.dump(".variation_D5 does not exists. Doing nothing");
+							//_app.u.dump(".variation_D5 does not exists. Doing nothing");
 						}
 						
 					
@@ -1124,8 +1124,8 @@ var _store_formals = function(_app) {
 						}
 						
 						formObj._vendor = "onlineformals";
-						dump("formObj = ");
-						dump(formObj);
+						//dump("formObj = ");
+						//dump(formObj);
 						_app.ext._store_formals.calls.appBuyerCreate.init(formObj,tagObj);
 						_app.model.dispatchThis('immutable');
 				}
@@ -1194,20 +1194,20 @@ var _store_formals = function(_app) {
 			
 			
 			currencyelastic : function($tag,data)	{
-				dump("Begin currency elastic format");
-				dump(data);
-				dump($tag);
+				//dump("Begin currency elastic format");
+				//dump(data);
+				//dump($tag);
 				
 				var rawPrice = data.value;
 				var cents = ".";
 				var position = data.value.length - 2;
-				dump(position);
+				//dump(position);
 				var r = "Our Price: $"+[rawPrice.slice(0, position), cents, rawPrice.slice(position)].join('');
 				
 				//var r = "Our price: $"+data.value;
-				dump(r);
+				//dump(r);
 				
-				dump(r);
+				//dump(r);
 				$tag.append(r);
 			}, //currencyelastic
 			
@@ -1295,7 +1295,6 @@ var _store_formals = function(_app) {
 				
 				priceretailsavingsdifferenceprodlistitem : function($tag,data)	{
 					var o; //output generated.
-					dump(data);
 					var pData = _app.data['appProductGet|'+data.value]['%attribs'];
 					//use original pdata vars for display of price/msrp. use parseInts for savings computation only.
 					var price = Number(pData['zoovy:base_price']);
@@ -1363,24 +1362,25 @@ var _store_formals = function(_app) {
 		tlcFormats : {
 			//currencyprodlist : function(argObj,globals)	{
 			currencyprodlist : function(data,thisTLC)	{
-				dump("Begin currency format");
-				dump(data);
-				dump(thisTLC);
+				//dump("Begin currency format");
+				//dump(data);
+				//dump(thisTLC);
 				
 				//var r = "$"+globals.binds[argObj.bind]; 
 				var r = "Our price: $"+data.globals.binds[data.globals.focusBind];
-				dump(r);
+				//dump(r);
 				var cents = r.split(".")
-				dump(cents[1]);
+				//dump(cents[1]);
 				if(cents[1] == undefined){
-					dump ("No cents present. Add a .00")
+					//dump ("No cents present. Add a .00")
 					r = r + ".00";
 				}
+				
 				else if(cents[1].length === 1){
-				dump(cents[1].length);
-				dump ("cents only has one value. Adding a zero.")
+				//dump(cents[1].length);
+				//dump ("cents only has one value. Adding a zero.")
 				}
-				dump(r);
+				//dump(r);
 				return(r);
 			}, //currencyprodlist
 		}
