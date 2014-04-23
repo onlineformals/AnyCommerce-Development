@@ -950,14 +950,14 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 							//the item is already in the list. move it to the front.
 							_app.ext.quickstart.vars.session.recentlyViewedItems.splice(0, 0, _app.ext.quickstart.vars.session.recentlyViewedItems.splice($.inArray(infoObj.pid, _app.ext.quickstart.vars.session.recentlyViewedItems), 1)[0]);
 							}
-						infoObj.performJumpToTop = false; //dont jump to top.
+						//infoObj.performJumpToTop = false; //dont jump to top.
 						$new = _app.ext.quickstart.u.showProd(infoObj);
 						break;
 	
 					case 'homepage':
 						infoObj.pageType = 'homepage';
 						infoObj.navcat = zGlobals.appSettings.rootcat;
-						infoObj.performJumpToTop = false; //dont jump to top.
+						//infoObj.performJumpToTop = false; //dont jump to top.
 						$new = _app.ext.quickstart.u.showPage(infoObj);
 						break;
 
@@ -969,7 +969,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 							_app.ext.quickstart.vars.session.recentCategories.unshift(infoObj.navcat);
 							}
 						
-						infoObj.performJumpToTop = false; //dont jump to top.
+						//infoObj.performJumpToTop = false; //dont jump to top.
 						$new = _app.ext.quickstart.u.showPage(infoObj); //### look into having showPage return infoObj instead of just parentID.
 						break;
 	
