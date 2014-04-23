@@ -1735,6 +1735,10 @@ div.quickviewProductSizingChartModalLinkContainer{
 	clear:left;
 }
 
+form.prodViewerAddToCartFormQuickview{
+	width: 290px;
+}
+
 
 
 /***********************************************************************************************************************************/
@@ -2383,6 +2387,9 @@ span#inStoreCheckoutButton button.checkoutButton{
 	width: 28%;
 }
 
+div.cartButtons span.paypalECButton{
+	float: left;
+}
 
 
 
@@ -2612,6 +2619,65 @@ span#inStoreCheckoutButton button.checkoutButton{
 }
 
 .accountCreateStateLabel{
+}
+
+
+
+/***********************************************************************************************************************************/
+/***********************************************************************************************************************************/
+/*****LOGIN MODAL TEMPLATE****/
+.loginCreateAccountForm{
+}
+.loginCreateAccountForm h1{
+	color: #E61652;
+}
+.loginCreateAccountForm p{
+	color: #909090;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.loginCreateAccountForm a button{
+	background-color: #E61652;
+	border: 0 none;
+	color: #FFFFFF;
+	padding: 7px;
+	margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.loginAccountLoginForm{
+}
+.loginAccountLoginForm h1{
+	color: #E61652;
+    font-size: 34px;
+}
+.loginAccountLoginForm span{
+	color: #909090;
+}
+.loginAccountLoginForm input.applyButton {
+	background-color: #E61652;
+    border: 0 none;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 7px 20px;
+}
+
+.loginAccountPasswordRecover{
+}
+.loginAccountPasswordRecover h1{
+	color:#E61652;
+}
+.loginAccountPasswordRecover span{
+	color:#909090;
+}
+.loginAccountPasswordRecover input.applyButton{
+	background-color: #E61652;
+    border: 0 none;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 7px;
 }
 
 

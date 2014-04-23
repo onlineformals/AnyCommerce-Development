@@ -1683,7 +1683,7 @@ this will likely become more flexible in the future. ###
                 </div>
                 <div class="productDescriptionContainer" data-tlc="bind $var '.%attribs.zoovy:prod_desc'; if (is $var --notblank;) {{render --wiki='quickstart'; apply --append;}};"></div>
                 
-                <form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="modal">
+                <form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm prodViewerAddToCartFormQuickview clearfix" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="modal">
             
                     <fieldset data-tlc="bind $var '.pid'; store_product#atcvariations  --legacy; apply --append;" class="borderNone variationsContainer"></fieldset>
                     <fieldset data-tlc="bind $var '.'; store_product#atcquantityinput  --defaultvalue='1' --legacy;" class="borderNone displayNone"></fieldset>
@@ -3989,7 +3989,7 @@ This is the template used both within a dialog and inline, unless implicitly ove
 							<a class="applyButton ui-state-highlight checkoutButton" href='#!checkout'>Store Checkout</a>
 						</span>
 				
-						<span data-tlc="cco#paypalecbutton  --legacy;" id="paypalECButton" class="thisButton"></span>
+						<span data-tlc="cco#paypalecbutton  --legacy;" id="paypalECButton" class="thisButton paypalECButton"></span>
 				
 					</div>
 				</div>
@@ -4359,7 +4359,7 @@ The 'data-action' attribute is used to assign an onclick.
 
 
 
-<div id='loginFormForModal' class='loginOption displayNone seoStrip' title='Please log in'>
+<div id='loginFormForModal' class='loginOption displayNone seoStrip' title='Please Log In'>
 
 <!-- the contents of this div/id are toggled on/off when login/logout occurs. don't change the ID -->
 
@@ -4367,12 +4367,18 @@ The 'data-action' attribute is used to assign an onclick.
 	<p id='loginMessaging' class='marginBottom appMessaging'></p>
 
 	<div id='loginFormContainer'>
-		<form action='#' data-app-submit='quickstart|accountLoginSubmit' class='marginBottom'>
+		<div class='loginCreateAccountForm'>
+			<h1 class="smallcaps">First Time With Us?</h1>
+			<p>Create an account to start your wish list and receive exclusive updates and fashionable news!</p>
+			<a class='applyButton' href='#!customer/createaccount'><button>Create Account</button></a>
+		</div>
+		
+		<form action='#' data-app-submit='quickstart|accountLoginSubmit' class='marginBottom loginAccountLoginForm'>
 		<input type='hidden' name='method' value='unsecure' />
 		<input type='hidden' name='loginCallback' id='loginCallback' value='' /><!-- used to save a callback action in -->
 			<fieldset>
-			<legend>Account Login</legend>
 			<div>
+			<h1 class="smallcaps">Already Have An Account?</h1>
 			<label>
 				<span class='prompt'>Login/Email</span>
 				<input type='email' class='zform_textbox zform_email' required='required'  name='login' value='' size='25' />
@@ -4387,33 +4393,29 @@ The 'data-action' attribute is used to assign an onclick.
 			</div>
 		
 			<div>
-			<input type='submit' value='log in' class='applyButton ' />
+			<input type='submit' value='Log In' class='applyButton ' />
 			</div>
 			</fieldset>
 		</form>
 
 		<div id='recoverPasswordContainer' class='marginBottom'>
 			<div id='recoverPasswordMessaging' class='appMessaging'></div>
-			<form action='#' data-app-submit='quickstart|accountPasswordRecoverSubmit'>
+			<form action='#' data-app-submit='quickstart|accountPasswordRecoverSubmit' class='loginAccountPasswordRecover'>
 			<fieldset>
-			<legend>Recover Password</legend>
 			<div class='marginBottom'>
+			<h1 class="smallcaps">Forgot Your Password?</h1>
 			<label>
 				<span class='prompt'>Login/Email</span>
 				<input type='text' name='login' required='required' size='25' />
+				<div><input type='submit' class='applyButton' value='Email Password to Me' /></div>
 			</label>
 			</div>
 			
-			<div><input type='submit' class='applyButton' value='Email Password to Me' /></div>
 			
 			</fieldset>
 			</form>
 			
 		</div><!-- /recoverPasswordContainer -->
-
-		<div>
-		<a class='applyButton' href='#!customer/createaccount'>Create Account</a>
-		</div>
 	</div>
 
 <!-- this div will appear after a successful login. if you bind a new action to the button, best to empty the div and re-add the button, so the actions don't statck. -->
