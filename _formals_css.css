@@ -2707,6 +2707,7 @@ div.cartButtons span.paypalECButton{
 .contactUsChat{
 	display: inline-block;
     float: left;
+	margin-top:0;
 }
 
 .contactUsShowroomLink{
@@ -2715,6 +2716,17 @@ div.cartButtons span.paypalECButton{
 }
 .contactUsShowroomLink:hover{
 	color: black;
+}
+
+.contactUsForm input.applyButton {
+	background-color: #E61652;
+    border: 0 none;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 7px;
+	background-image: none;
+	border-radius:0;
 }
 
 
