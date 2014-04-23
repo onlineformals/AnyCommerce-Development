@@ -2627,6 +2627,11 @@ div.cartButtons span.paypalECButton{
 /***********************************************************************************************************************************/
 /*****LOGIN MODAL TEMPLATE****/
 .loginCreateAccountForm{
+	border: 2px groove threedface;
+	padding: 0.35em 0.625em 0.75em;
+	margin-left: 2px;
+    margin-right: 2px;
+	margin-bottom:5px;
 }
 .loginCreateAccountForm h1{
 	color: #E61652;
@@ -2665,8 +2670,12 @@ div.cartButtons span.paypalECButton{
 
 .loginAccountPasswordRecover{
 }
+.loginAccountPasswordRecover fieldset{
+	border:none;
+}
 .loginAccountPasswordRecover h1{
-	color:#E61652;
+	color:#909090;
+	font-size:20px;
 }
 .loginAccountPasswordRecover span{
 	color:#909090;
@@ -2677,7 +2686,7 @@ div.cartButtons span.paypalECButton{
     color: #FFFFFF;
     margin-bottom: 5px;
     margin-top: 5px;
-    padding: 7px;
+    padding: 5px;
 }
 
 
