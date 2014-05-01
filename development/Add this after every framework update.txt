@@ -34,3 +34,6 @@ $tag.text("Estimated Total: $"+o);  //update DOM.
 $('.applyAnycb',$fieldset).each(function(){
 							$(this).anycb({text : {on : 'yes',off : 'no'}});
 							});
+
+5. partner_addThis.js:
+Grab the old version from the file you just uploaded.....only this one is updated to use a startExtension.
