@@ -1113,17 +1113,17 @@ in a reorder, that data needs to be converted to the variations format required 
 //will tell you which third party checkouts are available. does NOT look to see if merchant has them enabled,
 // just checks to see if the cart contents would even allow it.
 //currently, there is only a google field for disabling their checkout, but this is likely to change.
-			which3PCAreAvailable :	function(cartID){
+			which3PCAreAvailable :	function(cart){	
 	//				_app.u.dump("BEGIN control.u.which3PCAreAvailable");
 					var obj = {};
-					if(_app.data['cartDetail|'+cartID])	{
+					if(cart)	{
 		//by default, everything is available
 						obj = {
 							paypalec : true,
 							amazonpayment : true,
 							googlecheckout : true
 							}
-						var items = _app.data['cartDetail|'+cartID]['@ITEMS'], L = items.length;
+						var items = cart['@ITEMS'], L = items.length;
 						for(var i = 0; i < L; i += 1)	{
 							if(items[i]['%attribs'] && items[i]['%attribs']['gc:blocked'])	{obj.googlecheckout = false}
 							if(items[i]['%attribs'] && items[i]['%attribs']['paypalec:blocked'])	{obj.paypalec = false}
@@ -1135,6 +1135,7 @@ in a reorder, that data needs to be converted to the variations format required 
 						obj.amazonpayment = false;
 						obj.googlecheckout = false;
 						}
+					dump(obj);
 					return obj;
 					} //which3PCAreAvailable
 	

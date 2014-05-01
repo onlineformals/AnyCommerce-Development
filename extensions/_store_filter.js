@@ -543,7 +543,7 @@ $('.categoryText',$page).hide(); //hide any text blocks.
 if(_app.ext._store_filter.u.validateFilterProperties($form))	{
 //	_app.u.dump(" -> validated Filter Properties.")
 	var query = {
-		"mode":"elastic-native",
+		"mode":"elastic-search",
 		"size":300,
 		"filter" : _app.ext._store_filter.u.buildElasticFilters($form),
 		}//query
