@@ -168,7 +168,12 @@ function pools2Object()	{
 	var pools = _app.ext.admin_orders.vars.pools;
 	var L = pools.length;
 	for(var i = 0; i < L; i += 1)	{
-		r["order_pool_change|"+pools[i]] = {"name": pools[i]};
+		if(pools[i] == 'CANCELLED')	{
+			//create some separation between 'cancelled' and the other menu items. Canceling an order by mistake has repercussions.
+			r["sep1"] = "---------";
+			r["sep2"] = "---------";
+			}
+		r["order_pool_change|"+pools[i]] = {"name": pools[i].toLowerCase()};
 		}
 	return r;
 	}
@@ -260,7 +265,20 @@ else	{
 						}
 					
 					if(printables)	{
-						_app.u.printByjqObj($printme); //commented out for testin.
+						if(_rtag.mode == 'preview')	{
+							var $D = _app.ext.admin.i.dialogCreate({
+								title : "Print Preview",
+								'width' : '90%',
+								'height' : $(document.body).outerHeight() - 100,
+								anycontent : false, //the dialogCreate params are passed into anycontent
+								handleAppEvents : false //defaults to true
+								});
+							$printme.appendTo($D);
+							$D.dialog('open');
+							}
+						else	{
+							_app.u.printByjqObj($printme); //commented out for testin.
+							}
 //						$(document.body).append($printme);
 						}
 					}
@@ -690,11 +708,15 @@ else	{
 				}
 			}, //orderFlagsAsSpans
 		orderPoolSelect : function($tag,data)	{
-			var $opt;
 			var pools = _app.ext.admin_orders.vars.pools;
 			var L = pools.length;
 			
 			for(var i = 0; i < L; i += 1)	{
+				var $opt;
+				//This creates a litle separation between cancelled and the other's, decreasing the likelyhood cancelled will be selected by mistake.
+				if(pools[i] == 'CANCELLED')	{
+					$tag.append("<option value='' disabled='disabled'>------------------------</option>");
+					}
 				$opt = $("<option />").val(pools[i]).text(pools[i].toLowerCase());
 				if(data.value == pools[i])	{
 					$opt.attr('selected','selected').css('font-style','italic');
@@ -1612,7 +1634,7 @@ handleOrder(orders[i]);
 										"datapointer":"adminBlastMsgDetail|"+prts[i]+"|PRINTABLE."+vars.printable
 										}},"mutable");
 									}
-								_app.model.addDispatchToQ({"_cmd":"ping","_tag":{"callback":"printOrders","extension":"admin_orders","orders":okOrders,"printable":vars.printable,"jqObj":$dialog}},"mutable");
+								_app.model.addDispatchToQ({"_cmd":"ping","_tag":{"callback":"printOrders","extension":"admin_orders","orders":okOrders,"printable":vars.printable,"mode" : (vars.mode ? vars.mode : 'print'),"jqObj":$dialog}},"mutable");
 								_app.model.dispatchThis("mutable");
 								}
 							else	{
@@ -1918,14 +1940,15 @@ handleOrder(orders[i]);
 
 
 			orderPrint : function($ele,p)	{
-
+				p.preventDefault();
 				var orderID = $ele.closest("[data-orderid]").data('orderid');
 				if(orderID && $ele.data('printable'))	{
-					_app.ext.admin_orders.u.printOrders([orderID],{'printable':$ele.data('printable')});
+					_app.ext.admin_orders.u.printOrders([orderID],{'printable':$ele.data('printable'),'mode':$ele.data('mode')});
 					}
 				else	{
 					$('#globalMessaging').anymessage({"message":"In admin_orders.e.orderPrint, either orderid ["+orderID+"] was unable to be ascertained or data-printable ["+$ele.data('printable')+"] not set on trigger element.","gMessage":true});
 					}
+				return false;
 				},
 /*
 //////////////////   END delegated events \\\\\\\\\\\\\\\\\\

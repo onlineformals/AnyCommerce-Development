@@ -474,6 +474,8 @@ used, but not pre-loaded.
 					'showLoading':false //will get passed into anycontent and disable showLoading.
 					});
 				_app.u.handleButtons($D);
+				_app.u.addEventDelegation($D);
+				$D.dialog('option','width',($(document.body).width() > 500 ? 500 : '90%'));
 				$D.dialog('open');
 				$D.anyform();
 				}, //adminDomainCreateShow
@@ -615,7 +617,7 @@ used, but not pre-loaded.
 							//success content goes here.
 							$("[data-panel-id='domainNewHostTypeSITEPTR']",$D).anycontent({'datapointer':rd.datapointer});
 							if($ele.data('mode') == 'update')	{
-								$("input[name='PROJECT']",$D).val(_app.data['adminDomainDetail|'+domain]['@HOSTS'][$ele.closest('tr').data('obj_index')].PROJECT)
+								$("select[name='PROJECT']",$D).val(_app.data['adminDomainDetail|'+domain]['@HOSTS'][$ele.closest('tr').data('obj_index')].PROJECT)
 								}
 							_app.u.handleButtons($D);
 							_app.u.handleCommonPlugins($D);

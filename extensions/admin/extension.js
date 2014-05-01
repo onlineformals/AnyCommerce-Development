@@ -3063,7 +3063,7 @@ else	{} //findertype is not declared. The error handling for this has already ta
 				var qObj = {}; //query object
 				var columnValue = $('#finderSearchQuery').val();
 				qObj.type = 'product';
-				qObj.mode = 'elastic-native';
+				qObj.mode = 'elastic-search';
 				qObj.size = 400;
 				qObj.query =  {"query_string" : {"query" : columnValue}};
 			
@@ -3247,6 +3247,7 @@ else	{
 //domain and partition are persitent between sessions. bad for support so clear them.
 //for multi-account users, the domainInit code checks to make sure the selected domain is valid.
 				if(_app.vars.trigger == 'support')	{
+					dps.admin = dps.admin || {};
 					dps.admin.domain = '';
 					dps.admin.partition = '';
 					}
@@ -3670,7 +3671,12 @@ dataAttribs -> an object that will be set as data- on the panel.
 // ** 201402 -> the menu, when opening a dialog, was not closing
 				$menu.on('click','a, button',function(){$menu.hide();});
 				$( document ).one( "click", function() {$menu.hide();});
-				$menu.css({'position':'absolute','width':($menu.data('width') || 200),'z-index':200,'top':25,'right':0}).show();
+				$menu.css({'position':'absolute','width':($menu.data('width') || 200),'z-index':200}).show();
+				$menu.position({
+					my: "left top",
+					at: "left bottom",
+					of: $ele
+					});
 				return false;
 				},
 			
@@ -3772,6 +3778,7 @@ dataAttribs -> an object that will be set as data- on the panel.
 //for delegated events. Also triggered by process form.
 // $ele could be the form itself or the button.
 			submitForm : function($ele,p)	{
+				dump("BEGIN admin.e.submitForm");
 				var $form = $ele.closest('form');
 				p.preventDefault();
 				if($ele.data('skipvalidation') || _app.u.validateForm($form))	{					
