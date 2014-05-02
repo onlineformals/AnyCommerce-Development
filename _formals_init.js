@@ -44,6 +44,7 @@ myApp.rq.push(['css',1,myApp.vars.baseURL+'resources/anyplugins.css']);
 //CUSTOM SCRIPTS + EXTENSIONS
 myApp.rq.push(['script',0,myApp.vars.baseURL+'carouFredSel-6.2.1/jquery.carouFredSel-6.2.1-packed.js']);
 myApp.rq.push(['script',0,myApp.vars.baseURL+'zoom-master/jquery.zoom.js']);
+myApp.rq.push(['script',0,myApp.vars.baseURL+'modalFix.js']);
 
 myApp.rq.push(['extension',0,'_store_formals','extensions/_store_formals.js','startExtension']);
 myApp.rq.push(['extension',0,'prodlist_infinite','extensions/prodlist_infinite.js']);

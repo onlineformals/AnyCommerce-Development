@@ -930,7 +930,7 @@ var _store_formals = function(_app) {
 						if($(".variation_D5", $context).length){
 							//_app.u.dump(".variation_D5 exists. Adding sizing chat link");
 							$(".variation_D5", $context).after("<div class='productSizingChartModalLinkContainer quickviewProductSizingChartModalLinkContainer'>"
-							+ "<a onClick=\"$('#SizingChartTemplate').dialog({'modal':'true', 'title':'','width':825, height:700, 'dialogClass' : 'SizingChartModal'});\"> Need help with your size?</a>"
+							+ "<a onClick=\"$('#SizingChartTemplate').dialog({'modal':'true', 'title':'','width':825, height:700, dialogClass: 'dlgfixed', position: 'center', 'dialogClass' : 'SizingChartModal'});\"> Need help with your size?</a>"
 							+ "</div>");
 						}
 						else{

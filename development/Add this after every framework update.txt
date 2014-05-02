@@ -19,6 +19,11 @@ becomes
               			infoObj.templateID = 'categoryTemplate'
 					}
 
+- $modal.dialog({modal: true,width:'80%'});  //browser doesn't like percentage for height
+becomes
+$modal.dialog({modal: true,width:'80%', dialogClass: 'dlgfixed', position: "center"});  //browser doesn't like percentage for height
+
+
 
 2. active.html in checkout folder:
 - Add a centering container to the checkout form.
