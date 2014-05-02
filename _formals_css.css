@@ -232,6 +232,7 @@ progress::-moz-progress-bar { background: #E61652; }
 	color: #E61552;
     text-decoration: none;
 	margin-left: 5px;
+	font-size: 14px;
 }
 
 .headerIE8WarningCont{
@@ -241,6 +242,7 @@ progress::-moz-progress-bar { background: #E61652; }
 
 #sc41p3{
 	float: left;
+	margin-top: 2px;
 }
 
 /***********************************************************************************************************************************/
@@ -1981,7 +1983,6 @@ h5.productMfg a{
 }
 .productSharingLinkContainer a{
 	color: #726B5B;
-    float: left;
     text-decoration: none;
 }
 .socialLinks{

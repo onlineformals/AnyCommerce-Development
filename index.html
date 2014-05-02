@@ -1348,11 +1348,11 @@ this will likely become more flexible in the future. ###
                 <div class='priceContainer marginBottom'>
 					<h4 class="productPriceText" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{_store_formals#currencyprodlist --legacy; apply --append;}};"></h4>
                     <h5 class='prodTempProdMSRP prodMSRP' data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;) {{_store_formals#currencymsrp --legacy; apply --append;}};"></h5>
-			<div class="displayNone savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;)  {{_store_formals#showhidearea  --legacy}};">                	
-			   <div data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --currencysign='$' --hidezero='true' --legacy;" class="savings"></div>
-			   <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingsdifferenceprodlistitem  --legacy; apply --append;" class="savingsDifference"></span>
-			   <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingspercentageprodlistitem  --legacy; apply --append;" class="savingsPercentage"></span>
-			</div>
+					<div class="displayNone savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;)  {{_store_formals#showhidearea  --legacy}};">                	
+					   <div data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --currencysign='$' --hidezero='true' --legacy;" class="savings"></div>
+					   <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingsdifferenceprodlistitem  --legacy; apply --append;" class="savingsDifference"></span>
+					   <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingspercentageprodlistitem  --legacy; apply --append;" class="savingsPercentage"></span>
+					</div>
                 </div>
                 <div class="productDescriptionContainer" data-tlc="bind $var '.%attribs.zoovy:prod_desc'; if (is $var --notblank;) {{render --wiki='quickstart'; apply --append;}};"></div>
                 
@@ -1368,14 +1368,16 @@ this will likely become more flexible in the future. ###
                 
                 
                 <div class="productSharingLinkContainer">
-                    <a href="#" data-app-click="quickstart|productAdd2List" data-listid="wishlist">Add to Wishlist</a>
-                    <p> &#124; </p>
-                    <a target="_blank" onclick="javascript:window.open('mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: ' + window.location);">Tell a friend</a> <!-- onclick="javascript:window.location='mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: ' + window.location;">Tell a friend</a>-->
-                    <p> &#124; </p>
-                    <a href="#" data-app-click="store_crm|productReviewShow">Write Review</a>
-                    <p>	&#124; </p>
-                    <a href="javascript:window.print()">Print</a>
-                </div>
+                    <p>
+						<a href="#" data-app-click="quickstart|productAdd2List" data-listid="wishlist">Add to Wishlist</a>
+						&#124;
+						<a target="_blank" onclick="javascript:window.open('mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: ' + window.location);">Tell a friend</a> <!-- onclick="javascript:window.location='mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: ' + window.location;">Tell a friend</a>-->
+						&#124;
+						<a href="#" data-app-click="store_crm|productReviewShow">Write Review</a>
+						&#124;
+						<a href="javascript:window.print()">Print</a>
+					</p>
+			   </div>
                 
                 <div class="socialLinks"></div>
 
