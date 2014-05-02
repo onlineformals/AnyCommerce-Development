@@ -1047,6 +1047,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 	
 					case 'cart':
 						$new = _app.ext.quickstart.u.showCart(infoObj);
+						infoObj.performJumpToTop = true;
 						break;
 
 					case '404': 	//no specific code. shared w/ default, however a case is present because it is a recognized pageType.

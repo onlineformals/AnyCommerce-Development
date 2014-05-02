@@ -224,13 +224,14 @@ progress::-moz-progress-bar { background: #E61652; }
 	color: #666666;
     float: left;
     font-size: 14px;
-    margin-left: 1px;
+    margin-left: 5px;
     margin-right: 3px;
     margin-top: 2px;
 }
 .headerSearchContainer a{
 	color: #E61552;
     text-decoration: none;
+	margin-left: 5px;
 }
 
 .headerIE8WarningCont{
