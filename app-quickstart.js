@@ -1047,7 +1047,6 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 	
 					case 'cart':
 						$new = _app.ext.quickstart.u.showCart(infoObj);
-						infoObj.performJumpToTop = true;
 						break;
 
 					case '404': 	//no specific code. shared w/ default, however a case is present because it is a recognized pageType.
@@ -2289,7 +2288,7 @@ either templateID needs to be set OR showloading must be true. TemplateID will t
 								$(this).attr('data-app-change','quickstart|cartShipMethodSelect');
 								});
 							});
-						$modal.dialog({modal: true,width:'80%', dialogClass: 'dlgfixed', position: "center"});  //browser doesn't like percentage for height
+						$modal.dialog({modal: true,width:'80%'});  //browser doesn't like percentage for height
 						}
 
 					if(P.showLoading === true)	{
