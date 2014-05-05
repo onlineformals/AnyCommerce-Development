@@ -22,7 +22,7 @@ The functions here are designed to work with 'reasonable' size lists of categori
 */
 
 
-var _store_filter = function() {
+var _store_filter = function(_app) {
 	var r = {
 		
 	vars : {
@@ -41,81 +41,81 @@ var _store_filter = function() {
 			//SEARCH PAGE
 			"searchPage":{
 			"filter": "SearchPageFilterSearchForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			
 			//DESIGNER PAGES
 			".designers.bg_haute":{
 			"filter": "designBGHauteForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".designers.cassandra_stone":{
 			"filter": "designCassandraStoneForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".designers.faviana":{
 			"filter": "designFavianaForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".designers.gigi":{
 			"filter": "designGigiForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".designers.jasz_couture":{
 			"filter": "designJaszCoutureForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".designers.johnathan_kayne":{
 			"filter": "designJohnathanKayneForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".designers.la_femme":{
 			"filter": "designLaFemmeForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".designers.le_gala":{
 			"filter": "designLeGalaForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".designers.lm_collection":{
 			"filter": "designLMCollectionForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".designers.mac_duggal":{
 			"filter": "designMacDuggalForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".designers.mignon":{
 			"filter": "designMignonForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".designers.mnm_couture":{
 			"filter": "designMNMCoutureForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".designers.night_moves":{
 			"filter": "designNightMovesForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".designers.paris":{
 			"filter": "designParisForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".designers.scala":{
 			"filter": "designScalaForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".designers.shail_k":{
 			"filter": "designShailKForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".designers.sherri_hill":{
 			"filter": "designSherriHillForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".designers.tony_bowls":{
 			"filter": "designTonyBowlsForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			
 			
@@ -123,341 +123,341 @@ var _store_filter = function() {
 			//PROM PAGES
 			".prom.designers.bg_haute":{
 			"filter": "PromBGHauteForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.designers.prom.designers.cassandra_stone":{
 			"filter": "PromCassStoneForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.designers.faviana":{
 			"filter": "PromFavianaForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.designers.gigi":{
 			"filter": "PromGigiForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.designers.jasz_couture":{
 			"filter": "PromJaszCoutForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.designers.johnathan_kayne":{
 			"filter": "PromJohnKayneForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.designers.jovani":{
 			"filter": "PromJovaniForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.designers.la_femme":{
 			"filter": "PromLaFemmeForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.designers.le_gala":{
 			"filter": "PromLeGalaForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.designers.lm_collection":{
 			"filter": "PromLmCollForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.designers.mac_duggal":{
 			"filter": "PromMacDuggalForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.designers.mignon":{
 			"filter": "PromMignonForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.designers.mnm_couture":{
 			"filter": "PromMnmCoutForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.designers.night_moves":{
 			"filter": "PromNightMovesForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.designers.paris":{
 			"filter": "PromParisForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.designers.scala.":{
 			"filter": "PromScalaForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.designers.shail_k":{
 			"filter": "PromShailKForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.designers.sherri_hill":{
 			"filter": "PromSherriHillForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.designers.tony_bowls":{
 			"filter": "PromTonyBowlsForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.styles.ballgown___a_line":{
 			"filter": "PromALineForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.styles.empire":{
 			"filter": "PromEmpireForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.styles.high_low":{
 			"filter": "PromHighLowForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.styles.mermaid":{
 			"filter": "PromMermaidForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.styles.short":{
 			"filter": "PromShortForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			
 			".prom.trends.beads":{
 			"filter": "PromBeadsForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.trends.lace":{
 			"filter": "PromLaceForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.trends.polka_dots":{
 			"filter": "PromDotsForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.trends.sequins":{
 			"filter": "PromSequinsForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".prom.trends.vintage":{
 			"filter": "PromVintageForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			
 			//EVENING PAGES
 			".evening.designers.bg_haute":{
 			"filter": "EveningBGHauteForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".evening.designers.jasz_couture":{
 			"filter": "EveningJaszCoutForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".evening.designers.jovani.":{
 			"filter": "EveningJovaniForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".evening.designers.la_femme":{
 			"filter": "EveningLaFemmeForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".evening.designers.mac_duggal":{
 			"filter": "EveningMacDuggalForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".evening.designers.mignon":{
 			"filter": "EveningMignonForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".evening.designers.mnm_couture":{
 			"filter": "EveningMnmCoutForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".evening.designers.scala":{
 			"filter": "EveningScalaForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".evening.designers.shail_k":{
 			"filter": "EveningShailKForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".evening.designers.sherri_hill":{
 			"filter": "EveningSherriHillForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".evening.designers.tony_bowls":{
 			"filter": "EveningTonyBowlsForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			
 			".evening.celebrity_inspired":{
 			"filter": "EveningCelebForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			
 			//COCKTAIL PAGES
 			".cocktail.designers.faviana":{
 			"filter": "CocktailFavianaForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".cocktail.designers.gigi":{
 			"filter": "CocktailGigiForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".cocktail.designers.jovani":{
 			"filter": "CocktailJovaniForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".cocktail.designers.johnathan_kayne":{
 			"filter": "CocktailJohnKayneForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".cocktail.designers.la_femme":{
 			"filter": "CocktailLaFemmeForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".cocktail.designers.lm_collection":{
 			"filter": "CocktailLMCollectionForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".cocktail.designers.mac_duggal":{
 			"filter": "CocktailMacDuggalForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".cocktail.designers.mignon":{
 			"filter": "CocktailMignonForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".cocktail.designers.scala":{
 			"filter": "CocktailScalaForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".cocktail.designers.shail_k":{
 			"filter": "CocktailShailKForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".cocktail.designers.sherri_hill":{
 			"filter": "CocktailSherriHillForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			
 			".cocktail.styles.sequins___beads":{
 			"filter": "CocktailSequinBeadForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".cocktail.styles.lace":{
 			"filter": "CocktailLaceForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".cocktail.styles.babydoll":{
 			"filter": "CocktailBabydollForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".cocktail.styles.high_low":{
 			"filter": "CocktailHighLowForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			
 			//PLUS SIZE PAGES
 			".plus_size.designers.fabulouss":{
 			"filter": "PlusSizeFabuloussForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".plus_size.designers.faviana":{
 			"filter": "PlusSizeFavianaForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".plus_size.designers.night_moves":{
 			"filter": "PlusSizeNightMovesForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			
 			".plus_size.styles.a_line___ballgown":{
 			"filter": "PlusSizeALineForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".plus_size.styles.empire":{
 			"filter": "PlusSizeEmpireForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".plus_size.styles.mermaid":{
 			"filter": "PlusSizeMermaidForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".plus_size.styles.short":{
 			"filter": "PlusSizeShortForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			
 			//PAGEANT PAGES
 			".pageant.designers.jasz_couture":{
 			"filter": "PageantJaszCoutForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".pageant.designers.jovani":{
 			"filter": "PageantJovaniForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".pageant.designers.johnathan_kayne":{
 			"filter": "PageantJohnKayneForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".pageant.designers.la_femme":{
 			"filter": "PageantLaFemmeForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".pageant.designers.mac_duggal":{
 			"filter": "PageantMacDuggalForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".pageant.designers.mnm_couture":{
 			"filter": "PageantMnmCoutForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".pageant.designers.sherri_hill":{
 			"filter": "PageantSherriHillForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".pageant.designers.tony_bowls":{
 			"filter": "PageantTonyBowlsForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			
 			".pageant.children_s_pageant":{
 			"filter": "PageantChildrenForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			
 			//BRIDAL PAGES
 			".bridal":{
 			"filter": "BridalForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			
 			//IN STOCK PAGES
 			".in_stock":{
 			"filter": "InStockForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			
 			//ACCESSORIES PAGES
 			/*
 			".accessories.shoes.touch_ups":{
 			"filter": "AccessoriesForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".accessories.shoes.coloriffics":{
 			"filter": "AccessoriesForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			
 			".accessories.jewelry":{
 			"filter": "AccessoriesForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			
 			".accessories.under_the_dress.bra_cups":{
 			"filter": "AccessoriesForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".accessories.under_the_dress.shapewear":{
 			"filter": "AccessoriesForm",
-			"exec" : function($form,infoObj){app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			*/
 			
@@ -474,7 +474,7 @@ var _store_filter = function() {
 //the callback is auto-executed as part of the extensions loading process.
 		init : {
 			onSuccess : function()	{
-//				app.u.dump('BEGIN app.ext.store_navcats.init.onSuccess ');
+//				_app.u.dump('BEGIN _app.ext.store_navcats.init.onSuccess ');
 				var r = true; //return false if extension won't load for some reason (account config, dependencies, etc).
 				return r;
 				},
@@ -503,22 +503,22 @@ var _store_filter = function() {
 						}
 					}
 				else	{
-					app.u.dump("WARNING! could not detect .ui-slider class within fieldset for slider filter.");
+					_app.u.dump("WARNING! could not detect .ui-slider class within fieldset for slider filter.");
 					}
 				return r;
 				}, //slider
 			hidden : function($fieldset){
-				return app.ext._store_filter.u.buildElasticTerms($("input:hidden",$fieldset),$fieldset.attr('data-elastic-key'));
+				return _app.ext._store_filter.u.buildElasticTerms($("input:hidden",$fieldset),$fieldset.attr('data-elastic-key'));
 				},
 			hiddenOr : function($fieldset){
 				var r = {"or":[]};
 				$("input:hidden",$fieldset).each(function(){
-					r.or.push(app.ext._store_filter.u.buildElasticTerms($(this),$fieldset.attr('data-elastic-key')));
+					r.or.push(_app.ext._store_filter.u.buildElasticTerms($(this),$fieldset.attr('data-elastic-key')));
 					});
 				return r;
 				},
 			checkboxes : function($fieldset)	{
-				return app.ext._store_filter.u.buildElasticTerms($(':checked',$fieldset),$fieldset.attr('data-elastic-key'));
+				return _app.ext._store_filter.u.buildElasticTerms($(':checked',$fieldset),$fieldset.attr('data-elastic-key'));
 				} //checkboxes
 			
 			}, //getFilterObj
@@ -533,44 +533,44 @@ var _store_filter = function() {
 			
 			execFilter : function($form,$page){
 
-app.u.dump("BEGIN store_filter.a.filter");
+_app.u.dump("BEGIN store_filter.a.filter");
 var $prodlist = $("[data-app-role='productList']",$page).first().empty();
 
 
 $('.categoryList',$page).hide(); //hide any subcategory lists in the main area so customer can focus on results
 $('.categoryText',$page).hide(); //hide any text blocks.
 
-if(app.ext._store_filter.u.validateFilterProperties($form))	{
-//	app.u.dump(" -> validated Filter Properties.")
+if(_app.ext._store_filter.u.validateFilterProperties($form))	{
+//	_app.u.dump(" -> validated Filter Properties.")
 	var query = {
-		"mode":"elastic-native",
+		"mode":"elastic-search",
 		"size":300,
-		"filter" : app.ext._store_filter.u.buildElasticFilters($form),
+		"filter" : _app.ext._store_filter.u.buildElasticFilters($form),
 		}//query
-//	app.u.dump(" -> Query: "); app.u.dump(query);
+//	_app.u.dump(" -> Query: "); _app.u.dump(query);
 	if(query.filter.and.length > 0)	{
 		$prodlist.addClass('loadingBG');
-		app.ext.store_search.calls.appPublicProductSearch.init(query,{'callback':function(rd){
+		_app.ext.store_search.calls.appPublicProductSearch.init(query,{'callback':function(rd){
 
-			if(app.model.responseHasErrors(rd)){
+			if(_app.model.responseHasErrors(rd)){
 				$page.anymessage({'message':rd});
 				}
 			else	{
-				var L = app.data[rd.datapointer]['_count'];
+				var L = _app.data[rd.datapointer]['_count'];
 				$prodlist.removeClass('loadingBG')
 				if(L == 0)	{
 					$page.anymessage({"message":"Your query returned zero results."});
 					}
 				else	{
-					$prodlist.append(app.ext.store_search.u.getElasticResultsAsJQObject(rd));
+					$prodlist.append(_app.ext.store_search.u.getElasticResultsAsJQObject(rd));
 					}
 				}
 			
 			},'datapointer':'appPublicSearch|elasticFiltering',
 			'templateID': $form.data('loadstemplate') || 'productListTemplateResults'
 			});
-			app.u.dump(JSON.stringify(query));
-		app.model.dispatchThis();
+			_app.u.dump(JSON.stringify(query));
+		_app.model.dispatchThis();
 		}
 	else	{
 		$page.anymessage({'message':"Please make some selections from the list of filters"});
@@ -592,18 +592,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterPriceCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							//app.u.dump("sidebar = " + sidebar);
+							//_app.u.dump("sidebar = " + sidebar);
 							var banner = $('.carouselCPBannerList ', $context).height();
-							//app.u.dump("banner = " + banner);
+							//_app.u.dump("banner = " + banner);
 							if(banner == 0){
-								//app.u.dump("No banner detected. Reducing ghost cell size");
+								//_app.u.dump("No banner detected. Reducing ghost cell size");
 								var ghostCell = sidebar - 55;
 							}
 							else{
-								//app.u.dump("Banner detected. Increasing ghost cell size");
+								//_app.u.dump("Banner detected. Increasing ghost cell size");
 								var ghostCell = sidebar - banner - 55;
 							}
-							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
+							//_app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -613,18 +613,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterPriceCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							//app.u.dump("sidebar = " + sidebar);
+							//_app.u.dump("sidebar = " + sidebar);
 							var banner = $('.carouselCPBannerList ', $context).height();
-							//app.u.dump("banner = " + banner);
+							//_app.u.dump("banner = " + banner);
 							if(banner == 0){
-								//app.u.dump("No banner detected. Reducing ghost cell size");
+								//_app.u.dump("No banner detected. Reducing ghost cell size");
 								var ghostCell = sidebar - 55;
 							}
 							else{
-								//app.u.dump("Banner detected. Increasing ghost cell size");
+								//_app.u.dump("Banner detected. Increasing ghost cell size");
 								var ghostCell = sidebar - banner - 55;
 							}
-							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
+							//_app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -637,18 +637,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterDressTypeCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							//app.u.dump("sidebar = " + sidebar);
+							//_app.u.dump("sidebar = " + sidebar);
 							var banner = $('.carouselCPBannerList ', $context).height();
-							//app.u.dump("banner = " + banner);
+							//_app.u.dump("banner = " + banner);
 							if(banner == 0){
-								//app.u.dump("No banner detected. Reducing ghost cell size");
+								//_app.u.dump("No banner detected. Reducing ghost cell size");
 								var ghostCell = sidebar - 55;
 							}
 							else{
-								//app.u.dump("Banner detected. Increasing ghost cell size");
+								//_app.u.dump("Banner detected. Increasing ghost cell size");
 								var ghostCell = sidebar - banner - 55;
 							}
-							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
+							//_app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -658,18 +658,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterDressTypeCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							//app.u.dump("sidebar = " + sidebar);
+							//_app.u.dump("sidebar = " + sidebar);
 							var banner = $('.carouselCPBannerList ', $context).height();
-							//app.u.dump("banner = " + banner);
+							//_app.u.dump("banner = " + banner);
 							if(banner == 0){
-								//app.u.dump("No banner detected. Reducing ghost cell size");
+								//_app.u.dump("No banner detected. Reducing ghost cell size");
 								var ghostCell = sidebar - 55;
 							}
 							else{
-								//app.u.dump("Banner detected. Increasing ghost cell size");
+								//_app.u.dump("Banner detected. Increasing ghost cell size");
 								var ghostCell = sidebar - banner - 55;
 							}
-							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
+							//_app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -682,18 +682,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterDesignerCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							//app.u.dump("sidebar = " + sidebar);
+							//_app.u.dump("sidebar = " + sidebar);
 							var banner = $('.carouselCPBannerList ', $context).height();
-							//app.u.dump("banner = " + banner);
+							//_app.u.dump("banner = " + banner);
 							if(banner == 0){
-								//app.u.dump("No banner detected. Reducing ghost cell size");
+								//_app.u.dump("No banner detected. Reducing ghost cell size");
 								var ghostCell = sidebar - 55;
 							}
 							else{
-								//app.u.dump("Banner detected. Increasing ghost cell size");
+								//_app.u.dump("Banner detected. Increasing ghost cell size");
 								var ghostCell = sidebar - banner - 55;
 							}
-							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
+							//_app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -703,18 +703,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterDesignerCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							//app.u.dump("sidebar = " + sidebar);
+							//_app.u.dump("sidebar = " + sidebar);
 							var banner = $('.carouselCPBannerList ', $context).height();
-							//app.u.dump("banner = " + banner);
+							//_app.u.dump("banner = " + banner);
 							if(banner == 0){
-								//app.u.dump("No banner detected. Reducing ghost cell size");
+								//_app.u.dump("No banner detected. Reducing ghost cell size");
 								var ghostCell = sidebar - 55;
 							}
 							else{
-								//app.u.dump("Banner detected. Increasing ghost cell size");
+								//_app.u.dump("Banner detected. Increasing ghost cell size");
 								var ghostCell = sidebar - banner - 55;
 							}
-							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
+							//_app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -727,18 +727,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterColorCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							//app.u.dump("sidebar = " + sidebar);
+							//_app.u.dump("sidebar = " + sidebar);
 							var banner = $('.carouselCPBannerList ', $context).height();
-							//app.u.dump("banner = " + banner);
+							//_app.u.dump("banner = " + banner);
 							if(banner == 0){
-								//app.u.dump("No banner detected. Reducing ghost cell size");
+								//_app.u.dump("No banner detected. Reducing ghost cell size");
 								var ghostCell = sidebar - 55;
 							}
 							else{
-								//app.u.dump("Banner detected. Increasing ghost cell size");
+								//_app.u.dump("Banner detected. Increasing ghost cell size");
 								var ghostCell = sidebar - banner - 55;
 							}
-							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
+							//_app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -748,18 +748,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterColorCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							//app.u.dump("sidebar = " + sidebar);
+							//_app.u.dump("sidebar = " + sidebar);
 							var banner = $('.carouselCPBannerList ', $context).height();
-							//app.u.dump("banner = " + banner);
+							//_app.u.dump("banner = " + banner);
 							if(banner == 0){
-								//app.u.dump("No banner detected. Reducing ghost cell size");
+								//_app.u.dump("No banner detected. Reducing ghost cell size");
 								var ghostCell = sidebar - 55;
 							}
 							else{
 								//app.u.dump("Banner detected. Increasing ghost cell size");
 								var ghostCell = sidebar - banner - 55;
 							}
-							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
+							//_app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -772,18 +772,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterHemlineCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							//app.u.dump("sidebar = " + sidebar);
+							//_app.u.dump("sidebar = " + sidebar);
 							var banner = $('.carouselCPBannerList ', $context).height();
-							//app.u.dump("banner = " + banner);
+							//_app.u.dump("banner = " + banner);
 							if(banner == 0){
-								//app.u.dump("No banner detected. Reducing ghost cell size");
+								//_app.u.dump("No banner detected. Reducing ghost cell size");
 								var ghostCell = sidebar - 55;
 							}
 							else{
-								//app.u.dump("Banner detected. Increasing ghost cell size");
+								//_app.u.dump("Banner detected. Increasing ghost cell size");
 								var ghostCell = sidebar - banner - 55;
 							}
-							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
+							//_app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -793,18 +793,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterHemlineCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							//app.u.dump("sidebar = " + sidebar);
+							//_app.u.dump("sidebar = " + sidebar);
 							var banner = $('.carouselCPBannerList ', $context).height();
-							//app.u.dump("banner = " + banner);
+							//_app.u.dump("banner = " + banner);
 							if(banner == 0){
-								//app.u.dump("No banner detected. Reducing ghost cell size");
+								//_app.u.dump("No banner detected. Reducing ghost cell size");
 								var ghostCell = sidebar - 55;
 							}
 							else{
-								//app.u.dump("Banner detected. Increasing ghost cell size");
+								//_app.u.dump("Banner detected. Increasing ghost cell size");
 								var ghostCell = sidebar - banner - 55;
 							}
-							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
+							//_app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -817,18 +817,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterSilhouetteCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							//app.u.dump("sidebar = " + sidebar);
+							//_app.u.dump("sidebar = " + sidebar);
 							var banner = $('.carouselCPBannerList ', $context).height();
-							//app.u.dump("banner = " + banner);
+							//_app.u.dump("banner = " + banner);
 							if(banner == 0){
-								//app.u.dump("No banner detected. Reducing ghost cell size");
+								//_app.u.dump("No banner detected. Reducing ghost cell size");
 								var ghostCell = sidebar - 55;
 							}
 							else{
-								//app.u.dump("Banner detected. Increasing ghost cell size");
+								//_app.u.dump("Banner detected. Increasing ghost cell size");
 								var ghostCell = sidebar - banner - 55;
 							}
-							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
+							//_app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -838,18 +838,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterSilhouetteCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							//app.u.dump("sidebar = " + sidebar);
+							//_app.u.dump("sidebar = " + sidebar);
 							var banner = $('.carouselCPBannerList ', $context).height();
-							//app.u.dump("banner = " + banner);
+							//_app.u.dump("banner = " + banner);
 							if(banner == 0){
-								//app.u.dump("No banner detected. Reducing ghost cell size");
+								//_app.u.dump("No banner detected. Reducing ghost cell size");
 								var ghostCell = sidebar - 55;
 							}
 							else{
-								//app.u.dump("Banner detected. Increasing ghost cell size");
+								//_app.u.dump("Banner detected. Increasing ghost cell size");
 								var ghostCell = sidebar - banner - 55;
 							}
-							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
+							//_app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -862,18 +862,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterNecklineCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							//app.u.dump("sidebar = " + sidebar);
+							//_app.u.dump("sidebar = " + sidebar);
 							var banner = $('.carouselCPBannerList ', $context).height();
-							//app.u.dump("banner = " + banner);
+							//_app.u.dump("banner = " + banner);
 							if(banner == 0){
-								//app.u.dump("No banner detected. Reducing ghost cell size");
+								//_app.u.dump("No banner detected. Reducing ghost cell size");
 								var ghostCell = sidebar - 55;
 							}
 							else{
-								//app.u.dump("Banner detected. Increasing ghost cell size");
+								//_app.u.dump("Banner detected. Increasing ghost cell size");
 								var ghostCell = sidebar - banner - 55;
 							}
-							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
+							//_app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -883,18 +883,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterNecklineCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							//app.u.dump("sidebar = " + sidebar);
+							//_app.u.dump("sidebar = " + sidebar);
 							var banner = $('.carouselCPBannerList ', $context).height();
-							//app.u.dump("banner = " + banner);
+							//_app.u.dump("banner = " + banner);
 							if(banner == 0){
-								//app.u.dump("No banner detected. Reducing ghost cell size");
+								//_app.u.dump("No banner detected. Reducing ghost cell size");
 								var ghostCell = sidebar - 55;
 							}
 							else{
-								//app.u.dump("Banner detected. Increasing ghost cell size");
+								//_app.u.dump("Banner detected. Increasing ghost cell size");
 								var ghostCell = sidebar - banner - 55;
 							}
-							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
+							//_app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -907,18 +907,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterSaleCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							//app.u.dump("sidebar = " + sidebar);
+							//_app.u.dump("sidebar = " + sidebar);
 							var banner = $('.carouselCPBannerList ', $context).height();
-							//app.u.dump("banner = " + banner);
+							//_app.u.dump("banner = " + banner);
 							if(banner == 0){
-								//app.u.dump("No banner detected. Reducing ghost cell size");
+								//_app.u.dump("No banner detected. Reducing ghost cell size");
 								var ghostCell = sidebar - 55;
 							}
 							else{
-								//app.u.dump("Banner detected. Increasing ghost cell size");
+								//_app.u.dump("Banner detected. Increasing ghost cell size");
 								var ghostCell = sidebar - banner - 55;
 							}
-							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
+							//_app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -928,18 +928,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterSaleCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							//app.u.dump("sidebar = " + sidebar);
+							//_app.u.dump("sidebar = " + sidebar);
 							var banner = $('.carouselCPBannerList ', $context).height();
-							//app.u.dump("banner = " + banner);
+							//_app.u.dump("banner = " + banner);
 							if(banner == 0){
-								//app.u.dump("No banner detected. Reducing ghost cell size");
+								//_app.u.dump("No banner detected. Reducing ghost cell size");
 								var ghostCell = sidebar - 55;
 							}
 							else{
-								//app.u.dump("Banner detected. Increasing ghost cell size");
+								//_app.u.dump("Banner detected. Increasing ghost cell size");
 								var ghostCell = sidebar - banner - 55;
 							}
-							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
+							//_app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -952,18 +952,18 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterTrendsCat').data('collapseOrExpanded',false).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							//app.u.dump("sidebar = " + sidebar);
+							//_app.u.dump("sidebar = " + sidebar);
 							var banner = $('.carouselCPBannerList ', $context).height();
-							//app.u.dump("banner = " + banner);
+							//_app.u.dump("banner = " + banner);
 							if(banner == 0){
-								//app.u.dump("No banner detected. Reducing ghost cell size");
+								//_app.u.dump("No banner detected. Reducing ghost cell size");
 								var ghostCell = sidebar - 55;
 							}
 							else{
-								//app.u.dump("Banner detected. Increasing ghost cell size");
+								//_app.u.dump("Banner detected. Increasing ghost cell size");
 								var ghostCell = sidebar - banner - 55;
 							}
-							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
+							//_app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
@@ -973,38 +973,38 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						$('.filterTrendsCat').data('collapseOrExpanded',true).append();
 						setTimeout(function($context){
 							var sidebar = $('.catProdListSidebar', $context).height();
-							//app.u.dump("sidebar = " + sidebar);
+							//_app.u.dump("sidebar = " + sidebar);
 							var banner = $('.carouselCPBannerList ', $context).height();
-							//app.u.dump("banner = " + banner);
+							//_app.u.dump("banner = " + banner);
 							if(banner == 0){
-								//app.u.dump("No banner detected. Reducing ghost cell size");
+								//_app.u.dump("No banner detected. Reducing ghost cell size");
 								var ghostCell = sidebar - 55;
 							}
 							else{
-								//app.u.dump("Banner detected. Increasing ghost cell size");
+								//_app.u.dump("Banner detected. Increasing ghost cell size");
 								var ghostCell = sidebar - banner - 55;
 							}
-							//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
+							//_app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 							$(".catGhostCell", $context).css("height",ghostCell);
 						}, 1100);
 					}
 				},
 				
 				catProdListFilterExpandContract : function($context){
-					//app.u.dump(context);
+					//_app.u.dump(context);
 					var sidebar = $('.catProdListSidebar', $context).height();
-					//app.u.dump("sidebar = " + sidebar);
+					//_app.u.dump("sidebar = " + sidebar);
 					var banner = $('.carouselCPBannerList ', $context).height();
-					//app.u.dump("banner = " + banner);
+					//_app.u.dump("banner = " + banner);
 					if(banner == 0){
-						//app.u.dump("No banner detected. Reducing ghost cell size");
+						//_app.u.dump("No banner detected. Reducing ghost cell size");
 						var ghostCell = sidebar - 55;
 					}
 					else{
-						//app.u.dump("Banner detected. Increasing ghost cell size");
+						//_app.u.dump("Banner detected. Increasing ghost cell size");
 						var ghostCell = sidebar - banner - 55;
 					}
-					//app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
+					//_app.u.dump("ghostCell = " + sidebar + " " + banner + "- 405");
 					$('.catGhostCell', $context).data('heightVal', ghostCell).append();
 					$(".catGhostCell", $context).css("height",ghostCell);
 					
@@ -1031,25 +1031,25 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 				showFilterResultsOnPriceChange : function($context){
 					//Make all altering of the price slider submit the form and show results list.
 						$context.submit(); 
-						//app.u.dump("The price slider was moved.");
+						//_app.u.dump("The price slider was moved.");
 						$("#resultsProductListContainer",$context).hide();  
 		
 						$group1 = $('.fsCheckbox',$context);
 						$priceGroup = $( ".sliderValue",$context ).val().toString();
 						
 						if($(".sliderValue",$context).val() == "$0 - $1000"){
-							//app.u.dump("Price slider is set to stock. Checking For filter options being checked.");
+							//_app.u.dump("Price slider is set to stock. Checking For filter options being checked.");
 							if($group1.filter(':checked').length === 0){
-								//app.u.dump("No filter options checked. Showing stock product list.");
+								//_app.u.dump("No filter options checked. Showing stock product list.");
 								$(".nativeProductList", ($context.parent().parent().parent())).show(); 
 								$(".searchFilterResults", ($context.parent().parent().parent())).hide(); 
 							}
 							else{
-								//app.u.dump("One or more filter options were checked. Still showing filter search results.");
+								//_app.u.dump("One or more filter options were checked. Still showing filter search results.");
 							}
 						}
 						else{
-							//app.u.dump("Price slider is set to custom value. Showing Search results.");
+							//_app.u.dump("Price slider is set to custom value. Showing Search results.");
 							$(".nativeProductList", ($context.parent().parent().parent())).hide(); 
 							$(".searchFilterResults", ($context.parent().parent().parent())).show();  
 						}  
@@ -1075,9 +1075,9 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 						r = false;
 						$form.anymessage({"message":"In _store_filters.u.validateFilterProperties,  no data-filtertype set on fieldset. can't include as part of query. [index: "+index+"]",gMessage:true});
 						}
-					else if(typeof app.ext._store_filter.getElasticFilter[filterType] != 'function')	{
+					else if(typeof _app.ext._store_filter.getElasticFilter[filterType] != 'function')	{
 						r = false;
-						$form.anymessage({"message":"WARNING! type ["+filterType+"] has no matching getElasticFilter function. [typoof: "+typeof app.ext._store_filter.getElasticFilter[filterType]+"]",gMessage:true});
+						$form.anymessage({"message":"WARNING! type ["+filterType+"] has no matching getElasticFilter function. [typoof: "+typeof _app.ext._store_filter.getElasticFilter[filterType]+"]",gMessage:true});
 						}
 					else if(!$fieldset.attr('data-elastic-key'))	{
 						r = false;
@@ -1100,7 +1100,7 @@ var filters = {
 
 $('fieldset',$form).each(function(){
 	var $fieldset = $(this),
-	filter = app.ext._store_filter.getElasticFilter[$fieldset.attr('data-filtertype')]($fieldset);
+	filter = _app.ext._store_filter.getElasticFilter[$fieldset.attr('data-filtertype')]($fieldset);
 	if(filter)	{
 		filters.and.push(filter);
 		}
@@ -1113,7 +1113,7 @@ $('fieldset',$form).each(function(){
  	if(filters.and.length == 1)	{
 		filters.and.push({match_all:{}})
  		}
-		app.u.dump("$( '.sliderValue',$form ).val() = " + $( ".sliderValue",$form ).val())
+		_app.u.dump("$( '.sliderValue',$form ).val() = " + $( ".sliderValue",$form ).val())
 
 return filters;				
 				
@@ -1149,7 +1149,7 @@ return filters;
 					max: props.MAX,
 					values: [ props.MIN, props.MAX ],
 					stop : function(){
-						app.ext._store_filter.a.showFilterResultsOnPriceChange($form);
+						_app.ext._store_filter.a.showFilterResultsOnPriceChange($form);
 						},
 					slide: function( event, ui ) {
 						$( ".sliderValue",$form ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );

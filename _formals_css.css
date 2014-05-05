@@ -16,6 +16,7 @@ body{
 h1, h2, h3, h4, h5, h6, p, a, div, input, button, legend, span, label{
 	font-family: 'Maven Pro', sans-serif;
 	font-style:normal;
+	text-decoration: none;
 }
 li{
 	font-family: 'Maven Pro', sans-serif;
@@ -30,6 +31,14 @@ body a[target=GT__SIP]{
     bottom: 0;
     left: 0;
 }
+
+/*
+*** 201338 -> here to fix a bug in jqueryUI. the dialogs, when attempting to move, would jump away from the cursor in FF. This fixed it.
+Put this high in the doc as a reminder to occassionally re-check if it can be removed
+*/
+.ui-dialog {
+    position: fixed;
+ }
 
 
 
@@ -111,6 +120,9 @@ progress::-moz-progress-bar { background: #E61652; }
 	color: #E61552;
 	text-decoration: none;
 	font-weight: 500;
+}
+.headerLoginLink h5 a:first-of-type{
+	margin-left: 5px;
 }
 
 .headerCartLink{
@@ -220,13 +232,15 @@ progress::-moz-progress-bar { background: #E61652; }
 	color: #666666;
     float: left;
     font-size: 14px;
-    margin-left: 1px;
+    margin-left: 5px;
     margin-right: 3px;
     margin-top: 2px;
 }
 .headerSearchContainer a{
 	color: #E61552;
     text-decoration: none;
+	margin-left: 5px;
+	font-size: 14px;
 }
 
 .headerIE8WarningCont{
@@ -236,6 +250,7 @@ progress::-moz-progress-bar { background: #E61652; }
 
 #sc41p3{
 	float: left;
+	margin-top: 2px;
 }
 
 /***********************************************************************************************************************************/
@@ -251,6 +266,9 @@ progress::-moz-progress-bar { background: #E61652; }
 	margin-top:18px;
 }
 .navTopCat{
+}
+.navTopCat a{
+	text-decoration:none;
 }
 .dropdown{
 	height:0;
@@ -394,7 +412,6 @@ progress::-moz-progress-bar { background: #E61652; }
 /*****FOOTER****/
 .footer{
 	width:100%;
-	height:550px;
 	background-image:url(Images/Homepage/footerbackground.png);
 	float:left;
 	margin-top:-3px;
@@ -419,7 +436,7 @@ progress::-moz-progress-bar { background: #E61652; }
 	width:330px;
 	height:100%;
 	float:left;
-	margin-top:27px;
+	margin-top:13px;
 }
 .footNewsTextCont p{
 	color: white;
@@ -428,7 +445,7 @@ progress::-moz-progress-bar { background: #E61652; }
 }
 .footNewsTextCont h3{
 	color: white;
-    margin-top: -15px;
+    margin-top: -17px;
     text-align: right;
 }
 
@@ -436,30 +453,30 @@ progress::-moz-progress-bar { background: #E61652; }
 	float: left;
     height: 55px;
     margin-left: 120px;
-    margin-top: 30px;
+    margin-top: 35px;
 }
-.footNewsSignupCont form#subscribeFrm{
+.footNewsSignupCont div#subscribeFrm{
 }
-.footNewsSignupCont form#subscribeFrm fieldset.userInfo{
+.footNewsSignupCont div#subscribeFrm div.userInfo{
 	border: medium none;
 }
-.footNewsSignupCont form#subscribeFrm fieldset.userInfo input{
+.footNewsSignupCont div#subscribeFrm div.userInfo input{
 	float:left;
 }
-.footNewsSignupCont form#subscribeFrm fieldset.userInfo input.subName{
+.footNewsSignupCont div#subscribeFrm div.userInfo input.subName{
 	border: medium none;
     height: 25px;
     margin-right: 10px;
     padding: 0;
     width: 190px;
 }
-.footNewsSignupCont form#subscribeFrm fieldset.userInfo input.subEmail{
+.footNewsSignupCont div#subscribeFrm div.userInfo input.subEmail{
 	border: medium none;
     height: 25px;
     padding: 0;
     width: 180px;
 }
-.footNewsSignupCont form#subscribeFrm fieldset.userInfo input.subButton{
+.footNewsSignupCont div#subscribeFrm div.userInfo input.subButton{
 	background-color: #333333;
     border: medium none;
     color: white;
@@ -468,7 +485,7 @@ progress::-moz-progress-bar { background: #E61652; }
     width: 80px;
 }
 
-.footNewsSignupCont form#subscribeFrm fieldset.userInfo fieldset.subscriberLists{
+.footNewsSignupCont div#subscribeFrm div.userInfo fieldset.subscriberLists{
 	padding:0;
 }
 
@@ -477,17 +494,15 @@ progress::-moz-progress-bar { background: #E61652; }
 #mainContentArea{
 }
 .footerContentContainer{
-	height:410px;
 	width:100%;
 	float: left;
 }
 .footerLinkListContainer{
 	width:460px;
-	height:100%;
+	float: left;
 }
 .footerLinkList{
 	float: left;
-    height: 100%;
     list-style: none outside none;
     width: 190px;
 }
@@ -833,7 +848,7 @@ progress::-moz-progress-bar { background: #E61652; }
 li.productItem:hover{
 	border:10px solid #e61652;
 }
-li.productItem:hover div div.productItemInfo{
+li.productItem:hover a div.productItemInfo{
 	background-color:#E61652;
 	background: rgba(200, 54, 54, 0.5);
 	background-color:rgba(230,22,82,.5);
@@ -1533,7 +1548,7 @@ catProdListProductListCont div.loadingBG{
 	background-color:rgba(900,900,900,.8);
 }
 .productItemInfoContent{
-	margin-top: 15px;
+	margin-top: 10px;
     text-align: center;
 }
 .productItemInfoMoreInfo{
@@ -1604,6 +1619,7 @@ div.productItemInfoContent span.prodListItemSavings span.savingsPercentage{
 	background-color:#E61652;
 	background-color: rgba(230, 22, 82, 0.5);
 }
+
 .searchResultsProduct:hover div.productItemInfoContent{
 	display:none;
 }
@@ -1710,6 +1726,28 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 	padding-right: 24px;
 }
 
+div.quickviewProductSizingChartModalLinkContainer a{
+	color: #E91454;
+}
+div.quickviewProductSizingChartModalLinkContainer{
+	margin-top: -8px;
+    width: 100%;
+	text-decoration: none;
+}
+
+.productSharingLinkContainerQuickview a{
+	font-size: 16px;
+}
+
+.productMfgCont{
+	float:left;
+	clear:left;
+}
+
+form.prodViewerAddToCartFormQuickview{
+	width: 290px;
+}
+
 
 
 /***********************************************************************************************************************************/
@@ -1727,7 +1765,7 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 /*****IMAGE CONTAINER****/
 .imageContainer{
 	float:left;
-	width:50%;
+	width:49%;
 	position:relative;
 }
 .imageContainer div img.prodBigImage{
@@ -1775,7 +1813,7 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 	color: #726B5B;
     left: 42px;
     position: absolute;
-    top: -9px;
+    top: -35px;
 	width: 350px;
 }
 
@@ -1881,14 +1919,12 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 .productMfg{
 	color:#736a5b;
 }
-.productMfg span{
+h5.productMfg a{
 	color:#e91454;
 	text-decoration:none;
 }
 
-.priceContainer h4{
-	color:#736a5b;
-}
+
 
 .productPriceText{
 	color: #E91454;
@@ -1907,9 +1943,9 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 
 .prodViewerAddToCartForm {
 	float: left;
-	width:240px;
+	width:440px;
 }
-.prodViewerAddToCartForm input.ui-button{
+.prodViewerAddToCartForm input.addToCartButton {
 	background: none repeat scroll 0 0 #E61652;
     border: medium none;
     border-radius: 0 0 0 0;
@@ -1919,6 +1955,7 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
     letter-spacing: 6px;
     padding-left: 15px;
     padding-top: 5px;
+	padding-bottom: 5px;
     width: 175px;
 	font-weight: 600;
 }
@@ -1927,7 +1964,6 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 	color: #E91454;
     float: left;
     font-size: 13px;
-    margin-top: 32px;
     text-decoration: underline;
     width: 165px;
 	cursor: pointer;
@@ -1951,10 +1987,10 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
     float: left;
     margin-left: 10px;
     margin-right: 10px;
+	margin-top: 0;
 }
 .productSharingLinkContainer a{
 	color: #726B5B;
-    float: left;
     text-decoration: none;
 }
 .socialLinks{
@@ -1968,14 +2004,34 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 	float: left;
 }
 
+.productPriceText{
+	color: #E91454;
+}
+.productPriceText span.pricePrefix{
+	color: #736A5B;
+}
+
 .prodMSRP{
 	color: #736A5B;
     font-size: 14px;
 	text-decoration: line-through;
 }
+.prodTempProdMSRP{
+	color: #E91454;
+}
+.prodTempProdMSRP span.msrpPrefix{
+	color: #736A5B;
+}
 .savings{
 	color: #E91454;
-    font-weight: 600;
+    font-size: 11px;
+    font-weight: normal;
+    margin-top: -3px;
+}
+div.prodSummaryContainer div.priceContainer div.savings{
+	color: #E91454;
+    font-size: 16px;
+    font-weight: bold;
 }
 .savings span.savingsDifference{
 }
@@ -1984,6 +2040,7 @@ div.quickViewProdSummaryContainer  div.productSizingChartModalLinkContainer a{
 
 .variation{
 	width:255px;
+	float:left;
 }
 
 
@@ -2282,6 +2339,11 @@ div.ui-dialog-titlebar span.ui-dialog-title{
     width: 100%;
 }
 
+.cartTemplateShippingContainer ul li label{
+	font-size: 14px;
+	letter-spacing: -0.5px;
+}
+
 .cartAltButtonsContainer{
 }
 div.cartButtons span.continueShoppingSpan button.continueShoppingButton{
@@ -2329,7 +2391,13 @@ span#inStoreCheckoutButton button.checkoutButton{
 	display:none;
 }
 
+.cartSummaryTotalsContainer{
+	width: 28%;
+}
 
+div.cartButtons span.paypalECButton{
+	float: left;
+}
 
 
 
@@ -2338,8 +2406,11 @@ span#inStoreCheckoutButton button.checkoutButton{
 /*****productListTemplateCart TEMPLATE****/
 .productListTemplateCartInfoCont{
 	float: left;
+	width: 63%;
 }
-
+.productListTemplateCart div.prodOptions{
+	float: left;
+}
 
 
 
@@ -2560,6 +2631,74 @@ span#inStoreCheckoutButton button.checkoutButton{
 
 
 
+/***********************************************************************************************************************************/
+/***********************************************************************************************************************************/
+/*****LOGIN MODAL TEMPLATE****/
+.loginCreateAccountForm{
+	border: 2px groove threedface;
+	padding: 0.35em 0.625em 0.75em;
+	margin-left: 2px;
+    margin-right: 2px;
+	margin-bottom:5px;
+}
+.loginCreateAccountForm h1{
+	color: #E61652;
+}
+.loginCreateAccountForm p{
+	color: #909090;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.loginCreateAccountForm a button{
+	background-color: #E61652;
+	border: 0 none;
+	color: #FFFFFF;
+	padding: 7px;
+	margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.loginAccountLoginForm{
+}
+.loginAccountLoginForm h1{
+	color: #E61652;
+    font-size: 34px;
+}
+.loginAccountLoginForm span{
+	color: #909090;
+}
+.loginAccountLoginForm input.applyButton {
+	background-color: #E61652;
+    border: 0 none;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 7px 20px;
+}
+
+.loginAccountPasswordRecover{
+}
+.loginAccountPasswordRecover fieldset{
+	border:none;
+}
+.loginAccountPasswordRecover h1{
+	color:#909090;
+	font-size:20px;
+}
+.loginAccountPasswordRecover span{
+	color:#909090;
+}
+.loginAccountPasswordRecover input.applyButton{
+	background-color: #E61652;
+    border: 0 none;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+
+
 
 /***********************************************************************************************************************************/
 /***********************************************************************************************************************************/
@@ -2585,6 +2724,7 @@ span#inStoreCheckoutButton button.checkoutButton{
 .contactUsChat{
 	display: inline-block;
     float: left;
+	margin-top:0;
 }
 
 .contactUsShowroomLink{
@@ -2593,6 +2733,17 @@ span#inStoreCheckoutButton button.checkoutButton{
 }
 .contactUsShowroomLink:hover{
 	color: black;
+}
+
+.contactUsForm input.applyButton {
+	background-color: #E61652;
+    border: 0 none;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 7px;
+	background-image: none;
+	border-radius:0;
 }
 
 
@@ -2904,8 +3055,52 @@ input[type=checkbox].filterCB:checked + label.break {
 
 .showroomTemplate{
 }
-.showroomTemplate div b{
-	Color:#E61652;
+.showroomTemplate h2{
+	text-align: center;
+}
+.showroomTemplate h2 b{
+	font-size: 40px;
+    font-weight: bold;
+	color: #E61652;
+}
+.showroomTemplate h3{
+	font-size: 18px;
+	font-weight: normal;
+}
+.showroomTemplate h3 b{
+	font-size: 18px;
+	font-weight: bold;
+}
+.showroomTemplate div.showroomLeftSection{
+	float: left;
+    margin-right: 60px;
+    width: 45%;
+}
+.showroomLeftSection h2{
+	color: #E61652;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: left;
+}
+.showroomLeftSection h3{
+	font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.showroomLeftSection p strong{
+}
+
+.showroomTemplate div.showroomRightSection{
+}
+.showroomRightSection h2{
+	margin-bottom: 15px;
+    text-align: left;
+}
+.showroomRightSection h2 strong{
+	color: #E61652;
+    font-size: 26px;
+    font-weight: bold;   
 }
 
 .showroomTemplate iframe{
@@ -2976,9 +3171,9 @@ margin-top:10px;
 	width: 230px;
 }
 
-div.quickViewProdSummaryContainer div.quickviewProductSizingChartModalLinkContainer a{
+div.quickviewProductSizingChartModalLinkContainer a{
 }
-.quickviewProductSizingChartModalLinkContainer{
+div.quickviewProductSizingChartModalLinkContainer{
 }
 
 div.quickviewProductSharingLinkContainer{
@@ -2987,6 +3182,9 @@ div.quickviewProductSharingLinkContainer{
 
 .QuickviewTabContentSizingChart{
 	margin-left: -195px;
+}
+
+div.quickviewProductSharingLinkContainer a{
 }
 
 }
