@@ -3142,19 +3142,14 @@ margin-top:10px;
 	media querries - responsive design
 *************************************************************************************/
 
-/**ALL MEDIA QUERIES HAVE BEEN SUSPENDED UNTIL A COMPLETE RESPONSIVE DESIGN CAN BE BUILT. 
-
 /****800 X 480 TABLET****/
-/*
 @media screen and (max-width: 1000px) {
 
 /**HEADER**/
-/*
 .dropdown{
 	display:none;
 }
 /**PRODUCT TEMPLATE**/
-/*
 .imageContainerMobileEightHundred{
 	display:block;
 }
@@ -3170,7 +3165,6 @@ margin-top:10px;
 
 
 /**QUICKVIEW TEMPLATE**/
-/*
 .normalResolutionImage{
 	display:none;
 }
@@ -3216,16 +3210,13 @@ div.quickviewProductSharingLinkContainer a{
 
 
 /*BEGIN 480 X 320 CELLPHONE*/
-/*
 @media screen and (max-width: 790px) {
 	
 /**HEADER**/
-/*
 .dropdown{
 	display:none;
 }	
 /**PRODUCT TEMPLATE**/
-/*
 .imageContainerMobileEightHundred{
 	display:none;
 }
@@ -3247,7 +3238,6 @@ div.quickviewProductSharingLinkContainer a{
 }
 
 /**QUICKVIEW TEMPLATE**/
-/*
 .normalResolutionImage{
 	display:none;
 }
@@ -3297,16 +3287,13 @@ div.quickviewProductSharingLinkContainer a{
 
 
 /*320 X 480 CELLPHONE*/
-/*
 @media screen and (max-width: 479px) {
 
 /**HEADER**/
-/*
 .dropdown{
 	display:none;
 }
 /**PRODUCT TEMPLATE**/
-/*
 .imageContainerMobileEightHundred{
 	display:none;
 }
@@ -3329,7 +3316,6 @@ div.quickviewProductSharingLinkContainer a{
 
 
 /**QUICKVIEW TEMPLATE**/
-/*
 .normalResolutionImage{
 	display:none;
 }
