@@ -144,7 +144,7 @@
 "hint":""},"callcenter_takemsg_header_msg":{"msg":"\n<div class=\"hint\">Do you know who you would like to contact?</div>",
 "cat":20,"pretty":"Take A Message Screen (Header)",
 "type":"textarea",
-"rows":2,"cols":55},"payment_mo_pending":{"msg":"<p>You should prepare a cashiers check or money order for the amount $%GRANDTOTAL% payable to %PAYABLETO%.</p>\n\n<p>To speed processing of the order, please print \"Order Number %ORDERID%\" in the memo of the check.</p>\n\n<p>If payment is not received within 2 weeks, your order will be automatically cancelled.</p>\n\n<div>\nPlease send the payment to:\n<b>%MYADDRESS%</b>\n</div>\n\n<p><i>%MYNAME% is not responsible for lost or stolen payments.</i></p>\n\t\t\t",
+"rows":2,"cols":55},"payment_mo_pending":{"msg":"<p>Please prepare a cashiers check or money order for the amount of $%GRANDTOTAL% payable to Onlineformals.com and print Order Number %ORDERID% in the memo of the check.</p>\n\n<p>Please send the payment to : </p>\n\n<p>Onlineformals.com</p>\n<p>2492 North Landing Rd, Suite 103</p>\n<p>Virginia Beach, VA 23456</p>\n\n<p>If payment is not received within 2 weeks, your order will be automatically cancelled.</p>\n\n<i>We are not responsible for lost or stolen payments.</i></p>\n\t\t\t",
 "cat":50,"pretty":"Pending Cashiers Check Payment Message (EMAIL)"},"claim_message":{"msg":"Thank you for coming to our store.  To complete your purchase, please select \"Add To Cart\" below.",
 "cat":"1",
 "pretty":"Claim Page Message",
