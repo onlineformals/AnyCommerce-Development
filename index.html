@@ -941,7 +941,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 			<h2>How it Works</h2>
 			<h3>1. Book your Appointment</h3>
             <p><strong>Call</strong> 888-280-4179 or<br>
-				<strong>Email</strong> <a href="appointments@onlineformals.com">appointments@onlineformals.com</a>
+				<strong>Email</strong>appointments@onlineformals.com
 			</p>
 			<h3>2. Before your Appointment</h3>
 			<p>We encourage you to review our website and in stock section prior to your arrival. We can prepare your dressing room with in-stock styles you choose beforehand, or you can do all of your shopping when you arrive--the choice is yours!</p>
@@ -4197,7 +4197,7 @@ used for store_crm.js
 
 	<div data-app-role="orderHeader" data-app-click="quickstart|orderDetailShow" class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-top ui-corner-bottom">
 	<span class="ui-icon ui-icon-triangle-1-e floatLeft marginRight"></span>
-	<span data-tlc="bind $var '.ORDERID'; if (is $var --notblank;) {{ format --prepend='Order ID: ';apply --append;}};"></span>
+	<span data-tlc="bind $var '.ORDERID'; if (is $var --notblank;) {{ format --prepend='Your order ID is: ';apply --append;}};"></span>
 	<span data-tlc="bind $var '.MODIFIED_GMT'; if (is $var --notblank;) {{datetime --out='mdy'; format --prepend='Placed on '; apply --append;}};"></span>
 	</div>
 

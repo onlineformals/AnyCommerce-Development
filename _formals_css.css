@@ -2399,6 +2399,10 @@ div.cartButtons span.paypalECButton{
 	float: left;
 }
 
+table.orderContentsTable div.hide4Print button.applyButton{
+	padding: 20px 30px;
+}
+
 
 
 /***********************************************************************************************************************************/
@@ -2705,7 +2709,8 @@ div.cartButtons span.paypalECButton{
 /*****COMPANY TEMPLATES****/
 .contactContentContainer{
 	float: left;
-    width: 430px;
+    width: 380px;
+	margin-right: 5px;
 }
 #contactForm{
 }
@@ -2744,6 +2749,16 @@ div.cartButtons span.paypalECButton{
     padding: 7px;
 	background-image: none;
 	border-radius:0;
+}
+.contactUsForm fieldset div{
+	margin-bottom: 5px;
+}
+
+label span.prompt{
+	display: inline-block;
+    margin-right: 10px;
+    vertical-align: top;
+    width: 30%;
 }
 
 
