@@ -3148,6 +3148,13 @@ margin-top:10px;
 .dropdown{
 	display:none;
 }
+
+/**CATEGORY TEMPLATE**/
+.productItem button.quickView{
+	display:none !important;
+	z-index:0;
+}
+
 /**PRODUCT TEMPLATE**/
 
 .imageContainer{
