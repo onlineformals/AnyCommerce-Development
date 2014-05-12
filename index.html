@@ -1384,7 +1384,7 @@ this will likely become more flexible in the future. ###
                 </div>
                 <div class="productDescriptionContainer" data-tlc="bind $var '.%attribs.zoovy:prod_desc'; if (is $var --notblank;) {{render --wiki='quickstart'; apply --append;}};"></div>
                 
-                <form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="modal">
+                <form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="inline">
             
                     <fieldset data-tlc="bind $var '.pid'; store_product#atcvariations  --legacy; apply --append;" class="borderNone variationsContainer"></fieldset>
                     <fieldset data-tlc="bind $var '.'; store_product#atcquantityinput  --defaultvalue='1' --legacy;" class="borderNone displayNone"></fieldset>
