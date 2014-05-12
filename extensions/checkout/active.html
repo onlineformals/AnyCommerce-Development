@@ -9,8 +9,6 @@ item list and summary are separate just to give more control over location.
 -->
 <div id="checkoutTemplate" class="checkoutFormContainer" data-app-role="checkout">
 
-<div class="centeringContainer">
-
 	<form action="#">
 	<input data-tlc="bind $var '.bill.shortcut'; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/shortcut" type="hidden">
 	<input data-tlc="bind $var '.ship.shortcut'; if(is $var --notblank;) {{apply --select=$var;}}; " name="ship/shortcut" type="hidden">
@@ -102,7 +100,6 @@ item list and summary are separate just to give more control over location.
 	</form>
 	
 </div>
-</div>
 
 
 
@@ -153,12 +150,12 @@ because the panel is shared, the events (which aren't desired in the editor) are
 
 	<div><input data-tlc="bind $var '.bill.city'; if(is $var --blank;){{bind $var '.bill/city';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/city" placeholder="city" required value="" type="text"></div>
 	
-	<div><input data-tlc="bind $var '.bill.region'; if(is $var --blank;){{bind $var '.bill/region';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/region" placeholder="state/region" required size="10" value="" maxlength="20" type="text"></div>
+	<div><input data-tlc="bind $var '.bill.region'; if(is $var --blank;){{bind $var '.bill/region';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/region" placeholder="state/region" required size="5" value="" maxlength="20" type="text"></div>
 	
 	<!-- postal not required for international. don't add it. -->
 	<div><input data-tlc="bind $var '.bill.postal'; if(is $var --blank;){{bind $var '.bill/postal';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/postal" placeholder="zip/postal code" required size="14" value="" maxlength="10" type="text"></div>
 
-	<div class="billCountry" data-app-role="billCountry"><select data-tlc="bind $var '.'; cco#countriesasoptions  --shiptype='bill' --legacy;" data-legacy-useparentdata="true" name="bill/countrycode" placeholder="country" required></select></div>
+	<div class="billCountry" data-app-role="billCountry"><select data-tlc="bind $var '.'; cco#countriesasoptions  --shiptype='bill' --legacy;" data-legacy-useparentdata="true" name="bill/countrycode" placeholder="country" required="required"><option value=''>Please choose</option></select></div>
 
 	<div><input data-tlc="bind $var '.bill.phone';  if(is $var --blank;){{bind $var '.bill/phone';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/phone" placeholder="phone number" required value="" type="tel"> <span class="hint zhint">in case of billing/delivery problems</span></div>
 
@@ -188,12 +185,12 @@ because the panel is shared, the events (which aren't desired in the editor) are
 
 	<div><input data-tlc="bind $var '.ship.city'; if(is $var --blank;){{bind $var '.ship/city';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="ship/city" placeholder="city" required value="" type="text"></div>
 	
-	<div><input data-tlc="bind $var '.ship.region'; if(is $var --blank;){{bind $var '.ship/region';}}; if(is $var --notblank;) {{apply --select=$var;}}; " class="checkoutStateInput" name="ship/region" placeholder="state/region" required size="10" value="" maxlength="20" type="text"></div>
+	<div><input data-tlc="bind $var '.ship.region'; if(is $var --blank;){{bind $var '.ship/region';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="ship/region" placeholder="state/region" required size="5" value="" maxlength="20" type="text"></div>
 
 	
 	<div><input data-tlc="bind $var '.ship.postal';  if(is $var --blank;){{bind $var '.ship/postal';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="ship/postal" placeholder="zip/postal code" required size="14" value="" maxlength="10" type="text"></div>
 
-	<div class="shipCountry" data-app-role="shipCountry"><select data-tlc="bind $var '.'; cco#countriesasoptions  --shiptype='ship' --legacy;" data-legacy-useparentdata="true" name="ship/countrycode" placeholder="country"></select></div>
+	<div class="shipCountry" data-app-role="shipCountry"><select data-tlc="bind $var '.'; cco#countriesasoptions  --shiptype='ship' --legacy;" data-legacy-useparentdata="true" name="ship/countrycode" placeholder="country"><option value=''>Please choose</option></select></div>
 
 </section>
 
@@ -418,22 +415,18 @@ do NOT change the input name or id or checkout will likely break.
 <!-- used after a successful checkout.  -->
 
 <div id="chkoutCompletedTemplate" class="checkoutSuccess">
-<div class="centeringContainer">
 
-
-	<!--
-    <div class="floatRight ocmThirdParty" data-app-role="thirdPartyContainer"></div>
-    -->
+	<div class="floatRight ocmThirdParty" data-app-role="thirdPartyContainer"></div>
 
 
 	<div class="orderSummaryDetails">
 		<h2>Thank you! Your order has been placed.</h2>
 		<h3 data-tlc="bind $var '.orderid'; if (is $var --notblank;) {{format --prepend='Your order id is '; apply --append;}};"></h3>
-        <div class="pointer marginBottom" data-app-role="paymentMessaging">
-			<!--Click here to view/print your invoice.-->
+		<div class="pointer marginBottom" data-app-role="paymentMessaging">
+			Click here to view/print your invoice.
 			<div data-tlc="bind $var '.payment_status_msg'; if (is $var --notblank;) {{apply --append;}};" class="zwarn"></div><!-- displays payment issues/errors -->
 		</div>
-		<div data-tlc="bind $var '.payment_status_detail'; if (is $var --notblank;) {{apply --append;}};"></div>
+		<div data-tlc="bind $var '.payment_status_detail'; if (is $var --notblank;) {{apply --append;}};" class="marginBottom"></div>
 		<div>You will receive an order confirmation email with details of your order.</div>
 	</div>
 
@@ -447,7 +440,7 @@ do NOT change the input name or id or checkout will likely break.
 	<tbody><tr>
 		<td colspan="2">
 	<div class="floatRight hide4Print">
-		<button class="applyButton" data-text="false" data-icon-primary="ui-icon-print" data-app-click="order_create|execInvoicePrint">Print Invoice</button>
+	<button class="applyButton" data-text="false" data-icon-primary="ui-icon-print" data-app-click="order_create|execInvoicePrint">Print Invoice</button>
 	</div>
 	
 	<h3 data-tlc="bind $var '.order.data.pool'; if (is $var --notblank;) {{format --prepend='Order Status: '; apply --append;}};"></h3>
@@ -507,7 +500,6 @@ do NOT change the input name or id or checkout will likely break.
 	</tr>
 	</tbody></table>
 </div>
-</div>
 
 </div>
 
@@ -560,7 +552,7 @@ If this gets recycled, test in order history after making changes.
 	
 <div class="infoContainer">
 
-	<h3 data-tlc="bind $var '.prod_name'; if (is $var --notblank;) {{apply --append;}};"></h3>
+	<b data-tlc="bind $var '.prod_name'; if (is $var --notblank;) {{apply --append;}};"></b>
 	<div data-tlc="bind $var '.sku'; if (is $var --notblank;) {{format --prepend='Sku: '; apply --add --class='stid'; apply --append;}};" class="ztable_row_small stid"></div>
 	
 	<div>
@@ -574,9 +566,7 @@ If this gets recycled, test in order history after making changes.
 	</td>
 	
 	<td class="alignRight hide4Print">
-	<!--
-    <button data-tlc="bind $var '.product'; apply --attrib='data-pid'; " class="writeReview applyButton" data-app-click="store_crm|productReviewShow">Write Review</button>	
-    -->
+	<button data-tlc="bind $var '.product'; apply --attrib='data-pid'; " class="writeReview applyButton" data-app-click="store_crm|productReviewShow">Write Review</button>	
 	</td>
 
 

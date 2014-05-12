@@ -436,7 +436,11 @@ _app.ext.order_create.u.handlePanel($context,'chkoutMethodsPay',['empty','transl
 				}, //chkoutPayOptionsFieldset
 
 			chkoutAddressBill: function($fieldset,formObj)	{
-				var valid = 0,  cartID = $fieldset.closest("[data-app-role='checkout']").data('cartid');
+				var valid = 0,  cartID = $fieldset.closest("[data-app-role='checkout']").data('cartid'), CID;
+				
+				if(_app.u.thisNestedExists("data.cartDetail|"+cartID+".customer.cid",_app) && _app.data['cartDetail|'+cartID].customer.cid > 0)	{
+					CID = _app.data['cartDetail|'+cartID].customer.cid;
+					}
 				if($fieldset && formObj)	{
 // *** 201338 -> some paypal orders not passing validation due to address wonkyness returned from paypal.
 //paypal address gets returned with as much as paypal needs/wants. trust what we already have (which may not be enough for OUR validation)
@@ -450,8 +454,8 @@ _app.ext.order_create.u.handlePanel($context,'chkoutMethodsPay',['empty','transl
 							$fieldset.anymessage({'message':'Please select the address you would like to use (push the checkmark button)'});
 							}
 						}
-//in an admin session w/ an existing user, make sure the address has been selected.
-					else if(_app.u.thisIsAnAdminSession() && _app.u.thisNestedExists("data.cartDetail|"+cartID+".customer.cid",_app) && _app.data['cartDetail|'+cartID].customer.cid > 0) {
+//in an admin session w/ an existing user, make sure the address has been selected IF the buyer has pre-defined addresses.
+					else if(_app.u.thisIsAnAdminSession() && CID  && _app.u.thisNestedExists("data.adminCustomerDetail|"+CID+".@BILL",_app) && _app.data['adminCustomerDetail|'+CID]['@BILL'].length ) {
 						if(formObj['bill/shortcut'])	{valid = 1}
 						else	{
 							$fieldset.anymessage({'message':'Please select the address you would like to use (push the checkmark button)'});
@@ -1088,7 +1092,6 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 //show post-checkout invoice and success messaging.
 						$checkout.empty().show();
 						$checkout.tlc({'templateid':'chkoutCompletedTemplate',dataset: checkoutData}); //show invoice
-						$('#modalCart').empty().remove();
 		
 		
 //This will add a cart message. handy if the buyer and merchant are dialoging.
@@ -1117,7 +1120,7 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 									if(_app.model.responseHasErrors(rd)){
 										_app.u.throwMessage(rd);
 										}
-									else if(_app.data[rd.datapointer]._cartid) {
+									else if(_app.data[rd.datapointer] && _app.data[rd.datapointer]._cartid) {
 										_app.calls.cartDetail.init(_app.data[rd.datapointer]._cartid,{},'immutable');
 										_app.model.dispatchThis('immutable');
 										}
@@ -1162,8 +1165,13 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 							
 								}
 							else	{
-								_app.u.dump("Not 1PC.");
-								_app.u.dump(" -> [data-app-role='paymentMessaging'],$checkout).length: "+("[data-app-role='paymentMessaging']",$checkout).length);
+//								_app.u.dump("Not 1PC.");
+//								_app.u.dump(" -> [data-app-role='paymentMessaging'],$checkout).length: "+("[data-app-role='paymentMessaging']",$checkout).length);
+								
+								//MUST destroy the cart. it has data-cartid set that would point to the wrong cart.
+								$('#modalCart').empty().remove(); 
+								$('#mainContentArea_cart').empty().remove();
+
 								//the code below is to disable any links in the payment messaging for apps. there may be some legacy links depending on the message.
 								$("[data-app-role='paymentMessaging'] a",$checkout).on('click',function(event){
 									event.preventDefault();
@@ -1367,14 +1375,13 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 					$container = $ele.closest("[data-app-role='customShipMethodContainer']"),
 					cartid = $ele.closest(":data(cartid)").data('cartid'),
 					sfo = $container.serializeJSON();
-					
 				$('.ui-state.error',$container).removeClass('ui-state-error'); //remove any previous errors.
 				if(sfo['sum/shp_carrier'] && sfo['sum/shp_method'] && sfo['sum/shp_total'])	{
 					_app.model.addDispatchToQ({
 						'_cmd':'adminCartMacro',
 						'_cartid' : cartid,
 						'_tag' : {},
-						"@updates" : ["SETSHIPPING?"+$.param(sfo)]
+						"@updates" : ["SETSHIPPING?"+_app.u.hash2kvp(sfo)]
 						},'immutable');
 					_app.ext.order_create.u.handleCommonPanels($ele.closest('form'));
 					_app.model.dispatchThis('immutable');
@@ -2067,13 +2074,10 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 							$('#globalMessaging').anymessage({'message':"In order_create.u.handlePanel, undefined action ["+actions[i]+"]",'gMessage':true});
 							}
 						_app.u.handleButtons($fieldset);
-						/*
 						$('.applyAnycb',$fieldset).each(function(){
 							$(this).anycb({text : {on : 'yes',off : 'no'}});
 							});
-						*/
 						}
-						
 					
 					}
 				else	{
@@ -2132,7 +2136,7 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 						_app.u.dump(" -> token and payid are set but a valid paypal tender is already present.");
 						} //already have paypal in paymentQ. could be user refreshed page. don't double-add to Q.
 					else	{
-						$context.anymessage({'message':'Welcome Back! You are almost done. Simply verify the information below and push the place order button to complete your transaction.','iconClass':'ui-icon-check','containerClass':'ui-state-highlight ui-state-success'});
+						$context.anymessage({'message':'Welcome Back! you are almost done. Simply verify the information below and push the place order button to complete your transaction.','iconClass':'ui-icon-check','containerClass':'ui-state-highlight ui-state-success'});
 						_app.u.dump("It appears we've just returned from PayPal.");
 						_app.ext.order_create.vars['payment-pt'] = token;
 						_app.ext.order_create.vars['payment-pi'] = payerid;
@@ -2204,23 +2208,41 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 					}
 				if(typeof arr == 'object' && !$.isEmptyObject(arr))	{
 
-	var L = arr.length;
-	for(var i = 0; i < L; i++)	{
-//adding to iframe gives us an isolation layer
-//data-script-id added so the iframe can be removed easily later.
-		arr[i].id = 'iframe_3ps_'+i
-		$("<iframe \/>",{'id':arr[i].id}).attr({'data-script-id':arr[i].owner,'height':1,'width':1}).css({'display':'none'}).appendTo('body'); // -> commented out for testing !!!
 /*
 the timeout is added for multiple reasons.
 1.  jquery needed a moment between adding the iframe to the DOM and accessing it's contents.
-2.  by adding some time between each interation (100 * 1), if there's a catastrophic error, the next code will still run.
+2.  by adding some time between each interation (100 * 1), if there's an exception in the tracker, the next code will still run.
 */
-  		setTimeout(function(thisArr){
+						for(var i = 0,  L = arr.length; i < L; i++)	{
+							setTimeout(function(thisArr){
+								try	{
+									$(document.body).append(thisArr.script);
+									}
+								catch(e)	{
+									scriptCallback(thisArr.owner,e)
+									}
+								},(200 * (i + 1)),arr[i]);
+							}
+
+/*
+left here in case we want to come back to this. It'll work IF each tracker can run in an isolated environment.
+unfortunately, too many of the tracker codes rely on scripts being loaded onLoad in the parent window and are not functioning
+ properly when isolated in an iframe.
+	var L = arr.length;
+	for(var i = 0; i < L; i++)	{
+adding to iframe gives us an isolation layer
+data-script-id added so the iframe can be removed easily later.
+		arr[i].id = 'iframe_3ps_'+i
+		$("<iframe \/>",{'id':arr[i].id}).attr({'data-script-id':arr[i].owner,'height':1,'width':1}).css({'display':'none'}).appendTo('body'); // -> commented out for testing !!!
+the timeout is added for multiple reasons.
+1.  jquery needed a moment between adding the iframe to the DOM and accessing it's contents.
+2.  by adding some time between each interation (100 * 1), if there's a catastrophic error, the next code will still run.
+ 		setTimeout(function(thisArr){
 			var $iframe = $('#'+thisArr.id).contents().find("html");
 			$iframe.append(thisArr.script);
-/// hhhmmm... some potential problems with this. non-script based output. sequence needs to be preserved for includes and inline.
+// hhhmmm... some potential problems with this. non-script based output. sequence needs to be preserved for includes and inline.
 
-/*			var $div = $("<div \/>").append(thisArr.script); //may contain multiple scripts.
+			var $div = $("<div \/>").append(thisArr.script); //may contain multiple scripts.
 			var scripts = ""; //all the non 'src' based script contents, in one giant lump. it's put into a 'try' to track code errors.
 			$div.find('script').each(function(){
 				var $s = $(this);
@@ -2233,9 +2255,9 @@ the timeout is added for multiple reasons.
 					}
 				});
 			$iframe.append("<script>try{"+scripts+"\n window.parent.scriptCallback('"+arr.owner+"','success');} catch(err){window.parent.scriptCallback('"+arr.owner+"','error: '+err);}<\/script>");
-*/			},(100 * (i + 1)),arr[i])
+			},(100 * (i + 1)),arr[i])
 		} 
-					}
+*/					}
 				else	{
 					//didn't get anything or what we got wasn't an array.
 					}
