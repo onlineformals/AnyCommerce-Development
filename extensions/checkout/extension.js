@@ -669,6 +669,7 @@ an existing user gets a list of previous addresses they've used and an option to
 					$("[data-app-role='addressExists']",$fieldset).hide();
 					$("[data-app-role='addressNew']",$fieldset).show();
 					$("[data-app-role='billToShipContainer']").hide(); //though locked below, we hide this to avoid confusion.
+
 					$("[name='want/bill_to_ship']",$fieldset).attr({'disabled':'disabled'}).removeAttr('checked'); //set val 
 					//name is provided by paypal and can't be changed.
 					$("[name='bill/firstname'], [name='bill/lastname']",$fieldset).attr('disabled','disabled');
@@ -1115,8 +1116,7 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 							_app.calls.appCartCreate.init({
 								"datapointer" : "appCartCreate",
 								"callback" : function(rd){
-									dump(" -----------> rd: "); dump(rd);
-									
+//									dump(" -----------> rd: "); dump(rd);
 									if(_app.model.responseHasErrors(rd)){
 										_app.u.throwMessage(rd);
 										}
@@ -1129,59 +1129,59 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 										}
 									}
 								}); //!IMPORTANT! after the order is created, a new cart needs to be created and used. the old cart id is no longer valid.
+							} //ends the not admin/1pc if.
 		
-							if(typeof _gaq != 'undefined')	{
-								_gaq.push(['_trackEvent','Checkout','App Event','Order created']);
-								_gaq.push(['_trackEvent','Checkout','User Event','Order created ('+orderID+')']);
-								}
+						if(typeof _gaq != 'undefined')	{
+							_gaq.push(['_trackEvent','Checkout','App Event','Order created']);
+							_gaq.push(['_trackEvent','Checkout','User Event','Order created ('+orderID+')']);
+							}
+	
 		
-			
-							if(_app.ext.order_create.checkoutCompletes)	{
-								var L = _app.ext.order_create.checkoutCompletes.length;
-								for(var i = 0; i < L; i += 1)	{
-									_app.ext.order_create.checkoutCompletes[i]({'cartID':previousCartid,'orderID':orderID,'datapointer':_rtag.datapointer},$checkout);
-									}
+						if(_app.ext.order_create.checkoutCompletes)	{
+							var L = _app.ext.order_create.checkoutCompletes.length;
+							for(var i = 0; i < L; i += 1)	{
+								_app.ext.order_create.checkoutCompletes[i]({'cartID':previousCartid,'orderID':orderID,'datapointer':_rtag.datapointer},$checkout);
 								}
+							}
 //This will handle the @trackers code.			
-							_app.ext.order_create.u.scripts2iframe(checkoutData['@TRACKERS']);
+						_app.ext.order_create.u.scripts2iframe(checkoutData['@TRACKERS']);
 
 // ### TODO -> move this out of here. move it into the appropriate app init.
-							if(_app.vars._clientid == '1pc')	{
-							//GTS for apps is handled in google extension
-								if(typeof window.GoogleTrustedStore)	{
-									delete window.GoogleTrustedStore; //delete existing object or gts conversion won't load right.
-							//running this will reload the script. the 'span' will be added as part of html:roi
-							//if this isn't run in the time-out, the 'span' w/ order totals won't be added to DOM and this won't track as a conversion.
-									(function() {
-										var scheme = (("https:" == document.location.protocol) ? "https://" : "http://");
-										var gts = document.createElement("script");
-										gts.type = "text/javascript";
-										gts.async = true;
-										gts.src = scheme + "www.googlecommerce.com/trustedstores/gtmp_compiled.js";
-										var s = document.getElementsByTagName("script")[0];
-										s.parentNode.insertBefore(gts, s);
-										})();
-									}
-							
+						if(_app.vars._clientid == '1pc')	{
+						//GTS for apps is handled in google extension
+							if(typeof window.GoogleTrustedStore)	{
+								delete window.GoogleTrustedStore; //delete existing object or gts conversion won't load right.
+						//running this will reload the script. the 'span' will be added as part of html:roi
+						//if this isn't run in the time-out, the 'span' w/ order totals won't be added to DOM and this won't track as a conversion.
+								(function() {
+									var scheme = (("https:" == document.location.protocol) ? "https://" : "http://");
+									var gts = document.createElement("script");
+									gts.type = "text/javascript";
+									gts.async = true;
+									gts.src = scheme + "www.googlecommerce.com/trustedstores/gtmp_compiled.js";
+									var s = document.getElementsByTagName("script")[0];
+									s.parentNode.insertBefore(gts, s);
+									})();
 								}
-							else	{
+						
+							}
+						else	{
 //								_app.u.dump("Not 1PC.");
 //								_app.u.dump(" -> [data-app-role='paymentMessaging'],$checkout).length: "+("[data-app-role='paymentMessaging']",$checkout).length);
-								
-								//MUST destroy the cart. it has data-cartid set that would point to the wrong cart.
-								$('#modalCart').empty().remove(); 
-								$('#mainContentArea_cart').empty().remove();
+							
+							//MUST destroy the cart. it has data-cartid set that would point to the wrong cart.
+							$('#modalCart').empty().remove(); 
+							$('#mainContentArea_cart').empty().remove();
 
-								//the code below is to disable any links in the payment messaging for apps. there may be some legacy links depending on the message.
-								$("[data-app-role='paymentMessaging'] a",$checkout).on('click',function(event){
-									event.preventDefault();
-									});
-								$("[data-app-role='paymentMessaging']",$checkout).on('click',function(event){
-									event.preventDefault();
-									//cart and order id are in uriParams to keep data locations in sync in showCustomer. uriParams is where they are when landing on this page directly.
-									showContent('customer',{'show':'invoice','uriParams':{'cartid':previousCartid,'orderid':orderID}});
-									});
-								}
+							//the code below is to disable any links in the payment messaging for apps. there may be some legacy links depending on the message.
+							$("[data-app-role='paymentMessaging'] a",$checkout).on('click',function(event){
+								event.preventDefault();
+								});
+							$("[data-app-role='paymentMessaging']",$checkout).on('click',function(event){
+								event.preventDefault();
+								//cart and order id are in uriParams to keep data locations in sync in showCustomer. uriParams is where they are when landing on this page directly.
+								showContent('customer',{'show':'invoice','uriParams':{'cartid':previousCartid,'orderid':orderID}});
+								});
 		
 							}
 						//outside the if/else above so that cartMessagesPush and cartCreate can share the same pipe.
@@ -1682,14 +1682,18 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 					$('body').showLoading({'message':'Transferring you to PayPal payment authorization'});
 //***201402 Must pass cartid parameter on the call itself -mc
 					var cartid = $ele.closest("[data-app-role='checkout']").data('cartid');
-					_app.ext.cco.calls.cartPaypalSetExpressCheckout.init({'getBuyerAddress': (_app.u.buyerIsAuthenticated()) ? 0 : 1, '_cartid':cartid},{'callback':function(rd){
+					_app.ext.cco.calls.cartPaypalSetExpressCheckout.init({
+						'getBuyerAddress': (_app.u.buyerIsAuthenticated()) ? 0 : 1, 
+						'_cartid':cartid,
+						'useMobile':($(document.body).width() < 500 ? 1 : 0)
+						},{'callback':function(rd){
 						if(_app.model.responseHasErrors(rd)){
 							$('body').hideLoading();
 							$('html, body').animate({scrollTop : $fieldset.offset().top},1000); //scroll to first instance of error.
 							$fieldset.anymessage({'message':rd});
 							}
 						else	{
-							window.location = _app.data[rd.datapointer].URL
+							window.location = _app.data[rd.datapointer].URL+'&useraction=commit'; //commit returns user to website for order confirmation. otherwise they stay on paypal.
 							}
 						},"extension":"order_create",'parentID': $ele.closest("[data-app-role='checkout']").attr('id')},'immutable');
 					_app.model.dispatchThis('immutable');
@@ -2074,11 +2078,9 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 							$('#globalMessaging').anymessage({'message':"In order_create.u.handlePanel, undefined action ["+actions[i]+"]",'gMessage':true});
 							}
 						_app.u.handleButtons($fieldset);
-						/*
 						$('.applyAnycb',$fieldset).each(function(){
 							$(this).anycb({text : {on : 'yes',off : 'no'}});
 							});
-							*/
 						}
 					
 					}
