@@ -84,24 +84,6 @@ myApp.cmr.push(['goto',function(message,$context){
 }]);
 
 
-$('#cartTemplate').on('complete.updateMinicart',function(state,$ele,infoObj)	{
- 	var cartid = infoObj.cartid || myApp.model.fetchCartID();
- 	var $appView = $('#appView'), cart = myApp.data['cartDetail|'+cartid], itemCount = 0, subtotal = 0, total = 0;
- 	dump(" -> cart "+cartid+": "); dump(cart);
- 	if(!$.isEmptyObject(cart['@ITEMS']))	{
- 		itemCount = cart.sum.items_count || 0;
- 		subtotal = cart.sum.items_total;
- 		total = cart.sum.order_total;
- 		}
- 	else	{
- 		//cart not in memory yet. use defaults.
- 		}
- 	$('.cartItemCount',$appView).text(itemCount);
- 	$('.cartSubtotal',$appView).text(myApp.u.formatMoney(subtotal,'$',2,false));
- 	$('.cartTotal',$appView).text(myApp.u.formatMoney(total,'$',2,false));
-});
-
-
 //gets executed from app-admin.html as part of controller init process.
 //progress is an object that will get updated as the resources load.
 /*
@@ -115,8 +97,7 @@ myApp.u.showProgress = function(progress)	{
 		if(progress.passZeroResourcesLength == progress.passZeroResourcesLoaded)	{
 			//All pass zero resources have loaded.
 			//the app will handle hiding the loading screen.
-			//myApp.router.init();//instantiates the router.
- 			myApp.u.appInitComplete();
+			myApp.u.appInitComplete();
 			}
 		else if(attempt > 150)	{
 			//hhhhmmm.... something must have gone wrong.
@@ -142,6 +123,11 @@ myApp.u.appInitComplete = function()	{
 	myApp.u.dump("Executing myAppIsLoaded code...");
 	
 	myApp.ext.order_create.checkoutCompletes.push(function(vars,$checkout){
+		dump(" -> begin checkoutCOmpletes code: "); dump(vars);
+		
+		var cartContentsAsLinks = myApp.ext.cco.u.cartContentsAsLinks(myApp.data[vars.datapointer].order);
+		dump(" -> cartContentsAsLinks: "+cartContentsAsLinks);
+		
 //append this to 
 		$("[data-app-role='thirdPartyContainer']",$checkout).append("<h2>What next?</h2><div class='ocm ocmFacebookComment pointer zlink marginBottom checkoutSprite  '></div><div class='ocm ocmTwitterComment pointer zlink marginBottom checkoutSprit ' ></div><div class='ocm ocmContinue pointer zlink marginBottom checkoutSprite'></div>");
 		$('.ocmTwitterComment',$checkout).click(function(){
@@ -175,7 +161,11 @@ myApp.router.appendInit({
 	'callback':function(f,g){
 		dump(" -> triggered callback for appendInit");
 		g = g || {};
-		if(document.location.hash)	{
+		if(g.uriParams.seoRequest){
+			showContent(g.uriParams.pageType, g.uriParams);
+			}
+		else if(document.location.hash)	{	
+			myApp.u.dump('triggering handleHash');
 			myApp.router.handleHashChange();
 			}
 		else	{
@@ -190,6 +180,7 @@ myApp.router.appendInit({
 			}
 		}
 	});
+
 
 
 
