@@ -82,7 +82,7 @@ css files should be included before any .js file to ensure they are downloaded i
 $(document).ready(function(){
 
 	window.myApp = new initApp({
-		"release":"201403.aj",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201403.ai",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
@@ -3984,69 +3984,67 @@ This is the template used both within a dialog and inline, unless implicitly ove
 -->
 
 <div id="cartTemplate" class="clearfix"><!-- template role gets added by the myApp. don't add it yourself -->
-	<div class="centeringContainer">
 
-		<form id='cartTemplateForm' action='#' onSubmit='return false'>
-			<div class='cartContainer'>
-				<div class='cartStuffContainer'>
-					<ul data-tlc="bind $var '.@ITEMS'; controller#loop --templateid='productListTemplateCart'; if (is $var --notblank;) {{apply --append;}};" class="listStyleNone fluidList clearfix noPadOrMargin productList lineItemProdlist"></ul>
-				</div>
+	<form id='cartTemplateForm' action='#' onSubmit='return false'>
+		<div class='cartContainer'>
+			<div class='cartStuffContainer'>
+				<ul data-tlc="bind $var '.@ITEMS'; controller#loop --templateid='productListTemplateCart'; if (is $var --notblank;) {{apply --append;}};" class="listStyleNone fluidList clearfix noPadOrMargin productList lineItemProdlist"></ul>
+			</div>
 
-				<div class="cartSummaryTotalsContainer">
-					<div class="ui-widget ui-corner-all">
-						<div class='ui-widget-header ui-corner-top ui-header smallPadding smallButton'>
-							<button class='applyButton cartRefreshButton' data-text='false' data-icon-primary='ui-icon-refresh' data-app-click="cco|cartFetchExec">Refresh Cart</button>
-							<h2>Cart Totals</h2>
-						</div>
-						<div class="cartSummaryContainer stdPadding ui-widget-content clearfix">
+			<div class="cartSummaryTotalsContainer">
+				<div class="ui-widget ui-corner-all">
+					<div class='ui-widget-header ui-corner-top ui-header smallPadding smallButton'>
+						<button class='applyButton cartRefreshButton' data-text='false' data-icon-primary='ui-icon-refresh' data-app-click="cco|cartFetchExec">Refresh Cart</button>
+						<h2>Cart Totals</h2>
+					</div>
+					<div class="cartSummaryContainer stdPadding ui-widget-content clearfix">
 
-							<section id='cartTemplateCostSummary' class='cartSummary'>
+						<section id='cartTemplateCostSummary' class='cartSummary'>
 
-								<div data-tlc="bind $var '.sum.items_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Subtotal: '; apply --add --class='orderSubtotal'; apply --append;}};"></div>
+							<div data-tlc="bind $var '.sum.items_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Subtotal: '; apply --add --class='orderSubtotal'; apply --append;}};"></div>
 
-								<div data-tlc="bind $var '.sum.tax_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Tax: '; apply --add --class='orderTax'; apply --append;}};"></div>
+							<div data-tlc="bind $var '.sum.tax_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Tax: '; apply --add --class='orderTax'; apply --append;}};"></div>
 
-								<div data-tlc="cco#shipinfobyid  --legacy;" class="orderShipping" data-bind="useParentData:true; format:shipinfobyid; extension:cco;"></div>
+							<div data-tlc="cco#shipinfobyid  --legacy;" class="orderShipping" data-bind="useParentData:true; format:shipinfobyid; extension:cco;"></div>
 
-								<div data-tlc="bind $var '.sum.order_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Order Total: '; apply --add --class='orderTotal'; apply --append;}};"></div>
+							<div data-tlc="bind $var '.sum.order_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Order Total: '; apply --add --class='orderTotal'; apply --append;}};"></div>
 
-								<div data-tlc="bind $var '.sum.gfc_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Giftcard(s): '; apply --add --class='orderGiftcardTotal'; apply --append;}};"></div>
-								<div data-tlc="bind $var '.sum.pnt_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Reward Points: '; apply --add --class='rewardPointsTotal'; apply --append;}};"></div>
-								<div data-tlc="bind $var '.sum.rmc_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Returns Credit: '; apply --add --class='returnsCreditTotal'; apply --append;}};"></div>
+							<div data-tlc="bind $var '.sum.gfc_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Giftcard(s): '; apply --add --class='orderGiftcardTotal'; apply --append;}};"></div>
+							<div data-tlc="bind $var '.sum.pnt_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Reward Points: '; apply --add --class='rewardPointsTotal'; apply --append;}};"></div>
+							<div data-tlc="bind $var '.sum.rmc_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Returns Credit: '; apply --add --class='returnsCreditTotal'; apply --append;}};"></div>
 
-								<div data-tlc="bind $var '.sum.balance_due_total'; cco#orderbalance  --classname='orderBalanceDue' --hidezero='false' --currencysign='$' --legacy;"></div>
+	<div data-tlc="bind $var '.sum.balance_due_total'; cco#orderbalance  --classname='orderBalanceDue' --hidezero='false' --currencysign='$' --legacy;"></div>
 
-							</section>
+						</section>
 
-							<section id='cartTemplateShippingContainer' data-app-role="cartTemplateShippingContainer" class="marginBottom cartTemplateShippingContainer">
-								<h3>Shipping:</h3>
+						<section id='cartTemplateShippingContainer' data-app-role="cartTemplateShippingContainer" class="marginBottom cartTemplateShippingContainer">
+							<h3>Shipping:</h3>
 
-								<div class="cartZipCodeContainer marginBottom">
-									<label>Zip/Postal Code:
-									<input data-tlc="bind $var '.ship.postal'; if(is $var --blank) {{bind $var '.bill.postal'; }}; apply --select=$var; " size="6" name="ship/postal" value="" maxlength="10" data-app-blur="cco|cartZipUpdateExec" type="text"></label>
-								</div>
+	<div class="cartZipCodeContainer marginBottom">
+		<label>Zip/Postal Code:
+		<input data-tlc="bind $var '.ship.postal'; if(is $var --blank) {{bind $var '.bill.postal'; }}; apply --select=$var; " size="6" name="ship/postal" value="" maxlength="10" data-app-blur="cco|cartZipUpdateExec" type="text"></label>
+	</div>
 
-								<ul data-tlc="order_create#shipmethodsasradiobuttons  --legacy;" class="noPadOrMargin listStyleNone" data-bind="useParentData:true; format:shipmethodsasradiobuttons; extension: order_create;" data-app-role="shipMethodsUL"></ul>
-							</section>
-							<section class="marginBottom"></section>
+							<ul data-tlc="order_create#shipmethodsasradiobuttons  --legacy;" class="noPadOrMargin listStyleNone" data-bind="useParentData:true; format:shipmethodsasradiobuttons; extension: order_create;" data-app-role="shipMethodsUL"></ul>
+						</section>
+						<section class="marginBottom"></section>
 
-						</div>
-						<div class="ui-state-default cartButtons stdPadding clearfix">
-							<!-- spans are set around the buttons so each element has one consitent tag type around it -->
-							<span class="continueShoppingSpan thisButton"><button class="applyButton continueShoppingButton" data-app-click="quickstart|dialogCloseExec">Continue Shopping</button></span>
-					
-							<span id="inStoreCheckoutButton" class='thisButton' title="proceed to secure checkout">
-								<a class="applyButton ui-state-highlight checkoutButton" href='#!checkout'>Store Checkout</a>
-							</span>
-					
-							<span data-tlc="bind $var '.cart.cartid'; cco#paypalecbutton  --legacy;" id="paypalecbutton" class="thisButton paypalECButton"></span>
-					
-						</div>
+					</div>
+					<div class="ui-state-default cartButtons stdPadding clearfix">
+						<!-- spans are set around the buttons so each element has one consitent tag type around it -->
+						<span class="continueShoppingSpan thisButton"><button class="applyButton continueShoppingButton" data-app-click="quickstart|dialogCloseExec">Continue Shopping</button></span>
+				
+						<span id="inStoreCheckoutButton" class='thisButton' title="proceed to secure checkout">
+							<a class="applyButton ui-state-highlight checkoutButton" href='#!checkout'>Store Checkout</a>
+						</span>
+				
+						<span data-tlc="bind $var '.cart.cartid'; cco#paypalecbutton  --legacy;" id="paypalecbutton" class="thisButton paypalECButton"></span>
+				
 					</div>
 				</div>
 			</div>
-		</form>
-	</div>
+		</div>
+	</form>
 </div><!-- /cartTemplate -->
 
 
