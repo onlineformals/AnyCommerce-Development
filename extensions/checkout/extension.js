@@ -2132,7 +2132,7 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 						_app.u.dump(" -> token and payid are set but a valid paypal tender is already present.");
 						} //already have paypal in paymentQ. could be user refreshed page. don't double-add to Q.
 					else	{
-						$context.anymessage({'message':'Welcome Back! you are almost done. Simply verify the information below and push the place order button to complete your transaction.','iconClass':'ui-icon-check','containerClass':'ui-state-highlight ui-state-success'});
+						$context.anymessage({'message':'Welcome Back! You are almost done. Simply verify the information below and push the place order button to complete your transaction.','iconClass':'ui-icon-check','containerClass':'ui-state-highlight ui-state-success'});
 						_app.u.dump("It appears we've just returned from PayPal.");
 						_app.ext.order_create.vars['payment-pt'] = token;
 						_app.ext.order_create.vars['payment-pi'] = payerid;

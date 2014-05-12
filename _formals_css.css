@@ -250,7 +250,7 @@ progress::-moz-progress-bar { background: #E61652; }
 
 #sc41p3{
 	float: left;
-	margin-top: 2px;
+	margin-top: 0;
 }
 
 /***********************************************************************************************************************************/
@@ -2399,6 +2399,10 @@ div.cartButtons span.paypalECButton{
 	float: left;
 }
 
+table.orderContentsTable div.hide4Print button.applyButton{
+	padding: 20px 30px;
+}
+
 
 
 /***********************************************************************************************************************************/
@@ -2705,7 +2709,8 @@ div.cartButtons span.paypalECButton{
 /*****COMPANY TEMPLATES****/
 .contactContentContainer{
 	float: left;
-    width: 430px;
+    width: 380px;
+	margin-right: 5px;
 }
 #contactForm{
 }
@@ -2744,6 +2749,16 @@ div.cartButtons span.paypalECButton{
     padding: 7px;
 	background-image: none;
 	border-radius:0;
+}
+.contactUsForm fieldset div{
+	margin-bottom: 5px;
+}
+
+label span.prompt{
+	display: inline-block;
+    margin-right: 10px;
+    vertical-align: top;
+    width: 30%;
 }
 
 
@@ -3127,240 +3142,37 @@ margin-top:10px;
 	media querries - responsive design
 *************************************************************************************/
 
-/****800 X 480 TABLET****/
 @media screen and (max-width: 1000px) {
 
 /**HEADER**/
 .dropdown{
 	display:none;
 }
+
+/**CATEGORY TEMPLATE**/
+.productItem button.quickView{
+	display:none !important;
+	z-index:0;
+}
+
 /**PRODUCT TEMPLATE**/
-.imageContainerMobileEightHundred{
-	display:block;
-}
-.imageContainerMobileFourEighty{
-	display:none;
-}
-.imageContainerMobileThreeTwenty{
-	display:none;
-}
+
 .imageContainer{
 	display:none;
 }
-
-
-/**QUICKVIEW TEMPLATE**/
-.normalResolutionImage{
-	display:none;
-}
-.eightHundredWidthResolutionImage{
+.imageContainerMobile{
 	display:block;
-}
-.fourEigthyResolutionImage{
-	display:none;
-}
-.quickviewLargeImageContainer {
-    height: 331px;
-    width: 290px;
-}
-.imageContainerQuickview{
-	width:47%;
+	float: left;
+    width: 440px;	
 }
 
-.prodViewerAddToCartForm{
-	width: 230px;
-}
-
-div.quickviewProductSizingChartModalLinkContainer a{
-}
-div.quickviewProductSizingChartModalLinkContainer{
-}
-
-div.quickviewProductSharingLinkContainer{
-	margin-left: -195px;
-}
-
-.QuickviewTabContentSizingChart{
-	margin-left: -195px;
-}
-
-div.quickviewProductSharingLinkContainer a{
-}
-
-}
-/*END 800 X 480 TABLET*/
-
-
-
-
-
-/*BEGIN 480 X 320 CELLPHONE*/
-@media screen and (max-width: 790px) {
-	
-/**HEADER**/
-.dropdown{
-	display:none;
-}	
-/**PRODUCT TEMPLATE**/
-.imageContainerMobileEightHundred{
-	display:none;
-}
-.imageContainerMobileFourEighty{
-	display:block;
-}
-.imageContainerMobileThreeTwenty{
-	display:none;
-}
-.imageContainer{
-	display:none;
-}
-
-.productPage div div.prodTempContentContainer div.prodSummaryContainer img.productAuthSeal{
+div.imageContainerMobile div.pointer{
 	float: left;
 }
-.productPage div div.prodTempContentContainer div.prodSummaryContainer form.prodViewerAddToCartForm {
-	margin-left:0;
+
+.prodThumbs{
+	float: left;
+    margin-top: 10px;
 }
 
-/**QUICKVIEW TEMPLATE**/
-.normalResolutionImage{
-	display:none;
 }
-.eightHundredWidthResolutionImage{
-	display:none;
-}
-.fourEigthyResolutionImage{
-	display:block;
-}
-.quickviewLargeImageContainer {
-    height: 250px;
-    width: 195px;
-}
-.imageContainerQuickview {
-    width: 46%;
-}
-
-.prodTempContentContainer div.prodSummaryContainer h1{
-    font-size: 20px;
-    width: 190px;
-}
-
-.prodViewerAddToCartForm{
-	margin-left: -145px;
-    width: 230px;
-}
-div.quickViewProdSummaryContainer div.quickviewProductSizingChartModalLinkContainer a{
-}
-.quickviewProductSizingChartModalLinkContainer{
-}
-
-div.quickviewProductSharingLinkContainer{
-	margin-left: -210px;
-    width: 385px;
-}
-div.quickviewProductSharingLinkContainer a{
-	font-size: 16px;
-}
-
-.QuickviewTabContentSizingChart{
-	margin-left: -210px;
-}
-
-	
-}
-/*END 480 X 320 CELLPHONE*/
-
-
-/*320 X 480 CELLPHONE*/
-@media screen and (max-width: 479px) {
-
-/**HEADER**/
-.dropdown{
-	display:none;
-}
-/**PRODUCT TEMPLATE**/
-.imageContainerMobileEightHundred{
-	display:none;
-}
-.imageContainerMobileFourEighty{
-	display:none;
-}
-.imageContainerMobileThreeTwenty{
-	display:block;
-}
-.imageContainer{
-	display:none;
-}
-
-.productSharingLinkContainer{
-	clear:left;
-}
-.tabbedProductContentTD{
-	clear:left;
-}
-
-
-/**QUICKVIEW TEMPLATE**/
-.normalResolutionImage{
-	display:none;
-}
-.eightHundredWidthResolutionImage{
-	display:block;
-}
-.fourEigthyResolutionImage{
-	display:none;
-}
-.quickviewLargeImageContainer {
-    height: 100%;
-    width: 100%;
-}
-.imageContainerQuickview {
-    margin-left: -25px;
-    padding-right: 0;
-    width: 100%;
-}
-
-.prodTempContentContainer{
-	width:100%;
-}
-.prodTempContentContainer div.prodSummaryContainer h1{
-    float: left;
-    font-size: 20px;
-    width: 100%;
-}
-.productAuthSeal{
-	clear: both;
-    float: left;
-    margin-left: 60px;
-}
-.prodViewerAddToCartForm{
-	margin-left: 0;
-    width: 230px;
-}
-div.quickViewProdSummaryContainer div.quickviewProductSizingChartModalLinkContainer a{
-}
-.quickviewProductSizingChartModalLinkContainer{
-}
-
-div.quickviewProductSharingLinkContainer{
-	height: 45px;
-    margin-left: 0;
-    width: 230px;
-}
-.productSharingLinkContainer menu.CRMButtonMenu{
-	margin-bottom: 0;
-}
-div.quickviewProductSharingLinkContainer p{
-	margin-bottom: 0;
-}
-div.quickviewProductSharingLinkContainer a{
-	font-size: 16px;
-}
-
-.QuickviewTabContentSizingChart{
-	margin-left: 0;
-}
-
-	
-}
-/*END 320 X 480 CELLPHONE*/
