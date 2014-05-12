@@ -27,6 +27,8 @@ $modal.dialog({modal: true,width:'80%', dialogClass: 'dlgfixed', position: "cent
 
 2. active.html in checkout folder:
 - Add a centering container to the checkout form.
+- Add a centering container to chkoutCompletedTemplate.
+- Comment out: <div class="floatRight ocmThirdParty" data-app-role="thirdPartyContainer"></div> 
 
 3. cart_checkout_order.js:
 - Add this commit: https://github.com/onlineformals/onlineformals/commit/bcf08ed5097eee5ac1e8e6b13a9c5738d65a12bc

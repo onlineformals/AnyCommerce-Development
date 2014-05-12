@@ -232,7 +232,7 @@ progress::-moz-progress-bar { background: #E61652; }
 	color: #666666;
     float: left;
     font-size: 14px;
-    margin-left: 5px;
+    margin-left: 3px;
     margin-right: 3px;
     margin-top: 2px;
 }
@@ -2551,6 +2551,10 @@ table.orderContentsTable div.hide4Print button.applyButton{
     border-radius: 0;
     color: #FFFFFF;
     padding: 7px;
+}
+
+ul li.productListTemplateBuyerList{
+	height: auto;
 }
 
 
