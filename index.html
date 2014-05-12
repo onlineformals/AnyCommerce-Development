@@ -1065,27 +1065,26 @@ container ul should have lineItemProdlist class on it instead of productList
 </li>
 
 
-<li id="productListTemplateBuyerList" class="loadingBG clearfix">
+<li id="productListTemplateBuyerList" class="loadingBG productListTemplateBuyerList clearfix">
 	<div data-tlc="bind $var '.pid'; apply --attrib='data-pid';">
 
 		<div class="prodThumbContainer floatLeft">
 			<div class="ui-widget ui-widget-content ui-corner-all">
 				<img data-tlc="bind $var '.%attribs.zoovy:prod_image1'; apply --img --media=$var --width=160 --height=160 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="160" width="160">
+				<h5 data-tlc="bind $var '.%attribs.zoovy:prod_name'; if (is $var --notblank;) {{apply --append;}};"></h5>
+
+				<h6 data-tlc="bind $var '.%attribs.zoovy:base_price';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='Our Price: ';  apply --append;}};"></h6>
 				<div class="buttonList ui-widget ui-widget-header ui-corner-all alignCenter">
 
-<a data-tlc="bind $var '.'; store_routing#seoanchor --type='product' --seo; apply --attrib='href';" class='applyButton' data-text='true' data-icon-primary='ui-icon-cart'>Add To Cart</a>
-<a href='#' data-app-click="quickstart|quickviewShow" class='applyButton' data-text='true' data-icon-primary='ui-icon-info'>Details</a>
-<a href='#' data-app-click="store_crm|productReviewShow" class='applyButton' data-text='true' data-icon-primary='ui-icon-star'>Write Review</a>
-<a href='#' data-app-click="store_crm|productBuyerListRemoveExec" class='applyButton' data-text='true' data-icon-primary='ui-icon-trash'>Remove From List</a>
+				<a data-tlc="bind $var '.'; store_routing#seoanchor --type='product' --seo; apply --attrib='href';" class='applyButton' data-text='true' data-icon-primary='ui-icon-cart'>Add To Cart</a>
+				<a href='#' data-app-click="quickstart|quickviewShow" class='applyButton' data-text='true' data-icon-primary='ui-icon-info'>Details</a>
+				<a href='#' data-app-click="store_crm|productReviewShow" class='applyButton' data-text='true' data-icon-primary='ui-icon-star'>Write Review</a>
+				<a href='#' data-app-click="store_crm|productBuyerListRemoveExec" class='applyButton' data-text='true' data-icon-primary='ui-icon-trash'>Remove From List</a>
 
 				</div>
 			</div>
 		</div>
 		<span data-tlc="bind $var '.reviews.average'; if(is $var --notblank) {{format --prepend='review_'; apply --add --class=$var; }};" class="reviewSprite floatRight"></span>
-
-		<h5 data-tlc="bind $var '.%attribs.zoovy:prod_name'; if (is $var --notblank;) {{apply --append;}};"></h5>
-
-		<h6 data-tlc="bind $var '.%attribs.zoovy:base_price';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='Our Price: ';  apply --append;}};"></h6>
 
 
 	</div>
@@ -3647,15 +3646,13 @@ if you change these, you should move them above this comment so that when you (o
 
 
 
-<!-- loadingBG needed on this for app init (content may take a moment to load) -->
-<div id='customerTemplate' class='clearfix'>
+<div id="customerTemplate" class="clearfix smallButton">
 <div class="centeringContainer">
 
 	<div class="sideline">
 	<nav id="customerNav">
 	<ul class="listStyleNone noPadOrMargin">
-<!-- before restoring this, test cuz news form on left was causing some conflicts
-		<li><a href='#customer?show=subscriberLists'>Newsletter Subscription</a></li> -->
+		<li><a href='#!customer/subscriberLists'>Newsletter Subscription</a></li>
 		<li><a href="#!customer/myaccount">My Account</a></li>
 		<li><a href="#!customer/changepassword">Change Password</a></li>
 		<li><a href="#!customer/orders">Order History</a></li>
@@ -3669,22 +3666,34 @@ if you change these, you should move them above this comment so that when you (o
 <!-- .textContentArea is used as a selector because IE8 doesn't play well  with tag type article as a selector -->
 
 <!--
-newsletterArticle is used for buyers who are not logged in or do not have an account.
-subscribeListsArticle is used for authenticated buyers
+newsletterArticle is intended for buyers who are not logged in or do not have an account.
 -->
 		<div id="newsletterArticle" class="displayNone textContentArea">
 			<h1>Subscribe to our Newsletter and Save!</h1>
-			<div data-tlc="bind $var '.'; transmogrify --dataset=$var --templateid='subscribeFormTemplate'; apply --append;"></div>
+			<form action="#" name="subscribeFrm" data-app-submit="quickstart|subscribeSubmit" class='alignedForm'>
+				<fieldset class="userInfo borderNone">
+					<label>
+					<input placeholder="email address" maxlength="50" size="30" required name="email" value="" type="email" data-tlc="bind $var '.customer.login'; if(is $var --notblank;) {{apply --select=$var;}};">
+					</label>
+				</fieldset>
+				
+				<fieldset data-tlc="apply --empty; bind $var '.@lists'; controller#loop --templateid='subscriberListItemTemplate'; apply --append;" class="borderNone subscriberLists"></fieldset>
+			
+				<input class="applyButton" value="Subscribe" type="submit">
+			
+			</form>
 		</div>
-
+<!--
+subscribeListsArticle is used for authenticated buyers.
+-->
 		<div id="subscriberListsArticle" class="displayNone textContentArea">
 			<h1>Manage your Subscriptions</h1>
-<!-- save onchange -->
-<form action="#" name="subscribeFrm">
 
-<fieldset data-tlc="bind $var '.@lists'; store_crm#subscribecheckboxes  --legacy; apply --append;" class="borderNone subscriberLists"></fieldset>
-
-</form>
+			<form action="#" name="subscribeFrm" data-app-submit="store_crm|buyerUpdate" class='alignedForm' onSubmit="return false">
+				<!-- buyer is logged in. Don't need email/name inputs -->
+				<fieldset data-update-verb='tags' data-tlc="apply --empty; bind $tags '.%info.@tags'; bind $var '.@lists'; controller#loop --templateid='subscriberListItemTemplate'; apply --append;" class="borderNone subscriberLists"></fieldset>
+				<input class="applyButton" value="Subscribe" type="submit">
+			</form>
 
 		</div>
         
@@ -3797,7 +3806,7 @@ subscribeListsArticle is used for authenticated buyers
                 </div>
         </div>
 
-		<div id='myaccountArticle' class='displayNone textContentArea'>
+		<div id="myaccountArticle" class="displayNone textContentArea">
 			<h1>My Account</h1>
 
 			<section>
@@ -3807,7 +3816,7 @@ subscribeListsArticle is used for authenticated buyers
 		<button class="floatRight applyButton" data-icon-primary="ui-icon-plus" data-app-click="quickstart|showBuyerAddressAdd">New Billing Address</button>
 		<h2>Billing Address(es)</h2>
 	</div>
-	<div data-tlc="bind $var '.@bill'; controller#loop --templateid='billAddressTemplate'; if (is $var --notblank;) {{apply --append;}};" class="billAddresses"></div>
+	<div data-tlc="bind $var '.@bill'; controller#loop --templateid='billAddressTemplate'; if (is $var --notblank;) {{apply --empty; apply --append;}};" class="billAddresses"></div>
 </div>
 
 <div class="shipAddressContainer" data-app-role="addressContainer" data-app-addresstype="ship">
@@ -3815,7 +3824,7 @@ subscribeListsArticle is used for authenticated buyers
 		<button class="floatRight applyButton" data-icon-primary="ui-icon-plus" data-app-click="quickstart|showBuyerAddressAdd">New Shipping Address</button>
 		<h2>Shipping Address(es)</h2>
 	</div>
-	<div data-tlc="bind $var '.@ship'; controller#loop --templateid='shipAddressTemplate'; if (is $var --notblank;) {{apply --append;}};" class="billAddresses"></div>
+	<div data-tlc="bind $var '.@ship'; controller#loop --templateid='shipAddressTemplate'; if (is $var --notblank;) {{apply --empty; apply --append;}};" class="billAddresses"></div>
 </div>
 
 
@@ -3870,6 +3879,16 @@ subscribeListsArticle is used for authenticated buyers
 </div>
 
 
+<ul>
+
+<li id='subscriberListItemTemplate'>
+	<label data-tlc="bind $var '.EXEC_SUMMARY'; apply --attrib='title';" >
+	<input type='checkbox'  data-tlc="bind $id '.ID'; format --prepend='USER#SUB'; apply --attrib='name'; set $checked ''; store_crm#buyersubscribe --id=$id; if(is $checked --notblank;) {{ apply --attrib='checked';}};" />
+	<span data-tlc="bind $var '.NAME'; apply --append;"></span>
+</li>
+
+</ul>
+
 <h2 id='buyerListTemplate' data-tlc="bind $id '.id'; apply --append; bind $items '.items'; if (is $items --notblank;) {{format --prepend=' (' --append=')'; apply --append;}};"></h2>
 
 
@@ -3882,7 +3901,7 @@ subscribeListsArticle is used for authenticated buyers
 </div>
 
 
-<div id='searchTemplate' class='searchResultsPage clearfix'>
+<div id="searchTemplate" class="searchResultsPage clearfix">
 
 	<div class="centeringContainer">
 	
