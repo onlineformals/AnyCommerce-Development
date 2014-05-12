@@ -38,6 +38,11 @@ var quickstart = function(_app) {
 			'productTemplate',
 			'productTemplateQuickView',
 			'pageNotFoundTemplate',
+			
+			//CUSTOM TEMPLATES
+			'categoryProductListTemplate',
+			'testimonialsTemplate',
+			
 //the list of templates that, in most cases, are left alone. Also in the same order as appTemplates
 			'breadcrumbTemplate',
 			'companyTemplate',
@@ -2280,7 +2285,7 @@ either templateID needs to be set OR showloading must be true. TemplateID will t
 								$(this).attr('data-app-change','quickstart|cartShipMethodSelect');
 								});
 							});
-						$modal.dialog({modal: true,width:'80%'});  //browser doesn't like percentage for height
+						$modal.dialog({modal: true,width:'80%', dialogClass: 'dlgfixed', position: "center"});  //browser doesn't like percentage for height
 						}
 
 					if(P.showLoading === true)	{
@@ -2641,10 +2646,14 @@ buyer to 'take with them' as they move between  pages.
 						}
 					else if(catSafeID == zGlobals.appSettings.rootcat || infoObj.pageType == 'homepage')	{
 						infoObj.templateID = 'homepageTemplate'
-						}
-					else	{
-						infoObj.templateID = 'categoryTemplate'
-						}
+						}					else if(myApp.ext._store_formals.vars.catTemplates[catSafeID]){
+             			myApp.u.dump("category list template option selected");
+              			infoObj.templateID = myApp.ext._store_formals.vars.catTemplates[catSafeID]
+            		}
+          			else{
+              			myApp.u.dump("category default template option selected");
+              			infoObj.templateID = 'categoryTemplate'
+					}
 					infoObj.state = 'init';
 					var parentID = infoObj.parentID || infoObj.templateID+'_'+_app.u.makeSafeHTMLId(catSafeID);
 					var $parent = $(_app.u.jqSelector('#',parentID));
