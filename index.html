@@ -82,7 +82,7 @@ css files should be included before any .js file to ensure they are downloaded i
 $(document).ready(function(){
 
 	window.myApp = new initApp({
-		"release":"201403.ah",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201403.ai",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
@@ -4013,20 +4013,17 @@ This is the template used both within a dialog and inline, unless implicitly ove
 							<div data-tlc="bind $var '.sum.pnt_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Reward Points: '; apply --add --class='rewardPointsTotal'; apply --append;}};"></div>
 							<div data-tlc="bind $var '.sum.rmc_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Returns Credit: '; apply --add --class='returnsCreditTotal'; apply --append;}};"></div>
 
-							<div data-tlc="bind $var '.sum.balance_due_total'; cco#orderbalance  --classname='orderBalanceDue' --hidezero='false' --prepend='$' --legacy;"></div>
+	<div data-tlc="bind $var '.sum.balance_due_total'; cco#orderbalance  --classname='orderBalanceDue' --hidezero='false' --currencysign='$' --legacy;"></div>
 
 						</section>
 
 						<section id='cartTemplateShippingContainer' data-app-role="cartTemplateShippingContainer" class="marginBottom cartTemplateShippingContainer">
 							<h3>Shipping:</h3>
 
-							<div class='cartZipCodeContainer marginBottom'>
-								<label for='data-ship_zip'>Zip/Postal Code:</label>
-								<input type='text' size='6'  name='ship/postal' id='data-ship_zip' value='' data-bind='var: cart(ship/postal); format:popVal;' maxlength='10' onChange="myApp.calls.cartSet.init({'ship/postal':this.value, 'ship/region':''});
-									myApp.ext.store_cart.u.updateCartSummary();
-									myApp.ext.store_cart.calls.cartShippingMethodsWithUpdate.init();
-									myApp.model.dispatchThis('immutable');"  />
-							</div>
+	<div class="cartZipCodeContainer marginBottom">
+		<label>Zip/Postal Code:
+		<input data-tlc="bind $var '.ship.postal'; if(is $var --blank) {{bind $var '.bill.postal'; }}; apply --select=$var; " size="6" name="ship/postal" value="" maxlength="10" data-app-blur="cco|cartZipUpdateExec" type="text"></label>
+	</div>
 
 							<ul data-tlc="order_create#shipmethodsasradiobuttons  --legacy;" class="noPadOrMargin listStyleNone" data-bind="useParentData:true; format:shipmethodsasradiobuttons; extension: order_create;" data-app-role="shipMethodsUL"></ul>
 						</section>
@@ -4037,11 +4034,11 @@ This is the template used both within a dialog and inline, unless implicitly ove
 						<!-- spans are set around the buttons so each element has one consitent tag type around it -->
 						<span class="continueShoppingSpan thisButton"><button class="applyButton continueShoppingButton" data-app-click="quickstart|dialogCloseExec">Continue Shopping</button></span>
 				
-						<span id="inStoreCheckoutButton thisButton" title="proceed to secure checkout">
+						<span id="inStoreCheckoutButton" class='thisButton' title="proceed to secure checkout">
 							<a class="applyButton ui-state-highlight checkoutButton" href='#!checkout'>Store Checkout</a>
 						</span>
 				
-						<span data-tlc="cco#paypalecbutton  --legacy;" id="paypalECButton" class="thisButton paypalECButton"></span>
+						<span data-tlc="bind $var '.cart.cartid'; cco#paypalecbutton  --legacy;" id="paypalecbutton" class="thisButton paypalECButton"></span>
 				
 					</div>
 				</div>
