@@ -152,7 +152,7 @@ because the panel is shared, the events (which aren't desired in the editor) are
 
 	<div><input data-tlc="bind $var '.bill.city'; if(is $var --blank;){{bind $var '.bill/city';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/city" placeholder="city" required value="" type="text"></div>
 	
-	<div><input data-tlc="bind $var '.bill.region'; if(is $var --blank;){{bind $var '.bill/region';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/region" placeholder="state/region" required size="5" value="" maxlength="20" type="text"></div>
+	<div><input data-tlc="bind $var '.bill.region'; if(is $var --blank;){{bind $var '.bill/region';}}; if(is $var --notblank;) {{apply --select=$var;}}; " class="checkoutStateInput" name="bill/region" placeholder="state/region" required size="5" value="" maxlength="20" type="text"></div>
 	
 	<!-- postal not required for international. don't add it. -->
 	<div><input data-tlc="bind $var '.bill.postal'; if(is $var --blank;){{bind $var '.bill/postal';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/postal" placeholder="zip/postal code" required size="14" value="" maxlength="10" type="text"></div>
@@ -187,7 +187,7 @@ because the panel is shared, the events (which aren't desired in the editor) are
 
 	<div><input data-tlc="bind $var '.ship.city'; if(is $var --blank;){{bind $var '.ship/city';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="ship/city" placeholder="city" required value="" type="text"></div>
 	
-	<div><input data-tlc="bind $var '.ship.region'; if(is $var --blank;){{bind $var '.ship/region';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="ship/region" placeholder="state/region" required size="5" value="" maxlength="20" type="text"></div>
+	<div><input data-tlc="bind $var '.ship.region'; if(is $var --blank;){{bind $var '.ship/region';}}; if(is $var --notblank;) {{apply --select=$var;}}; " class="checkoutStateInput" name="ship/region" placeholder="state/region" required size="5" value="" maxlength="20" type="text"></div>
 
 	
 	<div><input data-tlc="bind $var '.ship.postal';  if(is $var --blank;){{bind $var '.ship/postal';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="ship/postal" placeholder="zip/postal code" required size="14" value="" maxlength="10" type="text"></div>
