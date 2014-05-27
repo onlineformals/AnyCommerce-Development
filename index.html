@@ -793,6 +793,11 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id="categoryTemplate" class=" categoryTemplate">
 
 	<div class="centeringContainer">
+		<span class="displayNone" data-tlc="store_routing#seoanchor --seo='1' apply --attrib='data-routing-hash';"></span>
+
+		<span class="displayNone" data-tlc="bind $var '.%page.head_title'; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
+
+		<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
         <ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>
         <div class="catTopCarousel">
             <div class="carouselCPBannerList">
@@ -875,6 +880,12 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='categoryProductListTemplate' class='categoryTemplate' data-app-role='categoryPage'>
 
 	<div class="centeringContainer">
+		<span class="displayNone" data-tlc="store_routing#seoanchor --seo='1' apply --attrib='data-routing-hash';"></span>
+
+		<span class="displayNone" data-tlc="bind $var '.%page.head_title'; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
+
+		<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
+
     	<div class="searchTab" title="Need help finding exactly the dress you want? Click the magnifying glass to narrow your results with our filtered search!">
         	<img onClick="myApp.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent());" src="Images/categorypage/filteredsearch/search_tab.png" />
         	<p onClick="myApp.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent());">Narrow Your Search</p>
@@ -910,6 +921,12 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 <div id='testimonialsTemplate' class='categoryTemplate'>
 	<div class="centeringContainer">
+		<span class="displayNone" data-tlc="store_routing#seoanchor --seo='1' apply --attrib='data-routing-hash';"></span>
+
+		<span class="displayNone" data-tlc="bind $var '.%page.head_title'; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
+
+		<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
+
         <ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>    
         <!--
         <img data-tlc="bind $var '.%page.banner1'; quickstart#banner  --height='250' --width='750' --legacy;" src="images/blank.gif" alt="">
@@ -932,6 +949,12 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 <div id='showroomTemplate' class='showroomTemplate'>
 	<div class="centeringContainer">
+		<span class="displayNone" data-tlc="store_routing#seoanchor --seo='1' apply --attrib='data-routing-hash';"></span>
+
+		<span class="displayNone" data-tlc="bind $var '.%page.head_title'; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
+
+		<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
+
 		<h2><b>An Exclusive Personal Shopping Experience</b></h2><p>
   
 		<h3><b>E-commerce Meets Showroom. </b>We have been a trusted e-commerce leader in the special occasion industry since 2004 and recently opened our Virginia Beach showroom to bring you the latest fashion forward styles in a private setting. Your visit will be unique and personal, unlike any other in the area. We invite you to book an appointment and look forward to helping you find the perfect dress!</h3><p>
@@ -1177,6 +1200,12 @@ this will likely become more flexible in the future. ###
 <div data-tlc="bind $var '.pid'; apply --attrib='data-pid';" id='productTemplate' class='productPage'>
 
 	<div class="centeringContainer">
+		<span class="displayNone" data-tlc="store_routing#seoanchor --seo='1' apply --attrib='data-routing-hash';"></span>
+
+		<span class="displayNone" data-tlc="bind $var '.%page.head_title'; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
+
+		<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
+
     	<div data-tlc="set $bob '1234';"></div>
 		<ul data-tlc="bind $var '.recentCategories.0'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy; apply --append;" class="clearfix noPadOrMargin fluidList breadcrumb"></ul>
 
