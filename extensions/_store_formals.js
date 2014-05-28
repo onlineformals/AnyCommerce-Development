@@ -353,12 +353,12 @@ var _store_formals = function(_app) {
 						setTimeout(carouselHPProductList, 2000);
 						
 						$(".hpProductListNext").click(function() {
-							$(".hpProductListTitleCarousel").trigger("next", 1);
-							$(".hpProductListCarouselContainer").trigger("next", 1);
+							$(".hpProductListTitleCarousel").trigger("next");
+							$(".hpProductListCarouselContainer").trigger("next");
 						});
 						$(".hpProductListPrev").click(function() {
-							$(".hpProductListTitleCarousel").trigger("prev", 1);
-							$(".hpProductListCarouselContainer").trigger("prev", 1);
+							$(".hpProductListTitleCarousel").trigger("prev");
+							$(".hpProductListCarouselContainer").trigger("prev");
 						});
 						
 						//TITLEBAR HIDING FUNCTIONALITY.
