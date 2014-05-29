@@ -117,6 +117,43 @@ _app.router.appendHash({'type':'match','route':'modal/product/{{pid}}*','callbac
 					}
 					_app.ext.store_routing.u.setHash(hash);
 					});
+
+				_app.templates.categoryProductListTemplate.on('complete.routing', function(event, $context, infoObj){
+					var hash = "";
+					var $routeEle = $('[data-routing-hash]',$context)
+					if($routeEle.length){
+						hash = $routeEle.attr('data-routing-hash');
+						}
+					else {
+						hash = "#!/category/"+infoObj.navcat+"/";
+					}
+					_app.ext.store_routing.u.setHash(hash);
+					});
+
+				app.templates.testimonialsTemplate.on('complete.routing', function(event, $context, infoObj){
+					var hash = "";
+					var $routeEle = $('[data-routing-hash]',$context)
+					if($routeEle.length){
+						hash = $routeEle.attr('data-routing-hash');
+						}
+					else {
+						hash = "#!/category/"+infoObj.navcat+"/";
+					}
+					_app.ext.store_routing.u.setHash(hash);
+					});
+
+				app.templates.showroomTemplate.on('complete.routing', function(event, $context, infoObj){
+					var hash = "";
+					var $routeEle = $('[data-routing-hash]',$context)
+					if($routeEle.length){
+						hash = $routeEle.attr('data-routing-hash');
+						}
+					else {
+						hash = "#!/category/"+infoObj.navcat+"/";
+					}
+					_app.ext.store_routing.u.setHash(hash);
+					});
+
 					
 				_app.templates.productTemplate.on('complete.routing', function(event, $context, infoObj){
 					var hash = "";
