@@ -1169,6 +1169,7 @@ var _store_formals = function(_app) {
 					return _app.ext.quickstart.a.showContent('',P);
 				});
 			}
+			
 		},//END u FUNCTIONS
 		
 		renderFormats : {
@@ -1362,7 +1363,9 @@ var _store_formals = function(_app) {
 						else{
 							$tag.show();
 						}	
-				}//showhidearea
+				},//showhidearea
+				
+				
 			
 		},
 		

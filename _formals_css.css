@@ -48,6 +48,15 @@ Put this high in the doc as a reminder to occassionally re-check if it can be re
 /*****appPreView TEMPLATE****/
 
 
+/*
+#appPreView{
+	display:block !important;
+}
+#appView{
+	display:none !important;
+}
+*/
+
 #loader h3{
 	color: #909090;
     float: left;
@@ -76,6 +85,33 @@ progress::-moz-progress-bar { background: #E61652; }
     float: left;
     margin-left: 160px;
 	color: #909090;
+}
+
+.appLoadRefreshMessage{
+	display: inline-block;
+	width: 420px;
+}
+.appLoadRefreshMessage div{
+    width: 100%;
+}
+.appLoadRefreshMessage div p{
+	color: #E61652;
+    display: none;
+    float: left;
+    font-size: 18px;
+    font-weight: 600;
+}
+.appLoadRefreshMessage div p.appLoadCharOne{
+	margin-left: 75px;
+}
+.appLoadRefreshMessage p{
+	display: inline-block;
+}
+.appLoadRefreshMessage p.appLoadRefreshMess{
+	display:none;
+	float:left;
+	clear:left;
+	color:#E61652;
 }
 
 
