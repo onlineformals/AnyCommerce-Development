@@ -124,43 +124,7 @@ myApp.u.appInitComplete = function()	{
 	
 				dump("Beginning app load timer for refresh message.");
 				setTimeout(function(){
-						setTimeout(function(){
-							$(".appLoadRefreshMessage div p.appLoadCharOne").show();
-						}, 1000);
-						setTimeout(function(){
-							$(".appLoadRefreshMessage div p.appLoadCharTwo").show();
-						}, 2000);
-						setTimeout(function(){
-							$(".appLoadRefreshMessage div p.appLoadCharThree").show();
-						}, 3000);
-						setTimeout(function(){
-							$(".appLoadRefreshMessage div p.appLoadCharFour").show();
-						}, 4000);
-						setTimeout(function(){
-							$(".appLoadRefreshMessage div p.appLoadCharFive").show();
-						}, 5000);
-						setTimeout(function(){
-							$(".appLoadRefreshMessage div p.appLoadMessOne").toggle("slide", "right", 1000);
-						}, 6000);
-						setTimeout(function(){
-							$(".appLoadRefreshMessage div p.appLoadCharSix").show();
-						}, 7000);
-						setTimeout(function(){
-							$(".appLoadRefreshMessage div p.appLoadCharSeven").show();
-						}, 8000);
-						setTimeout(function(){
-							$(".appLoadRefreshMessage div p.appLoadCharEight").show();
-						}, 9000);
-						setTimeout(function(){
-							$(".appLoadRefreshMessage div p.appLoadCharNine").show();
-						}, 10000);
-						setTimeout(function(){
-							$(".appLoadRefreshMessage div p.appLoadCharTen").show();
-						}, 11000);
-						setTimeout(function(){
-							$(".appLoadRefreshMessage p.appLoadRefreshMess").slideDown();
-						}, 12000);
-						
+					$(".appLoadRefreshMessage p.appLoadRefreshMess").slideDown();						
 				}, 10000);
 					
 	
