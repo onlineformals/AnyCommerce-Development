@@ -1168,6 +1168,32 @@ var _store_formals = function(_app) {
 					var P = _app.ext.quickstart.u.parseAnchor($this.data('onclick'));
 					return _app.ext.quickstart.a.showContent('',P);
 				});
+			},
+			
+			validatezip : function(zipCode, context) {
+				//dump("Running validateZip function");
+				//dump(zipCode);
+				//dump(context);
+				//dump(zipCode.value);
+				
+				if(zipCode.textLength > 5){
+					//dump("Zip has more than 5 characters");
+					$(".checkoutZipInput",context).css("border","0 0 1.5px 1px #FF0000");
+					$(".checkoutPlaceOrderButton").attr("disabled", "disabled");
+					$(".checkoutZipWarnText",context).show();
+				}
+				else if(zipCode.textLength < 5){
+					//dump("Zip has less than 5 characters");
+					$(".checkoutZipInput",context).css("box-shadow","0 0 1.5px 1px #FF0000");
+					$(".checkoutPlaceOrderButton").attr("disabled", "disabled");
+					$(".checkoutZipWarnText",context).show();
+				}
+				else{
+					//dump("Zip has exactly 5 characters");
+					$(".checkoutZipInput",context).css("box-shadow","none");
+					$(".checkoutPlaceOrderButton").removeAttr("disabled");
+					$(".checkoutZipWarnText",context).hide();
+				}
 			}
 			
 		},//END u FUNCTIONS

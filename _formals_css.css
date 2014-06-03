@@ -2523,6 +2523,11 @@ table.orderContentsTable div.hide4Print button.applyButton{
 	width: 75px;
 }
 
+.checkoutZipWarnText{
+	color: #FF0000;
+    display: none;
+}
+
 
 
 
