@@ -669,7 +669,6 @@ an existing user gets a list of previous addresses they've used and an option to
 					$("[data-app-role='addressExists']",$fieldset).hide();
 					$("[data-app-role='addressNew']",$fieldset).show();
 					$("[data-app-role='billToShipContainer']").hide(); //though locked below, we hide this to avoid confusion.
-
 					$("[name='want/bill_to_ship']",$fieldset).attr({'disabled':'disabled'}).removeAttr('checked'); //set val 
 					//name is provided by paypal and can't be changed.
 					$("[name='bill/firstname'], [name='bill/lastname']",$fieldset).attr('disabled','disabled');
@@ -1129,6 +1128,7 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 										}
 									}
 								}); //!IMPORTANT! after the order is created, a new cart needs to be created and used. the old cart id is no longer valid.
+							
 							} //ends the not admin/1pc if.
 		
 						if(typeof _gaq != 'undefined')	{
@@ -1143,8 +1143,11 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 								_app.ext.order_create.checkoutCompletes[i]({'cartID':previousCartid,'orderID':orderID,'datapointer':_rtag.datapointer},$checkout);
 								}
 							}
-//This will handle the @trackers code.			
-						_app.ext.order_create.u.scripts2iframe(checkoutData['@TRACKERS']);
+
+//This will handle the @trackers code. Doesn't get run in admin.
+						if(!_app.u.thisIsAnAdminSession())	{
+							_app.ext.order_create.u.scripts2iframe(checkoutData['@TRACKERS']);
+							}
 
 // ### TODO -> move this out of here. move it into the appropriate app init.
 						if(_app.vars._clientid == '1pc')	{
@@ -1163,9 +1166,12 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 									s.parentNode.insertBefore(gts, s);
 									})();
 								}
-						
+							}
+						else if(_app.u.thisIsAnAdminSession())	{
+							//no special handling here.
 							}
 						else	{
+							//this is an 'app'.
 //								_app.u.dump("Not 1PC.");
 //								_app.u.dump(" -> [data-app-role='paymentMessaging'],$checkout).length: "+("[data-app-role='paymentMessaging']",$checkout).length);
 							
@@ -1309,6 +1315,7 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 					_app.model.dispatchThis('immutable');
 					}});
 				_app.model.dispatchThis('immutable');
+				$('body').removeClass('buyerLoggedIn'); //allows for css changes to occur based on authentication
 				return false;
 				},
 
@@ -1624,6 +1631,7 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 						if(_app.model.responseHasErrors(rd)){$fieldset.anymessage({'message':rd})}
 						else	{
 							_app.u.dump(" -> no errors. user is logged in.");
+							$('body').addClass('buyerLoggedIn'); //allows for css changes based on auth.
 							var $form = $fieldset.closest('form'),
 							$fieldsets = $('fieldset',$form);
 //set all panels to loading.
@@ -1872,7 +1880,7 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 				var
 					$checkoutForm = $ele.closest('form'), //used in some callbacks later.
 					$checkoutAddrFieldset = $ele.closest('fieldset'),
-					addressType = $ele.data('app-addresstype').toLowerCase();
+					addressType = $ele.attr('data-app-addresstype').toLowerCase();
 				if(_app.u.thisIsAnAdminSession())	{
 					var $D = _app.ext.admin_customer.a.createUpdateAddressShow({'mode':'create','show':'dialog','type':addressType});
 					}
@@ -2082,7 +2090,7 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 						$('.applyAnycb',$fieldset).each(function(){
 							$(this).anycb({text : {on : 'yes',off : 'no'}});
 							});
-							*/
+						*/
 						}
 					
 					}

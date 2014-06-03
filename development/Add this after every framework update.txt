@@ -43,9 +43,9 @@ $('.applyAnycb',$fieldset).each(function(){
 							});
 
 5. partner_addThis.js:
-Grab the old version from the file you just uploaded.....only this one is updated to use a startExtension.
+- Grab the old version from the file you just uploaded.....only this one is updated to use a startExtension.
 
-6. partner_addThis.js:
+IF the file does not exist anymore:
 - Copy the init callback and rename to startExtension. Then change:
 '<div id="socialLinks" class="addthis_toolbox addthis_default_style">'
 								+		'<a class="addthis_button_preferred_1"></a>'
