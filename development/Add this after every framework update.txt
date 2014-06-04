@@ -32,6 +32,7 @@ $modal.dialog({modal: true,width:'80%', dialogClass: 'dlgfixed', position: "cent
 - Update all zip code inputs to have the following attributes:
   - onKeyUp="myApp.ext._store_formals.u.validatezip(this, $(this).parent().parent());"
   - class="checkoutZipInput"
+- Update all state input boxes with the follow class: "checkoutStateInput".
 - Add class "checkoutPlaceOrderButton" to place order button.
 - Add the following element after both zip inputs : <p class="checkoutZipWarnText">Please enter a 5 digit zip to continue</p>
 - Add class to chkoutAddressBillTemplate : "chkoutAddressBillTemplate"
