@@ -1176,7 +1176,7 @@ var _store_formals = function(_app) {
 				//dump(context);
 				//dump(zipCode.value);
 				
-				if(zipCode.textLength > 5){
+				if(zipCode.textLength > 10){
 					//dump("Zip has more than 5 characters");
 					$(".checkoutZipInput",context).css("border","0 0 1.5px 1px #FF0000");
 					$(".checkoutPlaceOrderButton").attr("disabled", "disabled");
@@ -1195,6 +1195,7 @@ var _store_formals = function(_app) {
 					$(".checkoutZipWarnText",context).hide();
 				}
 			}
+			
 			
 		},//END u FUNCTIONS
 		

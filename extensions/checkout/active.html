@@ -139,7 +139,7 @@ This template is used both in the billing address panel AND in the address edito
 because the panel is shared, the events (which aren't desired in the editor) are added by the checkout extension.
 -->
 
-<section id="chkoutAddressBillTemplate">
+<section class="chkoutAddressBillTemplate" id="chkoutAddressBillTemplate">
 
 	<div><input data-tlc="bind $var '.bill.firstname'; if(is $var --blank;){{bind $var '.bill/firstname';}}; if(is $var --notblank;) {{apply --select=$var;}}; " placeholder="first name" name="bill/firstname" required value="" type="text"></div>
 	<div><input data-tlc="bind $var '.bill.lastname'; if(is $var --blank;){{bind $var '.bill/lastname';}}; if(is $var --notblank;) {{apply --select=$var;}}; " placeholder="last name" name="bill/lastname" required value="" type="text"></div>
@@ -174,7 +174,7 @@ This template is used both in the shipping panel AND in the address editor (if l
 because the panel is shared, the events (which aren't desired in the editor) are added by the checkout extension.
 -->
 
-<section id="chkoutAddressShipTemplate">
+<section class="chkoutAddressShipTemplate" id="chkoutAddressShipTemplate">
 
 	<div><input data-tlc="bind $var '.ship.firstname';  if(is $var --blank;){{bind $var '.ship/firstname';}}; if(is $var --notblank;) {{apply --select=$var;}}; " placeholder="first name" name="ship/firstname" required value="" type="text"></div>
 	<div><input data-tlc="bind $var '.ship.lastname'; if(is $var --blank;){{bind $var '.ship/lastname';}}; if(is $var --notblank;) {{apply --select=$var;}}; " placeholder="last name" name="ship/lastname" required value="" type="text"></div>

@@ -122,10 +122,48 @@ myApp.u.showProgress = function(progress)	{
 myApp.u.appInitComplete = function()	{
 	myApp.u.dump("Executing myAppIsLoaded code...");
 	
+	/*CUSTOM CODE */
+				//APP PRELOAD WARNING MESSAGE
 				dump("Beginning app load timer for refresh message.");
 				setTimeout(function(){
 					$(".appLoadRefreshMessage p.appLoadRefreshMess").slideDown();						
 				}, 10000);
+				
+				//CHECKOUT ZIP CODE NUMERIC CODE VALIDATOR
+				/*
+				$(".checkoutZipInput", ".chkoutAddressBillTemplate").keydown(function (e) {
+					// Allow: backspace, delete, tab, escape, enter and .
+					if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+						 // Allow: Ctrl+A
+						(e.keyCode == 65 && e.ctrlKey === true) || 
+						 // Allow: home, end, left, right
+						(e.keyCode >= 35 && e.keyCode <= 39)) {
+							 // let it happen, don't do anything
+							 return;
+					}
+					// Ensure that it is a number and stop the keypress
+					if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+						e.preventDefault();
+					}
+				});
+				$(".checkoutZipInput", ".chkoutAddressShipTemplate").keydown(function (e) {
+					// Allow: backspace, delete, tab, escape, enter and .
+					if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+						 // Allow: Ctrl+A
+						(e.keyCode == 65 && e.ctrlKey === true) || 
+						 // Allow: home, end, left, right
+						(e.keyCode >= 35 && e.keyCode <= 39)) {
+							 // let it happen, don't do anything
+							 return;
+					}
+					// Ensure that it is a number and stop the keypress
+					if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+						e.preventDefault();
+					}
+				});
+				*/
+				
+				
 					
 	
 	myApp.ext.order_create.checkoutCompletes.push(function(vars,$checkout){
