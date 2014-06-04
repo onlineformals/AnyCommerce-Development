@@ -155,7 +155,7 @@ because the panel is shared, the events (which aren't desired in the editor) are
 	<div><input data-tlc="bind $var '.bill.region'; if(is $var --blank;){{bind $var '.bill/region';}}; if(is $var --notblank;) {{apply --select=$var;}}; " class="checkoutStateInput" name="bill/region" placeholder="state/region" required size="5" value="" maxlength="20" type="text"></div>
 	
 	<!-- postal not required for international. don't add it. -->
-	<div><input data-tlc="bind $var '.bill.postal'; if(is $var --blank;){{bind $var '.bill/postal';}}; if(is $var --notblank;) {{apply --select=$var;}}; " class="checkoutZipInput" name="bill/postal" placeholder="zip/postal code" required size="14" value="" maxlength="10" type="text" onKeyUp="myApp.ext._store_formals.u.validatezip(this, $(this).parent().parent());"><p class="checkoutZipWarnText">Please enter a 5 digit zip to continue</p></div>
+	<div><input data-tlc="bind $var '.bill.postal'; if(is $var --blank;){{bind $var '.bill/postal';}}; if(is $var --notblank;) {{apply --select=$var;}}; " class="checkoutZipInput" name="bill/postal" placeholder="zip/postal code" required size="14" value="" maxlength="10" type="text"><p class="checkoutZipWarnText">Please enter a 5 digit zip to continue</p></div> <!--onKeyUp="myApp.ext._store_formals.u.validatezip(this, $(this).parent().parent());"-->
 
 	<div class="billCountry" data-app-role="billCountry"><select data-tlc="bind $var '.'; cco#countriesasoptions  --shiptype='bill' --legacy;" data-legacy-useparentdata="true" name="bill/countrycode" placeholder="country" required><option value=''>Please choose</option></select></div>
 
@@ -190,7 +190,7 @@ because the panel is shared, the events (which aren't desired in the editor) are
 	<div><input data-tlc="bind $var '.ship.region'; if(is $var --blank;){{bind $var '.ship/region';}}; if(is $var --notblank;) {{apply --select=$var;}}; " class="checkoutStateInput" name="ship/region" placeholder="state/region" required size="5" value="" maxlength="20" type="text"></div>
 
 	
-	<div><input data-tlc="bind $var '.ship.postal';  if(is $var --blank;){{bind $var '.ship/postal';}}; if(is $var --notblank;) {{apply --select=$var;}}; " class="checkoutZipInput" name="ship/postal" placeholder="zip/postal code" required size="14" value="" maxlength="10" type="text" onKeyUp="myApp.ext._store_formals.u.validatezip(this, $(this).parent().parent());"><p class="checkoutZipWarnText">Please enter a 5 digit zip to continue</p></div>
+	<div><input data-tlc="bind $var '.ship.postal';  if(is $var --blank;){{bind $var '.ship/postal';}}; if(is $var --notblank;) {{apply --select=$var;}}; " class="checkoutZipInput" name="ship/postal" placeholder="zip/postal code" required size="14" value="" maxlength="10" type="text" ><p class="checkoutZipWarnText">Please enter a 5 digit zip to continue</p></div> <!--onKeyUp="myApp.ext._store_formals.u.validatezip(this, $(this).parent().parent());"-->
 
 	<div class="shipCountry" data-app-role="shipCountry"><select data-tlc="bind $var '.'; cco#countriesasoptions  --shiptype='ship' --legacy;" data-legacy-useparentdata="true" name="ship/countrycode" placeholder="country"><option value=''>Please choose</option></select></div>
 
