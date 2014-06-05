@@ -1194,6 +1194,11 @@ var _store_formals = function(_app) {
 					$(".checkoutPlaceOrderButton").removeAttr("disabled");
 					$(".checkoutZipWarnText",context).hide();
 				}
+			},
+			
+			checkouterrorclickblock : function() {
+				$(".checkoutClickBlocker").hide();
+				$(".checkoutClickBlockerText").hide();
 			}
 			
 			

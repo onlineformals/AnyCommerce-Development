@@ -2069,6 +2069,8 @@ VALIDATION
 					
 					if($input.hasClass('ui-state-error'))	{
 						_app.u.dump(" -> "+$input.attr('name')+" did not validate. ishidden: "+$input.is(':hidden'));
+						$(".checkoutClickBlocker").show();
+						$(".checkoutClickBlockerText").show();
 						}
 					
 					});

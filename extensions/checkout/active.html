@@ -346,7 +346,9 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 		<input type'text'="" name="want/reference_number" size="12">
 	</div>
 
-	<button class="applyButton ui-state-highlight checkoutPlaceOrderButton" data-app-click="order_create|execCartOrderCreate">
+	<div class="checkoutClickBlocker" onClick="myApp.ext._store_formals.u.checkouterrorclickblock();">Validate</div>
+    <p class="checkoutClickBlockerText">Click here to re-calculate with new entries</p>
+    <button class="applyButton ui-state-highlight checkoutPlaceOrderButton" data-app-click="order_create|execCartOrderCreate">
 		Place Order
 	</button>
 
