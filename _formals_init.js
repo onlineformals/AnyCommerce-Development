@@ -83,6 +83,23 @@ myApp.cmr.push(['goto',function(message,$context){
 	$history.parent().scrollTop($history.height());
 }]);
 
+$('#cartTemplate').on('complete.updateMinicart',function(state,$ele,infoObj)	{
+ 	var cartid = infoObj.cartid || myApp.model.fetchCartID();
+ 	var $appView = $('#appView'), cart = myApp.data['cartDetail|'+cartid], itemCount = 0, subtotal = 0, total = 0;
+ 	dump(" -> cart "+cartid+": "); dump(cart);
+ 	if(!$.isEmptyObject(cart['@ITEMS']))	{
+ 		itemCount = cart.sum.items_count || 0;
+  		subtotal = cart.sum.items_total;
+  		total = cart.sum.order_total;
+  		}
+  	else	{
+  		//cart not in memory yet. use defaults.
+  		}
+  	$('.cartItemCount',$appView).text(itemCount);
+  	$('.cartSubtotal',$appView).text(myApp.u.formatMoney(subtotal,'$',2,false));
+  	$('.cartTotal',$appView).text(myApp.u.formatMoney(total,'$',2,false));
+ });
+
 
 //gets executed from app-admin.html as part of controller init process.
 //progress is an object that will get updated as the resources load.
