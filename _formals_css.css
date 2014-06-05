@@ -2528,6 +2528,9 @@ table.orderContentsTable div.hide4Print button.applyButton{
     display: none;
 }
 
+.chkoutCartSummaryTemplate{
+	position:relative;
+}
 .checkoutClickBlocker{
     background-color: #E61652;
     box-shadow: 0 0 4px 0 #CC0000;
@@ -2541,7 +2544,7 @@ table.orderContentsTable div.hide4Print button.applyButton{
     padding: 1px 0 0;
     position: absolute;
     text-align: center;
-    top: 1596px;
+    top: 181px;
     width: 128px;
     z-index: 2;
 }
