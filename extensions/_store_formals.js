@@ -1258,16 +1258,14 @@ var _store_formals = function(_app) {
 				//dump(data);
 				//dump($tag);
 				
-				var rawPrice = data.value;
+				var rawPrice = data.value.toString();
 				var cents = ".";
-				var position = data.value.length - 2;
+				var position = rawPrice.length - 2;
 				//dump(position);
+				//dump(rawPrice);
+				
 				var r = "Our Price: $"+[rawPrice.slice(0, position), cents, rawPrice.slice(position)].join('');
 				
-				//var r = "Our price: $"+data.value;
-				//dump(r);
-				
-				//dump(r);
 				$tag.append(r);
 			}, //currencyelastic
 			
