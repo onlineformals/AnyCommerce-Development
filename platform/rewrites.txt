@@ -1,18 +1,15 @@
 #sample platform/rewrites.txt
-#col1:	[~=]uri|url|path|query
-#col2:	if match
-#col3:	goto
-#col4:	goto modifier
-##
+#col1:    [~=]uri|url|path|query
+#col2:     if match
+#col3:  goto
+#col4:  goto modifier
 # remove legacy cart and session variables from uri
 ~path	/c=*/(.*?)				 /$1			set=path
 ~path	/s=*/(.*?)				/$1			set=path
+# redirect all product and category urls
+~path ^.*?/product/(.*?)/.*$  /index.html#!/product/$1
+~path ^.*?/category/(.*?)/.*$ /index.html#!/category/$1
 
-# redirect all legacy product and category urls
-~path	/category/([^/]*)/?	/#!redirect/c/.$1
-~path	/product/([^/]*)/?(.*)	/#!redirect/p/pid=$1
-~path	^.*?/product/(.*?)/.*$	/index.html#!/product/$1
-~path	^.*?/category/(.*?)/.*$	/index.html#!/category/$1
 #redirect company pages
 =path	/about_us.cgis	/#!company/about
 =path	/contact_us.cgis	/#!company/contact
