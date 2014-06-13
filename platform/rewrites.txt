@@ -13,11 +13,11 @@
 ~path	/product/([^/]*)	/#!product/$1
 
 #OnlineFormals.com custom pages
-=path	/category/9b/	/#!home
-=path	/category/zebra/	/#!company/contact
-=path	/category/9c/	/#!company/faq
-=path	/category/9b/	/#!home
-=path	/category/sitenews/	/#!company/shipping
+=path	/category/9b	/#!home
+=path	/category/zebra	/#!company/contact
+=path	/category/9c	/#!company/faq
+=path	/category/9b	/#!home
+=path	/category/sitenews	/#!company/shipping
 
 
 #redirect company pages
