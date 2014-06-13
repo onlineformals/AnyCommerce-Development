@@ -28,7 +28,18 @@ $modal.dialog({modal: true,width:'80%', dialogClass: 'dlgfixed', position: "cent
 2. active.html in checkout folder:
 - Add a centering container to the checkout form.
 - Add a centering container to chkoutCompletedTemplate.
-- Comment out <div class="floatRight ocmThirdParty" data-app-role="thirdPartyContainer"></div> 
+- Comment out: <div class="floatRight ocmThirdParty" data-app-role="thirdPartyContainer"></div> 
+- Update all zip code inputs to have the following attributes:
+  - onKeyUp="myApp.ext._store_formals.u.validatezip(this, $(this).parent().parent());"
+  - class="checkoutZipInput"
+- Update all state input boxes with the follow class: "checkoutStateInput".
+- Add class "checkoutPlaceOrderButton" to place order button.
+- Add the following element after both zip inputs : <p class="checkoutZipWarnText">Please enter a 5 digit zip to continue</p>
+- Add class to chkoutAddressBillTemplate : "chkoutAddressBillTemplate"
+- Add class to chkoutAddressShipTemplate : "chkoutAddressShipTemplate"
+- Add this directly above the place order button: <div class="checkoutClickBlocker" onClick="myApp.ext._store_formals.u.checkouterrorclickblock();"></div>
+<p class="class="checkoutClickBlockerText">Click here to re-calculate with new entries</p>
+- 
 
 3. cart_checkout_order.js:
 - Add this commit: https://github.com/onlineformals/onlineformals/commit/bcf08ed5097eee5ac1e8e6b13a9c5738d65a12bc
@@ -43,4 +54,33 @@ $('.applyAnycb',$fieldset).each(function(){
 							});
 
 5. partner_addThis.js:
-Grab the old version from the file you just uploaded.....only this one is updated to use a startExtension.
+- Grab the old version from the file you just uploaded.....only this one is updated to use a startExtension.
+
+IF the file does not exist anymore:
+- Copy the init callback and rename to startExtension. Then change:
+'<div id="socialLinks" class="addthis_toolbox addthis_default_style">'
+								+		'<a class="addthis_button_preferred_1"></a>'
+								+		'<a class="addthis_button_preferred_2"></a>'
+								+		'<a class="addthis_button_preferred_3"></a>'
+								+		'<a class="addthis_button_preferred_4"></a>'
+								+		'<a class="addthis_button_compact"></a>'
+								+	'</div>');
+to
+'<div id="socialLinks" class="addthis_default_style addthis_32x32_style">'
+								+		'<a class="addthis_button_preferred_1"></a>'
+								+		'<a class="addthis_button_preferred_2"></a>'
+								+		'<a class="addthis_button_preferred_3"></a>'
+								+		'<a class="addthis_button_preferred_4"></a>'
+								+		'<a class="addthis_button_compact"></a>'
+								+	'</div>');
+
+6. controller.js:
+- if($input.hasClass('ui-state-error'))	{
+						_app.u.dump(" -> "+$input.attr('name')+" did not validate. ishidden: "+$input.is(':hidden'));
+						}
+becomes
+if($input.hasClass('ui-state-error'))	{
+						_app.u.dump(" -> "+$input.attr('name')+" did not validate. ishidden: "+$input.is(':hidden'));
+						$(".checkoutClickBlocker").show();
+						$(".checkoutClickBlockerText").show();
+						}

@@ -48,6 +48,15 @@ Put this high in the doc as a reminder to occassionally re-check if it can be re
 /*****appPreView TEMPLATE****/
 
 
+/*
+#appPreView{
+	display:block !important;
+}
+#appView{
+	display:none !important;
+}
+*/
+
 #loader h3{
 	color: #909090;
     float: left;
@@ -76,6 +85,33 @@ progress::-moz-progress-bar { background: #E61652; }
     float: left;
     margin-left: 160px;
 	color: #909090;
+}
+
+.appLoadRefreshMessage{
+	display: inline-block;
+	width: 420px;
+}
+.appLoadRefreshMessage div{
+    width: 100%;
+}
+.appLoadRefreshMessage div p{
+	color: #E61652;
+    display: none;
+    float: left;
+    font-size: 18px;
+    font-weight: 600;
+}
+.appLoadRefreshMessage div p.appLoadCharOne{
+	margin-left: 75px;
+}
+.appLoadRefreshMessage p{
+	display: inline-block;
+}
+.appLoadRefreshMessage p.appLoadRefreshMess{
+	display:none;
+	float:left;
+	clear:left;
+	color:#E61652;
 }
 
 
@@ -2403,6 +2439,10 @@ table.orderContentsTable div.hide4Print button.applyButton{
 	padding: 20px 30px;
 }
 
+.cartButtons .thisButton{
+	float:left;
+}
+
 
 
 /***********************************************************************************************************************************/
@@ -2477,6 +2517,40 @@ table.orderContentsTable div.hide4Print button.applyButton{
 
 .giftCardContainer{
 	margin-top: 10px;
+}
+
+.checkoutStateInput{
+	width: 75px;
+}
+
+.checkoutZipWarnText{
+	color: #FF0000;
+    display: none;
+}
+
+.chkoutCartSummaryTemplate{
+	position:relative;
+}
+.checkoutClickBlocker{
+    background-color: #E61652;
+    box-shadow: 0 0 4px 0 #CC0000;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: none;
+    font-family: 'Maven Pro',sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    height: 25px;
+    padding: 1px 0 0;
+    position: absolute;
+    text-align: center;
+    top: 181px;
+    width: 128px;
+    z-index: 2;
+}
+.checkoutClickBlockerText{
+	display:none;
+	color:#CC0000;
 }
 
 

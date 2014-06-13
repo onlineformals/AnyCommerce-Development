@@ -42,7 +42,6 @@ var quickstart = function(_app) {
 			//CUSTOM TEMPLATES
 			'categoryProductListTemplate',
 			'testimonialsTemplate',
-			
 //the list of templates that, in most cases, are left alone. Also in the same order as appTemplates
 			'breadcrumbTemplate',
 			'companyTemplate',
@@ -200,6 +199,7 @@ document.write = function(v){
 					_app.u.dump(" -> existing cart was NOT valid. Fetch a new cartid");
 					_app.model.removeCartFromSession(_rtag.cartid); //this will ensure the cart isn't used again.
 					_app.calls.appCartCreate.init({'callback':"addCart2CM","extension":'quickstart'},'mutable');//The cart that was passed was exired in invalid.
+					_app.model.dispatchThis('mutable');
 					}
 				else	{
 					_app.u.dump(" -> cart has been created.");
@@ -365,7 +365,7 @@ document.write = function(v){
 					delete tagObj.datapointer; //delete this so tlc doesn't do an unnecessary extend (data is already merged)
 					tagObj.verb = 'translate';
 //					dump(" -> tagObj: "); dump(tagObj);
-
+					_app.ext.quickstart.u.updateDOMTitle((tagObj.navcat == '.' ? 'Home' : tagObj.dataset.pretty));
 					if(tagObj.lists && tagObj.lists.length)	{
 						var L = tagObj.lists.length;
 						for(var i = 0; i < L; i += 1)	{
@@ -382,6 +382,7 @@ document.write = function(v){
 // the bulk of the product translation has already occured by now (attribs, reviews and session) via callbacks.showProd.
 // product lists are being handled through 'buildProductList'.
 					var pData = _app.data['appProductGet|'+tagObj.pid] //shortcut.
+					_app.ext.quickstart.u.updateDOMTitle(pData['%attribs']['zoovy:prod_seo_title'] || pData['%attribs']['zoovy:prod_name']);
 					if(pData && pData['%attribs'] && pData['%attribs']['zoovy:grp_type'] == 'CHILD')	{
 						if(pData['%attribs']['zoovy:grp_parent'] && _app.data['appProductGet|'+pData['%attribs']['zoovy:grp_parent']])	{
 							dump(" -> this is a child product and the parent prod is available. Fetch child data for siblings.");
@@ -512,13 +513,15 @@ need to be customized on a per-ria basis.
 //if $o doesn't exist, the animation doesn't run and the new element doesn't show up, so that needs to be accounted for.
 //$o MAY be a jquery instance but have no length, so check both.
 			if($o instanceof jQuery && $o.length)	{
-/* *** 201403 -> move the scroll to top into the page transition for 2 reasons:
+/*
+*** 201403 -> move the scroll to top into the page transition for 2 reasons:
 1. allows the animations to be performed sequentially, which will be less jittery than running two at the same time
 2. Puts control of this into custom page transitions.
 */
-				if(infoObj.performJumpToTop && $('html, body').scrollTop() > 0)	{
+
+				if(infoObj.performJumpToTop && $(window).scrollTop() > 0)	{ // >0 scrolltop check should be on window, it'll work in ff AND chrome (body or html won't).
 					//new page content loading. scroll to top.
-					$('html, body').animate({scrollTop : ($('header','#appView').length ? $('header','#appView').first().height() : 0)},500,function(){
+					$('html, body').animate({scrollTop : 0},'fast',function(){
 						$o.fadeOut(1000, function(){$n.fadeIn(1000)}); //fade out old, fade in new.
 						})
 					} 
@@ -527,7 +530,10 @@ need to be customized on a per-ria basis.
 					}
 				}
 			else if($n instanceof jQuery)	{
-				$n.fadeIn(1000);
+				dump(" -> $o is not properly defined.  jquery: "+($o instanceof jQuery)+" and length: "+$o.length);
+				$('html, body').animate({scrollTop : 0},'fast',function(){
+					$n.fadeIn(1000);
+					});
 				}
 			else	{
 				//hhmm  not sure how or why we got here.
@@ -793,7 +799,7 @@ fallback is to just output the value.
 				
 				var className, price, buttonState, buttonText = 'Add to Cart',
 				pid = data.value.pid, //...pid set in both elastic and appProductGet
-				inv = _app.ext.store_product.u.getProductInventory(pid),
+				inv = _app.ext.store_product.u.getProductInventory(_app.data['appProductGet|'+pid]),
 				$form = $tag.closest('form');
 				
 //				dump(" -> $form.length: "+$form.length);
@@ -987,7 +993,9 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 						break;
 	
 					case 'customer':
-						if('file:' == document.location.protocol || !_app.ext.quickstart.u.thisArticleRequiresLogin(infoObj) || 'https:' == document.location.protocol)	{
+//						if('file:' == document.location.protocol || !_app.ext.quickstart.u.thisArticleRequiresLogin(infoObj) || 'https:' == document.location.protocol)	{
+//201404 -> change in logic so that secure or file always hit before checking if authentication is required. reduces overhead.
+						if('https:' == document.location.protocol || 'file:' == document.location.protocol || !_app.ext.quickstart.u.thisArticleRequiresLogin(infoObj))	{
 							 //perform jump can be forced on. authenticate/require login indicate a login dialog is going to show and a jump should NOT occur so that the dialog is not off screen after the jump.
 							if(!infoObj.performJumpToTop && !_app.u.buyerIsAuthenticated() && _app.ext.quickstart.u.thisArticleRequiresLogin(infoObj))	{
 								infoObj.performJumpToTop = false;
@@ -1113,7 +1121,8 @@ the ui also helps the buyer show the merchant what they're looking at and, optio
  -> while it's possible to automatically send a lot of info to the merchant, please keep in mind buyer privacy.
 */
 			showBuyerCMUI : function()	{
-				var $ui = $('#cartMessenger').data('cartid',_app.model.fetchCartID());
+				//the cart id needs to be a data- attrib because cartSetAttrib 'looks' for it.
+				var $ui = $('#cartMessenger').attr('data-cartid',_app.model.fetchCartID());
 				if($ui.hasClass('ui-dialog-content'))	{
 					//the help interface has been opened once already.
 					}
@@ -1124,7 +1133,6 @@ the ui also helps the buyer show the merchant what they're looking at and, optio
 					// SANITY -> do not run a destroyCartMessenger on dialog close.  It will kill the polling.
 					_app.u.handleButtons($ui);
 					_app.u.handleCommonPlugins($ui);
-					_app.u.addEventDelegation($ui);
 					}
 				$ui.find('.show4ActiveChat').hide(); //hidden by default. will be activated once a chat starts.
 				//the information below is added to the dialog each time it's opened. that way it's up to date.
@@ -1487,7 +1495,10 @@ $target.tlc({
 					}
 				},
 
-
+			updateDOMTitle : function(title)	{
+				title = (typeof title === "string") ? title : ""; //better blank than 'undefined' or 'object'.
+				document.title = title;
+				},
 
 //used in checkout to populate username: so either login or bill/email will work.
 //never use this to populate the value of an email form field because it may not be an email address.
@@ -2104,6 +2115,7 @@ effects the display of the nav buttons only. should be run just after the handle
 				infoObj.templateID = 'companyTemplate';
 				infoObj.state = 'init';
 				infoObj.parentID = 'mainContentArea_company';
+				_app.ext.quickstart.u.updateDOMTitle("Company - "+infoObj.show);
 				var $mcac = $('#mainContentArea_company');
 				
 				if($mcac.length)	{
@@ -2164,9 +2176,11 @@ effects the display of the nav buttons only. should be run just after the handle
 					
 //If raw elastic has been provided, use that.  Otherwise build a query.
 				if(infoObj.elasticsearch){
+					_app.ext.quickstart.u.updateDOMTitle("Search - advanced");
 					elasticsearch = _app.ext.store_search.u.buildElasticRaw(infoObj.elasticsearch);
 					}
 				else if(infoObj.tag)	{
+					_app.ext.quickstart.u.updateDOMTitle("Search - tag: "+infoObj.tag);
 					elasticsearch = _app.ext.store_search.u.buildElasticRaw({
 					   "filter":{
 						  "and" : [
@@ -2176,6 +2190,7 @@ effects the display of the nav buttons only. should be run just after the handle
 						  }});
 					}
 				else if (infoObj.KEYWORDS) {
+					_app.ext.quickstart.u.updateDOMTitle("Search - keywords: "+infoObj.KEYWORDS);
 					elasticsearch = _app.ext.store_search.u.buildElasticRaw({
 					   "filter":{
 						  "and" : [
@@ -2185,7 +2200,7 @@ effects the display of the nav buttons only. should be run just after the handle
 						  }});
 					}
 				else	{
-					
+					_app.ext.quickstart.u.updateDOMTitle("Search - error!");
 					}
 //				dump(elasticsearch);
 /*
@@ -2285,7 +2300,7 @@ either templateID needs to be set OR showloading must be true. TemplateID will t
 								$(this).attr('data-app-change','quickstart|cartShipMethodSelect');
 								});
 							});
-						$modal.dialog({modal: true,width:'80%', dialogClass: 'dlgfixed', position: "center"});  //browser doesn't like percentage for height
+						$modal.dialog({modal: true,width:'80%', dialogClass: 'dlgfixed', position: "center"});  //browser doesn't like percentage for height  //browser doesn't like percentage for height
 						}
 
 					if(P.showLoading === true)	{
@@ -2305,6 +2320,7 @@ either templateID needs to be set OR showloading must be true. TemplateID will t
 //Customer pages differ from company pages. In this case, special logic is needed to determine whether or not content can be displayed based on authentication.
 // plus, most of the articles require an API request for more data.
 //handleTemplateEvents gets executed in showContent, which should always be used to execute this function.
+//by the time showCustomer is run, we are already on https if it is required.
 			showCustomer : function(infoObj)	{
 //				dump("BEGIN showCustomer. infoObj: "); dump(infoObj);
 				infoObj = infoObj || {};
@@ -2312,6 +2328,7 @@ either templateID needs to be set OR showloading must be true. TemplateID will t
 				infoObj.state = 'init';
 				infoObj.parentID = 'mainContentArea_customer'; //used for templateFunctions
 				infoObj.templateID = 'customerTemplate';
+				_app.ext.quickstart.u.updateDOMTitle("Customer - "+infoObj.show);
 				var $customer = $('#'+infoObj.parentID);
 //only create instance once.
 				if($customer.length)	{
@@ -3111,6 +3128,16 @@ else	{
 					$('#globalMessaging').anymessage({"message":"In quickstart.e.quickviewShow, unable to ascertain PID ["+PID+"] or no data-loadstemplate set on trigger element.","gMessage":true});
 					}
 				return false;
+				},
+// use this on inputs where 'enter' should NOT submit the form but can/should trigger an onblur.
+			triggerBlurOnEnter : function($ele,p)	{
+				var r = true;
+				if (p.keyCode == 13)	{
+					p.preventDefault();
+					$ele.trigger('blur')
+					r = false;
+					}
+				return r;
 				}
 
 			}, // e/events

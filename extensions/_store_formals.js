@@ -353,12 +353,12 @@ var _store_formals = function(_app) {
 						setTimeout(carouselHPProductList, 2000);
 						
 						$(".hpProductListNext").click(function() {
-							$(".hpProductListTitleCarousel").trigger("next", 1);
-							$(".hpProductListCarouselContainer").trigger("next", 1);
+							$(".hpProductListTitleCarousel").trigger("next");
+							$(".hpProductListCarouselContainer").trigger("next");
 						});
 						$(".hpProductListPrev").click(function() {
-							$(".hpProductListTitleCarousel").trigger("prev", 1);
-							$(".hpProductListCarouselContainer").trigger("prev", 1);
+							$(".hpProductListTitleCarousel").trigger("prev");
+							$(".hpProductListCarouselContainer").trigger("prev");
 						});
 						
 						//TITLEBAR HIDING FUNCTIONALITY.
@@ -954,6 +954,23 @@ var _store_formals = function(_app) {
 						}
 					});
 					
+					$('#cartTemplate').on('complete.updateMinicart',function(state,$ele,infoObj)	{
+						var cartid = infoObj.cartid || myApp.model.fetchCartID();
+						var $appView = $('#appView'), cart = myApp.data['cartDetail|'+cartid], itemCount = 0, subtotal = 0, total = 0;
+						dump(" -> cart "+cartid+": "); dump(cart);
+						if(!$.isEmptyObject(cart['@ITEMS']))	{
+							itemCount = cart.sum.items_count || 0;
+							subtotal = cart.sum.items_total;
+							total = cart.sum.order_total;
+							}
+						else	{
+							//cart not in memory yet. use defaults.
+							}
+						$('.cartItemCount',$appView).text(itemCount);
+						$('.cartSubtotal',$appView).text(myApp.u.formatMoney(subtotal,'$',2,false));
+						$('.cartTotal',$appView).text(myApp.u.formatMoney(total,'$',2,false));
+					});
+					
 					
 					
 					/*
@@ -1151,7 +1168,40 @@ var _store_formals = function(_app) {
 					var P = _app.ext.quickstart.u.parseAnchor($this.data('onclick'));
 					return _app.ext.quickstart.a.showContent('',P);
 				});
+			},
+			
+			validatezip : function(zipCode, context) {
+				//dump("Running validateZip function");
+				//dump(zipCode);
+				//dump(context);
+				//dump(zipCode.value);
+				
+				if(zipCode.textLength > 10){
+					//dump("Zip has more than 5 characters");
+					$(".checkoutZipInput",context).css("border","0 0 1.5px 1px #FF0000");
+					$(".checkoutPlaceOrderButton").attr("disabled", "disabled");
+					$(".checkoutZipWarnText",context).show();
+				}
+				else if(zipCode.textLength < 5){
+					//dump("Zip has less than 5 characters");
+					$(".checkoutZipInput",context).css("box-shadow","0 0 1.5px 1px #FF0000");
+					$(".checkoutPlaceOrderButton").attr("disabled", "disabled");
+					$(".checkoutZipWarnText",context).show();
+				}
+				else{
+					//dump("Zip has exactly 5 characters");
+					$(".checkoutZipInput",context).css("box-shadow","none");
+					$(".checkoutPlaceOrderButton").removeAttr("disabled");
+					$(".checkoutZipWarnText",context).hide();
+				}
+			},
+			
+			checkouterrorclickblock : function() {
+				$(".checkoutClickBlocker").hide();
+				$(".checkoutClickBlockerText").hide();
 			}
+			
+			
 		},//END u FUNCTIONS
 		
 		renderFormats : {
@@ -1208,16 +1258,14 @@ var _store_formals = function(_app) {
 				//dump(data);
 				//dump($tag);
 				
-				var rawPrice = data.value;
+				var rawPrice = data.value.toString();
 				var cents = ".";
-				var position = data.value.length - 2;
+				var position = rawPrice.length - 2;
 				//dump(position);
+				//dump(rawPrice);
+				
 				var r = "Our Price: $"+[rawPrice.slice(0, position), cents, rawPrice.slice(position)].join('');
 				
-				//var r = "Our price: $"+data.value;
-				//dump(r);
-				
-				//dump(r);
 				$tag.append(r);
 			}, //currencyelastic
 			
@@ -1345,7 +1393,9 @@ var _store_formals = function(_app) {
 						else{
 							$tag.show();
 						}	
-				}//showhidearea
+				},//showhidearea
+				
+				
 			
 		},
 		

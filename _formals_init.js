@@ -83,23 +83,22 @@ myApp.cmr.push(['goto',function(message,$context){
 	$history.parent().scrollTop($history.height());
 }]);
 
-
 $('#cartTemplate').on('complete.updateMinicart',function(state,$ele,infoObj)	{
  	var cartid = infoObj.cartid || myApp.model.fetchCartID();
  	var $appView = $('#appView'), cart = myApp.data['cartDetail|'+cartid], itemCount = 0, subtotal = 0, total = 0;
  	dump(" -> cart "+cartid+": "); dump(cart);
  	if(!$.isEmptyObject(cart['@ITEMS']))	{
  		itemCount = cart.sum.items_count || 0;
- 		subtotal = cart.sum.items_total;
- 		total = cart.sum.order_total;
- 		}
- 	else	{
- 		//cart not in memory yet. use defaults.
- 		}
- 	$('.cartItemCount',$appView).text(itemCount);
- 	$('.cartSubtotal',$appView).text(myApp.u.formatMoney(subtotal,'$',2,false));
- 	$('.cartTotal',$appView).text(myApp.u.formatMoney(total,'$',2,false));
-});
+  		subtotal = cart.sum.items_total;
+  		total = cart.sum.order_total;
+  		}
+  	else	{
+  		//cart not in memory yet. use defaults.
+  		}
+  	$('.cartItemCount',$appView).text(itemCount);
+  	$('.cartSubtotal',$appView).text(myApp.u.formatMoney(subtotal,'$',2,false));
+  	$('.cartTotal',$appView).text(myApp.u.formatMoney(total,'$',2,false));
+ });
 
 
 //gets executed from app-admin.html as part of controller init process.
@@ -115,8 +114,7 @@ myApp.u.showProgress = function(progress)	{
 		if(progress.passZeroResourcesLength == progress.passZeroResourcesLoaded)	{
 			//All pass zero resources have loaded.
 			//the app will handle hiding the loading screen.
-			//myApp.router.init();//instantiates the router.
- 			myApp.u.appInitComplete();
+			myApp.u.appInitComplete();
 			}
 		else if(attempt > 150)	{
 			//hhhhmmm.... something must have gone wrong.
@@ -141,7 +139,56 @@ myApp.u.showProgress = function(progress)	{
 myApp.u.appInitComplete = function()	{
 	myApp.u.dump("Executing myAppIsLoaded code...");
 	
+	/*CUSTOM CODE */
+				//APP PRELOAD WARNING MESSAGE
+				dump("Beginning app load timer for refresh message.");
+				setTimeout(function(){
+					$(".appLoadRefreshMessage p.appLoadRefreshMess").slideDown();						
+				}, 10000);
+				
+				//CHECKOUT ZIP CODE NUMERIC CODE VALIDATOR
+				/*
+				$(".checkoutZipInput", ".chkoutAddressBillTemplate").keydown(function (e) {
+					// Allow: backspace, delete, tab, escape, enter and .
+					if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+						 // Allow: Ctrl+A
+						(e.keyCode == 65 && e.ctrlKey === true) || 
+						 // Allow: home, end, left, right
+						(e.keyCode >= 35 && e.keyCode <= 39)) {
+							 // let it happen, don't do anything
+							 return;
+					}
+					// Ensure that it is a number and stop the keypress
+					if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+						e.preventDefault();
+					}
+				});
+				$(".checkoutZipInput", ".chkoutAddressShipTemplate").keydown(function (e) {
+					// Allow: backspace, delete, tab, escape, enter and .
+					if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+						 // Allow: Ctrl+A
+						(e.keyCode == 65 && e.ctrlKey === true) || 
+						 // Allow: home, end, left, right
+						(e.keyCode >= 35 && e.keyCode <= 39)) {
+							 // let it happen, don't do anything
+							 return;
+					}
+					// Ensure that it is a number and stop the keypress
+					if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+						e.preventDefault();
+					}
+				});
+				*/
+				
+				
+					
+	
 	myApp.ext.order_create.checkoutCompletes.push(function(vars,$checkout){
+		dump(" -> begin checkoutCOmpletes code: "); dump(vars);
+		
+		var cartContentsAsLinks = myApp.ext.cco.u.cartContentsAsLinks(myApp.data[vars.datapointer].order);
+		dump(" -> cartContentsAsLinks: "+cartContentsAsLinks);
+		
 //append this to 
 		$("[data-app-role='thirdPartyContainer']",$checkout).append("<h2>What next?</h2><div class='ocm ocmFacebookComment pointer zlink marginBottom checkoutSprite  '></div><div class='ocm ocmTwitterComment pointer zlink marginBottom checkoutSprit ' ></div><div class='ocm ocmContinue pointer zlink marginBottom checkoutSprite'></div>");
 		$('.ocmTwitterComment',$checkout).click(function(){
@@ -175,7 +222,11 @@ myApp.router.appendInit({
 	'callback':function(f,g){
 		dump(" -> triggered callback for appendInit");
 		g = g || {};
-		if(document.location.hash)	{
+		if(g.uriParams.seoRequest){
+			showContent(g.uriParams.pageType, g.uriParams);
+			}
+		else if(document.location.hash)	{	
+			myApp.u.dump('triggering handleHash');
 			myApp.router.handleHashChange();
 			}
 		else	{
@@ -190,6 +241,7 @@ myApp.router.appendInit({
 			}
 		}
 	});
+
 
 
 

@@ -314,7 +314,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <!--
 Used for the product in a product list (prodlist), usually in the body of a category or the homepage.
 the loadingBG class is removed (must be that classname) when the template is translated.
-remember to NOT put the button inside the 'onclick' container or two events will occur onclick.
+remember to NOT put the button inside the href or two events will occur onclick.
 -->
 <li id="productListTemplate" class="loadingBG  " onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();">
 
@@ -408,7 +408,7 @@ container ul should have lineItemProdlist class on it instead of productList
 <!--
 Used for the product in a product list (prodlist), usually in the body of a category or the homepage.
 the loadingBG class is removed (must be that classname) when the template is translated.
-remember to NOT put the button inside the 'onclick' container or two events will occur onclick.
+remember to NOT put the button inside the 'href' container or two events will occur onclick.
 
 SANITY -> if you change the height and width of this image, change the .minimalMode .searchResultsProduct in qs_styles.css to match
 -->
@@ -1115,7 +1115,7 @@ This is the template used both within a dialog and inline, unless implicitly ove
 
 	<div class="cartZipCodeContainer marginBottom">
 		<label>Zip/Postal Code:
-		<input data-tlc="bind $var '.ship.postal'; if(is $var --blank) {{bind $var '.bill.postal'; }}; apply --select=$var; " size="6" name="ship/postal" value="" maxlength="10" data-app-blur="cco|cartZipUpdateExec" type="text"></label>
+		<input data-tlc="bind $var '.ship.postal'; if(is $var --blank) {{bind $var '.bill.postal'; }}; apply --select=$var; " size="6" name="ship/postal" value="" maxlength="10" data-app-keypress="quickstart|triggerBlurOnEnter" data-app-blur="cco|cartZipUpdateExec" type="text"></label>
 	</div>
 
 	<ul data-tlc="order_create#shipmethodsasradiobuttons  --legacy;" class="noPadOrMargin listStyleNone" data-bind="useParentData:true; format:shipmethodsasradiobuttons; extension: order_create;" data-app-role="shipMethodsUL"></ul>
@@ -1393,7 +1393,7 @@ The 'data-action' attribute is used to assign an onclick.
 		<button data-app-click="quickstart|execOrder2Cart" class="applyButton" data-text="false" data-icon-primary="ui-icon-arrowrefresh-1-w">Re-order</button>
 		<button data-app-click="order_create|execInvoicePrint" class="applyButton" data-text="false" data-icon-primary="ui-icon-print">Print Invoice</button>
 		</div>
-	
+		<h2 data-tlc="bind $var '.order.our.orderid'; if (is $var --notblank;) {{apply --append;}};"></h2>
 		<h3 data-tlc="bind $var '.order.flow.pool'; format --prepend='Order Status: '; if (is $var --notblank;) {{apply --append;}};"></h3>
 		<h5 data-tlc="bind $var '.order.sum.order_total'; format --prepend='Order Total: '; format --currency='USD'; if (is $var --notblank;) {{apply --append;}};" class="orderTotal"></h5>
 		<h5 data-tlc="bind $var '.order.sum.balance_due_total'; format --prepend='Balance Due: '; format --currency='USD'; if (is $var --notblank;) {{apply --append;}};" class="balanceDue"></h5>

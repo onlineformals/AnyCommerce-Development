@@ -82,7 +82,7 @@ css files should be included before any .js file to ensure they are downloaded i
 $(document).ready(function(){
 
 	window.myApp = new initApp({
-		"release":"201403.ag",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201404.aatest1",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
@@ -136,6 +136,12 @@ $(document).ready(function(){
 		Click here to load your shopping experience!
 	</div>
 	<div class='appMessaging'></div>
+	<div class="appLoadRefreshMessage">
+		<div>
+		
+		</div>
+		<p class="appLoadRefreshMess">It looks like something isn't loading correctly. Please push the refresh button to correct this and try again.</p>
+	</div>
 	</td>
 </tr>
 </table>
@@ -628,10 +634,10 @@ src="Images/Homepage/carousel/testbanner-1.png" FOR THE IMAGE FILE.
 -->   
 		<div class="homepageCarouselContainer">
             <ul class="carouselHPBannerList">
+		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.prom.sale'});"><img src="Images/Homepage/carousel/salebanner.png" alt="" /></a></li>
+		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.in_stock'});"><img src="Images/Homepage/carousel/instocksummer.png" alt="" /></a></li>
 		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.la_femme'});"><img src="Images/Homepage/carousel/lafemmespring.png" alt="" /></a></li>
-		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.tony_bowls'});"><img src="Images/Homepage/carousel/tonyspring.png" alt="" /></a></li>
 		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.sherri_hill'});"><img src="Images/Homepage/carousel/sherrispring.png" alt="" /></a></li>
-		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.prom'});"><img src="Images/Homepage/carousel/prom2014.png" alt="" /></a></li>
                 <li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.mac_duggal'});"><img src="Images/Homepage/carousel/13_001_11_ofc-Macduggal-350h.png" alt="" /></a></li>
                 <li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.jasz_couture'});"><img src="Images/Homepage/carousel/jaszbanner.png" alt="" /></a></li>
             </ul>
@@ -697,30 +703,30 @@ src="Images/Homepage/categories/testprom.png" FOR THE IMAGE FILE, AND <p class="
 /******************************************************************************************************************************************************************/ 
 -->
         <div class="homepageCategoryListContainer">
-            <div class="homepageCategoryItemTop pointer" onClick="return showContent('category',{'navcat':'.prom'});"> <!--onMouseOver="myApp.ext._store_formals.a.homepageCategoryMouseOver($(this))" onMouseOut="myApp.ext._store_formals.a.homepageCategoryMouseOut($(this))"-->
+            <a class="homepageCategoryItemTop pointer" href="#!category/prom"> <!--onMouseOver="myApp.ext._store_formals.a.homepageCategoryMouseOver($(this))" onMouseOut="myApp.ext._store_formals.a.homepageCategoryMouseOut($(this))"-->
                 <img src="Images/Homepage/categories/prom.jpg" alt="" />
                 <div class="homepageCatTitleBar homepageCatTitleBar1">
                     <p class="homepageCatTitle">Prom</p>
                 </div>
-            </div>
-            <div class="homepageCategoryItemTop pointer" onClick="return showContent('category',{'navcat':'.evening'});">
+            </a>
+            <a class="homepageCategoryItemTop pointer" href="#!category/evening">
                 <img src="Images/Homepage/categories/evening.jpg" alt="" />
                 <div class="homepageCatTitleBar homepageCatTitleBar2">
                     <p class="homepageCatTitle">Evening</p>
                 </div>
-            </div>
-            <div class="homepageCategoryItemTop pointer" onClick="return showContent('category',{'navcat':'.cocktail'});">
+            </a>
+            <a class="homepageCategoryItemTop pointer" href="#!category/cocktail">
                 <img src="Images/Homepage/categories/cocktail.jpg" alt="" />
                 <div class="homepageCatTitleBar homepageCatTitleBar3">
                     <p class="homepageCatTitle">Cocktail</p>
                 </div>
-            </div>
-            <div class="homepageCategoryItemTop pointer" onClick="return showContent('category',{'navcat':'.plus_size'});">
+            </a>
+            <a class="homepageCategoryItemTop pointer" href="#!category/plus_size">
                 <img src="Images/Homepage/categories/plus.jpg" alt="" />
                 <div class="homepageCatTitleBar homepageCatTitleBar4">
                     <p class="homepageCatTitle">Plus Size</p>
                 </div>
-            </div>
+            </a>
         </div>
 <!--
 /******************************************************************************************************************************************************************/
@@ -793,6 +799,11 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id="categoryTemplate" class=" categoryTemplate">
 
 	<div class="centeringContainer">
+		<span class="displayNone" data-tlc="store_routing#seoanchor --seo='1' apply --attrib='data-routing-hash';"></span>
+
+		<span class="displayNone" data-tlc="bind $var '.%page.head_title'; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
+
+		<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
         <ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>
         <div class="catTopCarousel">
             <div class="carouselCPBannerList">
@@ -875,6 +886,12 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='categoryProductListTemplate' class='categoryTemplate' data-app-role='categoryPage'>
 
 	<div class="centeringContainer">
+		<span class="displayNone" data-tlc="store_routing#seoanchor --seo='1' apply --attrib='data-routing-hash';"></span>
+
+		<span class="displayNone" data-tlc="bind $var '.%page.head_title'; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
+
+		<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
+
     	<div class="searchTab" title="Need help finding exactly the dress you want? Click the magnifying glass to narrow your results with our filtered search!">
         	<img onClick="myApp.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent());" src="Images/categorypage/filteredsearch/search_tab.png" />
         	<p onClick="myApp.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent());">Narrow Your Search</p>
@@ -910,6 +927,12 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 <div id='testimonialsTemplate' class='categoryTemplate'>
 	<div class="centeringContainer">
+		<span class="displayNone" data-tlc="store_routing#seoanchor --seo='1' apply --attrib='data-routing-hash';"></span>
+
+		<span class="displayNone" data-tlc="bind $var '.%page.head_title'; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
+
+		<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
+
         <ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>    
         <!--
         <img data-tlc="bind $var '.%page.banner1'; quickstart#banner  --height='250' --width='750' --legacy;" src="images/blank.gif" alt="">
@@ -932,6 +955,12 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 <div id='showroomTemplate' class='showroomTemplate'>
 	<div class="centeringContainer">
+		<span class="displayNone" data-tlc="store_routing#seoanchor --seo='1' apply --attrib='data-routing-hash';"></span>
+
+		<span class="displayNone" data-tlc="bind $var '.%page.head_title'; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
+
+		<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
+
 		<h2><b>An Exclusive Personal Shopping Experience</b></h2><p>
   
 		<h3><b>E-commerce Meets Showroom. </b>We have been a trusted e-commerce leader in the special occasion industry since 2004 and recently opened our Virginia Beach showroom to bring you the latest fashion forward styles in a private setting. Your visit will be unique and personal, unlike any other in the area. We invite you to book an appointment and look forward to helping you find the perfect dress!</h3><p>
@@ -1177,6 +1206,12 @@ this will likely become more flexible in the future. ###
 <div data-tlc="bind $var '.pid'; apply --attrib='data-pid';" id='productTemplate' class='productPage'>
 
 	<div class="centeringContainer">
+		<span class="displayNone" data-tlc="store_routing#seoanchor --seo='1' apply --attrib='data-routing-hash';"></span>
+
+		<span class="displayNone" data-tlc="bind $var '.%page.head_title'; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
+
+		<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
+
     	<div data-tlc="set $bob '1234';"></div>
 		<ul data-tlc="bind $var '.recentCategories.0'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy; apply --append;" class="clearfix noPadOrMargin fluidList breadcrumb"></ul>
 
@@ -1384,7 +1419,7 @@ this will likely become more flexible in the future. ###
                 </div>
                 <div class="productDescriptionContainer" data-tlc="bind $var '.%attribs.zoovy:prod_desc'; if (is $var --notblank;) {{render --wiki='quickstart'; apply --append;}};"></div>
                 
-                <form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="modal">
+                <form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="inline">
             
                     <fieldset data-tlc="bind $var '.pid'; store_product#atcvariations  --legacy; apply --append;" class="borderNone variationsContainer"></fieldset>
                     <fieldset data-tlc="bind $var '.'; store_product#atcquantityinput  --defaultvalue='1' --legacy;" class="borderNone displayNone"></fieldset>
@@ -3781,13 +3816,13 @@ subscribeListsArticle is used for authenticated buyers.
 															<option value='WY'>WY</option>
                                                         </select>
                                                 </div>
-                                                <b>Zip</b> <input name='postal' type='text' size='10' placeholder='00000-0000' class='textfzip'/>
+                                                <b>Zip</b> <input name='postal' type='text' size='10' placeholder='00000' class='textfzip'/>
                                         </div>
                                         <div class="fieldM">
                                                 <div class="field selectField">Country</div> 
                                                 <div class='selectWrapperC'>
                                                         <select name="country" class="textfcountry sprite">
-                                                                <option value='USA'>United States of America</option>
+                                                                <option value='US'>United States of America</option>
                                                         </select>
                                                 </div>
                                         </div>
@@ -3984,70 +4019,69 @@ This is the template used both within a dialog and inline, unless implicitly ove
 -->
 
 <div id="cartTemplate" class="clearfix"><!-- template role gets added by the myApp. don't add it yourself -->
+	<div class="centeringContainer">
 
-	<form id='cartTemplateForm' action='#' onSubmit='return false'>
-		<div class='cartContainer'>
-			<div class='cartStuffContainer'>
-				<ul data-tlc="bind $var '.@ITEMS'; controller#loop --templateid='productListTemplateCart'; if (is $var --notblank;) {{apply --append;}};" class="listStyleNone fluidList clearfix noPadOrMargin productList lineItemProdlist"></ul>
-			</div>
+		<form id='cartTemplateForm' action='#' onSubmit='return false'>
+			<div class='cartContainer'>
+				<div class='cartStuffContainer'>
+					<ul data-tlc="bind $var '.@ITEMS'; controller#loop --templateid='productListTemplateCart'; if (is $var --notblank;) {{apply --append;}};" class="listStyleNone fluidList clearfix noPadOrMargin productList lineItemProdlist"></ul>
+				</div>
 
-			<div class="cartSummaryTotalsContainer">
-				<div class="ui-widget ui-corner-all">
-					<div class='ui-widget-header ui-corner-top ui-header smallPadding smallButton'>
-						<button class='applyButton cartRefreshButton' data-text='false' data-icon-primary='ui-icon-refresh' data-app-click="cco|cartFetchExec">Refresh Cart</button>
-						<h2>Cart Totals</h2>
-					</div>
-					<div class="cartSummaryContainer stdPadding ui-widget-content clearfix">
+				<div class="cartSummaryTotalsContainer">
+					<div class="ui-widget ui-corner-all">
+						<div class='ui-widget-header ui-corner-top ui-header smallPadding smallButton'>
+							<button class='applyButton cartRefreshButton' data-text='false' data-icon-primary='ui-icon-refresh' data-app-click="cco|cartFetchExec">Refresh Cart</button>
+							<h2>Cart Totals</h2>
+						</div>
+						<div class="cartSummaryContainer stdPadding ui-widget-content clearfix">
 
-						<section id='cartTemplateCostSummary' class='cartSummary'>
+							<section id='cartTemplateCostSummary' class='cartSummary'>
 
-							<div data-tlc="bind $var '.sum.items_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Subtotal: '; apply --add --class='orderSubtotal'; apply --append;}};"></div>
+								<div data-tlc="bind $var '.sum.items_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Subtotal: '; apply --add --class='orderSubtotal'; apply --append;}};"></div>
 
-							<div data-tlc="bind $var '.sum.tax_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Tax: '; apply --add --class='orderTax'; apply --append;}};"></div>
+								<div data-tlc="bind $var '.sum.tax_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Tax: '; apply --add --class='orderTax'; apply --append;}};"></div>
 
-							<div data-tlc="cco#shipinfobyid  --legacy;" class="orderShipping" data-bind="useParentData:true; format:shipinfobyid; extension:cco;"></div>
+								<div data-tlc="cco#shipinfobyid  --legacy;" class="orderShipping" data-bind="useParentData:true; format:shipinfobyid; extension:cco;"></div>
 
-							<div data-tlc="bind $var '.sum.order_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Order Total: '; apply --add --class='orderTotal'; apply --append;}};"></div>
+								<div data-tlc="bind $var '.sum.order_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Order Total: '; apply --add --class='orderTotal'; apply --append;}};"></div>
 
-							<div data-tlc="bind $var '.sum.gfc_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Giftcard(s): '; apply --add --class='orderGiftcardTotal'; apply --append;}};"></div>
-							<div data-tlc="bind $var '.sum.pnt_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Reward Points: '; apply --add --class='rewardPointsTotal'; apply --append;}};"></div>
-							<div data-tlc="bind $var '.sum.rmc_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Returns Credit: '; apply --add --class='returnsCreditTotal'; apply --append;}};"></div>
+								<div data-tlc="bind $var '.sum.gfc_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Giftcard(s): '; apply --add --class='orderGiftcardTotal'; apply --append;}};"></div>
+								<div data-tlc="bind $var '.sum.pnt_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Reward Points: '; apply --add --class='rewardPointsTotal'; apply --append;}};"></div>
+								<div data-tlc="bind $var '.sum.rmc_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Returns Credit: '; apply --add --class='returnsCreditTotal'; apply --append;}};"></div>
 
-							<div data-tlc="bind $var '.sum.balance_due_total'; cco#orderbalance  --classname='orderBalanceDue' --hidezero='false' --prepend='$' --legacy;"></div>
+		<div data-tlc="bind $var '.sum.balance_due_total'; cco#orderbalance  --classname='orderBalanceDue' --hidezero='false' --currencysign='$' --legacy;"></div>
 
-						</section>
+							</section>
 
-						<section id='cartTemplateShippingContainer' data-app-role="cartTemplateShippingContainer" class="marginBottom cartTemplateShippingContainer">
-							<h3>Shipping:</h3>
+							<section id='cartTemplateShippingContainer' data-app-role="cartTemplateShippingContainer" class="marginBottom cartTemplateShippingContainer">
+								<h3>Shipping:</h3>
 
-							<div class='cartZipCodeContainer marginBottom'>
-								<label for='data-ship_zip'>Zip/Postal Code:</label>
-								<input type='text' size='6'  name='ship/postal' id='data-ship_zip' value='' data-bind='var: cart(ship/postal); format:popVal;' maxlength='10' onChange="myApp.calls.cartSet.init({'ship/postal':this.value, 'ship/region':''});
-									myApp.ext.store_cart.u.updateCartSummary();
-									myApp.ext.store_cart.calls.cartShippingMethodsWithUpdate.init();
-									myApp.model.dispatchThis('immutable');"  />
-							</div>
+		<div class="cartZipCodeContainer marginBottom">
+			<label>Zip/Postal Code:
+			<input data-tlc="bind $var '.ship.postal'; if(is $var --blank) {{bind $var '.bill.postal'; }}; apply --select=$var; " size="6" name="ship/postal" value="" maxlength="10" data-app-blur="cco|cartZipUpdateExec" type="text"></label>
+		</div>
 
-							<ul data-tlc="order_create#shipmethodsasradiobuttons  --legacy;" class="noPadOrMargin listStyleNone" data-bind="useParentData:true; format:shipmethodsasradiobuttons; extension: order_create;" data-app-role="shipMethodsUL"></ul>
-						</section>
-						<section class="marginBottom"></section>
+								<ul data-tlc="order_create#shipmethodsasradiobuttons  --legacy;" class="noPadOrMargin listStyleNone" data-bind="useParentData:true; format:shipmethodsasradiobuttons; extension: order_create;" data-app-role="shipMethodsUL"></ul>
+							</section>
+							<section class="marginBottom"></section>
 
-					</div>
-					<div class="ui-state-default cartButtons stdPadding clearfix">
-						<!-- spans are set around the buttons so each element has one consitent tag type around it -->
-						<span class="continueShoppingSpan thisButton"><button class="applyButton continueShoppingButton" data-app-click="quickstart|dialogCloseExec">Continue Shopping</button></span>
-				
-						<span id="inStoreCheckoutButton thisButton" title="proceed to secure checkout">
-							<a class="applyButton ui-state-highlight checkoutButton" href='#!checkout'>Store Checkout</a>
-						</span>
-				
-						<span data-tlc="cco#paypalecbutton  --legacy;" id="paypalECButton" class="thisButton paypalECButton"></span>
-				
+						</div>
+						<div class="ui-state-default cartButtons stdPadding clearfix">
+							<!-- spans are set around the buttons so each element has one consitent tag type around it -->
+							<span class="continueShoppingSpan thisButton"><button class="applyButton continueShoppingButton" data-app-click="quickstart|dialogCloseExec">Continue Shopping</button></span>
+					
+							<span id="inStoreCheckoutButton" class='thisButton' title="proceed to secure checkout">
+								<a class="applyButton ui-state-highlight checkoutButton" href='#!checkout'>Store Checkout</a>
+							</span>
+					
+							<span data-tlc="bind $var '.cart.cartid'; cco#paypalecbutton  --legacy;" id="paypalecbutton" class="thisButton paypalECButton"></span>
+					
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</form>
+		</form>
+	</div>
 </div><!-- /cartTemplate -->
 
 

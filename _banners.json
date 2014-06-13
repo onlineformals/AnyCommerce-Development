@@ -4,11 +4,11 @@
 	"categoryBanners" : {
 
 		"prom" : {
-			"src"               : ["T/14_002_01_dress_giveaway_940wx350h_fnl.png","T/19882.png","T/14_002_01_instock_promo_940wx350h_fnl.png","T/1920.png","T/14_002_01_prom_package_940wx350h_fnl.png","T/20047.png"],  
-			"alt"               : ["dressGiveaway","19882","instockPromo","1920","promPackage","20047"],
-			"title"             : ["DressGiveaway","19882Promo","InstockPromo","1920Promo","PromPackage","20047Promo"],
-			"height"		 	: ["350","350","350","350","350","350"],
-			"bannersPerCat"		: "6"
+			"src"               : ["T/19882.png","T/14_002_01_instock_promo_940wx350h_fnl.png","T/1920.png","T/14_002_01_prom_package_940wx350h_fnl.png","T/20047.png"],  
+			"alt"               : ["19882","instockPromo","1920","promPackage","20047"],
+			"title"             : ["19882Promo","InstockPromo","1920Promo","PromPackage","20047Promo"],
+			"height"		 	: ["350","350","350","350","350"],
+			"bannersPerCat"		: "5"
 		},
 
 		"designerslafemme" : {
