@@ -13,8 +13,6 @@
 =path	/category/9b/	/#!home
 =path	/category/9c	/#!company/faq
 =path	/category/9c/	/#!company/faq
-=path	/category/9b	/#!home
-=path	/category/9b/	/#!home
 =path	/category/sitenews	/#!company/shipping
 =path	/category/sitenews/	/#!company/shipping
 =path	/category/shop_by_category.specials___clearance/	/#!category/.prom.sale/Sale
