@@ -10,10 +10,23 @@
 
 #OnlineFormals.com custom pages
 =path	/category/9b	/#!home
-=path	/category/zebra	/#!company/contact
+=path	/category/9b/	/#!home
 =path	/category/9c	/#!company/faq
+=path	/category/9c/	/#!company/faq
 =path	/category/9b	/#!home
+=path	/category/9b/	/#!home
 =path	/category/sitenews	/#!company/shipping
+=path	/category/sitenews/	/#!company/shipping
+=path	/category/shop_by_category.specials___clearance/	/#!category/.prom.sale/Sale
+=path	/category/shop_by_category.specials___clearance	/#!category/.prom.sale/Sale
+=path	/category/shop_by_designer.sugar_by_mac_duggal/	/#!category/.pageant
+=path	/category/shop_by_designer.sugar_by_mac_duggal	/#!category/.pageant
+=path	/category/zebra/	/#!category/.showroom
+=path	/category/zebra	/#!category/.showroom
+=path	/category/shop_by_category.specials___clearance/	/#!category/.prom.sale/Sale
+=path	/category/shop_by_category.specials___clearance	/#!category/.prom.sale/Sale
+
+
 
 # redirect all product and category urls
 ~path	/category/([^/]*)	/#!category/$1
