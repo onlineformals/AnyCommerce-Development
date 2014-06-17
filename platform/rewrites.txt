@@ -37,4 +37,4 @@
 =path	/returns.cgis	/#!company/return
 =path	/privacy.cgis	/#!company/privacy
 #redirect homepage
-=uri	http://app.onlineformals.com/	http://app.onlineformals.com/#!home
+=uri	http://www.onlineformals.com/	http://www.onlineformals.com/#!home

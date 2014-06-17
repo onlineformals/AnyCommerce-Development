@@ -1350,6 +1350,35 @@ var _store_formals = function(_app) {
 				//dump(r);
 				$tag.append(r);
 			}, //currencymsrp
+			
+			
+			currencyelasticmsrp : function($tag,data)	{
+				dump("Begin elastic msrp product list format");
+				dump(data);
+				dump($tag);
+				
+				var r = "<span class='msrpPrefix'>MSRP:</span> $"+data.value;
+				dump(r);
+				var cents = r.split(".")
+				dump(cents[1]);
+				if(cents[1] == undefined){
+					dump ("No cents present. Add a .00")
+					r = r + "<span class='cents'>.00</span>";
+				}
+				else if(cents[1].length === 1){
+					dump(cents[1].length);
+					dump ("cents only has one value. Adding a zero.")
+					var pricePieces = r.split(".");
+					r = pricePieces[0] + "<span class='cents'>.00</span>";
+				}
+				else if(cents[1] == ""){
+					dump("Price value has a decimal but no cent values. Fixing this shenanigans");
+					var pricePieces = r.split(".");
+					r = pricePieces[0] + "<span class='cents'>.00</span>";
+				}
+				dump(r);
+				$tag.append(r);
+			}, //currencyelasticmsrp
 				
 				priceretailsavingsdifferenceprodlistitem : function($tag,data)	{
 					var o; //output generated.

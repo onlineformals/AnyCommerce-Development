@@ -1146,7 +1146,8 @@ SANITY -> if you change the height and width of this image, change the .minimalM
         
 		<h6 data-tlc="bind $var '.base_price';  if (is $var --notblank;) {{_store_formals#currencyelastic --legacy; apply --append;}};" class="hideInMinimalMode"></h6>
                 
-		<h5 data-tlc="bind $var '.prod_msrp';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='MSRP:  ';  apply --append;}};" class="hideInMinimalMode prodListItemProdMSRP prodMSRP"></h5>
+		<!--<h5 data-tlc="bind $var '.prod_msrp';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='MSRP:  ';  apply --append;}};" class="hideInMinimalMode prodListItemProdMSRP prodMSRP"></h5>-->
+		<h5 data-tlc="bind $var '.prod_msrp';  if (is $var --notblank;) {{_store_formals#currencyelasticmsrp --legacy; apply --append;}};" class="hideInMinimalMode prodListItemProdMSRP prodMSRP"></h5>
 		
                 <!--
 				<span class='prodListItemSavings savings'>
