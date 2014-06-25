@@ -81,9 +81,7 @@ var _store_banner = function(_app) {
                                                 $container.addClass('bannersRendered');
 												var urlString = location.href;
  												//_app.u.dump("urlString = " + urlString);
-												if(urlString.indexOf("file:") >= 0){
-													urlString2 = urlString.split("#!category/.");
-												}
+												urlString2 = urlString.split("#!category/.");
 												//_app.u.dump("urlString2 = " + urlString2);
 												var urlString3 = urlString2[1].replace(/\./g, '');
 												//dump(urlString3);
