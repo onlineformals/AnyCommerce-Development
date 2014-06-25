@@ -432,7 +432,7 @@ var _store_formals = function(_app) {
 						
 						//var $context = $(_app.u.jqSelector('#',infoObj.parentID));
 						
-						_app.ext._store_banner.u.showCategoryBanners($context);
+						//_app.ext._store_banner.u.showCategoryBanners($context);
 						
 						//Carousel horizontal sliders - category banner
 						function carouselCPBanner(){ $(".carouselCPBannerList", $context).carouFredSel
@@ -693,7 +693,7 @@ var _store_formals = function(_app) {
 								$('.filterTrendsCat').data('collapseOrExpanded',true).append();
 							}
 							
-							_app.ext._store_banner.u.showCategoryBanners($context);		
+							//_app.ext._store_banner.u.showCategoryBanners($context);		
 					});
 					
 					
