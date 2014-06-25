@@ -81,13 +81,13 @@ var _store_banner = function(_app) {
                                                 $container.addClass('bannersRendered');
 												
 												var revisedNavcat = navcat.toString();
-												dump(revisedNavcat);
+												//dump(revisedNavcat);
 												revisedNavcat = revisedNavcat.replace(".","");
-												dump(revisedNavcat);
+												//dump(revisedNavcat);
 												revisedNavcat = revisedNavcat.replace("/","");
-												dump(revisedNavcat);
+												//dump(revisedNavcat);
 												revisedNavcat = revisedNavcat.replace("_","");
-												dump(revisedNavcat);
+												//dump(revisedNavcat);
 												
 												_app.ext._store_banner.u.makeBanner(_app.ext._store_banner.vars.categoryBanners[revisedNavcat],960,"ffffff",$container);
 										}
