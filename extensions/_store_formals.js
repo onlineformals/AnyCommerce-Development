@@ -109,6 +109,8 @@ var _store_formals = function(_app) {
 				".cocktail.styles.babydoll" : "categoryProductListTemplate",
 				".cocktail.styles.high_low" : "categoryProductListTemplate",
 				
+				".cocktail.homecoming" : "categoryProductListTemplate",
+				
 				".plus_size.designers.fabulouss" : "categoryProductListTemplate",
 				".plus_size.designers.faviana" : "categoryProductListTemplate",
 				".plus_size.designers.night_moves" : "categoryProductListTemplate",
