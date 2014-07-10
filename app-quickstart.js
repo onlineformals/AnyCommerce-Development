@@ -38,10 +38,6 @@ var quickstart = function(_app) {
 			'productTemplate',
 			'productTemplateQuickView',
 			'pageNotFoundTemplate',
-			
-			//CUSTOM TEMPLATES
-			'categoryProductListTemplate',
-			'testimonialsTemplate',
 //the list of templates that, in most cases, are left alone. Also in the same order as appTemplates
 			'breadcrumbTemplate',
 			'companyTemplate',
@@ -64,9 +60,6 @@ var quickstart = function(_app) {
 			'shipAddressTemplate'],
 		"sotw" : {}, //state of the world. set to most recent page info object.
 		"hotw" : new Array(15), //history of the world. contains 15 most recent sotw objects.
-		"showContentFinished" : false,
- 		"showContentCompleteFired" : false,
- 		"cachedPageCount" : 20,
 		"session" : {
 			"recentSearches" : [],
 			"recentlyViewedItems" : [],
@@ -148,6 +141,12 @@ var quickstart = function(_app) {
 //	}
 
 _app.u.addEventDelegation($(document.body)); //if perfomance issues are noticed from adding this to the body instead of to each template, please report them.
+
+
+var hotw = _app.model.dpsGet('quickstart','hotw');
+if(!$.isEmptyObject(hotw))	{
+	_app.ext.quickstart.vars.hotw = hotw;
+	}
 
 //if ?debug=anything is on URI, show all elements with a class of debug.
 if(_app.u.getParameterByName('debug'))	{
@@ -507,12 +506,12 @@ need to be customized on a per-ria basis.
 				},
 
 			":popup" : function(suffix,phrase)	{
-				return "<a href=\""+suffix+"\" target='popup' onClick=\"_gaq.push(['_trackEvent', 'outgoing_links', "+suffix.replace(/^http:\/\//i, '')+"]);\">"+phrase+"</a>";
+				return "<a href=\""+suffix+"\" target='popup' data-app-click='quickstart|popup'>"+phrase+"</a>";
 				}
 			}, //wiki
 
 // * 201403 -> infoObj now passed into pageTransition.
-		pageTransition : function($o,$n, infoObj, callback)	{
+		pageTransition : function($o,$n, infoObj)	{
 //if $o doesn't exist, the animation doesn't run and the new element doesn't show up, so that needs to be accounted for.
 //$o MAY be a jquery instance but have no length, so check both.
 			if($o instanceof jQuery && $o.length)	{
@@ -529,21 +528,18 @@ need to be customized on a per-ria basis.
 						})
 					} 
 				else	{
-					$o.fadeOut(100, function(){$n.fadeIn(100); callback(); setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;},100);}); //fade out old, fade in new.
+					$o.fadeOut(1000, function(){$n.fadeIn(1000)}); //fade out old, fade in new.
 					}
 				}
 			else if($n instanceof jQuery)	{
 				dump(" -> $o is not properly defined.  jquery: "+($o instanceof jQuery)+" and length: "+$o.length);
 				$('html, body').animate({scrollTop : 0},'fast',function(){
 					$n.fadeIn(1000);
-					callback();
- 					setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;},100);
 					});
 				}
 			else	{
 				//hhmm  not sure how or why we got here.
 				dump("WARNING! in pageTransition, neither $o nor $n were instances of jQuery.  how odd.",'warn');
-				_app.ext.quickstart.vars.showContentFinished = true;
 				}
 			}, //pageTransition
 
@@ -920,8 +916,6 @@ fallback is to just output the value.
 // -> unshift is used in the case of 'recent' so that the 0 spot always holds the most recent and also so the length can be maintained (kept to a reasonable #).
 // infoObj.back can be set to 0 to skip a URI update (will skip both hash state and popstate.) 
 			showContent : function(pageType,infoObj)	{
-				_app.ext.quickstart.vars.showContentFinsihed = false;
- 				_app.ext.quickstart.vars.showContentCompleteFired = false;
 //				dump("BEGIN showContent ["+pageType+"]."); dump(infoObj);
 				infoObj = infoObj || {}; //could be empty for a cart or checkout
 /*
@@ -1019,7 +1013,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 							$('body').showLoading({'message':'Transferring to secure login'});							
 							var SSLlocation = _app.vars.secureURL+"?cartID="+_app.model.fetchCartID();
 							SSLlocation += "#!customer/"+infoObj.show
-							_gaq.push(['_link', SSLlocation]); //for cross domain tracking.
+							window[_app.vars.analyticsPointer]('linker:decorate', SSLlocation); //for cross domain tracking.
 							document.location = SSLlocation; //redir to secure url.
 							}
 						break;
@@ -1040,7 +1034,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 //							$('#mainContentArea').addClass('loadingBG').html("<h1>Transferring you to a secure session for checkout.<\/h1><h2>Our app will reload shortly...<\/h2>");
 							$('body').showLoading({'message':'Transferring you to a secure session for checkout'});
 							var SSLlocation = zGlobals.appSettings.https_app_url+"?cartID="+_app.model.fetchCartID()+"&_session="+_app.vars._session+"#!checkout";
-							_gaq.push(['_link', SSLlocation]); //for cross domain tracking.
+							window[_app.vars.analyticsPointer]('linker:decorate', SSLlocation); //for cross domain tracking.
 							document.location = SSLlocation;
 							}
 						else	{
@@ -1102,22 +1096,12 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 				else if(infoObj.performTransition == false)	{
 					}
 				else if(typeof _app.ext.quickstart.pageTransition == 'function')	{
-					var callback = function(){
- 						var $hiddenpages = $("#mainContentArea > :hidden");
- 						var L = $hiddenpages.length;
- 						dump(L);
- 						dump(L - _app.ext.quickstart.vars.cachedPageCount);
- 						for(var i = 0; i < L - _app.ext.quickstart.vars.cachedPageCount; i++){
- 							$($hiddenpages.get(i)).intervaledEmpty().remove();
- 							}
- 						};
- 					_app.ext.quickstart.pageTransition($old,$new,infoObj, callback);
+					_app.ext.quickstart.pageTransition($old,$new,infoObj);
 					}
 				else if($new instanceof jQuery)	{
 //no page transition specified. hide old content, show new. fancy schmancy.
 					$("#mainContentArea :visible:first").hide();
 					$new.show();
-					_app.ext.quickstart.vars.showContentFinished = true;
 					}
 				else	{
 					dump("WARNING! in showContent and no parentID is set for the element being translated.");
@@ -1230,12 +1214,12 @@ the ui also helps the buyer show the merchant what they're looking at and, optio
 				if(pageType && infoObj && infoObj.templateID)	{
 					if(pageType == 'product' && infoObj.pid)	{
 						_app.ext.store_product.u.prodDataInModal(infoObj);
-						_gaq.push(['_trackEvent','Quickview','User Event','product',infoObj.pid]);
+						window[_app.vars.analyticsPointer]('send','event','Quickview','User Event','product '+infoObj.pid);
 						}
 						
 					else if(pageType == 'category' && infoObj.navcat)	{
 						_app.ext.quickstart.u.showPageInDialog (infoObj)
-						_gaq.push(['_trackEvent','Quickview','User Event','category',infoObj.navcat]);
+						window[_app.vars.analyticsPointer]('send','event','Quickview','User Event','category '+infoObj.navcat);
 						}
 						
 					else	{
@@ -1449,7 +1433,7 @@ setTimeout(function(){
 					_app.calls.buyerProductListAppendTo.init(P,{'parentID':parentID,'callback':'showMessaging','message':'Item '+P.sku+' successfully added to list: '+P.listid},'immutable');
 					_app.calls.buyerProductListDetail.init(P.listid,{},'immutable')
 					_app.model.dispatchThis('immutable');
-					_gaq.push(['_trackEvent','Manage buyer list','User Event','item added',P.sku]);
+					window[_app.vars.analyticsPointer]('send','event','Manage buyer list','User Event','item added '+P.sku);
 					}
 				},
 
@@ -1574,6 +1558,9 @@ $target.tlc({
 				_app.ext.quickstart.vars.sotw = infoObj;
 				_app.ext.quickstart.vars.hotw.unshift(infoObj);
 				_app.ext.quickstart.vars.hotw.pop(); //remove last entry in array. is created with array(15) so this will limit the size.
+//* 201405 -> save history of the world to localstorage for refresh/next visit.
+// chrome didn't like copying hotw directly in. circular reference exception.
+				_app.model.dpsSet('quickstart','hotw',$.extend(_app.ext.quickstart.vars.hotw));
 				},
 
 			showtransition : function(infoObj,$old)	{
@@ -2318,7 +2305,7 @@ either templateID needs to be set OR showloading must be true. TemplateID will t
 								$(this).attr('data-app-change','quickstart|cartShipMethodSelect');
 								});
 							});
-						$modal.dialog({modal: true,width:'80%', dialogClass: 'dlgfixed', position: "center"});  //browser doesn't like percentage for height  //browser doesn't like percentage for height
+						$modal.dialog({modal: true,width:'80%'});  //browser doesn't like percentage for height
 						}
 
 					if(P.showLoading === true)	{
@@ -2681,14 +2668,10 @@ buyer to 'take with them' as they move between  pages.
 						}
 					else if(catSafeID == zGlobals.appSettings.rootcat || infoObj.pageType == 'homepage')	{
 						infoObj.templateID = 'homepageTemplate'
-						}					else if(myApp.ext._store_formals.vars.catTemplates[catSafeID]){
-             			myApp.u.dump("category list template option selected");
-              			infoObj.templateID = myApp.ext._store_formals.vars.catTemplates[catSafeID]
-            		}
-          			else{
-              			myApp.u.dump("category default template option selected");
-              			infoObj.templateID = 'categoryTemplate'
-					}
+						}
+					else	{
+						infoObj.templateID = 'categoryTemplate'
+						}
 					infoObj.state = 'init';
 					var parentID = infoObj.parentID || infoObj.templateID+'_'+_app.u.makeSafeHTMLId(catSafeID);
 					var $parent = $(_app.u.jqSelector('#',parentID));
@@ -2917,6 +2900,9 @@ else	{
 ////////////////////////////////////   app Events [e]   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 		e : {
+			popup : function($ele, p){
+				//Does nothing, but allows google analytics to track this event
+				},
 //add this as a data-app-submit to the login form.
 			accountLoginSubmit : function($ele,p)	{
 				p.preventDefault();
@@ -2933,7 +2919,6 @@ else	{
 				else	{} //validateForm will handle the error display.
 				return false;
 				},
-
 			accountPasswordRecoverSubmit : function($ele,p)	{
 				p.preventDefault();
 				if(_app.u.validateForm($ele))	{
@@ -3252,10 +3237,11 @@ later, it will handle other third party plugins as well.
 
 //								dump(" -> user.gender = "+user.gender);
 
-if(_gaq.push(['_setCustomVar',1,'gender',user.gender,1]))
-	dump(" -> fired a custom GA var for gender.");
-else
-	dump(" -> ARGH! GA custom var NOT fired. WHY!!!");
+// 201405 - Deprecated for Universal Analytics
+//if(_gaq.push(['_setCustomVar',1,'gender',user.gender,1]))
+//	dump(" -> fired a custom GA var for gender.");
+//else
+//	dump(" -> ARGH! GA custom var NOT fired. WHY!!!");
 
 
 								}
