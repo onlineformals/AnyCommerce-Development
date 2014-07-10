@@ -19,7 +19,7 @@
 
 <script type="text/javascript">
 var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-2216669-4']);
+_gaq.push(['_setAccount', 'UA-2216669-1']);
 _gaq.push(['_trackPageview']);
 var myCreole, baseURL;
 
@@ -69,6 +69,7 @@ css files should be included before any .js file to ensure they are downloaded i
 <script src="model.js"></script>
 
 <!--CUSTOM SCRIPTS GO HERE-->
+<script data-apptimize="embed" type="text/javascript" src="extensions/seo_robots.js"></script>
 
 
 
@@ -82,11 +83,11 @@ css files should be included before any .js file to ensure they are downloaded i
 $(document).ready(function(){
 
 	window.myApp = new initApp({
-		"release":"201404.aatest1",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201404.ax",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
-		"testURL":"http://app.onlineformals.com/", //used ONLY if protocol is file: (for testing)
+		"testURL":"http://www.onlineformals.com/", //used ONLY if protocol is file: (for testing)
 		"addjQueryPointer" : true,
 		"initComplete" : function(t){
 			dump(" -> init is complete");
@@ -102,6 +103,35 @@ $(document).ready(function(){
 	});
 </script>
 
+
+<script data-apptimize="minify" type="text/javascript">
+ var _robots = {
+ 	hello : function(botStr){
+ 		_robots._robotGreeting = botStr || true;
+ 		console.log("Bot saying hello: "+botStr);
+ 		return "1.0";
+ 		},
+ 	next : function(){
+ 		//This implementation of _robots.next returns a function that simply blocks with a '100' until the app has been fully instantiated
+ 		_robots.status = function(){
+ 			if(typeof myApp !== 'undefined' && 
+ 				typeof myApp.ext !== 'undefined' && 
+ 				typeof myApp.ext.quickstart !== 'undefined' && 
+ 				typeof myApp.ext.quickstart.vars !== 'undefined' &&
+ 				myApp.ext.quickstart.vars.showContentFinished && myApp.ext.quickstart.vars.showContentCompleteFired){
+ 				return 204;
+ 				}
+ 			else{
+ 				return 100;
+ 				}
+ 			}
+ 		},
+ 	ready : function(){return false;},
+ 	goodbye : function(){
+ 		console.log("Bot saying goodbye: "+botStr);
+ 		}
+ 	}
+</script>
 
 </head>
 
@@ -284,6 +314,8 @@ $(document).ready(function(){
 								<li class="headerDropdownLink"><a href="#!category/.prom.trends.polka_dots/Polka%20Dots" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Polka Dots</a></li>
 								<li class="headerDropdownLink"><a href="#!category/.prom.trends.sequins/Sequins" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Sequins</a></li>
 								<li class="headerDropdownLink"><a href="#!category/.prom.trends.vintage/Vintage" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Vintage</a></li>
+								
+								<li class="headerDropdownTitle stackedDropdownLI"><a href="#!category/.prom.sale/Sale" class="pointer" onclick="myApp.ext._store_formals.a.hideAllDropdowns()">SALE</a></li>
 							</ul>
 						</div>
 					</div>
@@ -337,6 +369,7 @@ $(document).ready(function(){
 								<li class="headerDropdownLink"><a href="#!category/.cocktail.styles.babydoll/Babydoll" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Babydoll</a></li>
                                 <li class="headerDropdownLink"><a href="#!category/.cocktail.styles.lace/Lace" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Lace</a></li>
                                 <li class="headerDropdownLink"><a href="#!category/.cocktail.styles.sequins___beads/Sequins%20&%20Beads" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Sequins & Beads</a></li>
+								<li class="headerDropdownTitle stackedDropdownLI"><a href="#!category/.cocktail.homecoming/Homecoming" class="pointer" onclick="myApp.ext._store_formals.a.hideAllDropdowns()">HOMECOMING</a></li>
 							</ul>
 						</div>
 					</div>
@@ -501,11 +534,9 @@ $(document).ready(function(){
 						<img src="Images/Homepage/footer/RapidSSL_SEAL-90x50.gif" alt="" />
 					</div>
 					
-					<!--
 					<div class="footerGeotrustSeal">
 						<script language="javascript" type="text/javascript" src="//smarticon.geotrust.com/si.js"></script>
 					</div>
-					-->
 				</div>
 				<div class="footerBottomNote">
 					<p>Onlineformals, Inc. Copyright &#169; 2014. All Rights Reserved.</p>
@@ -592,8 +623,14 @@ COMMONLY EDITED TEMPLATES
 the homepageTemplate template is loaded into mainContentArea by default when the application loads
 -->
 <div id='homepageTemplate' class='homeTemplate'>
+
+	<span class="displayNone" data-seo-title="Prom Dresses Online | Sherri Hill | La Femme | Tony Bowls"></span>
+	<span class="displayNone" data-seo-desc="Shop for your prom or cocktail dress online or by appointment in our Virginia Beach store. We are an authorized retailer and offer worldwide shipping."></span>
+
 	
     <div class="centeringContainer">
+	
+	
 
 	
 	
@@ -636,6 +673,7 @@ src="Images/Homepage/carousel/testbanner-1.png" FOR THE IMAGE FILE.
             <ul class="carouselHPBannerList">
 		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.prom.sale'});"><img src="Images/Homepage/carousel/salebanner.png" alt="" /></a></li>
 		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.in_stock'});"><img src="Images/Homepage/carousel/instocksummer.png" alt="" /></a></li>
+		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.cocktail.homecoming'});"><img src="Images/Homepage/carousel/homecoming2014.png" alt="" /></a></li>	
 		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.la_femme'});"><img src="Images/Homepage/carousel/lafemmespring.png" alt="" /></a></li>
 		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.sherri_hill'});"><img src="Images/Homepage/carousel/sherrispring.png" alt="" /></a></li>
                 <li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.mac_duggal'});"><img src="Images/Homepage/carousel/13_001_11_ofc-Macduggal-350h.png" alt="" /></a></li>
@@ -1002,7 +1040,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <ul>
 <li id="categoryListTemplate" class="categoryListTemplate">
 	<div class='pointer categoryListTemplateCont' onMouseOver="myApp.ext._store_formals.a.categorySubCatMouseOver($(this))" onMouseOut="myApp.ext._store_formals.a.categorySubCatMouseOut($(this))">
-		<a data-tlc="bind $var '.'; store_routing#seoanchor --type='category' --seo; apply --attrib='href';">
+		<a data-tlc="bind $var '.'; store_routing#seoanchor --type='category'; apply --attrib='href';" >
             <div class="thumbContainer"><img data-tlc="bind $var '.%meta.CAT_THUMB'; if (is $var --notblank){{apply --img --media=$var --width=220 --height=220 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="catThumb" alt="" height="220" width="220"></div>
             <div class="homepageSubCatTitleBar"><div class="catName white2LGray"><span data-tlc="bind $var '.pretty'; quickstart#cattext  --legacy;"></span></div></div>
 		</a>
@@ -1011,7 +1049,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 
 <li id="categoryListTemplateRootCats">
-	<a data-tlc="bind $var '.'; store_routing#seoanchor --type='category' --seo; apply --attrib='href';">
+	<a data-tlc="bind $var '.'; store_routing#seoanchor --type='category'; apply --attrib='href';">
 		<div class="thumbContainer"><img data-tlc="bind $var '.%meta.CAT_THUMB'; if (is $var --notblank){{apply --img --media=$var --width=35 --height=35 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="catThumb" alt="" height="35" width="35"></div>
 		<div class="catName"><span data-tlc="bind $var '.pretty'; quickstart#cattext  --legacy; apply --append;"></span></div>
 	</a>
@@ -1148,7 +1186,8 @@ SANITY -> if you change the height and width of this image, change the .minimalM
         
 		<h6 data-tlc="bind $var '.base_price';  if (is $var --notblank;) {{_store_formals#currencyelastic --legacy; apply --append;}};" class="hideInMinimalMode"></h6>
                 
-		<h5 data-tlc="bind $var '.prod_msrp';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='MSRP:  ';  apply --append;}};" class="hideInMinimalMode prodListItemProdMSRP prodMSRP"></h5>
+		<!--<h5 data-tlc="bind $var '.prod_msrp';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='MSRP:  ';  apply --append;}};" class="hideInMinimalMode prodListItemProdMSRP prodMSRP"></h5>-->
+		<h5 data-tlc="bind $var '.prod_msrp';  if (is $var --notblank;) {{_store_formals#currencyelasticmsrp --legacy; apply --append;}};" class="hideInMinimalMode prodListItemProdMSRP prodMSRP"></h5>
 		
                 <!--
 				<span class='prodListItemSavings savings'>
@@ -9916,6 +9955,121 @@ The 'data-action' attribute is used to assign an onclick.
 </form>
 
 
+<form action='#' name='PromSaleForm' id='PromSaleForm' class='layeredSearch'>
+
+    <button class="resetButton">RESET OPTIONS</button>
+    
+    <fieldset class="filterPriceCat" data-elastic-key="base_price" data-filtertype="slider">
+        <legend class="filterCatTitle" onClick="myApp.ext._store_filter.a.toggleShowHidePriceFilter();">Price</legend>
+        <div class="filterCategoryCont">
+            <input type="text" disabled="disabled" class='sliderValue' />
+            <div class="slider-range"></div>
+       	</div>
+    </fieldset>
+    
+    <fieldset data-elastic-key="dress_type" data-filtertype="hidden">
+        <input type='hidden' name="dress_type" value="promsale" />
+    </fieldset>
+    
+    
+    <fieldset class="filterDesignerCat" data-elastic-key="select_designers" data-filtertype="checkboxes">
+        <legend class="filterCatTitle" onClick="myApp.ext._store_filter.a.toggleShowHideDesignerFilter();">Designers</legend>
+        <div class="filterCategoryCont">
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='bg+haute' />BG Haute</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='cassandra+stone' />Cassandra Stone</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='fabulouss' />Fabulouss</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='faviana' />Faviana</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='gigi' />Gigi</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='jasz+couture' />Jasz Couture</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='johnathan+kayne' />Johnathan Kayne</label>
+            <!--<label class='break'><input class="fsCheckbox" type='checkbox' value='jovani' />Jovani</label>-->
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='la+femme' />La Femme</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='le+gala' />Le Gala</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='lm+collection' />LM Collection</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='mac+duggal' />Mac Duggal</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='mignon' />Mignon</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='mnm+couture' />MNM Couture</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='night+moves' />Night Moves</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='paris' />Paris</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='scala' />Scala</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='shail+k' />Shail K</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='sherri+hill' />Sherri Hill</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='tony+bowls' />Tony Bowls</label>
+        </div>
+    </fieldset>
+    <fieldset class="filterColorCat" data-elastic-key="select_color" data-filtertype="checkboxes">
+        <legend class="filterCatTitle" onClick="myApp.ext._store_filter.a.toggleShowHideColorFilter();">Colors</legend>
+        <div class="filterCategoryCont">
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='black' />Black</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='blue' />Blue</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='coral' />Coral</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='gold' />Gold</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='green' />Green</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='multi' />Multi</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='nude+champagne' />Nude/Champagne</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='orange' />Orange</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='pink' />Pink</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='purple' />Purple</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='red' />Red</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='silver' />Silver/Gunmetal</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='white' />White/Ivory</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='yellow' />Yellow</label>
+        </div>
+    </fieldset>
+    <fieldset class="filterHemlineCat" data-elastic-key="select_hemline" data-filtertype="checkboxes">
+        <legend class="filterCatTitle" onClick="myApp.ext._store_filter.a.toggleShowHideHemlineFilter();">Hemline</legend>
+        <div class="filterCategoryCont">
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='long' />Long</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='short' />Short</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='high+low' />High Low</label>
+        </div>
+    </fieldset>
+    <fieldset class="filterSilhouetteCat" data-elastic-key="select_silhouette" data-filtertype="checkboxes">
+        <legend class="filterCatTitle" onClick="myApp.ext._store_filter.a.toggleShowHideSilhouetteFilter();">Silhouette</legend>
+        <div class="filterCategoryCont">
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='ballgown+A+Line' />Ballgown/A-Line</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='empire' />Empire</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='mermaid' />Mermaid</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='straight' />Straight</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='two+piece' />Two Piece</label>
+        </div>
+    </fieldset>
+    <fieldset class="filterNecklineCat" data-elastic-key="select_neckline" data-filtertype="checkboxes">
+        <legend class="filterCatTitle" onClick="myApp.ext._store_filter.a.toggleShowHideNecklineFilter();">Neckline</legend>
+        <div class="filterCategoryCont">
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='boat+neck' />Boat Neck</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='cap+sleeve' />Cap Sleeve</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='halter' />Halter</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='one+shoulder' />One Shoulder</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='sleeves' />Sleeves</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='strapless' />Strapless</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='straps' />Straps</label>
+        </div>
+    </fieldset>
+	<fieldset class="filterTrendsCat" data-elastic-key="select_trends" data-filtertype="checkboxes">
+        <legend class="filterCatTitle" onClick="myApp.ext._store_filter.a.toggleShowHideTrendFilter();">Trending</legend>
+        <div class="filterCategoryCont">
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='beads' />Beads</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='bows' />Bows</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='corset' />Corset</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='feathers' />Feathers</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='lace' />Lace</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='ombre' />Ombre</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='polka+dots' />Polka Dots</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='removable+skirt' />Removable Skirt</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='ruched' />Ruched</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='ruffles' />Ruffles</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='sequin' />Sequins</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='vintage' />Vintage</label>
+        </div>
+    </fieldset>
+    
+    
+    <button class="resetButton resetButtonBottom">RESET OPTIONS</button>
+
+</form>
+
+
 
 
 
@@ -12358,7 +12512,7 @@ The 'data-action' attribute is used to assign an onclick.
     </fieldset>
     
     <fieldset data-elastic-key="dress_type" data-filtertype="hidden">
-        <input type='hidden' name="dress_type" value="evening" />
+        <input type='hidden' name="dress_type" value="cocktail" />
     </fieldset>
     <fieldset data-elastic-key="select_trends" data-filtertype="hidden">
         <input type='hidden' name="select_trends" value="lace" />
@@ -12445,7 +12599,7 @@ The 'data-action' attribute is used to assign an onclick.
     </fieldset>
     
     <fieldset data-elastic-key="dress_type" data-filtertype="hidden">
-        <input type='hidden' name="dress_type" value="evening" />
+        <input type='hidden' name="dress_type" value="cocktail" />
     </fieldset>
     <fieldset data-elastic-key="select_trends" data-filtertype="hidden">
         <input type='hidden' name="select_trends" value="babydoll" />
@@ -12532,7 +12686,7 @@ The 'data-action' attribute is used to assign an onclick.
     </fieldset>
     
     <fieldset data-elastic-key="dress_type" data-filtertype="hidden">
-        <input type='hidden' name="dress_type" value="evening" />
+        <input type='hidden' name="dress_type" value="cocktail" />
     </fieldset>
     <fieldset data-elastic-key="select_hemline" data-filtertype="hidden">
         <input type='hidden' name="select_hemline" value="high+low" />
@@ -12601,6 +12755,119 @@ The 'data-action' attribute is used to assign an onclick.
         </div>
     </fieldset>
 <fieldset class="filterTrendsCat" data-elastic-key="select_trends" data-filtertype="checkboxes">
+        <legend class="filterCatTitle" onClick="myApp.ext._store_filter.a.toggleShowHideTrendFilter();">Trending</legend>
+        <div class="filterCategoryCont">
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='beads' />Beads</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='bows' />Bows</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='corset' />Corset</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='feathers' />Feathers</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='lace' />Lace</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='ombre' />Ombre</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='polka+dots' />Polka Dots</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='removable+skirt' />Removable Skirt</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='ruched' />Ruched</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='ruffles' />Ruffles</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='sequin' />Sequins</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='vintage' />Vintage</label>
+        </div>
+    </fieldset>
+    
+    <button class="resetButton resetButtonBottom">RESET OPTIONS</button>
+
+</form>
+
+
+<form action='#' name='CocktailHomecomingForm' id='CocktailHomecomingForm' class='layeredSearch'>
+
+    <button class="resetButton">RESET OPTIONS</button>
+    
+    <fieldset class="filterPriceCat" data-elastic-key="base_price" data-filtertype="slider">
+        <legend class="filterCatTitle" onClick="myApp.ext._store_filter.a.toggleShowHidePriceFilter();">Price</legend>
+        <div class="filterCategoryCont">
+            <input type="text" disabled="disabled" class='sliderValue' />
+            <div class="slider-range"></div>
+       	</div>
+    </fieldset>
+    
+    <fieldset data-elastic-key="dress_type" data-filtertype="hidden">
+        <input type='hidden' name="dress_type" value="cocktailhomecoming" />
+    </fieldset>
+    
+    <fieldset class="filterDesignerCat" data-elastic-key="select_designers" data-filtertype="checkboxes">
+        <legend class="filterCatTitle" onClick="myApp.ext._store_filter.a.toggleShowHideDesignerFilter();">Designers</legend>
+        <div class="filterCategoryCont">
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='bg+haute' />BG Haute</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='cassandra+stone' />Cassandra Stone</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='fabulouss' />Fabulouss</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='faviana' />Faviana</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='gigi' />Gigi</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='jasz+couture' />Jasz Couture</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='johnathan+kayne' />Johnathan Kayne</label>
+            <!--<label class='break'><input class="fsCheckbox" type='checkbox' value='jovani' />Jovani</label>-->
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='la+femme' />La Femme</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='le+gala' />Le Gala</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='lm+collection' />LM Collection</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='mac+duggal' />Mac Duggal</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='mignon' />Mignon</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='mnm+couture' />MNM Couture</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='night+moves' />Night Moves</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='paris' />Paris</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='scala' />Scala</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='shail+k' />Shail K</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='sherri+hill' />Sherri Hill</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='tony+bowls' />Tony Bowls</label>
+        </div>
+    </fieldset>
+    <fieldset class="filterColorCat" data-elastic-key="select_color" data-filtertype="checkboxes">
+        <legend class="filterCatTitle" onClick="myApp.ext._store_filter.a.toggleShowHideColorFilter();">Colors</legend>
+        <div class="filterCategoryCont">
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='black' />Black</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='blue' />Blue</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='coral' />Coral</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='gold' />Gold</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='green' />Green</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='multi' />Multi</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='nude+champagne' />Nude/Champagne</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='orange' />Orange</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='pink' />Pink</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='purple' />Purple</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='red' />Red</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='silver' />Silver/Gunmetal</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='white' />White/Ivory</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='yellow' />Yellow</label>
+        </div>
+    </fieldset>
+    <fieldset class="filterHemlineCat" data-elastic-key="select_hemline" data-filtertype="checkboxes">
+        <legend class="filterCatTitle" onClick="myApp.ext._store_filter.a.toggleShowHideHemlineFilter();">Hemline</legend>
+        <div class="filterCategoryCont">
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='long' />Long</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='short' />Short</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='high+low' />High Low</label>
+        </div>
+    </fieldset>
+    <fieldset class="filterSilhouetteCat" data-elastic-key="select_silhouette" data-filtertype="checkboxes">
+        <legend class="filterCatTitle" onClick="myApp.ext._store_filter.a.toggleShowHideSilhouetteFilter();">Silhouette</legend>
+        <div class="filterCategoryCont">
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='ballgown+A+Line' />Ballgown/A-Line</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='empire' />Empire</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='mermaid' />Mermaid</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='straight' />Straight</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='two+piece' />Two Piece</label>
+        </div>
+    </fieldset>
+    <fieldset class="filterNecklineCat" data-elastic-key="select_neckline" data-filtertype="checkboxes">
+        <legend class="filterCatTitle" onClick="myApp.ext._store_filter.a.toggleShowHideNecklineFilter();">Neckline</legend>
+        <div class="filterCategoryCont">
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='boat+neck' />Boat Neck</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='cap+sleeve' />Cap Sleeve</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='halter' />Halter</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='one+shoulder' />One Shoulder</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='sleeves' />Sleeves</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='strapless' />Strapless</label>
+            <label class='break'><input class="fsCheckbox" type='checkbox' value='straps' />Straps</label>
+        </div>
+    </fieldset>
+	<fieldset class="filterTrendsCat" data-elastic-key="select_trends" data-filtertype="checkboxes">
         <legend class="filterCatTitle" onClick="myApp.ext._store_filter.a.toggleShowHideTrendFilter();">Trending</legend>
         <div class="filterCategoryCont">
             <label class='break'><input class="fsCheckbox" type='checkbox' value='beads' />Beads</label>

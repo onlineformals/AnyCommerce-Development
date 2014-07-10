@@ -11,7 +11,7 @@
 			"bannersPerCat"		: "5"
 		},
 
-		"designerslafemme" : {
+		"designers.lafemme" : {
 			"src"               : ["T/19882.png","T/20047.png"],  
 			"alt"               : ["19882","20047"],
 			"title"             : ["19882Promo","20047Promo"],
@@ -19,7 +19,7 @@
 			"bannersPerCat"		: "2"
 		},
 
-		"promdesignerslafemme" : {
+		"prom.designers.lafemme" : {
 			"src"               : ["T/19882.png","T/20047.png"],  
 			"alt"               : ["19882","20047"],
 			"title"             : ["19882Promo","20047Promo"],
@@ -27,7 +27,7 @@
 			"bannersPerCat"		: "2"
                 },
 
-		"designerssherrihill" : {
+		"designers.sherrihill" : {
 			"src"               : ["T/1920.png"],  
 			"alt"               : ["1920"],
 			"title"             : ["1920Promo"],
@@ -35,7 +35,7 @@
 			"bannersPerCat"		: "1"
 		},
 
-		"promdesignerssherrihill" : {
+		"prom.designers.sherrihill" : {
 			"src"               : ["T/1920.png"],  
 			"alt"               : ["1920"],
 			"title"             : ["1920Promo"],

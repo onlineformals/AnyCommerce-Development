@@ -8,17 +8,27 @@
 ~path	/c=*/(.*?)				 /$1			set=path
 ~path	/s=*/(.*?)				/$1			set=path
 
-# redirect all product and category urls
-~path	/category/([^/]*)	/#!category/$1
-~path	/product/([^/]*)	/#!product/$1
-
 #OnlineFormals.com custom pages
 =path	/category/9b	/#!home
-=path	/category/zebra	/#!company/contact
+=path	/category/9b/	/#!home
 =path	/category/9c	/#!company/faq
-=path	/category/9b	/#!home
+=path	/category/9c/	/#!company/faq
 =path	/category/sitenews	/#!company/shipping
+=path	/category/sitenews/	/#!company/shipping
+=path	/category/shop_by_category.specials___clearance/	/#!category/.prom.sale/Sale
+=path	/category/shop_by_category.specials___clearance	/#!category/.prom.sale/Sale
+=path	/category/shop_by_designer.sugar_by_mac_duggal/	/#!category/.pageant
+=path	/category/shop_by_designer.sugar_by_mac_duggal	/#!category/.pageant
+=path	/category/zebra/	/#!category/.showroom
+=path	/category/zebra	/#!category/.showroom
+=path	/category/shop_by_category.specials___clearance/	/#!category/.prom.sale/Sale
+=path	/category/shop_by_category.specials___clearance	/#!category/.prom.sale/Sale
 
+
+
+# redirect all product and category urls
+~path	/category/([^/]*)/?	/#!category/$1
+~path	/product/([^/]*)/?(.*)	/#!product/$1
 
 #redirect company pages
 =path	/about_us.cgis	/#!company/about
@@ -27,4 +37,4 @@
 =path	/returns.cgis	/#!company/return
 =path	/privacy.cgis	/#!company/privacy
 #redirect homepage
-=uri	http://test.onlineformals.com/	http://test.onlineformals.com/#!home
+=uri	http://www.onlineformals.com/	http://www.onlineformals.com/#!home

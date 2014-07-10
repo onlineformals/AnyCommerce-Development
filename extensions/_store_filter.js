@@ -238,6 +238,10 @@ var _store_filter = function(_app) {
 			"filter": "PromVintageForm",
 			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
+			".prom.sale":{
+			"filter": "PromSaleForm",
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
 			
 			//EVENING PAGES
 			".evening.designers.bg_haute":{
@@ -350,6 +354,10 @@ var _store_filter = function(_app) {
 			},
 			".cocktail.styles.high_low":{
 			"filter": "CocktailHighLowForm",
+			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
+			},
+			".cocktail.homecoming":{
+			"filter": "CocktailHomecomingForm",
 			"exec" : function($form,infoObj){_app.ext._store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			
