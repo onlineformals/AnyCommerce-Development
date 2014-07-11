@@ -38,6 +38,10 @@ var quickstart = function(_app) {
 			'productTemplate',
 			'productTemplateQuickView',
 			'pageNotFoundTemplate',
+			
+			//CUSTOM TEMPLATES
+			'categoryProductListTemplate',
+			'testimonialsTemplate',
 //the list of templates that, in most cases, are left alone. Also in the same order as appTemplates
 			'breadcrumbTemplate',
 			'companyTemplate',

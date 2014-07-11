@@ -2093,9 +2093,11 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 							$('#globalMessaging').anymessage({'message':"In order_create.u.handlePanel, undefined action ["+actions[i]+"]",'gMessage':true});
 							}
 						_app.u.handleButtons($fieldset);
+						/*
 						$('.applyAnycb',$fieldset).each(function(){
 							$(this).anycb({text : {on : 'yes',off : 'no'}});
 							});
+							*/
 						}
 					
 					}

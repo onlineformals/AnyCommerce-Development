@@ -8,6 +8,7 @@ The chkout prefix is reserved for checkout.
 item list and summary are separate just to give more control over location.
 -->
 <div id="checkoutTemplate" class="checkoutFormContainer" data-app-role="checkout">
+<div class="centeringContainer">
 
 	<form action="#">
 	<input data-tlc="bind $var '.bill.shortcut'; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/shortcut" type="hidden">
@@ -100,6 +101,7 @@ item list and summary are separate just to give more control over location.
 	</form>
 	
 </div>
+</div>
 
 
 
@@ -137,7 +139,7 @@ This template is used both in the billing address panel AND in the address edito
 because the panel is shared, the events (which aren't desired in the editor) are added by the checkout extension.
 -->
 
-<section id="chkoutAddressBillTemplate">
+<section class="chkoutAddressBillTemplate" id="chkoutAddressBillTemplate">
 
 	<div><input data-tlc="bind $var '.bill.firstname'; if(is $var --blank;){{bind $var '.bill/firstname';}}; if(is $var --notblank;) {{apply --select=$var;}}; " placeholder="first name" name="bill/firstname" required value="" type="text"></div>
 	<div><input data-tlc="bind $var '.bill.lastname'; if(is $var --blank;){{bind $var '.bill/lastname';}}; if(is $var --notblank;) {{apply --select=$var;}}; " placeholder="last name" name="bill/lastname" required value="" type="text"></div>
@@ -150,12 +152,12 @@ because the panel is shared, the events (which aren't desired in the editor) are
 
 	<div><input data-tlc="bind $var '.bill.city'; if(is $var --blank;){{bind $var '.bill/city';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/city" placeholder="city" required value="" type="text"></div>
 	
-	<div><input data-tlc="bind $var '.bill.region'; if(is $var --blank;){{bind $var '.bill/region';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/region" placeholder="state/region" required size="5" value="" maxlength="20" type="text"></div>
+	<div><input data-tlc="bind $var '.bill.region'; if(is $var --blank;){{bind $var '.bill/region';}}; if(is $var --notblank;) {{apply --select=$var;}}; " class="checkoutStateInput" name="bill/region" placeholder="state/region" required size="5" value="" maxlength="20" type="text"></div>
 	
 	<!-- postal not required for international. don't add it. -->
-	<div><input data-tlc="bind $var '.bill.postal'; if(is $var --blank;){{bind $var '.bill/postal';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/postal" placeholder="zip/postal code" required size="14" value="" maxlength="10" type="text"></div>
+	<div><input data-tlc="bind $var '.bill.postal'; if(is $var --blank;){{bind $var '.bill/postal';}}; if(is $var --notblank;) {{apply --select=$var;}}; " class="checkoutZipInput" name="bill/postal" placeholder="zip/postal code" required size="14" value="" maxlength="10" type="text"><p class="checkoutZipWarnText">Please enter a 5 digit zip to continue</p></div> <!--onKeyUp="myApp.ext._store_formals.u.validatezip(this, $(this).parent().parent());"-->
 
-	<div class="billCountry" data-app-role="billCountry"><select data-tlc="bind $var '.'; cco#countriesasoptions  --shiptype='bill' --legacy;" data-legacy-useparentdata="true" name="bill/countrycode" placeholder="country" required="required"><option value=''>Please choose</option></select></div>
+	<div class="billCountry" data-app-role="billCountry"><select data-tlc="bind $var '.'; cco#countriesasoptions  --shiptype='bill' --legacy;" data-legacy-useparentdata="true" name="bill/countrycode" placeholder="country" required><option value=''>Please choose</option></select></div>
 
 	<div><input data-tlc="bind $var '.bill.phone';  if(is $var --blank;){{bind $var '.bill/phone';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/phone" placeholder="phone number" required value="" type="tel"> <span class="hint zhint">in case of billing/delivery problems</span></div>
 
@@ -172,7 +174,7 @@ This template is used both in the shipping panel AND in the address editor (if l
 because the panel is shared, the events (which aren't desired in the editor) are added by the checkout extension.
 -->
 
-<section id="chkoutAddressShipTemplate">
+<section class="chkoutAddressShipTemplate" id="chkoutAddressShipTemplate">
 
 	<div><input data-tlc="bind $var '.ship.firstname';  if(is $var --blank;){{bind $var '.ship/firstname';}}; if(is $var --notblank;) {{apply --select=$var;}}; " placeholder="first name" name="ship/firstname" required value="" type="text"></div>
 	<div><input data-tlc="bind $var '.ship.lastname'; if(is $var --blank;){{bind $var '.ship/lastname';}}; if(is $var --notblank;) {{apply --select=$var;}}; " placeholder="last name" name="ship/lastname" required value="" type="text"></div>
@@ -185,10 +187,10 @@ because the panel is shared, the events (which aren't desired in the editor) are
 
 	<div><input data-tlc="bind $var '.ship.city'; if(is $var --blank;){{bind $var '.ship/city';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="ship/city" placeholder="city" required value="" type="text"></div>
 	
-	<div><input data-tlc="bind $var '.ship.region'; if(is $var --blank;){{bind $var '.ship/region';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="ship/region" placeholder="state/region" required size="5" value="" maxlength="20" type="text"></div>
+	<div><input data-tlc="bind $var '.ship.region'; if(is $var --blank;){{bind $var '.ship/region';}}; if(is $var --notblank;) {{apply --select=$var;}}; " class="checkoutStateInput" name="ship/region" placeholder="state/region" required size="5" value="" maxlength="20" type="text"></div>
 
 	
-	<div><input data-tlc="bind $var '.ship.postal';  if(is $var --blank;){{bind $var '.ship/postal';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="ship/postal" placeholder="zip/postal code" required size="14" value="" maxlength="10" type="text"></div>
+	<div><input data-tlc="bind $var '.ship.postal';  if(is $var --blank;){{bind $var '.ship/postal';}}; if(is $var --notblank;) {{apply --select=$var;}}; " class="checkoutZipInput" name="ship/postal" placeholder="zip/postal code" required size="14" value="" maxlength="10" type="text" ><p class="checkoutZipWarnText">Please enter a 5 digit zip to continue</p></div> <!--onKeyUp="myApp.ext._store_formals.u.validatezip(this, $(this).parent().parent());"-->
 
 	<div class="shipCountry" data-app-role="shipCountry"><select data-tlc="bind $var '.'; cco#countriesasoptions  --shiptype='ship' --legacy;" data-legacy-useparentdata="true" name="ship/countrycode" placeholder="country"><option value=''>Please choose</option></select></div>
 
@@ -319,7 +321,7 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 
 
 
-<section id="chkoutCartSummaryTemplate">
+<section class="chkoutCartSummaryTemplate" id="chkoutCartSummaryTemplate">
 	
 	<div data-tlc="bind $var '.sum.items_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Subtotal: '; apply --add --class='orderSubtotal'; apply --append;}};"></div>
 	<div data-tlc="bind $var '.sum.tax_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Tax: '; apply --add --class='orderTax'; apply --append;}};"></div>
@@ -344,7 +346,9 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 		<input type'text'="" name="want/reference_number" size="12">
 	</div>
 
-	<button class="applyButton ui-state-highlight" data-app-click="order_create|execCartOrderCreate">
+	<div class="checkoutClickBlocker" onClick="myApp.ext._store_formals.u.checkouterrorclickblock();">Validate</div>
+    <div><p class="checkoutClickBlockerText">Click here to re-calculate with new entries</p></div>
+    <button class="applyButton ui-state-highlight checkoutPlaceOrderButton" data-app-click="order_create|execCartOrderCreate">
 		Place Order
 	</button>
 
@@ -415,8 +419,11 @@ do NOT change the input name or id or checkout will likely break.
 <!-- used after a successful checkout.  -->
 
 <div id="chkoutCompletedTemplate" class="checkoutSuccess">
+<div class="centeringContainer">
 
-	<div class="floatRight ocmThirdParty" data-app-role="thirdPartyContainer"></div>
+	<!--
+    <div class="floatRight ocmThirdParty" data-app-role="thirdPartyContainer"></div>
+    -->
 
 
 	<div class="orderSummaryDetails">
@@ -501,7 +508,7 @@ do NOT change the input name or id or checkout will likely break.
 	</tr>
 	</tbody></table>
 </div>
-
+</div>
 </div>
 
 
