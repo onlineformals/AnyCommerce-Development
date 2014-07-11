@@ -1223,16 +1223,31 @@ SANITY -> if you change the height and width of this image, change the .minimalM
 </li>
 
 <li id="productListTemplateResultsNoPreview" class="loadingBG searchResultsProduct ">
-	<a data-tlc="bind $var '.'; store_routing#seoanchor --type='product' --seo; apply --attrib='href';" class="pointer">
+	<a data-tlc="bind $var '.'; store_routing#seoanchor --type='product'; apply --attrib='href';" class="pointer">
 		<div class="prodThumbContainer">
-			<img data-tlc="bind $var '.%attribs.images'; if (is $var --notblank;) {{ apply --img --media=$var --width=120 --height=120 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="prodThumb" alt="" height="120" width="120">
+			<img data-tlc="bind $var '.images.0'; apply --img --media=$var --width=200 --height=230 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="230" width="200" />
 		</div>
+		
+		<div class='productItemInfoContent'>
+			<h5 data-tlc="bind $var '.prod_name'; if (is $var --notblank;) {{apply --append;}};" class="hideInMinimalMode"></h5>
 
-		<h5 data-tlc="bind $var '.%attribs.prod_name'; if (is $var --notblank;) {{apply --append;}};" class="hideInMinimalMode"></h5>
+			<h6 data-tlc="bind $var '.base_price'; if (is $var --notblank;) {{math --div='100'; format --currency='USD'; format --prepend='Our Price: '; apply --add --class='price'; apply --append;}};" class="hideInMinimalMode"></h6>
 
-		<h6 data-tlc="bind $var '.%attribs.base_price'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Our Price: '; apply --add --class='price'; apply --append;}};" class="hideInMinimalMode"></h6>
+				
+				<div class='retailPrice'>
+					<span data-tlc="bind $var '.zoovy:prod_msrp'; if (is $var --notblank;) {{store_downlite#currencymsrp --legacy; apply --append;}};"></span>
+				</div>
+				
+				<span class="displayNone savings" data-tlc="bind $var '.zoovy:prod_msrp'; store_downlite#showhidearea  --legacy;">                	
+                   <div data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --currencysign='$' --hidezero='true' --legacy;" class="savings"></div>
+                   <span data-tlc="bind $var '.pid'; store_downlite#priceretailsavingsdifferenceprodlistitem  --legacy; apply --append;" class="savingsDifference"></span>
+                   <span data-tlc="bind $var '.pid'; store_downlite#priceretailsavingspercentageprodlistitem  --legacy; apply --append;" class="savingsPercentage"></span>
+                </span>
+		</div>
+		<div class="productItemInfoMoreInfo"><h1>MORE DETAILS</h1></div>
+
 	</a>
-	<a class="hideInMinimalMode pointer moreDetails" data-tlc="bind $var '.'; store_routing#seoanchor --type='product' --seo; apply --attrib='href';"><div class="hideInMinimalMode pointer moreDetails">more details</div></a>
+	<!--<a class="hideInMinimalMode pointer moreDetails" data-tlc="bind $seoname '.prod_name'; bind $var '.'; store_routing#seoanchor --type='product' --seo --seoname=$seoname; apply --attrib='href';">more details</a>-->
 </li>
 </ul>
 
