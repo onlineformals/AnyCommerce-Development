@@ -13,6 +13,8 @@ myApp.rq.push(['extension',0,'order_create','extensions/checkout/extension.js'])
 myApp.rq.push(['extension',0,'cco','extensions/cart_checkout_order.js']);
 
 myApp.rq.push(['extension',0,'store_routing','extensions/store_routing.js', 'attachEventHandlers']);
+myApp.rq.push(['extension',0,'store_tracking','extensions/store_tracking.js','attachHandlers']);
+myApp.rq.push(['extension',0,'store_seo','extensions/store_seo.js', 'attachHandlers']);
 
 myApp.rq.push(['extension',0,'store_prodlist','extensions/store_prodlist.js']);
 myApp.rq.push(['extension',0,'store_navcats','extensions/store_navcats.js']);
@@ -27,7 +29,7 @@ myApp.rq.push(['extension',0,'quickstart','app-quickstart.js','startMyProgram'])
 //myApp.rq.push(['extension',0,'tools_animation','extensions/tools_animation.js']);
 
 myApp.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
-myApp.rq.push(['extension',1,'tools_ab_testing','extensions/tools_ab_testing.js']);
+//myApp.rq.push(['extension',1,'tools_ab_testing','extensions/tools_ab_testing.js']);
 myApp.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
 myApp.rq.push(['extension',0,'seo_robots','extensions/seo_robots.js']);
 //myApp.rq.push(['extension',1,'resellerratings_survey','extensions/partner_buysafe_guarantee.js','startExtension']); /// !!! needs testing.

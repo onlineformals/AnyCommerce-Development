@@ -21,6 +21,21 @@
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-2216669-1']);
 _gaq.push(['_trackPageview']);
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('require', 'linker');
+ga('require', 'ecommerce', 'ecommerce.js');
+ga('create', 'UA-2216669-1', 'auto', {'allowLinker':true});
+ga('set', {
+	'appName' : 'Online Formals',
+	'appID' : 'ZMVC',
+	'appVersion' : '201405'
+	});
+ga('send','pageview');
+ga('send','screenview');
 var myCreole, baseURL;
 
 //set base url so images, css, js, etc all load from appropriate location once deployed.
@@ -69,7 +84,7 @@ css files should be included before any .js file to ensure they are downloaded i
 <script src="model.js"></script>
 
 <!--CUSTOM SCRIPTS GO HERE-->
-<script data-apptimize="embed" type="text/javascript" src="extensions/seo_robots.js"></script>
+<script type="text/javascript" src="extensions/seo_robots.js"></script>
 
 
 
@@ -81,14 +96,17 @@ css files should be included before any .js file to ensure they are downloaded i
 
 <script type="text/javascript">
 $(document).ready(function(){
-
-	window.myApp = new initApp({
-		"release":"201404.ax",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	var paramStr = window.location.href.replace(window.location.hash, '').split('?')[1];
+	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
+		window.myApp = new initApp({
+			"_robotHasGreeted" : false,
+		"release":"201405.aatest2",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
 		"testURL":"http://www.onlineformals.com/", //used ONLY if protocol is file: (for testing)
 		"addjQueryPointer" : true,
+		"analyticsPointer" : "ga",
 		"initComplete" : function(t){
 			dump(" -> init is complete");
 			myApp.u.loadScript('_formals_init.js',function(){
@@ -100,43 +118,44 @@ $(document).ready(function(){
 		});
 	myApp.vars.initComplete();
 	myCreole = new Parse.Simple.Creole();
+		}
 	});
 </script>
 
 
 <script data-apptimize="minify" type="text/javascript">
- var _robots = {
- 	hello : function(botStr){
- 		_robots._robotGreeting = botStr || true;
- 		console.log("Bot saying hello: "+botStr);
- 		return "1.0";
- 		},
- 	next : function(){
- 		//This implementation of _robots.next returns a function that simply blocks with a '100' until the app has been fully instantiated
- 		_robots.status = function(){
- 			if(typeof myApp !== 'undefined' && 
- 				typeof myApp.ext !== 'undefined' && 
- 				typeof myApp.ext.quickstart !== 'undefined' && 
- 				typeof myApp.ext.quickstart.vars !== 'undefined' &&
- 				myApp.ext.quickstart.vars.showContentFinished && myApp.ext.quickstart.vars.showContentCompleteFired){
- 				return 204;
- 				}
- 			else{
- 				return 100;
- 				}
- 			}
- 		},
- 	ready : function(){return false;},
- 	goodbye : function(){
- 		console.log("Bot saying goodbye: "+botStr);
- 		}
- 	}
+var _robots = {
+	hello : function(botStr){
+		_robots._robotGreeting = botStr || true;
+		console.log("Bot saying hello: "+botStr);
+		return "1.0";
+		},
+	next : function(){
+		//This implementation of _robots.next returns a function that simply blocks with a '100' until the app has been fully instantiated
+		_robots.status = function(){
+			if(typeof myApp !== 'undefined' && 
+				typeof myApp.ext !== 'undefined' && 
+				typeof myApp.ext.quickstart !== 'undefined' && 
+				typeof myApp.ext.quickstart.vars !== 'undefined' &&
+				myApp.ext.quickstart.vars.showContentFinished && myApp.ext.quickstart.vars.showContentCompleteFired){
+				return 204;
+				}
+			else{
+				return 100;
+				}
+			}
+		},
+	ready : function(){return false;},
+	goodbye : function(botStr){
+		console.log("Bot saying goodbye: "+botStr);
+		}
+	}
 </script>
+
 
 </head>
 
 <body>
-
 
 
 
