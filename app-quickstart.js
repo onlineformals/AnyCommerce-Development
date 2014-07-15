@@ -517,32 +517,18 @@ need to be customized on a per-ria basis.
 			}, //wiki
 
 // * 201403 -> infoObj now passed into pageTransition.
-		pageTransition : function($o,$n, infoObj)	{
+		pageTransition : function($o,$n, infoObj, callback)	{
+			$n.removeClass('displayNone').show();
 //if $o doesn't exist, the animation doesn't run and the new element doesn't show up, so that needs to be accounted for.
-//$o MAY be a jquery instance but have no length, so check both.
-			if($o instanceof jQuery && $o.length)	{
-/*
-*** 201403 -> move the scroll to top into the page transition for 2 reasons:
-1. allows the animations to be performed sequentially, which will be less jittery than running two at the same time
-2. Puts control of this into custom page transitions.
-*/
-
-				if(infoObj.performJumpToTop && $(window).scrollTop() > 0)	{ // >0 scrolltop check should be on window, it'll work in ff AND chrome (body or html won't).
-					//new page content loading. scroll to top.
-					$('html, body').animate({scrollTop : 0},'fast',function(){
-						$o.fadeOut(1000, function(){$n.fadeIn(1000)});  //fade out old, fade in new.
-						})
-					} 
-				else	{
-					$o.fadeOut(1000, function(){$n.fadeIn(1000)}); 
-					}
+			
+			if(infoObj.performJumpToTop){
+				$('html, body').animate({scrollTop : 0}, 400);
 				}
-			else if($n instanceof jQuery)	{
-				dump(" -> $o is not properly defined.  jquery: "+($o instanceof jQuery)+" and length: "+$o.length);
-				$('html, body').animate({scrollTop : 0},'fast',function(){
-					$n.fadeIn(1000);
-					setTimeout(function(){$n.addClass('active'); $o.removeClass('post active').hide(); callback(); setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;}, 600);}, 600); //fade out old, fade in new.
-					});
+			
+			if($o.length)	{
+				//dump(" -> got here.  n.is(':visible'): "+$n.is(':visible'));
+				$o.addClass('post'); 
+				setTimeout(function(){$n.addClass('active'); $o.removeClass('post active').hide(); callback(); setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;}, 600);}, 600); //fade out old, fade in new.
 				}
 			else	{
 				$n.addClass('active')
@@ -1544,10 +1530,7 @@ $target.tlc({
 					}
 				},
 
-			updateDOMTitle : function(title)	{
-				title = (typeof title === "string") ? title : ""; //better blank than 'undefined' or 'object'.
-				document.title = title;
-				},
+
 
 //used in checkout to populate username: so either login or bill/email will work.
 //never use this to populate the value of an email form field because it may not be an email address.
@@ -2234,19 +2217,27 @@ effects the display of the nav buttons only. should be run just after the handle
 					elasticsearch = _app.ext.store_search.u.buildElasticRaw({
 					   "filter":{
 						  "and" : [
-							 {"term":{"tags":decodeURIComponent(infoObj.tag)}},
-							 {"has_child":{"type":"sku","query": {"range":{"available":{"gte":1}}}}} //only return item w/ inventory
+							 {"term":{"tags":infoObj.tag}},
 							 ]
 						  }});
 					}
 				else if (infoObj.KEYWORDS) {
 					elasticsearch = _app.ext.store_search.u.buildElasticRaw({
-					   "filter":{
-						  "and" : [
-							 {"query":{"query_string":{"query":decodeURIComponent(infoObj.KEYWORDS), "fields":["prod_name^5","pid","prod_desc"]}}},
-							 {"has_child":{"type":"sku","query": {"range":{"available":{"gte":1}}}}} //only return item w/ inventory
-							 ]
-						  }});
+						"query":{
+							"function_score" : {										
+								"query" : {
+									"query_string":{"query":infoObj.KEYWORDS}	
+									},
+								"functions" : [
+									{
+										"filter" : {"query" : {"query_string":{"query":'"'+infoObj.KEYWORDS+'"'}}},
+										"script_score" : {"script":"10"}
+										}
+									],
+								"boost_mode" : "sum",
+								}
+							}
+						});
 					}
 				else	{
 					
@@ -2268,7 +2259,7 @@ elasticsearch.size = 50;
 				
 				_app.ext.store_search.u.updateDataOnListElement($('#resultsProductListContainer'),elasticsearch,1);
 //				_app.ext.store_search.calls.appPublicSearch.init(elasticsearch,infoObj);
-				_app.ext.store_search.calls.appPublicSearch.init(elasticsearch,$.extend(true,{},infoObj,{'callback':'handleElasticResults','datapointer':"appPublicSearch|"+JSON.stringify(elasticsearch),'extension':'store_search','templateID':'productListTemplateResults','list':$('#resultsProductListContainer')}));
+				_app.ext.store_search.calls.appPublicSearch.init(elasticsearch,$.extend(true,{},infoObj,{'callback':'handleElasticResults','datapointer':"appPublicSearch|"+JSON.stringify(elasticsearch),'extension':'store_search','templateID':'productListTemplateResultsNoPreview','list':$('#resultsProductListContainer')}));
 				_app.model.dispatchThis();
 				infoObj.state = 'complete'; //needed for handleTemplateEvents.
 				_app.renderFunctions.handleTemplateEvents($page,infoObj);
@@ -2719,7 +2710,6 @@ buyer to 'take with them' as they move between  pages.
               			myApp.u.dump("category default template option selected");
               			infoObj.templateID = 'categoryTemplate'
 					}
-
 					infoObj.state = 'init';
 					var parentID = infoObj.parentID || infoObj.templateID+'_'+_app.u.makeSafeHTMLId(catSafeID);
 					var $parent = $(_app.u.jqSelector('#',parentID));
