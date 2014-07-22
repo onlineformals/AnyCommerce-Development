@@ -103,7 +103,7 @@ $(document).ready(function(){
 	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 		window.myApp = new initApp({
 			"_robotHasGreeted" : false,
-		"release":"201405.bg",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201405.bh",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
@@ -693,13 +693,12 @@ src="Images/Homepage/carousel/testbanner-1.png" FOR THE IMAGE FILE.
 -->   
 		<div class="homepageCarouselContainer">
             <ul class="carouselHPBannerList">
-		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.prom.sale'});"><img src="Images/Homepage/carousel/salebanner.png" alt="" /></a></li>
 		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.in_stock'});"><img src="Images/Homepage/carousel/instocksummer.png" alt="" /></a></li>
 		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.cocktail.homecoming'});"><img src="Images/Homepage/carousel/homecoming2014.png" alt="" /></a></li>	
+		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.prom.sale'});"><img src="Images/Homepage/carousel/salebanner.png" alt="" /></a></li>
+		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.scala'});"><img src="Images/Homepage/carousel/scalabanner.png" alt="" /></a></li>
 		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.la_femme'});"><img src="Images/Homepage/carousel/lafemmespring.png" alt="" /></a></li>
 		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.sherri_hill'});"><img src="Images/Homepage/carousel/sherrispring.png" alt="" /></a></li>
-                <li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.mac_duggal'});"><img src="Images/Homepage/carousel/13_001_11_ofc-Macduggal-350h.png" alt="" /></a></li>
-                <li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.jasz_couture'});"><img src="Images/Homepage/carousel/jaszbanner.png" alt="" /></a></li>
             </ul>
             <img class="prevHPBannerCaro" src="Images/Homepage/caroleft.png" alt="" />
             <img class="nextHPBannerCaro" src="Images/Homepage/caroright.png" alt="" />
