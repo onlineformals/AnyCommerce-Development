@@ -448,7 +448,8 @@ progress::-moz-progress-bar { background: #E61652; }
 /*****FOOTER****/
 .footer{
 	width:100%;
-	background-image:url(Images/Homepage/footerbackground.png);
+	background-color:#9a9a9a;
+	/*background-image:url(Images/Homepage/footerbackground.png);*/
 	float:left;
 	margin-top:-3px;
 }
