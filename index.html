@@ -103,7 +103,7 @@ $(document).ready(function(){
 	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 		window.myApp = new initApp({
 			"_robotHasGreeted" : false,
-		"release":"201405.bm",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201405.bn",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
@@ -3903,7 +3903,7 @@ subscribeListsArticle is used for authenticated buyers.
                                                 </div>
                                         </div>
 										-->
-                                        <div class="fieldM"><span class="field">E-mail</span> <input name='email' type='email' size='30' class='textfmail' placeholder='E-mail Address' required='required' /> <b>Phone Number</b> <input name='phone' type='tel' size='12' placeholder='Phone Number' class='textfphone' required='required'/> </div>
+                                        <div class="fieldM"><span class="field">E-mail</span> <input name='email' type='email' size='30' class='textfmail' placeholder='E-mail Address' required='required' /> <!--<b>Phone Number</b> <input name='phone' type='tel' size='12' placeholder='Phone Number' class='textfphone' required='required'/>--> </div>
                                         <div class="fieldM"><span class="field">Password</span> <input name='pass' type='password' size='30' class='textfpass' placeholder='7-18 Characters' required='required' /> <b>Confirm Password</b> <input name='pass2' type='password' size='12' placeholder='Must be a match' class='textfphone' required='required'/> </div>
                                         <!--<fieldset class='marginBottom'>
                                                 <legend>About Your Business</legend>
