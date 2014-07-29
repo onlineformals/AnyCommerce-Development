@@ -103,7 +103,7 @@ $(document).ready(function(){
 	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 		window.myApp = new initApp({
 			"_robotHasGreeted" : false,
-		"release":"201405.bj",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201405.bk",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
@@ -268,7 +268,7 @@ var _robots = {
 				<div class="topNavContainer">
 					<div class="navBarDesigner dropdownLinkContainer" onMouseOver="myApp.ext._store_formals.a.showDropdown($(this))" onMouseOut="myApp.ext._store_formals.a.hideDropdown($(this))">
 					
-						<div class="navTopCat"><a href="#!category/.designers">DESIGNERS</a></div>
+						<div class="navTopCat"><a href="#!category/.designers/1">DESIGNERS</a></div>
 						<div class="dropdown headerDropdown leftAlign">
 							<ul>
 								<li class="headerDropdownTitle">DESIGNERS</li>
@@ -297,7 +297,7 @@ var _robots = {
 						</div>
 					</div>
 					<div class="navBarProm dropdownLinkContainer" onMouseOver="myApp.ext._store_formals.a.showDropdown($(this))" onMouseOut="myApp.ext._store_formals.a.hideDropdown($(this))">
-						<div class="navTopCat"><a href="#!category/.prom">PROM</a></div>
+						<div class="navTopCat"><a href="#!category/.prom/1">PROM</a></div>
 						<div class="dropdown headerDropdown leftAlign">
 							<ul>
 								<li class="headerDropdownTitle">DESIGNERS</li>
@@ -342,7 +342,7 @@ var _robots = {
 						</div>
 					</div>
 					<div class="navBarEvening dropdownLinkContainer" onMouseOver="myApp.ext._store_formals.a.showDropdown($(this))" onMouseOut="myApp.ext._store_formals.a.hideDropdown($(this))">
-						<div class="navTopCat"><a href="#!category/.evening">EVENING</a></div>
+						<div class="navTopCat"><a href="#!category/.evening/1">EVENING</a></div>
 						<div class="dropdown headerDropdown leftAlign">
 							<ul>
 								<li class="headerDropdownTitle">DESIGNERS</li>
@@ -370,7 +370,7 @@ var _robots = {
 						</div>
 					</div>
 					<div class="navBarCocktail dropdownLinkContainer" onMouseOver="myApp.ext._store_formals.a.showDropdown($(this))" onMouseOut="myApp.ext._store_formals.a.hideDropdown($(this))">
-						<div class="navTopCat"><a href="#!category/.cocktail">COCKTAIL</a></div>
+						<div class="navTopCat"><a href="#!category/.cocktail/1">COCKTAIL</a></div>
 						<div class="dropdown headerDropdown leftAlign">
 							<ul>
 								<li class="headerDropdownTitle">DESIGNERS</li>
@@ -396,7 +396,7 @@ var _robots = {
 						</div>
 					</div>
 					<div class="navBarPlusSize dropdownLinkContainer" onMouseOver="myApp.ext._store_formals.a.showDropdown($(this))" onMouseOut="myApp.ext._store_formals.a.hideDropdown($(this))">
-						<div class="navTopCat"><a href="#!category/.plus_size">PLUS SIZE</a></div>
+						<div class="navTopCat"><a href="#!category/.plus_size/1">PLUS SIZE</a></div>
 						<div class="dropdown headerDropdown leftAlign">
 							<ul>
 								<li class="headerDropdownTitle">DESIGNERS</li>
@@ -414,7 +414,7 @@ var _robots = {
 						</div>
 					</div>
 					<div class="navBarPageant dropdownLinkContainer" onMouseOver="myApp.ext._store_formals.a.showDropdown($(this))" onMouseOut="myApp.ext._store_formals.a.hideDropdown($(this))">
-						<div class="navTopCat"><a href="#!category/.pageant">PAGEANT</a></div>
+						<div class="navTopCat"><a href="#!category/.pageant/1">PAGEANT</a></div>
 						<div class="dropdown headerDropdown leftAlign">
 							<ul>
 								<li class="headerDropdownTitle">DESIGNERS</li>
@@ -435,7 +435,7 @@ var _robots = {
 						</div>
 					</div>
 					<div class="navBarBridal dropdownLinkContainer"> <!--onMouseOver="myApp.ext._store_formals.a.showDropdown($(this))" onMouseOut="myApp.ext._store_formals.a.hideDropdown($(this))"-->
-						<div class="navTopCat"><a href="#!category/.bridal">BRIDAL</a></div>
+						<div class="navTopCat"><a href="#!category/.bridal/1">BRIDAL</a></div>
 						<div class="dropdown headerDropdown leftAlign">
 							<ul>
 								<li class="headerDropdownLink"><a href="" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">link</a></li>
@@ -446,7 +446,7 @@ var _robots = {
 						</div>
 					</div>
 					<div class="navBarAccessories dropdownLinkContainer" onMouseOver="myApp.ext._store_formals.a.showDropdown($(this))" onMouseOut="myApp.ext._store_formals.a.hideDropdown($(this))">
-						<div class="navTopCat"><a href="#!category/.accessories">ACCESSORIES</a></div>
+						<div class="navTopCat"><a href="#!category/.accessories/1">ACCESSORIES</a></div>
 						<div class="dropdown headerDropdown leftAlign">
 							<ul>
 								<li class="headerDropdownTitle">SHOES</li>
@@ -462,7 +462,7 @@ var _robots = {
 						</div>
 					</div>
 					<div class="navBarStock dropdownLinkContainer"> <!--onMouseOver="myApp.ext._store_formals.a.showDropdown($(this))" onMouseOut="myApp.ext._store_formals.a.hideDropdown($(this))"-->
-						<div class="navTopCat"><a href="#!category/.in_stock">IN STOCK</a></div>
+						<div class="navTopCat"><a href="#!category/.in_stock/1">IN STOCK</a></div>
 						<div class="dropdown headerDropdown leftAlign">
 							<ul>
 								<li class="headerDropdownLink"><a href="" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">link</a></li>
@@ -509,7 +509,7 @@ var _robots = {
 						<li><a href="#!company/about" class="pointer">About Us</a></li>
 						<li><a href="#!company/faq" class="pointer">FAQs</a></li>
 						<li><a href="http://blog.onlineformals.com" target="_blank" class="pointer">Blog</a></li>
-						<li><a href="#!category/.testimonials" class="pointer bindByAnchor">Testimonials</a></li>
+						<li><a href="#!category/.testimonials/1" class="pointer bindByAnchor">Testimonials</a></li>
 					</ul>
 					<ul class="footerLinkList">
 						<li><a href="#!company/contact" class="pointer">Contact Us</a></li>
