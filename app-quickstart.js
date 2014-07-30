@@ -518,37 +518,22 @@ need to be customized on a per-ria basis.
 
 // * 201403 -> infoObj now passed into pageTransition.
 		pageTransition : function($o,$n, infoObj, callback)	{
+			$n.removeClass('displayNone').show();
 //if $o doesn't exist, the animation doesn't run and the new element doesn't show up, so that needs to be accounted for.
-//$o MAY be a jquery instance but have no length, so check both.
-			if($o instanceof jQuery && $o.length)	{
-/*
-*** 201403 -> move the scroll to top into the page transition for 2 reasons:
-1. allows the animations to be performed sequentially, which will be less jittery than running two at the same time
-2. Puts control of this into custom page transitions.
-*/
-
-				if(infoObj.performJumpToTop && $(window).scrollTop() > 0)	{ // >0 scrolltop check should be on window, it'll work in ff AND chrome (body or html won't).
-					//new page content loading. scroll to top.
-					$('html, body').animate({scrollTop : 0},'fast',function(){
-						$o.fadeOut(1000, function(){$n.fadeIn(1000); callback(); setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;},100);}); //fade out old, fade in new.
-						})
-					} 
-				else	{
-					$o.fadeOut(1000, function(){$n.fadeIn(1000); callback(); setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;},100);}); //fade out old, fade in new.
-					}
+			
+			if(infoObj.performJumpToTop){
+				$('html, body').animate({scrollTop : 0}, 400);
 				}
-			else if($n instanceof jQuery)	{
-				dump(" -> $o is not properly defined.  jquery: "+($o instanceof jQuery)+" and length: "+$o.length);
-				$('html, body').animate({scrollTop : 0},'fast',function(){
-					$n.fadeIn(1000);
-					callback();
- 					setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;},100);
-					});
+			
+			if($o.length)	{
+				//dump(" -> got here.  n.is(':visible'): "+$n.is(':visible'));
+				$o.addClass('post'); 
+				setTimeout(function(){$n.addClass('active'); $o.removeClass('post active').hide(); callback(); setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;}, 600);}, 600); //fade out old, fade in new.
 				}
 			else	{
-				//hhmm  not sure how or why we got here.
-				dump("WARNING! in pageTransition, neither $o nor $n were instances of jQuery.  how odd.",'warn');
-				_app.ext.quickstart.vars.showContentFinished = true;
+				$n.addClass('active')
+				callback();
+				setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;}, 600);
 				}
 			}, //pageTransition
 
@@ -1134,15 +1119,15 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 					}
 				else if(typeof _app.ext.quickstart.pageTransition == 'function')	{
 					var callback = function(){
-						var $hiddenpages = $("#mainContentArea > :hidden");
-						var L = $hiddenpages.length;
-						dump(L);
-						dump(L - _app.ext.quickstart.vars.cachedPageCount);
-						for(var i = 0; i < L - _app.ext.quickstart.vars.cachedPageCount; i++){
-							$($hiddenpages.get(i)).intervaledEmpty().remove();
-							}
-						}
-					_app.ext.quickstart.pageTransition($old,$new,infoObj, callback);
+ 						var $hiddenpages = $("#mainContentArea > :hidden");
+ 						var L = $hiddenpages.length;
+ 						dump(L);
+ 						dump(L - _app.ext.quickstart.vars.cachedPageCount);
+ 						for(var i = 0; i < L - _app.ext.quickstart.vars.cachedPageCount; i++){
+ 							$($hiddenpages.get(i)).intervaledEmpty().remove();
+ 							}
+ 						};
+ 					_app.ext.quickstart.pageTransition($old,$new,infoObj, callback);
 					}
 				else if($new instanceof jQuery)	{
 //no page transition specified. hide old content, show new. fancy schmancy.
@@ -1619,7 +1604,7 @@ $target.tlc({
 //				if(infoObj.pageType == 'cart' && infoObj.show != 'inline'){r = false; dump('transition suppressed: showing modal cart.');}
 				if(infoObj.pageType == 'category' && $old.data('templateid') == 'categoryTemplate' && $old.data('catsafeid') == infoObj.navcat){r = false; dump("transition suppressed: reloading same category.");}
 				else if(infoObj.pageType == 'category' && $old.data('templateid') == 'homepageTemplate' && $old.data('catsafeid') == infoObj.navcat){r = false; dump("transition suppressed: reloading homepage.");}
-				else if(infoObj.pageType == 'static' && infoObj.id && $old.data('templateid') == infoObj.templateid && $old.data('pageid') == infoObj.id){r = false; dump("transition suppressed: same filter page "+infoObj.id);}
+				else if(infoObj.pageType == 'static' && $old.data('templateid') == infoObj.templateid && $old.data('pageid') == infoObj.id){r = false; dump("transition suppressed: same filter page "+infoObj.id);}
 				else if(infoObj.pageType == 'product' && $old.data('templateid') == 'productTemplate' && $old.data('pid') == infoObj.pid){r = false; dump("transition suppressed: reloading same product.");}
 				else if($old.data('templateid') == 'companyTemplate' && infoObj.pageType == 'company')	{r = false; dump("transition suppressed: changing company articles.");}
 				else if($old.data('templateid') == 'customerTemplate' && infoObj.pageType == 'customer')	{r = false; dump("transition suppressed: changing customer articles.");}
@@ -2274,7 +2259,7 @@ elasticsearch.size = 50;
 				
 				_app.ext.store_search.u.updateDataOnListElement($('#resultsProductListContainer'),elasticsearch,1);
 //				_app.ext.store_search.calls.appPublicSearch.init(elasticsearch,infoObj);
-				_app.ext.store_search.calls.appPublicSearch.init(elasticsearch,$.extend(true,{},infoObj,{'callback':'handleInfiniteElasticResults', 'emptyList':true,'datapointer':"appPublicSearch|"+JSON.stringify(elasticsearch),'extension':'prodlist_infinite','templateID':'productListTemplateResults','list':$('#resultsProductListContainer')}));
+				_app.ext.store_search.calls.appPublicSearch.init(elasticsearch,$.extend(true,{},infoObj,{'callback':'handleElasticResults','datapointer':"appPublicSearch|"+JSON.stringify(elasticsearch),'extension':'store_search','templateID':'productListTemplateResultsNoPreview','list':$('#resultsProductListContainer')}));
 				_app.model.dispatchThis();
 				infoObj.state = 'complete'; //needed for handleTemplateEvents.
 				_app.renderFunctions.handleTemplateEvents($page,infoObj);
@@ -2355,7 +2340,7 @@ either templateID needs to be set OR showloading must be true. TemplateID will t
 								$(this).attr('data-app-change','quickstart|cartShipMethodSelect');
 								});
 							});
-						$modal.dialog({modal: true,width:'80%'});  //browser doesn't like percentage for height
+						$modal.dialog({modal: true,width:'80%', dialogClass: 'dlgfixed', position: "center"});  //browser doesn't like percentage for height
 						}
 
 					if(P.showLoading === true)	{

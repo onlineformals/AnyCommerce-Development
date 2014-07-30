@@ -175,28 +175,40 @@ var seo_robots = function(_app) {
 						for(var i in _app.data[rd.datapointer]['@OBJECTS']){
 							var p = _app.data[rd.datapointer]['@OBJECTS'][i];
 							
-							switch(p.type){
-								case "pid":
-									_app.ext.seo_robots.vars.pages.push({
-										pageType : "product",
-										pid : p.id
-										});
-									break;
-								case "navcat" : 
-									_app.ext.seo_robots.vars.pages.push({
-										pageType : "category",
-										navcat : p.id
-										});
-									break;
-								case "list" : 
-									dump("LIST "+p.id+" SKIPPED IN PAGE BUILDING");
-									break;
-								default :
-									dump("Unrecognized pageInfo type: "+p.type+" full obj follows:");
-									dump(p);
-									break;	
+							if(p && p.type && p.id){
+								switch(p.type){
+									case "pid":
+										_app.ext.seo_robots.vars.pages.push({
+											pageType : "product",
+											pid : p.id
+											});
+										break;
+									case "navcat" : 
+										_app.ext.seo_robots.vars.pages.push({
+											pageType : "category",
+											navcat : p.id
+											});
+										break;
+									case "list" : 
+										dump("LIST "+p.id+" SKIPPED IN PAGE BUILDING");
+										break;
+									default :
+										dump("Unrecognized pageInfo type: "+p.type+" full obj follows:");
+										dump(p);
+										break;	
+									}
 								}
-							}
+								else{
+									dump (p.id + "is having an issue. Check myApp > data > appSEOFetch > @objects > item#" + i + "For offending item.");
+									dump("i = " + i);
+									dump("p = ");
+									dump(p);
+									dump("p.type = ");
+									dump(p.type);
+									dump("p.id = ");
+									dump(p.id);
+								}
+						}
 						_app.ext.seo_robots.vars.pagesLoaded = true;
 						_app.ext.seo_robots.vars.robotPresent = true;
 						}

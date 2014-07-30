@@ -1,23 +1,38 @@
 {
    "$top_prom_pics" : {},
-   ".evening.designers.sherri_hill" : {},
-   ".prom.designers.lm_collection" : {},
+   ".evening.designers.sherri_hill" : {
+      "meta_description" : "Shop for your Sherri Hill formal designer evening gown!",
+      "page_title" : "Sherri Hill Evening Gowns | Sherri Hill Couture Dresses",
+      "head_title" : "Sherri Hill Evening Gowns | Sherri Hill Couture Dresses"
+   },
+   ".prom.designers.lm_collection" : {
+      "meta_description" : "Shop for your long or short LM Collection designer prom dress! ",
+      "page_title" : "LM Collection Prom Dresses Online | LM Collection Prom Gowns",
+      "head_title" : "LM Collection Prom Dresses Online | LM Collection Prom Gowns"
+   },
    "$touch_ups_2009" : {},
-   ".prom.designers.mnm_couture" : {},
-   ".shop_by_designer.mac_duggal_couture" : {
-      "meta_keywords" : "",
-      "meta_description" : "Click here for Authentic Mac Duggal Couture Dresses at the Lowest Prices! Returns Accepted!  Free Shipping!",
-      "page_title" : "Mac Duggal Couture Dresses",
-      "head_title" : "Mac Duggal Couture Dresses",
-      "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
-      "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Mac Duggal</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>45</TD>\n<TD>48</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24.5</TD>\n<TD>25.5</TD>\n<TD>26.5</TD>\n<TD>27.5</TD>\n<TD>28.5</TD>\n<TD>29.5</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>37</TD>\n<TD>40</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41</TD>\n<TD>42.5</TD>\n<TD>44.5</TD>\n<TD>47.5</TD>\n<TD>50.5</TD></TR></TABLE></center>\n"
+   ".prom.designers.mnm_couture" : {
+      "meta_description" : "Shop for your long or short MNM Couture designer prom dress! ",
+      "page_title" : "MNM Couture Prom Dresses Online | MNM Couture Prom Gowns",
+      "head_title" : "MNM Couture Prom Dresses Online | MNM Couture Prom Gowns"
    },
    "$evening_couture" : {},
-   ".cocktail.styles" : {},
-   ".plus_size" : {},
+   ".cocktail.styles" : {
+      "meta_description" : "Shop for your short cocktail dress by the latest styles and trends, including lace, sequins, beads, and babydoll.",
+      "page_title" : "Cocktail Dresses | Sequin Dresses | Beaded Dresses",
+      "head_title" : "Cocktail Dresses | Sequin Dresses | Beaded Dresses"
+   },
+   ".plus_size" : {
+      "meta_description" : "We offer a large selection of plus size designer dresses from Faviana, Mac Duggal Fabulouss and Night Moves ranging from sizes 12W-32.",
+      "page_title" : "Plus Size Dresses | Womens Gowns",
+      "head_title" : "Plus Size Dresses | Womens Gowns"
+   },
    "$scala_2012" : {},
-   ".prom.trends.polka_dots" : {},
+   ".prom.trends.polka_dots" : {
+      "meta_description" : "Shop for your polka dot prom dress from designers Sherri Hill, La Femme and more!  ",
+      "page_title" : "Polka Dot Prom Dresses Online | Polka Dot Prom Gowns",
+      "head_title" : "Polka Dot Prom Dresses Online | Polka Dot Prom Gowns"
+   },
    ".shop_by_designer.cassandra_stone" : {
       "meta_keywords" : "",
       "meta_description" : "Click here for the best Cassandra Stone dresses!\r ",
@@ -25,16 +40,20 @@
       "head_title" : "Cassandra Stone Prom Dresses | Cassandra Stone Gowns",
       "prodlist" : "&SORTBY=NAME&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
       "prodlist_custom" : "&SORTBY=SKU_DESC&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Cassandra Stone</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>45</TD>\n<TD>48</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24.5</TD>\n<TD>25.5</TD>\n<TD>26.5</TD>\n<TD>27.5</TD>\n<TD>28.5</TD>\n<TD>29.5</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>37</TD>\n<TD>40</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41</TD>\n<TD>42.5</TD>\n<TD>44.5</TD>\n<TD>47.5</TD>\n<TD>50.5</TD></TR></TABLE></center>\n\n"
+      "description" : ""
    },
    "$app_-_new_arrivals" : {},
    ".shop_by_designer" : {},
-   ".prom.designers.johnathan_kayne" : {},
+   ".prom.designers.johnathan_kayne" : {
+      "meta_description" : "Shop for your long or short Johnathan Kayne designer prom gown!",
+      "page_title" : "Johnathan Kayne Prom Dresses Online",
+      "head_title" : "Johnathan Kayne Prom Dresses Online"
+   },
    ".shop_by_designer.shail_k" : {
       "meta_description" : "Click here for Authentic Shail K. Dresses.  Lowest Prices! Free Shipping! Returns Accepted!",
       "page_title" : "Shail K. Dresses | Shail K. Evening Gowns",
       "head_title" : "Shail K. Dresses | Shail K. Evening Gowns",
-      "description" : "<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Shail K</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>39</TD>\n<TD>40.5</TD>\n<TD>42</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>33.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>43.5</TD>\n<TD>45</TD></TR></TABLE></center>\n<p>\n"
+      "description" : ""
    },
    ".4" : {
       "meta_keywords" : "Pageant, Pageant Gowns, Dress, Sherri Hill, Shandi,Jovani, Red Carpet, Dresses, Beaded, Silk, Train, Chiffon, Alyce, Landa, Precious Formals, Scala, Sherri Hill, Vera Wang, Yearick, Scala, prom, Vera Wang",
@@ -71,10 +90,22 @@
    },
    "$fabulouss_prom_2013" : {},
    "$mac_duggal_2013" : {},
-   ".prom.designers.paris" : {},
+   ".prom.designers.paris" : {
+      "meta_description" : "Shop for your long or short Paris by Tony Bowls designer prom dress! ",
+      "page_title" : "Paris Prom Dresses Online | Paris Formal Prom Gowns",
+      "head_title" : "Paris Prom Dresses Online | Paris Formal Prom Gowns"
+   },
    "$jovani_homecoming_2010" : {},
-   ".evening.designers.jasz_couture" : {},
-   ".cocktail.designers" : {},
+   ".evening.designers.jasz_couture" : {
+      "meta_description" : "Shop for your Jasz Couture formal designer evening dress, including the Red Carpet Collection.",
+      "page_title" : "Jasz Couture Red Carpet Collection | Jasz Evening Gowns",
+      "head_title" : "Jasz Couture Red Carpet Collection | Jasz Evening Gowns"
+   },
+   ".cocktail.designers" : {
+      "meta_description" : "Shop by designer for your short cocktail and homecoming dresses from Sherri Hill, La Femme, Mac Duggal and more.",
+      "page_title" : "Designer Cocktail Dresses | Short Dresses",
+      "head_title" : "Designer Cocktail Dresses | Short Dresses"
+   },
    ".shop_by_designer.mac_duggal" : {
       "meta_keywords" : "",
       "meta_description" : "Click here for Authentic Mac Duggal Prom Dresses at the Lowest Prices! Returns Accepted!  Free Shipping!",
@@ -82,16 +113,21 @@
       "head_title" : "Mac Duggal Prom Dresses",
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=LIST%3A%24mac_duggal&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
       "prodlist_custom" : "&SORTBY=SKU_DESC&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Mac Duggal</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>45</TD>\n<TD>48</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24.5</TD>\n<TD>25.5</TD>\n<TD>26.5</TD>\n<TD>27.5</TD>\n<TD>28.5</TD>\n<TD>29.5</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>37</TD>\n<TD>40</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41</TD>\n<TD>42.5</TD>\n<TD>44.5</TD>\n<TD>47.5</TD>\n<TD>50.5</TD></TR></TABLE></center>\n\n"
+      "description" : ""
    },
-   ".cocktail.styles.babydoll" : {},
+   ".cocktail.styles.babydoll" : {
+      "meta_description" : "Shop for your short babydoll cocktail dress from designers Sherri Hill, La Femme and more!",
+      "page_title" : "Babydoll Cocktail Dresses | Babydoll Short Dresses",
+      "head_title" : "Babydoll Cocktail Dresses | Babydoll Short Dresses"
+   },
    "$new_list" : {},
    "$jovani_prom_2013" : {},
    ".shop_by_designer.sherri_hill" : {
       "meta_keywords" : "",
       "meta_description" : "Click here for Authentic Sherri Hill Prom Dresses and Sherri Hill Homecoming Dresses.  Lowest Prices! Free Shipping! Returns Accepted!",
       "picture1" : "sherri_hill_prom_2008/so1001_2",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Sherri Hill</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>00</TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31.5</TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>39</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>44</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>33.5</TD>\n<TD>35.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>43.5</TD>\n<TD>45</TD>\n<TD>47</TD></TR></TABLE></center>\n<p>\n<b>VIEW THE ENTIRE COLLECTION</b> - Select 60 items per page from the Sort Order Drop Down Menu.",
+      "description" : "<b>VIEW THE ENTIRE COLLECTION</b> - Select 60 items per page from the Sort Order Drop Down Menu.",
+      "of10_banner_topwide1" : "ALT=Sherri+Hill+1920+Promotion&IMG=2%2f1920_1%2epng&LINK=http%3a%2f%2fwww%2eonlineformals%2ecom%2fproduct%2fSHERRI14%2d1920%2fAuthentic%2dSherri%2dHill%2d1920%2dProm%2dDress%2dFree%2dShipping%2dReturns%2dAccepted%2ehtml",
       "page_title" : "Sherri Hill Prom Dresses | Sherri Hill Homecoming Dresses",
       "head_title" : "Sherri Hill Prom Dresses | Sherri Hill Homecoming Dresses ",
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
@@ -104,25 +140,53 @@
       "page_title" : "Alisha Hill Shoes",
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=&SHOWSKU=&SHOWPRICE=1&"
    },
-   ".designers.mignon" : {},
+   ".designers.mignon" : {
+      "meta_description" : "Shop for your short or long Mignon formal designer dress!",
+      "page_title" : "Mignon Dresses Online | Mignon Formal Gowns",
+      "head_title" : "Mignon Dresses Online | Mignon Formal Gowns"
+   },
    ".best_sellers" : {
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=LIST%3A%24featured_items_homepage&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
       "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=LIST%3A%24app_best_sellers&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
       "description" : ""
    },
-   ".accessories" : {},
+   ".accessories" : {
+      "meta_description" : "Jewelry and shoes by Benjamin Walk and Coloriffics to accessorize your dress.",
+      "page_title" : "Jewelry | Shoes | Undergarments",
+      "head_title" : "Jewelry | Shoes | Undergarments"
+   },
    "$shop_accessories_handbags" : {},
-   ".evening.designers.shail_k" : {},
+   ".evening.designers.shail_k" : {
+      "meta_description" : "Shop for your Shail K formal designer evening gown!",
+      "page_title" : "Shail K Evening Gowns | Shail K Evening Dresses",
+      "head_title" : "Shail K Evening Gowns | Shail K Evening Dresses"
+   },
    "$tony_bowls_2013" : {},
    "$featured_items_homepage" : {},
    "$short_cocktail___new" : {},
    ".prom.designers.bg_haute" : {},
-   ".designers.gigi" : {},
-   ".prom.designers.mac_duggal" : {},
+   ".designers.gigi" : {
+      "meta_description" : "Shop for your short or long Gigi formal designer dress!",
+      "page_title" : "Gigi Dresses Online | Gigi Formal Gowns",
+      "head_title" : "Gigi Dresses Online | Gigi Formal Gowns"
+   },
+   ".prom.designers.mac_duggal" : {
+      "meta_description" : "Shop for your long or short Mac Duggal designer prom dress! ",
+      "page_title" : "Mac Duggal Prom Dresses Online | Mac Duggal Prom Gowns",
+      "head_title" : "Mac Duggal Prom Dresses Online | Mac Duggal Prom Gowns"
+   },
    "$app_celebrity_trends" : {},
-   ".cocktail.styles.lace" : {},
+   ".cocktail.styles.lace" : {
+      "meta_description" : "Shop for your short lace cocktail dress from designers Sherri Hill, La Femme and more!",
+      "page_title" : "Lace Cocktail Dresses | Lace Short Dresses",
+      "head_title" : "Lace Cocktail Dresses | Lace Short Dresses"
+   },
    "$julie_france" : {},
-   ".prom.designers.jasz_couture" : {},
+   ".prom.designers.jasz_couture" : {
+      "meta_description" : "Shop for your long or short Jasz Couture designer prom gown, including dresses from the red carpet collection!",
+      "page_title" : "Jasz Couture Prom Dresses Online | Jasz Couture Gowns",
+      "head_title" : "Jasz Couture Prom Dresses Online | Jasz Couture Gowns"
+   },
    "$allure_quinceanera" : {},
    ".9a" : {
       "meta_keywords" : "Natural Bra, Bra, Undergarment, Strapless, Invisible, Miracle, Miracle Bra, Shawls, Scarfs, Hang bags, Handbags, Purse, Purses",
@@ -138,16 +202,17 @@
       "page_title" : "Faviana Glamour Dresses",
       "head_title" : "Faviana Glamour Dresses",
       "prodlist_custom" : "&SORTBY=SKU_DESC&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"9\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Faviana Glamour</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31.5</TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>41.5</TD>\n<TD>42.5</TD></TR></TABLE></center>\n"
+      "description" : ""
    },
    ".shop_by_designer.la_femme" : {
       "meta_keywords" : "",
       "meta_description" : "Click here for Authentic La Femme Prom Dresses and Homecoming Dresses.  Returns accepted!",
+      "description" : "<h3><u><b>To View the Entire Collection</b></h3></u><br>\n- Select 100 items per page or VIEW ALL from the Sort Order Drop Down Menu.  ",
+      "of10_banner_topwide1" : "ALT=La+Femme+19882+Promotion&IMG=2%2f19882_1%2epng&LINK=http%3a%2f%2fwww%2eonlineformals%2ecom%2fproduct%2fLAFEMME14%2d19882%2fAuthentic%2dLa%2dFemme%2d19882%2dDress%2dFree%2dShipping%2dEasy%2dReturns%2ehtml",
       "page_title" : "La Femme Prom Dresses | La Femme Homecoming Dresses",
       "head_title" : "La Femme Prom Dresses | La Femme Homecoming Dresses",
       "prodlist" : "&SORTBY=NAME_DESC&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
-      "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"15\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>La Femme</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>00</TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32</TD>\n<TD>33</TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>36</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD>\n<TD>53</TD>\n<TD>55</TD></TR></TABLE></center>\n<p>\n<h3><u><b>To View the Entire Collection</b></h3></u><br>\n- Select 100 items per page or VIEW ALL from the Sort Order Drop Down Menu.  "
+      "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
    },
    "$new_year_s_eve_dresses_in_stock" : {},
    ".shop_by_category.plus_size_gowns" : {
@@ -164,35 +229,63 @@
       "head_title" : "GiGi Prom Dresses | GiGi Homecoming Dresses",
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=LIST%3A%24gigi_by_la_femme&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
       "prodlist_custom" : "&SORTBY=SKU_DESC&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&",
-      "description" : "The GIGI Collection (a division of La Femme Fashion) is known in the industry for their high-end designer styles. There are dresses for every look - including Prom, Homecoming and Social Occasion.  From Sexy and Unique to Short and Sassy. <p>\n\nGIGI dresses are regularly featured in Seventeen Magazine, Teen Magazine and Your Prom.  Every choice is a good choice when wearing a GiGi. <p>\n\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"15\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>GIGI</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>00</TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32</TD>\n<TD>33</TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>36</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD>\n<TD>53</TD>\n<TD>55</TD></TR></TABLE></center>"
+      "description" : ""
    },
-   ".cocktail" : {},
+   ".cocktail" : {
+      "meta_description" : "Shop for your short cocktail dress in a variety of styles to include sequin, babydoll, and beaded dresses. Prices starting at $99!",
+      "page_title" : "Cocktail Dresses | Homecoming Gowns | Short Dresses",
+      "head_title" : "Cocktail Dresses | Homecoming Gowns | Short Dresses"
+   },
    "$bg_haute_2013" : {},
    ".shop_by_designer.faviana" : {
       "meta_keywords" : "",
       "meta_description" : "Click here for Authentic Faviana dresses at the lowest price!",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"10\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Faviana</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31.5</TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30</TD>\n<TD>31.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>41.5</TD>\n<TD>42.5</TD>\n<TD>44</TD></TR></TABLE></center>\n\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Faviana Extra Size</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>18E</TD>\n<TD>20E</TD>\n<TD>22E</TD>\n<TD>24E</TD>\n<TD>12W</TD>\n<TD>14W</TD>\n<TD>16W</TD>\n<TD>18W</TD>\n<TD>20W</TD>\n<TD>22W</TD>\n<TD>24W</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>43</TD>\n<TD>44.5</TD>\n<TD>46</TD>\n<TD>47.5</TD>\n<TD>49.5</TD>\n<TD>51.5</TD>\n<TD>53.5</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>33.5</TD>\n<TD>35.5</TD>\n<TD>37.5</TD>\n<TD>39.5</TD>\n<TD>36.5</TD>\n<TD>38</TD>\n<TD>39.5</TD>\n<TD>41</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD>\n<TD>47.5</TD>\n<TD>49</TD>\n<TD>50.5</TD>\n<TD>52</TD>\n<TD>54</TD>\n<TD>56</TD>\n<TD>58</TD></TR></TABLE></center>\n\n\n\n\n\n",
+      "description" : "",
       "of10_banner_topwide1" : "ALT=&IMG=&LINK=",
       "page_title" : "Faviana Prom Dresses | Faviana Homecoming Dresses",
       "head_title" : "Faviana Prom Dresses | Faviana Homecoming Dresses",
       "prodlist" : "&SORTBY=NAME_DESC&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
       "prodlist_custom" : "&SORTBY=SKU_DESC&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
    },
-   ".accessories.under_the_dress" : {},
-   ".pageant.designers.jasz_couture" : {},
-   ".cocktail.designers.mignon" : {},
+   ".accessories.under_the_dress" : {
+      "meta_description" : "Shapers and bra cups by Julie France",
+      "page_title" : "Undergarments | Shapers | Bra Cups",
+      "head_title" : "Undergarments | Shapers | Bra Cups"
+   },
+   ".pageant.designers.jasz_couture" : {
+      "meta_description" : "Shop for your Jasz Couture formal designer pageant gown!",
+      "page_title" : "Jasz Couture Pageant Gowns | Jasz Couture Pageant Dresses",
+      "head_title" : "Jasz Couture Pageant Gowns | Jasz Couture Pageant Dresses"
+   },
+   ".cocktail.designers.mignon" : {
+      "meta_description" : "Shop for your short Mignon designer cocktail dress!",
+      "page_title" : "Mignon Cocktail Dresses | Mignon Short Dresses",
+      "head_title" : "Mignon Cocktail Dresses | Mignon Short Dresses"
+   },
    ".shop_by_designer.fabulouss___plus_size" : {
       "meta_keywords" : "Fabulouss, Plus, Size, 2010, Prom, Dresses, Gowns, Large, Teen, Dance.",
       "meta_description" : "Click here for Plus Size dresses by the Mac Duggal Fabulouss collection!",
       "page_title" : "Fabulouss Plus Size Dresses by Mac Duggal",
       "head_title" : "Fabulouss Plus Size Dresses by Mac Duggal",
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"10\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Fabulouss</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>14W</TD>\n<TD>16W</TD>\n<TD>18W</TD>\n<TD>20W</TD>\n<TD>22W</TD>\n<TD>24W</TD>\n<TD>26W</TD>\n<TD>28W</TD>\n<TD>30W</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD>\n<TD>54</TD>\n<TD>56</TD>\n<TD>58</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>36</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD>\n<TD>53</TD>\n<TD>55</TD>\n<TD>57</TD>\n<TD>59</TD>\n<TD>61</TD></TR></TABLE></center>\n"
+      "description" : ""
    },
-   ".pageant.designers.johnathan_kayne" : {},
-   ".evening.designers.tony_bowls" : {},
+   ".pageant.designers.johnathan_kayne" : {
+      "meta_description" : "Shop for your Johnathan Kayne formal designer pageant gown!",
+      "page_title" : "Johnathan Kayne Pageant Gowns",
+      "head_title" : "Johnathan Kayne Pageant Gowns"
+   },
+   ".evening.designers.tony_bowls" : {
+      "meta_description" : "Shop for your Tony Bowls formal designer evening gown!",
+      "page_title" : "Tony Bowls Evening Gowns | Tony Bowls Evening Dresses",
+      "head_title" : "Tony Bowls Evening Gowns | Tony Bowls Evening Dresses"
+   },
    "$sherri_hill_2013" : {},
-   ".designers.tony_bowls" : {},
+   ".designers.tony_bowls" : {
+      "meta_description" : "Shop for your short or long Tony Bowls formal designer dress!",
+      "page_title" : "Tony Bowls Dresses Online | Tony Bowls Gowns",
+      "head_title" : "Tony Bowls Dresses Online | Tony Bowls Gowns"
+   },
    ".testimonials" : {
       "missouri" : "",
       "description" : "<b><i><h2>What Customers Are Saying about Onlineformals.com </b></i></h2> <p>\n\nDear Michelle and Stephen\n\nI received the Sherri Hill dress I ordered this morning. It is stunning and beautifully made!!! My grand daughter will be delighted as she hasn't seen it yet.\nThank you so much for the efficient service and prompt replies I have continued to have from you whilst waiting for this dress. I was concerned that it would arrive on time for my deadline date. As promised you delivered, for which I am extremely grateful. \nI shall certainly recommend you as an efficient and genuine service.\nThank you again\nKindest regards\nDiane Mort (A happy UK customer)<p>\n\nMy experience with this company has been wonderful. Michelle was professional, courteous, and honest and her experience in the business manifested itself. I am extremely satisfied with the dress I purchased and my daughter absolutely loves her Sweet Sixteen Party dress. I will most certainly order from onlineformals.com again and recommend to others. Thanks again Michelle you are the BEST!!!! Tiffany<p>\n\nHello -We received the dress and our daughter is thrilled with it!!!!!! It is exactly what she wanted!!!!!!\nThanks for the prompt service and keeping us updated on the status of the dress.\nWe would definitely order from you again and highly recommend you to our daughter's friends.\nThanks again!! :)<p>\n\nHi- I have received my touch up shoes and they are fab and they fit perfect and the 4 different color wrap arounds are great, would use your site again! Cheers-\nSarah Brown<p>\n\nI just want to say I have received all of the Jovani gowns as well as the Terani and I am extremely happy with them! \nThank you so much onlineformals for being so helpful and efficient with my orders! <p>\n\nI will be recommending onlineformals to my friends in the future... Rita<p>\n\nMy order arrived today, right on time and it is beautiful. I wanted to let you know what a joy it was dealing with an online company that knows the meaning of customer service. Your phone reps and your online people were courteous, helpful and efficient. I will be certain to recommend this company to anyone looking for special occasion wear. Thank you.<p>\n\nI just wanted to say thank you for turning my evening occasion into a smashing success. I do not have the order number for my purchase but I wanted to let you know that the &quot;word is out&quot; about your company. The dress that I purchased from you by designer Tony Bowls caught the attention of EVERYONE. I received so many compliments about what I was wearing and I must have answered the question,&quot;where did you get that dress?&quot; at least 200 times. I made sure that with each response, ONLINEFORMALS.com was the first thing out of my mouth. I already know which dress will be ordered next.<p>\n\nCall it Karma if you wish but I clicked to your site strictly by accident and found the dress, in my size on clearance that day. The package arrived in the nick of time because I had to leave for my special occasion in less than one week of getting my order fulfilled. I will tell you that the dress was &quot;presented&quot; to an audience of about 10,000 (ten thousand) people and I was voted as the most beautifully attired woman that evening. I even received comments from men who were with their wives/significant others as to how marvelous I looked.<p>\n\nSo in wrapping up my message, THANK YOU, THANK YOU, THANK YOU.<p>\n\nSigned,<br>\nA VERY satisfied customer<p>\n\nMichelle<br>\nI just received the dress, and I must tell you: it is the most amazing and beautiful dress I have ever owned! The size chart was so accurate that I dont think I even need to get alterations!!<p>\nPlease thank everyone at Online Formals for the great customer service and the best prices anywhere.  I will definitely order from you again!<p>\n\nBest regards,<p>\nTiffany Brooks<p>\nSteve<br>\nThank you so much for coming to our rescue. We received the gown two days ago and it is gorgeous.  Yesterday we brought it for alterations.  I have already recommended Online Formals to several people and have told them you and your staff really care about customer satisfaction and went above and beyond to make sure my daughter would be able to enjoy her special day.  The teamwork  you and Michelle demonstrated was unbelievable.  I will continue to recommend you to everyone I come in contact  who is looking for formal wear.  I appreciate what you did more than you'll ever know.  Every once in a while you come across someone who truly cares about accomplishing what they set out to do for their customers.  You  showed this by continuing to help my daughter find a gown that was not discontinued or sold out and by expediting shipment to ensure she received it in time for her prom.  You  demonstrated a sense of loyalty and commitment. .  Thanks again!!!<p>\n\n\nThank you so much for your great customer service. The dresses are here and they are everything that I dreamed of. I hope that I will be needed a dress for Miss Hawaii and will surely with no hesitation go through you again. You were amazing and the shipment came not a minute later than you said. I just want to say THANK YOU!!!! I hope you have a great day and will continue to run such a great business. - Miss Maui<p>\n\nStephen<br>\nI just wanted to send you a quick note to let you know how pleased I am with your company and most importantly your service. You were so VERY helpful!  From helping us choose a gown to letting us know when we will receive our delivery. (It came the exact day you promised) I was reluctant to order a gown online however when I called and spoke to you, you were more than willing to answer all my questions. And the reassurance I felt from you about the product and delivery eased every skeptical thought I had. So when the gown arrived, you can image how much more ecstatic I was to not only receive the gown on time but to have the gown look as it did online. The gown fit like a glove. (the only alterations needed is the length)  Oh yeah, my daughter LOVES it too. LOL.<p>  \n\nTHANKS AGAIN!!!  And Im sure you will be hearing from me again! -Michelle Veteri<p>\n\n\nMichelle-<br>\nJust a quick note to say THANK YOU! My daughter's dress arrived today as a direct ship and was even more beautiful in person. And it fits perfectly! Thank you for being such a pleasure to deal with!<p>\n\nOnlineformals-<br>\nThank you soooo much!!  We got the Jovani dress today and my daughter loves it so much.  I will sing the praises of Onlineformals.com to everyone! -Tracey\n<p>\n\nHi Stephen<br>\nJust want to say thanks for your prompt, professional and gracious service. I received my packages almost two weeks ago. Sorry for being so late saying thanks. Lately time just seem to go by so fast. \nI picked up my shoes and accessories yesterday and my alterations should be complete this week. I am anticipating a great evening but could not have pulled this off without you. Thanks again for everything. - Maxine<p>\n\n\nHi Stephen<br>\n I just wanted to let you know that I received the dress today and it is perfect! I have never ordered a dress off line before and I am so glad that I did from your website. You were so helpful! Thank you so much for everything. -Liz Wilson<p>\n\nDear Stephen<br>\nThank you. This order was so simple and the dress is just devine. My daughter is so happy. Kind Regards -Holly Brown - Australia<p>\n\nJust wanted to tell you guys you have great customer service!!! Thank you. <p>\n \nI ordered a dress for my pageant recently and not only was the dress beautiful but, here sooner than the expected date. I spoke to an associate there and he reassured me that everything would be perfect and there was no need to worry. You all are great. I will have no problem ordering from onlineformals again. Thank you soooo much. God Bless - Sincerely, Krystiana Carr - Hampton, VA<p>\n\nDear Mr. Winston,<br>\nWe received the gown this morning, a day earlier than expected.  Thank you so much for all your hard work.  The dress fits perfectly and looks amazing.  \nThanks a Million, Paula Myers <p>\n\nDear Stephen<br>\nJust a few photos of my daughter in her beautiful dress.  It survived the beach , the gardens, the church, the reception and the party and she still looked amazing.  Once again thank you.\nRegards, Valerie Stow<p>\n\nHello Stephen, <br>\nI received the gown last Friday and I absolutely love it. Thank you so much for everything, you are great!!Agnes <p>\n\nHi Steve<br>\nI wanted to say Thank You for everything!  The gown is beautiful and it fits perfect! Sorry for being a pain....but I'm sure you're used to it, brides are crazy!! Thanks again and I'll refer you to anyone I know getting married! Amy Pinto<p>\n\nStephen, I have received the faviana white dress and its perfect..thank\nyou for the prompt /excellent service! I searched throughout the\ninternet but I was thrilled you were so fast and courteous and even sent\na shawl to coordinate with the dress. thanks again, I will most\ndefinately refer your services and will do business with you again in\nthe future...Cindy Price/Tx  <p>\n\nOnlineformals<br>\nI wanted to Thank You So Much... for making my daughter's prom the best ever.  We received our gown 2 days after ordering.  Super service...  Casey - Pittsburgh,PA<p>\n\nMelissa<br>\nThank you again for your wonderful service.  I received so many compliments on my gown.  I can't thank you enough.  Lisa - Knoxville, TN<p>\n\nStephen<br>\nThe Absolute Best Online Experience Ever... Very knowledgeable staff, friendly and quick international shipping.  My Wedding Day was a success thanks to onlineformals. Brianna - United Kingdom<p>\n\nThank you Stephen,<br>\nI received the gown earlier than I expected and I am happy.\nThanks for fast and high-quality service. Christine <p>\n\nThanks you so much for helping me with my dress. I went to pick it up today, and i loved it! Thank you ! Mary - Virginia Beach <p>\n\nThe dress arrived today and it fits perfect!!!!  We are thrilled.  Thank you so much.\nYou can count on return business from us. -\nKate and Bridgette Berg<p>\n\nI am writing to say thank you for all your help in getting the dress for my daughter. She is so happy and it is very beautiful on her. It arrived Friday 3/23 she is already for her prom this Friday and then one more in two weeks. Again thank you!! : )Christina Howard <p>\n\n\nSteve, I just wanted to let you know we received\nthe gown on Thursday as you said and it is beautiful! Thank you for your help. The dress is perfect! Barbara Pelullo <p>\n\nOnlineformals-<br>\nI just received the dress today.  It is absolutely gorgeous! Thank you so entirely much! and thanks for not charging for the gloves and shipping!  I will definitely make sure to send you a picture.  You've made my senior prom perfect! Thanks again!!<p>\n\nI received the dress today!  I love it and it fits perfectly. Thank\nyou so \nmuch for your excellent customer service.  It was so awesome that you\nwere \nalways so quick to respond to my emails, even over the weekend.  I will \ndefinitely shop with you again. Thanks again - Katie <p>\n\nDear mr.Winston,<br>\n\nI have received the dress last tuesday and it is very beautiful.\nThank you very much for everything.\n\nWith kind regards,\n\nTamara Pijpers - Netherlands\n\n\n\n\n\n\n\n"
@@ -207,8 +300,17 @@
       "prodlist" : "&SORTBY=PRICE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
       "prodlist_custom" : "&SORTBY=SKU_DESC&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
    },
+   ".prom.sale" : {
+      "meta_description" : "Looking for a prom dress that's on sale?  Shop here for in stock sale dresses with immediate shipping. ",
+      "page_title" : "Prom Dresses on Sale | Cheap Prom Dresses Online",
+      "head_title" : "Prom Dresses on Sale | Cheap Prom Dresses Online"
+   },
    "$mac_duggal_prom_2011" : {},
-   ".prom.designers.gigi" : {},
+   ".prom.designers.gigi" : {
+      "meta_description" : "Shop for your long or short Gigi designer prom gown!",
+      "page_title" : "Gigi Prom Dresses Online | Gigi Prom Gowns",
+      "head_title" : "Gigi Prom Dresses Online | Gigi Prom Gowns"
+   },
    "$2013_homecoming" : {},
    ".shop_accessories.accessories" : {
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&SIZE=15&SHOWSKU=&",
@@ -216,8 +318,16 @@
       "description" : "Julie France Body Shapers are seamless, microfiber shapewear garments made of superior quality, lightweight, resilient stretch materials designed specifically to work with the bodies muscular structure. <p>\nEngineered using innovative, seamless three-dimensional technology to form zone-specific contouring panels - Julie France Body Shapers provide perfect slimming and shaping support. <p>\nInvisible Under Clothing...Immediate Results! <p>\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"8\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Julie France</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>S/P</TD>\n<TD>M</TD>\n<TD>L</TD>\n<TD>XL</TD>\n<TD>1X</TD>\n<TD>2X</TD>\n<TD>3X</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>33.5-35.5</TD>\n<TD>36-38</TD>\n<TD>38.5-40.5</TD>\n<TD>41-43</TD>\n<TD>44-47.5</TD>\n<TD>48-51.5</TD>\n<TD>52-54</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>26.5-28</TD>\n<TD>28.5-30.5</TD>\n<TD>31-33</TD>\n<TD>33.5-35.5</TD>\n<TD>36-39</TD>\n<TD>39.5-43</TD>\n<TD>43.5-45.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>36-37.5</TD>\n<TD>38-40.5</TD>\n<TD>41-43</TD>\n<TD>43.5-45.5</TD>\n<TD>46-49.5</TD>\n<TD>50-53.5</TD>\n<TD>54-56</TD></TR></TABLE></center>\n"
    },
    ".9.coloriffics" : {},
-   ".showroom" : {},
-   ".cocktail.styles.sequins___beads" : {},
+   ".showroom" : {
+      "meta_description" : "Visit our Virginia Beach showroom for the largest selection of prom, evening and cocktail dresses in the Hampton Roads area.",
+      "page_title" : "Virginia Beach Prom Store | Chesapeake Formal Dresses",
+      "head_title" : "Virginia Beach Prom Store | Chesapeake Formal Dresses"
+   },
+   ".cocktail.styles.sequins___beads" : {
+      "meta_description" : "Shop for your short beaded and sequin cocktail dress from designers Sherri Hill, La Femme, Scala, Shail K and more!",
+      "page_title" : "Beaded and Sequin Cocktail Dresses | Short Sequin Dresses",
+      "head_title" : "Beaded and Sequin Cocktail Dresses | Short Sequin Dresses"
+   },
    ".1" : {
       "meta_keywords" : "",
       "picture1" : "",
@@ -238,10 +348,18 @@
       "banner1" : "maggie_sottero/maggie_logo",
       "banner3_link" : "",
       "head_title" : "Homecoming 2013 Dresses",
-      "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=LIST%3A%242013_homecoming&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
+      "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
    },
-   ".prom.trends" : {},
-   ".pageant.designers.mac_duggal" : {},
+   ".prom.trends" : {
+      "meta_description" : "Shop by trends such as lace, beads, sequins and more for your long or short formal prom gown!",
+      "page_title" : "Prom Dresses by Trend | Formal Prom Gowns",
+      "head_title" : "Prom Dresses by Trend | Formal Prom Gowns"
+   },
+   ".pageant.designers.mac_duggal" : {
+      "meta_description" : "Shop for your Mac Duggal formal designer pageant gown!",
+      "page_title" : "Mac Duggal Pageant Gowns | Mac Duggal Pageant Dresses",
+      "head_title" : "Mac Duggal Pageant Gowns | Mac Duggal Pageant Dresses"
+   },
    "$homepage_new_" : {},
    ".shop_accessories.shoes" : {
       "prodlist" : "&SORTBY=NAME&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
@@ -254,9 +372,21 @@
       "head_title" : "Homecoming Dresses | Fall Dresses | Holiday Dresses",
       "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=LIST%3A%242013_homecoming&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
    },
-   ".evening.designers.bg_haute" : {},
-   ".cocktail.designers.gigi" : {},
-   ".pageant.designers.mnm_couture" : {},
+   ".evening.designers.bg_haute" : {
+      "meta_description" : "Shop for your BG Haute formal designer evening dress!",
+      "page_title" : "BG Haute Evening Gowns | BG Haute Evening Dresses",
+      "head_title" : "BG Haute Evening Gowns | BG Haute Evening Dresses"
+   },
+   ".cocktail.designers.gigi" : {
+      "meta_description" : "Shop for your short Gigi designer cocktail dress!",
+      "page_title" : "Gigi Cocktail Dresses | Gigi Short Dresses",
+      "head_title" : "Gigi Cocktail Dresses | Gigi Short Dresses"
+   },
+   ".pageant.designers.mnm_couture" : {
+      "meta_description" : "Shop for your Jasz Couture formal designer pageant gown!",
+      "page_title" : "MNM Couture Pageant Gowns | MNM Couture Pageant Dresses",
+      "head_title" : "MNM Couture Pageant Gowns | MNM Couture Pageant Dresses"
+   },
    ".shop_by_category.celebrity_gowns" : {
       "meta_keywords" : "Celebrity, Gowns, Dresses, Oscars, Golden, Globes, Stars, Movie, Film, Music, Dance",
       "meta_description" : "Celebrity inspired gowns worn by the stars.  Available exclusively at www.onlineformals.com\r  \r  ",
@@ -268,21 +398,46 @@
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
       "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
    },
-   ".evening" : {},
-   ".evening.designers.mignon" : {},
-   ".cocktail.designers.lm_collection" : {},
+   ".evening" : {
+      "meta_description" : "Sophisticated long affordable couture dresses ideal for your formal event.",
+      "page_title" : "Evening Gowns | Couture Dresses",
+      "head_title" : "Evening Gowns | Couture Dresses"
+   },
+   ".evening.designers.mignon" : {
+      "meta_description" : "Shop for your Mignon formal designer evening gown!",
+      "page_title" : "Mignon Evening Gowns | Mignon Evening Dresses",
+      "head_title" : "Mignon Evening Gowns | Mignon Evening Dresses"
+   },
+   ".cocktail.designers.lm_collection" : {
+      "meta_description" : "Shop for your short LM Collection designer cocktail dress!",
+      "page_title" : "LM Collection Cocktail Dresses | LM Collection Short Dresses",
+      "head_title" : "LM Collection Cocktail Dresses | LM Collection Short Dresses"
+   },
    "$related_product_list" : {},
-   ".pageant" : {},
+   ".pageant" : {
+      "meta_description" : "Award winning pageant gowns by top designers, including Tony Bowls, Sherri Hill, Jasz Couture, Johnathan Kayne and MNM Couture.",
+      "page_title" : "Pageant Dresses | Competition Gowns",
+      "head_title" : "Pageant Dresses | Competition Gowns"
+   },
    ".accessories.shoes.touch_ups" : {},
    "$la_femme_fall_2012" : {},
    "$flash_2013" : {},
-   ".prom" : {},
-   "$sugar_2013" : {},
-   ".prom.designers.mignon" : {},
-   ".shop_accessories.handbags" : {
-      "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=LIST%3A%24shop_accessories_handbags&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&"
+   ".prom" : {
+      "meta_description" : "Long or short prom dresses in a variety of styles and colors including beaded, sequin, mermaid and jersey dresses.",
+      "page_title" : "2015 Prom Dresses | Prom Gowns",
+      "head_title" : "2015 Prom Dresses | Prom Gowns"
    },
-   ".prom.designers" : {},
+   "$sugar_2013" : {},
+   ".prom.designers.mignon" : {
+      "meta_description" : "Shop for your long or short Mignon designer prom dress! ",
+      "page_title" : "Mignon Prom Dresses Online | Mignon Prom Gowns",
+      "head_title" : "Mignon Prom Dresses Online | Mignon Prom Gowns"
+   },
+   ".prom.designers" : {
+      "meta_description" : "Shop by designer for your formal long or short prom gown from Sherri Hill, La Femme, Tony Bowls, Mac Duggal and more!",
+      "page_title" : "Designer Prom Dresses Online | Designer Prom Gowns",
+      "head_title" : "Designer Prom Dresses Online | Designer Prom Gowns"
+   },
    ".shop-by-price.100" : {
       "meta_keywords" : "Shop, By, Price, Cheap, Less, Discount",
       "meta_description" : "Shop by Price $100 or Less at Onlineformals",
@@ -296,7 +451,7 @@
       "meta_description" : "Click here for Authentic Mignon Fashion Dresses at the Lowest Prices! Returns Accepted!  Free Shipping!",
       "page_title" : "Mignon Fashion Dresses",
       "head_title" : "Mignon Fashion Dresses",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"11\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Mignon</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31.5</TD>\n<TD>32.5</TD>\n<TD>33</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>41.5</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>25.5</TD>\n<TD>26.5</TD>\n<TD>27.5</TD>\n<TD>28.5</TD>\n<TD>29.5</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>33.5</TD>\n<TD>35</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>43.5</TD>\n<TD>45</TD></TR></TABLE></center>"
+      "description" : ""
    },
    ".shop-by-price.100-200" : {
       "meta_keywords" : "Shop, By, Price, Cheap, Less, Discount, Sale",
@@ -311,22 +466,38 @@
       "picture1" : "",
       "picture3" : "",
       "prodlist" : "&SORTBY=NAME&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
-      "prodlist_custom" : "&SORTBY=SKU&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "<b>Need it Fast?  Need it Now?</b>  Our In-Stock dresses ship same day M-F for any order placed before 3:00 EST.\n  \n\nIf you would like us to check stock on any other style please give us a call toll free at 888-280-4179. \n\n\nSeveral of our designers will drop ship your dresses directly to you.  This means that you can receive your dress quicker for last minute events. <p>\nNeed your dress tomorrow?  Give us a call for a stock check.  There's a good chance we can make it happen."
+      "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
+      "description" : ""
    },
-   ".pageant.designers.sherri_hill" : {},
-   ".evening.celebrity_inspired" : {},
+   ".pageant.designers.sherri_hill" : {
+      "meta_description" : "Shop for your Sherri Hill formal designer pageant gown!",
+      "page_title" : "Sherri Hill Pageant Gowns | Sherri Hill Pageant Dresses",
+      "head_title" : "Sherri Hill Pageant Gowns | Sherri Hill Pageant Dresses"
+   },
+   ".evening.celebrity_inspired" : {
+      "meta_description" : "Shop for formal dresses inspired by or as seen on celebrities from designers Faviana, Sherri Hill, La Femme and more!",
+      "page_title" : "Celebrity Gowns | Celebrity Dresses ",
+      "head_title" : "Celebrity Gowns | Celebrity Dresses "
+   },
    "$short_list_2013" : {},
-   ".designers.sherri_hill" : {},
+   ".designers.sherri_hill" : {
+      "meta_description" : "Shop for your short or long Sherri Hill formal designer dress!",
+      "page_title" : "Sherri Hill Dresses Online | Sherri Hill Gowns",
+      "head_title" : "Sherri Hill Dresses Online | Sherri Hill Gowns"
+   },
    ".shop_by_category.little_girl_s_pageant_dresses" : {
       "meta_keywords" : "Little, Girls, Pageant, Dresses, Flower, Girl, Gowns, Tots, Tiara, Crown, Winning, Child, Beauty",
       "meta_description" : "Little Girl's Pageant Dresses at Onlineformals",
       "page_title" : "Little Girl's Pageant Dresses",
       "head_title" : "Little Girl's Pageant Dresses",
       "prodlist_custom" : "&SORTBY=NAME_DESC&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"9\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Children's</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>31</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>21</TD>\n<TD>22</TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25.5</TD>\n<TD>27</TD>\n<TD>29</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29.5</TD>\n<TD>31</TD>\n<TD>33</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist to Hem (Long)</b></TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>34.5</TD>\n<TD>37</TD>\n<TD>39.5</TD>\n<TD>42</TD>\n<TD>45.5</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Waist to Hem (Short)</b></TD>\n<TD>10</TD>\n<TD>13</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>17</TD>\n<TD>18</TD>\n<TD>19</TD></TR></TABLE></center>\n\n\n\n"
+      "description" : ""
    },
-   ".designers.jasz_couture" : {},
+   ".designers.jasz_couture" : {
+      "meta_description" : "Shop for your short or long Jasz Couture formal designer dress, including red carpet styles.",
+      "page_title" : "Jasz Couture Dresses Online | Jasz Couture Gowns",
+      "head_title" : "Jasz Couture Dresses Online | Jasz Couture Gowns"
+   },
    "$mac_duggal_ballgowns_2013" : {},
    ".shop_by_designer.mnm_couture" : {
       "meta_keywords" : "",
@@ -337,11 +508,19 @@
       "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
       "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"14\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>MNM Couture</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>35</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40.5</TD>\n<TD>41.5</TD>\n<TD>43.5</TD>\n<TD>45.5</TD>\n<TD>47.5</TD>\n<TD>49.5</TD>\n<TD>50</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>26</TD>\n<TD>26.5</TD>\n<TD>27.5</TD>\n<TD>29.5</TD>\n<TD>30.5</TD>\n<TD>31.5</TD>\n<TD>33.5</TD>\n<TD>35.5</TD>\n<TD>37.5</TD>\n<TD>39.5</TD>\n<TD>41.5</TD>\n<TD>43.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>41.5</TD>\n<TD>42.5</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD>\n<TD>54</TD></TR></TABLE></center>\n"
    },
-   ".designers.night_moves" : {},
+   ".designers.night_moves" : {
+      "meta_description" : "Shop for your short or long Night Moves formal designer dress!",
+      "page_title" : "Night Moves Dresses Online | Night Moves Gowns",
+      "head_title" : "Night Moves Dresses Online | Night Moves Gowns"
+   },
    "$la_femme_2013" : {},
    "$faviana_2013" : {},
    "$babydoll_2011" : {},
-   ".prom.trends.lace" : {},
+   ".prom.trends.lace" : {
+      "meta_description" : "Shop for your lace prom dress from designers Sherri Hill, La Femme, Tony Bowls, Mac Duggal and more!  ",
+      "page_title" : "Lace Prom Dresses Online | Lace Prom Gowns",
+      "head_title" : "Lace Prom Dresses Online | Lace Prom Gowns"
+   },
    ".5a" : {
       "meta_keywords" : "Onlineformals.com, sale, discount, bargain, clearance",
       "meta_description" : "Dresses on sale at Onlineformals.com",
@@ -361,7 +540,11 @@
       "head_title" : "Faviana Celebrity Inspired Dresses",
       "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"10\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Faviana</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31.5</TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30</TD>\n<TD>31.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>41.5</TD>\n<TD>42.5</TD>\n<TD>44</TD></TR></TABLE></center>\n"
    },
-   ".prom.designers.shail_k" : {},
+   ".prom.designers.shail_k" : {
+      "meta_description" : "Shop for your long or short Shail K designer prom dress! ",
+      "page_title" : "Shail K Prom Dresses Online | Shail K Prom Gowns",
+      "head_title" : "Shail K Prom Dresses Online | Shail K Prom Gowns"
+   },
    "$le_gala_2013" : {},
    "$shail_k" : {},
    "$johnathan_kayne_2013" : {},
@@ -373,13 +556,21 @@
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&",
       "description" : ""
    },
-   ".prom.styles.ballgown___a_line" : {},
-   ".plus_size.styles.a_line___ballgown" : {},
+   ".prom.styles.ballgown___a_line" : {
+      "meta_description" : "Shop for your a-line or ballgown designer prom dress from designers Sherri Hill, Mac Duggal, Tony Bowls and more! ",
+      "page_title" : "Ballgown and A-Line Prom Dresses Online",
+      "head_title" : "Ballgown and A-Line Prom Dresses Online"
+   },
+   ".plus_size.styles.a_line___ballgown" : {
+      "meta_description" : "Shop for your A-line or Ballgown formal designer plus size gown!",
+      "page_title" : "A-Line and Ballgown Plus Size Dresses",
+      "head_title" : "A-Line and Ballgown Plus Size Dresses"
+   },
    ".shop_by_designer.sugar_by_mac_duggal" : {
       "meta_description" : "Click here for Authentic Mac Duggal Sugar Dresses.  Lowest Prices! Free Shipping! Returns Accepted!",
       "page_title" : "Mac Duggal Sugar Dresses",
       "head_title" : "Mac Duggal Sugar Dresses",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"9\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Sugar Children's</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>31</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>21</TD>\n<TD>22</TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25.5</TD>\n<TD>27</TD>\n<TD>29</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29.5</TD>\n<TD>31</TD>\n<TD>33</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist to Hem (Long)</b></TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>34.5</TD>\n<TD>37</TD>\n<TD>39.5</TD>\n<TD>42</TD>\n<TD>45.5</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Waist to Hem (Short)</b></TD>\n<TD>10</TD>\n<TD>13</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>17</TD>\n<TD>18</TD>\n<TD>19</TD></TR></TABLE></center>\n"
+      "description" : ""
    },
    ".shop_by_designer.bg_haute" : {
       "meta_keywords" : "",
@@ -388,7 +579,7 @@
       "page_title" : "BG Haute Dresses",
       "head_title" : "BG Haute Dresses",
       "prodlist" : "&SORTBY=NAME_DESC&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
-      "description" : "BG Haute is a division of Scala Eveningwear, which has been bringing you Social Occasion apparel for the last 24 years.<p>\n\nAwesome styling and quality are the hallmarks of this collection. <p>\n\nAs seen on - <b>Dancing with the Stars, The Grammys, Jimmy Kimmel Live, American Idol, The Price is Right and Fox News.</b> <p>\n\nBG Haute is a Premium Collection of exquisite gowns at a very affordable price.<p>\n<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"11\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>BG Haute</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>39</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>44</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>33.5</TD>\n<TD>35.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>43.5</TD>\n<TD>45</TD>\n<TD>47</TD></TR></TABLE></center>\n"
+      "description" : "\n"
    },
    "$mignon_2013" : {},
    ".new_arrivals" : {
@@ -396,16 +587,28 @@
       "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=LIST%3A%24app_-_new_arrivals&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
       "description" : "\n\n\n\n\n\n\n\n"
    },
-   ".prom.trends.vintage" : {},
-   ".accessories.jewelry" : {},
+   ".prom.trends.vintage" : {
+      "meta_description" : "Shop for your vintage prom dress from designers Mignon, La Femme, Mac Duggal and more! ",
+      "page_title" : "Vintage Prom Dresses Online | Vintage Prom Gowns",
+      "head_title" : "Vintage Prom Dresses Online | Vintage Prom Gowns"
+   },
+   ".accessories.jewelry" : {
+      "meta_description" : "We offer a large selection of earrings, bracelets and rings to accessorize your dress.  ",
+      "page_title" : "Jewelery | Earrings | Rings | Bracelets",
+      "head_title" : "Jewelery | Earrings | Rings | Bracelets"
+   },
    "$scala_2011" : {},
-   ".evening.designers.la_femme" : {},
+   ".evening.designers.la_femme" : {
+      "meta_description" : "Shop for your La Femme formal designer evening gown!",
+      "page_title" : "La Femme Evening Gowns | La Femme Evening Dresses",
+      "head_title" : "La Femme Evening Gowns | La Femme Evening Dresses"
+   },
    ".shop_by_designer.johnathan_kayne" : {
       "meta_keywords" : "",
       "meta_description" : "Click here for Authentic Jonathan Kayne Prom and Pageant Dresses.  Returns accepted!",
       "page_title" : "Jonathan Kayne Prom Dresses | Jonathan Kayne Pageant Dresses",
       "head_title" : "Jonathan Kayne Prom Dresses | Jonathan Kayne Pageant Dresses",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"11\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Johnathan Kayne</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31</TD>\n<TD>32</TD>\n<TD>33</TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38.5</TD>\n<TD>40</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30.5</TD>\n<TD>32</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41</TD>\n<TD>42.5</TD>\n<TD>44</TD></TR></TABLE></center>"
+      "description" : ""
    },
    ".sitenews" : {
       "meta_keywords" : "Onlineformals.com, Site, News, Press, Release",
@@ -414,7 +617,11 @@
       "head_title" : "Shipping",
       "description" : "<b><h2>Shipping Information</b></h2><p>\n\n<b><h3><u>Domestic Shipping Transit Times</h3></b></u><br>\n\n<b>Free Shipping Promotion</b> - Valid on orders over $200.  All <b><i>in stock</b></i> merchandise will ship the following business day and be sent either Fed Ex Home Delivery or UPS Ground.  Transit times vary by state.<p>\nMerchandise that is not in stock at our physical store location, but in stock at the manufacturer's warehouse will be ordered.  Upon receipt (generally 3-5 business days) your order will promptly ship. <p>\n\n<b>Fed Ex Home Delivery or UPS Ground Services</b> (10-14 Days)- Transit times could be quicker depending upon stock availability and destination zip code.<p>\n\n<b>Upgraded Shipping</b> (6-10 Days) *Could be quicker based on destination zip code.<p>\n\n<b>Expedited Shipping</b> (2-4 Days) <p>\n\n<b><h3><u>International Shipping Transit Times</h3></b></u><br>\n\n<b>Fed Ex International Economy</b> - (5-10 Days)<p>\n\n<b>Fed Ex International Priority </b> - (2-8 Days)\n\nPlease contact us at info@onlineformals.com or by phone at 888-280-4179 with any questions.\n\n"
    },
-   ".prom.designers.sherri_hill" : {},
+   ".prom.designers.sherri_hill" : {
+      "meta_description" : "Shop for your long or short Sherri Hill designer prom dress! ",
+      "page_title" : "Sherri Hill Prom Dresses Online | Sherri Hill Prom Gowns",
+      "head_title" : "Sherri Hill Prom Dresses Online | Sherri Hill Prom Gowns"
+   },
    ".shop_by_designer.night_moves" : {
       "meta_keywords" : "",
       "meta_description" : "Click here for Authentic Night Moves Prom Dresses at the Lowest Prices! Returns Accepted!  Free Shipping!",
@@ -422,7 +629,7 @@
       "head_title" : "Night Moves Prom Dresses",
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=LIST%3A%24night_moves_prom_2008&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
       "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"18\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Night Moves</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD>\n<TD>26</TD>\n<TD>28</TD>\n<TD>30</TD>\n<TD>32</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31</TD>\n<TD>32</TD>\n<TD>33</TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36.5</TD>\n<TD>38</TD>\n<TD>39.5</TD>\n<TD>41</TD>\n<TD>42.5</TD>\n<TD>44.5</TD>\n<TD>46.5</TD>\n<TD>48.5</TD>\n<TD>50.5</TD>\n<TD>53.5</TD>\n<TD>56.5</TD>\n<TD>59.5</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>22.5</TD>\n<TD>23.5</TD>\n<TD>24.5</TD>\n<TD>25.5</TD>\n<TD>26.5</TD>\n<TD>28</TD>\n<TD>30</TD>\n<TD>31.5</TD>\n<TD>33</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>38.5</TD>\n<TD>40.5</TD>\n<TD>43.5</TD>\n<TD>46.5</TD>\n<TD>49.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>41.5</TD>\n<TD>43</TD>\n<TD>44.5</TD>\n<TD>46</TD>\n<TD>47.5</TD>\n<TD>49.5</TD>\n<TD>51.5</TD>\n<TD>53.5</TD>\n<TD>56.5</TD>\n<TD>59.5</TD>\n<TD>62.5</TD></TR></TABLE></center>"
+      "description" : ""
    },
    ".9c" : {
       "meta_keywords" : "",
@@ -461,18 +668,23 @@
       "a23" : "If you would like to place an item on layaway we require an initial 50% deposit at the time of order.  The remaining balance will be due at the time of shipment.<br>\n\n\nLayaway items will be stored for a period of no more than 90 days.  Should you fail to make final payment during that time your deposit will be forfeited. <p>",
       "head2" : "<b> SHIPPING/RETURN POLICIES/LOW PRICE GUARANTEE</b>"
    },
-   ".shop_by_category.sherri_hill_fall_collection" : {
-      "of10_banner_topwide1" : "ALT=&IMG=&LINK=",
-      "meta_description" : "Click Here for your Authentic Sherri Hill Dress from the All New Sherri Hill Fall Collection.",
-      "page_title" : "Sherri Hill Fall Collection",
-      "head_title" : "Sherri Hill Fall Collection",
-      "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=LIST%3A%24homecoming_2013&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Sherri Hill</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>00</TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31.5</TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>39</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>44</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>33.5</TD>\n<TD>35.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>43.5</TD>\n<TD>45</TD>\n<TD>47</TD></TR></TABLE></center>\n<p>\n"
-   },
    "$mac_duggal_couture_2011" : {},
-   ".plus_size.designers.faviana" : {},
+   ".plus_size.designers.faviana" : {
+      "meta_description" : "Shop for your Faviana formal designer plus size dress!",
+      "page_title" : "Faviana Plus Size Dresses | Faviana Womens Size Dresses",
+      "head_title" : "Faviana Plus Size Dresses | Faviana Womens Size Dresses"
+   },
+   ".cocktail.homecoming" : {
+      "meta_description" : "Shop for your 2014 short cocktail Homecoming dress by top designers, including Sherri Hill, La Femme, Scala and Shail K.",
+      "page_title" : "2014 Homecoming Dresses | Short Homecoming Dresses",
+      "head_title" : "2014 Homecoming Dresses | Short Homecoming Dresses"
+   },
    ".accessories.under_the_dress.shapewear" : {},
-   ".plus_size.styles.mermaid" : {},
+   ".plus_size.styles.mermaid" : {
+      "meta_description" : "Shop for your mermaid style formal designer plus size gown!",
+      "page_title" : "Mermaid Plus Size Dresses and Gowns",
+      "head_title" : "Mermaid Plus Size Dresses and Gowns"
+   },
    "$faviana_glamour" : {},
    ".shop_by_designer.paris_by_tony_bowls" : {
       "meta_keywords" : "",
@@ -480,9 +692,13 @@
       "page_title" : "Tony Bowls Paris Dresses",
       "head_title" : "Tony Bowls Paris Dresses",
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"14\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Paris</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31</TD>\n<TD>32</TD>\n<TD>33</TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>22</TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29.5</TD>\n<TD>31</TD>\n<TD>33</TD>\n<TD>35.5</TD>\n<TD>38</TD>\n<TD>40.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41.5</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD></TR></TABLE></center>"
+      "description" : ""
    },
-   ".prom.designers.night_moves" : {},
+   ".prom.designers.night_moves" : {
+      "meta_description" : "Shop for your long or short Night Moves designer prom dress! ",
+      "page_title" : "Night Moves Prom Dresses Online | Night Moves Prom Gowns",
+      "head_title" : "Night Moves Prom Dresses Online | Night Moves Prom Gowns"
+   },
    "$night_moves_2011" : {},
    ".shop_by_category.specials___clearance" : {
       "meta_keywords" : "Sale, Clearance, Special, Discount, Onlineformals",
@@ -501,58 +717,146 @@
       "page_title" : "Tony Bowls Evenings ",
       "head_title" : "Tony Bowls Evenings",
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Tony Bowls</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31</TD>\n<TD>32</TD>\n<TD>33</TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>22</TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29.5</TD>\n<TD>31</TD>\n<TD>33</TD>\n<TD>35.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41.5</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD></TR></TABLE></center>"
+      "description" : ""
    },
    "*cart" : {},
-   ".bridal" : {},
-   ".prom.designers.la_femme" : {},
-   ".designers.mnm_couture" : {},
+   ".bridal" : {
+      "meta_description" : "Shop for your affordable destination bridal gown by designers La Femme, Mignon and Sherri Hill.",
+      "page_title" : "Destination Bridal Gowns | Wedding Dresses",
+      "head_title" : "Destination Bridal Gowns | Wedding Dresses"
+   },
+   ".prom.designers.la_femme" : {
+      "meta_description" : "Shop for your long or short La Femme designer prom dress! ",
+      "page_title" : "La Femme Prom Dresses Online | La Femme Prom Gowns",
+      "head_title" : "La Femme Prom Dresses Online | La Femme Prom Gowns"
+   },
+   ".designers.mnm_couture" : {
+      "meta_description" : "Shop for your short or long MNM Couture formal designer dress!",
+      "page_title" : "MNM Couture Dresses Online | MNM Couture Gowns",
+      "head_title" : "MNM Couture Dresses Online | MNM Couture Gowns"
+   },
    "$gigi_2014" : {},
    ".9.touch_ups" : {
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
       "prodlist_custom" : "&SORTBY=SKU_DESC&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&"
    },
-   ".accessories.shoes" : {},
+   ".accessories.shoes" : {
+      "meta_description" : "Shop for your Benjamin Walk Touch Ups and Coloriffics shoes at affordable prices.  ",
+      "page_title" : "Shoes | Benjamin Walk | Touch Ups | Coloriffics",
+      "head_title" : "Shoes | Benjamin Walk | Touch Ups | Coloriffics"
+   },
    "$app_best_sellers" : {},
-   ".cocktail.designers.shail_k" : {},
+   ".cocktail.designers.shail_k" : {
+      "meta_description" : "Shop for your short Shail K beaded designer cocktail dress!",
+      "page_title" : "Shail K Cocktail Dresses | Shail K Beaded Short Dresses",
+      "head_title" : "Shail K Cocktail Dresses | Shail K Beaded Short Dresses"
+   },
    "$gigi_2012" : {},
-   ".cocktail.designers.sherri_hill" : {},
-   ".evening.designers.mnm_couture" : {},
+   ".cocktail.designers.sherri_hill" : {
+      "meta_description" : "Shop for your short Sherri Hill designer cocktail dress!",
+      "page_title" : "Sherri Hill Cocktail Dresses | Sherri Hill Short Dresses",
+      "head_title" : "Sherri Hill Cocktail Dresses | Sherri Hill Short Dresses"
+   },
+   ".evening.designers.mnm_couture" : {
+      "meta_description" : "Shop for your MNM Couture formal designer evening gown!",
+      "page_title" : "MNM Couture Evening Gowns | MNM Couture Dresses",
+      "head_title" : "MNM Couture Evening Gowns | MNM Couture Dresses"
+   },
    "$favianacelebritygowns" : {},
-   ".prom.designers.tony_bowls" : {},
-   ".plus_size.designers" : {},
-   ".designers.mac_duggal" : {},
-   ".plus_size.styles.empire" : {},
-   ".prom.styles.high_low" : {},
-   ".designers.faviana" : {},
+   ".prom.designers.tony_bowls" : {
+      "meta_description" : "Shop for your long or short Tony Bowls designer prom dress! ",
+      "page_title" : "Tony Bowls Prom Dresses Online | Tony Bowls Prom Gowns",
+      "head_title" : "Tony Bowls Prom Dresses Online | Tony Bowls Prom Gowns"
+   },
+   ".plus_size.designers" : {
+      "meta_description" : "Shop by designer for your plus size formal dress from Fabulouss, Night Moves and Faviana!",
+      "page_title" : "Plus Size Formal Designer Dresses | Plus Size Gowns",
+      "head_title" : "Plus Size Formal Designer Dresses | Plus Size Gowns"
+   },
+   ".designers.mac_duggal" : {
+      "meta_description" : "Shop for your short or long Mac Duggal formal designer dress!",
+      "page_title" : "Mac Duggal Dresses Online | Mac Duggal Gowns",
+      "head_title" : "Mac Duggal Dresses Online | Mac Duggal Gowns"
+   },
+   ".plus_size.styles.empire" : {
+      "meta_description" : "Shop for your empire waist formal designer plus size gown!",
+      "page_title" : "Empire Waist Plus Size Dresses and Gowns",
+      "head_title" : "Empire Waist Plus Size Dresses and Gowns"
+   },
+   ".prom.styles.high_low" : {
+      "meta_description" : "Shop for your high-low prom dress from designers Sherri Hill, La Femme, Tony Bowls and more!",
+      "page_title" : "High Low Prom Dresses Online | Hi Low Prom Gowns",
+      "head_title" : "High Low Prom Dresses Online | Hi Low Prom Gowns"
+   },
+   ".designers.faviana" : {
+      "meta_description" : "Shop for your short or long Faviana formal designer dress!",
+      "page_title" : "Faviana Dresses Online | Faviana Gowns",
+      "head_title" : "Faviana Dresses Online | Faviana Gowns"
+   },
    "$la_femme_2012" : {},
    "$cassandra_stone_2013" : {},
-   ".prom.styles" : {},
-   ".cocktail.designers.johnathan_kayne" : {},
-   ".evening.designers" : {},
-   ".prom.designers.faviana" : {},
+   ".prom.styles" : {
+      "meta_description" : "Shop by styles such as mermaid, ballgown or empire for your formal long or short prom gown!",
+      "page_title" : "Prom Dresses by Style | Formal Prom Gowns",
+      "head_title" : "Prom Dresses by Style | Formal Prom Gowns"
+   },
+   ".cocktail.designers.johnathan_kayne" : {
+      "meta_description" : "Shop for your short Johnathan Kayne designer cocktail dress!",
+      "page_title" : "Johnathan Kayne Short Cocktail Dresses ",
+      "head_title" : "Johnathan Kayne Short Cocktail Dresses "
+   },
+   ".evening.designers" : {
+      "meta_description" : "Shop by designer for your formal evening gown or couture dress from designers Sherri Hill, Tony Bowls, La Femme and more!",
+      "page_title" : "Designer Evening Gowns | Designer Evening Dresses",
+      "head_title" : "Designer Evening Gowns | Designer Evening Dresses"
+   },
+   ".prom.designers.faviana" : {
+      "meta_description" : "Shop for your long or short Faviana designer prom gown!",
+      "page_title" : "Faviana Prom Dresses Online | Faviana Prom Gowns",
+      "head_title" : "Faviana Prom Dresses Online | Faviana Prom Gowns"
+   },
    ".shop_by_designer.lm_collection" : {
       "meta_keywords" : "LM, Collection, Mignon, Dresses, Formal, Evening, Gowns",
       "meta_description" : "Click here for Authentic LM Collection Dresses at the Lowest Prices! Returns Accepted!",
       "page_title" : "LM Collection Dresses",
       "head_title" : "LM Collection Dresses",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"11\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>LM Collection</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31.5</TD>\n<TD>32.5</TD>\n<TD>33</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>41.5</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>25.5</TD>\n<TD>26.5</TD>\n<TD>27.5</TD>\n<TD>28.5</TD>\n<TD>29.5</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>33.5</TD>\n<TD>35</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>43.5</TD>\n<TD>45</TD></TR></TABLE></center>"
+      "description" : ""
    },
    ".shop_by_category" : {},
    "$mnm_couture" : {},
-   ".designers.bg_haute" : {},
-   ".designers.johnathan_kayne" : {},
+   ".designers.bg_haute" : {
+      "meta_description" : "Shop for your long or short BG Haute formal designer dress!",
+      "page_title" : "BG Haute Dresses Online | BG Haute Gowns",
+      "head_title" : "BG Haute Dresses Online | BG Haute Gowns"
+   },
+   ".designers.johnathan_kayne" : {
+      "meta_description" : "Shop for your short or long Johnathan Kayne formal designer dress!",
+      "page_title" : "Johnathan Kayne Dresses Online | Johnathan Kayne Gowns",
+      "head_title" : "Johnathan Kayne Dresses Online | Johnathan Kayne Gowns"
+   },
    ".shop_by_designer.mac_duggal_ballgowns" : {
       "meta_keywords" : "",
       "meta_description" : "Click here for Authentic Mac Duggal Ballgowns at the Lowest Prices! Returns Accepted!  Free Shipping!",
       "page_title" : "Mac Duggal Ballgowns",
       "head_title" : "Mac Duggal Ballgowns ",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Mac Duggal</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>45</TD>\n<TD>48</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24.5</TD>\n<TD>25.5</TD>\n<TD>26.5</TD>\n<TD>27.5</TD>\n<TD>28.5</TD>\n<TD>29.5</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>37</TD>\n<TD>40</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41</TD>\n<TD>42.5</TD>\n<TD>44.5</TD>\n<TD>47.5</TD>\n<TD>50.5</TD></TR></TABLE></center>"
+      "description" : ""
    },
    "$homecoming_short_2013" : {},
-   ".prom.styles.short" : {},
-   ".designers.lm_collection" : {},
-   ".designers.la_femme" : {},
+   ".prom.styles.short" : {
+      "meta_description" : "Shop for your short prom dress from designers Sherri Hill, La Femme, Scala, Shail K and more! ",
+      "page_title" : "Short Prom Dresses Online | Short Prom Gowns",
+      "head_title" : "Short Prom Dresses Online | Short Prom Gowns"
+   },
+   ".designers.lm_collection" : {
+      "meta_description" : "Shop for your short or long LM Collection formal designer dress!",
+      "page_title" : "LM Collection Dresses Online | LM Collection Gowns",
+      "head_title" : "LM Collection Dresses Online | LM Collection Gowns"
+   },
+   ".designers.la_femme" : {
+      "meta_description" : "Shop for your short or long La Femme formal designer dress!",
+      "page_title" : "La Femme Dresses Online | La Femme Gowns",
+      "head_title" : "La Femme Dresses Online | La Femme Gowns"
+   },
    ".9" : {
       "meta_keywords" : "Alisha Hill, Shoes, Prom 2007, Footwear, Heels, Shoe, Touch Ups, Benjamin Walk, Prom, Prom Shoes, Prom 2005 Shoes, Heels, Pumps, Blinking, Light Up",
       "meta_description" : "",
@@ -569,17 +873,37 @@
       "prodlist" : "&SORTBY=NAME&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
       "picture" : "touch_ups_2006_prom_shoes/693foot"
    },
-   ".cocktail.designers.la_femme" : {},
+   ".cocktail.designers.la_femme" : {
+      "meta_description" : "Shop for your short La Femme designer cocktail dress!",
+      "page_title" : "La Femme Cocktail Dresses | La Femme Short Dresses",
+      "head_title" : "La Femme Cocktail Dresses | La Femme Short Dresses"
+   },
    "$temptation_2013" : {},
    "$sherri_hill_2012" : {},
-   ".designers.le_gala" : {},
+   ".designers.le_gala" : {
+      "meta_description" : "Shop for your short or long Le Gala by Tony Bowls formal designer dress!",
+      "page_title" : "Le Gala Dresses Online | Le Gala Gowns",
+      "head_title" : "Le Gala Dresses Online | Le Gala Gowns"
+   },
    "$app_new_to_sale" : {},
    "$terani_couture_2012" : {},
-   ".prom.trends.beads" : {},
-   ".plus_size.designers.night_moves" : {},
+   ".prom.trends.beads" : {
+      "meta_description" : "Shop for your beaded prom dress from designers Sherri Hill, La Femme, Tony Bowls, Scala and more!  ",
+      "page_title" : "Beaded Prom Dresses Online | Beaded Prom Gowns",
+      "head_title" : "Beaded Prom Dresses Online | Beaded Prom Gowns"
+   },
+   ".plus_size.designers.night_moves" : {
+      "meta_description" : "Shop for your Night Moves formal designer plus size gown!",
+      "page_title" : "Night Moves Plus Size Dresses | Night Moves Womens Dresses",
+      "head_title" : "Night Moves Plus Size Dresses | Night Moves Womens Dresses"
+   },
    "$faviana_2012" : {},
    "$macduggal2014" : {},
-   ".designers.scala" : {},
+   ".designers.scala" : {
+      "meta_description" : "Shop for your short or long Scala formal designer dress!",
+      "page_title" : "Scala Dresses Online | Scala Formal Gowns",
+      "head_title" : "Scala Dresses Online | Scala Formal Gowns"
+   },
    ".5" : {
       "meta_keywords" : "",
       "picture1cfg" : "H=200,W=102",
@@ -595,10 +919,10 @@
       "meta_description" : "Click here for your Authentic 2014 Prom Dress.  We are an Authorized Retailer.  Free Shipping!  Returns Accepted! ",
       "link1" : "",
       "picture3" : "",
-      "description" : "<h2>Prom 2014 dresses being added daily.  Stay tuned for our new and improved website experience and new showroom.</h2>\n<p>\n<h3><u><b>To View the Entire 2014 Prom Collection</b></h3></u><br>\n- Select 100 items per page or VIEW ALL from the Sort Order Drop Down Menu.  You may also Shop by Designer on the left navigation bar.<p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "description" : "<h2><a href=\"http://app.onlineformals.com/category/prom/\"><u>CLICK HERE</a></u> to view the 2014 Prom Collection on our new website for an enhanced navigation experience <b>PLUS</b> great promotions.  Check it out today!</h2><p>\n\n\n<b><u><b>To View the Prom Collection on this site</b></b></h2></u><p>\n- Select 100 items per page or VIEW ALL from the Sort Order Drop Down Menu.  You may also Shop by Designer on the left navigation bar.<p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
       "of10_banner_topright2" : "ALT=Sherri+Hill+Prom+2013+Dresses&IMG=banners_for_cart%2fofc_wb_sherri_hill_pip_tmd_1%2epng&LINK=http%3a%2f%2fwww%2eonlineformals%2ecom%2fcategory%2f5%2eshop_by_designer%2esherri_hill%2f",
       "description3" : "",
-      "of10_banner_topwide1" : "ALT=&IMG=&LINK=",
+      "of10_banner_topwide1" : "ALT=Prom+2014+Promotion&IMG=2%2f14_002_01_prom_package_940wx350h_fnl%2epng&LINK=",
       "of10_banner_topright3" : "ALT=&IMG=banners_for_cart%2fofc_prom_2013_rd6%2epng&LINK=",
       "header1" : "Best Prom Picks for 2012",
       "title" : "<font color = ff11dd> <h2><font face = \"charlesworth\">Prom Collection</font></h2></font>  ",
@@ -617,30 +941,59 @@
       "head_title" : "Prom 2014 Dresses | Prom 2014 Gowns",
       "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
    },
-   ".prom.designers.le_gala" : {},
+   ".prom.designers.le_gala" : {
+      "meta_description" : "Shop for your long or short Le Gala by Tony Bowls designer prom dress! ",
+      "page_title" : "Le Gala Prom Dresses Online | Le Gala Prom Gowns",
+      "head_title" : "Le Gala Prom Dresses Online | Le Gala Prom Gowns"
+   },
    "$homecoming_2013" : {},
    "$night_moves_plus_size" : {},
-   ".prom.designers.scala" : {},
-   ".designers.cassandra_stone" : {},
-   ".plus_size.styles.short" : {},
+   ".prom.designers.scala" : {
+      "meta_description" : "Shop for your long or short Scala designer prom dress! ",
+      "page_title" : "Scala Prom Dresses Online | Scala Prom Gowns",
+      "head_title" : "Scala Prom Dresses Online | Scala Prom Gowns"
+   },
+   ".designers.cassandra_stone" : {
+      "meta_description" : "Shop for your short or long Cassandra Stone by Mac Duggal formal designer dress!",
+      "page_title" : "Cassandra Stone Dresses Online | Cassandra Stone Gowns",
+      "head_title" : "Cassandra Stone Dresses Online | Cassandra Stone Gowns"
+   },
+   ".plus_size.styles.short" : {
+      "meta_description" : "Shop for your short cocktail formal designer plus size dress!",
+      "page_title" : "Short Plus Size Dresses | Plus Size Cocktail Dresses",
+      "head_title" : "Short Plus Size Dresses | Plus Size Cocktail Dresses"
+   },
    ".shop_accessories.jewelry" : {
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&"
    },
    "$dancing_with_the_stars_2011" : {},
    ".accessories.under_the_dress.bra_cups" : {},
-   ".designers.paris" : {},
+   ".designers.paris" : {
+      "meta_description" : "Shop for your short or long Paris by Tony Bowls formal designer dress!",
+      "page_title" : "Paris Dresses Online | Paris Formal Gowns",
+      "head_title" : "Paris Dresses Online | Paris Formal Gowns"
+   },
+   "$blankforv" : {},
    "$app_featured_products" : {},
    "$quick_ship" : {},
-   ".pageant.designers" : {},
+   ".pageant.designers" : {
+      "meta_description" : "Shop by designer for your pageant dress from Sherri Hill, Tony Bowls, Johnathan Kayne and more!",
+      "page_title" : "Designer Pageant Dresses | Designer Pageant Gowns",
+      "head_title" : "Designer Pageant Dresses | Designer Pageant Gowns"
+   },
    ".accessories.shoes.coloriffics" : {},
    ".shop_by_designer.night_moves_plus_size" : {
       "meta_keywords" : "",
       "meta_description" : "Click here for Authentic Night Moves Plus Size Dresses at the Lowest Prices! Returns Accepted!  Free Shipping!",
       "page_title" : "Night Moves Plus Size Dresses",
       "head_title" : "Night Moves Plus Size Dresses",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"11\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Night Moves Plus Size</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>14W</TD>\n<TD>16W</TD>\n<TD>18W</TD>\n<TD>20W</TD>\n<TD>22W</TD>\n<TD>24W</TD>\n<TD>26W</TD>\n<TD>28W</TD>\n<TD>30W</TD>\n<TD>32W</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD>\n<TD>53</TD>\n<TD>55</TD>\n<TD>57</TD>\n<TD>59</TD>\n<TD>62</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>36</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>49</TD>\n<TD>52</TD>\n<TD>55</TD>\n<TD>57</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD>\n<TD>54</TD>\n<TD>56</TD>\n<TD>58</TD>\n<TD>61</TD>\n<TD>64</TD>\n<TD>67</TD></TR></TABLE></center>\n"
+      "description" : "\n"
    },
-   ".pageant.designers.tony_bowls" : {},
+   ".pageant.designers.tony_bowls" : {
+      "meta_description" : "Shop for your Tony Bowls formal designer pageant gown!",
+      "page_title" : "Tony Bowls Pageant Gowns | Tony Bowls Pageant Dresses",
+      "head_title" : "Tony Bowls Pageant Gowns | Tony Bowls Pageant Dresses"
+   },
    ".shop_by_designer.scala" : {
       "meta_keywords" : "",
       "meta_description" : "Click here for Authentic Scala Prom Dresses and Scala Cocktail Dresses.  Lowest Prices! Free Shipping! Returns Accepted!",
@@ -648,20 +1001,44 @@
       "head_title" : "Scala Prom Dresses | Scala Cocktail Dresses",
       "prodlist" : "&SORTBY=NAME&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
       "prodlist_custom" : "&SORTBY=SKU_DESC&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"10\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Scala</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>39</TD>\n<TD>40.5</TD>\n<TD>42</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>25</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30.5</TD>\n<TD>32</TD>\n<TD>33.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>42</TD>\n<TD>43.5</TD>\n<TD>45</TD></TR></TABLE></center>\n\n\n"
+      "description" : ""
    },
    "$giftcardofferlist" : {},
-   ".cocktail.designers.faviana" : {},
+   ".cocktail.designers.faviana" : {
+      "meta_description" : "Shop for your short Faviana cocktail dress!",
+      "page_title" : "Faviana Cocktail Dresses | Faviana Short Dresses",
+      "head_title" : "Faviana Cocktail Dresses | Faviana Short Dresses"
+   },
    ".shop-by-price" : {},
-   ".prom.trends.sequins" : {},
+   ".prom.trends.sequins" : {
+      "meta_description" : "Shop for your sequin prom dress from designers Sherri Hill, La Femme, Scala, Tony Bowls and more!  ",
+      "page_title" : "Sequin Prom Dresses Online | Sequin Prom Gowns",
+      "head_title" : "Sequin Prom Dresses Online | Sequin Prom Gowns"
+   },
    "$celebrity_gowns" : {},
    "$la_femme_evening_2013" : {},
-   ".in_stock" : {},
-   ".designers" : {},
+   ".in_stock" : {
+      "meta_description" : "We have a large selection of in stock gowns available for immediate shipping worldwide.  ",
+      "page_title" : "In Stock Formal Dresses | Sale Dresses",
+      "head_title" : "In Stock Formal Dresses | Sale Dresses"
+   },
+   ".designers" : {
+      "meta_description" : "Shop for the perfect prom, cocktail or homecoming dress by the industries' best designers to include Sherri Hill, La Femme, Tony Bowls and many more.",
+      "page_title" : "Designer Dresses | Designer Gowns",
+      "head_title" : "Designer Dresses | Designer Gowns"
+   },
    "$atr_list" : {},
    "$blank_list_for_best_sellers" : {},
-   ".evening.designers.scala" : {},
-   ".prom.designers.cassandra_stone" : {},
+   ".evening.designers.scala" : {
+      "meta_description" : "Shop for your Scala formal designer evening gown!",
+      "page_title" : "Scala Evening Gowns | Scala Evening Dresses",
+      "head_title" : "Scala Evening Gowns | Scala Evening Dresses"
+   },
+   ".prom.designers.cassandra_stone" : {
+      "meta_description" : "Shop for your long or short Cassandra Stone by Mac Duggal designer prom gown!",
+      "page_title" : "Cassandra Stone Prom Dresses Online",
+      "head_title" : "Cassandra Stone Prom Dresses Online"
+   },
    "$mac_duggal_couture_2013" : {},
    ".shop_accessories.shoes_by_touch_ups" : {
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
@@ -671,7 +1048,11 @@
    "$lm_collection_2012" : {},
    "$in_stock" : {},
    "$fabulouss_2011" : {},
-   ".prom.styles.mermaid" : {},
+   ".prom.styles.mermaid" : {
+      "meta_description" : "Shop for your mermaid style prom dress from designers Sherri Hill, La Femme, Tony Bowls, Mac Duggal and more!",
+      "page_title" : "Mermaid Prom Dresses Online | Mermaid Prom Gowns Online",
+      "head_title" : "Mermaid Prom Dresses Online | Mermaid Prom Gowns Online"
+   },
    "$under_your_dress" : {},
    ".shop_by_category.cocktail___party_dresses" : {
       "of10_banner_topwide1" : "ALT=&IMG=&LINK=",
@@ -685,11 +1066,15 @@
       "meta_description" : "Click here for Authentic La Femme Evening Dresses.  Returns Accepted!",
       "page_title" : "La Femme Evening Dresses",
       "head_title" : "La Femme Evening Dresses",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"15\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>La Femme</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>00</TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32</TD>\n<TD>33</TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>36</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD>\n<TD>53</TD>\n<TD>55</TD></TR></TABLE></center>"
+      "description" : ""
    },
    "$gigi_2013" : {},
    "undefined" : {},
-   ".evening.designers.mac_duggal" : {},
+   ".evening.designers.mac_duggal" : {
+      "meta_description" : "Shop for your Mac Duggal formal designer evening couture gown!",
+      "page_title" : "Mac Duggal Evening Gowns | Mac Duggal Couture Dresses",
+      "head_title" : "Mac Duggal Evening Gowns | Mac Duggal Couture Dresses"
+   },
    ".shop_accessories.shoes_by_coloriffics" : {
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
       "description" : "\n\n\n\n"
@@ -708,7 +1093,7 @@
       "meta_description" : "Savings and Promotions at Onlineformals.  Get your coupon code here.",
       "page_title" : "Onlineformals.com Coupon Codes",
       "head_title" : "Onlineformals.com Coupon Codes",
-      "description" : "<table width='100%'>\n<tr>\n<td valign='top'>\n<!-- put your content under this line -->\n\nDomestic orders over $200 and International orders over $400 will receive FREE shipping plus a garment bag. No coupon code needed.  \n<p>\n<b>Want the Total Package?</b>  Purchase any dress over $300 in our <a href=\"http://www.onlineformals.com/category/shop_by_category.in_stock___quick_ship/\">In-Stock Section</a> and receive a <b>$50 credit</b> toward the shoes of your choice.  If we don't have the dress of your dreams in stock, we'll order it from the designer and give you a <b>$30 credit</b> toward shoes.<p>  \n\nIn addition to the shoe credit, you will also receive a <b>FREE jewelry item</b> and <b>garment bag</b>!  Just enter the code <b>PROM13</b> in the coupon code area at checkout and your shoe credit will be applied and your free items will be included with your order.  \n<p>\n\nNeed some nail polish to go with your dress?  How about some fresh new music to listen to while you get ready for your dance?  Purchase any dress over $350 and receive a $20 gift card from your choice of two premium retailers: Amazon or Target!  Use promo codes <b>AMAZON or TARGET</b> to receive the card with your order.  This offer cannot be combined with any other offers. \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<!-- put your content above this line -->\n</td>\n<td valign='top'>\n\n<form action=\"%SUBSCRIBE_URL%\" method=\"post\" style=\"margin:0px;\">\n<input type=\"hidden\" name=\"check\" value=\"1\">\n<table cellspacing=\"3\" cellpadding=\"0\" border=\"0\">\n<tr>\n\t<td align='left' NOWRAP><span class=\"zsmall\">Email Address:</span></td>\n\t<td align=\"right\"><input type=\"text\" class=\"zform_textbox\" maxlength=\"50\" name=\"email\" value=\"\"></td>\n</tr>\n<tr>\n\t<td align='left'><span class=\"zsmall\">Full Name:</span></td>\n\t<td align=\"right\"><input type=\"text\" class=\"zform_textbox\" maxlength=\"50\" name=\"fullname\" value=\"\"></td>\n</tr>\n<tr>\n\t<td colspan=\"2\"><input type=\"submit\" class=\"zform_button\" value=\"Subscribe\"></td>\n</tr>\n</table>\n</form>\n\n</td>\n</tr>\n</table>"
+      "description" : "<table width='100%'>\n<tr>\n<td valign='top'>\n<!-- put your content under this line -->\n\n<b>Free Shipping</b> for Domestic orders over $200 and International orders over $400. <br>\nNo code needed.<p>\n\n<h3><font color = gray>Total Prom Package</h3></font><br>\nPurchase any dress over $400 and we'll send a garment bag, jewelry item and a $25 gift card from Target or Amazon to accessorize your look!<br>\nCODE: PROM2014<p>\nPlease specify which card you would like in the order notes at checkout.<p>\n\n<h3><font color = gray>In Stock Promotion</h3></font><br>\nReceive a $25 Amazon Gift Card with any In Stock purchase over $350.<br>\nCODE: INSTOCK<p>\n\n<b>Coupon Codes can't be combined.</b>\n\n<!-- put your content above this line -->\n</td>\n<td valign='top'>\n\n<form action=\"%SUBSCRIBE_URL%\" method=\"post\" style=\"margin:0px;\">\n<input type=\"hidden\" name=\"check\" value=\"1\">\n<table cellspacing=\"3\" cellpadding=\"0\" border=\"0\">\n<tr>\n\t<td align='left' NOWRAP><span class=\"zsmall\">Email Address:</span></td>\n\t<td align=\"right\"><input type=\"text\" class=\"zform_textbox\" maxlength=\"50\" name=\"email\" value=\"\"></td>\n</tr>\n<tr>\n\t<td align='left'><span class=\"zsmall\">Full Name:</span></td>\n\t<td align=\"right\"><input type=\"text\" class=\"zform_textbox\" maxlength=\"50\" name=\"fullname\" value=\"\"></td>\n</tr>\n<tr>\n\t<td colspan=\"2\"><input type=\"submit\" class=\"zform_button\" value=\"Subscribe\"></td>\n</tr>\n</table>\n</form>\n\n</td>\n</tr>\n</table>"
    },
    "$terani_2013" : {},
    ".shop_by_designer.mac_duggal_flash" : {},
@@ -718,10 +1103,14 @@
       "meta_description" : "Click here for Authentic Faviana Plus Size Dresses at the Lowest Prices!",
       "page_title" : "Faviana Plus Size Dresses",
       "head_title" : "Faviana Plus Size Dresses",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"12\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Faviana Extra Size</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>18E</TD>\n<TD>20E</TD>\n<TD>22E</TD>\n<TD>24E</TD>\n<TD>12W</TD>\n<TD>14W</TD>\n<TD>16W</TD>\n<TD>18W</TD>\n<TD>20W</TD>\n<TD>22W</TD>\n<TD>24W</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>43</TD>\n<TD>44.5</TD>\n<TD>46</TD>\n<TD>47.5</TD>\n<TD>49.5</TD>\n<TD>51.5</TD>\n<TD>53.5</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>33.5</TD>\n<TD>35.5</TD>\n<TD>37.5</TD>\n<TD>39.5</TD>\n<TD>36.5</TD>\n<TD>38</TD>\n<TD>39.5</TD>\n<TD>41</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD>\n<TD>47.5</TD>\n<TD>49</TD>\n<TD>50.5</TD>\n<TD>52</TD>\n<TD>54</TD>\n<TD>56</TD>\n<TD>58</TD></TR></TABLE></center>"
+      "description" : ""
    },
    "$shop_accessories_shoes" : {},
-   ".plus_size.styles" : {},
+   ".plus_size.styles" : {
+      "meta_description" : "Shop by style for your formal plus size prom, evening or pageant dress from designers Fabulouss, Faviana or Night Moves!",
+      "page_title" : "Plus Size Formal Designer Dresses | Plus Size Gowns",
+      "head_title" : "Plus Size Formal Designer Dresses | Plus Size Gowns"
+   },
    ".shop-by-price.400-500" : {
       "meta_keywords" : "Shop, By, Price, Cheap, Sale, Discount, Less, Onlineformals",
       "meta_description" : "Shop by Price $400 - $500 at Onlineformals",
@@ -730,13 +1119,26 @@
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&",
       "description" : ""
    },
-   ".cocktail.designers.mac_duggal" : {},
+   ".cocktail.designers.mac_duggal" : {
+      "meta_description" : "Shop for your short Mac Duggal designer cocktail dress!",
+      "page_title" : "Mac Duggal Cocktail Dresses | Mac Duggal Short Dresses",
+      "head_title" : "Mac Duggal Cocktail Dresses | Mac Duggal Short Dresses"
+   },
    "." : {},
-   ".cocktail.designers.scala" : {},
-   ".pageant.designers.la_femme" : {},
-   ".designers.shail_k" : {},
-   ".shop_by_category.quinceanera" : {
-      "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=LIST%3A%24allure_quinceanera&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&"
+   ".cocktail.designers.scala" : {
+      "meta_description" : "Shop for your short beaded Scala designer cocktail dress!",
+      "page_title" : "Scala Cocktail Dresses | Scala Short Beaded Dresses ",
+      "head_title" : "Scala Cocktail Dresses | Scala Short Beaded Dresses "
+   },
+   ".pageant.designers.la_femme" : {
+      "meta_description" : "Shop for your La Femme formal designer pageant gown!",
+      "page_title" : "La Femme Pageant Gowns | La Femme Pageant Dresses",
+      "head_title" : "La Femme Pageant Gowns | La Femme Pageant Dresses"
+   },
+   ".designers.shail_k" : {
+      "meta_description" : "Shop for your short or long Shail K formal designer dress!",
+      "page_title" : "Shail K  Dresses Online | Shail K Formal Gowns",
+      "head_title" : "Shail K  Dresses Online | Shail K Formal Gowns"
    },
    "$homepage_bestsell" : {},
    ".shop_accessories.shoes_by_johnathan_kayne" : {
@@ -749,7 +1151,7 @@
       "page_title" : "Le Gala Dresses | Tony Bowls",
       "head_title" : "Le Gala Dresses | Tony Bowls",
       "prodlist" : "&SORTBY=NONE&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"14\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Le Gala</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>31</TD>\n<TD>32</TD>\n<TD>33</TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>22</TD>\n<TD>23</TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29.5</TD>\n<TD>31</TD>\n<TD>33</TD>\n<TD>35.5</TD>\n<TD>38</TD>\n<TD>40.5</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>34</TD>\n<TD>35</TD>\n<TD>36</TD>\n<TD>37</TD>\n<TD>38</TD>\n<TD>39</TD>\n<TD>40</TD>\n<TD>41.5</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD></TR></TABLE></center>\n\n"
+      "description" : ""
    },
    "$lm_2013" : {},
    ".shop_by_designer.jasz_couture" : {
@@ -759,11 +1161,19 @@
       "head_title" : "Jasz Couture Prom Dresses | Jasz Couture Prom Gowns",
       "prodlist" : "&SORTBY=SKU_DESC&FORMAT=BIGTHUMB&SRC=&ALTERNATE=1&COLS=3&SIZE=15&SHOWSKU=&SHOWPRICE=1&",
       "prodlist_custom" : "&SORTBY=NAME_DESC&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "<center>\n<TABLE width=\"100%\" border=0 cellpadding=\"7\" cellspacing=\"0\" >\n<TBODY>\n<TD colspan=\"15\" bgcolor=\"#E43799\"><center><font color=\"#ffffff\" size=\"3px\"><b>Jasz Couture</b></font></center></TD>\n</TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Size</b></TD>\n<TD>00</TD>\n<TD>0</TD>\n<TD>2</TD>\n<TD>4</TD>\n<TD>6</TD>\n<TD>8</TD>\n<TD>10</TD>\n<TD>12</TD>\n<TD>14</TD>\n<TD>16</TD>\n<TD>18</TD>\n<TD>20</TD>\n<TD>22</TD>\n<TD>24</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Bust</b></TD>\n<TD>32.5</TD>\n<TD>33.5</TD>\n<TD>34.5</TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37.5</TD>\n<TD>38.5</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD>\n<TD>46</TD>\n<TD>48</TD>\n<TD>50</TD>\n<TD>52</TD></TR>\n<TR bgcolor=\"#FAD7EB\">\n<TD><b>Waist</b></TD>\n<TD>24</TD>\n<TD>25</TD>\n<TD>26</TD>\n<TD>27</TD>\n<TD>28</TD>\n<TD>29</TD>\n<TD>30</TD>\n<TD>32</TD>\n<TD>34</TD>\n<TD>36</TD>\n<TD>38</TD>\n<TD>40</TD>\n<TD>42</TD>\n<TD>44</TD></TR>\n<TR bgcolor=\"#e1e1e1\">\n<TD><b>Hip</b></TD>\n<TD>35.5</TD>\n<TD>36.5</TD>\n<TD>37,5</TD>\n<TD>38.5</TD>\n<TD>39.5</TD>\n<TD>40.5</TD>\n<TD>41.5</TD>\n<TD>43</TD>\n<TD>45</TD>\n<TD>47</TD>\n<TD>49</TD>\n<TD>51</TD>\n<TD>53</TD>\n<TD>55</TD></TR></TABLE></center>"
+      "description" : ""
    },
    "$scala_2013" : {},
-   ".plus_size.designers.fabulouss" : {},
-   ".prom.styles.empire" : {},
+   ".plus_size.designers.fabulouss" : {
+      "meta_description" : "Shop for your Fabulouss formal designer plus size gown!",
+      "page_title" : "Fabulouss Plus Size Dresses | Fabulouss Plus Size Prom Gowns",
+      "head_title" : "Fabulouss Plus Size Dresses | Fabulouss Plus Size Prom Gowns"
+   },
+   ".prom.styles.empire" : {
+      "meta_description" : "Shop for your empire waist prom dress from designers Sherri Hill, La Femme, Tony Bowls and more! ",
+      "page_title" : "Empire Waist Prom Dresses Online | Empire Waist Prom Gowns",
+      "head_title" : "Empire Waist Prom Dresses Online | Empire Waist Prom Gowns"
+   },
    "$tony_bowls_2010" : {},
    ".9b" : {
       "meta_keywords" : "Size Charts, onlineformals, gown, dress, bridal, prom",
@@ -778,6 +1188,6 @@
       "meta_description" : "Onlineformals, Inc. store location",
       "picture1" : "logos/outside1",
       "page_title" : "Onlineformals Store Location",
-      "description" : "<b><u>FOR RETURNS ONLY</u></b><p>\n<b>Onlineformals, Inc.</b><br>\nwww.onlineformals.com<br>\n2308 Pierce Lane<br>\nVirginia Beach, VA 23453<br>\n888.280.4179 (Toll Free)<br>\n\n<b>Virginia Beach Showroom Coming Soon</b><p>\n\n<b>Live Customer Service Hours</b><br>\nMonday - Friday 8:00 am - 5:00 pm EST<br>\nSaturday 8:00 am - 12:00 pm EST<br>\nSunday - Closed<p>\n\n\nYou may also contact us via e-mail 24 hours a day at info@onlineformals.com<br>\nE-mails will be answered the same business day during regular business hours. <p>\n\n\n\n\n\n\n\n\n\n"
+      "description" : "<b>Onlineformals.com</b><br>\n2492 North Landing Rd.<br>\nSuite 103<br>\nVirginia Beach, VA 23456<br>\n888.280.4179 (Toll Free)<br>\n\n<b>Virginia Beach Showroom Now Open by Appointment Only</b><p>\nBook your appointment by calling us at 888.280.4179 or by email at appointments@onlineformals.com<p>\n\n<b>Live Customer Service Hours</b><br>\nMonday - Friday 8:00 am - 5:00 pm EST<br>\nSaturday 8:00 am - 12:00 pm EST<br>\nSunday - Closed<p>\n\n\nYou may also contact us via e-mail 24 hours a day at info@onlineformals.com<br>\nE-mails will be answered the same business day during regular business hours. <p>\n\n\n\n\n\n\n\n\n\n"
    }
 }
