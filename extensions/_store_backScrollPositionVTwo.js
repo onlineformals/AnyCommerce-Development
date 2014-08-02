@@ -16,12 +16,9 @@
 
 ************************************************************** */
 
-var store_backScrollPositionVTwoVTwo = function(_app) {
+var store_backScrollPositionVTwo = function(_app) {
 	var r= {
 		vars : {
-			scrollPosHist : "",
-			scrollPosBackHit : "",
-			scrollPosArrayIndex : "",
 
 			
 		},//END vars 
@@ -37,109 +34,243 @@ var store_backScrollPositionVTwoVTwo = function(_app) {
 			},
 			startExtension : {
 				onSuccess : function (p){
-				
 					_app.u.dump('BEGIN _app.ext.store_backScrollPositionVTwo.callbacks.startExtension.onSuccess');
-					_app.templates.categoryTemplate.on('complete.downlite',function(P){
-					//_app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
-						var $context = $(_app.u.jqSelector('#',P.parentID));
-						//_app.u.dump($context);
-						if($context.hasClass("initialLoadComplete")){
-							//_app.u.dump("initialLoadComplete exists. Do nothing")
+							
+					_app.templates.homepageTemplate.on('complete.backButton',function(event,$context,infoObj){
+						dump("Checking for y-scroll position for homepage template");
+						//dump("context = ");
+						//dump($context);
+						if($context.data('scroll-restore')){
+							dump("Scroll value found. Returning to previous spot.");
+							dump($context.data('scroll-restore'));
+							setTimeout(function(){
+								$('html, body').animate({scrollTop : $context.data('scroll-restore')},500);
+							}, 1000);
 						}
 						else{
-							//_app.u.dump("initialLoadComplete does not exists. Adding it")
-							$context.addClass("initialLoadComplete");
+							dump("Never previously been to this page. Scrolling to the top.");
+							setTimeout(function(){
+								$('html, body').animate({scrollTop : 0},500)
+							}, 1000);
 						}
+					});					
+					_app.templates.homepageTemplate.on('depart.backButton',function(event,$context,infoObj){
+						dump("Saving y scroll position for homepage template");
+						//dump("context = ");
+						//dump($context);
+						$context.data('scroll-restore',window.pageYOffset);
+						dump($context.data('scroll-restore'));
 					});
-
-					_app.u.dump('BEGIN _app.ext.store_backScrollPositionVTwo.callbacks.startExtension.onSuccess')
-					function addScrollPosSet(){
-						for( var t in _app.templates ){
-							//dump("Adding onDepart to " + t);
-							_app.templates[t].on('depart.downlite',function(){
-								dump("Departing :" + t);
-								if(_app.ext.store_backScrollPositionVTwo.vars.scrollPosBackHit === 1){
-									//_app.u.dump("Begin returning scroll position to previous location");
-										//_app.u.dump("back button was hit.");
-									//_app.u.dump(_app.ext.store_backScrollPositionVTwo.vars.scrollPosBackHit);
-									//_app.u.dump("_app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex = " + _app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex);
-									//_app.u.dump("_app.ext.store_backScrollPositionVTwo.vars.scrollPosHist[_app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex] = " + _app.ext.store_backScrollPositionVTwo.vars.scrollPosHist[_app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex]);
-									if(_app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex === 0){
-										function scrollToPosition1(){
-											$('html, body').animate({scrollTop : _app.ext.store_backScrollPositionVTwo.vars.scrollPosHist[_app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex]},1000);
-											_app.ext.store_backScrollPositionVTwo.vars.scrollPosBackHit = 0;
-											//_app.u.dump("_app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex = 0");
-											//_app.u.dump("_app.ext.store_backScrollPositionVTwo.vars.scrollPosHist[_app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex] = " + _app.ext.store_backScrollPositionVTwo.vars.scrollPosHist[_app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex]);
-											//_app.u.dump("Ran scrollToPosition1");
-										}
-										setTimeout(scrollToPosition1, 2000);
-								}
-								else{
-									function scrollToPosition2(){
-										//_app.u.dump("Begin returning scroll position to previous location");
-										//_app.u.dump("_app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex before reduction = " + _app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex);
-										_app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex = _app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex - 1;
-										//_app.u.dump("index passed into scrollTo = " + _app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex);
-										//_app.u.dump("_app.ext.store_backScrollPositionVTwo.vars.scrollPosHist = " + _app.ext.store_backScrollPositionVTwo.vars.scrollPosHist);
-										//_app.u.dump("_app.ext.store_backScrollPositionVTwo.vars.scrollPosHist[_app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex] = " + _app.ext.store_backScrollPositionVTwo.vars.scrollPosHist[_app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex]);
-										$('html, body').animate({scrollTop : _app.ext.store_backScrollPositionVTwo.vars.scrollPosHist[_app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex]},1000);
-										_app.ext.store_backScrollPositionVTwo.vars.scrollPosBackHit = 0;
-										_app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex = _app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex - 1;
-										//_app.u.dump("Ran scrollToPosition2");
-									}
-									setTimeout(scrollToPosition2, 2000);
-								}
-							}
-						});
-						//}
-					}
-					}
-					setTimeout(addScrollPosSet, 5000);
 					
-					function addScrollPosStoring(){
-						for( var t in _app.ext.quickstart.template ){
-						  if(_app.ext.quickstart.template[t].onCompletes){
-							_app.ext.quickstart.template[t].onCompletes.push(function(){
-								//_app.u.dump("Begin adding scroll position to array");
-								//_app.u.dump("_app.ext.store_backScrollPositionVTwo.vars.scrollPosBackHit = " + _app.ext.store_backScrollPositionVTwo.vars.scrollPosBackHit);
-								if(_app.ext.store_backScrollPositionVTwo.vars.scrollPosHist === ""){
-									//_app.u.dump("_app.ext.store_backScrollPositionVTwo.vars.scrollPosHist is null");
-									_app.ext.store_backScrollPositionVTwo.vars.scrollPosHist = window.pageYOffset;
-									_app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex = 0;
-									//_app.u.dump("_app.ext.store_backScrollPositionVTwo.vars.scrollPosHist = " + _app.ext.store_backScrollPositionVTwo.vars.scrollPosHist);
-									//_app.u.dump("_app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex = " + _app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex);
-								}
-								else{
-									if(_app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex === 0){
-										//_app.u.dump("_app.ext.store_backScrollPositionVTwo.vars.scrollPosHist is 0");
-										var newArray = new Array();
-										var currentIndex = _app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex;
-										newArray[0] = _app.ext.store_backScrollPositionVTwo.vars.scrollPosHist;
-										newArray[1] = window.pageYOffset;
-										_app.ext.store_backScrollPositionVTwo.vars.scrollPosHist = newArray;
-										currentIndex = currentIndex + 1;
-										_app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex = currentIndex;
-										//_app.u.dump("_app.ext.store_backScrollPositionVTwo.vars.scrollPosHist = " + _app.ext.store_backScrollPositionVTwo.vars.scrollPosHist);
-										//_app.u.dump("_app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex = " + _app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex);
-									}
-									else{
-										//_app.u.dump("_app.ext.store_backScrollPositionVTwo.vars.scrollPosHist does not = 0");
-										var oldArray = new Array();
-										var currentIndex = _app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex;
-										oldArray = _app.ext.store_backScrollPositionVTwo.vars.scrollPosHist;
-										currentIndex = currentIndex + 1;
-										oldArray[currentIndex] = window.pageYOffset;
-										_app.ext.store_backScrollPositionVTwo.vars.scrollPosHist = oldArray;
-										_app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex = currentIndex;
-										//_app.u.dump("_app.ext.store_backScrollPositionVTwo.vars.scrollPosHist = " + _app.ext.store_backScrollPositionVTwo.vars.scrollPosHist);
-										//_app.u.dump("_app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex = " + _app.ext.store_backScrollPositionVTwo.vars.scrollPosArrayIndex);
-									}
-								}
-							});
-						  }
+					_app.templates.categoryTemplate.on('complete.backButton',function(event,$context,infoObj){
+						dump("Checking for y-scroll position for homepage template");
+						//dump("context = ");
+						//dump($context);
+						if($context.data('scroll-restore')){
+							dump("Scroll value found. Returning to previous spot.");
+							dump($context.data('scroll-restore'));
+							setTimeout(function(){
+								$('html, body').animate({scrollTop : $context.data('scroll-restore')},500);
+							}, 1000);
 						}
-					}
-					setTimeout(addScrollPosStoring, 5000);
+						else{
+							dump("Never previously been to this page. Scrolling to the top.");
+							setTimeout(function(){
+								$('html, body').animate({scrollTop : 0},500)
+							}, 1000);
+						}
+					});					
+					_app.templates.categoryTemplate.on('depart.backButton',function(event,$context,infoObj){
+						dump("Saving y scroll position for homepage template");
+						//dump("context = ");
+						//dump($context);
+						$context.data('scroll-restore',window.pageYOffset);
+						dump($context.data('scroll-restore'));
+					});
+					
+					_app.templates.categoryProductListTemplate.on('complete.backButton',function(event,$context,infoObj){
+						dump("Checking for y-scroll position for homepage template");
+						//dump("context = ");
+						//dump($context);
+						if($context.data('scroll-restore')){
+							dump("Scroll value found. Returning to previous spot.");
+							dump($context.data('scroll-restore'));
+							setTimeout(function(){
+								$('html, body').animate({scrollTop : $context.data('scroll-restore')},500);
+							}, 1000);
+						}
+						else{
+							dump("Never previously been to this page. Scrolling to the top.");
+							setTimeout(function(){
+								$('html, body').animate({scrollTop : 0},500)
+							}, 1000);
+						}
+					});					
+					_app.templates.categoryProductListTemplate.on('depart.backButton',function(event,$context,infoObj){
+						dump("Saving y scroll position for homepage template");
+						//dump("context = ");
+						//dump($context);
+						$context.data('scroll-restore',window.pageYOffset);
+						dump($context.data('scroll-restore'));
+					});
+					
+					_app.templates.productTemplate.on('complete.backButton',function(event,$context,infoObj){
+						dump("Checking for y-scroll position for homepage template");
+						//dump("context = ");
+						//dump($context);
+						if($context.data('scroll-restore')){
+							dump("Scroll value found. Returning to previous spot.");
+							dump($context.data('scroll-restore'));
+							setTimeout(function(){
+								$('html, body').animate({scrollTop : $context.data('scroll-restore')},500);
+							}, 1000);
+						}
+						else{
+							dump("Never previously been to this page. Scrolling to the top.");
+							setTimeout(function(){
+								$('html, body').animate({scrollTop : 0},500)
+							}, 1000);
+						}
+					});					
+					_app.templates.productTemplate.on('depart.backButton',function(event,$context,infoObj){
+						dump("Saving y scroll position for homepage template");
+						//dump("context = ");
+						//dump($context);
+						$context.data('scroll-restore',window.pageYOffset);
+						dump($context.data('scroll-restore'));
+					});
+					
+					_app.templates.testimonialsTemplate.on('complete.backButton',function(event,$context,infoObj){
+						dump("Checking for y-scroll position for homepage template");
+						//dump("context = ");
+						//dump($context);
+						if($context.data('scroll-restore')){
+							dump("Scroll value found. Returning to previous spot.");
+							dump($context.data('scroll-restore'));
+							setTimeout(function(){
+								$('html, body').animate({scrollTop : $context.data('scroll-restore')},500);
+							}, 1000);
+						}
+						else{
+							dump("Never previously been to this page. Scrolling to the top.");
+							setTimeout(function(){
+								$('html, body').animate({scrollTop : 0},500)
+							}, 1000);
+						}
+					});					
+					_app.templates.testimonialsTemplate.on('depart.backButton',function(event,$context,infoObj){
+						dump("Saving y scroll position for homepage template");
+						//dump("context = ");
+						//dump($context);
+						$context.data('scroll-restore',window.pageYOffset);
+						dump($context.data('scroll-restore'));
+					});
+					
+					_app.templates.companyTemplate.on('complete.backButton',function(event,$context,infoObj){
+						dump("Checking for y-scroll position for homepage template");
+						//dump("context = ");
+						//dump($context);
+						if($context.data('scroll-restore')){
+							dump("Scroll value found. Returning to previous spot.");
+							dump($context.data('scroll-restore'));
+							setTimeout(function(){
+								$('html, body').animate({scrollTop : $context.data('scroll-restore')},500);
+							}, 1000);
+						}
+						else{
+							dump("Never previously been to this page. Scrolling to the top.");
+							setTimeout(function(){
+								$('html, body').animate({scrollTop : 0},500)
+							}, 1000);
+						}
+					});					
+					_app.templates.companyTemplate.on('depart.backButton',function(event,$context,infoObj){
+						dump("Saving y scroll position for homepage template");
+						//dump("context = ");
+						//dump($context);
+						$context.data('scroll-restore',window.pageYOffset);
+						dump($context.data('scroll-restore'));
+					});
+					
+					_app.templates.customerTemplate.on('complete.backButton',function(event,$context,infoObj){
+						dump("Checking for y-scroll position for homepage template");
+						//dump("context = ");
+						//dump($context);
+						if($context.data('scroll-restore')){
+							dump("Scroll value found. Returning to previous spot.");
+							dump($context.data('scroll-restore'));
+							setTimeout(function(){
+								$('html, body').animate({scrollTop : $context.data('scroll-restore')},500);
+							}, 1000);
+						}
+						else{
+							dump("Never previously been to this page. Scrolling to the top.");
+							setTimeout(function(){
+								$('html, body').animate({scrollTop : 0},500)
+							}, 1000);
+						}
+					});					
+					_app.templates.customerTemplate.on('depart.backButton',function(event,$context,infoObj){
+						dump("Saving y scroll position for homepage template");
+						//dump("context = ");
+						//dump($context);
+						$context.data('scroll-restore',window.pageYOffset);
+						dump($context.data('scroll-restore'));
+					});
+					
+					_app.templates.searchTemplate.on('complete.backButton',function(event,$context,infoObj){
+						dump("Checking for y-scroll position for homepage template");
+						//dump("context = ");
+						//dump($context);
+						if($context.data('scroll-restore')){
+							dump("Scroll value found. Returning to previous spot.");
+							dump($context.data('scroll-restore'));
+							setTimeout(function(){
+								$('html, body').animate({scrollTop : $context.data('scroll-restore')},500);
+							}, 1000);
+						}
+						else{
+							dump("Never previously been to this page. Scrolling to the top.");
+							setTimeout(function(){
+								$('html, body').animate({scrollTop : 0},500)
+							}, 1000);
+						}
+					});					
+					_app.templates.searchTemplate.on('depart.backButton',function(event,$context,infoObj){
+						dump("Saving y scroll position for homepage template");
+						//dump("context = ");
+						//dump($context);
+						$context.data('scroll-restore',window.pageYOffset);
+						dump($context.data('scroll-restore'));
+					});
+					
+					_app.templates.cartTemplate.on('complete.backButton',function(event,$context,infoObj){
+						dump("Checking for y-scroll position for homepage template");
+						//dump("context = ");
+						//dump($context);
+						if($context.data('scroll-restore')){
+							dump("Scroll value found. Returning to previous spot.");
+							dump($context.data('scroll-restore'));
+							setTimeout(function(){
+								$('html, body').animate({scrollTop : $context.data('scroll-restore')},500);
+							}, 1000);
+						}
+						else{
+							dump("Never previously been to this page. Scrolling to the top.");
+							setTimeout(function(){
+								$('html, body').animate({scrollTop : 0},500)
+							}, 1000);
+						}
+					});					
+					_app.templates.cartTemplate.on('depart.backButton',function(event,$context,infoObj){
+						dump("Saving y scroll position for homepage template");
+						//dump("context = ");
+						//dump($context);
+						$context.data('scroll-restore',window.pageYOffset);
+						dump($context.data('scroll-restore'));
+					});
+							
+							
 				},
 				onError : function (){
 					_app.u.dump('BEGIN ext.store_backScrollPositionVTwo.callbacks.startExtension.onError');

@@ -55,7 +55,8 @@ myApp.rq.push(['extension',0,'_store_formals','extensions/_store_formals.js','st
 myApp.rq.push(['extension',0,'prodlist_infinite','extensions/prodlist_infinite.js']);
 myApp.rq.push(['extension',0,'_store_banner','extensions/_store_banner.js']);
 myApp.rq.push(['extension',0,'_store_filter','extensions/_store_filter.js']);
-myApp.rq.push(['extension',0,'store_backScrollPosition','extensions/_store_backScrollPosition.js','startExtension']);
+//myApp.rq.push(['extension',0,'store_backScrollPosition','extensions/_store_backScrollPosition.js','startExtension']);
+myApp.rq.push(['extension',0,'store_backScrollPositionVTwo','extensions/_store_backScrollPositionVTwo.js','startExtension']);
 
 
 myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/jsonpath.0.8.0.js']); //used pretty early in process..

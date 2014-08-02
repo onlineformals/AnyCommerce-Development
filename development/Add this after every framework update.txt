@@ -22,6 +22,7 @@ becomes
 - $modal.dialog({modal: true,width:'80%'});  //browser doesn't like percentage for height
 becomes
 $modal.dialog({modal: true,width:'80%', dialogClass: 'dlgfixed', position: "center"});  //browser doesn't like percentage for height
+- Add infoObj.performJumpToTop = false; to every applicable page template. Here is the short list of ones that MUST have this: product, homepage, category, search, company, cart.
 
 
 
