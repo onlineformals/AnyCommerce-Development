@@ -85,3 +85,8 @@ if($input.hasClass('ui-state-error'))	{
 						$(".checkoutClickBlocker").show();
 						$(".checkoutClickBlockerText").show();
 						}
+
+7. prodlist_infinite.js:
+- if( $(window).scrollTop() >= ( $(document).height() - $(window).height() - ($tag.children().first().height() * 2) ) )	{
+becomes
+if( $(window).scrollTop() >= ( $(document).height() - $(window).height() - ($tag.children().first().height() * 3) ) )	{
