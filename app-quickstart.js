@@ -965,12 +965,14 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 							//the item is already in the list. move it to the front.
 							_app.ext.quickstart.vars.session.recentlyViewedItems.splice(0, 0, _app.ext.quickstart.vars.session.recentlyViewedItems.splice($.inArray(infoObj.pid, _app.ext.quickstart.vars.session.recentlyViewedItems), 1)[0]);
 							}
+						infoObj.performJumpToTop = false;
 						$new = _app.ext.quickstart.u.showProd(infoObj);
 						break;
 	
 					case 'homepage':
 						infoObj.pageType = 'homepage';
 						infoObj.navcat = zGlobals.appSettings.rootcat;
+						infoObj.performJumpToTop = false;
 						$new = _app.ext.quickstart.u.showPage(infoObj);
 						break;
 					case 'static':
@@ -1007,11 +1009,13 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 							_app.ext.quickstart.vars.session.recentCategories.unshift(infoObj.navcat);
 							}
 						
+						infoObj.performJumpToTop = false;
 						$new = _app.ext.quickstart.u.showPage(infoObj); //### look into having showPage return infoObj instead of just parentID.
 						break;
 	
 					case 'search':
 	//					dump(" -> Got to search case.");	
+						infoObj.performJumpToTop = false;
 						$new = _app.ext.quickstart.u.showSearch(infoObj);
 						break;
 	
@@ -1073,11 +1077,13 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 						break;
 	
 					case 'company':
+						infoObj.performJumpToTop = false;
 						_app.ext.quickstart.u.showCompany(infoObj);
 						$new = $('#mainContentArea_company');
 						break;
 	
 					case 'cart':
+						infoObj.performJumpToTop = false;
 						$new = _app.ext.quickstart.u.showCart(infoObj);
 						break;
 
