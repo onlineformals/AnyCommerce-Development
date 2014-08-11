@@ -597,6 +597,7 @@ _app.rq.push(['script',0,_app.vars.baseURL+'app-admin/resources/jHtmlArea-0.8/jH
 				window.prodlistEditorUpdate = _app.ext.admin.a.uiProdlistEditorUpdate;
 				window.changeDomain = _app.ext.admin.a.changeDomain;
 				window.linkOffSite = _app.ext.admin.u.linkOffSite;
+<<<<<<< HEAD
 
 
 //a document.write and app are like dogs and cats. They don't get along. this is the workaround
@@ -630,6 +631,41 @@ _app.rq.push(['script',0,_app.vars.baseURL+'app-admin/resources/jHtmlArea-0.8/jH
 					}
 
 
+=======
+
+
+//a document.write and app are like dogs and cats. They don't get along. this is the workaround
+				document.write = function(v){
+					_app.u.dump("document.write was executed. That's bad mojo. Rewritten to $('body').append();",'warn');
+					_app.u.dump("document.write contents: "+v);
+					$("body").append(v);
+					}
+
+
+				var uriParams = {};
+				var ps = window.location.href; //param string. find a regex for this to clean it up.
+				if(ps.indexOf('?') >= 1)	{
+					ps = ps.split('?')[1]; //ignore everything before the first questionmark.
+					if(ps.indexOf('#') == 0){} //'could' happen if uri is ...admin.html?#doSomething. no params, so do nothing.
+					else	{
+						if(ps.indexOf('#') >= 1)	{ps = ps.split('#')[0]} //uri params should be before the #
+				//	_app.u.dump(ps);
+						uriParams = _app.u.kvp2Array(ps);
+						}
+				//	_app.u.dump(uriParams);
+					}
+				_app.vars.trigger = uriParams.trigger;
+//Merchant is most likely returning to the app from a partner site for some sort of verification
+				if(_app.vars.trigger == 'adminPartnerSet')	{
+					_app.u.dump(" -> execute adminPartnerSet call"); _app.u.dump(uriParams);
+					uriParams._cmd = 'adminPartnerSet';
+					uriParams._tag = {'callback':'showHeader','extension':'admin','datapointer':'adminPartnerSet'};
+					_app.model.addDispatchToQ(uriParams,"immutable");
+					_app.model.dispatchThis('immutable');
+					}
+
+
+>>>>>>> upstream/master
 
 				if(_app.vars.debug)	{
 				//	$('button','#debugPanel').button();
@@ -642,6 +678,39 @@ _app.rq.push(['script',0,_app.vars.baseURL+'app-admin/resources/jHtmlArea-0.8/jH
 						$(this).val('');
 						}).appendTo($DP);
 					}
+<<<<<<< HEAD
+
+	
+//the zoovy branding is in place by default. override if on anycommerce.com OR if an anycommerce URI param is present (for debugging)
+				if(document.domain && document.domain.toLowerCase().indexOf('anycommerce') > -1)	{
+					_app.u.dump(" -> Treat as anycommerce");
+					$('.logo img').attr('src','app-admin/images/anycommerce_logo-173x30.png');
+					$('body').addClass('isAnyCommerce');
+					}
+				else	{
+					_app.u.dump(" -> Treat as zoovy");
+					$('body').addClass('isZoovy'); //displays all the Zoovy only content (will remain hidden for anyCommerce)
+					}
+
+				//if user is logged in already (persistent login), take them directly to the UI. otherwise, have them log in.
+				//the code for handling the support login is in the thisisanadminsession function (looking at uri)
+				if(_app.u.thisIsAnAdminSession())	{
+					_app.ext.admin.u.showHeader();
+					}
+				else if(uriParams.show == 'acreate')	{
+					_app.u.handleAppEvents($('#createAccountContainer'));
+					$('#appPreView').css('position','relative').animate({right:($('body').width() + $("#appPreView").width() + 100)},'slow','',function(){
+						$("#appPreView").hide();
+						$('#createAccountContainer').css({'left':'1000px','position':'relative'}).removeClass('displayNone').animate({'left':'0'},'slow');
+						});
+					}
+				else	{
+					_app.u.handleAppEvents($('#appLogin'));
+					$('#appPreView').css('position','relative').animate({right:($('body').width() + $("#appPreView").width() + 100)},'slow','',function(){
+						$("#appPreView").hide();
+						$('#appLogin').css({'left':'1000px','position':'relative'}).removeClass('displayNone').animate({'left':'0'},'slow');
+						});
+=======
 
 	
 //the zoovy branding is in place by default. override if on anycommerce.com OR if an anycommerce URI param is present (for debugging)
@@ -686,6 +755,8 @@ _app.rq.push(['script',0,_app.vars.baseURL+'app-admin/resources/jHtmlArea-0.8/jH
 						}
 					
 					
+
+>>>>>>> upstream/master
 					}
 				if(!$.support['localStorage'])	{
 					$("#globalMessaging").anymessage({"message":"It appears you have localStorage disabled or are using a browser that does not support the feature. Please enable the feature or upgrade your browser","errtype":"youerr","persistent":true});
@@ -1131,12 +1202,6 @@ function getIndexByObjValue(arr,key,value)	{
 	}
 
 //update the localstorage object w/ the new messages, except the removes.
-	var theIndex = false;
-	$.grep(arr, function(e,i){if(e[key] == value){theIndex = i; return;}});
-	return theIndex;
-	}
-
-//update the localstorage object w/ the new messages, except the removes.
 					for(var i = 0; i < L; i += 1)	{
 						if(_app.data[_rtag.datapointer]['@MSGS'][i].verb == 'remove')	{
 							var index = getIndexByObjValue(DPSMessages,'origin',_app.data[_rtag.datapointer]['@MSGS'][i].origin);
@@ -1462,46 +1527,6 @@ function getIndexByObjValue(arr,key,value)	{
 
 				},
 
-				if(ext && a && _app.u.thisNestedExists("ext."+ext+".a."+a,_app))	{
-					$tab.data('focusHash',"ext/"+ext+"/"+a); //remember what app is in focus so when tab is clicked, the correct hash can be displayed.
-					$tab.intervaledEmpty().append($target);
-//this is for the left side tab that appears in the orders/product interface after perfoming a search and navigating to a result.
-					$('#stickytabs').empty(); //clear all the sticky tabs.
-					_app.ext.admin.u.bringTabIntoFocus(tab); //highlights the appropriate tab, if applicable (home is valid content area, but has no tab)
-					_app.ext.admin.u.bringTabContentIntoFocus($tab); //brings the tabContent div (homeContent, productContent, etc) into focus.
-					_app.ext.admin.u.uiHandleBreadcrumb({}); //make sure previous breadcrumb does not show up.
-					_app.ext.admin.u.uiHandleNavTabs({}); //make sure previous navtabs do not show up.
-					_app.ext[ext].a[a]($target,opts); //now execute the action.
-					}
-				else	{
-					$("#globalMessaging").anymessage({"message":"In admin.a.execApp, either ext ["+ext+"] or a ["+a+"] not passed OR the action does not exist ["+(_app.u.thisNestedExists("ext."+ext+".a."+a,_app))+"] within the extension.","gMessage":true});
-					}
-
-				},
-
-//show YouTubeVideo in a dialog.
-			showYTVInDialog : function(videoID,vars){
-				if(videoID)	{
-					vars = vars || {};
-					var $D = $("<div \/>",{'id':'ytv_'+videoID});
-					if(vars.title)	{
-						$D.attr('title',vars.title);
-						}
-					$D.append("<iframe width='560' height='315' src='https://www.youtube.com/embed/"+videoID+"?autoplay=1' frameborder='0' allowfullscreen></iframe>");
-					$D.appendTo(document.body);
-					$D.dialog({
-						width: 600,
-						dialog : false,
-						close: function(event, ui)	{
-							$(this).dialog('destroy'); //remove this from the dom entirely on close. consequently, it also stops the video 
-							$(this).intervaledEmpty(1000,1);
-							}, //will remove from dom on close
-						})
-					}
-				else	{
-					$('#globalMessaging').anymessage({"message":"In admin.a.showYTVInDialog, no videoID passed.","gMessage":true});
-					}
-				},
 
 //show YouTubeVideo in a dialog.
 			showYTVInDialog : function(videoID,vars){
@@ -1627,6 +1652,7 @@ function getIndexByObjValue(arr,key,value)	{
 					if(selectors)	{
 						if(selectors == 'all')	{
 							$("[name='SELECTALL']",$D).prop('checked','checked');
+<<<<<<< HEAD
 							}
 						else	{
 							
@@ -1642,6 +1668,23 @@ function getIndexByObjValue(arr,key,value)	{
 									}
 								}
 							}
+=======
+							}
+						else	{
+							
+							var selArr = selectors.split('\n');
+							var L = selArr.length;
+							for(var i = 0; i < L; i += 1)	{
+								if(selArr[i].indexOf('csv') === 0)	{
+									$("[name='csv']",$D).val(selArr[i].substring(4));
+									}
+								else	{
+									//the checkboxes haven't been added to the dom yet.  They have to be handled as the panel content is generated.
+					//				$("[name='"+selArr[i].replace('=','+')+"']",$tag).prop('checked','checked');
+									}
+								}
+							}
+>>>>>>> upstream/master
 						}
 				
 				
@@ -1969,8 +2012,7 @@ vars.findertype is required. acceptable values are:
 					}				
 				},
 
-			tlcTest : function($target,P)	{
-					dump(" -> console cleared by tlcTest.",'greet');
+
 			tlcTest : function($target,P)	{
 				
 				setTimeout(function(){
@@ -2175,13 +2217,6 @@ Changing the domain in the chooser will set three vars in localStorage so they'l
 					_app.ext.admin.calls.adminDomainList.init({'callback':function(rd){
 						if(_app.model.responseHasErrors(rd)){
 							$('#globalMessaging').anymessage({'message':rd});
-					}
-//used to ensure the domain selected (either from document.domain or dpsGet) is valid for this account.
-				function validateDomain(domain)	{
-//					dump(" -> begin validateDoman: "+domain);
-					_app.ext.admin.calls.adminDomainList.init({'callback':function(rd){
-						if(_app.model.responseHasErrors(rd)){
-							$('#globalMessaging').anymessage({'message':rd});
 							}
 						else	{
 							var domObj = _app.ext.admin.u.getValueByKeyFromArray(_app.data[rd.datapointer]['@DOMAINS'],'DOMAINNAME',domain) || {};
@@ -2194,7 +2229,6 @@ Changing the domain in the chooser will set three vars in localStorage so they'l
 								_app.ext.admin.a.showDomainChooser(); //domain list is in memory at this point. no need to dispatch.
 								$domainChooser.anymessage({"message":"The domain you logged in from does not appear in your active list of domains. Please select a domain to use:"});
 								}
-						}},'immutable');
 							}
 						}},'immutable');
 					}
@@ -2389,6 +2423,7 @@ Changing the domain in the chooser will set three vars in localStorage so they'l
 				$context.anyform({trackEdits : true});
 				$context.attr('data-applied-inputtracking',true); //is attribute so we can easily inspect on the dom.
 				}, //applyEditTrackingToInputs
+<<<<<<< HEAD
 
 
 
@@ -2417,6 +2452,36 @@ Changing the domain in the chooser will set three vars in localStorage so they'l
 				},
 
 
+=======
+
+
+
+
+
+			handleFormConditionalDelegation : function($context)	{
+//*** 201344 -> code moved into anyform.
+				$context.anyform({trackEdits : true});
+				},
+
+
+//pass in an object (probably a Serialized Form Object) and any tag that starts with _tag/ will be returned as part of an object.
+			getTagObjFromSFO : function(sfo)	{
+				var r = {}; //what is returned.
+				if(!$.isEmptyObject(sfo))	{
+//					_app.u.dump('not empty object');
+					for(var key in sfo)	{
+						if(key.substring(0,5) == "_tag/")	{
+							r[key.substring(5)] = sfo[key];//_tag/ must be stripped from key.
+							delete sfo[key]; //remove from original object so it isn't part of query.
+							}
+						else{}
+						}
+					}
+				return r;
+				},
+
+
+>>>>>>> upstream/master
 			loadNativeApp : function(path,opts,$target){
 				_app.ext.admin.u.uiHandleBreadcrumb({}); //make sure previous breadcrumb does not show up.
 				_app.ext.admin.u.uiHandleNavTabs({}); //make sure previous navtabs not show up.
@@ -3860,6 +3925,7 @@ dataAttribs -> an object that will be set as data- on the panel.
 					}
 				else	{} //validateForm handles error display.
 				return false;
+<<<<<<< HEAD
 				},
 
 
@@ -3882,6 +3948,88 @@ dataAttribs -> an object that will be set as data- on the panel.
 					}
 				},
 
+//uses delegated events.
+//add to a select list and the cmd bars on the DMI will be updated with the key and the selected value. used in CRM and ticketing 
+			updateDMICmdVar : function($ele,p)	{
+				if($ele.is('select')){
+					var $DMI = $ele.closest("[data-app-role='dualModeContainer']");
+					$DMI.data('listmode','list');
+					$DMI.data('cmdVars')[$ele.attr('name')] = $ele.val();
+					if($ele.data('trigger') == 'refresh')	{
+						$('button[data-app-click="admin|refreshDMI"]',$DMI).trigger('click');
+						}
+					}
+				},
+
+
+			refreshDMI : function($ele,P)	{
+				if(P && typeof P.preventDefault == 'function'){P.preventDefault();}
+				var $DMI = $ele.closest("[data-app-role='dualModeContainer']");
+				$DMI.showLoading({'message' : 'Refreshing list...' });
+				$("[data-app-role='dualModeListTbody']",$DMI).empty();
+				$("[data-app-click='admin|checkAllCheckboxesExec']",$DMI).data('selected',false); //resets 'select all' button to false so a click selects everything.
+				var cmdVars = {};
+				if($ele.data('serializeform'))	{
+					$.extend(true,cmdVars,$DMI.data('cmdVars'),$ele.closest('form').serializeJSON({'cb':true})); //serialized form is last so it can overwrite anything in data.cmdvars
+					}
+				else	{
+					cmdVars = $DMI.data('cmdVars');
+=======
+				},
+
+
+
+			controlFormSubmit : function($ele,P)	{
+				P.preventDefault();
+				var
+					sfo = $ele.closest('form').serializeJSON({"cb":true}),
+					$DMI = $ele.closest("[data-app-role='dualModeList']");
+				
+				sfo._tag = _app.ext.admin.u.getTagObjFromSFO(sfo);
+				sfo._tag.jqObj = $DMI;
+				if(sfo._cmd)	{
+					$DMI.showLoading();
+					_app.model.addDispatchToQ(sfo,'mutable');
+					_app.model.dispatchThis('mutable');
+					}
+				else	{
+					$ele.closest('.appMessaging').first().anymessage({"message":"In admin.e.controlFormSubmit, serialized form object had no _cmd specified.",'gMessage':true});
+>>>>>>> upstream/master
+					}
+
+				cmdVars._tag = cmdVars._tag || {};
+				cmdVars._tag.callback = cmdVars._tag.callback || 'DMIUpdateResults';
+				cmdVars._tag.extension = cmdVars._tag.extension || 'admin';
+				cmdVars._tag.jqObj = $DMI;
+				_app.model.addDispatchToQ(cmdVars,'mutable');
+				_app.model.dispatchThis('mutable');
+				},
+
+<<<<<<< HEAD
+			lockAccordionIfChecked : function($cb)	{
+				//in a function so that code can be executed both on click and at init.
+				function handleChange()	{
+					if($cb.is(':checked'))	{
+						$cb.closest('.ui-accordion').find('.ui-accordion-header').each(function(){
+							$(this).addClass("ui-state-disabled");
+							}) //.accordion( "disable" ); //disable works, but the aesthetic of what it does isn't great.
+						}
+					else	{
+						$cb.closest('.ui-accordion').accordion( "enable" );
+						}
+					}
+				handleChange();
+				$cb.off('click.lockAccordionIfChecked').on('click.lockAccordionIfChecked',function(event){
+					handleChange();
+					})
+				},
+
+
+
+			alphaNumeric : function($input)	{
+				$input.off('keypress.alphaNumeric').on('keypress.alphaNumeric',function(event){
+					return _app.u.alphaNumeric(event);
+=======
 //uses delegated events.
 //add to a select list and the cmd bars on the DMI will be updated with the key and the selected value. used in CRM and ticketing 
 			updateDMICmdVar : function($ele,p)	{
@@ -3933,10 +4081,17 @@ dataAttribs -> an object that will be set as data- on the panel.
 				handleChange();
 				$cb.off('click.lockAccordionIfChecked').on('click.lockAccordionIfChecked',function(event){
 					handleChange();
+>>>>>>> upstream/master
 					})
 				},
 
 
+<<<<<<< HEAD
+			dialogCloseExec : function($ele,p)	{
+				$ele.closest(".ui-dialog-content").dialog('close');
+				},
+
+=======
 
 			alphaNumeric : function($input)	{
 				$input.off('keypress.alphaNumeric').on('keypress.alphaNumeric',function(event){
@@ -3949,6 +4104,7 @@ dataAttribs -> an object that will be set as data- on the panel.
 				$ele.closest(".ui-dialog-content").dialog('close');
 				},
 
+>>>>>>> upstream/master
 			execDialogClose : function($btn)	{
 				$btn.button({icons: {primary: "ui-icon-circle-close"}});
 				$btn.off('click.execDialogClose').on('click.execDialogClose',function(event){
@@ -3995,6 +4151,14 @@ dataAttribs -> an object that will be set as data- on the panel.
 
 /* login and create account */
 
+<<<<<<< HEAD
+			accountLogin : function($btn)	{
+				$btn.button();
+				$btn.off('click.accountLogin').on('click.accountLogin',function(event){
+					event.preventDefault();
+					_app.ext.admin.a.login($btn.closest('form'));
+					});
+=======
 			// accountLogin : function($btn)	{
 				// $btn.button();
 				// $btn.off('click.accountLogin').on('click.accountLogin',function(event){
@@ -4034,6 +4198,7 @@ dataAttribs -> an object that will be set as data- on the panel.
 				else {
 					_app.ext.admin.a.login($form);
 					}
+>>>>>>> upstream/master
 				},
 			
 			showCreateAccount : function($btn)	{
@@ -4130,7 +4295,7 @@ dataAttribs -> an object that will be set as data- on the panel.
 
 
 
-// add this to the button that this is applied to: class='applyButton' data-text='false' data-icon-primary='ui-icon-seek-next'
+
 // add this to the button that this is applied to: class='applyButton' data-text='false' data-icon-primary='ui-icon-seek-next'
 			toggleDMI : function($ele,p)	{
 				_app.ext.admin.u.toggleDualMode($ele.closest("[data-app-role='dualModeContainer']"));
