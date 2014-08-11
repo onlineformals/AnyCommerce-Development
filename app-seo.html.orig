@@ -10,6 +10,7 @@
 		***************/
 		var domain = window.location.origin;
 		var pages = [
+<<<<<<< HEAD
 			"company/about/",
 			"company/contact/",
 			"company/faq/",
@@ -23,6 +24,15 @@
 		var prodBlacklist = [
 			];
 		var navcatBlacklist = [
+=======
+			"/my/custom/page.html"
+		];
+		var prodBlacklist = [
+			'WIKITEST'
+			];
+		var navcatBlacklist = [
+			'.michael'
+>>>>>>> upstream/master
 			];
 		/***************
 		SETUP
@@ -79,7 +89,11 @@
 						}
 					}
 					for(var i in pages){
+<<<<<<< HEAD
+						var paramBase = "?v="+new Date().getTime()+"&quiet=1";
+=======
 						var paramBase = "?v="+new Date().getTime()+"&seoRequest=1&quiet=1";
+>>>>>>> upstream/master
 					
 						var p = pages[i];
 						if(typeof p === "string"){
@@ -89,6 +103,11 @@
 								include : true
 							}
 							p = pages[i];
+<<<<<<< HEAD
+						} else {
+							paramBase += "&seoRequest=1";
+=======
+>>>>>>> upstream/master
 						}
 						
 						var paramStr = paramBase;
@@ -150,8 +169,13 @@
 			
 			var $filterDiv = $('<div>Filter: <input name="pageFilter" type="text"/> <button name="checkAll">Check All</button> <button name="uncheckAll">Uncheck All</button></div>');
 			var $pageTable = $('<div class="tableContainer"><table><tbody></tbody></table></div>');
+<<<<<<< HEAD
+			var $controls = $('<div id="filterControls">Max Page Render Time <span class="hint" title="recommended at least 5 seconds">?</span>: <input id="maxTimeout" name="maxTimeout" type="text" value="10"/> Number of Frames: <input id="numFrames" name="numFrames" type="text" value="10"/></div>');
+			var $generateSEOBtn = $('<button>Generate SEO</button>').on('click',function(){generateSEO($('#maxTimeout', $controls).val(), $('#numFrames',$controls).val());});
+=======
 			var $controls = $('<div id="filterControls">Max Page Render Time <span class="hint" title="recommended at least 5 seconds">?</span>: <input id="maxTimeout" name="maxTimeout" type="text" value="8"/></div>');
 			var $generateSEOBtn = $('<button>Generate SEO</button>').on('click',function(){generateSEO($('#maxTimeout', $controls).val());});
+>>>>>>> upstream/master
 			
 			$('input', $filterDiv).on('keyup',function(){
 				var filter = $(this).val();
@@ -192,22 +216,62 @@
 			
 		}
 		
+<<<<<<< HEAD
+		function generateSEO(maxTimeout, numFrames){
+			console.log(maxTimeout);
+			for(var i = 0; i < numFrames; i++){
+				$('#appContainer').append('<iframe style="width:100%; height:400px;"></iframe>');
+				}
+=======
 		function generateSEO(maxTimeout){
 			console.log(maxTimeout);
+>>>>>>> upstream/master
 			for(var i in pages){
 				pages[i].include = $('#page_'+i+' input[type=checkbox]').is(":checked");
 			}
 			console.log('Beginning indexing');
+<<<<<<< HEAD
+			$('iframe', $('#appContainer')).each(function(){
+				indexNextPage(this, maxTimeout);
+			});
+		}
+		
+		//Pops a page from pages, builds it in the iframe, sends the snapshot, then calls itself again
+		function indexNextPage(iframe, maxTimeout){
+=======
 			indexNextPage(maxTimeout);
 		}
 		
 		//Pops a page from pages, builds it in the iframe, sends the snapshot, then calls itself again
 		function indexNextPage(maxTimeout){
+>>>>>>> upstream/master
 			if(pages.length){
 				var currPage = pages.splice(0,1)[0];
 				if(currPage.include){
 					console.log('pages.length: '+pages.length);
 					rLog("Indexing "+currPage.path);
+<<<<<<< HEAD
+					iframe.src = currPage.path;
+					
+					currPage.timeoutID = setTimeout(function(){
+						rLog('Page finished '+currPage.path);
+						finishPage(iframe, currPage);
+						indexNextPage(iframe, maxTimeout);
+					}, parseInt(maxTimeout)*1000);
+				} else {
+					setTimeout(function(){indexNextPage(iframe, maxTimeout)},1);
+				}
+			} else {
+				console.log("no more pages")
+				 $(iframe).remove();
+				if($('iframe',$('#appContainer')).length){
+					//Keep on keeping on
+				}
+				else {
+					finishSEO();
+					window.lock = false;
+				}
+=======
 					$('#appContainer').get(0).src = currPage.path;
 					
 					window.timeoutID = setTimeout(function(){
@@ -224,22 +288,36 @@
 				//Temporarily bypassing this until we have a domain on 201401 to test
 				finishSEO();
 				window.lock = false;
+>>>>>>> upstream/master
 			}
 		}
 		
 		
+<<<<<<< HEAD
+		function finishPage(iframe, page){
+			clearTimeout(page.timeoutID);
+			
+			//var iframe = $('#appContainer').get(0);
+=======
 		function finishPage(page){
 			clearTimeout(window.timeoutID);
 			
 			var iframe = $('#appContainer').get(0);
+>>>>>>> upstream/master
 			
 			var iframeHash = iframe.contentWindow.location.hash;
 			if(iframeHash.indexOf('#!') == 0){
 				iframeHash = iframeHash.substr(2);
 				}
 			
+<<<<<<< HEAD
+			var doc = iframe.contentWindow.document
+			$(doc.getElementsByTagName('script')).each(function(){$(this).remove();});
+			$('.seoStrip', $(doc)).each(function(){$(this).remove();});
+=======
 			var doc = $('#appContainer').get(0).contentWindow.document
 			$(doc.getElementsByTagName('script')).each(function(){$(this).remove()});
+>>>>>>> upstream/master
 			$('head', $(doc)).append('<link rel="canonical" href="'+domain+'/#!'+iframeHash+'" />');
 			console.log(doc.getElementsByTagName('script'));
 			console.log(doc.getElementsByTagName('script').length);
@@ -247,6 +325,8 @@
 			var doctype = "<!DOCTYPE html>";
 			var dochtml = doc.documentElement.outerHTML;
 			
+<<<<<<< HEAD
+=======
 			var body = /<body[^>]*>((.*\n*\r*\u2028*\u2029*)*)<\/body>/;
 			var removeHtml = body.exec(dochtml)[1];
 			var $tmp = $('<div>'+removeHtml+'</div>');
@@ -256,6 +336,7 @@
 			dochtml = dochtml.replace(removeHtml, $tmp.html());
 			$tmp.remove();
 			
+>>>>>>> upstream/master
 			var html = doctype + dochtml;
 			
 			var obj = {
@@ -296,7 +377,12 @@
 		</div>
 		<button onClick="fetchSEO($('input[name=seoToken]',$(this).parent()).val()); return false;">Submit Token</input>
 	</div>
+<<<<<<< HEAD
+	<div id="appContainer" style="height: 400px; overflow: auto;">
+	</div>
+=======
 	<iframe id="appContainer" style="width:100%; height:400px;"></iframe>
+>>>>>>> upstream/master
 	<div id="pageTableContainer">
 		
 		
