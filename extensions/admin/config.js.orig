@@ -112,7 +112,11 @@ var admin_config = function(_app) {
 				},
 
 
+<<<<<<< HEAD
+			//shows the lists of all blast messages and the means to edit each one individually.
+=======
 			//shows the lists of all notifications and the means to edit each one individually.
+>>>>>>> upstream/master
 			showNotifications : function($target,params)	{
 				$target.showLoading({"message":"Fetching notifications"});
 				$target.tlc({'templateid':'notificationPageTemplate','verb':'template'});
@@ -546,8 +550,6 @@ var admin_config = function(_app) {
 							}
 						
 						}
-						
-						}
 
 					_app.u.handleCommonPlugins($target);
 					_app.u.handleButtons($target);
@@ -901,7 +903,11 @@ when an event type is changed, all the event types are dropped, then re-added.
 								var $updateTR = $(this);
 								if($updateTR.hasClass('rowTaggedForRemove'))	{} //ignore this row, it's being deleted.
 								else	{
+<<<<<<< HEAD
+									newSfo['@updates'].push("NOTIFICATION/DATATABLE-INSERT?"+$.param(_app.u.getWhitelistedObject($updateTR.data(),['event','verb','url','email'])));
+=======
 									newSfo['@updates'].push("NOTIFICATION/DATATABLE-INSERT?"+$.param(_app.u.getWhitelistedObject($updateTR.data(),['event','verb','url','email','assignto'])));
+>>>>>>> upstream/master
 									}
 								});
 							
@@ -915,11 +921,14 @@ when an event type is changed, all the event types are dropped, then re-added.
 						}
 					});
 
+<<<<<<< HEAD
+=======
 				newSfo['_tag'].onComplete = function(){
 					// refresh the data
 					navigateTo('#!ext/admin_config/showNotifications');
 					};
 					
+>>>>>>> upstream/master
 				return newSfo;
 				},
 			
@@ -937,53 +946,6 @@ when an event type is changed, all the event types are dropped, then re-added.
 				delete sfo._macrobuilder;
 				newSfo['@updates'].push(newSfo._tag.macrocmd+"?"+$.param(sfo));
 //				_app.u.dump(" -> newSfo:"); _app.u.dump(newSfo);
-				return newSfo;
-				}, //adminConfigMacro
-			
-			billingPaymentMacro : function(sfo,$form)	{
-				var newSfo = {
-					'_cmd':'billingPaymentMacro',
-					'_tag':sfo._tag,
-					'@updates':[]
-					};
-/*
-				if($(':input.edited',$form).length)	{
-					newSfo['@updates'].push("ACCOUNT-ORG-SET?"+$.param($form.serializeJSON({'selector':':input.edited'})));
-					}
-*/
-				var $tBody = $("tbody[data-app-role='paymentMethodTbody']:first",$form);
-//				_app.u.dump(" -> $tBody.length: "+$tBody.length);
-//				_app.u.dump(" -> $tBody.children().length: "+$tBody.children().length);
-				if($tBody.length && $tBody.children().length)	{
-					$("tr.edited",$tBody).each(function(){
-						var $tr = $(this);
-						if($tr.hasClass('isNewRow') && $tr.hasClass('rowTaggedForRemove'))	{
-							//is new and tagged for delete. do nothing.
-							}
-						else if($tr.hasClass('isNewRow'))	{
-//							_app.u.dump(" -> $tr.data(): "); _app.u.dump($tr.data());
-							if($tr.data('paymethod') == 'CREDIT')	{
-								//cant just whitelist data cuz the params are UC and data-table applies them as attributes which get lowercased.
-								newSfo['@updates'].push("METHOD-CREDITCARD-ADD?CC="+$tr.data('cc')+"&YY="+$tr.data('yy')+"&MM="+$tr.data('mm'));
-								}
-							else if($tr.data('paymethod') == 'ECHECK')	{
-								newSfo['@updates'].push("METHOD-ECHECK-ADD?EB="+$tr.data('eb')+"&EA="+$tr.data('ea')+"&ER="+$tr.data('er')); //"+$.param(_app.u.getWhitelistedObject($tr.data(),['EB','EA','ER'])));
-								}
-							else	{
-								//unsupported payment type
-								$tr.closest('fieldset').anymessage({"message":"In admin_config.macrobuilders.billingPaymentMacro, an invalid paymethod ["+$tr.data('paymethod')+"] was passed thru the data table.","gMessage":true});
-								}
-								
-							}
-						else if($tr.hasClass('rowTaggedForRemove'))	{
-							newSfo['@updates'].push("METHOD-DELETE?ID="+$tr.data('id'));
-							}
-						else	{
-							//unexpected condition
-							}
-						})
-					}
-//				_app.u.dump(" -> billingPayments newSFO: "); _app.u.dump(newSfo);
 				return newSfo;
 				}, //adminConfigMacro
 			
@@ -1478,12 +1440,21 @@ when an event type is changed, all the event types are dropped, then re-added.
 								$(':input',$inputContainer).not(':radio').not(":checkbox").val(""); //clear inputs. don't reset radios in this manner or they'll lose their value.
 								$(':radio',$inputContainer).prop('checked',false);
 								$(':checkbox',$inputContainer).prop('checked',false);
+<<<<<<< HEAD
 								}
 							
 							if($ele.attr('data-hide-inputs-onapply'))	{
 								$inputContainer.slideUp('fast');
 								}
 							
+=======
+								}
+							
+							if($ele.attr('data-hide-inputs-onapply'))	{
+								$inputContainer.slideUp('fast');
+								}
+							
+>>>>>>> upstream/master
 							_app.ext.admin.u.handleSaveButtonByEditedClass($ele.closest('form'));
 
 							r = true;
@@ -1543,21 +1514,12 @@ when an event type is changed, all the event types are dropped, then re-added.
 
 
 
-			taxTableUpdateExec : function($ele,p)	{
-				p.preventDefault();
-//updating the tax table is a destructive update, meaning the entire table is emptied and then rebuilt.
-				var $container = $ele.closest("[data-app-role='taxConfigContainer']"), macros = new Array();
-				macros.push("TAXRULES/EMPTY");
-//need a whitelist because the tr.data() may have a lot of extra kvp in it
-//201404 -> enable is intentionally NOT in the whitelist. It's added to the update through a checkbox.
-				var whitelist = new Array('type','state','citys','city','zipstart','zipend','zip4','country','ipcountry','ipstate','izcountry','izzip','rate','shipping','handling','insurance','special','zone','expires','group','guid');
 
 			taxTableUpdateExec : function($ele,p)	{
 				p.preventDefault();
 //updating the tax table is a destructive update, meaning the entire table is emptied and then rebuilt.
 				var $container = $ele.closest("[data-app-role='taxConfigContainer']"), macros = new Array();
 				macros.push("TAXRULES/EMPTY");
-						macros.push("TAXRULES/INSERT?enable="+($("input[name='enable']",$tr).is(':checked') ? 1 : 0)+"&"+$.param(_app.u.getWhitelistedObject($tr.data(),whitelist)));
 
 //build an array of the form input names for a whitelist.
 //need a whitelist because the tr.data() may have a lot of extra kvp in it
@@ -1567,12 +1529,16 @@ when an event type is changed, all the event types are dropped, then re-added.
 				$ele.closest('form').find('tbody tr').each(function(index){ //tbody needs to be in the selector so that tr in thead isn't included.
 					var $tr = $(this);
 					if($tr.hasClass('rowTaggedForRemove'))	{} //row tagged for delete. do not insert.
+					else	{
 						if(!$tr.data('guid'))	{$tr.data('guid',index)} //a newly added rule
 						macros.push("TAXRULES/INSERT?enable="+($("input[name='enable']",$tr).is(':checked') ? 1 : 0)+"&"+$.param(_app.u.getWhitelistedObject($tr.data(),whitelist)));
+						}
+					});
 				_app.ext.admin.calls.adminConfigMacro.init(macros,{'callback':'showMessaging','message':'Your rules have been saved.','removeFromDOMItemsTaggedForDelete':true,'restoreInputsFromTrackingState':true,'jqObj':$container},'immutable');
 				_app.model.dispatchThis('immutable');
 
 				},
+
 
 
 
@@ -1602,6 +1568,7 @@ when an event type is changed, all the event types are dropped, then re-added.
 				return false;
 				}, //ruleBuilderShow
 
+
 			ruleBuilderAddShow : function($ele,p)	{
 				var rulesmode = $ele.data('rulesmode'), $DMI = $ele.closest("[data-app-role='dualModeContainer']"), guid = _app.u.guidGenerator();
 				$panel = _app.ext.admin.i.DMIPanelOpen($ele,{
@@ -1609,11 +1576,6 @@ when an event type is changed, all the event types are dropped, then re-added.
 					'panelID' : 'newrule_'+guid,
 					'header' : 'New rule',
 					'data' : ((rulesmode == 'shipping') ? $.extend(true,{'guid':guid},_app.data['adminPriceScheduleList']) : {'guid':guid}),
-					'showLoading':false
-					});
-				_app.u.handleButtons($panel);
-				_app.u.handleCommonPlugins($panel);
-				},
 					'showLoading':false
 					});
 				_app.u.handleButtons($panel);
@@ -1826,6 +1788,7 @@ when an event type is changed, all the event types are dropped, then re-added.
 				
 				
 				},
+<<<<<<< HEAD
 
 			pluginAddShow : function($ele,p)	{
 				var $target = $ele.closest("[data-app-role='slimLeftContainer']").find("[data-app-role='slimLeftContent']:first");
@@ -1836,6 +1799,18 @@ when an event type is changed, all the event types are dropped, then re-added.
 				_app.ext.admin_config.a.showPlugin($ele.closest("[data-app-role='slimLeftContainer']").find("[data-app-role='slimLeftContent']:first"),{'plugin' : $ele.data('plugin')});
 				},
 
+=======
+
+			pluginAddShow : function($ele,p)	{
+				var $target = $ele.closest("[data-app-role='slimLeftContainer']").find("[data-app-role='slimLeftContent']:first");
+				_app.ext.admin_config.a.showPlugin($target,{'verb':'create'});
+				},
+
+			pluginUpdateShow : function($ele,p)	{
+				_app.ext.admin_config.a.showPlugin($ele.closest("[data-app-role='slimLeftContainer']").find("[data-app-role='slimLeftContent']:first"),{'plugin' : $ele.data('plugin')});
+				},
+
+>>>>>>> upstream/master
 //delegated events
 
 
@@ -1944,6 +1919,15 @@ when an event type is changed, all the event types are dropped, then re-added.
 			notificationUpdateShow : function($ele,p)	{
 				p.preventDefault();
 				var $target = $ele.closest("[data-app-role='notificationsContainer']").find("[data-app-role='slimLeftContentContainer']");
+<<<<<<< HEAD
+				
+				if($ele.data('event') && _app.u.thisNestedExists("data.adminConfigDetail|"+_app.vars.partition+"|notifications.@NOTIFICATIONS",_app))	{
+					var dataset = _app.ext.admin.u.getValueByKeyFromArray(_app.data['adminConfigDetail|'+_app.vars.partition+'|notifications']['@NOTIFICATIONS'],'event',$ele.data('event'));
+					$target.empty().anycontent({"templateID":"notificationUpdateTemplate","data":dataset});
+					_app.u.handleButtons($target);
+					$('form',$target).anyform();
+					$("[data-app-role='verb_"+($ele.data('event').split('.')[0])+"']",$target).show();
+=======
 												
 				if($ele.data('event') && _app.u.thisNestedExists("data.adminConfigDetail|"+_app.vars.partition+"|notifications.@NOTIFICATIONS",_app))	{
 					var dataset = _app.ext.admin.u.getValueByKeyFromArray(_app.data['adminConfigDetail|'+_app.vars.partition+'|notifications']['@NOTIFICATIONS'],'event',$ele.data('event'));
@@ -1951,6 +1935,7 @@ when an event type is changed, all the event types are dropped, then re-added.
 					$target.find("[data-app-role='addNotificationContainer']").empty().anycontent({"templateID":"appendNotificationFieldset","data":{}});
 					_app.u.handleButtons($target);
 					$('form',$target).anyform();
+>>>>>>> upstream/master
 					}
 				else if(!$ele.data('event'))	{
 					$target.anymessage({"message":"In admin_config.e.notificationsUpdateShow, data-event not set on trigger element.","gMessage":true});
@@ -1958,6 +1943,13 @@ when an event type is changed, all the event types are dropped, then re-added.
 				else	{
 					$target.anymessage({"message":"In admin_config.e.notificationsUpdateShow, adminConfigDetail|"+_app.vars.partition+"|notifications is not in memory.","gMessage":true});
 					}
+<<<<<<< HEAD
+				
+				return false;
+				}
+
+
+=======
 
 			
 				$('form',$target).find("input[name='event']").val($ele.data('event'));				
@@ -1979,6 +1971,7 @@ when an event type is changed, all the event types are dropped, then re-added.
 				return false;
 				}
 
+>>>>>>> upstream/master
 			} //e [app Events]
 		} //r object.
 	return r;
