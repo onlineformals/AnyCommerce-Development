@@ -64,17 +64,7 @@ function controller(_app)	{
 		_app.vars.cid = null; //gets set on login. ??? I'm sure there's a reason why this is being saved outside the normal  object. Figure it out and document it.
 		_app.vars.fbUser = {};
 
-				window.sessionStorage.clear();
-				}
-			if($.support.localStorage)	{
-				window.localStorage.clear();
-				}
-			}
-		if(_app.u.getParameterByName('quiet') == 1){
-			_app.u.dump = function(){};
-			}
-		_app.vars.carts = _app.model.dpsGet('app','carts'); //get existing carts. Does NOT create one if none exists. that's app-specific behavior. Don't default to a blank array either. fetchCartID checks memory first.
-		_app.handleSession(); //get existing session or create a new one.
+//used in conjunction with support/admin login. nukes entire local cache.
 		if(_app.u.getParameterByName('flush') == 1)	{
 			_app.u.dump(" !!! Flush is enabled. session and local storage get nuked !!!");
 			if($.support.sessionStorage)	{
@@ -86,10 +76,12 @@ function controller(_app)	{
 			}
 		if(_app.u.getParameterByName('quiet') == 1){
 			_app.u.dump = function(){};
-
+			}
+		
 		if (_app.u.getParameterByName('apidomain')) {
 			// ?apidomain=www.domain.com will set jqurl to an alternate source (ex: testing)
 			_app.vars.jqurl = "https://"+_app.u.getParameterByName('apidomain')+":9000/jsonapi/";
+			}
 
 		//needs to be after the 'flush' above, or there's no way to flush the cart/session.
 		_app.vars.carts = _app.model.dpsGet('app','carts'); //get existing carts. Does NOT create one if none exists. that's app-specific behavior. Don't default to a blank array either. fetchCartID checks memory first.
@@ -485,6 +477,7 @@ If the data is not there, or there's no data to be retrieved (a Set, for instanc
 				if(cartID)	{
 					_app.model.destroy('cartDetail|'+cartID);
 					_app.calls.cartDetail.init(cartID,_tag,Q);
+					}
 				}
 			}, // refreshCart
 // ### FUTURE -> remove this call.
@@ -696,9 +689,6 @@ _app.u.throwMessage(responseData); is the default error handler.
 //							_app.u.dump(" -> removeFromDOMItemsTaggedForDelete.");
 							_app.ext.admin.u.removeFromDOMItemsTaggedForDelete(_rtag.jqObj);
 							}
-						if(_rtag.removeFromDOMItemsTaggedForDelete)	{
-//							_app.u.dump(" -> removeFromDOMItemsTaggedForDelete.");
-							_app.ext.admin.u.removeFromDOMItemsTaggedForDelete(_rtag.jqObj);
 						}
 					}
 
@@ -708,7 +698,6 @@ _app.u.throwMessage(responseData); is the default error handler.
 					$target.anymessage(macroResponses);
 					}
 				else	{
-					var msg = _app.u.successMsgObject(_rtag.message);
 					var msg = _app.u.successMsgObject(_rtag.message);
 					msg['_rtag'] = _rtag; //pass in _rtag as well, as that contains info for parentID.
 					_app.u.throwMessage(msg);
@@ -1448,11 +1437,6 @@ will load everything in the RQ will a pass <= [pass]. so pass of 10 loads everyt
 							}
 						}
 					else	{
-						$('#globalMessaging').anymessage({'message':"In _app.u._executeEvent, data-app-"+ep.normalizedType+" ["+$CT.attr('data-app-'+ep.normalizedType)+"] is invalid. Unable to ascertain Extension and/or Function",'gMessage':true});
-						}				
-					}
-				return r;
-				},
 						$('#globalMessaging').anymessage({'message':"In _app.u._executeEvent, data-app-"+ep.normalizedType+" ["+$CT.attr('data-app-'+ep.normalizedType)+"] is invalid. Unable to ascertain Extension and/or Function",'gMessage':true});
 						}				
 					}
@@ -3007,9 +2991,6 @@ return $r;
 				} //handleTemplateEvents 
 
 
-				} //handleTemplateEvents 
-
-
 		}, //renderFunctions
 
 
@@ -3403,3 +3384,4 @@ $tmp.empty().remove();
 		}
 	}
 	};
+	

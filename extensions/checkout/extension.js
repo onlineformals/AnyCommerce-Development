@@ -230,7 +230,6 @@ _app.ext.order_create.u.handlePanel($context,'chkoutMethodsPay',['empty','transl
 				//if a cart id is set, keep polling. could mean that one orderStatus call failed for some reason.
 				//but no order id likely means the cartOrderCreate call failed. show the errors.
 //				dump(" -> rd: "); dump(rd);
-//				dump(" -> rd: "); dump(rd);
 				
 				function handleError()	{
 					$(document.body).hideLoading();
@@ -1214,7 +1213,6 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 				}
 			
 			
-			}, //a
 			}, //a
 
 
