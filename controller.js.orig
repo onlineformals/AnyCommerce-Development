@@ -73,6 +73,11 @@ function controller(_app)	{
 			if($.support.localStorage)	{
 				window.localStorage.clear();
 				}
+<<<<<<< HEAD
+			}
+		if(_app.u.getParameterByName('quiet') == 1){
+			_app.u.dump = function(){};
+=======
 			}
 		if(_app.u.getParameterByName('quiet') == 1){
 			_app.u.dump = function(){};
@@ -81,7 +86,17 @@ function controller(_app)	{
 		if (_app.u.getParameterByName('apidomain')) {
 			// ?apidomain=www.domain.com will set jqurl to an alternate source (ex: testing)
 			_app.vars.jqurl = "https://"+_app.u.getParameterByName('apidomain')+":9000/jsonapi/";
+>>>>>>> upstream/master
 			}
+
+		//needs to be after the 'flush' above, or there's no way to flush the cart/session.
+		_app.vars.carts = _app.model.dpsGet('app','carts'); //get existing carts. Does NOT create one if none exists. that's app-specific behavior. Don't default to a blank array either. fetchCartID checks memory first.
+
+		_app.handleSession(); //get existing session or create a new one.
+
+		_app.vars.debug = _app.u.getParameterByName('debug'); //set a var for this so the URI doesn't have to be checked each time.
+
+		
 
 		//needs to be after the 'flush' above, or there's no way to flush the cart/session.
 		_app.vars.carts = _app.model.dpsGet('app','carts'); //get existing carts. Does NOT create one if none exists. that's app-specific behavior. Don't default to a blank array either. fetchCartID checks memory first.
@@ -343,7 +358,11 @@ If the data is not there, or there's no data to be retrieved (a Set, for instanc
 				_app.u.dump("Attempting to log in");
 				obj._cmd = 'authAdminLogin';
 				obj.authid = obj.password;
+<<<<<<< HEAD
+				obj.authtype = 'password';
+=======
 				obj.authtype = obj.authtype || 'password';
+>>>>>>> upstream/master
 // ** 201402 -> md5 is no longer used for login. 
 /*				if(obj.authtype == 'md5')	{
 					_app.vars.userid = obj.userid.toLowerCase();	 // important!
@@ -558,6 +577,7 @@ _app.u.throwMessage(responseData); is the default error handler.
 					if(typeof _rtag.onComplete == 'function')	{
 						_rtag.onComplete(_rtag);
 						}
+<<<<<<< HEAD
 					}
 				else	{
 					$('#globalMessaging').anymessage({'message':'In admin.callbacks.tlc, jqOjb not set or not an object ['+typeof _rtag.jqObj+'].','gMessage':true});
@@ -568,6 +588,18 @@ _app.u.throwMessage(responseData); is the default error handler.
 					rd._rtag.jqObj.hideLoading().anymessage({'message':rd});
 					}
 				else	{
+=======
+					}
+				else	{
+					$('#globalMessaging').anymessage({'message':'In admin.callbacks.tlc, jqOjb not set or not an object ['+typeof _rtag.jqObj+'].','gMessage':true});
+					}
+				},
+			onError : function(rd)	{
+				if(rd._rtag && rd._rtag.jqObj && typeof rd._rtag.jqObj == 'object'){
+					rd._rtag.jqObj.hideLoading().anymessage({'message':rd});
+					}
+				else	{
+>>>>>>> upstream/master
 					$('#globalMessage').anymessage({'message':rd});
 					}
 				}
@@ -1137,6 +1169,499 @@ will load everything in the RQ will a pass <= [pass]. so pass of 10 loads everyt
 		//	app.u.dump("BEGIN app.u.handleRQ");
 			var numIncludes = 0; //what is returned. The total number of includes for this pass.
 			var L = _app.rq.length - 1; //rq is iterated through backwards, so length - 1 is used.
+<<<<<<< HEAD
+
+			_app.vars.rq = new Array(); //to avoid any duplication, as iteration occurs, items are moved from app.rq into this tmp array. 
+		
+//the callback added to the loadScript on type 'script' sets the last value of the resource array to true.
+//another script will go through this array and make sure all values are true for validation. That script will execute the callback (once all scripts are loaded).
+			var callback = function(resource){
+				resource[resource.length - 1] = 1; //last index in array is for 'is loaded'. set to false in loop below.
+				if(resource[0] == 'script' && typeof resource[3] == 'function')	{
+					resource[3]();
+					}
+				}
+
+			for(var i = L; i >= 0; i--)	{
+//				_app.u.dump("_app.rq["+i+"][0]: "+_app.rq[i][0]+" pass: "+_app.rq[i][1]);
+				if(_app.rq[i][0] == 'script' && _app.rq[i][1] <= pass)	{
+		//			_app.u.dump(" -> load it!");
+					numIncludes++;
+					_app.rq[i][_app.rq[i].length] = 0; //will get set to 1 when script loads as part of callback.
+					_app.vars.rq.push(_app.rq[i]); //add to pass zero rq.
+					_app.u.loadScript(_app.rq[i][2],callback,(_app.rq[i]));
+					_app.rq.splice(i, 1); //remove from new array to avoid dupes.
+					}
+				else if(_app.rq[i][0] == 'css' && _app.rq[i][1] <= pass)	{
+					numIncludes++;
+					_app.rq[i][_app.rq[i].length] = 1; //no way to verify a css has loaded, so set to 1 as if it's already loaded. ### FUTURE -> verify this.
+					_app.vars.rq.push(_app.rq[i]); //add to pass zero rq.
+					_app.u.loadCSSFile(_app.rq[i][2],_app.rq[i][3])
+					_app.rq.splice(i, 1); //remove from new array to avoid dupes.
+					}
+				else if(_app.rq[i][0] == 'extension' && _app.rq[i][1] <= pass)	{
+					numIncludes++;
+					_app.vars.extensions.push({"namespace":_app.rq[i][2],"filename":_app.rq[i][3],"callback":_app.rq[i][4]}); //add to extension Q.
+					_app.rq[i][_app.rq[i].length] = 0; //will get set to 1 when script loads as part of callback.
+					_app.vars.rq.push(_app.rq[i]); //add to pass zero rq.
+		//			_app.u.dump(" -> _app.rq[i][2]: "+_app.rq[i][2]);
+		//on pass 0, for extensions , their specific callback is not added (if there is one.)
+		// because the model will execute it for all extensions once the controller is initiated.
+		// so instead, a generic callback function is added to track if the extension is done loading.
+		// which is why the extension is added to the extension Q (above).
+					if(_app.rq[i][3]){
+						_app.u.loadScript(_app.rq[i][3],callback,(_app.rq[i]));
+						}
+					else {
+						callback(_app.rq[i]);
+						}
+					_app.rq.splice(i, 1); //remove from old array to avoid dupes.
+					}
+				else	{
+		//currently, this function is intended for pass 0 only, so if an item isn't pass 0,do nothing with it.
+					}
+				}
+		//	_app.u.dump("numIncludes: "+numIncludes);
+//			app.u.initMVC(0);
+			return numIncludes;
+			},
+
+//Run at initComplete. loads all pass zero files and executes their callbacks (if any). then loads resources set for pass > 0
+		loadResources : function()	{
+			var rObj = {
+				'passZeroResourcesLength' : _app.u.handleRQ(0),
+				'passZeroResourcesLoaded' : 0,
+				'passZeroTimeout' : null
+				}; //what is returned.
+			function resourcesAreLoaded(){
+				rObj.passZeroResourcesLoaded = _app.u.numberOfLoadedResourcesFromPass(0); //this should NOT be in the else or it won't get updated once the resources are done.
+				if(_app.u.numberOfLoadedResourcesFromPass(0) == _app.vars.rq.length)	{
+					_app.vars.rq = null; //this is the tmp array used by handleRQ and numberOfResourcesFromPass. Should be cleared for next pass.
+					_app.model.addExtensions(_app.vars.extensions);
+					_app.u.handleRQ(1); //this will empty the RQ.
+					_app.rq.push = _app.u.loadResourceFile; //reassign push function to auto-add the resource.
+					}
+				else	{
+//					_app.u.dump(" -> _app.u.numberOfLoadedResourcesFromPass(0,0): "+_app.u.numberOfLoadedResourcesFromPass(0,0));
+					rObj.passZeroTimeout = setTimeout(function(){resourcesAreLoaded();},250);
+					}
+				}
+			resourcesAreLoaded();
+			return rObj;
+			},
+
+		numberOfLoadedResourcesFromPass : function(pass,debug)	{
+			var L = _app.vars.rq.length;
+			var r = (L === 0) ? false : 0; //what is returned. total # of scripts that have finished loading. false if rq is empty.
+			for(var i = 0; i < L; i++)	{
+				r += _app.vars.rq[i][_app.vars.rq[i].length - 1]
+				if(debug)	{_app.u.dump(" -> "+i+": "+_app.vars.rq[i][2]+": "+_app.vars.rq[i][_app.vars.rq[i].length -1]);}
+				}
+			return r;
+			},
+
+
+
+
+//vars requires MIME_TYPE and body.
+//vars.filename is optional
+//opted to force this into a modal to reduce the likely of a bunch of unused blobs remaining on the DOM.
+//the dialog will empty/remove itself when closed.
+		fileDownloadInModal : function(vars)	{
+//			_app.u.dump("BEGIN _app.u.fileDownloadInModal");
+			vars = vars || {};
+
+			function modal()	{
+				var $D = $("<div \/>",{'title':'File Ready for Download'}).html("Your file is ready for download: <br />").appendTo(document.body);
+				$D.dialog({
+					'modal' : true,
+					'autoOpen' : true,
+					'width' : 300,
+					'height' : 200,
+					close: function(event, ui)	{
+						$('body').css({'height':'auto','overflow':'auto'}) //bring browser scrollbars back.
+//						$(this).dialog('destroy');
+						$(this).closest('.ui-dialog').intervaledEmpty(1000);
+						} //will remove from dom on close
+					});
+				return $D;
+				}
+
+			if(vars.data_url === true)	{
+				var $D = modal();
+				var output = vars.body.join('\n');
+				var uri = 'data:application/csv;charset=UTF-8,' + encodeURIComponent(output);
+				$("<a>").attr({'href':uri,'download':vars.filename}).text(vars.filename).appendTo($D);
+				}
+			else if(vars.mime_type && vars.body)	{
+				_app.u.dump(" -> mime type and body are set");
+				var filename = vars.filename || 'file';
+				var MIME_TYPE = vars.mime_type;
+
+				var $D = modal();
+
+//if atob causes issues later, explore 	b64toBlob	 (found here: http://stackoverflow.com/questions/16245767/creating-a-blob-from-a-base64-string-in-javascript); //201324		
+//content returned on an API call will be base 64 encoded. app-generated content (report csv's) will not.
+//_app.u.dump("vars.skipdecode: "+vars.skipDecode);
+
+				var	file = (vars.skipDecode) ? vars.body : atob(vars.body);
+					// Use typed arrays to convert the binary data to a Blob
+					//http://stackoverflow.com/questions/10473932/browser-html-force-download-of-image-from-src-dataimage-jpegbase64
+				var arraybuffer = new ArrayBuffer(file.length);
+				var L = file.length;
+				var view = new Uint8Array(arraybuffer);
+				for (var i=0; i < L; i++) {
+					view[i] = file.charCodeAt(i) & 0xff;
+					}
+				var bb = new Blob([arraybuffer], {type: 'application/octet-stream'});
+				
+				var $a = $('<a>',{'download':filename,"href":window.URL.createObjectURL(bb)});
+
+				$a.addClass('dragout').attr('data-downloadurl',[MIME_TYPE, $a.attr('download'), $a.attr('href')].join(':')).text('download ready').on('click',function(){
+					var a = this;
+					a.textContent = 'Downloaded';
+					a.dataset.disabled = true;
+					$D.dialog('close');
+					// Need a small delay for the revokeObjectURL to work properly.
+					//revokeObjectURL causes browser to drop reference to the file.
+					setTimeout(function() {
+						window.URL.revokeObjectURL(a.href);
+						$D.empty().remove(); //nuke dialog.
+						}, 1500);
+					});
+
+				
+				$a.appendTo($D);
+				}
+			else	{
+				$('#globalMessaging').anymessage({"message":"In admin.u.fileDownloadInModal, either mime_type ["+vars.mime_type+"] or body ["+typeof vars.body+"] not passed.","gMessage":true});
+				}
+
+			},
+
+
+
+
+
+//The actual event type and the name used on the dom (focus, blur, etc) do not always match. Plus, I have a sneaking feeling we'll end up with differences between browsers.
+//This function can be used to regularize the event type. Wherever possible, we'll map to the jquery event type name.
+			normalizeEventType : function(type){
+				var r = type;
+				if(type == 'focusin')	{
+					r = 'focus';
+					}
+				else if(type == 'focusout')	{
+					r = 'blur';
+					}
+				return r;
+				},
+
+
+			handleCommonPlugins : function($context)	{
+				$('.applyAnycb',$context).anycb();
+				$('.applyAnytable',$context).anytable();
+				$('.toolTip',$context).tooltip();
+				$('.applyAnytabs',$context).anytabs();
+				//will set the title attribute to the placeholder value (if title not already set). useful for places w/ no label and content populated (covering the placeholder value).
+				$(":input[placeholder]",$context).not(['title']).each(function(){
+					$(this).attr('title',$(this).attr('placeholder'));
+					});
+				},
+
+// a utility for converting to jquery button()s.  use applyButton and optionally set some data attributes for text and icons.
+			handleButtons : function($target)	{
+//			_app.u.dump("BEGIN _app.u.handleButtons");
+				if($target && $target instanceof jQuery)	{
+					$('.applyButtonset',$target).each(function(){
+						$(this).buttonset();
+						});
+					$('.applyButton',$target).each(function(index){
+//					_app.u.dump(" -> index: "+index);
+						var $btn = $(this);
+						$btn.button();
+// SANITY -> $btn may NOT be on the DOM when this is run.
+						if($btn.data('icon-primary') && $btn.data('icon-secondary'))	{
+							$btn.button( "option", "icons", { primary: $btn.data('icon-primary'), secondary: $btn.data('icon-secondary')} );
+							}
+						else if($btn.data('icon-primary'))	{
+							$btn.button( "option", "icons", { primary: $btn.data('icon-primary')} );
+							}
+						else if($btn.data('icon-secondary'))	{
+							$btn.button( "option", "icons", { secondary: $btn.data('icon-secondary')} );
+							}
+						else	{} //no icon specified.
+						
+						if($btn.data('text') === false)	{
+							$btn.button( "option", "text", false );
+							}
+						});
+					}
+				else	{
+					$('#globalMessaging').anymessage({"message":"In _app.u.handleButtons, $target was empty or not a valid jquery instance. ","gMessage":true});
+					}
+				},
+//at one point, this was a plugin, but w/ the introduction of multiple app instantiations, that changed.
+//What was the plugin was split into two pieces, the app-event based delegation is here.  The form based is in anyForm
+			addEventDelegation : function($t,vars)	{
+				vars = vars || {};
+				var supportedEvents = new Array("click","change","focus","blur","submit","keyup","keypress");
+
+				function destroyEvents($ele)	{
+					for(var i = 0; i < supportedEvents.length; i += 1)	{
+						$ele.off(supportedEvents[i]+".app");
+						}
+					$ele.removeClass('hasDelegatedEvents').addClass('delegationDestroyed'); //here for troubleshooting purposes.
+					}
+
+				if(vars.destroyEvents || vars == 'destroyEvents')	{
+					destroyEvents($t);
+					}
+				else	{
+					if($t.closest('.hasDelegatedEvents').length >= 1)	{
+						//this element or one of it's parents already has events delegated. don't double up.
+						}
+					else	{
+						//this class is used both to determine if events have already been added AND for some form actions to use in closest.
+						$t.addClass('hasDelegatedEvents'); 
+
+						for(var i = 0; i < supportedEvents.length; i += 1)	{
+							$t.on(supportedEvents[i]+".app","[data-app-"+supportedEvents[i]+"]",function(e,p){
+//								dump(" -> executing event. p: "); dump(p);
+								return _app.u._executeEvent($(e.currentTarget),$.extend(p,e));
+								});
+							}	
+
+						//make sure there are no children w/ delegated events so that event actions are not doubled up.
+						$('.hasDelegatedEvents',$t).each(function(){
+							destroyEvents($(this));
+							});
+						}
+					}
+				}, //addEventDelegation
+
+			_executeEvent : function($CT,ep)	{
+				ep = ep || {};
+				var type = ep.type;
+				if(ep.handleObj && ep.handleObj.origType)	{
+					type = ep.handleObj.origType; //use this if available. ep.type could be 'focusOut' instead of 'blur'.
+					}
+				
+//				dump(" -> type: "+type);
+				
+				var r, actionsArray = $CT.attr('data-app-'+type).split(","), L = actionsArray.length; // ex: admin|something or admin|something, admin|something_else
+				for(var i = 0; i < L; i += 1)	{
+					var	AEF = $.trim(actionsArray[i]).split('|'); //Action Extension Function.  [0] is extension. [1] is Function.
+	//				dump(i+") AEF: "); dump(AEF);
+					if(AEF[0] && AEF[1])	{
+						if(_app.ext[AEF[0]] && _app.ext[AEF[0]].e[AEF[1]] && typeof _app.ext[AEF[0]].e[AEF[1]] === 'function')	{
+							//execute the app event.
+							r = _app.ext[AEF[0]].e[AEF[1]]($CT,ep);
+							//Track event execution
+							var eventObj = {
+								'hitType' : 		'event',
+								'eventCategory' :	AEF[0],
+								'eventAction' :		AEF[1],
+								};
+							if($CT.attr('data-ga-label')){
+								eventObj.eventLabel = $CT.attr('data-ga-label');
+								}
+							if(Number($CT.attr('data-ga-value'))){
+								eventObj.eventValue = Number($CT.attr('data-ga-label'));
+								}
+							window[_app.vars.analyticsPointer]('send', eventObj);
+							}
+						else	{
+							$('#globalMessaging').anymessage({'message':"In _app.u._executeEvent, extension ["+AEF[0]+"] and function["+AEF[1]+"] both passed, but the function does not exist within that extension.",'gMessage':true})
+							}
+						}
+					else	{
+						$('#globalMessaging').anymessage({'message':"In _app.u._executeEvent, data-app-"+ep.normalizedType+" ["+$CT.attr('data-app-'+ep.normalizedType)+"] is invalid. Unable to ascertain Extension and/or Function",'gMessage':true});
+						}				
+					}
+				return r;
+				},
+
+//a UI Action should have a databind of data-app-event (this replaces data-btn-action).
+//value of action should be EXT|buttonObjectActionName.  ex:  admin_orders|orderListFiltersUpdate
+//good naming convention on the action would be the object you are dealing with followed by the action being performed OR
+// if the action is specific to a _cmd or a macro (for orders) put that as the name. ex: admin_orders|orderItemAddBasic
+//obj is some optional data. obj.$content would be a common use.
+			handleAppEvents : function($target,obj)	{
+	//				_app.u.dump("BEGIN _app.u.handleAppEvents");
+					obj = obj || {}; //needs to be outside 'each' or obj gets set to blank.
+					if($target instanceof jQuery)	{
+	//					_app.u.dump(" -> target exists"); _app.u.dump($target);
+	//don't auto-pass context. will be harder for event delegation
+						$("[data-app-event]",$target).each(function(){
+							var $ele = $(this),
+							extension = $ele.data('app-event').split("|")[0],
+							action = $ele.data('app-event').split("|")[1];
+							if(action && extension && _app.ext[extension] && _app.ext[extension].e && typeof _app.ext[extension].e[action] == 'function'){
+	//if an action is declared, every button gets the jquery UI button classes assigned. That'll keep it consistent.
+	//if the button doesn't need it (there better be a good reason), remove the classes in that button action.
+								_app.ext[extension].e[action]($ele,obj);
+								} //no action specified. do nothing. element may have it's own event actions specified inline.
+							else	{
+								_app.u.throwGMessage("In admin.u.handleAppEvents, unable to determine action ["+action+"] and/or extension ["+extension+" typeof _app.data.extension: "+(extension ? typeof _app.data[extension] : 'undefined')+"] and/or extension/action combination is not a function");
+								}
+							});
+						}
+					else	{
+						//don't throw error to user. target 'could' be in memory.
+						_app.u.dump("In _app.u.handleAppEvents, target was either not specified/an object ["+($target instanceof jQuery)+"] or does not exist on DOM.",'warn');
+						
+						}
+					
+					}, //handleAppEvents
+
+			printByjqObj : function($ele)	{
+				var printWin = false;
+				if($ele && $ele instanceof jQuery)	{
+/*					var html="<html><style>@media print{.pageBreak {page-break-after:always} .hide4Print {display:none;}}</style><body style='font-family:sans-serif;'>";
+					html+= $ele.html();
+					html+="</body></html>";
+					
+					printWin = window.open('','','left=0,top=0,width=600,height=600,toolbar=0,scrollbars=0,status=0');
+//a browser could disallow the window.open, which results in printWin NOT being defined and that ends in a JS error, so 'if' added.
+					if(printWin)	{
+						printWin.document.write(html);
+						printWin.document.close();
+						printWin.focus();
+						printWin.print();
+						printWin.close();
+						}
+*/
+
+var $pc = $("#printContainer");
+if($pc.length)	{
+	$pc.empty(); //emptied to make sure anything leftover from last print is gone.
+	}
+else	{
+	$pc = $("<div \/>",{'id':'printContainer'}).css('display','none').appendTo(document.body);
+	}
+var $iframe = $("<iframe \/>").attr({'id':'printContainerIframe','name':'printContainerIframe'}).appendTo($pc);
+$iframe.contents().find('body').append($ele.html());
+$iframe.contents().find('head').append('<style>@media print{.pageBreak {page-break-after:always} .hide4Print {display:none;}}</style>');
+window.frames["printContainerIframe"].focus();
+window.frames["printContainerIframe"].print();
+
+
+					}
+				else	{
+					$('#globalMessaging').anymessage({'message':'In _app.u.printBySelector, $ele not passed or not on DOM','gMessage':true});
+					}
+				return printWin;
+				},
+
+//pass in "_app.data.something.something" as s (string) and this will test to make sure it exists.
+//co (Context Object) is an optional param to search within. ex:  thisNestedExists("data.something.something",_app) will look for _app.data.somthing.something and return true if it exists or false if it doesn't.
+			thisNestedExists : function(s,co){
+				return _app.u.getObjValFromString(s,co || window,'.') ? true : false;
+				},
+
+//pass in a string (my.string.has.dots) and a nested data object, and the dots in the string will map to the object and return the value.
+//ex:  ('a.b',obj) where obj = {a:{b:'go pack go'}} -> this would return 'go pack go'
+//will be used in updates to translator.
+
+//http://stackoverflow.com/questions/5240785/split-abc/5240797#5240797
+			getObjValFromString : function (s,obj,char)	{
+				char = char || '.';
+				var o=obj, attrs=s.split(char);
+				while (attrs.length > 0) {
+					o = o[attrs.shift()];
+					if (!o) {o= null; break;}
+					}
+				return o;
+				}, //getObjValFromString
+
+			getDomainFromURL : function(URL)	{
+				var r ; //what is returned. takes http://www.domain.com/something.html and converts to domain.com
+				r = URL.replace(/([^:]*:\/\/)?([^\/]+\.[^\/]+)/g, '$2');
+				if(r.indexOf('www.') == 0)	{r = r.replace('www.','')}
+				if(r.indexOf('/'))	{r = r.split('/')[0]}
+				return r;
+				},
+	
+			isThisBitOn : function(bit,int)	{
+				var B = Number(int).toString(2); //binary
+				return (B.charAt(bit) == 1) ? true : false; //1
+				},
+	
+	//http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
+			guidGenerator : function() {
+				var S4 = function() {
+					return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+					};
+				return (S4()+S4()+S4()+S4()+S4()+S4()+S4()+S4());
+				},
+	
+	//jump to an anchor. can use a name='' or id=''.  anchor is used in function name because that's the common name for this type of action. do not need to pass # sign.
+			jumpToAnchor : function(id)	{
+				window.location.hash=id;
+				},
+	
+	//uses throwMessage, but always adds the same generic message. value of 'err' is output w/ dump.
+	//this should only be used for app errors (errors thrown from within the MVC, not as a result of an API call, in which case throwMessage should be used (handles request errors nicely)
+			throwGMessage : function(err,parentID){
+				var msg = this.youErrObject("Err: "+err+"<br \/>URI: "+document.location+"<br \/>Dev: console may contain additional details.","#");
+				msg.gMessage = true;
+				$(_app.u.jqSelector('#',parentID || 'globalMessaging')).anymessage(msg);
+				},
+	/*
+	msg could be a string or an object.
+	if an object, could be: {errid,errmsg,errtype}   OR   {msg_X_txt,msg_X_type,msg_X_id}
+	 -> if msg_X format, X will be an integer and _msgs will be set to indicate the # of messages.
+	
+	$target - a jquery object of the target/destination for the message itself. Will check err for parentID, targetID and if not present, check to see if globalMessaging is present AND visible.  If not visible, will open modal.
+	returns the id of the message, so that an action can be easily added if needed (onclick or timeout w/ a hide, etc)
+	
+	persistent - this can be passed in as part of the msg object or a separate param. This was done because repeatedly, error messaging in the control
+	and model that needed to be permanently displayed had to be converted into an object just for that and one line of code was turning into three.
+	*/
+			throwMessage : function(msg,persistent){
+	//			_app.u.dump("BEGIN _app.u.throwMessage");
+	//			_app.u.dump(" -> msg follows: "); _app.u.dump(msg);
+	
+				
+	
+				var $target, //where the app message will be appended.
+				r = true; //what is returned. true if a message was output
+	
+				if(typeof msg === 'string')	{
+					msg = this.youErrObject(msg,"#"); //put message into format anymessage can understand.
+					}
+	
+				if(typeof msg === 'object')	{
+	//				_app.u.dump(" -> msg: "); _app.u.dump(msg);
+					if(msg._rtag && msg._rtag.jqObj)	{$target = msg._rtag.jqObj}
+					else if(msg.parentID){$target = $(_app.u.jqSelector('#',msg.parentID));}
+					else if(msg._rtag && (msg._rtag.parentID || msg._rtag.targetID || msg._rtag.selector))	{
+						if(msg._rtag.parentID)	{$target = $(_app.u.jqSelector('#',msg._rtag.parentID))}
+						else if(msg._rtag.targetID)	{$target = $(_app.u.jqSelector('#',msg._rtag.targetID))}
+						else	{
+							$target = $(_app.u.jqSelector(msg['_rtag'].selector.charAt(0),msg['_rtag'].selector));
+							}
+						}
+					else if($('.appMessaging:visible').length > 0)	{$target = $('.appMessaging:visible');}
+					else if($('#globalMessaging').length)	{$target = $('#globalMessaging')}
+					else if($('#mainContentArea').length)	{$target = $('#mainContentArea')}
+					else	{
+						$target = $("<div \/>").attr('title',"Error!");
+						$target.addClass('displayNone').appendTo('body'); 
+						$target.dialog({
+							modal: true,
+							close: function(event, ui)	{
+								$(this).dialog('destroy').remove();
+								}
+							});
+						}
+					$target.anymessage(msg);
+					}
+				else	{
+					_app.u.dump("WARNING! - unknown type ["+typeof err+"] set on parameter passed into _app.u.throwMessage");
+					r = false; //don't return an html id.
+					}
+=======
 
 			_app.vars.rq = new Array(); //to avoid any duplication, as iteration occurs, items are moved from app.rq into this tmp array. 
 		
@@ -1623,6 +2148,7 @@ window.frames["printContainerIframe"].print();
 					_app.u.dump("WARNING! - unknown type ["+typeof err+"] set on parameter passed into _app.u.throwMessage");
 					r = false; //don't return an html id.
 					}
+>>>>>>> upstream/master
 	//get rid of all the loading gfx in the target so users know the process has stopped.
 				$target.removeClass('loadingBG');
 				if(typeof jQuery().hideLoading == 'function'){$target.hideLoading()} //used in UI. plan on switching everything applicable to this.
@@ -2086,10 +2612,15 @@ VALIDATION
 
 					
 					if($input.hasClass('ui-state-error'))	{
-						_app.u.dump(" -> "+$input.attr('name')+" did not validate. ishidden: "+$input.is(':hidden'));
+<<<<<<< HEAD
+ 						_app.u.dump(" -> "+$input.attr('name')+" did not validate. ishidden: "+$input.is(':hidden'));
  						$(".checkoutClickBlocker").show();
  						$(".checkoutClickBlockerText").show();
  						}
+=======
+						_app.u.dump(" -> "+$input.attr('name')+" did not validate. ishidden: "+$input.is(':hidden'));
+						}
+>>>>>>> upstream/master
 					
 					});
 
@@ -2538,8 +3069,13 @@ name Mod 10 or Modulus 10. */
 				jQuery.support.onhashchange = ('onhashchange' in window);
 				jQuery.support.WebSocket = ('WebSocket' in window);
 
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> upstream/master
 //If certain privacy settings are set in a browser, even detecting if localStorage is available causes a NS_ERROR_NOT_AVAIL.
 //So we first test to make sure the test doesn't cause an error. thanks ff.
 				try{
@@ -2977,6 +3513,12 @@ return $r;
 
 							}
 						$ele.trigger(infoObj.state,[$ele,infoObj]);
+<<<<<<< HEAD
+						if(infoObj.state == 'complete'){
+							_app.ext.quickstart.vars.showContentCompleteFired = true;
+							}
+=======
+>>>>>>> upstream/master
 						}
 					else	{
 						$ele.anymessage({'message':'_app.templateFunctions.handleTemplateEvents, infoObj.state ['+infoObj.state+'] is not valid. Only init, complete and depart are acceptable values.','gMessage':true});
@@ -3384,4 +3926,3 @@ $tmp.empty().remove();
 		}
 	}
 	};
-	

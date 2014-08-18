@@ -106,7 +106,7 @@ myApp.u.appInitComplete = function()	{
 		if(myApp.u.thisNestedExists("zGlobals.thirdParty.facebook.appId") && typeof FB == 'object')	{
 			$('.ocmFacebookComment',$checkout).click(function(){
 				myApp.ext.quickstart.thirdParty.fb.postToWall(cartContentsAsLinks);
-				ga('send','event','Checkout','User Event','FB message about order');
+				_gaq.push(['_trackEvent','Checkout','User Event','FB message about order']);
 				window[myApp.vars.analyticsPointer]('send', 'event','Checkout','User Event','FB message about order');
 				});
 			}
@@ -158,11 +158,7 @@ myApp.router.appendInit({
 			showContent(g.uriParams.pageType, g.uriParams);
 			}
 		else if (g.uriParams.marketplace){
-			var infoObj = {"pid":g.uriParams.product};
-			if(g.uriParams.sku){
-				infoObj.sku = g.uriParams.sku;
-				}
-			showContent("product",infoObj);
+			showContent("product",{"pid":g.uriParams.product});
 			}
 		else if(document.location.hash)	{	
 			myApp.u.dump('triggering handleHash');
