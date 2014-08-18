@@ -95,6 +95,9 @@ _app.router.appendHash({'type':'match','route':'modal/product/{{pid}}*','callbac
 			},
 		attachEventHandlers : {
 			onSuccess : function(){
+				_app.templates.homepageTemplate.on('complete.routing', function(event, $context, infoObj){_app.ext.store_routing.u.setHash("#!/");});
+				
+				_app.templates.categoryTemplate.on('complete.routing', function(event, $context, infoObj){
 				var callback = function(event, $context, infoObj){
 					dump('--> store_seo complete event'); 
 					event.stopPropagation(); 
