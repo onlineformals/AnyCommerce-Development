@@ -30,7 +30,7 @@ myApp.rq.push(['extension',0,'quickstart','app-quickstart.js','startMyProgram'])
 
 // 201405 - Deprecated for Universal Analytics
 //myApp.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
-myApp.rq.push(['extension',1,'google_adwords','extensions/partner_google_adwords.js','startExtension']);
+//myApp.rq.push(['extension',1,'google_adwords','extensions/partner_google_adwords.js','startExtension']);
 //myApp.rq.push(['extension',1,'tools_ab_testing','extensions/tools_ab_testing.js']);
 myApp.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
 myApp.rq.push(['extension',0,'seo_robots','extensions/seo_robots.js']);
@@ -38,7 +38,6 @@ myApp.rq.push(['extension',0,'seo_robots','extensions/seo_robots.js']);
 //myApp.rq.push(['extension',1,'buysafe_guarantee','extensions/partner_buysafe_guarantee.js','startExtension']);
 //myApp.rq.push(['extension',1,'powerReviews_reviews','extensions/partner_powerreviews_reviews.js','startExtension']);
 //myApp.rq.push(['extension',0,'magicToolBox_mzp','extensions/partner_magictoolbox_mzp.js','startExtension']); // (not working yet - ticket in to MTB)
-
 
 
 myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/jquery.showloading-v1.0.jt.js']); //used pretty early in process..
@@ -178,18 +177,19 @@ myApp.u.appInitComplete = function()	{
 		$("[data-app-role='thirdPartyContainer']",$checkout).append("<h2>What next?</h2><div class='ocm ocmFacebookComment pointer zlink marginBottom checkoutSprite  '></div><div class='ocm ocmTwitterComment pointer zlink marginBottom checkoutSprit ' ></div><div class='ocm ocmContinue pointer zlink marginBottom checkoutSprite'></div>");
 		$('.ocmTwitterComment',$checkout).click(function(){
 			window.open('http://twitter.com/home?status='+cartContentsAsLinks,'twitter');
-			_gaq.push(['_trackEvent','Checkout','User Event','Tweeted about order']);
+			window[myApp.vars.analyticsPointer]('send', 'event','Checkout','User Event','Tweeted about order');
 			});
 		//the fb code only works if an appID is set, so don't show banner if not present.				
 		if(myApp.u.thisNestedExists("zGlobals.thirdParty.facebook.appId") && typeof FB == 'object')	{
 			$('.ocmFacebookComment',$checkout).click(function(){
 				myApp.ext.quickstart.thirdParty.fb.postToWall(cartContentsAsLinks);
-				_gaq.push(['_trackEvent','Checkout','User Event','FB message about order']);
+				ga('send','event','Checkout','User Event','FB message about order');
+				window[myApp.vars.analyticsPointer]('send', 'event','Checkout','User Event','FB message about order');
 				});
 			}
 		else	{$('.ocmFacebookComment').hide()}
 		});
-
+	
 	//Cart Messaging Responses.
 	myApp.cmr.push(['chat.join',function(message){
 		if(message.FROM == 'ADMIN')	{
@@ -200,12 +200,7 @@ myApp.u.appInitComplete = function()	{
 			$('.hide4ActiveChat',$ui).hide();
 			}
 		}]);
-	
-	//the default behavior for an itemAppend is to show the chat portion of the dialog. that's an undesired behavior from the buyer perspective (chat only works if admin is actively listening).
-	myApp.cmr.push(['cart.itemAppend',function(message,$context)	{
-		$("[data-app-role='messageHistory']",$context).append("<p class='cart_item_append'>"+message.FROM+" has added item "+message.sku+" to the cart.<\/p>");
-		}]);
-	
+
 	myApp.cmr.push(['goto',function(message,$context){
 		var $history = $("[data-app-role='messageHistory']",$context);
 		$P = $("<P>")
@@ -217,7 +212,8 @@ myApp.u.appInitComplete = function()	{
 		$history.append($P);
 		$history.parent().scrollTop($history.height());
 		}]);
-	
+
+	}
 
 
 
@@ -238,6 +234,13 @@ myApp.router.appendInit({
 		if(g.uriParams.seoRequest){
 			showContent(g.uriParams.pageType, g.uriParams);
 			}
+		else if (g.uriParams.marketplace){
+			var infoObj = {"pid":g.uriParams.product};
+			if(g.uriParams.sku){
+				infoObj.sku = g.uriParams.sku;
+				}
+			showContent("product",infoObj);
+			}
 		else if(document.location.hash)	{	
 			myApp.u.dump('triggering handleHash');
 			myApp.router.handleHashChange();
@@ -254,7 +257,6 @@ myApp.router.appendInit({
 			}
 		}
 	});
-}
 
 
 
