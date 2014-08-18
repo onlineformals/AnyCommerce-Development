@@ -95,6 +95,7 @@ _app.router.appendHash({'type':'match','route':'modal/product/{{pid}}*','callbac
 			},
 		attachEventHandlers : {
 			onSuccess : function(){
+	
 				var callback = function(event, $context, infoObj){
 					dump('--> store_seo complete event'); 
 					event.stopPropagation(); 

@@ -2135,6 +2135,7 @@ VALIDATION
 						if(_app.formatRules[rules[i]]($input,$span))	{_app.u.dump("passed rule validation")}
 						else	{
 							r = false;
+
 							}
 						}
 					else	{
@@ -3384,4 +3385,3 @@ $tmp.empty().remove();
 		}
 	}
 	};
-	

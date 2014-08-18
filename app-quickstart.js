@@ -538,17 +538,17 @@ need to be customized on a per-ria basis.
 					$o.fadeOut(1000, function(){$n.fadeIn(1000)}); //fade out old, fade in new.
 					}
 				}
-				else if($n instanceof jQuery)	{
+			else if($n instanceof jQuery)	{
 				dump(" -> $o is not properly defined.  jquery: "+($o instanceof jQuery)+" and length: "+$o.length);
 				$('html, body').animate({scrollTop : 0},'fast',function(){
 					$n.fadeIn(1000);
 					});
+				setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;}, 600);
 				}
 			else	{
 				//hhmm  not sure how or why we got here.
 				dump("WARNING! in pageTransition, neither $o nor $n were instances of jQuery.  how odd.",'warn');
 				}
-			setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true}, 600);
 			}, //pageTransition
 
 
@@ -3127,7 +3127,7 @@ else	{
 					});
 				return false;
 				}, //showBuyerAddressUpdate
-
+			
 			showBuyerAddressAdd : function($ele,p)	{
 				p.preventDefault();
 				_app.ext.store_crm.u.showAddressAddModal({
@@ -3138,7 +3138,19 @@ else	{
 					});
 				return false;
 				}, //showBuyerAddressAdd
-
+			
+			showBuyerAddressRemove : function($ele, p){
+				p.preventDefault();
+				_app.ext.store_crm.u.showAddressRemoveModal({
+					"addressID" : $ele.closest("address").data('_id'),
+					'addressType' : $ele.closest("[data-app-addresstype]").data('app-addresstype')
+					},function(){
+					$('#mainContentArea_customer').empty().remove(); //kill so it gets regenerated. this a good idea?
+					showContent('customer',{'show':'myaccount'});
+					});
+				return false;
+				},
+			
 			quickviewShow : function($ele,p)	{
 				p.preventDefault();
 				var PID = $ele.data('pid') || $ele.closest('[data-pid]').attr('data-pid');
