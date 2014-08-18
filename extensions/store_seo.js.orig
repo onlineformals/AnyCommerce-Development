@@ -16,6 +16,8 @@
 
 ************************************************************** */
 
+<<<<<<< HEAD
+=======
 /* 
 Service-Entrance Protocol is a test harness which can also be used for SEO.
 It is briefly described here:
@@ -48,6 +50,7 @@ console.log(myApp.ext.quickstart.vars.showContentCompleteFired);
 //  
 
 */
+>>>>>>> upstream/master
 
 
 var store_seo = function(_app) {
@@ -58,7 +61,11 @@ var store_seo = function(_app) {
 ////////////////////////////////////   CALLBACKS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 	vars : {
+<<<<<<< HEAD
 		defaultTitle : "Online Formals", //Should not include any Prefix or Postfix
+=======
+		defaultTitle : "", //Should not include any Prefix or Postfix
+>>>>>>> upstream/master
 		titlePrefix : "",
 		titlePostfix : ""
 		},
@@ -69,7 +76,18 @@ var store_seo = function(_app) {
 			onSuccess : function()	{
 				var r = false; 
 				
+<<<<<<< HEAD
 				
+=======
+				_app.templates.homepageTemplate.on('complete',	function(event,$context,infoObj){_app.ext.store_seo.u.generateMeta(infoObj);});
+				_app.templates.categoryTemplate.on('complete',	function(event,$context,infoObj){_app.ext.store_seo.u.generateMeta(infoObj);});
+				_app.templates.productTemplate.on('complete',	function(event,$context,infoObj){_app.ext.store_seo.u.generateMeta(infoObj);});
+				_app.templates.companyTemplate.on('complete',	function(event,$context,infoObj){_app.ext.store_seo.u.generateMeta(infoObj);});
+				_app.templates.customerTemplate.on('complete',	function(event,$context,infoObj){_app.ext.store_seo.u.generateMeta(infoObj);});
+				_app.templates.checkoutTemplate.on('complete',	function(event,$context,infoObj){_app.ext.store_seo.u.generateMeta(infoObj);});
+				_app.templates.cartTemplate.on('complete',		function(event,$context,infoObj){_app.ext.store_seo.u.generateMeta(infoObj);});
+				_app.templates.searchTemplate.on('complete',	function(event,$context,infoObj){_app.ext.store_seo.u.generateMeta(infoObj);});
+>>>>>>> upstream/master
 				
 				r = true;
 
@@ -78,6 +96,7 @@ var store_seo = function(_app) {
 			onError : function()	{
 				_app.u.dump('BEGIN store_seo.callbacks.init.onError');
 				}
+<<<<<<< HEAD
 			},
 		attachHandlers : {
 			onSuccess : function(){
@@ -92,6 +111,8 @@ var store_seo = function(_app) {
 			onError : function()	{
 				_app.u.dump('BEGIN store_seo.callbacks.attachHandlers.onError');
 				}
+=======
+>>>>>>> upstream/master
 			}
 		}, //callbacks
 
@@ -111,7 +132,11 @@ var store_seo = function(_app) {
 ////////////////////////////////////   UTIL [u]   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 		u : {
+<<<<<<< HEAD
 			generateMeta : function($context, infoObj){
+=======
+			generateMeta : function(infoObj){
+>>>>>>> upstream/master
 				var baseTitle = '';
 				var desc = '';
 				switch(infoObj.pageType){
@@ -119,11 +144,15 @@ var store_seo = function(_app) {
 						//Use Default Title
 						break;
 					case "category" :
-						break;
+<<<<<<< HEAD
 					case "product" :
 						//Grab from the titles and descriptions on the page
 						baseTitle = $('[data-seo-title]', $context).attr('data-seo-title') || '';
 						desc = $('[data-seo-desc]', $context).attr('data-seo-desc') || '';
+=======
+						break;
+					case "product" :
+>>>>>>> upstream/master
 						break;
 					case "company" :
 						break;
@@ -136,15 +165,22 @@ var store_seo = function(_app) {
 					case "search" :
 						break;
 					default :
+<<<<<<< HEAD
 						baseTitle = $('[data-seo-title]', $context).attr('data-seo-title') || '';
 						desc = $('[data-seo-desc]', $context).attr('data-seo-desc') || '';
+=======
+>>>>>>> upstream/master
 						break;
 					}
 				if(!baseTitle){
 					baseTitle = _app.ext.store_seo.vars.defaultTitle;
 					}
 				
+<<<<<<< HEAD
 				document.title = _app.ext.store_seo.vars.titlePrefix + baseTitle + _app.ext.store_seo.vars.titlePostfix;
+=======
+				document.title = _app.ext.store_seo.vars.titlePrefix + title + _app.ext.store_seo.vars.titlePostfix;
+>>>>>>> upstream/master
 				$('meta[name=description]').attr('content', desc);
 				}
 			}, //u [utilities]

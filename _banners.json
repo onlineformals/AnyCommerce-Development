@@ -3,10 +3,42 @@
 {
 	"categoryBanners" : {
 
-		"instock" : {
-			"src"               : ["T/14_002_01_instock_promo_940wx350h_fnl.png"],  
-			"alt"               : ["instockPromo"],
-			"title"             : ["InstockPromo"],
+		"prom" : {
+			"src"               : ["T/19882.png","T/14_002_01_instock_promo_940wx350h_fnl.png","T/1920.png","T/14_002_01_prom_package_940wx350h_fnl.png","T/20047.png"],  
+			"alt"               : ["19882","instockPromo","1920","promPackage","20047"],
+			"title"             : ["19882Promo","InstockPromo","1920Promo","PromPackage","20047Promo"],
+			"height"		 	: ["350","350","350","350","350"],
+			"bannersPerCat"		: "5"
+		},
+
+		"designers.lafemme" : {
+			"src"               : ["T/19882.png","T/20047.png"],  
+			"alt"               : ["19882","20047"],
+			"title"             : ["19882Promo","20047Promo"],
+			"height"		 	: ["350","350"],
+			"bannersPerCat"		: "2"
+		},
+
+		"prom.designers.lafemme" : {
+			"src"               : ["T/19882.png","T/20047.png"],  
+			"alt"               : ["19882","20047"],
+			"title"             : ["19882Promo","20047Promo"],
+			"height"		 	: ["350","350"],
+			"bannersPerCat"		: "2"
+                },
+
+		"designers.sherrihill" : {
+			"src"               : ["T/1920.png"],  
+			"alt"               : ["1920"],
+			"title"             : ["1920Promo"],
+			"height"		 	: ["350"],
+			"bannersPerCat"		: "1"
+		},
+
+		"prom.designers.sherrihill" : {
+			"src"               : ["T/1920.png"],  
+			"alt"               : ["1920"],
+			"title"             : ["1920Promo"],
 			"height"		 	: ["350"],
 			"bannersPerCat"		: "1"
 		}	
