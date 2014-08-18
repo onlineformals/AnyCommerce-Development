@@ -105,6 +105,10 @@ $('#createTaskModal').dialog({'autoOpen':false,'modal':true,'width':500});
 							// don't show completed tasks
 							inc++;
 							}
+						filteredTasks.push(tasks[i])
+						}
+					if(inc >= 100)	{break;} //exit after 100. limits displayed tasks to 100.
+							}
 						else	{
 							inc++;
 							}
@@ -112,10 +116,6 @@ $('#createTaskModal').dialog({'autoOpen':false,'modal':true,'width':500});
 						}
 					if(inc >= 100)	{break;} //exit after 100. limits displayed tasks to 100.
 					}
-				tagObj.jqObj.hideLoading();
-				$("[data-app-role='dualModeListTbody']",tagObj.jqObj).empty().anycontent({'translateOnly':true,'data':{'@TASKS':filteredTasks}});
-				_app.u.handleButtons(tagObj.jqObj);
-				tagObj.jqObj.find("[data-app-click='admin|checkAllCheckboxesExec']").data('selected',false);
 				tagObj.jqObj.hideLoading();
 				$("[data-app-role='dualModeListTbody']",tagObj.jqObj).empty().anycontent({'translateOnly':true,'data':{'@TASKS':filteredTasks}});
 				_app.u.handleButtons(tagObj.jqObj);
@@ -286,7 +286,6 @@ $('#createTaskModal').dialog({'autoOpen':false,'modal':true,'width':500});
 				else	{
 					$('#globalMessaging').anymessage({"message":"Please select at least on task from the list below for modification.",'errtype':'youerr'});
 					}
-				}, //adminTaskRemoveBulkConfirm
 				
 				}, //adminTaskRemoveBulkConfirm
 			

@@ -141,6 +141,7 @@ var quickstart = function(_app) {
 					dump(" -> no cart found. create a new one");
 					_app.calls.appCartCreate.init({'callback':"addCart2CM","extension":'quickstart'},'mutable');
 					}
+
 //technically, a session lasts until the browser is closed. if fresh data is desired on refresh, uncomment the following few lines.
 //if($.support.sessionStorage)	{
 //	window.sessionStorage.clear();
@@ -154,43 +155,13 @@ if(!$.isEmptyObject(hotw))	{
 	_app.ext.quickstart.vars.hotw = hotw;
 					}
 
-//handle the cart. It could be passed in via _app.vars.cartID, as a URI param, localStorage or may not exist yet.
-				var cartID;
-				if(_app.vars.cartID)	{
-					dump(" -> cartID was passed in via _app.vars.cartID");
-					cartID = _app.vars.cartID;
-					delete _app.vars.cartID; //leaving this here will just add confusion.
-					}
-				else if(cartID = _app.u.getParameterByName('cartID'))	{
-					dump(' -> cart id was specified on the URI');
-					}
-				else if(cartID = _app.model.fetchCartID())	{
-					dump(" -> cartID obtained from fetchCartID. cartid: "+cartID);
-					//no need to add this cartID to the session/vars.carts, because that's where fetch gets it from.
-					}
-				else if(!$.support.localStorage)	{
-					cartID = _app.model.readCookie('_cart'); //support browsers w/out localstorage
-					}
-				else	{}
-
-				if(cartID)	{
-					dump(" -> cartID is set, validate.");
-					// the addCart2CM uses the 'appCartExists' datapointer. if it changes here, update the callback.
-					_app.model.addDispatchToQ({"_cmd":"appCartExists",_cartid:cartID,"_tag":{"datapointer":"appCartExists","cartid":cartID,"callback":"addCart2CM","extension":"quickstart"}},"mutable");
-					//do not set cart ID in session until it validates.
-					}
-				else	{
-					dump(" -> no cart found. create a new one");
-					_app.calls.appCartCreate.init({'callback':"addCart2CM","extension":'quickstart'},'mutable');
-					}
-
-//technically, a session lasts until the browser is closed. if fresh data is desired on refresh, uncomment the following few lines.
-//if($.support.sessionStorage)	{
-//	window.sessionStorage.clear();
-//	}
-
-_app.u.addEventDelegation($(document.body)); //if perfomance issues are noticed from adding this to the body instead of to each template, please report them.
-
+//if ?debug=anything is on URI, show all elements with a class of debug.
+if(_app.u.getParameterByName('debug'))	{
+	$('.debug').show().append("<div class='clearfix'>Model Version: "+_app.model.version+" and release: "+_app.vars.release+"</div>");
+	$('.debugQuickLinks','.debug').menu().css({'width':'150px'});
+	$('button','.debug').button();
+	$('body').css('padding-bottom',$('.debug').last().height());
+	}
 
 var hotw = _app.model.dpsGet('quickstart','hotw');
 if(!$.isEmptyObject(hotw))	{
@@ -279,10 +250,6 @@ document.write = function(v){
 						
 						}}},"mutable"); //used to determine if user is logged in or not.
 					_app.model.dispatchThis('mutable');
-
-					if(!$.support.localStorage)	{
-						_app.model.writeCookie('_cart',cartID); //support browsers w/ localstorage disabled.
-						}
 
 					if(!$.support.localStorage)	{
 						_app.model.writeCookie('_cart',cartID); //support browsers w/ localstorage disabled.
@@ -585,16 +552,15 @@ need to be customized on a per-ria basis.
 					$o.fadeOut(1000, function(){$n.fadeIn(1000)}); //fade out old, fade in new.
 					}
 				}
+				$n.addClass('active')
+				callback();
+				setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;}, 600);
 			else if($n instanceof jQuery)	{
 				dump(" -> $o is not properly defined.  jquery: "+($o instanceof jQuery)+" and length: "+$o.length);
 				$('html, body').animate({scrollTop : 0},'fast',function(){
 					$n.fadeIn(1000);
 					});
-				setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;}, 600);
 				}
-			else	{
-				//hhmm  not sure how or why we got here.
-				dump("WARNING! in pageTransition, neither $o nor $n were instances of jQuery.  how odd.",'warn');
 			else	{
 				//hhmm  not sure how or why we got here.
 				dump("WARNING! in pageTransition, neither $o nor $n were instances of jQuery.  how odd.",'warn');
@@ -1187,6 +1153,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 					}
 				else if(typeof _app.ext.quickstart.pageTransition == 'function')	{
 					_app.ext.quickstart.pageTransition($old,$new,infoObj);
+ 							$($hiddenpages.get(i)).intervaledEmpty().remove();
  							}
 				else if($new instanceof jQuery)	{
  					_app.ext.quickstart.pageTransition($old,$new,infoObj, callback);
@@ -1591,10 +1558,12 @@ $target.tlc({
 					_app.ext.quickstart.u.handleLoginActions();
 					}
 				},
+
 			updateDOMTitle : function(title)	{
 				title = (typeof title === "string") ? title : ""; //better blank than 'undefined' or 'object'.
 				document.title = title;
 				},
+
 //used in checkout to populate username: so either login or bill/email will work.
 //never use this to populate the value of an email form field because it may not be an email address.
 			getUsernameFromCart : function(cartID)	{
@@ -1610,18 +1579,19 @@ $target.tlc({
 				else if(!jQuery.isEmptyObject(_app.vars.fbUser))	{
 	//				dump(' -> user is logged in via facebook');
 					r = _app.vars.fbUser.email || false;
+					r = _app.data['cartDetail|'+cartID].customer.login;
+	//				dump(' -> login was set. email = '+r);
+					}
+				else if(_app.data['cartDetail|'+cartID] && _app.data['cartDetail|'+cartID].bill && _app.u.isSet(_app.data['cartDetail|'+cartID].bill.email)){
+					r = _app.data['cartDetail|'+cartID].bill.email;
+	//				dump(' -> bill/email was set. email = '+r);
 					}
 				return r;
 				}, //getUsernameFromCart
-				var login = _app.ext.quickstart.u.getUsernameFromCart(_app.model.fetchCartID());
-				if(login)	{
-					$('.username').text(login);
-					r = _app.data['cartDetail|'+cartID].customer.login;
-	//				dump(' -> login was set. email = '+r);
-	//				dump(' -> bill/email was set. email = '+r);
+					r = _app.vars.fbUser.email || false;
+					}
 				return r;
 				}, //getUsernameFromCart
-					r = _app.vars.fbUser.email || false;
 
 
 			handleLoginActions : function()  {
@@ -2283,6 +2253,7 @@ effects the display of the nav buttons only. should be run just after the handle
 //If raw elastic has been provided, use that.  Otherwise build a query.
 				if(infoObj.elasticsearch){
 					elasticsearch = _app.ext.store_search.u.buildElasticRaw(infoObj.elasticsearch);
+					elasticsearch = _app.ext.store_search.u.buildElasticRaw(infoObj.elasticsearch);
 					}
 				else if(infoObj.tag)	{
 					_app.ext.quickstart.u.updateDOMTitle("Search - tag: "+infoObj.tag);
@@ -2296,13 +2267,12 @@ effects the display of the nav buttons only. should be run just after the handle
 					}
 				else if (infoObj.KEYWORDS) {
 					elasticsearch = _app.ext.store_search.u.buildElasticRaw({
-						"query":{
-							"function_score" : {										
-								"query" : {
-									"query_string":{"query":infoObj.KEYWORDS}	
-									},
-								"functions" : [
-									{
+					   "filter":{
+						  "and" : [
+							 {"query":{"query_string":{"query":decodeURIComponent(infoObj.KEYWORDS), "fields":["prod_name^5","pid","prod_desc"]}}},
+							 {"has_child":{"type":"sku","query": {"range":{"available":{"gte":1}}}}} //only return item w/ inventory
+							 ]
+						  }});
 										"filter" : {"query" : {"query_string":{"query":'"'+infoObj.KEYWORDS+'"'}}},
 										"script_score" : {"script":"10"}
 										}
@@ -2355,10 +2325,8 @@ elasticsearch.size = 50;
 				infoObj.state = 'init'; //needed for handleTemplateEvents.
 				
 //only create instance once.
-				infoObj.cartid = _app.model.fetchCartID();
 				var $cart = $('#mainContentArea_cart');
-				
-				if($cart.length && $cart.data('cartid') == infoObj.cartid)	{
+				if($cart.length)	{
 					_app.renderFunctions.handleTemplateEvents($cart,infoObj);
 					//the cart has already been rendered.
 					infoObj.trigger = 'refresh';
@@ -2366,6 +2334,7 @@ elasticsearch.size = 50;
 					}
 				else	{
 					infoObj.trigger = 'fetch';
+					infoObj.cartid = _app.model.fetchCartID();
 					$cart = _app.ext.cco.a.getCartAsJqObj(infoObj);
 					_app.renderFunctions.handleTemplateEvents($cart,infoObj);
 					$cart.hide().on('complete',function(){
@@ -2373,7 +2342,6 @@ elasticsearch.size = 50;
 							$(this).attr('data-app-change','quickstart|cartShipMethodSelect');
 							});
 						});
-					$cart.attr({'id':infoObj.parentID});
 					$cart.attr({'id':infoObj.parentID});
 					$cart.appendTo("#mainContentArea");
 					}
@@ -2706,20 +2674,6 @@ buyer to 'take with them' as they move between  pages.
 							'gMessage' : true,
 							'message' : "In quickstart.u.showArticle, subject = "+subject+" but that article has no length on the DOM"
 							});
-						}
-					}
-				else	{
-					$('#globalMessaging').anymessage({
-						'gMessage' : true,
-						'message' : "In quickstart.u.showArticle, infoObj.show was not defined."
-						});
-						}
-				return r;
-						r = false;
-						$('#globalMessaging').anymessage({
-							'gMessage' : true,
-							'message' : "In quickstart.u.showArticle, subject = "+subject+" but that article has no length on the DOM"
-							});
 							}
 					}
 				else	{
@@ -2884,15 +2838,12 @@ else if(tagObj.navcat)	{
 			var listName = bindArr[i].split('.')[0];
 			numRequests += _app.calls.appNavcatDetail.init({'path':listName,'detail':'fast'});
 			tagObj.lists.push(listName); //attribute formatted as $listname.@products
-			if(_app.data['appNavcatDetail|'+tagObj.navcat]['@subcategoryDetail'] && !$.isEmptyObject(_app.data['appNavcatDetail|'+tagObj.navcat]['@subcategoryDetail']))	{
-				numRequests += _app.ext.store_navcats.u.getChildDataOf(tagObj.navcat,{},'max');
 			}
 		else if(bindArr[i] == '@subcategoryDetail')	{
 //SANITY -> can't use thisNestedExists here because appNavcatDetail|. for homepage will return false.
 			if(_app.data['appNavcatDetail|'+tagObj.navcat]['@subcategoryDetail'] && !$.isEmptyObject(_app.data['appNavcatDetail|'+tagObj.navcat]['@subcategoryDetail']))	{
 				numRequests += _app.ext.store_navcats.u.getChildDataOf(tagObj.navcat,{},'max');
-			}
-		numRequests += _app.ext.store_navcats.u.addQueries4BreadcrumbToQ(tagObj.navcat).length;
+				}
 			}
 		else	{}
 		//Get category detail for this tree.
@@ -3163,6 +3114,7 @@ else	{
 				p.preventDefault();
 				if(_app.u.validateForm($ele))	{
 					_app.ext.store_crm.u.handleChangePassword($ele,{'callback':'showMessaging','message':'Thank you, your password has been changed','jqObj':$ele});
+					}
 				else	{}
 				return false;
 				},
@@ -3174,16 +3126,9 @@ else	{
 				else	{
 					$ele.append("<input type='hidden' name='_cartid' value='"+_app.model.fetchCartID()+"' \/>");
 					}
-				else	{}
-				return false;
-				},
 
-			productAdd2Cart : function($ele,p)	{
-				p.preventDefault();
-				
 				var cartObj = _app.ext.store_product.u.buildCartItemAppendObj($ele);
 				if(cartObj)	{
-					cartObj["_cartid"] = _app.model.fetchCartID();
 					_app.ext.cco.calls.cartItemAppend.init(cartObj,{},'immutable');
 					_app.model.destroy('cartDetail|'+cartObj._cartid);
 					_app.calls.cartDetail.init(cartObj._cartid,{'callback':function(rd){
@@ -3211,8 +3156,6 @@ else	{
 				var pid = $ele.closest("[data-pid]").data('pid');
 				if($ele.data('listid') && pid)	{
 					_app.ext.quickstart.a.add2BuyerList({sku:pid,'listid':$ele.data('listid')});
-				if($ele.data('listid') && pid)	{
-					_app.ext.quickstart.a.add2BuyerList({sku:pid,'listid':$ele.data('listid')});
 					}
 				else	{
 					$('#globalMessaging').anymessage({"message":"In admin_crm.e.productAdd2List, unable to ascertain pid ["+pid+"] or data-listid was not set on trigger element.","gMessage":true});
@@ -3225,7 +3168,7 @@ else	{
 				_app.ext.store_product.u.showPicsInModal({"pid":$ele.closest("[data-pid]").data('pid')});
 				return false;
 				},
-				
+
 			subscribeSubmit : function($ele,p)	{
 				p.preventDefault();
 				_app.ext.store_crm.u.handleSubscribe($ele);
@@ -3253,7 +3196,7 @@ else	{
 					});
 				return false;
 				}, //showBuyerAddressUpdate
-			
+
 			showBuyerAddressAdd : function($ele,p)	{
 				p.preventDefault();
 				_app.ext.store_crm.u.showAddressAddModal({
@@ -3262,22 +3205,9 @@ else	{
 					$('#mainContentArea_customer').empty().remove(); //kill so it gets regenerated. this a good idea?
 					showContent('customer',{'show':'myaccount'});
 					});
-					});
 				return false;
 				}, //showBuyerAddressAdd
-			
-			showBuyerAddressRemove : function($ele, p){
-				p.preventDefault();
-				_app.ext.store_crm.u.showAddressRemoveModal({
-					"addressID" : $ele.closest("address").data('_id'),
-					'addressType' : $ele.closest("[data-app-addresstype]").data('app-addresstype')
-					},function(){
-					$('#mainContentArea_customer').empty().remove(); //kill so it gets regenerated. this a good idea?
-					showContent('customer',{'show':'myaccount'});
-					});
-				return false;
-				},
-			
+
 			quickviewShow : function($ele,p)	{
 				p.preventDefault();
 				var PID = $ele.data('pid') || $ele.closest('[data-pid]').attr('data-pid');
@@ -3344,30 +3274,13 @@ later, it will handle other third party plugins as well.
 					
 					if(state.onReturn && typeof window[state.onReturn] == 'function')	{
 						window[state.onReturn](state,uriParams);
-				}
-			//just returned from google
-			else if(uriParams.id_token && uriParams.state)	{
-
-				if(uriParams.state)	{
-					
-					dump(" -> state was defined as a uri param");
-					var state = jQuery.parseJSON(atob(uriParams.state));
-					dump(" -> post decode/parse state:");	dump(state);
-//to keep the DOM as clean as possible, only declare this function if it's needed.					
-					if(state.onReturn == 'return2Domain')	{
-						window.return2Domain = function(s,uP){
-							document.location = s.domain+"#trigger=googleAuth&access_token="+uP.access_token+"&id_token="+uP.id_token
-							}
-					else	{
-						dump(" -> state was defined but either onReturn ["+state.onReturn+"] was not set or not a function [typeof: "+typeof window[state.onReturn]+"].");
-						}
-					
-					if(state.onReturn && typeof window[state.onReturn] == 'function')	{
-						window[state.onReturn](state,uriParams);
 						}
 					else	{
 						dump(" -> state was defined but either onReturn ["+state.onReturn+"] was not set or not a function [typeof: "+typeof window[state.onReturn]+"].");
 						}
+					else	{
+						dump(" -> state was defined but either onReturn ["+state.onReturn+"] was not set or not a function [typeof: "+typeof window[state.onReturn]+"].");
+					}
 					}
 
 				}

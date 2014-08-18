@@ -64,16 +64,6 @@ function controller(_app)	{
 		_app.vars.cid = null; //gets set on login. ??? I'm sure there's a reason why this is being saved outside the normal  object. Figure it out and document it.
 		_app.vars.fbUser = {};
 
-				}
-			}
-		if(_app.u.getParameterByName('quiet') == 1){
-			_app.u.dump = function(){};
-			}
-		_app.vars.carts = _app.model.dpsGet('app','carts'); //get existing carts. Does NOT create one if none exists. that's app-specific behavior. Don't default to a blank array either. fetchCartID checks memory first.
-		_app.handleSession(); //get existing session or create a new one.
-		if(_app.u.getParameterByName('flush') == 1)	{
-			_app.u.dump(" !!! Flush is enabled. session and local storage get nuked !!!");
-			if($.support.sessionStorage)	{
 				window.sessionStorage.clear();
 				}
 			if($.support.localStorage)	{
@@ -82,6 +72,7 @@ function controller(_app)	{
 			}
 		if(_app.u.getParameterByName('quiet') == 1){
 			_app.u.dump = function(){};
+			}
 		_app.vars.carts = _app.model.dpsGet('app','carts'); //get existing carts. Does NOT create one if none exists. that's app-specific behavior. Don't default to a blank array either. fetchCartID checks memory first.
 		_app.handleSession(); //get existing session or create a new one.
 		if(_app.u.getParameterByName('flush') == 1)	{
@@ -368,6 +359,7 @@ If the data is not there, or there's no data to be retrieved (a Set, for instanc
 					obj.authid = Crypto.MD5(obj.password+obj.ts);
 					obj.device_notes = "";
 					delete obj.password;
+					}
 */
 				obj._tag = _tag || {};
 				if(obj.persistentAuth)	{obj._tag.datapointer = "authAdminLogin"} //this is only saved locally IF 'keep me logged in' is true OR it's passed in _tag
@@ -474,30 +466,40 @@ If the data is not there, or there's no data to be retrieved (a Set, for instanc
 						r = 1;
 						this.dispatch(cartID,_tag,Q);
 						}
+					}
+				else	{
 					$('#globalMessaging').anymessage({"message":"In calls.cartDetail, no cartID specified.","gMessage":true});
+					}
+				return r;
+				},
 			dispatch : function(cartID,_tag,Q)	{
 				_app.model.addDispatchToQ({"_cmd":"cartDetail","_cartid":cartID,"_tag": _tag,"create":0},Q || 'mutable');
 				} 
 			}, // refreshCart removed comma from here line 383
+
 //used to get a clean copy of the cart. ignores local/memory. used in various places, like checkout. intended to work specifically with the 'active' cart.
 //this is old and, arguably, should be a utility. however it's used a lot so for now, left as is. ### search and destroy when convenient.
 		refreshCart : {
+			init : function(_tag,Q)	{
 				var cartID = _app.model.fetchCartID();
 				if(cartID)	{
 					_app.model.destroy('cartDetail|'+cartID);
 					_app.calls.cartDetail.init(cartID,_tag,Q);
-					}
 				}
 			}, // refreshCart
 // ### FUTURE -> remove this call.
+		ping : {
+			init : function(_tag,Q)	{
+				this.dispatch(_tag,Q);
+				return 1;
+				},
+			dispatch : function(_tag,Q)	{
 				_app.model.addDispatchToQ({"_cmd":"ping","_tag":_tag},Q || 'mutable'); //get new session id.
-				} 
+				}
 			} //ping
 
 		}, // calls
-					_app.model.destroy('cartDetail|'+cartID);
-					_app.calls.cartDetail.init(cartID,_tag,Q);
-// ### FUTURE -> remove this call.
+
 					// //////////////////////////////////   CALLBACKS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ \\
 /*
 Callbacks require should have an onSuccess.
@@ -506,6 +508,7 @@ _app.u.throwMessage(responseData); is the default error handler.
 */
 	callbacks : {
 		
+
 		fileDownloadInModal : {
 			onSuccess : function(_rtag)	{
 				_app.u.dump("BEGIN callbacks.fileDownloadInModal");
@@ -547,33 +550,8 @@ _app.u.throwMessage(responseData); is the default error handler.
 //allows for the callback to perform a lot of the common handling, but to append a little extra functionality at the end of a success.
 					if(typeof _rtag.before == 'function')	{
 						_rtag.before(_rtag);
-					'skipDecode':_rtag.skipDecode || false
-					});
-				if(_rtag.button && _rtag.button instanceof jQuery)	{
-					if(_rtag.button.is('button') && _rtag.button.hasClass('ui-button'))	{
-						_rtag.button.button('enable');
 						}					
 					var $target = _rtag.jqObj
-					$target.hideLoading(); //shortcut
-					if(_rtag.templateID && !_rtag.templateid)	{_rtag.templateid = _rtag.templateID} //anycontent used templateID. tlc uses templateid. rather than put this into the core tranlsator, it's here as a stopgap.
-//anycontent will disable hideLoading and loadingBG classes.
-//to maintain flexibility, pass all anycontent params in thru _tag
-					$target.tlc(_rtag);
-					$target.anyform(_rtag);
-					_app.u.handleCommonPlugins($target);
-					_app.u.handleButtons($target);
-
-//allows for the callback to perform a lot of the common handling, but to append a little extra functionality at the end of a success.
-					if(typeof _rtag.onComplete == 'function')	{
-						_rtag.onComplete(_rtag);
-						}
-//This executes the handleAppEvents in addition to the normal translation.
-//jqObj is required and should be a jquery object.
-//tlc is a VERY common callback. To keep it tight but flexible, before and onComplete functions can be passed to handle special cases.
-		tlc : {
-			onMissing : function(rd)	{
-				rd._rtag.jqObj.anymessage(rd);
-				},
 					$target.hideLoading(); //shortcut
 					if(_rtag.templateID && !_rtag.templateid)	{_rtag.templateid = _rtag.templateID} //anycontent used templateID. tlc uses templateid. rather than put this into the core tranlsator, it's here as a stopgap.
 //anycontent will disable hideLoading and loadingBG classes.
@@ -595,9 +573,6 @@ _app.u.throwMessage(responseData); is the default error handler.
 			onError : function(rd)	{
 				if(rd._rtag && rd._rtag.jqObj && typeof rd._rtag.jqObj == 'object'){
 					rd._rtag.jqObj.hideLoading().anymessage({'message':rd});
-					}
-				else	{
-					$('#globalMessage').anymessage({'message':rd});
 					}
 				else	{
 					$('#globalMessage').anymessage({'message':rd});
@@ -730,10 +705,6 @@ _app.u.throwMessage(responseData); is the default error handler.
 				if(macroResponses && macroResponses['@RESPONSES'])	{
 					var $target = _rtag.jqObj || $("#globalMessaging");
 					macroResponses.persistent = _rtag.persistent === false ? false : true; //these responses should be displayed till turned off.
-					$target.anymessage(macroResponses);
-					}
-				else	{
-					var msg = _app.u.successMsgObject(_rtag.message);
 					$target.anymessage(macroResponses);
 					}
 				else	{
@@ -3020,25 +2991,6 @@ return $r;
 								$ele.anymessage({'message':"In _app.templateFunctions.handleTemplateEvents, data-app-"+infoObj.state+" ["+$CT.attr('data-app-'+infoObj.state)+"] is invalid. Unable to ascertain Extension and/or Function",'gMessage':true});
 								}						
 
-								}						
-						$ele.trigger(infoObj.state,[$ele,infoObj]);
-						}
-					else	{
-						$ele.anymessage({'message':'_app.templateFunctions.handleTemplateEvents, infoObj.state ['+infoObj.state+'] is not valid. Only init, complete and depart are acceptable values.','gMessage':true});
-						}
-					}
-				else if($ele instanceof jQuery)	{
-					$ele.anymessage({'message':'In _app.templateFunctions.handleTemplateEvents, infoObj.state not set.','gMessage':true});
-					}
-				else	{
-					$('#globalMessaging').anymessage({'message':'In _app.templateFunctions.handleTemplateEvents, $ele is not a valid jQuery instance','gMessage':true});
-					}
-				} //handleTemplateEvents 
-
-
-				} //handleTemplateEvents 
-
-
 							}
 						$ele.trigger(infoObj.state,[$ele,infoObj]);
 						}
@@ -3052,6 +3004,9 @@ return $r;
 				else	{
 					$('#globalMessaging').anymessage({'message':'In _app.templateFunctions.handleTemplateEvents, $ele is not a valid jQuery instance','gMessage':true});
 					}
+				} //handleTemplateEvents 
+
+
 				} //handleTemplateEvents 
 
 
@@ -3418,6 +3373,8 @@ $tmp.empty().remove();
 						}
 					int += 1;				
 					}
+				
+				}
 			else	{
 				$tag.anymessage({'message':'Unable to render list item - no loadsTemplate specified.','persistent':true});
 				}

@@ -59,7 +59,7 @@ https://developers.google.com/speed/articles/include-scripts-properly -> section
 $(document).ready(function(){
 	window.adminApp = new initApp({
 		/////////////////////////////////\
-		"release":"201408.d",   ///|> Don't forget to tag the repo when this changes. Increment this with each change. model version followed by each deployed update getting a new letter in the alphabet.
+		"release":"201406.a",   ///|> Don't forget to tag the repo when this changes. Increment this with each change. model version followed by each deployed update getting a new letter in the alphabet.
 		//////////////////////////////////
 		"thisSessionIsAdmin": true,
 		"checkoutAuthMode" : 'order_create', //used to load the appropriate checkout/order create template file
@@ -149,6 +149,10 @@ $(document).ready(function(){
 				</div>
 			</div>
 			
+			<div class='clearfix marginBottom'>
+				<div class='lookLikeLink hint floatRight' data-app-event="admin|showPasswordRecover">Recover Password</div>
+				<div class="hint"><a href='/201401/app-admin.html'> &#187; Use previous version</a></div>
+			</div>
 
 			<div class='clearfix'>
 				<label class='floatRight hint'><input type='checkbox' name='persistentAuth' value='1' checked='checked' /> Keep me logged in</label>
