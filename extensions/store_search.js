@@ -75,7 +75,7 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 						//This is not going to end well, but let's let Elastic tell you that.
 						}
 					}
-				this.dispatch(P,tagObj,Q)
+				this.dispatch(obj,tagObj,Q)
 				return 1;
 				},
 			dispatch : function(obj,tagObj,Q)	{
@@ -522,7 +522,7 @@ P.parentID - The parent ID is used as the pointer in the multipage controls obje
 				es.type = 'product';
 				es.mode = 'elastic-search';
 				es.size = 250;
-//				es.sort = [{'prod_name.raw':'asc'}] //here for testing. prod_name is tokenized, so the .raw field must be used for sorting.
+				
 				return es;
 				},
 			
