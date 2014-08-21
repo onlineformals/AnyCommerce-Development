@@ -5,9 +5,9 @@
 #col4:  goto modifier
 
 # remove legacy cart and session variables from uri
-~path#rewrite	/c=.*/	/
-~path#rewrite	/c=.*/(.*?)	/$1
-~path#rewrite	/s=.*/(.*?)	/$1
+~path#rewrite  /c=.*/   /#!home
+~path#rewrite  /c=.*/(.*?)	/$1
+~path#rewrite  /s=.*/(.*?)	/$1
 
 #OnlineFormals.com custom pages
 =path	/category/9b	/#!home
