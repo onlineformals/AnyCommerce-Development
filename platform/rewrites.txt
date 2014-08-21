@@ -5,8 +5,8 @@
 #col4:  goto modifier
 
 # remove legacy cart and session variables from uri
-~path#rewrite	/c=.*/(.*?)	/$1
-~path#rewrite	/s=.*/(.*?)	/$1
+~path	/c=*/(.*?)	/$1	set=path
+~path	/s=*/(.*?)	/$1	set=path
 
 #OnlineFormals.com custom pages
 =path	/category/9b	/#!home
@@ -27,6 +27,9 @@
 
 
 # redirect all product and category urls
+~path	^.*?/product/(.*?)/.*$	/index.html#!/product/$1
+~path	^.*?/category/(.*?)/.*$	/index.html#!/category/$1
+
 ~path	/category/([^/]*)	/#!category/$1
 ~path	/product/([^/]*)	/#!product/$1
 
@@ -40,4 +43,4 @@
 =path	/returns.cgis	/#!company/return
 =path	/privacy.cgis	/#!company/privacy
 #redirect homepage
-=uri	http://www.onlineformals.com/	http://www.onlineformals.com/#!home
+=uri	http://www.onlineformals.com/	http://www.onlineformals.com/#!/
