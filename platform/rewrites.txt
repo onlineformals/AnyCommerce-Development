@@ -27,8 +27,8 @@
 
 
 # redirect all product and category urls
-~path	^.*?/product/(.*?)/.*$	/index.html#!/product/$1
-~path	^.*?/category/(.*?)/.*$	/index.html#!/category/$1
+~path	^.*?/product/(.*?)/.*$	/#!product/$1
+~path	^.*?/category/(.*?)/.*$	/#!category/$1
 
 ~path	/category/([^/]*)	/#!category/$1
 ~path	/product/([^/]*)	/#!product/$1
