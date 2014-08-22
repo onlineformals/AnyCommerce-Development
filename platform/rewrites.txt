@@ -8,9 +8,6 @@
 ~path	/c=*/(.*?)	/$1	set=path
 ~path	/s=*/(.*?)	/$1	set=path
 
-~path#rewrite	/c=.*/(.*?)	/$1
-~path#rewrite	/s=.*/(.*?)	/$1
-
 #OnlineFormals.com custom pages
 =path	/category/9b	/#!home
 =path	/category/9b/	/#!home
