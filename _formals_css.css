@@ -48,10 +48,11 @@ Put this high in the doc as a reminder to occassionally re-check if it can be re
 /*****appPreView TEMPLATE****/
 
 
-/*
+
 #appPreView{
-	display:block !important;
+	
 }
+/*
 #appView{
 	display:none !important;
 }
