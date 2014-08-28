@@ -4281,23 +4281,17 @@ used on a product layout. Some product have 'children' which may represent the s
 <!-- individual review template -->
 <ul>
 	<li id="productReviewsTemplateDetail" class="reviewLineItem clearfix">
-		<div property="review"  typeof="Review">
-			<ul class="prodReviewInfo">
-				<li property="reviewRating"  typeof="Rating">
-					<meta property="worstRating" content = "1">
-					<div data-tlc="bind $var '.RATING'; if(is $var --notblank) {{ apply --add --class='review_'; }};" class="reviewSprite" property="ratingValue"></div>
-					<meta property="bestRating" content = "10">
-				</li>
-				<li data-tlc="bind $var '.CUSTOMER_NAME'; if (is $var --notblank;) {{apply --append;}};" property="author"></li>
-				<li data-tlc="bind $var '.LOCATION'; format --prepend='of '; if (is $var --notblank;) {{apply --append;}};"></li>
-				<li data-tlc="bind $var '.CREATED_GMT'; if (is $var --notblank;) {{datetime --out='mdy'; format --prepend='on '; apply --append;}};" property="datePublished"></li>
+	<ul class="prodReviewInfo">
+		<li data-tlc="bind $var '.RATING'; if(is $var --notblank) {{ apply --add --class='review_'; }};" class="reviewSprite"></li>
+		<li data-tlc="bind $var '.CUSTOMER_NAME'; if (is $var --notblank;) {{apply --append;}};"></li>
+		<li data-tlc="bind $var '.LOCATION'; format --prepend='of '; if (is $var --notblank;) {{apply --append;}};"></li>
+		<li data-tlc="bind $var '.CREATED_GMT'; if (is $var --notblank;) {{datetime --out='mdy'; format --prepend='on '; apply --append;}};"></li>
 
-			</ul>
-			<blockquote>
-				<h2 data-tlc="bind $var '.SUBJECT'; if (is $var --notblank;) {{apply --append;}};" property="name"></h2>
-				<p data-tlc="bind $var '.MESSAGE'; if (is $var --notblank;) {{apply --append;}};" property="description"></p>
-			</blockquote>
-		</div>
+	</ul>
+	<blockquote>
+		<h2 data-tlc="bind $var '.SUBJECT'; if (is $var --notblank;) {{apply --append;}};"></h2>
+		<p data-tlc="bind $var '.MESSAGE'; if (is $var --notblank;) {{apply --append;}};"></p>
+	</blockquote>
 	</li>
 </ul>
 
