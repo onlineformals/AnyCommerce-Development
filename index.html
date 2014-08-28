@@ -4262,13 +4262,13 @@ used on a product layout. Some product have 'children' which may represent the s
 		<td><img data-tlc="bind $var '.%attribs.zoovy:prod_image1'; apply --img --media=$var --width=45 --height=45 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="45" width="45"></td>
 		<td data-tlc="bind $var '.%attribs.amz:grp_varvalue'; if(is $var --blank) {{bind $var 'product(zoovy:prod_name)';}}; if (is $var --notblank;) {{apply --append;}};"></td>
 		<td>
-		<form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="modal">
+			<form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="modal">
 
-			<fieldset data-tlc="bind $var '.pid'; store_product#atcvariations  --legacy; apply --append;" class="borderNone"></fieldset>
-			<fieldset data-tlc="bind $var '.'; store_product#atcquantityinput  --defaultvalue='0' --legacy;" class="borderNone"></fieldset>
+				<fieldset data-tlc="bind $var '.pid'; store_product#atcvariations  --legacy; apply --append;" class="borderNone"></fieldset>
+				<fieldset data-tlc="bind $var '.'; store_product#atcquantityinput  --defaultvalue='0' --legacy;" class="borderNone"></fieldset>
 
-			<input data-tlc="bind $var '.pid'; store_product#addtocartbutton  --legacy; apply --append;" value="Add to Cart" class="applyButton addtocartbutton displayNone" type="submit">
-		</form>
+				<input data-tlc="bind $var '.pid'; store_product#addtocartbutton  --legacy; apply --append;" value="Add to Cart" class="applyButton addtocartbutton displayNone" type="submit">
+			</form>
 		</td>
 	</tr>
 	</tbody>
@@ -4283,11 +4283,11 @@ used on a product layout. Some product have 'children' which may represent the s
 	<li id="productReviewsTemplateDetail" class="reviewLineItem clearfix">
 		<div property="review"  typeof="Review">
 			<ul class="prodReviewInfo">
-				<div property="reviewRating"  typeof="Rating">
+				<li property="reviewRating"  typeof="Rating">
 					<meta property="worstRating" content = "1">
-					<li data-tlc="bind $var '.RATING'; if(is $var --notblank) {{ apply --add --class='review_'; }};" class="reviewSprite" property="ratingValue"></li>
+					<div data-tlc="bind $var '.RATING'; if(is $var --notblank) {{ apply --add --class='review_'; }};" class="reviewSprite" property="ratingValue"></div>
 					<meta property="bestRating" content = "10">
-				</div>
+				</li>
 				<li data-tlc="bind $var '.CUSTOMER_NAME'; if (is $var --notblank;) {{apply --append;}};" property="author"></li>
 				<li data-tlc="bind $var '.LOCATION'; format --prepend='of '; if (is $var --notblank;) {{apply --append;}};"></li>
 				<li data-tlc="bind $var '.CREATED_GMT'; if (is $var --notblank;) {{datetime --out='mdy'; format --prepend='on '; apply --append;}};" property="datePublished"></li>
@@ -4311,11 +4311,11 @@ used on a product layout. Some product have 'children' which may represent the s
 	<tbody><tr>
 		<td><img data-tlc="bind $var '.%attribs.zoovy:prod_image1'; apply --img --media=$var --width=500 --height=500 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodBigImage" alt="" height="500" width="500"></td>
 		<td>
-		<img data-tlc="bind $var '.%attribs.zoovy:prod_image2'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
-		<img data-tlc="bind $var '.%attribs.zoovy:prod_image3'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
-		<img data-tlc="bind $var '.%attribs.zoovy:prod_image4'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
-		<img data-tlc="bind $var '.%attribs.zoovy:prod_image5'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
-		<img data-tlc="bind $var '.%attribs.zoovy:prod_image6'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
+			<img data-tlc="bind $var '.%attribs.zoovy:prod_image2'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
+			<img data-tlc="bind $var '.%attribs.zoovy:prod_image3'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
+			<img data-tlc="bind $var '.%attribs.zoovy:prod_image4'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
+			<img data-tlc="bind $var '.%attribs.zoovy:prod_image5'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
+			<img data-tlc="bind $var '.%attribs.zoovy:prod_image6'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
 		</td>
 	</tr>
 	</tbody></table>
