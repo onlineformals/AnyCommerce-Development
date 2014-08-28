@@ -103,7 +103,6 @@ css files should be included before any .js file to ensure they are downloaded i
 <script data-apptimize="embed" type="text/javascript" src="resources/jquery.showloading-v1.0.jt.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="resources/jsonpath.0.8.0.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="resources/tlc.js"></script>
-<script data-apptimize="embed" type="text/javascript" src="examples/magictoolbox/magiczoomplus.js"></script>
 <link data-apptimize="embed" type="text/javascript" src="resources/anyplugins.css"></link>
 <!-- 
 +<link data-apptimize="embed" type="text/javascript" src="extensions/checkout/styles.css"></link>
@@ -1127,22 +1126,22 @@ remember to NOT put the button inside the 'onclick' container or two events will
 		</div>
 
 		<div class="productItemInfo">
-            		<div class="productItemInfoContent">
-                		<h5 data-tlc="bind $var '.%attribs.zoovy:prod_name'; if (is $var --notblank;) {{format --truncate='32'; apply --append;}};"></h5>
-        
-                		<!--<h6 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='Our Price: '; apply --append;}};"></h6>-->
-						<h6 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{_store_formals#currencyprodlist --legacy; apply --append;}};"></h6>
-                
-						<h5 class='prodListItemProdMSRP prodMSRP' data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;) {{_store_formals#currencymsrp --legacy; apply --append;}};"></h5>
-                        <div class="displayNone savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;)  {{_store_formals#showhidearea  --legacy}};">                	
-                           <div data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --currencysign='$' --hidezero='true' --legacy;" class="savings"></div>
-                           <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingsdifferenceprodlistitem  --legacy; apply --append;" class="savingsDifference"></span>
-                           <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingspercentageprodlistitem  --legacy; apply --append;" class="savingsPercentage"></span>
-                        </div>
+			<div class="productItemInfoContent">
+				<h5 data-tlc="bind $var '.%attribs.zoovy:prod_name'; if (is $var --notblank;) {{format --truncate='32'; apply --append;}};"></h5>
+
+				<!--<h6 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='Our Price: '; apply --append;}};"></h6>-->
+				<h6 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{_store_formals#currencyprodlist --legacy; apply --append;}};"></h6>
+		
+				<h5 class='prodListItemProdMSRP prodMSRP' data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;) {{_store_formals#currencymsrp --legacy; apply --append;}};"></h5>
+				<div class="displayNone savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;)  {{_store_formals#showhidearea  --legacy}};">                	
+				   <div data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --currencysign='$' --hidezero='true' --legacy;" class="savings"></div>
+				   <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingsdifferenceprodlistitem  --legacy; apply --append;" class="savingsDifference"></span>
+				   <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingspercentageprodlistitem  --legacy; apply --append;" class="savingsPercentage"></span>
+				</div>
 
 			</div>
-            		<div class="productItemInfoMoreInfo"><h1>MORE DETAILS</h1></div>
-        	</div>
+			<div class="productItemInfoMoreInfo"><h1>MORE DETAILS</h1></div>
+        </div>
     </a>
 	
 	<!--
@@ -1159,7 +1158,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 for product lists with addToCart feature (accessories, for example)
 container ul should have lineItemProdlist class on it instead of productList
 -->
-<li id="productListTemplateATC" class="loadingBG  ">
+<li id="productListTemplateATC" class="loadingBG">
 	<div data-tlc="bind $var '.pid'; apply --attrib='data-pid';">
 
 		<div class="prodThumbContainer floatLeft">
