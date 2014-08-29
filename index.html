@@ -3488,10 +3488,15 @@ this will likely become more flexible in the future. ###
 
 
 <!-- 404 page -->
-<div id="pageNotFoundTemplate">
-
-	<h1>Unable to find page...</h1>
-
+<div id="pageNotFoundTemplate" class="pageNotFoundTemplate">
+	<div class="centeringContainer">
+		<h1>The page you are looking for does not exist or was entered incorrectly.</h1>
+		<p>Please enter the name or SKU of the product you are looking for below.</p>
+		<form name="headerSearchFrm" action="#" class="productSearchForm" method="get" data-app-submit='quickstart|searchFormSubmit'>
+			<input type='search' name='KEYWORDS' class="productSearchKeyword handleDefault secondary" placeholder="Find it here..." />
+			<input class="search pointer searchButton" type="submit" value="Search" />
+		</form>
+	</div>
 </div>
 
 
