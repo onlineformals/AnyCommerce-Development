@@ -60,7 +60,7 @@ css files should be included before any .js file to ensure they are downloaded i
 <link data-apptimize="embed" rel="stylesheet" type="text/css" href="app-quickstart.css" />
 <link data-apptimize="embed" rel="stylesheet" type="text/css" href="_formals_css.css" />
 <!--<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/ui-lightness/jquery-ui.css" />-->
-<link data-apptimize="embed" rel="stylesheet" type="text/css" href="jquery-ui-1.10.3.custom/css/Online-Formals/jquery-ui-1.10.3.custom.css" />
+<link rel="stylesheet" type="text/css" href="jquery-ui-1.10.3.custom/css/Online-Formals/jquery-ui-1.10.3.custom.css" />
 <link data-apptimize="embed" href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700' rel='stylesheet' type='text/css' />
 <link data-apptimize="embed" href='https://fonts.googleapis.com/css?family=Maven+Pro:400,500,900,700' rel='stylesheet' type='text/css'>
 
@@ -80,7 +80,7 @@ css files should be included before any .js file to ensure they are downloaded i
 
 
 <!-- jquery and jquery ui are pivotal to the functionality of the app. load them early -->
-<script data-apptimize="embed" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script data-apptimize="embed" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 <script data-apptimize="embed" src="controller.js"></script>
 <script data-apptimize="embed" src="model.js"></script>
@@ -133,7 +133,7 @@ $(document).ready(function(){
 	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 		window.myApp = new initApp({
 			"_robotHasGreeted" : false,
-		"release":"201408.aotest10",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201408.aotest11",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
