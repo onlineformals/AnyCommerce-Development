@@ -974,6 +974,13 @@ li.productItem:hover div.productItemInfoMoreInfo{
 	cursor:pointer; 
 	padding-right:10px;
 }
+.breadcrumb li:after{
+	color: #999999;
+    content: " »";
+    font-size: 1em;
+    font-weight: bold;
+    padding-left: 1em;
+}
 .breadcrumb a{
 	color: #E61652;
 }
