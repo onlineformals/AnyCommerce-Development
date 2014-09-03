@@ -88,6 +88,7 @@ _app.router.appendHash({'type':'match','route':'modal/product/{{pid}}*','callbac
 				r = true;
 
 				return r;
+
 				},
 			onError : function()	{
 				_app.u.dump('BEGIN store_routing.callbacks.init.onError');
@@ -95,7 +96,6 @@ _app.router.appendHash({'type':'match','route':'modal/product/{{pid}}*','callbac
 			},
 		attachEventHandlers : {
 			onSuccess : function(){
-	
 				var callback = function(event, $context, infoObj){
 					dump('--> store_seo complete event'); 
 					event.stopPropagation(); 
@@ -210,7 +210,8 @@ optional params:
 					
 					case 'category':
 						r = true;
-						data.globals.binds[data.globals.focusBind] = _app.ext.store_routing.u.categoryAnchor(data.value.path, (args.seo ? data.value.pretty : ''));
+						var seo = args.seo || data.value.pretty;
+						data.globals.binds[data.globals.focusBind] = _app.ext.store_routing.u.categoryAnchor(data.value.path, seo);
 						break;
 					
 					default:

@@ -896,6 +896,7 @@ or as a series of messages (_msg_X_id) where X is incremented depending on the n
 							responseData['errid'] = "MVC-M-100";
 							responseData['errtype'] = "missing"; 
 							responseData['errmsg'] = "could not find product "+responseData.pid+". Product may no longer exist. ";
+/*ONLINE FORMALS*/			setTimeout(function(){myApp.ext.quickstart.a.showContent('404')}, 1000);
 							} //db:id will not be set if invalid sku was passed.
 						break;
 //most of the time, a successful response w/out errors is taken as a success. however, due to the nature of appCartCreate, we verify we have what we need.

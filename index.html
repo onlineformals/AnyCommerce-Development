@@ -60,7 +60,7 @@ css files should be included before any .js file to ensure they are downloaded i
 <link data-apptimize="embed" rel="stylesheet" type="text/css" href="app-quickstart.css" />
 <link data-apptimize="embed" rel="stylesheet" type="text/css" href="_formals_css.css" />
 <!--<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/ui-lightness/jquery-ui.css" />-->
-<link data-apptimize="embed" rel="stylesheet" type="text/css" href="jquery-ui-1.10.3.custom/css/Online-Formals/jquery-ui-1.10.3.custom.css" />
+<link rel="stylesheet" type="text/css" href="jquery-ui-1.10.3.custom/css/Online-Formals/jquery-ui-1.10.3.custom.css" />
 <link data-apptimize="embed" href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700' rel='stylesheet' type='text/css' />
 <link data-apptimize="embed" href='https://fonts.googleapis.com/css?family=Maven+Pro:400,500,900,700' rel='stylesheet' type='text/css'>
 
@@ -80,7 +80,7 @@ css files should be included before any .js file to ensure they are downloaded i
 
 
 <!-- jquery and jquery ui are pivotal to the functionality of the app. load them early -->
-<script data-apptimize="embed" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script data-apptimize="embed" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 <script data-apptimize="embed" src="controller.js"></script>
 <script data-apptimize="embed" src="model.js"></script>
@@ -103,7 +103,6 @@ css files should be included before any .js file to ensure they are downloaded i
 <script data-apptimize="embed" type="text/javascript" src="resources/jquery.showloading-v1.0.jt.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="resources/jsonpath.0.8.0.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="resources/tlc.js"></script>
-<script data-apptimize="embed" type="text/javascript" src="examples/magictoolbox/magiczoomplus.js"></script>
 <link data-apptimize="embed" type="text/javascript" src="resources/anyplugins.css"></link>
 <!-- 
 +<link data-apptimize="embed" type="text/javascript" src="extensions/checkout/styles.css"></link>
@@ -134,7 +133,7 @@ $(document).ready(function(){
 	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 		window.myApp = new initApp({
 			"_robotHasGreeted" : false,
-		"release":"201408.ao",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201408.aotest13",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
@@ -195,7 +194,7 @@ var _robots = {
 
 
 <!-- what is displayed onLoad until the view is loaded -->
-<div id='appPreView'>
+<div id='appPreView' class="displayNone">
 <table>
 <tr>
 	<td><!-- put logo here --></td>
@@ -232,7 +231,7 @@ var _robots = {
 
 
 
-<div id='appView' class='displayNone'>
+<div id='appView'>
 
 	<!--
 	ANIMATION TESTING
@@ -270,7 +269,7 @@ var _robots = {
 		<div class="headerMidSect">
 			<div class="centeringContainer">
 				<div class="headerLogoContainer">
-					<a href="#!home" class='pointer'><img src="Images/Homepage/headerlogo.png" alt="" /></a>
+					<a data-apptimize="embed" href="#!home" class='pointer'><img src="Images/Homepage/headerlogo.png" alt="" /></a>
 				</div>
 				<div class="headerSearchContainer">
 					<form id="headerSearchFrm" name="headerSearchFrm" action="#" class="productSearchForm" method="get" data-app-submit='quickstart|searchFormSubmit'>
@@ -513,7 +512,7 @@ var _robots = {
 	<div class='footer'>
 		<div class="footerNewsletterBar">
 			<div class="centeringContainer">
-				<img src="Images/Homepage/footernewslettericon.png" alt="" />
+				<img data-apptimize="embed" src="Images/Homepage/footernewslettericon.png" alt="" />
 				<div class="footNewsTextCont">
 					<p>Exclusive Offers. New Arrivals. Fashionable News.</p>
 					<h3>JOIN OUR NEWSLETTER</h3>
@@ -566,7 +565,7 @@ var _robots = {
 				<!--****************************************************SHOWROOM BANNER SECTION*************************************************************** -->
 
 				<div class="footerShowroomLinkContainer">
-					<a href="#!category/.showroom" class="pointer bindByAnchor"><img src="Images/Homepage/footer/footershowroom.png" alt="" /></a>
+					<a href="#!category/.showroom" class="pointer bindByAnchor"><img data-apptimize="embed" src="Images/Homepage/footer/footershowroom.png" alt="" /></a>
 				</div>
 				
 				
@@ -584,7 +583,7 @@ var _robots = {
 					</div>
 					
 					<div class="footerRapidSSLSeal">
-						<img src="Images/Homepage/footer/RapidSSL_SEAL-90x50.gif" alt="" />
+						<img data-apptimize="embed" src="Images/Homepage/footer/RapidSSL_SEAL-90x50.gif" alt="" />
 					</div>
 					
 					<div class="footerGeotrustSeal">
@@ -697,7 +696,7 @@ src="Images/Homepage/topbanner/testbanner.png" FOR THE IMAGE FILE.
 -->       	
 		<div class="homepageBannerContainer">
         	<!--Remove the overflow hidden style when installing the new banner*/-->
-            <a class="pointer" ><img src="Images/Homepage/topbanner/topbanner.png" alt="" /></a> <!--onClick="return showContent('category',{'navcat':''});"-->
+            <a class="pointer" ><img data-apptimize="embed" src="Images/Homepage/topbanner/topbanner.png" alt="" /></a> <!--onClick="return showContent('category',{'navcat':''});"-->
         </div>
 <!--
 /******************************************************************************************************************************************************************/
@@ -724,15 +723,15 @@ src="Images/Homepage/carousel/testbanner-1.png" FOR THE IMAGE FILE.
 -->   
 		<div class="homepageCarouselContainer">
             <ul class="carouselHPBannerList">
-		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.cocktail.homecoming'});"><img src="Images/Homepage/carousel/homecoming2014.png" alt="" /></a></li>	
-		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.in_stock'});"><img src="Images/Homepage/carousel/instocksummer.png" alt="" /></a></li>
-		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.prom.sale'});"><img src="Images/Homepage/carousel/salebanner.png" alt="" /></a></li>
-		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.scala'});"><img src="Images/Homepage/carousel/scalabanner.png" alt="" /></a></li>
-		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.la_femme'});"><img src="Images/Homepage/carousel/lafemmespring.png" alt="" /></a></li>
-		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.sherri_hill'});"><img src="Images/Homepage/carousel/sherrispring.png" alt="" /></a></li>
+		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.cocktail.homecoming'});"><img data-apptimize="embed" src="Images/Homepage/carousel/homecoming2014.png" alt="" /></a></li>	
+		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.in_stock'});"><img data-apptimize="embed" src="Images/Homepage/carousel/instocksummer.png" alt="" /></a></li>
+		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.prom.sale'});"><img data-apptimize="embed" src="Images/Homepage/carousel/salebanner.png" alt="" /></a></li>
+		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.scala'});"><img data-apptimize="embed" src="Images/Homepage/carousel/scalabanner.png" alt="" /></a></li>
+		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.la_femme'});"><img data-apptimize="embed" src="Images/Homepage/carousel/lafemmespring.png" alt="" /></a></li>
+		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.sherri_hill'});"><img data-apptimize="embed" src="Images/Homepage/carousel/sherrispring.png" alt="" /></a></li>
             </ul>
-            <img class="prevHPBannerCaro" src="Images/Homepage/caroleft.png" alt="" />
-            <img class="nextHPBannerCaro" src="Images/Homepage/caroright.png" alt="" />
+            <img data-apptimize="embed" class="prevHPBannerCaro" src="Images/Homepage/caroleft.png" alt="" />
+            <img data-apptimize="embed" class="nextHPBannerCaro" src="Images/Homepage/caroright.png" alt="" />
         </div>		
 <!--
 /******************************************************************************************************************************************************************/
@@ -755,19 +754,19 @@ src="Images/Homepage/subcats/testchildren.png" FOR THE IMAGE FILE, AND <p class=
 -->   
         <div class="homepageSubCatListContainer">
             <div class="homepageSubCatItemTop pointer" onClick="return showContent('category',{'navcat':'.in_stock'});"> <!--onMouseOver="myApp.ext._store_formals.a.homepageSubCatMouseOver($(this))" onMouseOut="myApp.ext._store_formals.a.homepageSubCatMouseOut($(this))"-->
-                <img src="Images/Homepage/subcats/instock.png" alt="" />
+                <img data-apptimize="embed" src="Images/Homepage/subcats/instock.png" alt="" />
                 <div class="homepageSubCatTitleBar homepageSubCatTitleBar1">
                     <p class="homepageSubCatTitle"></p>
                 </div>
             </div>
             <div class="homepageSubCatItemTop pointer" onClick="return showContent('category',{'navcat':'.showroom'});">
-                <img src="Images/Homepage/subcats/showroom.png" alt="" />
+                <img data-apptimize="embed" src="Images/Homepage/subcats/showroom.png" alt="" />
 				<div class="homepageSubCatTitleBar homepageSubCatTitleBar2">
                     <p class="homepageSubCatTitle"></p>
                 </div>
             </div>
             <div class="homepageSubCatItemTop pointer" onClick="return showContent('category',{'navcat':'.prom.trends.sequins'});">
-                <img src="Images/Homepage/subcats/sequins.png" alt="" />
+                <img data-apptimize="embed" src="Images/Homepage/subcats/sequins.png" alt="" />
                 <div class="homepageSubCatTitleBar homepageSubCatTitleBar3">
                     <p class="homepageSubCatTitle"></p>
                 </div>
@@ -794,25 +793,25 @@ src="Images/Homepage/categories/testprom.png" FOR THE IMAGE FILE, AND <p class="
 -->
         <div class="homepageCategoryListContainer">
             <a class="homepageCategoryItemTop pointer" href="#!category/prom"> <!--onMouseOver="myApp.ext._store_formals.a.homepageCategoryMouseOver($(this))" onMouseOut="myApp.ext._store_formals.a.homepageCategoryMouseOut($(this))"-->
-                <img src="Images/Homepage/categories/prom.jpg" alt="" />
+                <img data-apptimize="embed" src="Images/Homepage/categories/prom.jpg" alt="" />
                 <div class="homepageCatTitleBar homepageCatTitleBar1">
                     <p class="homepageCatTitle">Prom</p>
                 </div>
             </a>
             <a class="homepageCategoryItemTop pointer" href="#!category/evening">
-                <img src="Images/Homepage/categories/evening.jpg" alt="" />
+                <img data-apptimize="embed" src="Images/Homepage/categories/evening.jpg" alt="" />
                 <div class="homepageCatTitleBar homepageCatTitleBar2">
                     <p class="homepageCatTitle">Evening</p>
                 </div>
             </a>
             <a class="homepageCategoryItemTop pointer" href="#!category/cocktail">
-                <img src="Images/Homepage/categories/cocktail.jpg" alt="" />
+                <img data-apptimize="embed" src="Images/Homepage/categories/cocktail.jpg" alt="" />
                 <div class="homepageCatTitleBar homepageCatTitleBar3">
                     <p class="homepageCatTitle">Cocktail</p>
                 </div>
             </a>
             <a class="homepageCategoryItemTop pointer" href="#!category/plus_size">
-                <img src="Images/Homepage/categories/plus.jpg" alt="" />
+                <img data-apptimize="embed" src="Images/Homepage/categories/plus.jpg" alt="" />
                 <div class="homepageCatTitleBar homepageCatTitleBar4">
                     <p class="homepageCatTitle">Plus Size</p>
                 </div>
@@ -837,8 +836,8 @@ END HOMEPAGE FOUR TALL AD BANNER BARS SECTION
                     <li><h3>CELEBRITY TRENDS</h3></li>
                     <li><h3>NEW TO SALE</h3></li>
                 </ul>
-                <img class="hpProductListPrev" src="Images/Homepage/caroleftsmall.png" />
-                <img class="hpProductListNext" src="Images/Homepage/carorightsmall.png" />
+                <img data-apptimize="embed" class="hpProductListPrev" src="Images/Homepage/caroleftsmall.png" />
+                <img data-apptimize="embed" class="hpProductListNext" src="Images/Homepage/carorightsmall.png" />
             </div>
         </div>
         <div class="hpProductListContentArea">
@@ -898,8 +897,8 @@ don't modify the 'data-templateid' unless you are changing template names and up
         <div class="catTopCarousel">
             <div class="carouselCPBannerList">
             </div>
-            <img class="prevCPBannerCaro" src="Images/Homepage/caroleft.png" />
-            <img class="nextCPBannerCaro" src="Images/Homepage/caroright.png" />
+            <img data-apptimize="embed" class="prevCPBannerCaro" src="Images/Homepage/caroleft.png" />
+            <img data-apptimize="embed" class="nextCPBannerCaro" src="Images/Homepage/caroright.png" />
             <div class="catProdListCustomTextArea displayNone" data-tlc="bind $var '.%page.description'; if (is $var --notblank;){{apply --append;}};">
                 <h1 data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></h1>
             </div>
@@ -983,7 +982,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 		<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
 
     	<div class="searchTab" title="Need help finding exactly the dress you want? Click the magnifying glass to narrow your results with our filtered search!">
-        	<img onClick="myApp.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent());" src="Images/categorypage/filteredsearch/search_tab.png" />
+        	<img data-apptimize="embed" onClick="myApp.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent());" src="Images/categorypage/filteredsearch/search_tab.png" />
         	<p onClick="myApp.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent());">Narrow Your Search</p>
         </div>
     	<div class="catProdListSidebar">
@@ -995,8 +994,8 @@ don't modify the 'data-templateid' unless you are changing template names and up
             <ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>
             <div class="carouselCPBannerList">
             </div>
-            <img class="prevCPBannerCaroProdList" src="Images/Homepage/caroleft.png" />
-            <img class="nextCPBannerCaroProdList" src="Images/Homepage/caroright.png" />
+            <img data-apptimize="embed" class="prevCPBannerCaroProdList" src="Images/Homepage/caroleft.png" />
+            <img data-apptimize="embed" class="nextCPBannerCaroProdList" src="Images/Homepage/caroright.png" />
             <div class="catProdListCustomTextArea displayNone" data-tlc="bind $var '.%page.description'; if (is $var --notblank;){{apply --append;}};">
                 <h1 data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></h1>
             </div>
@@ -1127,22 +1126,22 @@ remember to NOT put the button inside the 'onclick' container or two events will
 		</div>
 
 		<div class="productItemInfo">
-            		<div class="productItemInfoContent">
-                		<h5 data-tlc="bind $var '.%attribs.zoovy:prod_name'; if (is $var --notblank;) {{format --truncate='32'; apply --append;}};"></h5>
-        
-                		<!--<h6 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='Our Price: '; apply --append;}};"></h6>-->
-						<h6 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{_store_formals#currencyprodlist --legacy; apply --append;}};"></h6>
-                
-						<h5 class='prodListItemProdMSRP prodMSRP' data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;) {{_store_formals#currencymsrp --legacy; apply --append;}};"></h5>
-                        <div class="displayNone savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;)  {{_store_formals#showhidearea  --legacy}};">                	
-                           <div data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --currencysign='$' --hidezero='true' --legacy;" class="savings"></div>
-                           <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingsdifferenceprodlistitem  --legacy; apply --append;" class="savingsDifference"></span>
-                           <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingspercentageprodlistitem  --legacy; apply --append;" class="savingsPercentage"></span>
-                        </div>
+			<div class="productItemInfoContent">
+				<h5 data-tlc="bind $var '.%attribs.zoovy:prod_name'; if (is $var --notblank;) {{format --truncate='32'; apply --append;}};"></h5>
+
+				<!--<h6 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='Our Price: '; apply --append;}};"></h6>-->
+				<h6 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{_store_formals#currencyprodlist --legacy; apply --append;}};"></h6>
+		
+				<h5 class='prodListItemProdMSRP prodMSRP' data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;) {{_store_formals#currencymsrp --legacy; apply --append;}};"></h5>
+				<div class="displayNone savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;)  {{_store_formals#showhidearea  --legacy}};">                	
+				   <div data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --currencysign='$' --hidezero='true' --legacy;" class="savings"></div>
+				   <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingsdifferenceprodlistitem  --legacy; apply --append;" class="savingsDifference"></span>
+				   <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingspercentageprodlistitem  --legacy; apply --append;" class="savingsPercentage"></span>
+				</div>
 
 			</div>
-            		<div class="productItemInfoMoreInfo"><h1>MORE DETAILS</h1></div>
-        	</div>
+			<div class="productItemInfoMoreInfo"><h1>MORE DETAILS</h1></div>
+        </div>
     </a>
 	
 	<!--
@@ -1159,7 +1158,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 for product lists with addToCart feature (accessories, for example)
 container ul should have lineItemProdlist class on it instead of productList
 -->
-<li id="productListTemplateATC" class="loadingBG  ">
+<li id="productListTemplateATC" class="loadingBG">
 	<div data-tlc="bind $var '.pid'; apply --attrib='data-pid';">
 
 		<div class="prodThumbContainer floatLeft">
@@ -3482,17 +3481,16 @@ this will likely become more flexible in the future. ###
 
 
 
-
-
-
-
-
-
 <!-- 404 page -->
-<div id="pageNotFoundTemplate">
-
-	<h1>Unable to find page...</h1>
-
+<div id="pageNotFoundTemplate" class="pageNotFoundTemplate">
+	<div class="centeringContainer">
+		<h1>The page you are looking for does not exist or was entered incorrectly.</h1>
+		<p>Please enter the name or SKU of the product you are looking for below.</p>
+		<form name="headerSearchFrm" action="#" class="productSearchForm" method="get" data-app-submit='quickstart|searchFormSubmit'>
+			<input type='search' name='KEYWORDS' class="productSearchKeyword handleDefault secondary" placeholder="Find it here..." />
+			<input class="search pointer searchButton" type="submit" value="Search" />
+		</form>
+	</div>
 </div>
 
 
@@ -4263,13 +4261,13 @@ used on a product layout. Some product have 'children' which may represent the s
 		<td><img data-tlc="bind $var '.%attribs.zoovy:prod_image1'; apply --img --media=$var --width=45 --height=45 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="45" width="45"></td>
 		<td data-tlc="bind $var '.%attribs.amz:grp_varvalue'; if(is $var --blank) {{bind $var 'product(zoovy:prod_name)';}}; if (is $var --notblank;) {{apply --append;}};"></td>
 		<td>
-		<form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="modal">
+			<form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="modal">
 
-			<fieldset data-tlc="bind $var '.pid'; store_product#atcvariations  --legacy; apply --append;" class="borderNone"></fieldset>
-			<fieldset data-tlc="bind $var '.'; store_product#atcquantityinput  --defaultvalue='0' --legacy;" class="borderNone"></fieldset>
+				<fieldset data-tlc="bind $var '.pid'; store_product#atcvariations  --legacy; apply --append;" class="borderNone"></fieldset>
+				<fieldset data-tlc="bind $var '.'; store_product#atcquantityinput  --defaultvalue='0' --legacy;" class="borderNone"></fieldset>
 
-			<input data-tlc="bind $var '.pid'; store_product#addtocartbutton  --legacy; apply --append;" value="Add to Cart" class="applyButton addtocartbutton displayNone" type="submit">
-		</form>
+				<input data-tlc="bind $var '.pid'; store_product#addtocartbutton  --legacy; apply --append;" value="Add to Cart" class="applyButton addtocartbutton displayNone" type="submit">
+			</form>
 		</td>
 	</tr>
 	</tbody>
@@ -4282,23 +4280,17 @@ used on a product layout. Some product have 'children' which may represent the s
 <!-- individual review template -->
 <ul>
 	<li id="productReviewsTemplateDetail" class="reviewLineItem clearfix">
-		<div property="review"  typeof="Review">
-			<ul class="prodReviewInfo">
-				<div property="reviewRating"  typeof="Rating">
-					<meta property="worstRating" content = "1">
-					<li data-tlc="bind $var '.RATING'; if(is $var --notblank) {{ apply --add --class='review_'; }};" class="reviewSprite" property="ratingValue"></li>
-					<meta property="bestRating" content = "10">
-				</div>
-				<li data-tlc="bind $var '.CUSTOMER_NAME'; if (is $var --notblank;) {{apply --append;}};" property="author"></li>
-				<li data-tlc="bind $var '.LOCATION'; format --prepend='of '; if (is $var --notblank;) {{apply --append;}};"></li>
-				<li data-tlc="bind $var '.CREATED_GMT'; if (is $var --notblank;) {{datetime --out='mdy'; format --prepend='on '; apply --append;}};" property="datePublished"></li>
+	<ul class="prodReviewInfo">
+		<li data-tlc="bind $var '.RATING'; if(is $var --notblank) {{ apply --add --class='review_'; }};" class="reviewSprite"></li>
+		<li data-tlc="bind $var '.CUSTOMER_NAME'; if (is $var --notblank;) {{apply --append;}};"></li>
+		<li data-tlc="bind $var '.LOCATION'; format --prepend='of '; if (is $var --notblank;) {{apply --append;}};"></li>
+		<li data-tlc="bind $var '.CREATED_GMT'; if (is $var --notblank;) {{datetime --out='mdy'; format --prepend='on '; apply --append;}};"></li>
 
-			</ul>
-			<blockquote>
-				<h2 data-tlc="bind $var '.SUBJECT'; if (is $var --notblank;) {{apply --append;}};" property="name"></h2>
-				<p data-tlc="bind $var '.MESSAGE'; if (is $var --notblank;) {{apply --append;}};" property="description"></p>
-			</blockquote>
-		</div>
+	</ul>
+	<blockquote>
+		<h2 data-tlc="bind $var '.SUBJECT'; if (is $var --notblank;) {{apply --append;}};"></h2>
+		<p data-tlc="bind $var '.MESSAGE'; if (is $var --notblank;) {{apply --append;}};"></p>
+	</blockquote>
 	</li>
 </ul>
 
@@ -4312,11 +4304,11 @@ used on a product layout. Some product have 'children' which may represent the s
 	<tbody><tr>
 		<td><img data-tlc="bind $var '.%attribs.zoovy:prod_image1'; apply --img --media=$var --width=500 --height=500 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodBigImage" alt="" height="500" width="500"></td>
 		<td>
-		<img data-tlc="bind $var '.%attribs.zoovy:prod_image2'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
-		<img data-tlc="bind $var '.%attribs.zoovy:prod_image3'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
-		<img data-tlc="bind $var '.%attribs.zoovy:prod_image4'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
-		<img data-tlc="bind $var '.%attribs.zoovy:prod_image5'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
-		<img data-tlc="bind $var '.%attribs.zoovy:prod_image6'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
+			<img data-tlc="bind $var '.%attribs.zoovy:prod_image2'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
+			<img data-tlc="bind $var '.%attribs.zoovy:prod_image3'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
+			<img data-tlc="bind $var '.%attribs.zoovy:prod_image4'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
+			<img data-tlc="bind $var '.%attribs.zoovy:prod_image5'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
+			<img data-tlc="bind $var '.%attribs.zoovy:prod_image6'; apply --img --media=$var --width=100 --height=100 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="100" width="100">
 		</td>
 	</tr>
 	</tbody></table>
