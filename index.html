@@ -18,6 +18,7 @@
 
 <base href='' /><!-- leave blank so it works for a local file. updated to / if protocol is not file: -->
 
+<meta name="description" content="">
 
 <script data-apptimize="minify" type="text/javascript">
 var _gaq = _gaq || [];
@@ -89,7 +90,6 @@ css files should be included before any .js file to ensure they are downloaded i
 <script data-apptimize="embed" type="text/javascript" src="extensions/checkout/extension.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/cart_checkout_order.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/store_routing.js"></script>
-<script data-apptimize="embed" type="text/javascript" src="extensions/store_seo.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/store_prodlist.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/store_navcats.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/store_search.js"></script>
@@ -98,6 +98,7 @@ css files should be included before any .js file to ensure they are downloaded i
 <script data-apptimize="embed" type="text/javascript" src="extensions/store_crm.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="app-quickstart.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/seo_robots.js"></script>
+<script data-apptimize="embed" type="text/javascript" src="extensions/store_tracking.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/prodlist_infinite.js"></script>
 
 <script data-apptimize="embed" type="text/javascript" src="resources/jquery.showloading-v1.0.jt.js"></script>
@@ -133,19 +134,19 @@ $(document).ready(function(){
 	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 		window.myApp = new initApp({
 			"_robotHasGreeted" : false,
-		"release":"201408.aotest13",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201408.aq",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
 		"testURL":"http://www.onlineformals.com/", //used ONLY if protocol is file: (for testing)
 		"addjQueryPointer" : true,
 		"analyticsPointer" : "ga",
-		"initComplete" : function(t){
-			dump(" -> init is complete");
-			myApp.u.loadScript('_formals_init.js',function(){
-				var progress = myApp.u.loadResources(); //the object returns by loadResources will get updated as the resources finish loading.
-				myApp.u.showProgress(progress);
-				});
+//		"initComplete" : function(t){
+//			dump(" -> init is complete");
+//			myApp.u.loadScript('_formals_init.js',function(){
+//				var progress = myApp.u.loadResources(); //the object returns by loadResources will get updated as the resources finish loading.
+//				myApp.u.showProgress(progress);
+//				});
 			$('#appversion').text(myApp.vars.release);
 			}
 		});
@@ -184,6 +185,8 @@ var _robots = {
 		}
 	}
 </script>
+
+<script data-apptimize="embed" type="text/javascript" src="_formals_init.js"></script>
 
 
 </head>
@@ -2293,55 +2296,58 @@ this will likely become more flexible in the future. ###
         	</TABLE>
             
             <!--FAVIANA-->
-            <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
-            
-            <TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>FAVIANA</b></font></center><a onClick="myApp.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
-                            <TR bgcolor="#FFFFFF">
-            <TD><b>Size</b></TD>
-            <td>0</td>
-            <td>2</td>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-            <td>12</td>
-            <td>14</td>
-            <td>16</td></TR>
-            <TR bgcolor="#f2f2f2">
-            <TD><b>Bust</b></TD>
-            <td>31.5</td>
-            <td>32.5</td>
-            <td>33.5</td>
-            <td>34.5</td>
-            <td>35.5</td>
-            <td>36.5</td>
-            <td>37.5</td>
-            <td>38.5</td>            
-            <td>40</td></TR>
-            <TR bgcolor="#FFFFFF">
-            <TD><b>Waist</b></TD>
-            <td>23</td>
-            <td>24</td>
-            <td>25</td>
-            <td>26</td>
-            <td>27</td>
-            <td>28</td>
-            <td>29</td>
-            <td>30</td>            
-            <td>31.5</td></TR>
-            <TR bgcolor="#f2f2f2">
-            <TD><b>Hip</b></TD>
-            <td>35.5</td>
-            <td>36.5</td>
-            <td>37.5</td>
-            <td>38.5</td>
-            <td>39.5</td>
-            <td>40.5</td>
-            <td>41.5</td>
-            <td>42.5</td>
-            <td>44</td>
-            </TR>
-        </TABLE>
+            <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >          
+				<TD colspan="100" bgcolor="#e1e1e1"><center><font color="#736D5D" size="3px"><b>FAVIANA</b></font></center><a onClick="myApp.ext._store_formals.a.sizingChartModalScrollTop()">BACK TO TOP</a></TD>
+				<TR bgcolor="#FFFFFF">
+				<TD><b>Size</b></TD>
+				<td>00</td>
+				<td>0</td>
+				<td>2</td>
+				<td>4</td>
+				<td>6</td>
+				<td>8</td>
+				<td>10</td>
+				<td>12</td>
+				<td>14</td>
+				<td>16</td></TR>
+				<TR bgcolor="#f2f2f2">
+				<TD><b>Bust</b></TD>
+				<td>31.5</td>
+				<td>32.5</td>
+				<td>33.5</td>
+				<td>34.5</td>
+				<td>35.5</td>
+				<td>36.5</td>
+				<td>38</td>
+				<td>39.5</td> 
+				<td>41</td>            
+				<td>43</td></TR>
+				<TR bgcolor="#FFFFFF">
+				<TD><b>Waist</b></TD>
+				<td>23</td>
+				<td>24</td>
+				<td>25</td>
+				<td>26</td>
+				<td>27</td>
+				<td>28</td>
+				<td>29.5</td>
+				<td>31</td>
+				<td>32.5</td>            
+				<td>34.5</td></TR>
+				<TR bgcolor="#f2f2f2">
+				<TD><b>Hip</b></TD>
+				<td>35.5</td>
+				<td>36.5</td>
+				<td>37.5</td>
+				<td>38.5</td>
+				<td>39.5</td>
+				<td>40.5</td>
+				<td>42</td>
+				<td>43.5</td>
+				<td>45</td>
+				<td>47</td>
+				</TR>
+			</TABLE>
             
             <!--FAVIANA EXTRA SIZE-->
             <TABLE class="productSizeChart" width="100%" border=0 cellpadding="7" cellspacing="0" >
