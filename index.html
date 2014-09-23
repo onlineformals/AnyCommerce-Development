@@ -18,7 +18,6 @@
 
 <base href='' /><!-- leave blank so it works for a local file. updated to / if protocol is not file: -->
 
-<meta name="description" content="">
 
 <script data-apptimize="minify" type="text/javascript">
 var _gaq = _gaq || [];
@@ -90,6 +89,7 @@ css files should be included before any .js file to ensure they are downloaded i
 <script data-apptimize="embed" type="text/javascript" src="extensions/checkout/extension.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/cart_checkout_order.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/store_routing.js"></script>
+<script data-apptimize="embed" type="text/javascript" src="extensions/store_seo.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/store_prodlist.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/store_navcats.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/store_search.js"></script>
@@ -98,7 +98,6 @@ css files should be included before any .js file to ensure they are downloaded i
 <script data-apptimize="embed" type="text/javascript" src="extensions/store_crm.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="app-quickstart.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/seo_robots.js"></script>
-<script data-apptimize="embed" type="text/javascript" src="extensions/store_tracking.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/prodlist_infinite.js"></script>
 
 <script data-apptimize="embed" type="text/javascript" src="resources/jquery.showloading-v1.0.jt.js"></script>
@@ -141,12 +140,12 @@ $(document).ready(function(){
 		"testURL":"http://www.onlineformals.com/", //used ONLY if protocol is file: (for testing)
 		"addjQueryPointer" : true,
 		"analyticsPointer" : "ga",
-//		"initComplete" : function(t){
-//			dump(" -> init is complete");
-//			myApp.u.loadScript('_formals_init.js',function(){
-//				var progress = myApp.u.loadResources(); //the object returns by loadResources will get updated as the resources finish loading.
-//				myApp.u.showProgress(progress);
-//				});
+		"initComplete" : function(t){
+			dump(" -> init is complete");
+			myApp.u.loadScript('_formals_init.js',function(){
+				var progress = myApp.u.loadResources(); //the object returns by loadResources will get updated as the resources finish loading.
+				myApp.u.showProgress(progress);
+				});
 			$('#appversion').text(myApp.vars.release);
 			}
 		});
@@ -185,8 +184,6 @@ var _robots = {
 		}
 	}
 </script>
-
-<script data-apptimize="embed" type="text/javascript" src="_formals_init.js"></script>
 
 
 </head>
