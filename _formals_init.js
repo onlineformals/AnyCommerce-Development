@@ -18,6 +18,7 @@ myApp.rq.push(['extension',0,'store_seo','extensions/store_seo.js', 'attachHandl
 myApp.rq.push(['extension',0,'seo_robots','']);
 
 myApp.rq.push(['extension',0,'store_prodlist','']);
+myApp.rq.push(['extension',0,'prodlist_infinite','']);
 myApp.rq.push(['extension',0,'store_navcats','']);
 myApp.rq.push(['extension',0,'store_search','']);
 myApp.rq.push(['extension',0,'store_product','']);
@@ -33,17 +34,17 @@ myApp.rq.push(['extension',0,'quickstart','','startMyProgram']);
 //myApp.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
 //myApp.rq.push(['extension',1,'google_adwords','extensions/partner_google_adwords.js','startExtension']);
 //myApp.rq.push(['extension',1,'tools_ab_testing','extensions/tools_ab_testing.js']);
-myApp.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
+myApp.rq.push(['extension',0,'partner_addthis','','startExtension']);
 //myApp.rq.push(['extension',1,'resellerratings_survey','extensions/partner_buysafe_guarantee.js','startExtension']); /// !!! needs testing.
 //myApp.rq.push(['extension',1,'buysafe_guarantee','extensions/partner_buysafe_guarantee.js','startExtension']);
 //myApp.rq.push(['extension',1,'powerReviews_reviews','extensions/partner_powerreviews_reviews.js','startExtension']);
 //myApp.rq.push(['extension',0,'magicToolBox_mzp','extensions/partner_magictoolbox_mzp.js','startExtension']); // (not working yet - ticket in to MTB)
 
 
-myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/jquery.showloading-v1.0.jt.js']); //used pretty early in process..
-myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/jquery.ui.anyplugins.js']); //in zero pass in case product page is first page.
-myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/tlc.js']); //in zero pass in case product page is first page.
-myApp.rq.push(['css',1,myApp.vars.baseURL+'resources/anyplugins.css']);
+//myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/jquery.showloading-v1.0.jt.js']); //used pretty early in process..
+//myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/jquery.ui.anyplugins.js']); //in zero pass in case product page is first page.
+//myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/tlc.js']); //in zero pass in case product page is first page.
+//myApp.rq.push(['css',1,myApp.vars.baseURL+'resources/anyplugins.css']);
 
 //CUSTOM SCRIPTS + EXTENSIONS
 myApp.rq.push(['script',0,myApp.vars.baseURL+'carouFredSel-6.2.1/jquery.carouFredSel-6.2.1-packed.js']);
@@ -51,7 +52,6 @@ myApp.rq.push(['script',0,myApp.vars.baseURL+'zoom-master/jquery.zoom.js']);
 myApp.rq.push(['script',0,myApp.vars.baseURL+'modalFix.js']);
 
 myApp.rq.push(['extension',0,'_store_formals','','startExtension']);
-myApp.rq.push(['extension',0,'prodlist_infinite','']);
 myApp.rq.push(['extension',0,'_store_banner','']);
 myApp.rq.push(['extension',0,'_store_filter','']);
 //myApp.rq.push(['extension',0,'store_backScrollPosition','extensions/_store_backScrollPosition.js','startExtension']);
