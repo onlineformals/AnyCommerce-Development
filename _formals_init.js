@@ -1,4 +1,4 @@
-
+configureApp = function(){
 myApp.rq.push(['script',0,(document.location.protocol == 'file:') ? myApp.vars.testURL+'jsonapi/config.js' : myApp.vars.baseURL+'jsonapi/config.js',function(){
 //in some cases, such as the zoovy UI, zglobals may not be defined. If that's the case, certain vars, such as jqurl, must be passed in via P in initialize:
 //	myApp.u.dump(" ->>>>>>>>>>>>>>>>>>>>>>>>>>>>> zGlobals is an object");
@@ -59,7 +59,8 @@ myApp.rq.push(['extension',0,'store_backScrollPositionVTwo','','startExtension']
 
 
 myApp.u.loadScript(myApp.vars.baseURL+'resources/peg-0.8.0.js',function(){
-	myApp.model.getGrammar(myApp.vars.baseURL+"resources/pegjs-grammar-20140203.pegjs");
+	//myApp.model.getGrammar(myApp.vars.baseURL+"resources/pegjs-grammar-20140203.pegjs");
+	myApp.model.getGrammar("pegjs");
 	}); // ### TODO -> callback on RQ.push wasn't getting executed. investigate.
 
 
@@ -169,10 +170,12 @@ myApp.u.appInitComplete = function()	{
 		
 		var cartContentsAsLinks = encodeURIComponent(myApp.ext.cco.u.cartContentsAsLinks(myApp.data[vars.datapointer].order));
 	
+		
 //append this to 
 		$("[data-app-role='thirdPartyContainer']",$checkout).append("<h2>What next?</h2><div class='ocm ocmFacebookComment pointer zlink marginBottom checkoutSprite  '></div><div class='ocm ocmTwitterComment pointer zlink marginBottom checkoutSprit ' ></div><div class='ocm ocmContinue pointer zlink marginBottom checkoutSprite'></div>");
 		$('.ocmTwitterComment',$checkout).click(function(){
 			window.open('http://twitter.com/home?status='+cartContentsAsLinks,'twitter');
+			window[myApp.vars.analyticsPointer]('send', 'event','Checkout','User Event','Tweeted about order');
 			window[myApp.vars.analyticsPointer]('send', 'event','Checkout','User Event','Tweeted about order');
 			});
 		//the fb code only works if an appID is set, so don't show banner if not present.				
@@ -231,11 +234,8 @@ myApp.router.appendInit({
 			showContent(g.uriParams.pageType, g.uriParams);
 			}
 		else if (g.uriParams.marketplace){
-			var infoObj = {"pid":g.uriParams.product};
-			if(g.uriParams.sku){
-				infoObj.sku = g.uriParams.sku;
-				}
-			showContent("product",infoObj);
+			showContent("product",{"pid":g.uriParams.product});
+			window[myApp.vars.analyticsPointer]('send','event','Arrival','Syndication','product '+g.uriParams.product);
 			}
 		else if(document.location.hash)	{	
 			myApp.u.dump('triggering handleHash');
@@ -256,5 +256,6 @@ myApp.router.appendInit({
 
 
 
+}
 
 
