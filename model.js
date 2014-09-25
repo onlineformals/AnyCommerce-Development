@@ -332,11 +332,19 @@ If this isn't done, attempts to see if an immutable or other request is in proce
 must be run before handleResponse so that if handleresponse executes any requests as part of a callback, no conflicts arise.
 can't be added to a 'complete' because the complete callback gets executed after the success or error callback.
 */
-
-
+	var extra = "";
+	for(var i = 0; i < Q.length; i++){
+		var req = Q[i];
+		extra += req["_cmd"];
+		if(i < Q.length-1){
+			extra += ".";
+			}
+		}
+	var url = _app.vars.jqurl+"v-"+_app.model.version+"/"+extra
+	dump(url);
 	_app.globalAjax.requests[QID][pipeUUID] = $.ajax({
 		type: "POST",
-		url: _app.vars.jqurl,
+		url: url,
 //		context : app,
 		async: true,
 		contentType : "text/json",
@@ -1213,10 +1221,10 @@ will return false if datapointer isn't in _app.data or local (or if it's too old
 			var r = false; //what is returned. false if no extensions are loaded or the # of extensions
 			if(typeof extObj == 'object')	{
 
-				_app.u.dump(' -> valid extension object containing '+extObj.length+' extensions');
+//				_app.u.dump(' -> valid extension object containing '+extObj.length+' extensions');
 				var L = extObj.length;
 				r = L; //return the size of the extension object 
-				for(var i = 0; i < L; i += 1) { dump(extObj[i].namespace);
+				for(var i = 0; i < L; i += 1) {
 //					_app.u.dump(" -> i: "+i);
 //namespace and filename are required for any extension.
 /*Formals*/		if(!extObj[i].namespace)	{
@@ -1812,39 +1820,58 @@ A note about cookies:
 				return r;
 				},
 
-			getGrammar : function(url)	{
-				$.ajax({
-					'url' : url + (url.indexOf('?') >= 0 ? '' : '?') + 'release='+_app.vars.release, //append release to eliminate caching on new releases.
-					'dataType' : 'html',
-					'error' : function()	{
-						$('#globalMessaging').anymessage({'errtype':'fail-fatal','message':'An error occured while attempting to load the grammar file. See console for details. The rendering engine will not run without that file.'});
-						},
-					'success' : function(file){
-						var success, errors;
-/*
-SANITY -> if the eval is giving trouble in IE, save the contents of the eval into a file and test against that. You'll get more detailed errors.
- -> also, first step would be to check for any orphaned commas on object literals. They kill old IE.
-*/
-
-						try{
-							var pegParserSource = PEG.buildParser(file);
-							window.pegParser = eval(pegParserSource); //make sure pegParser is valid.
-							success = true;
-							}
-						catch(e)	{
-							_app.u.dump("Could not build pegParser. errors follow: ","error");
-							errors = (e.line !== undefined && e.column !== undefined) ? "Line " + e.line + ", column " + e.column + ": " + e.message : e.message;
-							_app.u.dump(e);
-							}
-						if(success)	{
-							_app.u.dump(" -> successfully built pegParser");
-							}
-						else	{
-							$('#globalMessaging').anymessage({'errtype':'fail-fatal','message':'The grammar file did not pass evaluation. It may contain errors (check console). The rendering engine will not run without that file. errors:<br>'+errors});
-							}
+//			getGrammar : function(url)	{
+//				$.ajax({
+//					'url' : url + (url.indexOf('?') >= 0 ? '' : '?') + 'release='+_app.vars.release, //append release to eliminate caching on new releases.
+//					'dataType' : 'html',
+//					'error' : function()	{
+//						$('#globalMessaging').anymessage({'errtype':'fail-fatal','message':'An error occured while attempting to load the grammar file. See console for details. The rendering engine will not run without that file.'});
+//						},
+//					'success' : function(file){
+//						var success;
+//						try{
+//							var pegParserSource = PEG.buildParser(file);
+//							window.pegParser = eval(pegParserSource); //make sure pegParser is valid.
+//							success = true;
+//							}
+//						catch(e)	{
+//							_app.u.dump("Could not build pegParser.","warn");
+//							_app.u.dump(buildErrorMessage(e),"error");
+//							}
+//						if(success)	{
+//							_app.u.dump(" -> successfully built pegParser");
+//							}
+//						else	{
+//							$('#globalMessaging').anymessage({'errtype':'fail-fatal','message':'The grammar file did not pass evaluation. It may contain errors (check console). The rendering engine will not run without that file.'});
+//							}
+//						}
+//					})
+//
+//				}
+			getGrammar : function(id){
+				var script = $('#'+id).text();
+				if(script){
+				var success;
+					try{
+						var pegParserSource = PEG.buildParser(script);
+						window.pegParser = eval(pegParserSource); //make sure pegParser is valid.
+						success = true;
 						}
-					})
-
+					catch(e)	{
+						_app.u.dump("Could not build pegParser.","warn");
+						_app.u.dump(buildErrorMessage(e),"error");
+							_app.u.dump(e);
+						}
+					if(success)	{
+						_app.u.dump(" -> successfully built pegParser");
+						}
+					else	{
+							$('#globalMessaging').anymessage({'errtype':'fail-fatal','message':'The grammar file did not pass evaluation. It may contain errors (check console). The rendering engine will not run without that file. errors:<br>'+errors});
+						}
+					}
+				else {
+					$('#globalMessaging').anymessage({'errtype':'fail-fatal','message':'An error occured while attempting to load the grammar script. See console for details. The rendering engine will not run without that script.'});
+					}
 				}
 
 
