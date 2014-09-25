@@ -1177,11 +1177,13 @@ will load everything in the RQ will a pass <= [pass]. so pass of 10 loads everyt
 		// so instead, a generic callback function is added to track if the extension is done loading.
 		// which is why the extension is added to the extension Q (above).
 					if(_app.rq[i][3]){
+						dump('--LOADSCRIPT'); dump(_app.rq[i][3]); dump(_app.rq[i]);
 						_app.u.loadScript(_app.rq[i][3],callback,(_app.rq[i]));
-						}
+					}
 					else {
 						callback(_app.rq[i]);
-						}
+					}
+					//_app.u.loadScript(_app.rq[i][3],callback,(_app.rq[i]));
 					_app.rq.splice(i, 1); //remove from old array to avoid dupes.
 					}
 				else	{
@@ -1428,8 +1430,6 @@ will load everything in the RQ will a pass <= [pass]. so pass of 10 loads everyt
 								'hitType' : 		'event',
 								'eventCategory' :	AEF[0],
 								'eventAction' :		AEF[1],
-								'eventLabel' :		"label",
-								'eventValue' :		1
 								};
 							if($CT.attr('data-ga-label')){
 								eventObj.eventLabel = $CT.attr('data-ga-label');
@@ -2142,6 +2142,7 @@ VALIDATION
 						if(_app.formatRules[rules[i]]($input,$span))	{_app.u.dump("passed rule validation")}
 						else	{
 							r = false;
+
 							}
 						}
 					else	{
@@ -2984,9 +2985,6 @@ return $r;
 
 							}
 						$ele.trigger(infoObj.state,[$ele,infoObj]);
-						if(infoObj.state == 'complete'){
-							_app.ext.quickstart.vars.showContentCompleteFired = true;
-							}
 						}
 					else	{
 						$ele.anymessage({'message':'_app.templateFunctions.handleTemplateEvents, infoObj.state ['+infoObj.state+'] is not valid. Only init, complete and depart are acceptable values.','gMessage':true});

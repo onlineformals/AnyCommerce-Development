@@ -174,7 +174,7 @@ document.write = function(v){
 
 //The request for appCategoryList is needed early for both the homepage list of cats and tier1.
 //piggyback a few other necessary requests here to reduce # of requests
-				//_app.ext.store_navcats.calls.appCategoryList.init(zGlobals.appSettings.rootcat,{"callback":"showRootCategories","extension":"quickstart"},'mutable');
+				_app.ext.store_navcats.calls.appCategoryList.init(zGlobals.appSettings.rootcat,{"callback":"showRootCategories","extension":"quickstart"},'mutable');
 				_app.model.dispatchThis('mutable');
 				}
 			}, //startMyProgram 
@@ -374,7 +374,7 @@ document.write = function(v){
 					delete tagObj.datapointer; //delete this so tlc doesn't do an unnecessary extend (data is already merged)
 					tagObj.verb = 'translate';
 //					dump(" -> tagObj: "); dump(tagObj);
-					_app.ext.quickstart.u.updateDOMTitle((tagObj.navcat == '.' ? 'Home' : tagObj.dataset.pretty));
+
 					if(tagObj.lists && tagObj.lists.length)	{
 						var L = tagObj.lists.length;
 						for(var i = 0; i < L; i += 1)	{
@@ -518,23 +518,36 @@ need to be customized on a per-ria basis.
 			}, //wiki
 
 // * 201403 -> infoObj now passed into pageTransition.
-		pageTransition : function($o,$n, infoObj, callback)	{
-			$n.removeClass('displayNone').show();
+		pageTransition : function($o,$n, infoObj)	{
 //if $o doesn't exist, the animation doesn't run and the new element doesn't show up, so that needs to be accounted for.
-			
-			//if(infoObj.performJumpToTop){
-			//	$('html, body').animate({scrollTop : 0}, 300);
-			//	}
-			if($o.length)	{
-//2. Puts control of this into custom page transitions.
-				//dump(" -> got here.  n.is(':visible'): "+$n.is(':visible'));
-				$o.addClass('post'); 
-				setTimeout(function(){$n.addClass('active'); $o.removeClass('post active').hide(); callback(); setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;}, 300);}, 300); //fade out old, fade in new.
+//$o MAY be a jquery instance but have no length, so check both.
+			if($o instanceof jQuery && $o.length)	{
+/*
+*** 201403 -> move the scroll to top into the page transition for 2 reasons:
+1. allows the animations to be performed sequentially, which will be less jittery than running two at the same time
+2. Puts control of this into custom page transitions.
+*/
+
+				if(infoObj.performJumpToTop && $(window).scrollTop() > 0)	{ // >0 scrolltop check should be on window, it'll work in ff AND chrome (body or html won't).
+					//new page content loading. scroll to top.
+					$('html, body').animate({scrollTop : 0},'fast',function(){
+						$o.fadeOut(1000, function(){$n.fadeIn(1000)}); //fade out old, fade in new.
+						})
+					} 
+				else	{
+					$o.fadeOut(1000, function(){$n.fadeIn(1000)}); //fade out old, fade in new.
+					}
+				}
+			else if($n instanceof jQuery)	{
+				dump(" -> $o is not properly defined.  jquery: "+($o instanceof jQuery)+" and length: "+$o.length);
+				$('html, body').animate({scrollTop : 0},'fast',function(){
+					$n.fadeIn(1000);
+					});
+				setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;}, 600);
 				}
 			else	{
-				$n.addClass('active')
-				callback();
-				setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;}, 300);
+				//hhmm  not sure how or why we got here.
+				dump("WARNING! in pageTransition, neither $o nor $n were instances of jQuery.  how odd.",'warn');
 				}
 			}, //pageTransition
 
@@ -1078,37 +1091,23 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 				infoObj.performJumpToTop = (infoObj.performJumpToTop === false) ? false : true; //specific instances jump to top. these are passed in (usually related to modals).
 		
 //transition appPreView out on init.
-				// if($('#appPreView').is(':visible'))	{
-// //appPreViewBG is an optional element used to create a layer between the preView and the view when the preView is loaded 'over' the view.
-					// $('#appPreView').hide();
-					// _app.ext.quickstart.pageTransition({},$new,infoObj);
-					// /*
-					// var $bg = $('#appPreViewBG');
-					// if($bg.length)	{
-						// $bg.animate({left:$(window).width(),top:$(window).height()},function(){$bg.hide();});
-						// }
+				if($('#appPreView').is(':visible'))	{
+//appPreViewBG is an optional element used to create a layer between the preView and the view when the preView is loaded 'over' the view.
+					var $bg = $('#appPreViewBG');
+					if($bg.length)	{
+						$bg.animate({left:$(window).width(),top:$(window).height()},function(){$bg.hide();});
+						}
 
-					// $('#appPreView').slideUp(1000,function(){
-						// $new.show(); //have to show content area here because the slideDown will only make the parent visible
-						// $('#appView').slideDown(3000);
-						// });
-					// */
-					// }
-				// else 
-				if(infoObj.performTransition == false)	{
+					$('#appPreView').slideUp(1000,function(){
+						$new.show(); //have to show content area here because the slideDown will only make the parent visible
+						$('#appView').slideDown(3000);
+						});
+					}
+				else if(infoObj.performTransition == false)	{
 					_app.ext.quickstart.vars.showContentFinished = true;
 					}
 				else if(typeof _app.ext.quickstart.pageTransition == 'function')	{
-					var callback = function(){
-						var $hiddenpages = $("#mainContentArea > :hidden");
-						var L = $hiddenpages.length;
-						dump(L);
-						dump(L - _app.ext.quickstart.vars.cachedPageCount);
-						for(var i = 0; i < L - _app.ext.quickstart.vars.cachedPageCount; i++){
-							$($hiddenpages.get(i)).intervaledEmpty().remove();
-							}
-						}
-					_app.ext.quickstart.pageTransition($old,$new,infoObj, callback);
+					_app.ext.quickstart.pageTransition($old,$new,infoObj);
 					}
 				else if($new instanceof jQuery)	{
 //no page transition specified. hide old content, show new. fancy schmancy.
@@ -2134,7 +2133,6 @@ effects the display of the nav buttons only. should be run just after the handle
 				infoObj.templateID = 'companyTemplate';
 				infoObj.state = 'init';
 				infoObj.parentID = 'mainContentArea_company';
-				_app.ext.quickstart.u.updateDOMTitle("Company - "+infoObj.show);
 				var $mcac = $('#mainContentArea_company');
 				
 				if($mcac.length)	{
@@ -2195,10 +2193,10 @@ effects the display of the nav buttons only. should be run just after the handle
 					
 //If raw elastic has been provided, use that.  Otherwise build a query.
 				if(infoObj.elasticsearch){
-					_app.ext.quickstart.u.updateDOMTitle("Search - advanced");
 					elasticsearch = _app.ext.store_search.u.buildElasticRaw(infoObj.elasticsearch);
 					}
 				else if(infoObj.tag)	{
+					_app.ext.quickstart.u.updateDOMTitle("Search - tag: "+infoObj.tag);
 					elasticsearch = _app.ext.store_search.u.buildElasticRaw({
 					   "filter":{
 						  "and" : [
@@ -2355,7 +2353,6 @@ either templateID needs to be set OR showloading must be true. TemplateID will t
 				infoObj.state = 'init';
 				infoObj.parentID = 'mainContentArea_customer'; //used for templateFunctions
 				infoObj.templateID = 'customerTemplate';
-				_app.ext.quickstart.u.updateDOMTitle("Customer - "+infoObj.show);
 				var $customer = $('#'+infoObj.parentID);
 //only create instance once.
 				if($customer.length)	{
@@ -3163,16 +3160,6 @@ else	{
 					}
 				else	{
 					$('#globalMessaging').anymessage({"message":"In quickstart.e.quickviewShow, unable to ascertain PID ["+PID+"] or no data-loadstemplate set on trigger element.","gMessage":true});
-					}
-				return false;
-				},
-// use this on inputs where 'enter' should NOT submit the form but can/should trigger an onblur.
-			triggerBlurOnEnter : function($ele,p)	{
-				var r = true;
-				if (p.keyCode == 13)	{
-					p.preventDefault();
-					$ele.trigger('blur')
-					r = false;
 					}
 				return false;
 				},

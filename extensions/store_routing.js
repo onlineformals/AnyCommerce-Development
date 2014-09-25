@@ -88,6 +88,7 @@ _app.router.appendHash({'type':'match','route':'modal/product/{{pid}}*','callbac
 				r = true;
 
 				return r;
+
 				},
 			onError : function()	{
 				_app.u.dump('BEGIN store_routing.callbacks.init.onError');

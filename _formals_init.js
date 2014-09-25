@@ -1,4 +1,4 @@
-configureApp = function(){
+
 myApp.rq.push(['script',0,(document.location.protocol == 'file:') ? myApp.vars.testURL+'jsonapi/config.js' : myApp.vars.baseURL+'jsonapi/config.js',function(){
 //in some cases, such as the zoovy UI, zglobals may not be defined. If that's the case, certain vars, such as jqurl, must be passed in via P in initialize:
 //	myApp.u.dump(" ->>>>>>>>>>>>>>>>>>>>>>>>>>>>> zGlobals is an object");
@@ -13,7 +13,7 @@ myApp.rq.push(['extension',0,'order_create','']);
 myApp.rq.push(['extension',0,'cco','']);
 
 myApp.rq.push(['extension',0,'store_routing','', 'attachEventHandlers']);
-myApp.rq.push(['extension',0,'store_tracking','', 'attachHandlers']);
+myApp.rq.push(['extension',0,'store_tracking','','attachHandlers']);
 myApp.rq.push(['extension',0,'store_seo','extensions/store_seo.js', 'attachHandlers']);
 myApp.rq.push(['extension',0,'seo_robots','']);
 
@@ -58,9 +58,11 @@ myApp.rq.push(['extension',0,'_store_filter','']);
 myApp.rq.push(['extension',0,'store_backScrollPositionVTwo','','startExtension']);
 
 
+//myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/jsonpath.0.8.0.js']); //used pretty early in process..
+
+//once peg is loaded, need to retrieve the grammar file. Order is important there. This will validate the file too.
 myApp.u.loadScript(myApp.vars.baseURL+'resources/peg-0.8.0.js',function(){
-	//myApp.model.getGrammar(myApp.vars.baseURL+"resources/pegjs-grammar-20140203.pegjs");
-	myApp.model.getGrammar("pegjs");
+	myApp.model.getGrammar(myApp.vars.baseURL+"resources/pegjs-grammar-20140203.pegjs");
 	}); // ### TODO -> callback on RQ.push wasn't getting executed. investigate.
 
 
@@ -100,7 +102,7 @@ myApp.u.showProgress = function(progress)	{
 		else if(attempt > 150)	{
 			//hhhhmmm.... something must have gone wrong.
 			clearTimeout(progress.passZeroTimeout); //end the resource loading timeout.
-			$('.appMessaging','#appPreView').anymessage({'message':'Init failed to load all the resources within a reasonable number of attempts.','gMessage':true,'persistent':true});
+			$('.appMessaging','#appPreView').anymessage({'message':'Init failed to load all the resources within a reasonable number of attempts. Please refresh the page in order to access this site.','gMessage':true,'persistent':true});
 			}
 		else	{
 			var percentPerInclude = (100 / progress.passZeroResourcesLength);
@@ -119,7 +121,7 @@ myApp.u.showProgress = function(progress)	{
 //Any code that needs to be executed after the app init has occured can go here.
 //will pass in the page info object. (pageType, templateID, pid/navcat/show and more)
 myApp.u.appInitComplete = function()	{
-//	myApp.u.dump("Executing myAppIsLoaded code...");
+	myApp.u.dump("Executing myAppIsLoaded code...");
 	
 	/*CUSTOM CODE */
 				//APP PRELOAD WARNING MESSAGE
@@ -168,14 +170,13 @@ myApp.u.appInitComplete = function()	{
 	myApp.ext.order_create.checkoutCompletes.push(function(vars,$checkout){
 		dump(" -> begin checkoutCOmpletes code: "); dump(vars);
 		
-		var cartContentsAsLinks = encodeURIComponent(myApp.ext.cco.u.cartContentsAsLinks(myApp.data[vars.datapointer].order));
-	
+		var cartContentsAsLinks = myApp.ext.cco.u.cartContentsAsLinks(myApp.data[vars.datapointer].order);
+		dump(" -> cartContentsAsLinks: "+cartContentsAsLinks);
 		
 //append this to 
 		$("[data-app-role='thirdPartyContainer']",$checkout).append("<h2>What next?</h2><div class='ocm ocmFacebookComment pointer zlink marginBottom checkoutSprite  '></div><div class='ocm ocmTwitterComment pointer zlink marginBottom checkoutSprit ' ></div><div class='ocm ocmContinue pointer zlink marginBottom checkoutSprite'></div>");
 		$('.ocmTwitterComment',$checkout).click(function(){
 			window.open('http://twitter.com/home?status='+cartContentsAsLinks,'twitter');
-			window[myApp.vars.analyticsPointer]('send', 'event','Checkout','User Event','Tweeted about order');
 			window[myApp.vars.analyticsPointer]('send', 'event','Checkout','User Event','Tweeted about order');
 			});
 		//the fb code only works if an appID is set, so don't show banner if not present.				
@@ -234,8 +235,11 @@ myApp.router.appendInit({
 			showContent(g.uriParams.pageType, g.uriParams);
 			}
 		else if (g.uriParams.marketplace){
-			showContent("product",{"pid":g.uriParams.product});
-			window[myApp.vars.analyticsPointer]('send','event','Arrival','Syndication','product '+g.uriParams.product);
+			var infoObj = {"pid":g.uriParams.product};
+			if(g.uriParams.sku){
+				infoObj.sku = g.uriParams.sku;
+				}
+			showContent("product",infoObj);
 			}
 		else if(document.location.hash)	{	
 			myApp.u.dump('triggering handleHash');
@@ -256,6 +260,5 @@ myApp.router.appendInit({
 
 
 
-}
 
 
