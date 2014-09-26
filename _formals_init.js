@@ -59,7 +59,8 @@ myApp.rq.push(['extension',0,'store_backScrollPositionVTwo','','startExtension']
 
 
 myApp.u.loadScript(myApp.vars.baseURL+'resources/peg-0.8.0.js',function(){
-	myApp.model.getGrammar(myApp.vars.baseURL+"resources/pegjs-grammar-20140203.pegjs");
+	//myApp.model.getGrammar(myApp.vars.baseURL+"resources/pegjs-grammar-20140203.pegjs");
+	myApp.model.getGrammar("pegjs");
 	}); // ### TODO -> callback on RQ.push wasn't getting executed. investigate.
 
 
