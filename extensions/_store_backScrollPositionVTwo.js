@@ -45,13 +45,13 @@ var store_backScrollPositionVTwo = function(_app) {
 							dump($context.data('scroll-restore'));
 							setTimeout(function(){
 								$('html, body').animate({scrollTop : $context.data('scroll-restore')},500);
-							}, 1000);
+							}, 250);
 						}
 						else{
 							dump("Never previously been to this page. Scrolling to the top.");
 							setTimeout(function(){
 								$('html, body').animate({scrollTop : 0},500)
-							}, 1000);
+							}, 250);
 						}
 					});					
 					_app.templates.homepageTemplate.on('depart.backButton',function(event,$context,infoObj){
@@ -71,13 +71,13 @@ var store_backScrollPositionVTwo = function(_app) {
 							dump($context.data('scroll-restore'));
 							setTimeout(function(){
 								$('html, body').animate({scrollTop : $context.data('scroll-restore')},500);
-							}, 1000);
+							}, 250);
 						}
 						else{
 							dump("Never previously been to this page. Scrolling to the top.");
 							setTimeout(function(){
 								$('html, body').animate({scrollTop : 0},500)
-							}, 1000);
+							}, 250);
 						}
 					});					
 					_app.templates.categoryTemplate.on('depart.backButton',function(event,$context,infoObj){
@@ -97,13 +97,13 @@ var store_backScrollPositionVTwo = function(_app) {
 							dump($context.data('scroll-restore'));
 							setTimeout(function(){
 								$('html, body').animate({scrollTop : $context.data('scroll-restore')},500);
-							}, 1000);
+							}, 250);
 						}
 						else{
 							dump("Never previously been to this page. Scrolling to the top.");
 							setTimeout(function(){
 								$('html, body').animate({scrollTop : 0},500)
-							}, 1000);
+							}, 250);
 						}
 					});					
 					_app.templates.categoryProductListTemplate.on('depart.backButton',function(event,$context,infoObj){
@@ -123,13 +123,13 @@ var store_backScrollPositionVTwo = function(_app) {
 							dump($context.data('scroll-restore'));
 							setTimeout(function(){
 								$('html, body').animate({scrollTop : $context.data('scroll-restore')},500);
-							}, 1000);
+							}, 250);
 						}
 						else{
 							dump("Never previously been to this page. Scrolling to the top.");
 							setTimeout(function(){
 								$('html, body').animate({scrollTop : 0},500)
-							}, 1000);
+							}, 250);
 						}
 					});					
 					_app.templates.productTemplate.on('depart.backButton',function(event,$context,infoObj){
@@ -149,13 +149,13 @@ var store_backScrollPositionVTwo = function(_app) {
 							dump($context.data('scroll-restore'));
 							setTimeout(function(){
 								$('html, body').animate({scrollTop : $context.data('scroll-restore')},500);
-							}, 1000);
+							}, 250);
 						}
 						else{
 							dump("Never previously been to this page. Scrolling to the top.");
 							setTimeout(function(){
 								$('html, body').animate({scrollTop : 0},500)
-							}, 1000);
+							}, 250);
 						}
 					});					
 					_app.templates.testimonialsTemplate.on('depart.backButton',function(event,$context,infoObj){
@@ -175,13 +175,13 @@ var store_backScrollPositionVTwo = function(_app) {
 							dump($context.data('scroll-restore'));
 							setTimeout(function(){
 								$('html, body').animate({scrollTop : $context.data('scroll-restore')},500);
-							}, 1000);
+							}, 250);
 						}
 						else{
 							dump("Never previously been to this page. Scrolling to the top.");
 							setTimeout(function(){
 								$('html, body').animate({scrollTop : 0},500)
-							}, 1000);
+							}, 250);
 						}
 					});					
 					_app.templates.companyTemplate.on('depart.backButton',function(event,$context,infoObj){
@@ -201,13 +201,13 @@ var store_backScrollPositionVTwo = function(_app) {
 							dump($context.data('scroll-restore'));
 							setTimeout(function(){
 								$('html, body').animate({scrollTop : $context.data('scroll-restore')},500);
-							}, 1000);
+							}, 250);
 						}
 						else{
 							dump("Never previously been to this page. Scrolling to the top.");
 							setTimeout(function(){
 								$('html, body').animate({scrollTop : 0},500)
-							}, 1000);
+							}, 250);
 						}
 					});					
 					_app.templates.customerTemplate.on('depart.backButton',function(event,$context,infoObj){
@@ -227,13 +227,13 @@ var store_backScrollPositionVTwo = function(_app) {
 							dump($context.data('scroll-restore'));
 							setTimeout(function(){
 								$('html, body').animate({scrollTop : $context.data('scroll-restore')},500);
-							}, 1000);
+							}, 250);
 						}
 						else{
 							dump("Never previously been to this page. Scrolling to the top.");
 							setTimeout(function(){
 								$('html, body').animate({scrollTop : 0},500)
-							}, 1000);
+							}, 250);
 						}
 					});					
 					_app.templates.searchTemplate.on('depart.backButton',function(event,$context,infoObj){
@@ -253,13 +253,13 @@ var store_backScrollPositionVTwo = function(_app) {
 							dump($context.data('scroll-restore'));
 							setTimeout(function(){
 								$('html, body').animate({scrollTop : $context.data('scroll-restore')},500);
-							}, 1000);
+							}, 250);
 						}
 						else{
 							dump("Never previously been to this page. Scrolling to the top.");
 							setTimeout(function(){
 								$('html, body').animate({scrollTop : 0},500)
-							}, 1000);
+							}, 250);
 						}
 					});					
 					_app.templates.cartTemplate.on('depart.backButton',function(event,$context,infoObj){
