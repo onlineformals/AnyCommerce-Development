@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -14,15 +14,16 @@
 
 <meta name=viewport content="width=device-width, initial-scale=1">
 
-<meta name="msvalidate.01" content="7EE836C1CB26BEE30DD9DDFFDB833736" />
-
 <base href='' /><!-- leave blank so it works for a local file. updated to / if protocol is not file: -->
 
+<meta name="description" content="">
+
+<meta name="msvalidate.01" content="7EE836C1CB26BEE30DD9DDFFDB833736" />
 
 <script data-apptimize="minify" type="text/javascript">
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-2216669-1']);
-_gaq.push(['_trackPageview']);
+//var _gaq = _gaq || [];
+//_gaq.push(['_setAccount', 'UA-2216669-1']);
+//_gaq.push(['_trackPageview']);
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -46,7 +47,7 @@ if(document.location.protocol == 'file:')	{
 	baseURL  = "";
 	}
 else	{
-		baseURL = document.location.protocol+"//"+document.domain+"/";
+	baseURL = document.location.protocol+"//"+document.domain+"/";
 	}
 document.getElementsByTagName('base')[0].href = baseURL;
 </script>
@@ -80,16 +81,15 @@ css files should be included before any .js file to ensure they are downloaded i
 
 
 <!-- jquery and jquery ui are pivotal to the functionality of the app. load them early -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script data-apptimize="embed" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
-<script data-apptimize="embed" src="controller.js"></script>
-<script data-apptimize="embed" src="model.js"></script>
+<script data-apptimize="embed" type="text/javascript" src="jquery.1.10.2.min.js"></script>
+<script data-apptimize="embed" type="text/javascript" src="jquery.ui.1.10.2.min.js"></script>
+<script data-apptimize="embed" type="text/javascript" src="controller.js"></script>
+<script data-apptimize="embed" type="text/javascript" src="model.js"></script>
 
 <!-- STOCK SCRIPTS GO HERE-->
 <script data-apptimize="embed" type="text/javascript" src="extensions/checkout/extension.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/cart_checkout_order.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/store_routing.js"></script>
-<script data-apptimize="embed" type="text/javascript" src="extensions/store_seo.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/store_prodlist.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/store_navcats.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/store_search.js"></script>
@@ -98,7 +98,9 @@ css files should be included before any .js file to ensure they are downloaded i
 <script data-apptimize="embed" type="text/javascript" src="extensions/store_crm.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="app-quickstart.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/seo_robots.js"></script>
+<script data-apptimize="embed" type="text/javascript" src="extensions/store_tracking.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/prodlist_infinite.js"></script>
+<script data-apptimize="embed" type="text/javascript" src="extensions/partner_addthis.js"></script>
 
 <script data-apptimize="embed" type="text/javascript" src="resources/jquery.showloading-v1.0.jt.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="resources/jsonpath.0.8.0.js"></script>
@@ -109,6 +111,11 @@ css files should be included before any .js file to ensure they are downloaded i
 +<link data-apptimize="embed" type="text/javascript" src="extensions/cart_message/styles.css"></link>
 +not sure about these yet 
 +-->
+
+<script data-apptimize="embed" type="text/javascript" src="resources/jquery.ui.anyplugins.js"></script>
+<link data-apptimize="embed" rel="stylesheet" type="text/css" href="resources/anyplugins.css"/>
+<link data-apptimize="embed" rel="stylesheet" type="text/css" href="extensions/checkout/styles.css"/>
+<link data-apptimize="embed" rel="stylesheet" type="text/css" href="extensions/cart_message/styles.css"/>
 <!--END STOCK SCRIPTS-->
 
 <!--CUSTOM SCRIPTS GO HERE-->
@@ -123,8 +130,8 @@ css files should be included before any .js file to ensure they are downloaded i
 
 
 <!-- ### TODO -> test how the load process goes w/ these in init. if includes is moved, move the new Parse  -->
-<script data-apptimize="embed" src="resources/jquery.ui.anyplugins.js"></script>
-<script data-apptimize="embed" type="text/javascript" src="includes.js"></script><!-- contains some polyfills and should be loaded early -->
+<script data-apptimize="embed" type="text/javascript" src="resources/jquery.ui.anyplugins.js"></script>
+<script data-apptimize="embed" type="text/javascript" src="includes.js"></script>
 
 
 <script data-apptimize="minify" type="text/javascript">
@@ -132,29 +139,28 @@ $(document).ready(function(){
 	var paramStr = window.location.href.replace(window.location.hash, '').split('?')[1];
 	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 		window.myApp = new initApp({
-			"_robotHasGreeted" : false,
-		"release":"201408.aq",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"_robotHasGreeted" : false,
+		"release":"201408.aqtest2",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
 		"testURL":"http://www.onlineformals.com/", //used ONLY if protocol is file: (for testing)
 		"addjQueryPointer" : true,
 		"analyticsPointer" : "ga",
-		"initComplete" : function(t){
-			dump(" -> init is complete");
-			myApp.u.loadScript('_formals_init.js',function(){
-				var progress = myApp.u.loadResources(); //the object returns by loadResources will get updated as the resources finish loading.
-				myApp.u.showProgress(progress);
-				});
-			$('#appversion').text(myApp.vars.release);
-			}
-		});
-	myApp.vars.initComplete();
-	myCreole = new Parse.Simple.Creole();
+		"initComplete" : function(){
+				dump(" -> init is complete");
+				myApp.u.loadScript('_formals_init.js',function(){
+					var progress = myApp.u.loadResources(); //the object returns by loadResources will get updated as the resources finish loading.
+					myApp.u.showProgress(progress);
+					});
+				$('#appversion').text(myApp.vars.release);
+				}
+			});
+		myApp.vars.initComplete();
+		myCreole = new Parse.Simple.Creole();
 		}
 	});
 </script>
-
 
 <script data-apptimize="minify" type="text/javascript">
 var _robots = {
@@ -184,6 +190,7 @@ var _robots = {
 		}
 	}
 </script>
+
 
 
 </head>
@@ -14876,6 +14883,223 @@ The 'data-action' attribute is used to assign an onclick.
 </table>
 
 </div>
+
+<script type="text/pegjs" id="pegjs">
+dataTLC
+ = grammar+
+
+grammar
+ = _ cmd:(IfStatement) _ lb* { return cmd; }
+ / _ cmd:(WhileLoopStatement) _ lb* { return cmd; }
+ / _ cmd:(ForeachLoopStatement) _ lb* { return cmd; }
+ / _ cmd:(BindStatement) _ lb* { return cmd; } 
+ / _ cmd:(SetStatement) _ lb* { return cmd; } 
+ / _ cmd:(ExportStatement) _ lb* { return cmd; } 
+ / _ cmd:(command) _ lb* { return cmd; }
+
+command
+ = _ module:([a-z_]+ "#")? cmd:[a-z?]+ args:((ws+ value)+)? _ lb* {
+     return {
+       type: "command",
+       module: module ? module[0].join("") : "core",
+       name: cmd.join("").toLowerCase(),
+       args: args ? args.map(function(a) { return a[1] }) : null
+     }
+   }
+
+
+// ** BIND **
+// bind $var 'something'; (jsonpath lookup)
+// bind $var $someothervar; (jsonpath lookup)
+// bind $var ~tag; (returns tag id/path)
+// bind ~tag '#tagid'; jQuery('#tagid')
+// bind ~tag $tagid jQuery($tagid)
+BindStatement
+ = "bind" _ set:(variable / tag) _ src:(variable / scalar / tag) _ lb+ {
+  return { type:"BIND", Set:set, Src:src }
+  }
+
+
+// ** EXPORT **
+// export 'key' --dataset=$var
+// export '%key' --dataset=$var
+ExportStatement
+= "export" _ set:(scalar / variable) args:(ws+ value)+ _ lb+ {
+  return { type:"EXPORT", Set:set, args: args ? args.map(function(a) { return a[1] }) : null } 
+  }
+
+// ** SET ** 
+// set $dst $src --path='.xyz';
+SetStatement
+ = "set" _ set:(variable / tag) _ src:(variable / scalar / tag / boolean / integer) args:((ws+ value)+)? _ lb+ {
+  return { type:"SET", Set:set, Src:src, args: args ? args.map(function(a) { return a[1] }) : null }
+  }
+
+// if (command) {{ }} else {{ }};
+IfStatement
+  = "if" _ "(" _ condition:command _ ")" _ ifStatement:Block elseStatement:(_ "else" _ Block)? _ lb+ {
+      return ({
+        type: "IF",
+        When: condition,
+        IsTrue: ifStatement,
+        IsFalse: elseStatement !== null ? elseStatement[3] : null
+      });
+   }
+
+// while (something) {{ inner loop }};
+WhileLoopStatement
+  = "while" _ "(" _ condition:command _ ")" _ whileStatement:Block lb+ {
+      return ({
+        type: "WHILE",
+        While: condition,
+        Loop: whileStatement,
+      });
+   }
+
+
+// foreach $item in $items {{ inner loop }};
+ForeachLoopStatement
+  = "foreach" _ set:(variable) _ "in" _ members:(variable) _ loop:Block lb+ {
+      return ({
+        type: "FOREACH",
+        Set: set,
+        Members: members,
+        Loop: loop,
+      });
+   }
+
+
+Block
+  = "{{" _ statements:(StatementList _)? "}}" {
+      return {
+        type: "Block",
+        statements: statements !== null ? statements[0][0] : []
+      };
+    }
+
+StatementList
+  = head:Statement tail:(_ Statement)* {
+      var result = [head];
+      for (var i = 0; i < tail.length; i++) {
+        result.push(tail[i][1]);
+      }
+      return result;
+    }
+
+Statement
+  = Block
+  / grammar+
+
+
+/* value types */
+
+// ~tag is a reference to a jquery object
+tag
+ = "~" tag:([a-zA-Z]+) {
+   // tag table should maintain reference to tags on DOM
+   return { type:"tag", tag:tag.join(""), jq:null }
+   }
+
+boolean
+ = "true" {return{ "type":"boolean", "value": true }}
+ / "false" {return{ "type":"boolean", "value": false }}
+
+// longopt start with a --
+longopt
+ = "--" k:([a-zA-Z]+) "=" v:( value ) {
+    return {
+       type: "longopt",
+       key: k.join(""),
+       value: v
+       }
+    }
+ / "--" k:([a-zA-Z]+) {
+    return {
+      type: "longopt",
+      key: k.join(""),
+      value: null
+      }
+    }
+
+
+// scalar (string)
+// NOTE: at this point there is no way to escape a ' in a string.
+//
+scalar
+ = "'" v:([^']*) "'" {
+     return {
+       type: "scalar",
+       value: v.join("")
+     }
+   }
+
+// Variables can't start with a number
+variable
+ = "$" v:([a-zA-Z0-9_]*) {
+     return {
+       type: "variable",
+       value: v.join("")
+     }
+   }
+
+integer
+  = digits:[0-9]+ {
+      return {
+        type: "integer",
+        value: parseInt(digits.join(""), 10)
+      }
+    }
+
+hexcolor
+  = "#" v:([A-Fa-f0-9][A-Fa-f0-9][A-Fa-f0-9][A-Fa-f0-9][A-Fa-f0-9][A-Fa-f0-9]) {
+     return { type:"hexcolor", value: v.join("") }
+     }
+
+additive
+  = left:muldiv _ sign:[+-] _ right:additive {
+      return {
+        type: "command",
+        name:sign,
+        args:[left,right]
+      }
+    }
+  / muldiv
+
+muldiv
+  = left:primary _ sign:[*/] _ right:muldiv {
+      return {
+        type: "command",
+        name: sign,
+        args:[left, right]
+      }
+    }
+  / primary
+
+primary
+  = (variable / integer)
+  / "(" _ additive:additive _ ")" { return additive; }
+
+value
+ = longopt / variable / integer / scalar / boolean / tag / hexcolor / additive
+
+// /* i am a comment (i can only appear before a command) */
+comment
+  = "/*" (!"*/" SourceCharacter)* "*/" { return{}; }
+
+SourceCharacter
+  = .
+
+ws
+ = [ \t\n\r]
+
+_
+ = (ws / comment)*
+
+lb
+ = ";"
+
+
+</script>
 
 </body>
 </html>

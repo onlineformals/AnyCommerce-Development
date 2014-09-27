@@ -13,10 +13,12 @@ myApp.rq.push(['extension',0,'order_create','']);
 myApp.rq.push(['extension',0,'cco','']);
 
 myApp.rq.push(['extension',0,'store_routing','', 'attachEventHandlers']);
-myApp.rq.push(['extension',0,'store_tracking','extensions/store_tracking.js','attachHandlers']);
-myApp.rq.push(['extension',0,'store_seo','', 'attachHandlers']);
+myApp.rq.push(['extension',0,'store_tracking','', 'attachHandlers']);
+myApp.rq.push(['extension',0,'store_seo','extensions/store_seo.js', 'attachHandlers']);
+myApp.rq.push(['extension',0,'seo_robots','']);
 
 myApp.rq.push(['extension',0,'store_prodlist','']);
+myApp.rq.push(['extension',0,'prodlist_infinite','']);
 myApp.rq.push(['extension',0,'store_navcats','']);
 myApp.rq.push(['extension',0,'store_search','']);
 myApp.rq.push(['extension',0,'store_product','']);
@@ -32,18 +34,17 @@ myApp.rq.push(['extension',0,'quickstart','','startMyProgram']);
 //myApp.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
 //myApp.rq.push(['extension',1,'google_adwords','extensions/partner_google_adwords.js','startExtension']);
 //myApp.rq.push(['extension',1,'tools_ab_testing','extensions/tools_ab_testing.js']);
-myApp.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
-myApp.rq.push(['extension',0,'seo_robots','']);
+myApp.rq.push(['extension',0,'partner_addthis','','startExtension']);
 //myApp.rq.push(['extension',1,'resellerratings_survey','extensions/partner_buysafe_guarantee.js','startExtension']); /// !!! needs testing.
 //myApp.rq.push(['extension',1,'buysafe_guarantee','extensions/partner_buysafe_guarantee.js','startExtension']);
 //myApp.rq.push(['extension',1,'powerReviews_reviews','extensions/partner_powerreviews_reviews.js','startExtension']);
 //myApp.rq.push(['extension',0,'magicToolBox_mzp','extensions/partner_magictoolbox_mzp.js','startExtension']); // (not working yet - ticket in to MTB)
 
 
-myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/jquery.showloading-v1.0.jt.js']); //used pretty early in process..
-myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/jquery.ui.anyplugins.js']); //in zero pass in case product page is first page.
-myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/tlc.js']); //in zero pass in case product page is first page.
-myApp.rq.push(['css',1,myApp.vars.baseURL+'resources/anyplugins.css']);
+//myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/jquery.showloading-v1.0.jt.js']); //used pretty early in process..
+//myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/jquery.ui.anyplugins.js']); //in zero pass in case product page is first page.
+//myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/tlc.js']); //in zero pass in case product page is first page.
+//myApp.rq.push(['css',1,myApp.vars.baseURL+'resources/anyplugins.css']);
 
 //CUSTOM SCRIPTS + EXTENSIONS
 myApp.rq.push(['script',0,myApp.vars.baseURL+'carouFredSel-6.2.1/jquery.carouFredSel-6.2.1-packed.js']);
@@ -51,18 +52,15 @@ myApp.rq.push(['script',0,myApp.vars.baseURL+'zoom-master/jquery.zoom.js']);
 myApp.rq.push(['script',0,myApp.vars.baseURL+'modalFix.js']);
 
 myApp.rq.push(['extension',0,'_store_formals','','startExtension']);
-myApp.rq.push(['extension',0,'prodlist_infinite','']);
 myApp.rq.push(['extension',0,'_store_banner','']);
 myApp.rq.push(['extension',0,'_store_filter','']);
 //myApp.rq.push(['extension',0,'store_backScrollPosition','extensions/_store_backScrollPosition.js','startExtension']);
 myApp.rq.push(['extension',0,'store_backScrollPositionVTwo','','startExtension']);
 
 
-//myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/jsonpath.0.8.0.js']); //used pretty early in process..
-
-//once peg is loaded, need to retrieve the grammar file. Order is important there. This will validate the file too.
 myApp.u.loadScript(myApp.vars.baseURL+'resources/peg-0.8.0.js',function(){
-	myApp.model.getGrammar(myApp.vars.baseURL+"resources/pegjs-grammar-20140203.pegjs");
+	//myApp.model.getGrammar(myApp.vars.baseURL+"resources/pegjs-grammar-20140203.pegjs");
+	myApp.model.getGrammar("pegjs");
 	}); // ### TODO -> callback on RQ.push wasn't getting executed. investigate.
 
 
@@ -102,7 +100,7 @@ myApp.u.showProgress = function(progress)	{
 		else if(attempt > 150)	{
 			//hhhhmmm.... something must have gone wrong.
 			clearTimeout(progress.passZeroTimeout); //end the resource loading timeout.
-			$('.appMessaging','#appPreView').anymessage({'message':'Init failed to load all the resources within a reasonable number of attempts. Please refresh the page in order to access this site.','gMessage':true,'persistent':true});
+			$('.appMessaging','#appPreView').anymessage({'message':'Init failed to load all the resources within a reasonable number of attempts.','gMessage':true,'persistent':true});
 			}
 		else	{
 			var percentPerInclude = (100 / progress.passZeroResourcesLength);
@@ -121,7 +119,7 @@ myApp.u.showProgress = function(progress)	{
 //Any code that needs to be executed after the app init has occured can go here.
 //will pass in the page info object. (pageType, templateID, pid/navcat/show and more)
 myApp.u.appInitComplete = function()	{
-	myApp.u.dump("Executing myAppIsLoaded code...");
+//	myApp.u.dump("Executing myAppIsLoaded code...");
 	
 	/*CUSTOM CODE */
 				//APP PRELOAD WARNING MESSAGE
@@ -170,9 +168,8 @@ myApp.u.appInitComplete = function()	{
 	myApp.ext.order_create.checkoutCompletes.push(function(vars,$checkout){
 		dump(" -> begin checkoutCOmpletes code: "); dump(vars);
 		
-		var cartContentsAsLinks = myApp.ext.cco.u.cartContentsAsLinks(myApp.data[vars.datapointer].order);
-		dump(" -> cartContentsAsLinks: "+cartContentsAsLinks);
-		
+		var cartContentsAsLinks = encodeURIComponent(myApp.ext.cco.u.cartContentsAsLinks(myApp.data[vars.datapointer].order));
+	
 //append this to 
 		$("[data-app-role='thirdPartyContainer']",$checkout).append("<h2>What next?</h2><div class='ocm ocmFacebookComment pointer zlink marginBottom checkoutSprite  '></div><div class='ocm ocmTwitterComment pointer zlink marginBottom checkoutSprit ' ></div><div class='ocm ocmContinue pointer zlink marginBottom checkoutSprite'></div>");
 		$('.ocmTwitterComment',$checkout).click(function(){
