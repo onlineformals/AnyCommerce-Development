@@ -58,7 +58,7 @@ var store_seo = function(_app) {
 ////////////////////////////////////   CALLBACKS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 	vars : {
-		defaultTitle : "Online Formals", //Should not include any Prefix or Postfix
+		defaultTitle : "Prom Dresses Online | Sherri Hill | La Femme | Tony Bowls", //Should not include any Prefix or Postfix
 		titlePrefix : "",
 		titlePostfix : " | OnlineFormals.com"
 		},
@@ -117,7 +117,6 @@ var store_seo = function(_app) {
 				switch(infoObj.pageType){
 					case "homepage" :
 						//Use Default Title
-						break;
 					case "category" :
 					case "product" :
 						//Grab from the titles and descriptions on the page
