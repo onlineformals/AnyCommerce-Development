@@ -685,16 +685,8 @@ _app.rq.push(['script',0,_app.vars.baseURL+'app-admin/resources/jHtmlArea-0.8/jH
 						// $('#loginAdvancedContainer').removeClass('displayNone').show().animate({'left':'0'},'slow');
 						}
 					
-					if (_app.u.getParameterByName('apidomain')) {
-						$("#appLogin").find('input[name="apidomain"]').val( _app.u.getParameterByName('apidomain') );
-						}
-					if (document.location.protocol == 'file:') {
-						// automatically show the advanced login container
-						// Temporarily disabled
-						// $('#loginAdvancedContainer').removeClass('displayNone').show().animate({'left':'0'},'slow');
-						}
 					
-					
+
 					}
 				if(!$.support['localStorage'])	{
 					$("#globalMessaging").anymessage({"message":"It appears you have localStorage disabled or are using a browser that does not support the feature. Please enable the feature or upgrade your browser","errtype":"youerr","persistent":true});
@@ -1140,12 +1132,6 @@ function getIndexByObjValue(arr,key,value)	{
 	}
 
 //update the localstorage object w/ the new messages, except the removes.
-	var theIndex = false;
-	$.grep(arr, function(e,i){if(e[key] == value){theIndex = i; return;}});
-	return theIndex;
-	}
-
-//update the localstorage object w/ the new messages, except the removes.
 					for(var i = 0; i < L; i += 1)	{
 						if(_app.data[_rtag.datapointer]['@MSGS'][i].verb == 'remove')	{
 							var index = getIndexByObjValue(DPSMessages,'origin',_app.data[_rtag.datapointer]['@MSGS'][i].origin);
@@ -1379,53 +1365,6 @@ function getIndexByObjValue(arr,key,value)	{
 //				dump("BEGIN navigateTo "+path);
 				opts = opts || {};
 				var newHash = path;
-				//this will remove the tooltips for the tabContent currently in focus. Works with a similar piece of code in execApp
-				$('.ui-tooltip',_app.u.jqSelector('#',_app.ext.admin.vars.tab+"Content")).intervaledEmpty();
-//sometimes you need to refresh the page you're on. if the hash doesn't change, the onHashChange code doesn't get run so this is a solution to that.
-				if(path == document.location.hash)	{
-					adminApp.router.handleHashChange();
-					}
-				else	{
-					if(path.indexOf('#!') == 0)	{newHash = path;}
-	//if/when vstore compat is gone, the next two if/else won't be necessary.
-					else if(path.indexOf('/biz/') == 0)	{
-						newHash = "#!"+path;
-						}
-					else if(path.indexOf('#/biz/') == 0)	{
-						newHash = "#!"+path.substring(1);
-						}
-					else	{
-						else	{
-							newHash += "?"+$.param(opts)
-							}
-						document.location.hash = newHash; //update hash on URI.
-						}
-					else	{
-						$('#globalMessaging').anymessage({'message':'In navigateTo, the path provided ['+path+'] does not start w/ a #! or is not an acceptable legacy compatibility mode link.','gMessage':true});
-						}
-					}
-				return false; //return false so that a href='#' onclick='return navigateTo... works properly (hash doesn't update to #);
-				},
-//executed after the hashChange, as part of the route callback.
-			handleTabClick : function(tab,opts)	{
-//				dump("BEGIN admin.a.handleTabClick");
-				opts = opts || {};
-				var $target = $(_app.u.jqSelector('#',tab+"Content"));
-				//if the tab has no content OR the tab is in focus already, show the tab landing page.
-				if(tab && $.inArray(tab,_app.ext.admin.vars.tabs) >= 0)	{
-					//tab is valid.
-					_app.ext.admin.u.uiHandleBreadcrumb({}); //make sure previous breadcrumb does not show up.
-					_app.ext.admin.u.uiHandleNavTabs({}); //make sure previous navtabs do not show up.
-					if(tab == _app.ext.admin.vars.tab || $target.children().length === 0)	{
-						//the tab clicked is already in focus. go back to tab landing page.
-						_app.ext.admin.u.showTabLandingPage(tab,$target,opts);
-						}
-					else	{
-//						dump(" -> we jumped between tabs or we moved to a tab that already has content.");
-						_app.ext.admin.u.bringTabIntoFocus(tab); //highlights the appropriate tab, if applicable (home is valid content area, but has no tab)
-						_app.ext.admin.u.bringTabContentIntoFocus($target); //brings the tabContent div (homeContent, productContent, etc) into focus.
-						//to get here, the tab has content AND we've moved between tabs.
-						}
 				
 				//* 201402 -> there's a bug in jquery UI that sometimes causes tooltips to not close (related to dynamic content).
 				//this will remove the tooltips for the tabContent currently in focus. Works with a similar piece of code in execApp
@@ -1439,32 +1378,12 @@ function getIndexByObjValue(arr,key,value)	{
 	//if/when vstore compat is gone, the next two if/else won't be necessary.
 					else if(path.indexOf('/biz/') == 0)	{
 						newHash = "#!"+path;
-				opts = opts || {};
-				var
-					tab = opts.tab || _app.ext.admin.vars.tab,
-					$tab = $(_app.u.jqSelector('#',tab+"Content")),
-					$target = $("<div \/>").addClass('contentContainer'); //content is added to a child, which is then added to the tab. ensures the tab container is left alone (no data or anything like that to get left over)
-				//this will remove the tooltips for the tabContent coming in to focus. There is some similar code in navigateTo
-				$('.ui-tooltip',$tab).intervaledEmpty();
 						}
 					else if(path.indexOf('#/biz/') == 0)	{
 						newHash = "#!"+path.substring(1);
-				if(ext && a && _app.u.thisNestedExists("ext."+ext+".a."+a,_app))	{
-					$tab.data('focusHash',"ext/"+ext+"/"+a); //remember what app is in focus so when tab is clicked, the correct hash can be displayed.
-					$tab.intervaledEmpty().append($target);
-					_app.ext.admin.u.bringTabContentIntoFocus($tab); //brings the tabContent div (homeContent, productContent, etc) into focus.
-					_app.ext.admin.u.uiHandleBreadcrumb({}); //make sure previous breadcrumb does not show up.
-					_app.ext.admin.u.uiHandleNavTabs({}); //make sure previous navtabs do not show up.
-					_app.ext[ext].a[a]($target,opts); //now execute the action.
 						}
 					else	{
-				},
 	
-					_app.ext.admin.u.bringTabIntoFocus(tab); //highlights the appropriate tab, if applicable (home is valid content area, but has no tab)
-					_app.ext.admin.u.bringTabContentIntoFocus($tab); //brings the tabContent div (homeContent, productContent, etc) into focus.
-					_app.ext.admin.u.uiHandleBreadcrumb({}); //make sure previous breadcrumb does not show up.
-					_app.ext.admin.u.uiHandleNavTabs({}); //make sure previous navtabs do not show up.
-					_app.ext[ext].a[a]($target,opts); //now execute the action.
 						}
 					if(newHash)	{
 						dump(" -> new hash: "+newHash);
@@ -1477,16 +1396,6 @@ function getIndexByObjValue(arr,key,value)	{
 					else	{
 						$('#globalMessaging').anymessage({'message':'In navigateTo, the path provided ['+path+'] does not start w/ a #! or is not an acceptable legacy compatibility mode link.','gMessage':true});
 						}
-
-				},
-
-//show YouTubeVideo in a dialog.
-			showYTVInDialog : function(videoID,vars){
-				if(videoID)	{
-					vars = vars || {};
-					var $D = $("<div \/>",{'id':'ytv_'+videoID});
-					if(vars.title)	{
-						$D.attr('title',vars.title);
 					}
 				return false; //return false so that a href='#' onclick='return navigateTo... works properly (hash doesn't update to #);
 				},
@@ -1504,36 +1413,19 @@ function getIndexByObjValue(arr,key,value)	{
 						//the tab clicked is already in focus. go back to tab landing page.
 						_app.ext.admin.u.showTabLandingPage(tab,$target,opts);
 						}
-				else	{
+					else	{
 //						dump(" -> we jumped between tabs or we moved to a tab that already has content.");
 						_app.ext.admin.u.bringTabIntoFocus(tab); //highlights the appropriate tab, if applicable (home is valid content area, but has no tab)
 						_app.ext.admin.u.bringTabContentIntoFocus($target); //brings the tabContent div (homeContent, productContent, etc) into focus.
 						//to get here, the tab has content AND we've moved between tabs.
-					}
-				},
-
-					_app.ext.admin.vars.tab = tab; //do this last so vars.tab shows the old tab for comparison purposes.
-			showYTVInDialog : function(videoID,vars){
-				if(videoID)	{
-					vars = vars || {};
-					var $D = $("<div \/>",{'id':'ytv_'+videoID});
-					if(vars.title)	{
-						$D.attr('title',vars.title);
 						}
-					$D.append("<iframe width='560' height='315' src='https://www.youtube.com/embed/"+videoID+"?autoplay=1' frameborder='0' allowfullscreen></iframe>");
-					$D.appendTo(document.body);
-					$D.dialog({
-						width: 600,
-						dialog : false,
-						close: function(event, ui)	{
-							$(this).dialog('destroy'); //remove this from the dom entirely on close. consequently, it also stops the video 
-							$(this).intervaledEmpty(1000,1);
-							}, //will remove from dom on close
-						})
+					
+					_app.ext.admin.vars.tab = tab; //do this last so vars.tab shows the old tab for comparison purposes.
 					}
 				else	{
 					$('#globalMessaging').anymessage({"message":"In admin.a.handleTabClick, unrecognized or blank tab specified ["+tab+"]","gMessage":true});
 					}
+
 				},
 
 			execApp : function(ext,a,opts)	{
@@ -1686,6 +1578,7 @@ function getIndexByObjValue(arr,key,value)	{
 							}
 						
 						});
+				
 					if(selectors)	{
 						if(selectors == 'all')	{
 							$("[name='SELECTALL']",$D).prop('checked','checked');
@@ -2031,6 +1924,7 @@ vars.findertype is required. acceptable values are:
 					}				
 				},
 
+
 			tlcTest : function($target,P)	{
 				
 				setTimeout(function(){
@@ -2235,13 +2129,6 @@ Changing the domain in the chooser will set three vars in localStorage so they'l
 					_app.ext.admin.calls.adminDomainList.init({'callback':function(rd){
 						if(_app.model.responseHasErrors(rd)){
 							$('#globalMessaging').anymessage({'message':rd});
-					}
-//used to ensure the domain selected (either from document.domain or dpsGet) is valid for this account.
-				function validateDomain(domain)	{
-//					dump(" -> begin validateDoman: "+domain);
-					_app.ext.admin.calls.adminDomainList.init({'callback':function(rd){
-						if(_app.model.responseHasErrors(rd)){
-							$('#globalMessaging').anymessage({'message':rd});
 							}
 						else	{
 							var domObj = _app.ext.admin.u.getValueByKeyFromArray(_app.data[rd.datapointer]['@DOMAINS'],'DOMAINNAME',domain) || {};
@@ -2254,9 +2141,6 @@ Changing the domain in the chooser will set three vars in localStorage so they'l
 								_app.ext.admin.a.showDomainChooser(); //domain list is in memory at this point. no need to dispatch.
 								$domainChooser.anymessage({"message":"The domain you logged in from does not appear in your active list of domains. Please select a domain to use:"});
 								}
-						}},'immutable');
-							}
-						}},'immutable');
 							}
 						}},'immutable');
 					}
@@ -4189,6 +4073,8 @@ dataAttribs -> an object that will be set as data- on the panel.
 					
 					});
 				},
+
+
 
 
 // add this to the button that this is applied to: class='applyButton' data-text='false' data-icon-primary='ui-icon-seek-next'
