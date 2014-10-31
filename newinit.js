@@ -14,10 +14,16 @@ _app.u.loadScript(configURI,function(){
 	
 	_app.require(startupRequires, function(){
 		_app.ext.quickstart.callbacks.startMyProgram.onSuccess();
-
+		
+		//$.extend(handlePogs.prototype,_app.ext._store_formals.variations);
+		
+		_app.ext._store_formals.u.runHeaderCarousel();
+		//_app.ext._store_formals.u.swipeMobileNav($(".mobileSlideMenu"));
+		_//app.ext._store_formals.u.runFooterCarousel();
+		
 		//make sure minicart stays up to date. 
 		//I know why you're doing this, but let's find a framework fix soon -mc
-		_app.ext.store_cc.vars.mcSetInterval = setInterval(function(){
+		_app.ext._store_formals.vars.mcSetInterval = setInterval(function(){
 			_app.ext.quickstart.u.handleMinicartUpdate({'datapointer':'cartDetail|'+_app.model.fetchCartID()});
 		},4000);
 		});
@@ -123,8 +129,8 @@ _app.couple('quickstart','addPageHandler',{
 		}
 	});
 _app.u.bindTemplateEvent('cartTemplate','complete.cart',function(event, $context, infoObj){
-	_app.ext.store_cc.u.cartitemqty($context);
-	_app.ext.store_cc.u.getShipContainerHeight($context);
+	_app.ext._store_formals.u.cartitemqty($context);
+	_app.ext._store_formals.u.getShipContainerHeight($context);
 	});
 _app.u.bindTemplateEvent('cartTemplate','depart.destroy',function(event, $context, infoObj){
 	var $page = $context.closest('[data-app-uri]');
@@ -422,20 +428,20 @@ _app.u.bindTemplateEvent(function(){return true;}, 'depart.scrollrestore', funct
 	});
 
 _app.extend({
-	"namespace" : "store_cc",
-	"filename" : "extensions/_store_cc.js"
+	"namespace" : "_store_formals",
+	"filename" : "extensions/_store_formals.js"
 	});
 _app.extend({
 	"namespace" : "store_filter",
 	"filename" : "extensions/_store_filter.js"
 	});
 	
-_app.u.bindTemplateEvent('homepageTemplate', 'complete.store_cc',function(event,$context,infoObj) {
+_app.u.bindTemplateEvent('homepageTemplate', 'complete._store_formals',function(event,$context,infoObj) {
 	//$(".mobileSlideMenu.standardNav").addClass("hideOnHome");
-	//_app.ext.store_cc.u.showHomepageBanners($context);
-	//_app.ext.store_cc.u.runHomeCarousel($context);
+	//_app.ext._store_formals.u.showHomepageBanners($context);
+	//_app.ext._store_formals.u.runHomeCarousel($context);
 	});
-_app.u.bindTemplateEvent('homepageTemplate', 'depart.store_cc',function(event,$context,infoObj) {
+_app.u.bindTemplateEvent('homepageTemplate', 'depart._store_formals',function(event,$context,infoObj) {
 	$(".mobileSlideMenu.standardNav").removeClass("hideOnHome");
 	});
 	
@@ -458,14 +464,13 @@ _app.u.bindTemplateEvent('productTemplate', 'complete.invcheck',function(event, 
 			}
 		}
 	});
-
-_app.u.bindTemplateEvent('productTemplate', 'complete.store_cc', function(event, $context, infoObj){
-	_//app.ext.store_cc.u.showRecentlyViewedItems($context);
-	_//app.ext.store_cc.u.runPreviousCarousel($context);
-	_//app.ext.store_cc.u.showHideVariation($context,infoObj);
+_app.u.bindTemplateEvent('productTemplate', 'complete._store_formals', function(event, $context, infoObj){
+	_//app.ext._store_formals.u.showRecentlyViewedItems($context);
+	_//app.ext._store_formals.u.runPreviousCarousel($context);
+	_//app.ext._store_formals.u.showHideVariation($context,infoObj);
 	});
-_app.u.bindTemplateEvent('productTemplate', 'depart.store_cc', function(event, $context, infoObj){
-	_app.ext.store_cc.u.addRecentlyViewedItems($context, infoObj.pid);
+_app.u.bindTemplateEvent('productTemplate', 'depart._store_formals', function(event, $context, infoObj){
+	_app.ext._store_formals.u.addRecentlyViewedItems($context, infoObj.pid);
 	});
 	
 					
@@ -577,7 +582,7 @@ function showSubPage(routeObj,parentID){
 	}
 
 _app.router.addAlias('subcat', function(routeObj) {
-	_app.require(['store_cc','store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
+	_app.require(['_store_formals','store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
 		var a = routeObj.pagefilter;
 		var b = routeObj.params.id;
 		routeObj.params.templateID = "splashPageTemplate";
@@ -598,7 +603,7 @@ _app.router.addAlias('subcat', function(routeObj) {
 });	
 
 _app.router.addAlias('filter', function(routeObj){
-	_app.require(['store_cc','store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
+	_app.require(['_store_formals','store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
 //		dump('filter alias routeObj: '); dump(routeObj);
 		//decides if filter JSON is in local var or if it needs to be retrieved
 		var filterpage = routeObj.pagefilter;
@@ -620,7 +625,7 @@ _app.router.addAlias('filter', function(routeObj){
 
 
 _app.router.addAlias('subfilter', function(routeObj){
-	_app.require(['store_cc','store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
+	_app.require(['_store_formals','store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
 		//decides if filter JSON is in local var or if it needs to be retrieved
 		dump('-------------------------subfilter Alias'); dump(routeObj);
 		var filterpage = routeObj.pagefilter;
@@ -640,7 +645,7 @@ _app.router.addAlias('subfilter', function(routeObj){
 
 				//sends passed object of attribs as a showContent search
 				_app.router.addAlias('promo', function(routeObj){
-					_app.require(['store_cc','store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
+					_app.require(['_store_formals','store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
 						var path = routeObj.params.PATH;
 				//		dump('promo Alias'); dump(path);
 						$.getJSON("filters/search/"+path+".json?_v="+(new Date()).getTime(), function(json){
@@ -660,17 +665,17 @@ _app.router.addAlias('subfilter', function(routeObj){
 //EXPERIMENTAL PROMO CATEGORY TO GIVE THE A MORE "CATEGORY" LIKE FEEL (TITLES, FACETS, ETC.)
 //WILL NEED IT'S OWN SHOWPAGE FUNCTION TO ADD THE FACETS FROM THE "ONLY LEAF" STYLE PAGE IT IS.
 //_app.router.addAlias('promo', function(routeObj){
-//	_app.require(['store_cc','store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
+//	_app.require(['_store_formals','store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
 //		var route = routeObj.pagefilter;
 //		routeObj.params.templateID = 'filteredSearchTemplate';
-//		if(_app.ext.store_cc.vars[route]) {
-//			var filterData = $.extend(true, {}, _app.ext.store_cc.vars[route]);
+//		if(_app.ext._store_formals.vars[route]) {
+//			var filterData = $.extend(true, {}, _app.ext._store_formals.vars[route]);
 //			$.extend(true, routeObj.params, {'templateid':routeObj.templateid,'id':filterData.id,'dataset':filterData});
 //			_app.ext.quickstart.a.newShowContent(routeObj.value,routeObj.params);
 //		}
 //		else {
 //			$.getJSON("filters/search/"+route+".json?_v="+(new Date()).getTime(), function(json){
-//			_app.ext.store_cc.vars[route] = json;
+//			_app.ext._store_formals.vars[route] = json;
 //				//Deep copy into the routeObj.params, and that becomes our new "infoObj"
 //				//Need to pass through routeObj.params at this moment, as it is expected to become infoObj
 //				//This may change later.
@@ -685,18 +690,18 @@ _app.router.addAlias('subfilter', function(routeObj){
 //});
 
 _app.router.addAlias('root', function(routeObj){
-	_app.require(['store_cc','store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
+	_app.require(['_store_formals','store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
 		var route = routeObj.pagefilter;
 		routeObj.params.templateID = 'splashPageRootTemplate';
-		if(_app.ext.store_cc.vars[route]) {
-			var filterData = $.extend(true, {}, _app.ext.store_cc.vars[route]);
+		if(_app.ext._store_formals.vars[route]) {
+			var filterData = $.extend(true, {}, _app.ext._store_formals.vars[route]);
 			$.extend(true, routeObj.params, {'templateid':routeObj.templateid,'id':filterData.id,'dataset':filterData});
 			_app.ext.quickstart.a.newShowContent(routeObj.value,routeObj.params);
 		}
 		else {
 			$.getJSON("filters/apparel/"+route+".json?_v="+(new Date()).getTime(), function(json){
 				json.breadcrumb = [json.id];
-				_app.ext.store_cc.vars[route] = json;
+				_app.ext._store_formals.vars[route] = json;
 				//Deep copy into the routeObj.params, and that becomes our new "infoObj"
 				//Need to pass through routeObj.params at this moment, as it is expected to become infoObj
 				//This may change later.
@@ -727,11 +732,18 @@ function createPagesPromoFilter(root) {
 
 createPagesPromoFilter('promo');
 
-createPagesRootFilter('');
+createPagesRootFilter('team-apparel-merchandise');
+createPagesRootFilter('apparel-merchandise');
+createPagesRootFilter('sale-apparel-merchandise');
+createPagesRootFilter('brands-apparel-merchandise');
 
-
-createPagesSubcatSubfilter('');	
-
+createPagesSubcatSubfilter('ncaa-team-apparel-merchandise');	
+createPagesSubcatSubfilter('nfl-team-apparel-merchandise');	
+createPagesSubcatSubfilter('nba-team-apparel-merchandise');
+createPagesSubcatSubfilter('mlb-team-apparel-merchandise');
+createPagesSubcatSubfilter('nhl-team-apparel-merchandise');
+createPagesSubcatSubfilter('soccer-team-apparel-merchandise');
+createPagesSubcatSubfilter('league-apparel-merchandise');
 	
 //SEARCH APPENDS
 _app.router.appendHash({'type':'match','route':'/search/promo/{{PATH}}*','callback':'promo'});					
@@ -805,6 +817,7 @@ _app.couple('quickstart','addPageHandler',{
 			}
 		_app.require(require,function(){
 			if(infoObj.templateID){}
+			//else if(infoObj.templateID = _app.ext.store_swc.u.fetchTemplateForPage(infoObj.navcat)){}
 			else{infoObj.templateID = 'categoryTemplate';}
 			if(infoObj.templateID = 'categoryTemplate'){
 				infoObj.prodRenderedDeferred = $.Deferred();
@@ -820,13 +833,13 @@ _app.extend({
 	"namespace" : "store_search",
 	"filename" : "extensions/store_search.js"
 	});
-	
 _app.couple('store_search','addUniversalFilter',{
 	'filter' : {"has_child":{"type":"sku","query":{"range":{"available":{"gte":1}}}}}
 	});
 _app.couple('store_search','addUniversalFilter',{
 	'filter' : {"not":{"term":{"tags":"IS_DISCONTINUED"}}}
 	});
+
 				
 _app.couple('quickstart','addPageHandler',{
 	"pageType" : "search",
@@ -845,11 +858,15 @@ _app.extend({
 	"namespace" : "store_product",
 	"filename" : "extensions/store_product.js"
 	});
-
-
+	
+_app.extend({
+	"namespace" : "tools_zoom",
+	"filename" : "extensions/tools_zoom/tools_zoom.js"
+	});
+	
 _app.couple('quickstart','addPageHandler',{
 	"pageType" : "product",
-	"require" : ['store_product','store_navcats', 'store_routing', 'store_search', 'store_crm', 'templates.html'],
+	"require" : ['store_product','store_navcats', 'store_routing', 'store_search', 'templates.html', 'store_prodlist', 'tools_zoom'],
 	"handler" : function($container, infoObj, require){
 		infoObj.deferred = $.Deferred();
 		infoObj.defPipeline.addDeferred(infoObj.deferred);
@@ -866,11 +883,6 @@ _app.couple('quickstart','addPageHandler',{
 			});
 		}
 	});
-	
-// _app.extend({
-	// "namespace" : "cart_message",
-	// "filename" : "extensions/cart_message/extension.js"
-	// });
 	
 _app.extend({
 	"namespace" : "store_crm",
@@ -904,7 +916,12 @@ _app.extend({
 		// }
 	// });
 	
-_app.rq.push(['script',0,'lightbox/js/lightbox-2.6.min.js']);
+	_app.u.bindTemplateEvent(function(){return true;},'depart.dismissDrop',function(event,$context,infoObj){
+		_//app.ext.store_cc.u.dismissAllDrop();
+	});
+	
+	
+//_app.rq.push(['script',0,'lightbox/js/lightbox-2.6.min.js']); this runs in index apptimized.
 
 _app.model.getGrammar("pegjs");
 
@@ -981,6 +998,7 @@ _app.router.appendInit({
 		dump(" -> triggered callback for appendInit");
 		g = g || {};
 		var $existingPage = $('#mainContentArea [data-app-uri]');
+		console.log($existingPage.length);
 		if($existingPage.length /*&& $existingPage.attr('data-app-uri') == document.location.pathname*/){
 			//We are a transplanted document, let's load accordingly.
 			//re-attach template handlers
