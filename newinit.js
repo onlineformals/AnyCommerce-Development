@@ -17,9 +17,9 @@ _app.u.loadScript(configURI,function(){
 		
 		//$.extend(handlePogs.prototype,_app.ext._store_formals.variations);
 		
-		_app.ext._store_formals.u.runHeaderCarousel();
+		//_app.ext._store_formals.u.runHeaderCarousel();
 		//_app.ext._store_formals.u.swipeMobileNav($(".mobileSlideMenu"));
-		_//app.ext._store_formals.u.runFooterCarousel();
+		//_app.ext._store_formals.u.runFooterCarousel();
 		
 		//make sure minicart stays up to date. 
 		//I know why you're doing this, but let's find a framework fix soon -mc
@@ -432,7 +432,7 @@ _app.extend({
 	"filename" : "extensions/_store_formals.js"
 	});
 _app.extend({
-	"namespace" : "store_filter",
+	"namespace" : "_store_filter",
 	"filename" : "extensions/_store_filter.js"
 	});
 	
