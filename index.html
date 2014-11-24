@@ -140,7 +140,7 @@ $(document).ready(function(){
 	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 		window.myApp = new initApp({
 		"_robotHasGreeted" : false,
-		"release":"201408.az",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201408.ba",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
@@ -1534,6 +1534,7 @@ this will likely become more flexible in the future. ###
 						</div>
 					</div>
 					<div class="productDescriptionContainer" data-tlc="bind $var '.%attribs.zoovy:prod_desc'; if (is $var --notblank;) {{render --wiki='quickstart'; apply --append;}};" property="description"></div>
+					
 					
 					<form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="inline">
 				
