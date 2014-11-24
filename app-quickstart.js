@@ -3072,7 +3072,6 @@ else	{
 						else	{
 							if($ele.data('show') == 'inline')	{
 								document.location.hash = '#!cart';
-								showContent('cart');
 								}
 							else	{
 								_app.ext.quickstart.u.showCartInModal({'templateID':'cartTemplate'});
