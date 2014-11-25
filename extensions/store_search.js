@@ -50,7 +50,7 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 */
 		appPublicProductSearch : {
 			init : function(obj,tagObj,Q)	{
-//				_app.u.dump("BEGIN _app.ext.store_search.calls.appPublicSearch");
+//				_app.u.dump("BEGIN _app.ext.store_search.calls.appPublicProductSearch");
 				var universalFilters = $.extend(true, [], _app.ext.store_search.vars.universalFilters);
 				if(universalFilters.length){
 					if(obj.filter){
@@ -75,7 +75,7 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 						//This is not going to end well, but let's let Elastic tell you that.
 						}
 					}
-				this.dispatch(P,tagObj,Q)
+				this.dispatch(obj,tagObj,Q)
 				return 1;
 				},
 			dispatch : function(obj,tagObj,Q)	{
@@ -85,7 +85,7 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 //				_app.u.dump(obj);
 				_app.model.addDispatchToQ(obj,Q);
 				}
-			}, //appPublicSearch
+			}, //appPublicProductSearch
 
 //no local caching (fetch) of results yet. need to work with the new search a bit
 // to get a good handle on what datapointers should look like.
@@ -281,10 +281,16 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 								"functions" : [
 									{
 										"filter" : {"query" : {"query_string":{"query":'"'+infoObj.KEYWORDS+'"'}}},
-										"script_score" : {"script":"10"}
-										}
-									],
-								"boost_mode" : "sum",
+										// "script_score" : {"script":"10"}
+										"script_score" : {
+											"script" : "constant",
+											"params":{
+												"constant" : 10
+												}
+											}
+ 										}
+ 									],
+								"boost_mode" : "sum"
 								}
 							}
 						});
@@ -301,7 +307,7 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 				
 				var $list = $('[data-app-role="resultsContainer"]', $page);
 				_app.ext.store_search.u.updateDataOnListElement($list,elasticsearch,1);
-				_app.ext.store_search.calls.appPublicSearch.init(elasticsearch,$.extend(true,{},infoObj,{'callback':'handleInfiniteElasticResults', 'emptyList':true,'datapointer':"appPublicSearch|"+JSON.stringify(elasticsearch),'extension':'prodlist_infinite','templateID':'productListTemplateResults','list':$('#resultsProductListContainer')}));
+				_app.ext.store_search.calls.appPublicSearch.init(elasticsearch,$.extend(true,{},infoObj,{'callback':'handleInfiniteElasticResults', 'emptyList':true,'datapointer':"appPublicSearch|"+JSON.stringify(elasticsearch),'extension':'prodlist_infinite','templateID':'productListTemplateResults','list':$list}));
 				_app.model.dispatchThis();
 				infoObj.state = 'complete'; //needed for handleTemplateEvents.
 				_app.renderFunctions.handleTemplateEvents($page,infoObj);

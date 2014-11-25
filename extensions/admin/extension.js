@@ -868,7 +868,7 @@ SANITY -> jqObj should always be the data-app-role="dualModeContainer"
 				if(_app.data[_rtag.datapointer] && _app.data[_rtag.datapointer].domain)	{
 //					_app.u.dump(" -> response contained a domain. use it to set the domain.");
 					_app.ext.admin.a.changeDomain(_app.data[_rtag.datapointer].domain);
-					navigateTo('#!dashboard');
+					navigateTo('/dashboard');
 					}
 				_app.ext.admin.u.showHeader();
 				},
@@ -899,7 +899,7 @@ SANITY -> jqObj should always be the data-app-role="dualModeContainer"
 						$ul = $("<ul \/>").attr('id','domainList').addClass('listStyleNone marginRight');
 						$ul.off('click.domain').on('click.domain','li',function(e){
 							_app.ext.admin.a.changeDomain($(e.target).data('DOMAINNAME'),$(e.target).data('PRT'));
-							navigateTo(_app.ext.admin.u.whatPageToShow('#!dashboard'));
+							navigateTo(_app.ext.admin.u.whatPageToShow('/dashboard'));
 							$target.dialog('close');
 							});
 						}
@@ -924,7 +924,7 @@ SANITY -> jqObj should always be the data-app-role="dualModeContainer"
 				else	{
 					$("<p>It appears you have no domains configured. <span class='lookLikeLink'>Click here<\/span> to go configure one.<\p>").on('click',function(){
 						$target.dialog('close');
-						navigateTo("#!ext/admin_sites/showDomainConfig");
+						navigateTo("/ext/admin_sites/showDomainConfig");
 						}).appendTo($target);
 					}
 				
@@ -1374,13 +1374,13 @@ function getIndexByObjValue(arr,key,value)	{
 					adminApp.router.handleHashChange();
 					}
 				else	{
-					if(path.indexOf('#!') == 0)	{newHash = path;}
+					if(path.indexOf('/') == 0)	{newHash = path;}
 	//if/when vstore compat is gone, the next two if/else won't be necessary.
 					else if(path.indexOf('/biz/') == 0)	{
-						newHash = "#!"+path;
+						newHash = "/"+path;
 						}
 					else if(path.indexOf('#/biz/') == 0)	{
-						newHash = "#!"+path.substring(1);
+						newHash = "/"+path.substring(1);
 						}
 					else	{
 	
@@ -1394,7 +1394,7 @@ function getIndexByObjValue(arr,key,value)	{
 						document.location.hash = newHash; //update hash on URI.
 						}
 					else	{
-						$('#globalMessaging').anymessage({'message':'In navigateTo, the path provided ['+path+'] does not start w/ a #! or is not an acceptable legacy compatibility mode link.','gMessage':true});
+						$('#globalMessaging').anymessage({'message':'In navigateTo, the path provided ['+path+'] does not start w/ a / or is not an acceptable legacy compatibility mode link.','gMessage':true});
 						}
 					}
 				return false; //return false so that a href='#' onclick='return navigateTo... works properly (hash doesn't update to #);
@@ -2051,14 +2051,14 @@ vars.findertype is required. acceptable values are:
 				if(linkFrom)	{
 					_app.u.dump("INCOMING! looks like we've just returned from a partner page");
 					if(linkFrom == 'amazon-token')	{
-						_app.ext.admin.a.navigateTo('#!syndication');
+						_app.ext.admin.a.navigateTo('/syndication');
 						_app.ext.admin.a.showAmzRegisterModal();
 						}
 					else	{
 						_app.u.dump(" -> execute navigateTo for linkFrom being set");
 						if(!document.location.hash)	{
 							//if a hash is present, the router will load that page. But if there's no hash, we load the default page.
-							_app.ext.admin.a.navigateTo('#!dashboard');
+							_app.ext.admin.a.navigateTo('/dashboard');
 							}
 						}
 					}
@@ -2070,7 +2070,7 @@ vars.findertype is required. acceptable values are:
 					_app.u.dump(" -> execute navigateTo cuz no linkFrom being present.");
 					if(!document.location.hash)	{
 						//if a hash is present, the router will load that page. But if there's no hash, we load the default page.
-						_app.ext.admin.a.navigateTo('#!dashboard');
+						_app.ext.admin.a.navigateTo('/dashboard');
 						}
 					}
 
@@ -2195,7 +2195,7 @@ Changing the domain in the chooser will set three vars in localStorage so they'l
 //				_app.u.dump("BEGIN admin.u.whatPageToShow");
 				var page = window.location.hash || defaultPage;
 				if(page)	{
-					if(page.substring(0,2) == '#!' || page.substring(0,2) == '#:')	{}  //app hashes. leave them alone cuz navigateTo wants #.
+					if(page.substring(0,2) == '/' || page.substring(0,2) == '#:')	{}  //app hashes. leave them alone cuz navigateTo wants #.
 					else	{
 						page = page.replace(/^#/, ''); //strip preceding # from hash.
 						}
@@ -2368,7 +2368,7 @@ Changing the domain in the chooser will set three vars in localStorage so they'l
 				_app.ext.admin.u.uiHandleNavTabs({}); //make sure previous navtabs not show up.
 
 				if(!$target)	{_app.u.dump("TARGET NOT SPECIFIED")}
-//handle the default tabs specified as #! instead of #:
+//handle the default tabs specified as / instead of #:
 				else if(_app.ext.admin.u.showTabLandingPage(path,$(_app.u.jqSelector('#',path.substring(2)+'Content')),opts))	{
 					//the showTabLandingPage will handle the display. It returns t/f
 					}
@@ -2446,7 +2446,7 @@ Changing the domain in the chooser will set three vars in localStorage so they'l
 				return $target;
 				},
 
-//path should be passed in as  #!orders
+//path should be passed in as  /orders
 			showTabLandingPage : function(tab,$target,opts)	{
 				var r = true;
 				this.bringTabIntoFocus(tab);
@@ -2719,9 +2719,9 @@ Changing the domain in the chooser will set three vars in localStorage so they'l
 					// _app.u.dump($a);
 					}
 
-				if (href.substring(0,5) == "/biz/" || href.substring(0,2) == '#!')	{
+				if (href.substring(0,5) == "/biz/" || href.substring(0,2) == '/')	{
 					var newHref = _app.vars.baseURL;
-					newHref += href.substring(0,2) == '#!' ? href :'#!'+href; //for #! (native apps) links, don't add another hash.
+					newHref += href.substring(0,2) == '/' ? href :'/'+href; //for / (native apps) links, don't add another hash.
 					$a.attr({'title':href,'href':newHref});
 					$a.click(function(event){
 						event.preventDefault();

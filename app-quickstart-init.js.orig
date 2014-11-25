@@ -845,7 +845,7 @@ _app.router.appendInit({
 			//handleURIChange here will not change the page, but it will execute appropriate events
 			_app.router.handleURIString($existingPage.attr('data-app-uri'), true, {"retrigger" : true});
 			}
-		else if (document.location.hash.indexOf("#!") == 0){
+		else if (document.location.hash.indexOf("/") == 0){
 			var pathStr = document.location.hash.substr(2);
 			var search = false;
 			if(pathStr.indexOf('?') >= 0){

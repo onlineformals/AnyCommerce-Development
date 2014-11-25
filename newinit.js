@@ -917,7 +917,7 @@ _app.extend({
 	// });
 	
 	_app.u.bindTemplateEvent(function(){return true;},'depart.dismissDrop',function(event,$context,infoObj){
-		_//app.ext.store_cc.u.dismissAllDrop();
+		//app.ext.store_cc.u.dismissAllDrop();
 	});
 	
 	

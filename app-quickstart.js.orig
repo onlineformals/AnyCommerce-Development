@@ -845,7 +845,7 @@ fallback is to just output the value.
 				if(data.value == '#')	{
 					$tag.removeClass('pointer');
 					}
-				else if(data.value && data.value.indexOf('#!') == 0)	{
+				else if(data.value && data.value.indexOf('/') == 0)	{
 					//link is formatted correctly. do nothing.
 					}
 				else if(data.value)	{
@@ -941,7 +941,7 @@ fallback is to just output the value.
 							})
 						}
 					else	{
-						$tag.attr({'data-hash':'#!product/'+pid,'data-app-click':'quickstart|showContent'});
+						$tag.attr({'data-hash':'/product/'+pid,'data-app-click':'quickstart|showContent'});
 						}
 					}
 //				dump(" -> ID at end: "+$tag.attr('id'));
@@ -1154,7 +1154,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 // * changed from 'empty' to showLoading because empty could be a heavy operation if mainContentArea has a lot of content.
 							$('body').showLoading({'message':'Transferring to secure login'});							
 							var SSLlocation = _app.vars.secureURL+"?cartID="+_app.model.fetchCartID();
-							SSLlocation += "#!customer/"+infoObj.show
+							SSLlocation += "/customer/"+infoObj.show
 							window[_app.vars.analyticsPointer]('linker:decorate', SSLlocation); //for cross domain tracking.
 							document.location = SSLlocation; //redir to secure url.
 							}
@@ -1175,7 +1175,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 // * use showloading instead of .html (which could be heavy)
 //							$('#mainContentArea').addClass('loadingBG').html("<h1>Transferring you to a secure session for checkout.<\/h1><h2>Our app will reload shortly...<\/h2>");
 							$('body').showLoading({'message':'Transferring you to a secure session for checkout'});
-							var SSLlocation = zGlobals.appSettings.https_app_url+"?cartID="+_app.model.fetchCartID()+"&_session="+_app.vars._session+"#!checkout";
+							var SSLlocation = zGlobals.appSettings.https_app_url+"?cartID="+_app.model.fetchCartID()+"&_session="+_app.vars._session+"/checkout";
 							window[_app.vars.analyticsPointer]('linker:decorate', SSLlocation); //for cross domain tracking.
 							document.location = SSLlocation;
 							}
@@ -2006,10 +2006,10 @@ $target.tlc({
 				var url = URL; //leave original intact.
 				var hashObj;
 				if(url.indexOf('#') > -1)	{
-//*** 201344 Adds support for #! syntax, which allows links for escaped fragment syntax to be parsed directly over their href. -mc
+//*** 201344 Adds support for / syntax, which allows links for escaped fragment syntax to be parsed directly over their href. -mc
 					var tmp;
-					if(url.indexOf('#!') > -1){
-						tmp = url.split("#!");
+					if(url.indexOf('/') > -1){
+						tmp = url.split("/");
 						}
 					else {
 						tmp = url.split("#");
@@ -2102,20 +2102,20 @@ $target.tlc({
 //				dump("BEGIN quickstart.u.getHashFromPageInfo");
 				var r = false; //what is returned. either false if no match or hash (#company?show=contact)
 				if(this.thisPageInfoIsValid(infoObj))	{
-					if(infoObj.pageType == 'product' && infoObj.pid)	{r = '#!product/'+infoObj.pid}
-					else if(infoObj.pageType == 'category' && infoObj.navcat)	{r = '#!category/'+infoObj.navcat}
-					else if(infoObj.pageType == 'homepage')	{r = '#!home'}
-					else if(infoObj.pageType == 'cart')	{r = '#!cart'}
-					else if(infoObj.pageType == 'checkout')	{r = '#!checkout'}
+					if(infoObj.pageType == 'product' && infoObj.pid)	{r = '/product/'+infoObj.pid}
+					else if(infoObj.pageType == 'category' && infoObj.navcat)	{r = '/category/'+infoObj.navcat}
+					else if(infoObj.pageType == 'homepage')	{r = '/home'}
+					else if(infoObj.pageType == 'cart')	{r = '/cart'}
+					else if(infoObj.pageType == 'checkout')	{r = '/checkout'}
 					else if(infoObj.pageType == 'search' && (infoObj.TAG || infoObj.KEYWORDS))	{
-						r = '#!search/';
+						r = '/search/';
 						r += (infoObj.KEYWORDS) ? 'keywords/'+infoObj.KEYWORDS : 'tag/'+infoObj.TAG;
 						}
 					else if(infoObj.pageType == 'search' && infoObj.elasticsearch)	{
 						//r = '#search?KEYWORDS='+encodeURIComponent(infoObj.KEYWORDS);
-						r = '#!search/elasticsearch/'+encodeURIComponent(JSON.stringify(infoObj.elasticsearch));
+						r = '/search/elasticsearch/'+encodeURIComponent(JSON.stringify(infoObj.elasticsearch));
 						}
-					else if(infoObj.pageType && infoObj.show)	{r = '#!'+infoObj.pageType+'/'+infoObj.show}
+					else if(infoObj.pageType && infoObj.show)	{r = '/'+infoObj.pageType+'/'+infoObj.show}
 					else	{
 						//shouldn't get here because pageInfo was already validated. but just in case...
 						dump("WARNING! invalid pageInfo object passed into getHashFromPageInfo. infoObj: ");
@@ -2465,7 +2465,7 @@ effects the display of the nav buttons only. should be run just after the handle
 					var $nav = $('#companyNav ul:first',$mcac);
 //builds the nav menu.
 					$('.textContentArea',$mcac).not('.disabled').each(function(){
-						$nav.append("<li><a href='#!company/"+$(this).attr('id').replace('Article','')+"'>"+($('h1:first',$(this)).text())+"</a></li>");
+						$nav.append("<li><a href='/company/"+$(this).attr('id').replace('Article','')+"'>"+($('h1:first',$(this)).text())+"</a></li>");
 						});
 
 					$('#mainContentArea').append($mcac);
@@ -2894,7 +2894,7 @@ either templateID needs to be set OR showloading must be true. TemplateID will t
 			parseAnchor : function(str)	{
 				var P = {};
 				if(str)	{
-					var tmp1 = str.replace(/\#!?/g,'').split('?'); //the regext will strip # or #! off the front of the string.
+					var tmp1 = str.replace(/\/?/g,'').split('?'); //the regext will strip # or / off the front of the string.
 					P.pageType = tmp1[0];
 					if(tmp1.length > 1){
 						var tmp2 = tmp1[1].split('=');
@@ -3389,7 +3389,7 @@ else	{
 							$('#globalMessaging').anymessage({'message':rd});
 							}
 						else	{
-							document.location.hash = '#!cart';
+							document.location.hash = '/cart';
 							}
 						});
 					}
@@ -3468,7 +3468,7 @@ else	{
 							}
 						else	{
 							if($ele.data('show') == 'inline')	{
-								document.location.hash = '#!cart';
+								document.location.hash = '/cart';
 								}
 							else	{
 								_app.ext.quickstart.u.showCartInModal({'templateID':'cartTemplate'});
@@ -3512,7 +3512,7 @@ else	{
 				p.preventDefault();
 				var sfo = $ele.serializeJSON($ele);
 				if(sfo.KEYWORDS)	{
-					document.location.hash = '#!search/keywords/'+sfo.KEYWORDS;
+					document.location.hash = '/search/keywords/'+sfo.KEYWORDS;
 					}
 				return false;
 				},
@@ -3797,7 +3797,7 @@ later, it will handle other third party plugins as well.
 								$('#globalMessaging').anymessage({'message':rd});
 								}
 							else	{
-								document.location.hash = '#!cart';
+								document.location.hash = '/cart';
 								}
 							});
 						}

@@ -601,7 +601,7 @@ this will likely become more flexible in the future. ###
 
 		<div class="marginBottom">
 			<h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Sku: '; apply --append;}};" class="stid"></h5>
-			<h5><a href='#' data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{apply --append; format --prepend='#!search/keywords/'; apply --attrib='href';}};"></a></h5>
+			<h5><a href='#' data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{apply --append; format --prepend='/search/keywords/'; apply --attrib='href';}};"></a></h5>
 			<h5 data-tlc="bind $var '.%attribs.zoovy:prod_mfgid';  if (is $var --notblank;) {{format --prepend='Mfg ID: '; apply --append;}};"></h5>
 		</div>
 
@@ -954,12 +954,12 @@ if you change these, you should move them above this comment so that when you (o
 	<div class="sideline">
 	<nav id="customerNav">
 	<ul class="listStyleNone noPadOrMargin">
-		<li><a href='#!customer/subscriberLists'>Newsletter Subscription</a></li>
-		<li><a href="#!customer/myaccount">My Account</a></li>
-		<li><a href="#!customer/changepassword">Change Password</a></li>
-		<li><a href="#!customer/orders">Order History</a></li>
-		<li><a href="#!customer/lists">Manage Lists</a></li>
-		<li class="hideIfLoggedOut"><a href="#!customer/logout">Log Out</a></li>
+		<li><a href='/customer/subscriberLists'>Newsletter Subscription</a></li>
+		<li><a href="/customer/myaccount">My Account</a></li>
+		<li><a href="/customer/changepassword">Change Password</a></li>
+		<li><a href="/customer/orders">Order History</a></li>
+		<li><a href="/customer/lists">Manage Lists</a></li>
+		<li class="hideIfLoggedOut"><a href="/customer/logout">Log Out</a></li>
 	</ul>
 	</nav>
 	</div>
@@ -1247,7 +1247,7 @@ This is the template used both within a dialog and inline, unless implicitly ove
 			<span class="continueShoppingSpan thisButton"><button class="applyButton continueShoppingButton" data-app-click="myRIA|dialogCloseExec">Continue Shopping</button></span>
 	
 			<span id="inStoreCheckoutButton" class='thisButton' title="proceed to secure checkout">
-				<a class="applyButton ui-state-highlight checkoutButton" href='#!checkout'>Store Checkout</a>
+				<a class="applyButton ui-state-highlight checkoutButton" href='/checkout'>Store Checkout</a>
 			</span>
 	
 			<span data-tlc="bind $var '.cart.cartid'; cco#paypalecbutton  --legacy;" id="paypalecbutton" class="thisButton"></span>
@@ -1627,7 +1627,7 @@ The 'data-action' attribute is used to assign an onclick.
 		</div><!-- /recoverPasswordContainer -->
 
 		<div>
-		<a class='applyButton' href='#!customer/newsletter'>Create Account</a>
+		<a class='applyButton' href='/customer/newsletter'>Create Account</a>
 		</div>
 	</div>
 
@@ -1647,11 +1647,11 @@ The 'data-action' attribute is used to assign an onclick.
 <ul class='debugQuickLinks'>
 	<li>Store Links
 	<ul>
-		<li><a href='#!home'>Homepage</a></li>
-		<li><a href='#!customer/orders'>Orders</a></li>
-		<li><a href='#!cart' >Cart</a></li>
-		<li><a href='#!company'>Returns</a></li>
-		<li><a href='#!company/privacy'>Privacy</a></li>
+		<li><a href='/home'>Homepage</a></li>
+		<li><a href='/customer/orders'>Orders</a></li>
+		<li><a href='/cart' >Cart</a></li>
+		<li><a href='/company'>Returns</a></li>
+		<li><a href='/company/privacy'>Privacy</a></li>
 		<li><a href='#' onClick="return quickView('category',{'navcat':'.air_fresheners','templateID':'categoryTemplate'});">Cat in Modal</a></li>
 	</ul>
 	</li>
@@ -1694,7 +1694,7 @@ The 'data-action' attribute is used to assign an onclick.
 
 		<div>
 		<!-- !!!!! NOT YET IMPLEMENTED -->
-		<a class='applyButton' href='#!customer/newsletter'>Create Account</a>
+		<a class='applyButton' href='/customer/newsletter'>Create Account</a>
 		</div>
 	</div>
 

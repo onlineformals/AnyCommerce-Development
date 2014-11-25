@@ -778,7 +778,7 @@ fallback is to just output the value.
 				if(data.value == '#')	{
 					$tag.removeClass('pointer');
 					}
-				else if(data.value && data.value.indexOf('#!') == 0)	{
+				else if(data.value && data.value.indexOf('/') == 0)	{
 					//link is formatted correctly. do nothing.
 					}
 				else if(data.value)	{
@@ -874,7 +874,7 @@ fallback is to just output the value.
 							})
 						}
 					else	{
-						$tag.attr({'data-hash':'#!product/'+pid,'data-app-click':'quickstart|showContent'});
+						$tag.attr({'data-hash':'/product/'+pid,'data-app-click':'quickstart|showContent'});
 						}
 					}
 //				dump(" -> ID at end: "+$tag.attr('id'));
@@ -1590,10 +1590,10 @@ $target.tlc({
 				var url = URL; //leave original intact.
 				var hashObj;
 				if(url.indexOf('#') > -1)	{
-//*** 201344 Adds support for #! syntax, which allows links for escaped fragment syntax to be parsed directly over their href. -mc
+//*** 201344 Adds support for / syntax, which allows links for escaped fragment syntax to be parsed directly over their href. -mc
 					var tmp;
-					if(url.indexOf('#!') > -1){
-						tmp = url.split("#!");
+					if(url.indexOf('/') > -1){
+						tmp = url.split("/");
 						}
 					else {
 						tmp = url.split("#");
@@ -1686,20 +1686,20 @@ $target.tlc({
 //				dump("BEGIN quickstart.u.getHashFromPageInfo");
 				var r = false; //what is returned. either false if no match or hash (#company?show=contact)
 				if(this.thisPageInfoIsValid(infoObj))	{
-					if(infoObj.pageType == 'product' && infoObj.pid)	{r = '#!product/'+infoObj.pid}
-					else if(infoObj.pageType == 'category' && infoObj.navcat)	{r = '#!category/'+infoObj.navcat}
-					else if(infoObj.pageType == 'homepage')	{r = '#!home'}
-					else if(infoObj.pageType == 'cart')	{r = '#!cart'}
-					else if(infoObj.pageType == 'checkout')	{r = '#!checkout'}
+					if(infoObj.pageType == 'product' && infoObj.pid)	{r = '/product/'+infoObj.pid}
+					else if(infoObj.pageType == 'category' && infoObj.navcat)	{r = '/category/'+infoObj.navcat}
+					else if(infoObj.pageType == 'homepage')	{r = '/home'}
+					else if(infoObj.pageType == 'cart')	{r = '/cart'}
+					else if(infoObj.pageType == 'checkout')	{r = '/checkout'}
 					else if(infoObj.pageType == 'search' && (infoObj.TAG || infoObj.KEYWORDS))	{
-						r = '#!search/';
+						r = '/search/';
 						r += (infoObj.KEYWORDS) ? 'keywords/'+infoObj.KEYWORDS : 'tag/'+infoObj.TAG;
 						}
 					else if(infoObj.pageType == 'search' && infoObj.elasticsearch)	{
 						//r = '#search?KEYWORDS='+encodeURIComponent(infoObj.KEYWORDS);
-						r = '#!search/elasticsearch/'+encodeURIComponent(JSON.stringify(infoObj.elasticsearch));
+						r = '/search/elasticsearch/'+encodeURIComponent(JSON.stringify(infoObj.elasticsearch));
 						}
-					else if(infoObj.pageType && infoObj.show)	{r = '#!'+infoObj.pageType+'/'+infoObj.show}
+					else if(infoObj.pageType && infoObj.show)	{r = '/'+infoObj.pageType+'/'+infoObj.show}
 					else	{
 						//shouldn't get here because pageInfo was already validated. but just in case...
 						dump("WARNING! invalid pageInfo object passed into getHashFromPageInfo. infoObj: ");
@@ -1976,7 +1976,7 @@ either templateID needs to be set OR showloading must be true. TemplateID will t
 /*formals*/			width:'80%',   //browser doesn't like percentage for height
 /*formals*/			open : function(event, ui) {
 /*formals*/				$(".ui-dialog-titlebar-close").on("click.closeModal",function(){
-/*formals*/					if(document.location.hash == "#!checkout/") {
+/*formals*/					if(document.location.hash == "/checkout/") {
 /*formals*/						dump('it was checkout');
 /*formals*/						$("#checkoutContainer").remove();
 /*formals*/						showContent("checkout");
@@ -2114,7 +2114,7 @@ either templateID needs to be set OR showloading must be true. TemplateID will t
 			parseAnchor : function(str)	{
 				var P = {};
 				if(str)	{
-					var tmp1 = str.replace(/\#!?/g,'').split('?'); //the regext will strip # or #! off the front of the string.
+					var tmp1 = str.replace(/\/?/g,'').split('?'); //the regext will strip # or / off the front of the string.
 					P.pageType = tmp1[0];
 					if(tmp1.length > 1){
 						var tmp2 = tmp1[1].split('=');
@@ -2493,7 +2493,7 @@ else	{
 								$('#globalMessaging').anymessage({'message':rd});
 								}
 							else	{
-								document.location.hash = '#!cart';
+								document.location.hash = '/cart';
 								}
 							});
 						}
@@ -2599,6 +2599,8 @@ else	{
 			searchFormSubmit : function($ele,p)	{
 				p.preventDefault();
 				var sfo = $ele.serializeJSON($ele);
+				dump('searchFormSubmit');
+				dump(sfo);
 				if(sfo.KEYWORDS)	{
 					_app.router.handleURIChange('/search/keywords/'+sfo.KEYWORDS);
 					}

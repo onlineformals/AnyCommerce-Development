@@ -558,7 +558,7 @@ used, but not pre-loaded.
 								else	{
 									//sample action. success would go here.
 									$('#globalMessaging').anymessage(_app.u.successMsgObject('Your domain has been added.'));
-									navigateTo("#!ext/admin_sites/showDomainConfig");
+									navigateTo("/ext/admin_sites/showDomainConfig");
 									$form.closest('.ui-dialog-content').dialog('close');
 									}
 								}
@@ -871,7 +871,7 @@ used, but not pre-loaded.
 						else	{
 							$('#globalMessaging').anymessage(_app.u.successMsgObject('Thank you, your project has been created.'));
 							$ele.closest('.ui-dialog-content').dialog('close');
-							navigateTo("#!ext/admin_sites/showDomainConfig");
+							navigateTo("/ext/admin_sites/showDomainConfig");
 							}
 						}}
 					_app.model.addDispatchToQ(sfo,"immutable");

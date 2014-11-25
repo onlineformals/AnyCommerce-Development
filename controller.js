@@ -995,7 +995,7 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 					uriParams : _app.router.getURIParams(),
 					hashParams : (location.hash.indexOf('?') >= 0 ? _app.u.kvp2Array(decodeURIComponent(location.hash.split("?")[1])) : {})
 					});
-				var routeObj = _app.router._getRouteObj(document.location.href,'init'); //strips out the #! and trailing slash, if present.
+				var routeObj = _app.router._getRouteObj(document.location.href,'init'); //strips out the / and trailing slash, if present.
 				if(routeObj)	{
 					_app.router._executeCallback(routeObj);
 					}

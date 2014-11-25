@@ -915,7 +915,7 @@ when an event type is changed, all the event types are dropped, then re-added.
 
 				newSfo['_tag'].onComplete = function(){
 					// refresh the data
-					navigateTo('#!ext/admin_config/showNotifications');
+					navigateTo('/ext/admin_config/showNotifications');
 					};
 					
 				return newSfo;
@@ -1272,7 +1272,7 @@ when an event type is changed, all the event types are dropped, then re-added.
 					
 					if($ele.data('mode') == 'insert')	{
 						callback = function(rd){
-							navigateTo("#!ext/admin_config/showShippingManager",{'provider':sfo.provider});
+							navigateTo("/ext/admin_config/showShippingManager",{'provider':sfo.provider});
 							}; //when a new method is added, the callback gets changed slightly to refect the update to the list of flex methods.
 						macros.push("SHIPMETHOD/INSERT?provider="+sfo.provider+"&handler="+$ele.data('handler'));
 						}
@@ -1702,7 +1702,7 @@ when an event type is changed, all the event types are dropped, then re-added.
 						'_tag':	{
 							'callback':($form.data('verb')) == 'create' ? 'navigateTo' : 'showMessaging',
 							'extension':($form.data('verb')) == 'create' ? 'admin' : '',
-							'path' : '#!ext/admin_config/showPluginManager?plugin='+sfo.plugin, //used when new plugins are added.
+							'path' : '/ext/admin_config/showPluginManager?plugin='+sfo.plugin, //used when new plugins are added.
 							//the following are used w/ showMessaging.
 							'restoreInputsFromTrackingState' : true,
 							'message' : "Your changes have been saved.",
@@ -1747,7 +1747,7 @@ when an event type is changed, all the event types are dropped, then re-added.
 											else	{
 												//sample action. success would go here.
 												$chooser.closest('.ui-dialog-content').dialog('close');
-												navigateTo('#!ext/admin_config/showPluginManager?plugin='+plugin)
+												navigateTo('/ext/admin_config/showPluginManager?plugin='+plugin)
 												}
 											}
 										}
