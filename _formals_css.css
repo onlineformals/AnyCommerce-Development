@@ -2815,6 +2815,11 @@ ul li.productListTemplateBuyerList{
 #contactForm{
 }
 
+.companyPageContentCont{
+	float: left;
+    width: 78%;
+}
+
 .contactContentContainer div#scnXRT{
 	display: block !important;
     margin-bottom: 12px;
