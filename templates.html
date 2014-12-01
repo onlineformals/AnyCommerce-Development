@@ -47,12 +47,12 @@ src="Images/Homepage/carousel/testbanner-1.png" FOR THE IMAGE FILE.
 -->   
 		<div class="homepageCarouselContainer">
             <ul class="carouselHPBannerList">
-		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.cocktail.homecoming'});"><img data-apptimize="embed" src="Images/Homepage/carousel/homecoming2014.png" alt="" /></a></li>	
-		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.in_stock'});"><img data-apptimize="embed" src="Images/Homepage/carousel/instocksummer.png" alt="" /></a></li>
-		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.prom.sale'});"><img data-apptimize="embed" src="Images/Homepage/carousel/salebanner.png" alt="" /></a></li>
-		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.scala'});"><img data-apptimize="embed" src="Images/Homepage/carousel/scalabanner.png" alt="" /></a></li>
-		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.la_femme'});"><img data-apptimize="embed" src="Images/Homepage/carousel/lafemmespring.png" alt="" /></a></li>
-		<li><a class="pointer" onClick="return showContent('category',{'navcat':'.designers.sherri_hill'});"><img data-apptimize="embed" src="Images/Homepage/carousel/sherrispring.png" alt="" /></a></li>
+		<li><a class="pointer" href="/category/cocktail.homecoming"><img data-apptimize="embed" src="Images/Homepage/carousel/homecoming2014.png" alt="" /></a></li>	
+		<li><a class="pointer" href="/category/in_stock"><img data-apptimize="embed" src="Images/Homepage/carousel/instocksummer.png" alt="" /></a></li>
+		<li><a class="pointer" href="/category/prom.sale"><img data-apptimize="embed" src="Images/Homepage/carousel/salebanner.png" alt="" /></a></li>
+		<li><a class="pointer" href="/category/designers.scala"><img data-apptimize="embed" src="Images/Homepage/carousel/scalabanner.png" alt="" /></a></li>
+		<li><a class="pointer" href="/category/designers.la_femme"><img data-apptimize="embed" src="Images/Homepage/carousel/lafemmespring.png" alt="" /></a></li>
+		<li><a class="pointer" href="/category/designers.sherri_hill"><img data-apptimize="embed" src="Images/Homepage/carousel/sherrispring.png" alt="" /></a></li>
             </ul>
             <img data-apptimize="embed" class="prevHPBannerCaro" src="Images/Homepage/caroleft.png" alt="" />
             <img data-apptimize="embed" class="nextHPBannerCaro" src="Images/Homepage/caroright.png" alt="" />
@@ -77,23 +77,29 @@ src="Images/Homepage/subcats/testchildren.png" FOR THE IMAGE FILE, AND <p class=
 /******************************************************************************************************************************************************************/ 
 -->   
         <div class="homepageSubCatListContainer">
-            <div class="homepageSubCatItemTop pointer" onClick="return showContent('category',{'navcat':'.in_stock'});"> <!--onMouseOver="myApp.ext._store_formals.a.homepageSubCatMouseOver($(this))" onMouseOut="myApp.ext._store_formals.a.homepageSubCatMouseOut($(this))"-->
-                <img data-apptimize="embed" src="Images/Homepage/subcats/instock.png" alt="" />
-                <div class="homepageSubCatTitleBar homepageSubCatTitleBar1">
-                    <p class="homepageSubCatTitle"></p>
-                </div>
+            <div class="homepageSubCatItemTop pointer">
+                <a href="/category/in_stock">
+                    <img data-apptimize="embed" src="Images/Homepage/subcats/instock.png" alt="" />
+                    <div class="homepageSubCatTitleBar homepageSubCatTitleBar1">
+                        <p class="homepageSubCatTitle"></p>
+                    </div>
+                </a>
             </div>
-            <div class="homepageSubCatItemTop pointer" onClick="return showContent('category',{'navcat':'.showroom'});">
-                <img data-apptimize="embed" src="Images/Homepage/subcats/showroom.png" alt="" />
-				<div class="homepageSubCatTitleBar homepageSubCatTitleBar2">
-                    <p class="homepageSubCatTitle"></p>
-                </div>
+            <div class="homepageSubCatItemTop pointer">
+            	<a href="/category/showroom">
+                    <img data-apptimize="embed" src="Images/Homepage/subcats/showroom.png" alt="" />
+                    <div class="homepageSubCatTitleBar homepageSubCatTitleBar2">
+                        <p class="homepageSubCatTitle"></p>
+                    </div>
+                </a>
             </div>
-            <div class="homepageSubCatItemTop pointer" onClick="return showContent('category',{'navcat':'.prom.trends.sequins'});">
-                <img data-apptimize="embed" src="Images/Homepage/subcats/sequins.png" alt="" />
-                <div class="homepageSubCatTitleBar homepageSubCatTitleBar3">
-                    <p class="homepageSubCatTitle"></p>
-                </div>
+            <div class="homepageSubCatItemTop pointer">
+            	<a href="/category/prom.trends.sequins">
+                    <img data-apptimize="embed" src="Images/Homepage/subcats/sequins.png" alt="" />
+                    <div class="homepageSubCatTitleBar homepageSubCatTitleBar3">
+                        <p class="homepageSubCatTitle"></p>
+                    </div>
+                </a>
             </div>
         </div>
 <!--
@@ -116,25 +122,25 @@ src="Images/Homepage/categories/testprom.png" FOR THE IMAGE FILE, AND <p class="
 /******************************************************************************************************************************************************************/ 
 -->
         <div class="homepageCategoryListContainer">
-            <a class="homepageCategoryItemTop pointer" href="#!category/prom"> <!--onMouseOver="myApp.ext._store_formals.a.homepageCategoryMouseOver($(this))" onMouseOut="myApp.ext._store_formals.a.homepageCategoryMouseOut($(this))"-->
+            <a class="homepageCategoryItemTop pointer" href="/category/prom"> <!--onMouseOver="myApp.ext._store_formals.a.homepageCategoryMouseOver($(this))" onMouseOut="myApp.ext._store_formals.a.homepageCategoryMouseOut($(this))"-->
                 <img data-apptimize="embed" src="Images/Homepage/categories/prom.jpg" alt="" />
                 <div class="homepageCatTitleBar homepageCatTitleBar1">
                     <p class="homepageCatTitle">Prom</p>
                 </div>
             </a>
-            <a class="homepageCategoryItemTop pointer" href="#!category/evening">
+            <a class="homepageCategoryItemTop pointer" href="/category/evening">
                 <img data-apptimize="embed" src="Images/Homepage/categories/evening.jpg" alt="" />
                 <div class="homepageCatTitleBar homepageCatTitleBar2">
                     <p class="homepageCatTitle">Evening</p>
                 </div>
             </a>
-            <a class="homepageCategoryItemTop pointer" href="#!category/cocktail">
+            <a class="homepageCategoryItemTop pointer" href="/category/cocktail">
                 <img data-apptimize="embed" src="Images/Homepage/categories/cocktail.jpg" alt="" />
                 <div class="homepageCatTitleBar homepageCatTitleBar3">
                     <p class="homepageCatTitle">Cocktail</p>
                 </div>
             </a>
-            <a class="homepageCategoryItemTop pointer" href="#!category/plus_size">
+            <a class="homepageCategoryItemTop pointer" href="/category/plus_size">
                 <img data-apptimize="embed" src="Images/Homepage/categories/plus.jpg" alt="" />
                 <div class="homepageCatTitleBar homepageCatTitleBar4">
                     <p class="homepageCatTitle">Plus Size</p>
@@ -170,7 +176,7 @@ END HOMEPAGE FOUR TALL AD BANNER BARS SECTION
                 	<div class="hpProductListCarouselContainer">
                     	
 						
-						<ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_featured_products.@products'; prodlist_infinite#infiniteproductlist  --templateid='productListTemplate'  --legacy;"></ul>
+						<ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_featured_products.@products'; prodlist_infinite#infiniteproductlist --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate' --legacy;"></ul>
                         <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_best_sellers.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate' --legacy;"></ul>
                         <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_-_new_arrivals.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate' --legacy;"></ul>
                         <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_celebrity_trends.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate' --legacy;"></ul>
