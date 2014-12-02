@@ -490,7 +490,7 @@ _app.u.bindTemplateEvent('productTemplate', 'complete.pageinit',function(event,$
 				   $(".imageContainerBlocker", $context).hide();
 				   thumbObject.data('firstTimeHover',true).append();
 				   //_app.u.dump("Setting firstTimeHover to true for " + $(this) + ".");
-			   }, 3000);
+			   }, 2000);
 			   //END CLICK BLOCK ACTIVATOR
 			   
 			  $('.largeImageContainer').zoom({
@@ -1268,12 +1268,12 @@ _app.u.bindTemplateEvent('productTemplate', 'complete.invcheck',function(event, 
 		}
 	});
 _app.u.bindTemplateEvent('productTemplate', 'complete.pageinit', function(event, $context, infoObj){
-	_//app.ext._store_formals.u.showRecentlyViewedItems($context);
-	_//app.ext._store_formals.u.runPreviousCarousel($context);
-	_//app.ext._store_formals.u.showHideVariation($context,infoObj);
+	//app.ext._store_formals.u.showRecentlyViewedItems($context);
+	//app.ext._store_formals.u.runPreviousCarousel($context);
+	//app.ext._store_formals.u.showHideVariation($context,infoObj);
 	});
 _app.u.bindTemplateEvent('productTemplate', 'depart.pageinit', function(event, $context, infoObj){
-	_app.ext._store_formals.u.addRecentlyViewedItems($context, infoObj.pid);
+	//_app.ext._store_formals.u.addRecentlyViewedItems($context, infoObj.pid);
 	});
 	
 					
@@ -1640,14 +1640,16 @@ _app.extend({
 	"filename" : "extensions/store_product.js"
 	});
 	
+/*
 _app.extend({
 	"namespace" : "tools_zoom",
 	"filename" : "extensions/tools_zoom/tools_zoom.js"
 	});
+*/
 	
 _app.couple('quickstart','addPageHandler',{
 	"pageType" : "product",
-	"require" : ['store_product','store_navcats', 'store_routing', 'store_search', 'templates.html', 'store_prodlist', 'tools_zoom'],
+	"require" : ['store_product','store_navcats', 'store_routing', 'store_search', 'templates.html', 'store_prodlist','_store_formals'],
 	"handler" : function($container, infoObj, require){
 		infoObj.deferred = $.Deferred();
 		infoObj.defPipeline.addDeferred(infoObj.deferred);
