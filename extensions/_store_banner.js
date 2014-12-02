@@ -33,6 +33,7 @@ var _store_banner = function(_app) {
 //executed when extension is loaded. should include any validation that needs to occur.
                 init : {
                         onSuccess : function()        {
+								dump("store_banner init successful. Running banner check");
                                 var r = false; //return false if extension won't load for some reason (account config, dependencies, etc).
                                 $.getJSON("_banners.json?_v="+(new Date()).getTime(), function(json) {
                                         _app.ext._store_banner.vars.categoryBanners = json.categoryBanners
@@ -118,13 +119,13 @@ var _store_banner = function(_app) {
 										if(bannerJSON.prodLink) {
 												$img.addClass('pointer').data('pid', bannerJSON.prodLink[i]).click(function() {
 														var pid = $(this).data('pid');
-														window.location.hash = "#!product/"+pid;
+														window.location.hash = "/product/"+pid;
 												});
 										}
 										else if(bannerJSON.catLink) {
 												$img.addClass('pointer').data('navcat', bannerJSON.catLink[i]).click(function() {
 														var navcat = $(this).data('navcat');
-														window.location.hash = "#!category/"+navcat;
+														window.location.hash = "/category/"+navcat;
 												});
 										}
 										else {

@@ -806,7 +806,6 @@ progress::-moz-progress-bar { background: #E61652; }
 	color:white;
 }
 .homepageSubCatTitleBar{
-	display:none;
 	position:absolute;
 	bottom:0;
 	width:100%;

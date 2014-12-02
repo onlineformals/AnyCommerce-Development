@@ -638,7 +638,10 @@ _app.u.bindTemplateEvent('homepageTemplate', 'complete.pageinit',function(event,
 });
 
 
-
+_app.extend({
+	"namespace" : "_store_banner",
+	"filename" : "extensions/_store_banner.js"
+	});
 
 
 _app.u.bindTemplateEvent('categoryTemplate', 'complete.pageinit',function(event,$context,infoObj){
@@ -656,6 +659,9 @@ _app.u.bindTemplateEvent('categoryTemplate', 'complete.pageinit',function(event,
 	}
 	
 	//var $context = $(_app.u.jqSelector('#',infoObj.parentID));
+	
+	dump("infoObj.navcat = ");
+	dump(infoObj.navcat);
 	
 	_app.ext._store_banner.u.showCategoryBanners($context, infoObj.navcat);
 	
@@ -1519,35 +1525,7 @@ _app.router.addAlias('root', function(routeObj){
 	});
 });
 
-function createPagesRootFilter(root){
-	_app.router.appendHash({'type':'exact','route':'/'+root+'/','pagefilter':root,'callback':'root'});
-	_app.router.appendHash({'type':'match','route':'/'+root+'/{{id}}/','pagefilter':root,'callback':'filter'});
-	_app.couple('store_filter','pushFilterPage',{id:root,jsonPath:"filters/apparel/"+root+".json"});
-	}
-function createPagesSubcatSubfilter(root){
-	_app.router.appendHash({'type':'exact','route':'/'+root+'/','pagefilter':root,'callback':'root'});
-	_app.router.appendHash({'type':'match','route':'/'+root+'/{{id}}/','pagefilter':root,'callback':'subcat'});
-	_app.router.appendHash({'type':'match','route':'/'+root+'/{{id}}/{{end}}/','pagefilter':root,'callback':'subfilter'});
-	_app.couple('store_filter','pushFilterPage',{id:root,jsonPath:"filters/apparel/"+root+".json"});
-	}
-function createPagesPromoFilter(root) {
-	_app.router.appendHash({'type':'exact','route':'/'+root+'/','pagefilter':root,'callback':'promo'});
-}
 
-createPagesPromoFilter('promo');
-
-createPagesRootFilter('team-apparel-merchandise');
-createPagesRootFilter('apparel-merchandise');
-createPagesRootFilter('sale-apparel-merchandise');
-createPagesRootFilter('brands-apparel-merchandise');
-
-createPagesSubcatSubfilter('ncaa-team-apparel-merchandise');	
-createPagesSubcatSubfilter('nfl-team-apparel-merchandise');	
-createPagesSubcatSubfilter('nba-team-apparel-merchandise');
-createPagesSubcatSubfilter('mlb-team-apparel-merchandise');
-createPagesSubcatSubfilter('nhl-team-apparel-merchandise');
-createPagesSubcatSubfilter('soccer-team-apparel-merchandise');
-createPagesSubcatSubfilter('league-apparel-merchandise');
 	
 //SEARCH APPENDS
 _app.router.appendHash({'type':'match','route':'/search/promo/{{PATH}}*','callback':'promo'});					
@@ -1607,9 +1585,11 @@ _app.couple('quickstart','addPageHandler',{
 		}
 	});
 	
+
+	
 _app.couple('quickstart','addPageHandler',{
 	"pageType" : "category",
-	"require" : ['store_navcats','store_prodlist','prodlist_infinite','templates.html','store_routing'],
+	"require" : ['store_navcats','store_prodlist','prodlist_infinite','templates.html','store_routing','_store_banner'],
 	"handler" : function($container, infoObj, require){
 		infoObj.deferred = $.Deferred();
 		infoObj.defPipeline.addDeferred(infoObj.deferred);

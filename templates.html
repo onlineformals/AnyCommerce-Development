@@ -248,48 +248,6 @@ don't modify the 'data-templateid' unless you are changing template names and up
                 <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate' --legacy;"></ul>
             </div>
         </div>
-        <!--
-        <div class="catBottomCarousel">         	
-            <div class="catProductListTitleCarouselBar">
-                <ul class="catProductListTitleCarousel">
-                    <li><h3>Featured Products</h3></li>
-                    <li><h3>Best Sellers</h3></li>
-                    <li><h3>New Arrivals</h3></li>
-                    <li><h3>Celebrity Trends</h3></li>
-                    <li><h3>New to Sale</h3></li>
-                </ul>
-                <img class="catProductListPrev" src="Images/Homepage/caroleft.png" />
-                <img class="catProductListNext" src="Images/Homepage/caroright.png" />
-            </div>
-            <div class="catProductListContentArea">
-                <div class="catProductListCarouselArea">
-                    <div class="catProductListCarouselContainer">
-                        <ul data-tlc="bind $var '.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate';" class="listStyleNone fluidList clearfix noPadOrMargin productList">
-			<ul data-tlc="bind $var '.$app_best_sellers.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate';" class="listStyleNone fluidList clearfix noPadOrMargin productList">
-			<ul data-tlc="bind $var '.$app_new_arrivals.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate';" class="listStyleNone fluidList clearfix noPadOrMargin productList">
-			<ul data-tlc="bind $var '.$app_celebrity_trends.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate';" class="listStyleNone fluidList clearfix noPadOrMargin productList">
-			<ul data-tlc="bind $var '.$app_new_to_sale.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate';" class="listStyleNone fluidList clearfix noPadOrMargin productList">
-			
-                    </div>
-                    <div class="catProductListPag"></div>
-                </div>
-            </div>
-        </div>
-        <!--
-        <img data-tlc="bind $var '.%page.banner1'; quickstart#banner  --height='250' --width='750' --legacy;" src="images/blank.gif" alt="">
-    
-        <h2 data-tlc="bind $var '.%page.header'; if (is $var --notblank;) {{apply --append;}};"></h2>
-
-	<p data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
-
-	<ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList"></ul><!-- outputs a list of subcategories -->
-
-	<!--
-    <ul data-tlc="bind $var '.@products'; store_prodlist#productlist  --withReviews='1' --withInventory='1' --withVariations='1' --itemsperpage='25' --templateid='productListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin productList"></ul><!-- outputs the product list -->
-
-	<!--
-    <p data-tlc="bind $var '.%page.description2'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
-        -->
     </div>
    
 </div>
