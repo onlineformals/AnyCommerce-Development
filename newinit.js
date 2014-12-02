@@ -10,7 +10,7 @@ _app.u.loadScript(configURI,function(){
 	_app.vars.domain = zGlobals.appSettings.sdomain; //passed in ajax requests.
 	_app.vars.jqurl = (document.location.protocol === 'file:') ? _app.vars.testURL+'jsonapi/' : '/jsonapi/';
 	
-	var startupRequires = ['quickstart','_store_formals', 'store_filter','cco','store_product','order_create','prodlist_infinite','store_prodlist']
+	var startupRequires = ['quickstart','_store_formals', '_store_filter','cco','store_product','order_create','prodlist_infinite','store_prodlist']
 	
 	_app.require(startupRequires, function(){
 		_app.ext.quickstart.callbacks.startMyProgram.onSuccess();
@@ -764,17 +764,17 @@ _app.u.bindTemplateEvent('categoryProductListTemplate', 'complete.pageinit',func
 	
 	//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 	
-	_app.ext._store_filter.vars.catPageID = $(_app.u.jqSelector('#',infoObj.parentID));  
+	_app.ext.__store_filter.vars.catPageID = $(_app.u.jqSelector('#',infoObj.parentID));  
 	
 	//_app.u.dump("BEGIN categoryProductListTemplate onCompletes for filtering");
 	
 	//TESTING. REMOVE AFTER TESTING COMPLETED.
 	//dump(infoObj);
 	//dump($context);
-	//dump("_app.ext._store_filter.filterMap[infoObj.navcat] = " + _app.ext._store_filter.filterMap[infoObj.navcat]);
+	//dump("_app.ext.__store_filter.filterMap[infoObj.navcat] = " + _app.ext.__store_filter.filterMap[infoObj.navcat]);
 	
 	
-	if(_app.ext._store_filter.filterMap[infoObj.navcat])	{
+	if(_app.ext.__store_filter.filterMap[infoObj.navcat])	{
 		//_app.u.dump(" -> safe id DOES have a filter.");
 
 		var $page = $(_app.u.jqSelector('#',infoObj.parentID));
@@ -782,15 +782,15 @@ _app.u.bindTemplateEvent('categoryProductListTemplate', 'complete.pageinit',func
 		if($page.data('filterAdded'))	{} //filter is already added, don't add again.
 		else	{
 			$page.data('filterAdded',true)
-			var $form = $("[name='"+_app.ext._store_filter.filterMap[infoObj.navcat].filter+"']",'#appFilters').clone().appendTo($('.catProdListSidebar',$page));
+			var $form = $("[name='"+_app.ext.__store_filter.filterMap[infoObj.navcat].filter+"']",'#appFilters').clone().appendTo($('.catProdListSidebar',$page));
 			$form.on('submit.filterSearch',function(event){
 				event.preventDefault()
 				//_app.u.dump(" -> Filter form submitted.");
-				_app.ext._store_filter.a.execFilter($form,$page);
+				_app.ext.__store_filter.a.execFilter($form,$page);
 				});
 	
-			if(typeof _app.ext._store_filter.filterMap[infoObj.navcat].exec == 'function')	{
-				_app.ext._store_filter.filterMap[infoObj.navcat].exec($form,infoObj)
+			if(typeof _app.ext.__store_filter.filterMap[infoObj.navcat].exec == 'function')	{
+				_app.ext.__store_filter.filterMap[infoObj.navcat].exec($form,infoObj)
 				}
 	
 	//make all the checkboxes auto-submit the form and show results list.
@@ -944,11 +944,11 @@ _app.u.bindTemplateEvent('searchTemplate', 'complete.pageinit',function(event,$c
 	$form.on('submit.filterSearch',function(event){
 		event.preventDefault()
 		//_app.u.dump(" -> Filter form submitted.");
-		_app.ext._store_filter.a.execFilter($form,$page);
+		_app.ext.__store_filter.a.execFilter($form,$page);
 				});
 	
-		if(typeof _app.ext._store_filter.filterMap["searchPage"].exec == 'function')	{
-			_app.ext._store_filter.filterMap["searchPage"].exec($form,infoObj)
+		if(typeof _app.ext.__store_filter.filterMap["searchPage"].exec == 'function')	{
+			_app.ext.__store_filter.filterMap["searchPage"].exec($form,infoObj)
 			}
 	
 	//make all the checkboxes auto-submit the form.
@@ -1242,8 +1242,8 @@ _app.extend({
 	"filename" : "extensions/_store_formals.js"
 	});
 _app.extend({
-	"namespace" : "_store_filter",
-	"filename" : "extensions/_store_filter.js"
+	"namespace" : "__store_filter",
+	"filename" : "extensions/__store_filter.js"
 	});
 	
 _app.u.bindTemplateEvent('homepageTemplate', 'complete.pageinit',function(event,$context,infoObj) {
@@ -1287,11 +1287,11 @@ _app.u.bindTemplateEvent('productTemplate', 'depart.pageinit', function(event, $
 
 function loadPage(id, successCallback, failCallback){
 	console.log(id);
-	dump(_app.ext.store_filter.vars.filterPageLoadQueue);
-	var pageObj = _app.ext.store_filter.vars.filterPageLoadQueue[id];
+	dump(_app.ext._store_filter.vars.filterPageLoadQueue);
+	var pageObj = _app.ext._store_filter.vars.filterPageLoadQueue[id];
 	if(pageObj){
 		$.getJSON(pageObj.jsonPath+"?_v="+(new Date()).getTime(), function(json){
-			_app.ext.store_filter.filterData[pageObj.id] = json;
+			_app.ext._store_filter.filterData[pageObj.id] = json;
 			if(typeof successCallback == 'function'){
 				successCallback();
 				}
@@ -1314,7 +1314,7 @@ function showPage(routeObj,parentID){
 //					dump('START showPage'); dump(routeObj);
 	// routeObj.params.templateid = routeObj.params.templateID || "filteredSearchTemplate";
 //					dump(parentID);
-	routeObj.params.dataset = $.extend(true, {}, $.grep(_app.ext.store_filter.filterData[parentID].pages,function(e,i){
+	routeObj.params.dataset = $.extend(true, {}, $.grep(_app.ext._store_filter.filterData[parentID].pages,function(e,i){
 		return e.id == routeObj.params.id;
 	})[0]);
 //					dump('routeObj.params.dataset');  dump(routeObj.params.dataset.optionList);
@@ -1324,8 +1324,8 @@ function showPage(routeObj,parentID){
 	for(var i in optStrs){
 //						dump('optStrs[i]'); dump(optStrs[i]);
 		var o = optStrs[i];
-		if(_app.ext.store_filter.vars.elasticFields[o]){
-			routeObj.params.dataset.options[o] = $.extend(true, {}, _app.ext.store_filter.vars.elasticFields[o]);
+		if(_app.ext._store_filter.vars.elasticFields[o]){
+			routeObj.params.dataset.options[o] = $.extend(true, {}, _app.ext._store_filter.vars.elasticFields[o]);
 			if(routeObj.searchParams && routeObj.searchParams[o]){
 				var values = routeObj.searchParams[o].split('|');
 				for(var i in routeObj.params.dataset.options[o].options){
@@ -1350,8 +1350,8 @@ function showPage(routeObj,parentID){
 function showSubPage(routeObj,parentID){
 	routeObj.params.templateid = routeObj.params.templateID || "filteredSearchTemplate";
 					dump('START showSubPage'); dump(routeObj);
-//					dump(parentID); dump(_app.ext.store_filter.filterData);
-	var filterData = _app.ext.store_filter.filterData[parentID]; //gets the top level data
+//					dump(parentID); dump(_app.ext._store_filter.filterData);
+	var filterData = _app.ext._store_filter.filterData[parentID]; //gets the top level data
 //					dump('filtterData after gets top level data'); dump(filterData); dump(routeObj.params.id);
 	filterData = $.grep(filterData.pages,function(e,i){
 		return e.id == routeObj.params.id;	//gets mid level data
@@ -1368,8 +1368,8 @@ function showSubPage(routeObj,parentID){
 	for(var i in optStrs){
 //						dump('optStrs[i]'); dump(optStrs[i]);
 		var o = optStrs[i];
-		if(_app.ext.store_filter.vars.elasticFields[o]){
-			routeObj.params.dataset.options[o] = $.extend(true, {}, _app.ext.store_filter.vars.elasticFields[o]);
+		if(_app.ext._store_filter.vars.elasticFields[o]){
+			routeObj.params.dataset.options[o] = $.extend(true, {}, _app.ext._store_filter.vars.elasticFields[o]);
 			if(routeObj.searchParams && routeObj.searchParams[o]){
 				var values = routeObj.searchParams[o].split('|');
 				for(var i in routeObj.params.dataset.options[o].options){
@@ -1392,7 +1392,7 @@ function showSubPage(routeObj,parentID){
 	}
 
 _app.router.addAlias('subcat', function(routeObj) {
-	_app.require(['_store_formals','store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
+	_app.require(['_store_formals','_store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
 		var a = routeObj.pagefilter;
 		var b = routeObj.params.id;
 		routeObj.params.templateID = "splashPageTemplate";
@@ -1413,12 +1413,12 @@ _app.router.addAlias('subcat', function(routeObj) {
 });	
 
 _app.router.addAlias('filter', function(routeObj){
-	_app.require(['_store_formals','store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
+	_app.require(['_store_formals','_store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
 //		dump('filter alias routeObj: '); dump(routeObj);
 		//decides if filter JSON is in local var or if it needs to be retrieved
 		var filterpage = routeObj.pagefilter;
 		routeObj.params.templateID = "filteredSearchTemplate";
-			if(_app.ext.store_filter.filterData[filterpage]){
+			if(_app.ext._store_filter.filterData[filterpage]){
 //			dump('RUNNING showPage');
 			showPage(routeObj,filterpage);
 		}
@@ -1435,12 +1435,12 @@ _app.router.addAlias('filter', function(routeObj){
 
 
 _app.router.addAlias('subfilter', function(routeObj){
-	_app.require(['_store_formals','store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
+	_app.require(['_store_formals','_store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
 		//decides if filter JSON is in local var or if it needs to be retrieved
 		dump('-------------------------subfilter Alias'); dump(routeObj);
 		var filterpage = routeObj.pagefilter;
 		routeObj.params.templateID = "filteredSearchTemplate";
-		if(_app.ext.store_filter.filterData[filterpage]){
+		if(_app.ext._store_filter.filterData[filterpage]){
 			showSubPage(routeObj,filterpage);
 		}
 		else {
@@ -1455,7 +1455,7 @@ _app.router.addAlias('subfilter', function(routeObj){
 
 				//sends passed object of attribs as a showContent search
 				_app.router.addAlias('promo', function(routeObj){
-					_app.require(['_store_formals','store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
+					_app.require(['_store_formals','_store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
 						var path = routeObj.params.PATH;
 				//		dump('promo Alias'); dump(path);
 						$.getJSON("filters/search/"+path+".json?_v="+(new Date()).getTime(), function(json){
@@ -1475,7 +1475,7 @@ _app.router.addAlias('subfilter', function(routeObj){
 //EXPERIMENTAL PROMO CATEGORY TO GIVE THE A MORE "CATEGORY" LIKE FEEL (TITLES, FACETS, ETC.)
 //WILL NEED IT'S OWN SHOWPAGE FUNCTION TO ADD THE FACETS FROM THE "ONLY LEAF" STYLE PAGE IT IS.
 //_app.router.addAlias('promo', function(routeObj){
-//	_app.require(['_store_formals','store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
+//	_app.require(['_store_formals','_store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
 //		var route = routeObj.pagefilter;
 //		routeObj.params.templateID = 'filteredSearchTemplate';
 //		if(_app.ext._store_formals.vars[route]) {
@@ -1500,7 +1500,7 @@ _app.router.addAlias('subfilter', function(routeObj){
 //});
 
 _app.router.addAlias('root', function(routeObj){
-	_app.require(['_store_formals','store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
+	_app.require(['_store_formals','_store_filter','store_search','store_routing','prodlist_infinite','store_prodlist', 'templates.html'], function(){
 		var route = routeObj.pagefilter;
 		routeObj.params.templateID = 'splashPageRootTemplate';
 		if(_app.ext._store_formals.vars[route]) {
