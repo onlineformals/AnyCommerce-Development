@@ -400,6 +400,21 @@ var _store_formals = function(_app) {
 				}
 			},
 			
+			fetchTemplateForPage : function(navcat){
+				var r = false;
+				if(_app.ext._store_formals.vars.catTemplates[navcat]){
+					r = _app.ext._store_formals.vars.catTemplates[navcat];
+					}
+				else if((/\.mlb\.[^.]+\.[^.]+/).test(navcat)){
+					r = 'categoryTemplatePlayer';
+					}
+				else if(navcat.indexOf('.aa.')==0){
+					r = 'categoryTemplateHTML';
+					}
+				
+				return r;
+			},
+			
 			checkouterrorclickblock : function() {
 				$(".checkoutClickBlocker").hide();
 				$(".checkoutClickBlockerText").hide();

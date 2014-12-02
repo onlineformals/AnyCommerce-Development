@@ -121,7 +121,7 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 			dispatch : function(obj,tagObj,Q)	{
 				obj['_cmd'] = "appPublicSearch";
 				obj['_tag'] = tagObj;
-//				_app.u.dump("BEGIN _app.ext.store_search.calls.appPublicSearch");
+//				_app.u.dump("BEGIN _app.ext.store_search.calls.appPublicProductSearch");
 //				_app.u.dump(obj);
 				_app.model.addDispatchToQ(obj,Q);
 				}

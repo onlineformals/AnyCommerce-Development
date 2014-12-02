@@ -764,33 +764,26 @@ _app.u.bindTemplateEvent('categoryProductListTemplate', 'complete.pageinit',func
 	
 	//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 	
-	_app.ext.__store_filter.vars.catPageID = $(_app.u.jqSelector('#',infoObj.parentID));  
+	_app.ext._store_filter.catPageID = $(_app.u.jqSelector('#',infoObj.navcat));  
 	
-	//_app.u.dump("BEGIN categoryProductListTemplate onCompletes for filtering");
-	
-	//TESTING. REMOVE AFTER TESTING COMPLETED.
-	//dump(infoObj);
-	//dump($context);
-	//dump("_app.ext.__store_filter.filterMap[infoObj.navcat] = " + _app.ext.__store_filter.filterMap[infoObj.navcat]);
-	
-	
-	if(_app.ext.__store_filter.filterMap[infoObj.navcat])	{
-		//_app.u.dump(" -> safe id DOES have a filter.");
+	_app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
+	if(_app.ext._store_filter.filterMap[infoObj.navcat])	{
+		_app.u.dump(" -> safe id DOES have a filter.");
 
-		var $page = $(_app.u.jqSelector('#',infoObj.parentID));
-		//_app.u.dump(" -> $page.length: "+$page.length);
+		var $page = $context;
+		_app.u.dump(" -> $page.length: "+$page.length);
 		if($page.data('filterAdded'))	{} //filter is already added, don't add again.
 		else	{
 			$page.data('filterAdded',true)
-			var $form = $("[name='"+_app.ext.__store_filter.filterMap[infoObj.navcat].filter+"']",'#appFilters').clone().appendTo($('.catProdListSidebar',$page));
+			var $form = $("[name='"+_app.ext._store_filter.filterMap[infoObj.navcat].filter+"']",'#appFilters').clone().appendTo($('.catProdListSidebar',$page));
 			$form.on('submit.filterSearch',function(event){
 				event.preventDefault()
-				//_app.u.dump(" -> Filter form submitted.");
-				_app.ext.__store_filter.a.execFilter($form,$page);
+				_app.u.dump(" -> Filter form submitted.");
+				_app.ext._store_filter.a.execFilter($form,$page);
 				});
 	
-			if(typeof _app.ext.__store_filter.filterMap[infoObj.navcat].exec == 'function')	{
-				_app.ext.__store_filter.filterMap[infoObj.navcat].exec($form,infoObj)
+			if(typeof _app.ext._store_filter.filterMap[infoObj.navcat].exec == 'function')	{
+				_app.ext._store_filter.filterMap[infoObj.navcat].exec($form,infoObj)
 				}
 	
 	//make all the checkboxes auto-submit the form and show results list.
@@ -944,11 +937,11 @@ _app.u.bindTemplateEvent('searchTemplate', 'complete.pageinit',function(event,$c
 	$form.on('submit.filterSearch',function(event){
 		event.preventDefault()
 		//_app.u.dump(" -> Filter form submitted.");
-		_app.ext.__store_filter.a.execFilter($form,$page);
+		_app.ext._store_filter.a.execFilter($form,$page);
 				});
 	
-		if(typeof _app.ext.__store_filter.filterMap["searchPage"].exec == 'function')	{
-			_app.ext.__store_filter.filterMap["searchPage"].exec($form,infoObj)
+		if(typeof _app.ext._store_filter.filterMap["searchPage"].exec == 'function')	{
+			_app.ext._store_filter.filterMap["searchPage"].exec($form,infoObj)
 			}
 	
 	//make all the checkboxes auto-submit the form.
@@ -1592,7 +1585,7 @@ _app.extend({
 	
 _app.couple('quickstart','addPageHandler',{
 	"pageType" : "category",
-	"require" : ['store_navcats','store_prodlist','prodlist_infinite','templates.html','store_routing','_store_banner','_store_filter'],
+	"require" : ['store_navcats','store_prodlist','prodlist_infinite','templates.html','store_routing','_store_banner','_store_filter','store_search','_store_formals'],
 	"handler" : function($container, infoObj, require){
 		infoObj.deferred = $.Deferred();
 		infoObj.defPipeline.addDeferred(infoObj.deferred);
@@ -1604,12 +1597,13 @@ _app.couple('quickstart','addPageHandler',{
 			}
 		_app.require(require,function(){
 			if(infoObj.templateID){}
-			//else if(infoObj.templateID = _app.ext.store_swc.u.fetchTemplateForPage(infoObj.navcat)){}
+			else if(infoObj.templateID = _app.ext._store_formals.u.fetchTemplateForPage(infoObj.navcat)){dump("Alternate template used : "+ infoObj.templateID);}
 			else{infoObj.templateID = 'categoryTemplate';}
-			if(infoObj.templateID = 'categoryTemplate'){
-				infoObj.prodRenderedDeferred = $.Deferred();
-				infoObj.defPipeline.addDeferred(infoObj.prodRenderedDeferred);
-				}
+			
+			//currently this is expected to be resolved by the prodlist_infinite tlc format.  Probably a bad idea.
+			infoObj.prodRenderedDeferred = $.Deferred();
+			infoObj.defPipeline.addDeferred(infoObj.prodRenderedDeferred);
+
 			_app.ext.store_navcats.u.showPage($container, infoObj);
 			});
 						
