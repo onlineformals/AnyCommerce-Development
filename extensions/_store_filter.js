@@ -1157,7 +1157,7 @@ return filters;
 					max: props.MAX,
 					values: [ props.MIN, props.MAX ],
 					stop : function(){
-						_app.ext._store_filter.a.showFilterResultsOnPriceChange($form);
+						$form.submit();
 						},
 					slide: function( event, ui ) {
 						$( ".sliderValue",$form ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );

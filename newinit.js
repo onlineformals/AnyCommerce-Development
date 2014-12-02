@@ -1585,11 +1585,14 @@ _app.couple('quickstart','addPageHandler',{
 		}
 	});
 	
-
+_app.extend({
+	"namespace" : "_store_filter",
+	"filename" : "extensions/_store_filter.js"
+	});
 	
 _app.couple('quickstart','addPageHandler',{
 	"pageType" : "category",
-	"require" : ['store_navcats','store_prodlist','prodlist_infinite','templates.html','store_routing','_store_banner'],
+	"require" : ['store_navcats','store_prodlist','prodlist_infinite','templates.html','store_routing','_store_banner','_store_filter'],
 	"handler" : function($container, infoObj, require){
 		infoObj.deferred = $.Deferred();
 		infoObj.defPipeline.addDeferred(infoObj.deferred);
