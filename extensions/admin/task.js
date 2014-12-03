@@ -103,7 +103,6 @@ $('#createTaskModal').dialog({'autoOpen':false,'modal':true,'width':500});
 						//tasks completed in the last 3 days do not count against the 100 task max. so the user gets 100 active tasks.
 						if(Number(tasks[i].completed_gmt) > 0)	{
 							// don't show completed tasks
-							inc++;
 							}
 						else	{
 							inc++;
@@ -112,10 +111,6 @@ $('#createTaskModal').dialog({'autoOpen':false,'modal':true,'width':500});
 						}
 					if(inc >= 100)	{break;} //exit after 100. limits displayed tasks to 100.
 					}
-				tagObj.jqObj.hideLoading();
-				$("[data-app-role='dualModeListTbody']",tagObj.jqObj).empty().anycontent({'translateOnly':true,'data':{'@TASKS':filteredTasks}});
-				_app.u.handleButtons(tagObj.jqObj);
-				tagObj.jqObj.find("[data-app-click='admin|checkAllCheckboxesExec']").data('selected',false);
 				tagObj.jqObj.hideLoading();
 				$("[data-app-role='dualModeListTbody']",tagObj.jqObj).empty().anycontent({'translateOnly':true,'data':{'@TASKS':filteredTasks}});
 				_app.u.handleButtons(tagObj.jqObj);
@@ -286,7 +281,6 @@ $('#createTaskModal').dialog({'autoOpen':false,'modal':true,'width':500});
 				else	{
 					$('#globalMessaging').anymessage({"message":"Please select at least on task from the list below for modification.",'errtype':'youerr'});
 					}
-				}, //adminTaskRemoveBulkConfirm
 				
 				}, //adminTaskRemoveBulkConfirm
 			
