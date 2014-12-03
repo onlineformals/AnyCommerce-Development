@@ -129,8 +129,8 @@ _app.couple('quickstart','addPageHandler',{
 		}
 	});
 _app.u.bindTemplateEvent('cartTemplate','complete.cart',function(event, $context, infoObj){
-	_app.ext._store_formals.u.cartitemqty($context);
-	_app.ext._store_formals.u.getShipContainerHeight($context);
+	//_app.ext._store_formals.u.cartitemqty($context);
+	//_app.ext._store_formals.u.getShipContainerHeight($context);
 	});
 _app.u.bindTemplateEvent('cartTemplate','depart.destroy',function(event, $context, infoObj){
 	var $page = $context.closest('[data-app-uri]');
