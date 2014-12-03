@@ -926,9 +926,10 @@ _app.u.bindTemplateEvent('searchTemplate', 'complete.pageinit',function(event,$c
 	//if(infoObj.preservePage){ alert("You hit the back button");}
 	
 	//var $context = $(_app.u.jqSelector('#',infoObj.parentID));
-	var $page = $(_app.u.jqSelector('#',infoObj.parentID));
+	var $page = $context;
 	
 	//****FILTERED SEARCH CODE****
+	//dump("Begin add of filtered search to the search page.");
 	$('.fsCheckbox').attr('checked', false);
 	$("#resultsProductListContainer").show(); 
 	$(".searchFilterResults").hide();    
@@ -1624,7 +1625,7 @@ _app.couple('store_search','addUniversalFilter',{
 				
 _app.couple('quickstart','addPageHandler',{
 	"pageType" : "search",
-	"require" : ['store_search','templates.html','store_routing'],
+	"require" : ['store_search','templates.html','store_routing','_store_filter', '_store_formals'],
 	"handler" : function($container, infoObj, require){
 		infoObj.deferred = $.Deferred();
 		infoObj.defPipeline.addDeferred(infoObj.deferred);
