@@ -845,7 +845,7 @@ fallback is to just output the value.
 							})
 						}
 					else	{
-						$tag.attr({'data-hash':'#!product/'+pid,'data-app-click':'quickstart|showContent'});
+						$tag.attr({'data-hash':'/product/'+pid,'data-app-click':'quickstart|showContent'});
 						}
 					}
 //				dump(" -> ID at end: "+$tag.attr('id'));
@@ -996,7 +996,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 // * changed from 'empty' to showLoading because empty could be a heavy operation if mainContentArea has a lot of content.
 							$('body').showLoading({'message':'Transferring to secure login'});							
 							var SSLlocation = _app.vars.secureURL+"?cartID="+_app.model.fetchCartID();
-							SSLlocation += "#!customer/"+infoObj.show+"/";
+							SSLlocation += "/customer/"+infoObj.show+"/";
 							_gaq.push(['_link', SSLlocation]); //for cross domain tracking.
 							document.location = SSLlocation; //redir to secure url.
 							}
@@ -1018,7 +1018,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 // * use showloading instead of .html (which could be heavy)
 //							$('#mainContentArea').addClass('loadingBG').html("<h1>Transferring you to a secure session for checkout.<\/h1><h2>Our app will reload shortly...<\/h2>");
 							$('body').showLoading({'message':'Transferring you to a secure session for checkout'});
-							var SSLlocation = zGlobals.appSettings.https_app_url+"?cartID="+_app.model.fetchCartID()+"&_session="+_app.vars._session+"#!checkout/";
+							var SSLlocation = zGlobals.appSettings.https_app_url+"?cartID="+_app.model.fetchCartID()+"&_session="+_app.vars._session+"/checkout/";
 							_gaq.push(['_link', SSLlocation]); //for cross domain tracking.
 							document.location = SSLlocation;
 							}
@@ -1654,10 +1654,10 @@ $target.tlc({
 				var url = URL; //leave original intact.
 				var hashObj;
 				if(url.indexOf('#') > -1)	{
-//*** 201344 Adds support for #! syntax, which allows links for escaped fragment syntax to be parsed directly over their href. -mc
+//*** 201344 Adds support for / syntax, which allows links for escaped fragment syntax to be parsed directly over their href. -mc
 					var tmp;
-					if(url.indexOf('#!') > -1){
-						tmp = url.split("#!");
+					if(url.indexOf('/') > -1){
+						tmp = url.split("/");
 						}
 					else {
 						tmp = url.split("#");
@@ -2108,7 +2108,7 @@ effects the display of the nav buttons only. should be run just after the handle
 					var $nav = $('#companyNav ul:first',$mcac);
 //builds the nav menu.
 					$('.textContentArea',$mcac).not('.disabled').each(function(){
-						$nav.append("<li><a href='#!company/"+$(this).attr('id').replace('Article','')+"'>"+($('h1:first',$(this)).text())+"</a></li>");
+						$nav.append("<li><a href='/company/"+$(this).attr('id').replace('Article','')+"'>"+($('h1:first',$(this)).text())+"</a></li>");
 						});
 
 					$('#mainContentArea').append($mcac);
@@ -2465,7 +2465,7 @@ either templateID needs to be set OR showloading must be true. TemplateID will t
 			parseAnchor : function(str)	{
 				var P = {};
 				if(str)	{
-					var tmp1 = str.replace(/\#!?/g,'').split('?'); //the regext will strip # or #! off the front of the string.
+					var tmp1 = str.replace(/\/?/g,'').split('?'); //the regext will strip # or / off the front of the string.
 					P.pageType = tmp1[0];
 					if(tmp1.length > 1){
 						var tmp2 = tmp1[1].split('=');
@@ -2951,7 +2951,7 @@ else	{
 							$('#globalMessaging').anymessage({'message':rd});
 							}
 						else	{
-							document.location.hash = '#!cart';
+							document.location.hash = '/cart';
 							}
 						});
 					}

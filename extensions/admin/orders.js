@@ -2166,7 +2166,7 @@ handleOrder(orders[i]);
 						$btn.closest('.ui-dialog-content').dialog('close');
 						}
 					else	{
-						navigateTo("#!tab/orders");
+						navigateTo("/tab/orders");
 						}
 					}); //the dialog-contentis the div the modal is executed on.
 				}, //orderUpdateCancel
