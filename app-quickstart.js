@@ -2622,26 +2622,26 @@ else	{
 				}, //showBuyerAddressUpdate
 
 			showBuyerAddressAdd : function($ele,p)	{
+				_app.router.handleURIChange('/');
 				p.preventDefault();
 				_app.require(['store_crm', 'order_create'],function(){
 					_app.ext.store_crm.u.showAddressAddModal({
 						'addressType' : $ele.closest("[data-app-addresstype]").data('app-addresstype')
 						},function(rd){
 						$('#mainContentArea_customer').empty().remove(); //kill so it gets regenerated. this a good idea?
-						showContent('customer',{'show':'myaccount'});
 						});
 					});
 				return false;
 				}, //showBuyerAddressAdd
 
 			showBuyerAddressRemove : function($ele, p){
+				_app.router.handleURIChange('/');
 				p.preventDefault();
 				_app.ext.store_crm.u.showAddressRemoveModal({
 					"addressID" : $ele.closest("address").data('_id'),
 					'addressType' : $ele.closest("[data-app-addresstype]").data('app-addresstype')
 					},function(){
 					$('#mainContentArea_customer').empty().remove(); //kill so it gets regenerated. this a good idea?
-					showContent('customer',{'show':'myaccount'});
 					});
 				return false;
 				},
