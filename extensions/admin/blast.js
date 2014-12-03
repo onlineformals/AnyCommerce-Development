@@ -503,7 +503,7 @@ function buildLink(section)	{
 						else	{
 							//sample action. success would go here.
 							$('#globalMessaging').anymessage(_app.u.successMsgObject('The message has been added.'));
-							navigateTo("#!ext/admin_blast/blastMessagesList?setting=addmessage");
+							navigateTo("/ext/admin_blast/blastMessagesList?setting=addmessage");
 							}
 						}}},"immutable");
 					_app.model.dispatchThis("immutable");
@@ -533,7 +533,7 @@ function buildLink(section)	{
 							
 							_app.model.addDispatchToQ({"_cmd":"adminBlastMsgRemove","MSGID":$ele.data('msgid'),"_tag":{"callback":"showMessaging","jqObj":$('#globalMessaging'),"message":"The message has been deleted","onComplete":function(){
 								$D.dialog('close');
-								navigateTo("#!ext/admin_blast/blastMessagesList");
+								navigateTo("/ext/admin_blast/blastMessagesList");
 								}}},"mutable");
 							_app.model.dispatchThis("mutable");
 							}

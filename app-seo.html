@@ -97,7 +97,7 @@
 								paramStr += "&"+i+"="+p.uriParams[i];
 								}
 							}
-						p.path = domain+paramStr+(p.path ? "#!"+p.path : "");
+						p.path = domain+paramStr+(p.path ? "/"+p.path : "");
 						//console.log(p.path);
 					}
 					
@@ -243,13 +243,13 @@
 			var iframe = $('#appContainer').get(0);
 			
 			var iframeHash = iframe.contentWindow.location.hash;
-			if(iframeHash.indexOf('#!') == 0){
+			if(iframeHash.indexOf('/') == 0){
 				iframeHash = iframeHash.substr(2);
 				}
 			
 			var doc = $('#appContainer').get(0).contentWindow.document
 			$(doc.getElementsByTagName('script')).each(function(){$(this).remove()});
-			$('head', $(doc)).append('<link rel="canonical" href="'+domain+'/#!'+iframeHash+'" />');
+			$('head', $(doc)).append('<link rel="canonical" href="'+domain+'//'+iframeHash+'" />');
 			console.log(doc.getElementsByTagName('script'));
 			console.log(doc.getElementsByTagName('script').length);
 			
@@ -257,12 +257,12 @@
 			var dochtml = doc.documentElement.outerHTML;
 			
 			var iframeHash = iframe.contentWindow.location.hash;
-			if(iframeHash.indexOf('#!') == 0){
+			if(iframeHash.indexOf('/') == 0){
 				iframeHash = iframeHash.substr(2);
 			$('.seoStrip, script', $tmp).each(function(){
 			
 			$('.seoStrip', $(doc)).each(function(){$(this).remove();});
-			$('head', $(doc)).append('<link rel="canonical" href="'+domain+'/#!'+iframeHash+'" />');
+			$('head', $(doc)).append('<link rel="canonical" href="'+domain+'//'+iframeHash+'" />');
 			console.log(doc.getElementsByTagName('script'));
 			console.log(doc.getElementsByTagName('script').length);
 			
@@ -272,7 +272,7 @@
 			
 			var obj = {
 				"_cmd" : "appSEOStore",
-				"#!" : iframeHash,
+				"/" : iframeHash,
 				"html" : html,
 				"token" : token
 			}

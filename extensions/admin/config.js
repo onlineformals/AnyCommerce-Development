@@ -550,8 +550,6 @@ var admin_config = function(_app) {
 					_app.u.handleCommonPlugins($target);
 					_app.u.handleButtons($target);
 					_app.ext.admin.u.applyEditTrackingToInputs($target.closest('form'));
-					_app.u.handleButtons($target);
-					_app.ext.admin.u.applyEditTrackingToInputs($target.closest('form'));
 
 
 					}
@@ -798,18 +796,6 @@ var admin_config = function(_app) {
 						else	{
 							r = false;
 							}
-						if(matches.length == 1)	{
-							r = matches[0];
-							}
-						else if(matches.length > 1)	{
-							r = {
-								'plugin' : plugin,
-								'@hosts' : matches
-								};
-							}
-						else	{
-							r = false;
-							}
 						}
 					else	{
 						$('#globalMessaging').anymessage({"message":"In admin_config.u.getPluginData, _app.data['adminConfigDetail|plugins'] or _app.data['adminConfigDetail|plugins']['@PLUGINS'] are empty and are required.","gMessage":true});
@@ -929,7 +915,7 @@ when an event type is changed, all the event types are dropped, then re-added.
 
 				newSfo['_tag'].onComplete = function(){
 					// refresh the data
-					navigateTo('#!ext/admin_config/showNotifications');
+					navigateTo('/ext/admin_config/showNotifications');
 					};
 					
 				return newSfo;
@@ -971,53 +957,6 @@ when an event type is changed, all the event types are dropped, then re-added.
 						var $tr = $(this);
 						if($tr.hasClass('isNewRow') && $tr.hasClass('rowTaggedForRemove'))	{
 							//is new and tagged for delete. do nothing.
-							}
-						else if($tr.hasClass('isNewRow'))	{
-//							_app.u.dump(" -> $tr.data(): "); _app.u.dump($tr.data());
-							if($tr.data('paymethod') == 'CREDIT')	{
-								//cant just whitelist data cuz the params are UC and data-table applies them as attributes which get lowercased.
-								newSfo['@updates'].push("METHOD-CREDITCARD-ADD?CC="+$tr.data('cc')+"&YY="+$tr.data('yy')+"&MM="+$tr.data('mm'));
-								}
-							else if($tr.data('paymethod') == 'ECHECK')	{
-								newSfo['@updates'].push("METHOD-ECHECK-ADD?EB="+$tr.data('eb')+"&EA="+$tr.data('ea')+"&ER="+$tr.data('er')); //"+$.param(_app.u.getWhitelistedObject($tr.data(),['EB','EA','ER'])));
-					}
-*/
-				var $tBody = $("tbody[data-app-role='paymentMethodTbody']:first",$form);
-//				_app.u.dump(" -> $tBody.length: "+$tBody.length);
-//				_app.u.dump(" -> $tBody.children().length: "+$tBody.children().length);
-				if($tBody.length && $tBody.children().length)	{
-					$("tr.edited",$tBody).each(function(){
-						var $tr = $(this);
-						if($tr.hasClass('isNewRow') && $tr.hasClass('rowTaggedForRemove'))	{
-							//is new and tagged for delete. do nothing.
-							}
-						else if($tr.hasClass('isNewRow'))	{
-//							_app.u.dump(" -> $tr.data(): "); _app.u.dump($tr.data());
-							if($tr.data('paymethod') == 'CREDIT')	{
-								//cant just whitelist data cuz the params are UC and data-table applies them as attributes which get lowercased.
-								newSfo['@updates'].push("METHOD-CREDITCARD-ADD?CC="+$tr.data('cc')+"&YY="+$tr.data('yy')+"&MM="+$tr.data('mm'));
-								}
-							else if($tr.data('paymethod') == 'ECHECK')	{
-								newSfo['@updates'].push("METHOD-ECHECK-ADD?EB="+$tr.data('eb')+"&EA="+$tr.data('ea')+"&ER="+$tr.data('er')); //"+$.param(_app.u.getWhitelistedObject($tr.data(),['EB','EA','ER'])));
-								}
-							else	{
-								//unsupported payment type
-								$tr.closest('fieldset').anymessage({"message":"In admin_config.macrobuilders.billingPaymentMacro, an invalid paymethod ["+$tr.data('paymethod')+"] was passed thru the data table.","gMessage":true});
-								}
-								
-							}
-						else if($tr.hasClass('rowTaggedForRemove'))	{
-							newSfo['@updates'].push("METHOD-DELETE?ID="+$tr.data('id'));
-							}
-						else	{
-							//unexpected condition
-							}
-						})
-					}
-//				_app.u.dump(" -> billingPayments newSFO: "); _app.u.dump(newSfo);
-				return newSfo;
-				}
-			
 							}
 						else if($tr.hasClass('isNewRow'))	{
 //							_app.u.dump(" -> $tr.data(): "); _app.u.dump($tr.data());
@@ -1333,7 +1272,7 @@ when an event type is changed, all the event types are dropped, then re-added.
 					
 					if($ele.data('mode') == 'insert')	{
 						callback = function(rd){
-							navigateTo("#!ext/admin_config/showShippingManager",{'provider':sfo.provider});
+							navigateTo("/ext/admin_config/showShippingManager",{'provider':sfo.provider});
 							}; //when a new method is added, the callback gets changed slightly to refect the update to the list of flex methods.
 						macros.push("SHIPMETHOD/INSERT?provider="+sfo.provider+"&handler="+$ele.data('handler'));
 						}
@@ -1490,6 +1429,7 @@ when an event type is changed, all the event types are dropped, then re-added.
 								$(':input',$inputContainer).not(':radio').not(":checkbox").val(""); //clear inputs. don't reset radios in this manner or they'll lose their value.
 								$(':radio',$inputContainer).prop('checked',false);
 								$(':checkbox',$inputContainer).prop('checked',false);
+								}
 							
 							if($ele.attr('data-hide-inputs-onapply'))	{
 								$inputContainer.slideUp('fast');
@@ -1498,20 +1438,17 @@ when an event type is changed, all the event types are dropped, then re-added.
 							_app.ext.admin.u.handleSaveButtonByEditedClass($ele.closest('form'));
 
 							r = true;
-								}
-							
+							}
+						else	{
 							_app.u.dump("form did not validate");
-								$inputContainer.slideUp('fast');
-								}
+							//validateForm handles error display.
+							}
 						}
 					else	{
 						$inputContainer.anymessage({"message":"In admin_config.e.dataTableAddUpdate, data-table-role='contents' has no data-bind set.","gMessage":true});
 						}
 				//	$('input',$container).attr('required','').removeAttr('required');
 					
-							_app.ext.admin.u.handleSaveButtonByEditedClass($ele.closest('form'));
-
-							r = true;
 					}
 				else	{
 					$ele.closest('form').anymessage({"message":"In admin_config.e.dataTableAddUpdate, either table-role='container' ["+$DTC.length+"] or table-role='content' ["+$dataTbody.length+"] and/or  table-role='inputs' ["+$inputContainer.length+"] not found and all three are required.","gMessage":true});
@@ -1521,6 +1458,7 @@ when an event type is changed, all the event types are dropped, then re-added.
 					}	
 				return r;
 				},
+
 //This is where the magic happens. This button is used in conjunction with a data table, such as a shipping price or weight schedule.
 //It takes the contents of the fieldset it is in and adds them as a row in a corresponding table. it will allow a specific table to be set OR, it will look for a table within the fieldset (using the data-app-role='dataTable' selector).
 //the 'or' was necessary because in some cases, such as handling, there are several tables on one page and there wasn't a good way to pass different params into the appEvent handler (which gets executed once for the entire page).
@@ -1540,24 +1478,22 @@ when an event type is changed, all the event types are dropped, then re-added.
 				$container.attr("data-table-role","inputs");
 				$dataTbody.attr("data-table-role","content");
 				$form.attr("data-table-role","container");
+
 				$btn.off('click.dataTableAddExec').on('click.dataTableAddExec',function(event){
 					event.preventDefault();
 					event.handleAppEvents = true;
 					_app.ext.admin_config.e.dataTableAddUpdate($btn,event);
 					return false;
-					_app.u.dump(" -> $DTC.length: "+$DTC.length);
-					_app.u.dump(" -> $inputContainer.length: "+$inputContainer.length);
-					_app.u.dump(" -> $dataTbody.length: "+$dataTbody.length);
-// $form = the parent form of the data table. It's used for updating the corresponding 'save' button w/ the number of changes. that form is NOT validated or included in the serialized Form Object.
-// $dataTbody = the tbody of the dataTable to be updated (where rows get added when the entry form is saved).
-// $container = the fieldset (or some other element) that contains the form inputs used to generate a new row. NOT always it's own form.
-			dataTableAddExec : function($btn,vars)	{
-//this occurs outside the click so that it only happens once, at the time the app event is applied.
-				$container.attr("data-table-role","inputs");
-				$dataTbody.attr("data-table-role","content");
-				$form.attr("data-table-role","container");
+					});
 				}, //dataTableAddExec
+
+//a generic app event for updating a dataTable. This button would go on the fieldset and would search withing that fieldset for a dataTable, then use data-guid to find a match in that table.
+//this isn't necessary.  dataTableAddExec already does this.  Left here so next time I come to write this, I'm reminded I've already done it. 
 //			dataTableUpdateExec : function($btn,vars)	{},
+
+
+
+
 
 			taxTableUpdateExec : function($ele,p)	{
 				p.preventDefault();
@@ -1569,29 +1505,20 @@ when an event type is changed, all the event types are dropped, then re-added.
 //need a whitelist because the tr.data() may have a lot of extra kvp in it
 //201404 -> enable is intentionally NOT in the whitelist. It's added to the update through a checkbox.
 				var whitelist = new Array('type','state','citys','city','zipstart','zipend','zip4','country','ipcountry','ipstate','izcountry','izzip','rate','shipping','handling','insurance','special','zone','expires','group','guid');
-				macros.push("TAXRULES/EMPTY");
-//need a whitelist because the tr.data() may have a lot of extra kvp in it
-//201404 -> enable is intentionally NOT in the whitelist. It's added to the update through a checkbox.
-				var whitelist = new Array('type','state','citys','city','zipstart','zipend','zip4','country','ipcountry','ipstate','izcountry','izzip','rate','shipping','handling','insurance','special','zone','expires','group','guid');
 
 				$ele.closest('form').find('tbody tr').each(function(index){ //tbody needs to be in the selector so that tr in thead isn't included.
 					var $tr = $(this);
 					if($tr.hasClass('rowTaggedForRemove'))	{} //row tagged for delete. do not insert.
-				var $container = $ele.closest("[data-app-role='taxConfigContainer']"), macros = new Array();
+					else	{
 						if(!$tr.data('guid'))	{$tr.data('guid',index)} //a newly added rule
 						macros.push("TAXRULES/INSERT?enable="+($("input[name='enable']",$tr).is(':checked') ? 1 : 0)+"&"+$.param(_app.u.getWhitelistedObject($tr.data(),whitelist)));
+						}
+					});
 				_app.ext.admin.calls.adminConfigMacro.init(macros,{'callback':'showMessaging','message':'Your rules have been saved.','removeFromDOMItemsTaggedForDelete':true,'restoreInputsFromTrackingState':true,'jqObj':$container},'immutable');
 				_app.model.dispatchThis('immutable');
 
 				},
-//need a whitelist because the tr.data() may have a lot of extra kvp in it
-//201404 -> enable is intentionally NOT in the whitelist. It's added to the update through a checkbox.
-				var whitelist = new Array('type','state','citys','city','zipstart','zipend','zip4','country','ipcountry','ipstate','izcountry','izzip','rate','shipping','handling','insurance','special','zone','expires','group','guid');
 
-						if(!$tr.data('guid'))	{$tr.data('guid',index)} //a newly added rule
-						macros.push("TAXRULES/INSERT?enable="+($("input[name='enable']",$tr).is(':checked') ? 1 : 0)+"&"+$.param(_app.u.getWhitelistedObject($tr.data(),whitelist)));
-				_app.ext.admin.calls.adminConfigMacro.init(macros,{'callback':'showMessaging','message':'Your rules have been saved.','removeFromDOMItemsTaggedForDelete':true,'restoreInputsFromTrackingState':true,'jqObj':$container},'immutable');
-				_app.model.dispatchThis('immutable');
 
 
 
@@ -1621,14 +1548,6 @@ when an event type is changed, all the event types are dropped, then re-added.
 				return false;
 				}, //ruleBuilderShow
 
-			ruleBuilderAddShow : function($ele,p)	{
-				var rulesmode = $ele.data('rulesmode'), $DMI = $ele.closest("[data-app-role='dualModeContainer']"), guid = _app.u.guidGenerator();
-				$panel = _app.ext.admin.i.DMIPanelOpen($ele,{
-					'templateID' : 'rulesInputsTemplate_'+rulesmode,
-					'panelID' : 'newrule_'+guid,
-					'header' : 'New rule',
-					'data' : ((rulesmode == 'shipping') ? $.extend(true,{'guid':guid},_app.data['adminPriceScheduleList']) : {'guid':guid}),
-					'showLoading':false
 
 			ruleBuilderAddShow : function($ele,p)	{
 				var rulesmode = $ele.data('rulesmode'), $DMI = $ele.closest("[data-app-role='dualModeContainer']"), guid = _app.u.guidGenerator();
@@ -1783,7 +1702,7 @@ when an event type is changed, all the event types are dropped, then re-added.
 						'_tag':	{
 							'callback':($form.data('verb')) == 'create' ? 'navigateTo' : 'showMessaging',
 							'extension':($form.data('verb')) == 'create' ? 'admin' : '',
-							'path' : '#!ext/admin_config/showPluginManager?plugin='+sfo.plugin, //used when new plugins are added.
+							'path' : '/ext/admin_config/showPluginManager?plugin='+sfo.plugin, //used when new plugins are added.
 							//the following are used w/ showMessaging.
 							'restoreInputsFromTrackingState' : true,
 							'message' : "Your changes have been saved.",
@@ -1828,7 +1747,7 @@ when an event type is changed, all the event types are dropped, then re-added.
 											else	{
 												//sample action. success would go here.
 												$chooser.closest('.ui-dialog-content').dialog('close');
-												navigateTo('#!ext/admin_config/showPluginManager?plugin='+plugin)
+												navigateTo('/ext/admin_config/showPluginManager?plugin='+plugin)
 												}
 											}
 										}
