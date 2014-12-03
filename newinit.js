@@ -258,7 +258,7 @@ _app.router.appendHash({'type':'exact','route':'/my_account/','callback':functio
 		'pageType':'static',
 		'login' : true,
 		'templateID':'myAccountTemplate',
-		'require':['cco','templates.html']
+		'require':['cco','templates.html','store_crm']
 		});
 	_app.ext.quickstart.a.newShowContent(routeObj.value,routeObj.params);
 	}});	
@@ -303,6 +303,10 @@ _app.router.appendHash({'type':'exact','route':'/my_wishlist/','callback':functi
 		});
 	_app.ext.quickstart.a.newShowContent(routeObj.value,routeObj.params);
 	}});
+_app.u.bindTemplateEvent('orderHistoryTemplate','complete.customer',function(event, $context, infoObj){
+	_app.model.addDispatchToQ({"_cmd":"buyerPurchaseHistory","_tag":{'callback':'tlc','jqObj':$('.mainColumn',$context),'verb':'translate','datapointer':'buyerPurchaseHistory'}},'mutable');
+	_app.model.dispatchThis();							
+	});
 _app.u.bindTemplateEvent('customerListsTemplate','complete.customer',function(event, $context, infoObj){
 	_app.model.addDispatchToQ({"_cmd":"buyerProductLists","_tag":{"datapointer":"buyerProductLists",'verb':'translate','jqObj': $('.mainColumn',$context),'callback':'tlc',onComplete : function(rd){
 //data formatting on lists is unlike any other format for product, so a special handler is used.				
