@@ -2807,6 +2807,15 @@ ul li.productListTemplateBuyerList{
     padding: 5px;
 }
 
+/***********************************************************************************************************************************/
+/*****WISHLIST TEMPLATE****/
+.buttonList a.applyButton {
+	margin: 3px;
+}
+.customerPageContentCont p a{
+	color: #e61652;
+}
+
 
 
 

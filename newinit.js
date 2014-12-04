@@ -10,7 +10,7 @@ _app.u.loadScript(configURI,function(){
 	_app.vars.domain = zGlobals.appSettings.sdomain; //passed in ajax requests.
 	_app.vars.jqurl = (document.location.protocol === 'file:') ? _app.vars.testURL+'jsonapi/' : '/jsonapi/';
 	
-	var startupRequires = ['quickstart','_store_formals', '_store_filter','cco','store_product','order_create','prodlist_infinite','store_prodlist']
+	var startupRequires = ['quickstart','_store_formals', '_store_filter','cco','store_product','order_create','prodlist_infinite','store_prodlist','store_account_creation']
 	
 	_app.require(startupRequires, function(){
 		_app.ext.quickstart.callbacks.startMyProgram.onSuccess();
@@ -32,6 +32,10 @@ _app.u.loadScript(configURI,function(){
 _app.extend({
 	"namespace" : "quickstart",
 	"filename" : "app-quickstart.js"
+	});
+_app.extend({
+	"namespace" : "store_account_creation",
+	"filename" : "extensions/store_account_creation.js"
 	});
 
 _app.couple('quickstart','addPageHandler',{

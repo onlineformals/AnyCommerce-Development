@@ -125,6 +125,7 @@ css files should be included before any .js file to ensure they are downloaded i
 <script data-apptimize="embed" type="text/javascript" src="extensions/_store_banner.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/_store_filter.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/_store_backScrollPositionVTwo.js"></script>
+<script data-apptimize="embed" type="text/javascript" src="extensions/store_account_creation.js"></script>
 END CUSTOM SCRIPTS-->
 
 <!-- SCRIPTS -->
@@ -329,7 +330,6 @@ var _robots = {
 								<li class="headerDropdownLink"><a href="/category/designers.mac_duggal/Mac%20Duggal" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
 								<li class="headerDropdownLink"><a href="/category/designers.mignon/Mignon" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Mignon</a></li>
 								<li class="headerDropdownLink"><a href="/category/designers.mnm_couture/MNM%20Couture" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">MNM Couture</a></li>
-								<li class="headerDropdownLink"><a href="/category/designers.night_moves/Night%20Moves" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Night Moves</a></li>
 								<li class="headerDropdownLink"><a href="/category/designers.paris/Paris" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Paris</a></li>
 								<li class="headerDropdownLink"><a href="/category/designers.scala/Scala" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Scala</a></li>
 							</ul>
@@ -358,7 +358,6 @@ var _robots = {
 								<li class="headerDropdownLink"><a href="/category/prom.designers.mac_duggal/Mac%20Duggal" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Mac Duggal</a></li>
 								<li class="headerDropdownLink"><a href="/category/prom.designers.mignon/Mignon" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Mignon</a></li>
 								<li class="headerDropdownLink"><a href="/category/prom.designers.mnm_couture/MNM%20Couture" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">MNM Couture</a></li>
-								<li class="headerDropdownLink"><a href="/category/prom.designers.night_moves/Night%20Moves" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Night Moves</a></li>
 								<li class="headerDropdownLink"><a href="/category/prom.designers.paris/Paris" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Paris</a></li>
 								<li class="headerDropdownLink"><a href="/category/prom.designers.scala/Scala" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Scala</a></li>
 							</ul>
@@ -446,7 +445,6 @@ var _robots = {
 								<li class="headerDropdownTitle">DESIGNERS</li>
 								<li class="headerDropdownLink"><a href="/category/plus_size.designers.fabulouss/Fabulouss" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Fabulouss</a></li>
 								<li class="headerDropdownLink"><a href="/category/plus_size.designers.faviana/Faviana" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Faviana</a></li>
-								<li class="headerDropdownLink"><a href="/category/plus_size.designers.night_moves/Night%20Moves" class="pointer" onClick="myApp.ext._store_formals.a.hideAllDropdowns()">Night Moves</a></li>
 							</ul>
 							<ul>
 								<li class="headerDropdownTitle">STYLES</li>
@@ -704,9 +702,9 @@ var _robots = {
 				Note&#58; Entering a name, e-mail address, and password will allow you to check your order status online and recall your customer 
 				information for future orders.
 			</p>
-			<form action="#" class="inputsAsBreaks"  onSubmit="myApp.ext.store_cc.u.handleAppLoginCreate($(this)); return false;">
+			<form action='#' class='inputsAsBreaks'  onSubmit="myApp.ext.store_account_creation.u.handleAppLoginCreate($(this)); return false;">
 				<!-- <form action="#" submit="return false;" class="inputsAsBreaks">  For testing form to prevent reload -->
-				<input type="hidden" name="_script" value="campuscolors"/>
+				<input type="hidden" name="_script" value="onlineformals"/>
 				<input type="hidden" name="form" value="wholesale" />
 				<input name="firstname" type="text" size="30" placeholder="First Name" required="required" class="zform_textbox" />
 				<input name="lastname" type="text" size="30" placeholder="Last Name" required="required" class="zform_textbox"/>
