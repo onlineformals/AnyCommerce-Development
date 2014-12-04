@@ -41,6 +41,5 @@
 { "type":"path", "if":"/Item--i-(.*?)", "then#redirect":"/product/$1" },
 
 // CATEGORY HANDLER
-{ "type":"path", "if":"/category/[a-zA-Z0-9\\.\\_\\-]+(/.*)?", "then#sendfile":"/index.html", "apptimize":false }
-
+{ "type":"path", "if":"/category/[a-zA-Z0-9\\.\\_\\-]+(/.*)?", "then#sendfile":"/index.html", "apptimize":false },
 ]
