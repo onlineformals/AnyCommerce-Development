@@ -665,6 +665,11 @@ var _store_formals = function(_app) {
 				else	{} //validateForm will handle the error display.
 				return false;
 				},
+				
+			sizingchartmodal : function($ele,p) {
+				window.scrollTo(0,0); 
+				$('#SizingChartTemplate').dialog({'modal':'true', 'title':'','width':870, height:700, 'dialogClass' : 'SizingChartModal'});
+			},
 		},
 		
 		tlcFormats : {

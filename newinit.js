@@ -1178,7 +1178,7 @@ _app.u.bindTemplateEvent('productTemplate', 'complete.pageinit',function(event,$
 		else{
 			//_app.u.dump(".variation_D5 exists. Adding sizing chat link");
 			$(".variation_D5", $context).after("<div class='productSizingChartModalLinkContainer'>"
-			+ "<a onClick=\"$('#SizingChartTemplate').dialog({'modal':'true', 'title':'','width':825, height:700, 'dialogClass' : 'SizingChartModal'});\"> Need help with your size?</a>"
+			+ "<a data-app-click='_store_formals|sizingchartmodal'> Need help with your size?</a>"
 			+ "</div>");
 		}
 	}
