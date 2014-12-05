@@ -1175,7 +1175,7 @@ will return false if datapointer isn't in _app.data or local (or if it's too old
 			var local;
 			var r = false;
 			var thisModel = this; //for keeping context in functions where 'this' is lost.
-			var expires = datapointer == 'authAdminLogin' ? (60*60*24*15) : (60*60*24); //how old the data can be before we fetch new.
+			var expires = datapointer == 'authAdminLogin' ? (60*60*12*15) : (60*60*12); //how old the data can be before we fetch new.
 //checks to see if the request is already in _app.data. IMPORTANT to check if object is empty in case empty objects are put up for extending defaults (checkout)
 			if(_app.data && !$.isEmptyObject(_app.data[datapointer]))	{
 //				_app.u.dump(' -> data ['+datapointer+'] already in memory.');
@@ -1194,7 +1194,7 @@ will return false if datapointer isn't in _app.data or local (or if it's too old
 					if(local.ts)	{
 						if((_app.u.epochNow() - local.ts) > expires)	{
 							//_app.u.dump(" -> data is old. do not use it");
-							r = false; // data is more than 24 hours old.
+							r = false; // data is more than 12 hours old.
 							}
 						else	{
 							_app.data[datapointer] = local;
@@ -1779,7 +1779,7 @@ A note about cookies:
 
 		writeCookie : function(c_name,value)	{
 			var myDate = new Date();
-			myDate.setTime(myDate.getTime()+(1*24*60*60*1000));
+			myDate.setTime(myDate.getTime()+(1*12*60*60*1000));
 			document.cookie = c_name +"=" + value + ";expires=" + myDate + ";domain="+document.domain+";path=/";
 			},
 //deleting a cookie seems to cause lots of issues w/ iOS and some other mobile devices (where admin login is concerned, particularly. 
