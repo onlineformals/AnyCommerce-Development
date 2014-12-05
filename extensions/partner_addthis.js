@@ -37,7 +37,7 @@ var addthis_share = {
 	title : ""
 };
 
-var partner_addthis = function() {
+var partner_addthis = function(_app) {
 	var r= {
 		vars : {
 			selector : ".socialLinks"
@@ -51,18 +51,18 @@ var partner_addthis = function() {
 						scriptPath+= '#pubid='+addthis_id;
 					}
 					//setTimeout used to test asynchronous loading and dependency checks
-					//setTimeout(function(){app.u.loadScript(scriptPath);},3000);
-					app.u.loadScript(scriptPath);
-					app.rq.push(['templateFunction','productTemplate','onCompletes',function(infoObj){
-						app.ext.partner_addthis.u.buildSocialLinksProductPage(infoObj);
+					//setTimeout(function(){_app.u.loadScript(scriptPath);},3000);
+					_app.u.loadScript(scriptPath);
+					_app.rq.push(['templateFunction','productTemplate','onCompletes',function(infoObj){
+						_app.ext.partner_addthis.u.buildSocialLinksProductPage(infoObj);
 						}]);
-					app.rq.push(['templateFunction','productTemplate','onDeparts',function(infoObj){
-						app.ext.partner_addthis.u.destroySocialLinks(infoObj);
+					_app.rq.push(['templateFunction','productTemplate','onDeparts',function(infoObj){
+						_app.ext.partner_addthis.u.destroySocialLinks(infoObj);
 						}]);
 					return true;
 				},
 				onError : function() {
-					app.u.dump('BEGIN app.ext.partner_addthis.callbacks.init.onError');
+					_app.u.dump('BEGIN _app.ext.partner_addthis.callbacks.init.onError');
 				}
 			}
 		},
@@ -70,14 +70,14 @@ var partner_addthis = function() {
 	u : {
 		buildSocialLinksProductPage : function(infoObj, attempts){
 			attempts = attempts || 0;
-			//app.u.dump("-> Addthis attempt: "+attempts);
+			//_app.u.dump("-> Addthis attempt: "+attempts);
 			if(typeof addthis !== "undefined"){
 				//Adds the addthis code to the container specified
 				//To Customize the look and feel of the share icons, see here: http://support.addthis.com/customer/portal/articles/381238-addthis-toolbox
 				//Note: this also includes using custom share icons.
-				var $context = $(app.u.jqSelector('#',infoObj.parentID));
+				var $context = $(_app.u.jqSelector('#',infoObj.parentID));
 				
-				$(app.ext.partner_addthis.vars.selector, $context).append(
+				$(_app.ext.partner_addthis.vars.selector, $context).append(
 									'<div id="socialLinks" class="addthis_default_style addthis_32x32_style">'
 								+		'<a class="addthis_button_preferred_1"></a>'
 								+		'<a class="addthis_button_preferred_2"></a>'
@@ -89,32 +89,32 @@ var partner_addthis = function() {
 				//Set URL+title for most sharing code
 				var url = zGlobals.appSettings.http_app_url+"product/"+infoObj.pid+"/";
 				addthis_share.url = url;
-				addthis_share.title = app.data[infoObj.datapointer]['%attribs']['zoovy:prod_name'];
+				addthis_share.title = _app.data[infoObj.datapointer]['%attribs']['zoovy:prod_name'];
 				
 				//Set URL+title for Facebook
 				$('#ogURL').attr('content',url);
-				$('#ogTitle').attr('content',app.data[infoObj.datapointer]['%attribs']['zoovy:prod_name']);
-				$('#ogImage').attr('content',app.u.makeImage({"name":app.data[infoObj.datapointer]['%attribs']['zoovy:prod_image1'],"w":150,"h":150,"b":"FFFFFF","tag":0}));
+				$('#ogTitle').attr('content',_app.data[infoObj.datapointer]['%attribs']['zoovy:prod_name']);
+				$('#ogImage').attr('content',_app.u.makeImage({"name":app.data[infoObj.datapointer]['%attribs']['zoovy:prod_image1'],"w":150,"h":150,"b":"FFFFFF","tag":0}));
 				$('#ogDescription, #metaDescription').attr('content',app.data[infoObj.datapointer]['%attribs']['zoovy:prod_desc']);
 				
 				//Hooks everything in
-				//app.u.dump("-> Calling addthis.toolbox...");
+				//_app.u.dump("-> Calling addthis.toolbox...");
 				addthis.toolbox('#socialLinks');
 				}
 			else {
-				//app.u.dump("-> Addthis is not defined...");
+				//_app.u.dump("-> Addthis is not defined...");
 				var n = 40;
 				if(attempts > n){
-					app.u.dump("Failed to build social links after "+(n/4)+" seconds.  infoObj follows: "); app.u.dump(infoObj);
+					_app.u.dump("Failed to build social links after "+(n/4)+" seconds.  infoObj follows: "); _app.u.dump(infoObj);
 					}
 				else{
-					setTimeout(function(){app.ext.partner_addthis.u.buildSocialLinksProductPage(infoObj, attempts+1);}, 250);
+					setTimeout(function(){_app.ext.partner_addthis.u.buildSocialLinksProductPage(infoObj, attempts+1);}, 250);
 					}
 				}
 			},
 		destroySocialLinks : function(infoObj){
-			var $context = $(app.u.jqSelector('#',infoObj.parentID));
-			$(app.ext.partner_addthis.vars.selector, $context).empty();
+			var $context = $(_app.u.jqSelector('#',infoObj.parentID));
+			$(_app.ext.partner_addthis.vars.selector, $context).empty();
 			}
 		}
 	}
