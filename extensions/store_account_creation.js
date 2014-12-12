@@ -105,7 +105,7 @@ var store_account_creation = function(_app) {
 								}
 						}
 						
-						formObj._vendor = "chess";
+						formObj._vendor = "onlineformals";
 						//dump("formObj = ");
 						//dump(formObj);
 						_app.ext.store_account_creation.calls.appBuyerCreate.init(formObj,tagObj);
