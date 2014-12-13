@@ -32,7 +32,6 @@ ga('create', 'UA-2216669-1', 'auto');
 ga('require','linker');
 ga('require','ecommerce', 'ecommerce.js');
 ga('set', {
-	// Replace name below
 	'appName' : 'Online Formals',
 	'appID' : 'ZMVC',
 	'appVersion' : '201405'
@@ -169,7 +168,6 @@ $(document).ready(function(){
 	var paramStr = window.location.href.replace(window.location.hash, '').split('?')[1];
 	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 		window.myApp = new initApp({
-		"_robotHasGreeted" : false,
 		"release":"201410.20141212193000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
@@ -539,7 +537,7 @@ var _robots = {
 						<input type="email" name='login' value='' placeholder="   E-mail Address" class="subEmail" id='subscribeLogin' />
 						<fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
 						-->
-						<a href="/my_account/"><p class="subButton pointer">Join!</p></a>
+						<a href="/my_account/"><div class="subButton pointer"><p>Join</p></div></a>
 					</div>
 				</div>
 			</div>

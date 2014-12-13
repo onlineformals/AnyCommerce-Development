@@ -522,13 +522,18 @@ progress::-moz-progress-bar { background: #E61652; }
     padding: 0;
     width: 180px;
 }
-.footNewsSignupCont div#subscribeFrm div.userInfo button.subButton{
+.footNewsSignupCont div#subscribeFrm div.userInfo div.subButton{
 	background-color: #333333;
     border: medium none;
     color: white;
     font-size: 16px;
     height: 25px;
     width: 80px;
+	text-align: center;
+}
+.footNewsSignupCont div#subscribeFrm div.userInfo div.subButton p{
+	margin: 0;
+	text-align: center;
 }
 
 .footNewsSignupCont div#subscribeFrm div.userInfo fieldset.subscriberLists{
@@ -2408,7 +2413,7 @@ div.ui-dialog-titlebar span.ui-dialog-title{
 
 .cartAltButtonsContainer{
 }
-div.cartButtons span.continueShoppingSpan button.continueShoppingButton{
+div.cartButtons span.continueShoppingSpan div.continueShoppingButton{
 	background-color: #EFEFEF;
     background-image: none;
     border: 1px solid #CCCCCC;
