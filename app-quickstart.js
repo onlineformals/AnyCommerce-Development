@@ -94,6 +94,8 @@ var quickstart = function(_app) {
 				var r = true; //return false if extension won't load for some reason (account config, dependencies, etc).
 				_app.ext.quickstart.pageHandlers = {};
 				_app.ext.quickstart.pageRequires = {};
+				_app.ext.quickstart.loginHandlers = [];
+				_app.ext.quickstart.logoutHandlers = [];
 				return r;
 				},
 			onError : function()	{
@@ -311,10 +313,9 @@ document.write = function(v){
 				
 // SANITY - handleTemplateEvents does not get called here. It'll get executed as part of showPageContent callback, which is executed in buildQueriesFromTemplate.
 				},
-			onError : function(responseData,uuid)	{
-//				dump(responseData);
-//				$('#mainContentArea').empty();
-				_app.u.throwMessage(responseData);
+			onMissing : function(responseData,uuid)	{
+				var $container = responseData._rtag.jqObj.closest('[data-app-uri]');
+				_app.ext.quickstart.a.pageNotFound($container, responseData);
 				}
 			}, //showProd 
 
@@ -347,10 +348,9 @@ document.write = function(v){
 				_app.ext.quickstart.u.buildQueriesFromTemplate($.extend(true, {}, tagObj));
 				_app.model.dispatchThis();
 				},
-			onError : function(responseData)	{
-				_app.u.throwMessage(responseData);
-				$('.loadingBG',$('#mainContentArea')).removeClass('loadingBG'); //nuke all loading gfx.
-				_app.ext.quickstart.u.changeCursor('auto'); //revert cursor so app doesn't appear to be in waiting mode.
+			onError: function(responseData)	{
+				var $container = responseData._rtag.jqObj.closest('[data-app-uri]');
+				_app.ext.quickstart.a.pageNotFound($container, responseData);
 				}
 			}, //fetchPageContent
 
@@ -462,12 +462,10 @@ document.write = function(v){
 		authenticateBuyer : {
 			onSuccess : function(tagObj)	{
 				_app.vars.cid = _app.data[tagObj.datapointer].cid; //save to a quickly referencable location.
-				$('#loginSuccessContainer').show(); //contains 'continue' button.
-/*formals: below id's changed to classes because there are two login forms*/
-				$('.loginMessaging').empty().show().append("Thank you, you are now logged in."); //used for success and fail messaging.
-				$('#loginFormContainer').hide(); //contains actual form.
-				$('.recoverPasswordContainer').hide(); //contains password recovery form.
-				_app.ext.quickstart.u.handleLoginActions();
+				
+				for(var i in _app.ext.quickstart.loginHandlers){
+					_app.ext.quickstart.loginHandlers[i](tagObj);
+					}
 				}
 			} //authenticateBuyer
 
@@ -518,45 +516,6 @@ need to be customized on a per-ria basis.
 				return "<a href=\""+suffix+"\" target='popup' data-app-click='quickstart|popup'>"+phrase+"</a>";
 				}
 			}, //wiki
-
-// * 201403 -> infoObj now passed into pageTransition.
-//		pageTransition : function($o,$n, infoObj, callback)	{
-//if $o doesn't exist, the animation doesn't run and the new element doesn't show up, so that needs to be accounted for.
-//$o MAY be a jquery instance but have no length, so check both.
-//			if($o instanceof jQuery && $o.length)	{
-/*
-*** 201403 -> move the scroll to top into the page transition for 2 reasons:
-1. allows the animations to be performed sequentially, which will be less jittery than running two at the same time
-2. Puts control of this into custom page transitions.
-*/
-/*
-
-				if(infoObj.performJumpToTop && $(window).scrollTop() > 0)	{ // >0 scrolltop check should be on window, it'll work in ff AND chrome (body or html won't).
-					//new page content loading. scroll to top.
-					$('html, body').animate({scrollTop : 0},'fast',function(){
-		$o.fadeOut(1000, function(){$n.fadeIn(1000); callback(); setTimeout(function()
-		{_app.ext.quickstart.vars.showContentFinished = true;},100);}); //fade out old, fade in new.
-						});
-					} 
-				else	{ 
-	$o.fadeOut(1000, function(){$n.fadeIn(1000); callback(); setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;},1000);}); //fade out old, fade in new.
-					}
-				}
-			else if($n instanceof jQuery)	{
-				dump(" -> $o is not properly defined.  jquery: "+($o instanceof jQuery)+" and length: "+$o.length);
-				$('html, body').animate({scrollTop : 0},'fast',function(){
-					$n.fadeIn(1000);
-	setTimeout(function(){
-		_app.ext.quickstart.vars.showContentFinished = true;
-		}, 1000);
-					});
-				}
-			else	{
-				dump("WARNING! in pageTransition, neither $o nor $n were instances of jQuery.  how odd.",'warn');
-				_app.ext.quickstart.vars.showContentFinished = true;
-				}
-			}, //pageTransition
-*/
 
 // * 201403 -> infoObj now passed into pageTransition.
 		pageTransition : function($o,$n, infoObj, callback)	{
@@ -804,7 +763,7 @@ fallback is to just output the value.
 				if(data.value == '#')	{
 					$tag.removeClass('pointer');
 					}
-				else if(data.value && data.value.indexOf('/') == 0)	{
+				else if(data.value && data.value.indexOf('#!') == 0)	{
 					//link is formatted correctly. do nothing.
 					}
 				else if(data.value)	{
@@ -900,7 +859,7 @@ fallback is to just output the value.
 							})
 						}
 					else	{
-						$tag.attr({'data-hash':'/product/'+pid,'data-app-click':'quickstart|showContent'});
+						$tag.attr({'data-hash':'#!product/'+pid,'data-app-click':'quickstart|showContent'});
 						}
 					}
 //				dump(" -> ID at end: "+$tag.attr('id'));
@@ -1616,10 +1575,10 @@ $target.tlc({
 				var url = URL; //leave original intact.
 				var hashObj;
 				if(url.indexOf('#') > -1)	{
-//*** 201344 Adds support for / syntax, which allows links for escaped fragment syntax to be parsed directly over their href. -mc
+//*** 201344 Adds support for #! syntax, which allows links for escaped fragment syntax to be parsed directly over their href. -mc
 					var tmp;
-					if(url.indexOf('/') > -1){
-						tmp = url.split("/");
+					if(url.indexOf('#!') > -1){
+						tmp = url.split("#!");
 						}
 					else {
 						tmp = url.split("#");
@@ -1712,20 +1671,20 @@ $target.tlc({
 //				dump("BEGIN quickstart.u.getHashFromPageInfo");
 				var r = false; //what is returned. either false if no match or hash (#company?show=contact)
 				if(this.thisPageInfoIsValid(infoObj))	{
-					if(infoObj.pageType == 'product' && infoObj.pid)	{r = '/product/'+infoObj.pid}
-					else if(infoObj.pageType == 'category' && infoObj.navcat)	{r = '/category/'+infoObj.navcat}
-					else if(infoObj.pageType == 'homepage')	{r = '/home'}
-					else if(infoObj.pageType == 'cart')	{r = '/cart'}
-					else if(infoObj.pageType == 'checkout')	{r = '/checkout'}
+					if(infoObj.pageType == 'product' && infoObj.pid)	{r = '#!product/'+infoObj.pid}
+					else if(infoObj.pageType == 'category' && infoObj.navcat)	{r = '#!category/'+infoObj.navcat}
+					else if(infoObj.pageType == 'homepage')	{r = '#!home'}
+					else if(infoObj.pageType == 'cart')	{r = '#!cart'}
+					else if(infoObj.pageType == 'checkout')	{r = '#!checkout'}
 					else if(infoObj.pageType == 'search' && (infoObj.TAG || infoObj.KEYWORDS))	{
-						r = '/search/';
+						r = '#!search/';
 						r += (infoObj.KEYWORDS) ? 'keywords/'+infoObj.KEYWORDS : 'tag/'+infoObj.TAG;
 						}
 					else if(infoObj.pageType == 'search' && infoObj.elasticsearch)	{
 						//r = '#search?KEYWORDS='+encodeURIComponent(infoObj.KEYWORDS);
-						r = '/search/elasticsearch/'+encodeURIComponent(JSON.stringify(infoObj.elasticsearch));
+						r = '#!search/elasticsearch/'+encodeURIComponent(JSON.stringify(infoObj.elasticsearch));
 						}
-					else if(infoObj.pageType && infoObj.show)	{r = '/'+infoObj.pageType+'/'+infoObj.show}
+					else if(infoObj.pageType && infoObj.show)	{r = '#!'+infoObj.pageType+'/'+infoObj.show}
 					else	{
 						//shouldn't get here because pageInfo was already validated. but just in case...
 						dump("WARNING! invalid pageInfo object passed into getHashFromPageInfo. infoObj: ");
@@ -2002,10 +1961,9 @@ either templateID needs to be set OR showloading must be true. TemplateID will t
 /*formals*/			width:'80%',   //browser doesn't like percentage for height
 /*formals*/			open : function(event, ui) {
 /*formals*/				$(".ui-dialog-titlebar-close").on("click.closeModal",function(){
-/*formals*/					if(document.location.hash == "/checkout/") {
-/*formals*/						dump('it was checkout');
-/*formals*/						$("#checkoutContainer").remove();
-/*formals*/						showContent("checkout");
+/*formals*/					if($("#mainContentArea :visible:first").attr('data-app-uri') == "/checkout/") {
+/*formals*/						$("#checkoutContainer").remove(); //kill the old checkout to be sure any changes made in the cart are updated. 
+/*formals*/						_app.router.handleURIChange('/checkout/');
 /*formals*/					}
 /*formals*/				}); 
 /*formals*/			},
@@ -2140,7 +2098,7 @@ either templateID needs to be set OR showloading must be true. TemplateID will t
 			parseAnchor : function(str)	{
 				var P = {};
 				if(str)	{
-					var tmp1 = str.replace(/\/?/g,'').split('?'); //the regext will strip # or / off the front of the string.
+					var tmp1 = str.replace(/\#!?/g,'').split('?'); //the regext will strip # or #! off the front of the string.
 					P.pageType = tmp1[0];
 					if(tmp1.length > 1){
 						var tmp2 = tmp1[1].split('=');
@@ -2425,6 +2383,12 @@ else	{
 				//Does nothing, but allows google analytics to track this event
 				},
 //add this as a data-app-submit to the login form.
+			accountLogoutSubmit : function($ele, p){
+				_app.u.logBuyerOut();
+				for(var i in _app.ext.quickstart.logoutHandlers){
+					_app.ext.quickstart.logoutHandlers[i]();
+					}
+				},
 			accountLoginSubmit : function($ele,p)	{
 				p.preventDefault();
 				if(_app.u.validateForm($ele))	{
@@ -2519,7 +2483,7 @@ else	{
 								$('#globalMessaging').anymessage({'message':rd});
 								}
 							else	{
-								document.location.hash = '/cart';
+								document.location.hash = '#!cart';
 								}
 							});
 						}
@@ -2583,7 +2547,7 @@ else	{
 								else	{
 									_app.ext.quickstart.u.showCartInModal({'templateID':'cartTemplate'});
 									}
-								cartMessagePush(cartObj._cartid,'cart.itemAppend',_app.u.getWhitelistedObject(cartObj,['sku','pid','qty','quantity','%variations']));
+								//cartMessagePush(cartObj._cartid,'cart.itemAppend',_app.u.getWhitelistedObject(cartObj,['sku','pid','qty','quantity','%variations']));
 								}
 							}},'immutable');
 						_app.model.dispatchThis('immutable');
@@ -2625,8 +2589,6 @@ else	{
 			searchFormSubmit : function($ele,p)	{
 				p.preventDefault();
 				var sfo = $ele.serializeJSON($ele);
-				dump('searchFormSubmit');
-				dump(sfo);
 				if(sfo.KEYWORDS)	{
 					_app.router.handleURIChange('/search/keywords/'+sfo.KEYWORDS);
 					}
@@ -2648,26 +2610,26 @@ else	{
 				}, //showBuyerAddressUpdate
 
 			showBuyerAddressAdd : function($ele,p)	{
-				_app.router.handleURIChange('/');
 				p.preventDefault();
 				_app.require(['store_crm', 'order_create'],function(){
 					_app.ext.store_crm.u.showAddressAddModal({
 						'addressType' : $ele.closest("[data-app-addresstype]").data('app-addresstype')
 						},function(rd){
 						$('#mainContentArea_customer').empty().remove(); //kill so it gets regenerated. this a good idea?
+						showContent('customer',{'show':'myaccount'});
 						});
 					});
 				return false;
 				}, //showBuyerAddressAdd
 
 			showBuyerAddressRemove : function($ele, p){
-				_app.router.handleURIChange('/');
 				p.preventDefault();
 				_app.ext.store_crm.u.showAddressRemoveModal({
 					"addressID" : $ele.closest("address").data('_id'),
 					'addressType' : $ele.closest("[data-app-addresstype]").data('app-addresstype')
 					},function(){
 					$('#mainContentArea_customer').empty().remove(); //kill so it gets regenerated. this a good idea?
+					showContent('customer',{'show':'myaccount'});
 					});
 				return false;
 				},
@@ -2820,6 +2782,12 @@ later, it will handle other third party plugins as well.
 				//dump('adding handler');
 				_app.ext.quickstart.pageHandlers[args.pageType] = args.handler;
 				_app.ext.quickstart.pageRequires[args.pageType] = args.require || [];
+				},
+			addLoginHandler : function(args){
+				_app.ext.quickstart.loginHandlers.push(args.handler);
+				},
+			addLogoutHandler : function(args){
+				_app.ext.quickstart.logoutHandlers.push(args.handler);
 				}
 			}
 
