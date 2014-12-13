@@ -692,8 +692,10 @@ this will likely become more flexible in the future. ###
                         <p>
                             <a data-app-click="quickstart|productAdd2List" data-listid="wishlist">Add to Wishlist</a>
                             &#124;
+                            <!--
                             <a target="_blank" onclick="javascript:window.open('mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: ' + window.location);">Tell a friend</a>
                             &#124;
+                            -->
                             <a data-app-click="store_crm|productReviewShow">Write Review</a>
                             &#124;
                             <a href="javascript:window.print()">Print</a>
@@ -964,8 +966,10 @@ this will likely become more flexible in the future. ###
                     <p>
 						<a href="#" data-app-click="quickstart|productAdd2List" data-listid="wishlist">Add to Wishlist</a>
 						&#124;
-						<a target="_blank" onclick="javascript:window.open('mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: ' + window.location);">Tell a friend</a> <!-- onclick="javascript:window.location='mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: ' + window.location;">Tell a friend</a>-->
+						<!--
+                        <a target="_blank" onclick="javascript:window.open('mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: ' + window.location);">Tell a friend</a> 
 						&#124;
+                        -->
 						<a href="#" data-app-click="store_crm|productReviewShow">Write Review</a>
 						&#124;
 						<a href="javascript:window.print()">Print</a>
@@ -1050,10 +1054,11 @@ this will likely become more flexible in the future. ###
 
 
 
-
+<!--
 <div id="productEmailLinkModal">
 	<a target="_blank" onclick="javascript:window.location='mailto:?subject=Check out what I found on onlineformals.com. &body=I thought you might be interested in this: ' + window.location;">Tell a friend</a>
 </div>
+-->
 
 
 
@@ -1132,7 +1137,7 @@ if you change these, you should move them above this comment so that when you (o
         <p><b><u>Why Buy From Us</u></b></p>
         <p><b>Authenticity.</b> We are an Authorized Retailer for every designer we carry giving you confidence that you are purchasing a 100% Authentic gown. We are also &ldquo;Top Prom Website&rdquo; Approved!<br></p>
         <p><b>Customer Service</b> provided by friendly and knowledgeable staff that can answer any questions and assist with your order.<br></p>
-        <p><b>Peace of mind</b> when placing your order&#150;our clearly stated return policy allows for easy exchanges!<br></p>
+        <p><b>Peace of mind</b> when placing your order our clearly stated return policy allows for easy exchanges!<br></p>
         <p><b>Security</b> provided by GeoTrust and credit card processing through Authorize.net.</p>
     </div>
 </div>
@@ -1665,17 +1670,6 @@ This is the template used both within a dialog and inline, unless implicitly ove
 		qty: <input data-tlc="cco#cartitemqty  --legacy;" class="qtyInput numberInput" data-app-change="cco|cartItemUpdateExec" data-bind="format:cartItemQty;extension:cco;useParentData:true;" name="quantity" type="number">
 		<button class="displayNone">update</button><!-- here to stop 'enter' in input above from closing modal -->
 		
-		<!--
-		<div class='priceContainer marginBottom'>
-					<h4 class="productPriceText" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{_store_formals#currencyprodlist --legacy; apply --append;}};"></h4>
-                    <h5 class='prodTempProdMSRP prodMSRP' data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;) {{_store_formals#currencymsrp --legacy; apply --append;}};"></h5>
-					<div class="displayNone savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;)  {{_store_formals#showhidearea  --legacy}};">                	
-					   <div data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --currencysign='$' --hidezero='true' --legacy;" class="savings"></div>
-					   <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingsdifferenceprodlistitem  --legacy; apply --append;" class="savingsDifference"></span>
-					   <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingspercentageprodlistitem  --legacy; apply --append;" class="savingsPercentage"></span>
-					</div>
-                </div>
-		-->
 		
 		<span> X </span>
 		<span data-tlc="bind $var '.price'; _store_formals#cartcurrency --legacy; apply --append;"></span>
@@ -1977,7 +1971,6 @@ The 'data-action' attribute is used to assign an onclick.
 
 
 </div>
-
 
 
 
