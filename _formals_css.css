@@ -522,7 +522,7 @@ progress::-moz-progress-bar { background: #E61652; }
     padding: 0;
     width: 180px;
 }
-.footNewsSignupCont div#subscribeFrm div.userInfo input.subButton{
+.footNewsSignupCont div#subscribeFrm div.userInfo button.subButton{
 	background-color: #333333;
     border: medium none;
     color: white;
