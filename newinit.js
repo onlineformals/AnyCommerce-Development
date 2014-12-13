@@ -410,6 +410,7 @@ _app.u.bindTemplateEvent('productTemplate', 'complete.pageinit',function(event,$
 //_app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 
 	//INTERNET EXPLORER WARNING MESSAGE
+	/*
 	if($('.headerIE8WarningCont').data('messageShown')){
 	}
 	else{
@@ -420,6 +421,7 @@ _app.u.bindTemplateEvent('productTemplate', 'complete.pageinit',function(event,$
 		$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
 		$('.headerIE8WarningCont').data('messageShown',true).append();
 	}
+	*/
 	
 	//var $context = $(_app.u.jqSelector('#',infoObj.parentID));
 	var $tabContainer = $( ".tabbedProductContent",$context);
@@ -523,6 +525,7 @@ _app.u.bindTemplateEvent('productTemplate', 'complete.pageinit',function(event,$
 _app.u.bindTemplateEvent('homepageTemplate', 'complete.pageinit',function(event,$context,infoObj){
 	
 	//INTERNET EXPLORER WARNING MESSAGE
+	/*
 	if($('.headerIE8WarningCont').data('messageShown')){
 	}
 	else{
@@ -533,9 +536,10 @@ _app.u.bindTemplateEvent('homepageTemplate', 'complete.pageinit',function(event,
 		$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
 		$('.headerIE8WarningCont').data('messageShown',true).append();
 	}
+	*/
 	
 	//Carousel horizontal sliders - homepage banner
-	function carouselHPBanner(){ $(".carouselHPBannerList").carouFredSel
+	function carouselHPBanner(){ $(".carouselHPBannerList", $context).carouFredSel
 	({
 		width   : 940,
 		//height	: 350,
@@ -553,7 +557,7 @@ _app.u.bindTemplateEvent('homepageTemplate', 'complete.pageinit',function(event,
 	setTimeout(carouselHPBanner, 2000);
 	
 	//Carousel title bar - homepage product lists
-	function carouselHPProductListTitle(){ $(".hpProductListTitleCarousel").carouFredSel
+	function carouselHPProductListTitle(){ $(".hpProductListTitleCarousel", $context).carouFredSel
 	({
 		width   : 400,
 		height	: 112,
@@ -571,7 +575,7 @@ _app.u.bindTemplateEvent('homepageTemplate', 'complete.pageinit',function(event,
 	setTimeout(carouselHPProductListTitle, 2000);
 	
 	//Carousel Content bar - homepage product lists
-	function carouselHPProductList(){ $(".hpProductListCarouselContainer").carouFredSel
+	function carouselHPProductList(){ $(".hpProductListCarouselContainer",$context).carouFredSel
 	({
 		width   : 960,
 		//height	: 670,
@@ -585,63 +589,63 @@ _app.u.bindTemplateEvent('homepageTemplate', 'complete.pageinit',function(event,
 	
 	setTimeout(carouselHPProductList, 2000);
 	
-	$(".hpProductListNext").click(function() {
-		$(".hpProductListTitleCarousel").trigger("next");
-		$(".hpProductListCarouselContainer").trigger("next");
+	$(".hpProductListNext", $context).click(function() {
+		$(".hpProductListTitleCarousel", $context).trigger("next");
+		$(".hpProductListCarouselContainer", $context).trigger("next");
 	});
-	$(".hpProductListPrev").click(function() {
-		$(".hpProductListTitleCarousel").trigger("prev");
-		$(".hpProductListCarouselContainer").trigger("prev");
+	$(".hpProductListPrev", $context).click(function() {
+		$(".hpProductListTitleCarousel", $context).trigger("prev");
+		$(".hpProductListCarouselContainer", $context).trigger("prev");
 	});
 	
 	//TITLEBAR HIDING FUNCTIONALITY.
-	if($(".homepageSubCatTitleBar1").children().text().length === 0){
-		$(".homepageSubCatTitleBar1").hide();
+	if($(".homepageSubCatTitleBar1", $context).children().text().length === 0){
+		$(".homepageSubCatTitleBar1", $context).hide();
 	}
 	else{
-		$(".homepageSubCatTitleBar1").show();
+		$(".homepageSubCatTitleBar1", $context).show();
 	}
 	
-	if($(".homepageSubCatTitleBar2").children().text().length === 0){
-		$(".homepageSubCatTitleBar2").hide();
+	if($(".homepageSubCatTitleBar2", $context).children().text().length === 0){
+		$(".homepageSubCatTitleBar2", $context).hide();
 	}
 	else{
-		$(".homepageSubCatTitleBar2").show();
+		$(".homepageSubCatTitleBar2", $context).show();
 	}
 	
-	if($(".homepageSubCatTitleBar3").children().text().length === 0){
-		$(".homepageSubCatTitleBar3").hide();
+	if($(".homepageSubCatTitleBar3", $context).children().text().length === 0){
+		$(".homepageSubCatTitleBar3", $context).hide();
 	}
 	else{
-		$(".homepageSubCatTitleBar3").show();
+		$(".homepageSubCatTitleBar3", $context).show();
 	}
 	
-	if($(".homepageCatTitleBar1").children().text().length === 0){
-		$(".homepageCatTitleBar1").hide();
+	if($(".homepageCatTitleBar1", $context).children().text().length === 0){
+		$(".homepageCatTitleBar1", $context).hide();
 	}
 	else{
-		$(".homepageCatTitleBar1").show();
+		$(".homepageCatTitleBar1", $context).show();
 	}
 	
-	if($(".homepageCatTitleBar2").children().text().length === 0){
-		$(".homepageCatTitleBar2").hide();
+	if($(".homepageCatTitleBar2", $context).children().text().length === 0){
+		$(".homepageCatTitleBar2", $context).hide();
 	}
 	else{
-		$(".homepageCatTitleBar2").show();
+		$(".homepageCatTitleBar2", $context).show();
 	}
 	
-	if($(".homepageCatTitleBar3").children().text().length === 0){
-		$(".homepageCatTitleBar3").hide();
+	if($(".homepageCatTitleBar3", $context).children().text().length === 0){
+		$(".homepageCatTitleBar3", $context).hide();
 	}
 	else{
-		$(".homepageCatTitleBar3").show();
+		$(".homepageCatTitleBar3", $context).show();
 	}
 	
-	if($(".homepageCatTitleBar4").children().text().length === 0){
-		$(".homepageCatTitleBar4").hide();
+	if($(".homepageCatTitleBar4", $context).children().text().length === 0){
+		$(".homepageCatTitleBar4", $context).hide();
 	}
 	else{
-		$(".homepageCatTitleBar4").show();
+		$(".homepageCatTitleBar4", $context).show();
 	}
 });
 
@@ -655,15 +659,15 @@ _app.extend({
 _app.u.bindTemplateEvent('categoryTemplate', 'complete.pageinit',function(event,$context,infoObj){
 	
 	//INTERNET EXPLORER WARNING MESSAGE
-	if($('.headerIE8WarningCont').data('messageShown')){
+	if($('.headerIE8WarningCont', $context).data('messageShown')){
 	}
 	else{
-		$('.headerIE8WarningCont').data('messageShown',false);
+		$('.headerIE8WarningCont', $context).data('messageShown',false);
 	}
-	if($('.headerIE8WarningCont').data('messageShown') === false)
+	if($('.headerIE8WarningCont', $context).data('messageShown') === false)
 	{
-		$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
-		$('.headerIE8WarningCont').data('messageShown',true).append();
+		$('.headerIE8WarningCont', $context).anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
+		$('.headerIE8WarningCont', $context).data('messageShown',true).append();
 	}
 	
 	//var $context = $(_app.u.jqSelector('#',infoObj.parentID));
@@ -822,9 +826,9 @@ _app.u.bindTemplateEvent('categoryProductListTemplate', 'complete.pageinit',func
 			
 		
 		$('.resetButton', $context).click(function(){
-			$('.fsCheckbox').attr('checked', false);
-			$(".nativeProductList").show(); 
-			$(".searchFilterResults").hide();    
+			$('.fsCheckbox', $context).attr('checked', false);
+			$(".nativeProductList", $context).show(); 
+			$(".searchFilterResults", $context).hide();    
 		});
 		
 		//**ADD ID/FOR VALUES FOR CHECKBOX VISUAL MODIFIER**
@@ -852,7 +856,7 @@ _app.u.bindTemplateEvent('categoryProductListTemplate', 'complete.pageinit',func
 		}
 		
 		//ASSIGN EXPAND/COLLAPSE VALUES TO FILTER FORM
-		var $sidebarContext = $(".catProdListSidebar").parent().parent();
+		var $sidebarContext = $(".catProdListSidebar", $context).parent().parent();
 		//_app.u.dump($sidebarContext);
 		
 		if($('.layeredSearch', $context).length){
@@ -874,55 +878,55 @@ _app.u.bindTemplateEvent('categoryProductListTemplate', 'complete.pageinit',func
 		if($('.filterPriceCat', $context).length){
 			$('.filterCategoryCont', '.filterPriceCat').show();
 			$('.filterCatTitle', '.filterPriceCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
-			$('.filterPriceCat').data('collapseOrExpanded',true).append();
+			$('.filterPriceCat', $context).data('collapseOrExpanded',true).append();
 		}
 		
 		if($('.filterDressTypeCat', $context).length){
 			$('.filterCategoryCont', '.filterDressTypeCat').show();
 			$('.filterCatTitle', '.filterDressTypeCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
-			$('.filterDressTypeCat').data('collapseOrExpanded',true).append();
+			$('.filterDressTypeCat', $context).data('collapseOrExpanded',true).append();
 		}
 		
 		if($('.filterDesignerCat', $context).length){
 			$('.filterCategoryCont', '.filterDesignerCat').show();
 			$('.filterCatTitle', '.filterDesignerCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
-			$('.filterDesignerCat').data('collapseOrExpanded',true).append();
+			$('.filterDesignerCat', $context).data('collapseOrExpanded',true).append();
 		}
 		
 		if($('.filterColorCat', $context).length){
 			$('.filterCategoryCont', '.filterColorCat').show();
 			$('.filterCatTitle', '.filterColorCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
-			$('.filterColorCat').data('collapseOrExpanded',true).append();
+			$('.filterColorCat', $context).data('collapseOrExpanded',true).append();
 		}
 		
 		if($('.filterHemlineCat', $context).length){
 			$('.filterCategoryCont', '.filterHemlineCat').show();
 			$('.filterCatTitle', '.filterHemlineCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
-			$('.filterHemlineCat').data('collapseOrExpanded',true).append();
+			$('.filterHemlineCat, $context').data('collapseOrExpanded',true).append();
 		}
 		
 		if($('.filterSilhouetteCat', $context).length){
 			$('.filterCategoryCont', '.filterSilhouetteCat').show();
 			$('.filterCatTitle', '.filterSilhouetteCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
-			$('.filterSilhouetteCat').data('collapseOrExpanded',true).append();
+			$('.filterSilhouetteCat', $context).data('collapseOrExpanded',true).append();
 		}
 		
 		if($('.filterNecklineCat', $context).length){
 			$('.filterCategoryCont', '.filterNecklineCat').show();
 			$('.filterCatTitle', '.filterNecklineCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
-			$('.filterNecklineCat').data('collapseOrExpanded',true).append();
+			$('.filterNecklineCat', $context).data('collapseOrExpanded',true).append();
 		}
 		
 		if($('.filterSaleCat', $context).length){
 			$('.filterCategoryCont', '.filterSaleCat').show();
 			$('.filterCatTitle', '.filterSaleCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
-			$('.filterSaleCat').data('collapseOrExpanded',true).append();
+			$('.filterSaleCat', $context).data('collapseOrExpanded',true).append();
 		}
 		
 		if($('.filterTrendsCat', $context).length){
 			$('.filterCategoryCont', '.filterTrendsCat').show();
 			$('.filterCatTitle', '.filterTrendsCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
-			$('.filterTrendsCat').data('collapseOrExpanded',true).append();
+			$('.filterTrendsCat', $context).data('collapseOrExpanded',true).append();
 		}
 		
 		_app.ext._store_banner.u.showCategoryBanners($context, infoObj.navcat);		
@@ -1248,13 +1252,8 @@ _app.extend({
 	"filename" : "extensions/__store_filter.js"
 	});
 	
-_app.u.bindTemplateEvent('homepageTemplate', 'complete.pageinit',function(event,$context,infoObj) {
-	//$(".mobileSlideMenu.standardNav").addClass("hideOnHome");
-	//_app.ext._store_formals.u.showHomepageBanners($context);
-	//_app.ext._store_formals.u.runHomeCarousel($context);
-	});
 _app.u.bindTemplateEvent('homepageTemplate', 'depart.pageinit',function(event,$context,infoObj) {
-	$(".mobileSlideMenu.standardNav").removeClass("hideOnHome");
+	$(".mobileSlideMenu.standardNav", $context).removeClass("hideOnHome");
 	});
 	
 _app.u.bindTemplateEvent('productTemplate', 'complete.invcheck',function(event, $context, infoObj){
