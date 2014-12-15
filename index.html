@@ -128,26 +128,26 @@ END EXTENSIONS-->
 END CUSTOM SCRIPTS-->
 
 <!-- SCRIPTS -->
+<script data-apptimize="embed" type="text/javascript" src="app-quickstart.js"></script>
+<script data-apptimize="embed" type="text/javascript" src="extensions/_store_formals.js"></script>
+
 <script async data-apptimize="embed" type="text/javascript" src="resources/jquery.touchSwipe-1.3.3.min.js"></script>
 <script async data-apptimize="embed" type="text/javascript" src="resources/jquery.carouFredSel-6.2.0.min.js"></script>
 <script async data-apptimize="embed" type="text/javascript" src="zoom-master/jquery.zoom.min.js"></script>
-<!--<script data-apptimize="embed" type="text/javascript" src="extensions/tools_lightbox/lightbox/js/lightbox-2.6.min.js"></script>-->
 
 <script data-apptimize="embed" type="text/javascript"  src="resources/jquery.showloading-v1.0.jt.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="resources/jsonpath.0.8.0.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="resources/tlc.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="resources/peg-0.8.0.js"></script>
 
+<script data-apptimize="embed" type="text/javascript" src="resources/jquery.ui.anyplugins.js"></script>
 <link data-apptimize="embed" rel="stylesheet" type="text/css" href="resources/anyplugins.css"/>
 <link data-apptimize="embed" rel="stylesheet" type="text/css" href="extensions/checkout/styles.css"/>
 <link data-apptimize="embed" rel="stylesheet" type="text/css" href="extensions/cart_message/styles.css"/>
+<script data-apptimize="embed" type="text/javascript" src="includes.js"></script>
 
 
 
-
-<!-- ### TODO -> test how the load process goes w/ these in init. if includes is moved, move the new Parse  -->
-<script data-apptimize="embed" type="text/javascript" src="resources/jquery.ui.anyplugins.js"></script>
-<script data-apptimize="embed" type="text/javascript" src="includes.js"></script><!-- contains some polyfills and should be loaded early -->
 
 <script type="text/javascript">
 $.PromisePipeline = function(){
@@ -168,7 +168,7 @@ $(document).ready(function(){
 	var paramStr = window.location.href.replace(window.location.hash, '').split('?')[1];
 	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 		window.myApp = new initApp({
-		"release":"201410.20141215124000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201410.20141215135500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
