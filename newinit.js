@@ -902,7 +902,7 @@ _app.u.bindTemplateEvent('categoryProductListTemplate', 'complete.pageinit',func
 		if($('.filterHemlineCat', $context).length){
 			$('.filterCategoryCont', '.filterHemlineCat').show();
 			$('.filterCatTitle', '.filterHemlineCat').css("background-image","url(Images/categorypage/filteredsearch/catbaropen.png)");
-			$('.filterHemlineCat, $context').data('collapseOrExpanded',true).append();
+			$('.filterHemlineCat', $context).data('collapseOrExpanded',true).append();
 		}
 		
 		if($('.filterSilhouetteCat', $context).length){
