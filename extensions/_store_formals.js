@@ -16,8 +16,8 @@
 
 ************************************************************** */
 
-var _store_formals = function(_app) {
-	var r= {
+var _store_formals = function (_app) {
+	var r = {
 		vars : {
 			scrollPosHist : "",
 			scrollPosBackHit : "",
@@ -138,7 +138,7 @@ var _store_formals = function(_app) {
 				".accessories.under_the_dress.shapewear" : "categoryProductListTemplate",
 				
 				".in_stock" : "categoryProductListTemplate"
-			},
+			}
 		},
 		
 		calls : {
@@ -170,7 +170,7 @@ var _store_formals = function(_app) {
 			},
 			startExtension : {
 				onSuccess : function (){
-					_app.u.dump('BEGIN _app.ext_store_formals.callbacks.startExtension.onSuccess')
+					_app.u.dump('BEGIN _app.ext_store_formals.callbacks.startExtension.onSuccess');
 					
 					//replacement for bindByAnchor href to make crawlable links. Currently used mainly on sitemap
 					
@@ -190,7 +190,7 @@ var _store_formals = function(_app) {
 				onError : function (){
 					_app.u.dump('BEGIN app_store_formals.callbacks.startExtension.onError');
 				}
-			},
+			}
 		},
 		
 		
@@ -289,13 +289,13 @@ var _store_formals = function(_app) {
 					var errors = '';
 					$errorDiv = errorDiv.empty(); //make sure error screen is empty. do not hide or callback errors won't show up.
 
-					if(_app.u.isValidEmail(email) == false){
+					if(_app.u.isValidEmail(email) === false){
 							errors += "Please provide a valid email address<br \/>";
 							}
 					if(!password)        {
 							errors += "Please provide your password<br \/>";
 							}
-					if(errors == ''){
+					if(errors ===''){
 							_app.calls.appBuyerLogin.init({"login":email,"password":password},{'callback':'authenticateBuyer','extension':'myRIA'});
 							_app.calls.refreshCart.init({},'immutable'); //cart needs to be updated as part of authentication process.
 //                                        _app.calls.buyerProductLists.init('forgetme',{'callback':'handleForgetmeList','extension':'store_prodlist'},'immutable');
@@ -304,17 +304,12 @@ var _store_formals = function(_app) {
 					else {
 							$errorDiv.anymessage({'message':errors});
 							}
-					showContent('customer',{'show':'myaccount'})
+					showContent('customer',{'show':'myaccount'});
 			}, //loginFrmSubmit
 			
 			collapseExpandFAQ : function($tagContext){
 				if($(".faqContentCont", $tagContext).is(':hidden')){
 					$(".faqContentCont", $tagContext).data('collapseExpand',false).append();
-					//_app.u.dump("collapseExpand Data did not exist for this drop down. Created it.");
-					//_app.u.dump($(".faqContentCont", $tagContext).data('collapseExpand'));
-
-				}
-				else{
 				}
 				
 				if ($(".faqContentCont", $tagContext).data('collapseExpand') === false){

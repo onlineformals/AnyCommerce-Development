@@ -10,19 +10,11 @@ _app.u.loadScript(configURI,function(){
 	_app.vars.domain = zGlobals.appSettings.sdomain; //passed in ajax requests.
 	_app.vars.jqurl = (document.location.protocol === 'file:') ? _app.vars.testURL+'jsonapi/' : '/jsonapi/';
 	
-	var startupRequires = ['quickstart','_store_formals', '_store_filter','cco','store_product','order_create','prodlist_infinite','store_prodlist','store_account_creation']
+	var startupRequires = ['quickstart','_store_formals','_store_filter','cco','store_product','order_create','prodlist_infinite','store_prodlist','store_account_creation']
 	
 	_app.require(startupRequires, function(){
-		_app.ext.quickstart.callbacks.startMyProgram.onSuccess();
+		_app.ext.quickstart.callbacks.startMyProgram.onSuccess();		
 		
-		//$.extend(handlePogs.prototype,_app.ext._store_formals.variations);
-		
-		//_app.ext._store_formals.u.runHeaderCarousel();
-		//_app.ext._store_formals.u.swipeMobileNav($(".mobileSlideMenu"));
-		//_app.ext._store_formals.u.runFooterCarousel();
-		
-		//make sure minicart stays up to date. 
-		//I know why you're doing this, but let's find a framework fix soon -mc
 		_app.ext._store_formals.vars.mcSetInterval = setInterval(function(){
 			_app.ext.quickstart.u.handleMinicartUpdate({'datapointer':'cartDetail|'+_app.model.fetchCartID()});
 		},4000);
