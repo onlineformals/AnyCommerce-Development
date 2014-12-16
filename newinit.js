@@ -1585,7 +1585,7 @@ _app.extend({
 	
 _app.couple('quickstart','addPageHandler',{
 	"pageType" : "category",
-	"require" : ['store_navcats','store_prodlist','prodlist_infinite','templates.html','store_routing','_store_banner','_store_filter','store_search','_store_formals'],
+	"require" : ['store_navcats','store_prodlist','prodlist_infinite','templates.html','store_routing','_store_banner','_store_filter','store_search','_store_formals','store_product'],
 	"handler" : function($container, infoObj, require){
 		infoObj.deferred = $.Deferred();
 		infoObj.defPipeline.addDeferred(infoObj.deferred);
