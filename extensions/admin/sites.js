@@ -43,7 +43,7 @@ used, but not pre-loaded.
 			init : {
 				onSuccess : function()	{
 					var r = false; //return false if extension won't load for some reason (account config, dependencies, etc).
-					_app.model.fetchNLoadTemplates(_app.vars.baseURL+'extensions/admin/sites.html',theseTemplates);
+					// _app.model.fetchNLoadTemplates(_app.vars.baseURL+'extensions/admin/sites.html',theseTemplates);
 					_app.rq.push(['css',0,_app.vars.baseURL+'extensions/admin/sites.css','sites_styles']);
 					//if there is any functionality required for this extension to load, put it here. such as a check for async google, the FB object, etc. return false if dependencies are not present. don't check for other extensions.
 					r = true;
