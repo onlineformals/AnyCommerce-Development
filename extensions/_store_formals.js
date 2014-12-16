@@ -413,7 +413,40 @@ var _store_formals = function (_app) {
 			checkouterrorclickblock : function() {
 				$(".checkoutClickBlocker").hide();
 				$(".checkoutClickBlockerText").hide();
+			},
+			
+			handleAppLoginCreate : function($form)        {
+				if($form)        {
+						var formObj = $form.serializeJSON();
+						
+						if(formObj.pass !== formObj.pass2) {
+								_app.u.throwMessage('Sorry, your passwords do not match! Please re-enter your password');
+								return;
+						}
+						
+						var tagObj = {
+								'callback':function(rd) {
+										if(_app.model.responseHasErrors(rd)) {
+												$form.anymessage({'message':rd});
+										}
+										else {
+												//showContent('customer',{'show':'myaccount'});
+												_app.u.throwMessage(_app.u.successMsgObject("Your account has been created. Please sign into your account to get started!"));
+										}
+								}
+						}
+						
+						formObj._vendor = "onlineformals";
+						//dump("formObj = ");
+						//dump(formObj);
+						_app.ext._store_formals.calls.appBuyerCreate.init(formObj,tagObj);
+						_app.model.dispatchThis('immutable');
+				}
+				else {
+						$('#globalMessaging').anymessage({'message':'$form not passed into store_account_creation.u.handleBuyerAccountCreate','gMessage':true});
+				}
 			}
+
 			
 			
 		},//END u FUNCTIONS
@@ -664,7 +697,8 @@ var _store_formals = function (_app) {
 			sizingchartmodal : function($ele,p) {
 				window.scrollTo(0,0); 
 				$('#SizingChartTemplate').dialog({'modal':'true', 'title':'','width':870, height:700, 'dialogClass' : 'SizingChartModal'});
-			},
+			}
+			
 		},
 		
 		tlcFormats : {

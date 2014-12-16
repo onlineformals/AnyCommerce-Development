@@ -10,7 +10,7 @@ _app.u.loadScript(configURI,function(){
 	_app.vars.domain = zGlobals.appSettings.sdomain; //passed in ajax requests.
 	_app.vars.jqurl = (document.location.protocol === 'file:') ? _app.vars.testURL+'jsonapi/' : '/jsonapi/';
 	
-	var startupRequires = ['quickstart','_store_formals','_store_filter','cco','store_product','order_create','prodlist_infinite','store_prodlist','store_account_creation']
+	var startupRequires = ['quickstart','_store_formals','_store_filter']
 	
 	_app.require(startupRequires, function(){
 		_app.ext.quickstart.callbacks.startMyProgram.onSuccess();		
@@ -1565,7 +1565,7 @@ _app.extend({
 	
 _app.couple('quickstart','addPageHandler',{
 	"pageType" : "homepage",
-	"require" : ['store_navcats','templates.html','store_routing','prodlist_infinite'],
+	"require" : ['store_navcats','templates.html','store_routing','store_prodlist','prodlist_infinite'],
 	"handler" : function($container, infoObj, require){
 		infoObj.deferred = $.Deferred();
 		infoObj.defPipeline.addDeferred(infoObj.deferred);

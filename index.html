@@ -121,7 +121,6 @@ END EXTENSIONS-->
 <!--CUSTOM SCRIPTS GO HERE
 <script data-apptimize="embed" type="text/javascript" src="extensions/seo_robots.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/_store_formals.js"></script>
-<script data-apptimize="embed" type="text/javascript" src="extensions/_store_banner.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/_store_filter.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/_store_backScrollPositionVTwo.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/store_account_creation.js"></script>
@@ -130,6 +129,9 @@ END CUSTOM SCRIPTS-->
 <!-- SCRIPTS -->
 <script data-apptimize="embed" type="text/javascript" src="app-quickstart.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/_store_formals.js"></script>
+<script data-apptimize="embed" type="text/javascript" src="extensions/_store_filters.js"></script>
+<script data-apptimize="embed" type="text/javascript" src="extensions/store_account_creation.js"></script>
+<script data-apptimize="embed" type="text/javascript" src="extensions/_store_banner.js"></script>
 
 <script data-apptimize="embed" type="text/javascript"  src="resources/jquery.showloading-v1.0.jt.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="resources/jquery.touchSwipe-1.3.3.min.js"></script>
@@ -167,7 +169,7 @@ $(document).ready(function(){
 	var paramStr = window.location.href.replace(window.location.hash, '').split('?')[1];
 	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 		window.myApp = new initApp({
-		"release":"201410.20141215153000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201410.20141215184500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
@@ -700,7 +702,7 @@ var _robots = {
 				Note&#58; Entering a name, e-mail address, and password will allow you to check your order status online and recall your customer 
 				information for future orders.
 			</p>
-			<form action='#' class='inputsAsBreaks'  onSubmit="myApp.ext.store_account_creation.u.handleAppLoginCreate($(this)); return false;">
+			<form action='#' class='inputsAsBreaks'  onSubmit="myApp.ext._store_formals.u.handleAppLoginCreate($(this)); return false;">
 				<!-- <form action="#" submit="return false;" class="inputsAsBreaks">  For testing form to prevent reload -->
 				<input type="hidden" name="_script" value="onlineformals"/>
 				<input type="hidden" name="form" value="wholesale" />
