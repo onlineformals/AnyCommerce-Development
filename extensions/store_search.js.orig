@@ -50,7 +50,7 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 */
 		appPublicProductSearch : {
 			init : function(obj,tagObj,Q)	{
-//				_app.u.dump("BEGIN _app.ext.store_search.calls.appPublicSearch");
+//				_app.u.dump("BEGIN _app.ext.store_search.calls.appPublicProductSearch");
 				var universalFilters = $.extend(true, [], _app.ext.store_search.vars.universalFilters);
 				if(universalFilters.length){
 					if(obj.filter){
@@ -75,11 +75,7 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 						//This is not going to end well, but let's let Elastic tell you that.
 						}
 					}
-<<<<<<< HEAD
 				this.dispatch(obj,tagObj,Q)
-=======
-				this.dispatch(P,tagObj,Q)
->>>>>>> upstream/201410
 				return 1;
 				},
 			dispatch : function(obj,tagObj,Q)	{
@@ -89,7 +85,7 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 //				_app.u.dump(obj);
 				_app.model.addDispatchToQ(obj,Q);
 				}
-			}, //appPublicSearch
+			}, //appPublicProductSearch
 
 //no local caching (fetch) of results yet. need to work with the new search a bit
 // to get a good handle on what datapointers should look like.
@@ -125,7 +121,7 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 			dispatch : function(obj,tagObj,Q)	{
 				obj['_cmd'] = "appPublicSearch";
 				obj['_tag'] = tagObj;
-//				_app.u.dump("BEGIN _app.ext.store_search.calls.appPublicSearch");
+//				_app.u.dump("BEGIN _app.ext.store_search.calls.appPublicProductSearch");
 //				_app.u.dump(obj);
 				_app.model.addDispatchToQ(obj,Q);
 				}
@@ -148,22 +144,14 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 //the callback is auto-executed as part of the extensions loading process.
 		init : {
 			onSuccess : function()	{
-<<<<<<< HEAD
-//				_app.u.dump('BEGIN _app.ext.store_navcats.init.onSuccess ');
-=======
 //				_app.u.dump('BEGIN _app.ext.store_search.init.onSuccess ');
->>>>>>> upstream/201410
 				var r = true; //return false if extension won't load for some reason (account config, dependencies, etc).
 				return r;
 				},
 			onError : function()	{
 //errors will get reported for this callback as part of the extensions loading.  This is here for extra error handling purposes.
 //you may or may not need it.
-<<<<<<< HEAD
-				_app.u.dump('BEGIN _app.ext.store_navcats.callbacks.init.onError');
-=======
 				_app.u.dump('BEGIN _app.ext.store_search.callbacks.init.onError');
->>>>>>> upstream/201410
 				}
 			},
 
@@ -293,10 +281,26 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 								"functions" : [
 									{
 										"filter" : {"query" : {"query_string":{"query":'"'+infoObj.KEYWORDS+'"'}}},
-										"script_score" : {"script":"10"}
+<<<<<<< HEAD
+										// "script_score" : {"script":"10"}
+										"script_score" : {
+											"script" : "constant",
+											"params":{
+												"constant" : 10
+												}
+											}
+ 										}
+ 									],
+								"boost_mode" : "sum"
+=======
+										"script_score" : {
+											"script":"constant",
+											"params":{"constant":10}
+											},
 										}
 									],
 								"boost_mode" : "sum",
+>>>>>>> upstream/201411
 								}
 							}
 						});
@@ -313,7 +317,7 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 				
 				var $list = $('[data-app-role="resultsContainer"]', $page);
 				_app.ext.store_search.u.updateDataOnListElement($list,elasticsearch,1);
-				_app.ext.store_search.calls.appPublicSearch.init(elasticsearch,$.extend(true,{},infoObj,{'callback':'handleInfiniteElasticResults', 'emptyList':true,'datapointer':"appPublicSearch|"+JSON.stringify(elasticsearch),'extension':'prodlist_infinite','templateID':'productListTemplateResults','list':$('#resultsProductListContainer')}));
+				_app.ext.store_search.calls.appPublicSearch.init(elasticsearch,$.extend(true,{},infoObj,{'callback':'handleInfiniteElasticResults', 'emptyList':true,'datapointer':"appPublicSearch|"+JSON.stringify(elasticsearch),'extension':'prodlist_infinite','templateID':'productListTemplateResults','list':$list}));
 				_app.model.dispatchThis();
 				infoObj.state = 'complete'; //needed for handleTemplateEvents.
 				_app.renderFunctions.handleTemplateEvents($page,infoObj);

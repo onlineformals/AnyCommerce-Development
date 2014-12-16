@@ -64,7 +64,7 @@ var admin_customer = function(_app) {
 			onSuccess : function()	{
 				var r = true; //return false if extension won't load for some reason (account config, dependencies, etc).
 
-				_app.model.fetchNLoadTemplates(_app.vars.baseURL+'extensions/admin/customer.html',theseTemplates);
+				// _app.model.fetchNLoadTemplates(_app.vars.baseURL+'extensions/admin/customer.html',theseTemplates);
 //				_app.rq.push(['css',0,_app.vars.baseURL+'extensions/admin/customer.css','user_styles']);
 
 				var $modal = $("<div \/>",{'id':'customerUpdateModal'}).appendTo('body'); //used for various update/add features.
