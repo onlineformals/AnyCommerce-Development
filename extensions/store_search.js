@@ -282,9 +282,8 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 									{
 										"filter" : {"query" : {"query_string":{"query":'"'+infoObj.KEYWORDS+'"'}}},
 										"script_score" : {
-											"script":"constant",
-											"params":{"constant":10}
-											},
+											"script" : "constant",
+											"params":{
 												"constant" : 10
 												}
 											}

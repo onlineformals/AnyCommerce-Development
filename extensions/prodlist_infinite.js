@@ -73,12 +73,7 @@ var prodlist_infinite = function(_app) {
 				var EQ = $list.data('elastic-query');
 				if($list && $list.length)	{
 					var totalPages = Math.ceil( _app.data[_rtag.datapointer].hits.total / EQ.size);
-					// dump(totalPages);
 					$list.data('total-page-count', totalPages);
-					// dump($list.attr('data-total-page-count'));
-					// dump(_app.data[_rtag.datapointer].hits.total);
-					// dump(EQ.size);
-					// dump(Math.ceil( _app.data[_rtag.datapointer].hits.total / EQ.size));
 					if(_rtag.emptyList){
 						$list.intervaledEmpty();
 						}
