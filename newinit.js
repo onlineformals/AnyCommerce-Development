@@ -1240,8 +1240,8 @@ _app.extend({
 	"filename" : "extensions/_store_formals.js"
 	});
 _app.extend({
-	"namespace" : "__store_filter",
-	"filename" : "extensions/__store_filter.js"
+	"namespace" : "_store_filter",
+	"filename" : "extensions/_store_filter.js"
 	});
 	
 _app.u.bindTemplateEvent('homepageTemplate', 'depart.pageinit',function(event,$context,infoObj) {
