@@ -1,5 +1,4 @@
 [
-
 // rewrite legacy vstore cart and session id's out of path
 { "type":"path", "if":"/c=.*?/(.*)", "then#redirect":"/$1" },
 { "type":"path", "if":"/s=.*?/(.*)", "then#redirect":"/$1" },

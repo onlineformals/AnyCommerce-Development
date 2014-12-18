@@ -278,11 +278,11 @@ var _store_formals = function (_app) {
 			},
 			
 			sizingChartModalScrollTop : function() {
-				$("#SizingChartTemplate").animate({scrollTop: 0}, 600);
+				$(".modalPrerender").animate({scrollTop: 0}, 600);
 			},
 			
 			sizingChartModalScrollToChart : function(chartLoc) {
-				$("#SizingChartTemplate").animate({scrollTop: chartLoc}, 600);
+				$(".modalPrerender").animate({scrollTop: chartLoc}, 600);
 			},
 			
 			loginFrmSubmit : function(email,password,errorDiv)        {
@@ -695,8 +695,10 @@ var _store_formals = function (_app) {
 				},
 				
 			sizingchartmodal : function($ele,p) {
+				var $parent = $(".modalPrerender");
+				$parent.empty().tlc({verb:"transmogrify", templateid:"SizingChartTemplate"});
 				window.scrollTo(0,0); 
-				$('#SizingChartTemplate').dialog({'modal':'true', 'title':'','width':870, height:700, 'dialogClass' : 'SizingChartModal'});
+				$parent.dialog({'modal':'true', 'title':'','width':870, height:700, 'dialogClass' : 'SizingChartModal'});
 			}
 			
 		},
