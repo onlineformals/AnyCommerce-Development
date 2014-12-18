@@ -768,11 +768,19 @@ _app.u.bindTemplateEvent('categoryProductListTemplate', 'complete.pageinit',func
 	
 	//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 	
+	_app.ext._store_filter.u.startFilterSearch($context,infoObj);
+	
+	/*
 	_app.ext._store_filter.catPageID = $(_app.u.jqSelector('#',infoObj.navcat));  
 	
 	_app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
 	if(_app.ext._store_filter.filterMap[infoObj.navcat])	{
 		_app.u.dump(" -> safe id DOES have a filter.");
+		
+		var $formContainer = $("[data-filter-forms='search']");
+		if($("[name='"+_app.ext.store_filter.filterMap[infoObj.navcat].filter+"']",$formContainer).length) {}
+		else { $formContainer.empty().tlc({verb:"transmogrify", templateid:"appFiltersTemplate"}); }
+
 
 		var $page = $context;
 		_app.u.dump(" -> $page.length: "+$page.length);
@@ -822,6 +830,7 @@ _app.u.bindTemplateEvent('categoryProductListTemplate', 'complete.pageinit',func
 			$(".nativeProductList", $context).show(); 
 			$(".searchFilterResults", $context).hide();    
 		});
+		*/
 		
 		//**ADD ID/FOR VALUES FOR CHECKBOX VISUAL MODIFIER**
 		/*

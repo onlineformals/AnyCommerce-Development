@@ -1164,7 +1164,74 @@ return filters;
 						}
 					});
 				$( ".sliderValue",$form ).val( "$" + $( ".slider-range" ).slider( "values", 0 ) + " - $" + $( ".slider-range" ).slider( "values", 1 ) );
-				} //renderSlider
+				}, //renderSlider
+				
+			
+			
+			startFilterSearch : function($context,infoObj) {
+				_app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
+				if(_app.ext._store_filter.filterMap[infoObj.navcat])	{
+					_app.u.dump(" -> safe id DOES have a filter.");
+					dump(infoObj);
+
+					//check if the filter form exists in the container, if yes move along, re-render if not. was done this way 
+					//because all forms but the one on a page were getting nuked when the page was left, leaving only one form in the container. 
+					var $formContainer = $("[data-filter-forms='search']");
+					if($("[name='"+_app.ext._store_filter.filterMap[infoObj.navcat].filter+"']",$formContainer).length) {}
+					else { $formContainer.empty().tlc({verb:"transmogrify", templateid:"appFilters"}); 
+/*Delete when done testing*/					dump("Filter form container = ");
+/*Delete when done testing*/					dump($formContainer); 
+					}
+
+		//			var $page = $(_app.u.jqSelector('#',infoObj.parentID));
+					_app.u.dump(" -> $context.length: "+$context.length);
+					if($context.data('filterAdded'))	{_app.u.dump("filter exists skipping form add");} //filter is already added, don't add again.
+					else {
+						$context.attr('data-filterAdded',true)
+		// TODO : GET FILTERS OUT OF INDEX.HTML AND INTO TEMPLATES.HTML
+						var $form = $("[name='"+_app.ext._store_filter.filterMap[infoObj.navcat].filter+"']",'.appFilters').clone().appendTo($('.catProdListSidebar',$context));
+						$form.on('submit.filterSearch',function(event){
+							event.preventDefault()
+							_app.u.dump(" -> Filter form submitted.");
+							_app.ext._store_filter.a.execFilter($form,$context);
+								//put a hold on infinite product list and hide loadingBG for it
+							$context.find("[data-app-role='productList']").data('filtered',true);
+							$context.find("[data-app-role='infiniteProdlistLoadIndicator']").hide();
+						});
+
+						if(typeof _app.ext._store_filter.filterMap[infoObj.navcat].exec == 'function') {
+							_app.ext._store_filter.filterMap[infoObj.navcat].exec($form,infoObj)
+						}
+
+						//make all the checkboxes auto-submit the form.
+						$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+							$form.submit();  
+							//_app.u.dump("A filter checkbox was clicked.");
+							$("#resultsProductListContainer",$context).hide();  
+							
+							$group1 = $('.fsCheckbox',$context);
+							
+							if(($group1.filter(':checked').length === 0) && ($(".sliderValue",$context).val() == "$0 - $1000")){
+								//_app.u.dump("All checkboxes removed. Showing stock product list.");
+								$(".nativeProductList", $context).show(); 
+								$(".searchFilterResults", $context).hide(); 
+							}
+							else{
+								//_app.u.dump("Checkbox is active. Showing Search results.");
+								$(".nativeProductList", $context).hide(); 
+								$(".searchFilterResults", $context).show();  
+							}      
+						});
+					}
+				}
+					
+				//selector for reset button to reload page
+				$('.resetButton', $context).click(function(){
+					$('.fsCheckbox', $context).attr('checked', false);
+					$(".nativeProductList", $context).show(); 
+					$(".searchFilterResults", $context).hide();    
+				});
+			}
 
 			} //u
 
