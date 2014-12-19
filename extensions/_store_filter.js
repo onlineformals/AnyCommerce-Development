@@ -1178,9 +1178,7 @@ return filters;
 					//because all forms but the one on a page were getting nuked when the page was left, leaving only one form in the container. 
 					var $formContainer = $("[data-filter-forms='search']");
 					if($("[name='"+_app.ext._store_filter.filterMap[infoObj.navcat].filter+"']",$formContainer).length) {}
-					else { $formContainer.empty().tlc({verb:"transmogrify", templateid:"appFilters"}); 
-/*Delete when done testing*/					dump("Filter form container = ");
-/*Delete when done testing*/					dump($formContainer); 
+						else { $formContainer.empty().tlc({verb:"transmogrify", templateid:"appFilters"}); 
 					}
 
 		//			var $page = $(_app.u.jqSelector('#',infoObj.parentID));
