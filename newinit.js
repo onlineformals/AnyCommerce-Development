@@ -1149,19 +1149,7 @@ _app.u.bindTemplateEvent('checkoutTemplate', 'complete.pageinit',function(event,
 		$('.headerIE8WarningCont').data('messageShown',true).append();
 	}
 });
-_app.u.bindTemplateEvent('pageNotFoundTemplate', 'complete.pageinit',function(event,$context,infoObj){
-	//INTERNET EXPLORER WARNING MESSAGE
-	if($('.headerIE8WarningCont').data('messageShown')){
-	}
-	else{
-		$('.headerIE8WarningCont').data('messageShown',false);
-	}
-	if($('.headerIE8WarningCont').data('messageShown') === false)
-	{
-		$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8. We recommend upgrading to version 9 and above or using Firefox, Chrome, or Safari for a more enhanced shopping experience.'});	
-		$('.headerIE8WarningCont').data('messageShown',true).append();
-	}
-});
+
 
 
 _app.u.bindTemplateEvent('productTemplateQuickView', 'complete.pageinit',function(event,$context,infoObj){
