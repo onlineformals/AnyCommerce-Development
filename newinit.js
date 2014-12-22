@@ -153,7 +153,7 @@ _app.router.appendHash({'type':'exact','route':'/','callback':'homepage'});
 _app.router.addAlias('category',	function(routeObj){_app.ext.quickstart.a.newShowContent(routeObj.value,	$.extend({'pageType':'category'}, routeObj.params));});
 _app.router.appendHash({'type':'match','route':'/category/{{navcat}}*','callback':'category'});
 
-_app.router.addAlias('search',		function(routeObj){_app.ext.quickstart.a.showContent(routeObj.value,	$.extend({'pageType':'search','require':['quickstart','_store_formals','_store_filter','powerreviews_reviews','store_product']}, routeObj.params));});
+_app.router.addAlias('search',		function(routeObj){_app.ext.quickstart.a.newShowContent(routeObj.value,	$.extend({'pageType':'search','require':['quickstart','_store_formals','_store_filter','powerreviews_reviews','store_product']}, routeObj.params));});
 _app.router.appendHash({'type':'match','route':'/search/tag/{{tag}}*','callback':'search'});
 _app.router.appendHash({'type':'match','route':'/search/keywords/{{KEYWORDS}}*','callback':'search'});
 
