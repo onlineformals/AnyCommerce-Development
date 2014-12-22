@@ -3253,7 +3253,7 @@ margin-top:10px;
 /***********************************************************************************************************************************/
 /*****404 TEMPLATE****/
 
-.searchButton{
+.productSearchForm input.searchButton{
 	background-color: #E61652;
     border: medium none;
     color: white;
@@ -3289,7 +3289,7 @@ margin-top:10px;
 .pageNotFoundTemplate form.productSearchForm{
 	margin-left: auto;
     margin-right: auto;
-    width: 230px;
+    width: 270px;
 }
 
 
