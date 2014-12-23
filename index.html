@@ -18,9 +18,7 @@
 
 <meta name="description" content="Shop for your prom or cocktail dress online or by appointment in our Virginia Beach store. We are an authorized retailer and offer worldwide shipping." >
 
-<meta name="msvalidate.01" content="7EE836C1CB26BEE30DD9DDFFDB833736" />
-
-<script data-apptimize="minify" type="text/javascript">
+<script type="text/javascript">
 var myCreole, baseURL;
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -57,7 +55,6 @@ all css includes need to be after the js that changes the base url.
 css files should be included before any .js file to ensure they are downloaded in parallel
 -->
 <link data-apptimize="embed" rel="stylesheet" type="text/css" href="app-quickstart.css" />
-<!-- <link data-apptimize="embed" rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/ui-lightness/jquery-ui.css" /> -->
 <link rel="stylesheet" type="text/css" href="jquery-ui-1.10.3.custom/css/Online-Formals/jquery-ui-1.10.3.custom.css" />
 <link data-apptimize="embed" rel="stylesheet" type="text/css" href="_formals_css.css" />
 <link data-apptimize="embed" href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css' />
@@ -66,20 +63,6 @@ css files should be included before any .js file to ensure they are downloaded i
 -->
 <link rel="SHORTCUT ICON" href="app-favicon.ico" />
 <link rel="ICON" href="app-favicon.ico" />
-
-<!--CUSTOM INLINE STYLING FOR IE8's RETARDEDNESS-->
-<!--[if IE 8]>
-    <style type="text/css">
-        
-        .dropdownLinkContainer{
-            margin-left: 29px;
-        }
-
-        .navBarDesigner{
-            margin-left: 8px;
-        }
-    </style>
-<![endif]-->
 
 
 <!-- jquery and jquery ui are pivotal to the functionality of the app. load them early -->
@@ -165,26 +148,25 @@ $.PromisePipeline = function(){
 }
 </script>
 
-<script data-apptimize="minify" type="text/javascript">
+<script type="text/javascript">
 $(document).ready(function(){
 	var paramStr = window.location.href.replace(window.location.hash, '').split('?')[1];
 	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 		window.myApp = new initApp({
-		"release":"201411.20141222184800",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
-		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
-		"baseURL":baseURL, //used in non-local mode.
-		"checkoutAuthMode" : "active",//can be passive, active or required
-		"testURL":"http://www.onlineformals.com/", //used ONLY if protocol is file: (for testing)
-		"addjQueryPointer" : true,
-		"analyticsPointer" : "ga"
-		
-					});
-		myApp.u.loadScript('newinit.js?_v='+new Date().getTime());
-		myCreole = new Parse.Simple.Creole();
-				$('#appversion').text(myApp.vars.release);
-				}
+			"release":"201410.20141222185500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+			"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
+			"baseURL":baseURL, //used in non-local mode.
+			"checkoutAuthMode" : "active",//can be passive, active or required
+			"testURL":"http://www.onlineformals.com/", //used ONLY if protocol is file: (for testing)
+			"addjQueryPointer" : true,
+			"analyticsPointer" : "ga"
 			});
-		
+		myCreole = new Parse.Simple.Creole();
+		myApp.u.loadScript('newinit.js?_v='+new Date().getTime());
+		$('#appversion').text(myApp.vars.release);		
+		}
+	});
+
 </script>
 
 <script data-apptimize="minify" type="text/javascript">
@@ -521,8 +503,10 @@ var _robots = {
 	<div id='globalMessaging' class='appMessaging'></div><!-- DO NOT REMOVE - used for some high level error handling (usually appears below breadcrumb nav or top bar) -->
 	<!-- These add specific functionality for the app. In most cases, you want to leave them alone. -->
 
-	<div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
 
+<!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
+<div id='mainContentArea'>
+	<div class="alignCenter"><img src="loading.gif"/></div>
 <footer class="footer">
 	<div class="footerNewsletterBar">
 		<div class="centeringContainer">
