@@ -50,7 +50,7 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 */
 		appPublicProductSearch : {
 			init : function(obj,tagObj,Q)	{
-//				_app.u.dump("BEGIN _app.ext.store_search.calls.appPublicProductSearch");
+//				_app.u.dump("BEGIN _app.ext.store_search.calls.appPublicSearch");
 				var universalFilters = $.extend(true, [], _app.ext.store_search.vars.universalFilters);
 				if(universalFilters.length){
 					if(obj.filter){
@@ -85,7 +85,7 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 //				_app.u.dump(obj);
 				_app.model.addDispatchToQ(obj,Q);
 				}
-			}, //appPublicProductSearch
+			}, //appPublicSearch
 
 //no local caching (fetch) of results yet. need to work with the new search a bit
 // to get a good handle on what datapointers should look like.
@@ -121,7 +121,7 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 			dispatch : function(obj,tagObj,Q)	{
 				obj['_cmd'] = "appPublicSearch";
 				obj['_tag'] = tagObj;
-//				_app.u.dump("BEGIN _app.ext.store_search.calls.appPublicProductSearch");
+//				_app.u.dump("BEGIN _app.ext.store_search.calls.appPublicSearch");
 //				_app.u.dump(obj);
 				_app.model.addDispatchToQ(obj,Q);
 				}
@@ -281,16 +281,13 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 								"functions" : [
 									{
 										"filter" : {"query" : {"query_string":{"query":'"'+infoObj.KEYWORDS+'"'}}},
-										// "script_score" : {"script":"10"}
 										"script_score" : {
-											"script" : "constant",
-											"params":{
-												"constant" : 10
-												}
-											}
- 										}
- 									],
-								"boost_mode" : "sum"
+											"script":"constant",
+											"params":{"constant":10}
+											},
+										}
+									],
+								"boost_mode" : "sum",
 								}
 							}
 						});

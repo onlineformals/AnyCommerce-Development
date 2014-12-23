@@ -65,7 +65,8 @@ function controller(_app)	{
 		_app.vars.fbUser = {};
 
 //used in conjunction with support/admin login. nukes entire local cache.
-		if(_app.u.getParameterByName('flush') == 1)	{
+		if(_app.u.getParameterByName('flush') == 1 || 
+			(_app.vars.thisSessionIsAdmin && document.location.protocol == "file:"))	{
 			_app.u.dump(" !!! Flush is enabled. session and local storage get nuked !!!");
 			if($.support.sessionStorage)	{
 				window.sessionStorage.clear();
@@ -995,7 +996,7 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 					uriParams : _app.router.getURIParams(),
 					hashParams : (location.hash.indexOf('?') >= 0 ? _app.u.kvp2Array(decodeURIComponent(location.hash.split("?")[1])) : {})
 					});
-				var routeObj = _app.router._getRouteObj(document.location.href,'init'); //strips out the / and trailing slash, if present.
+				var routeObj = _app.router._getRouteObj(document.location.href,'init'); //strips out the #! and trailing slash, if present.
 				if(routeObj)	{
 					_app.router._executeCallback(routeObj);
 					}
@@ -1041,7 +1042,11 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 				}
 			},
 		
-		handleURIChange : function(uri, search, hash, skipPush, forcedParams){
+		handleURIChange : function(uri, search, hash, windowHistoryAction, forcedParams){
+			//default to pushstate
+			if(typeof windowHistoryAction == 'undefined'){
+				windowHistoryAction = 'push';
+				}
 			console.log('handleURIChange');
 			var routeObj = _app.router._getRouteObj(uri, 'hash');
 			if(routeObj) {
@@ -1055,13 +1060,27 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 				if(hash){
 					routeObj.urihash = hash;
 					}
+				routeObj.path = uri;
+				routeObj.search = search;
+				routeObj.hash = hash;
 				routeObj.value = uri +""+ (search || "") +""+ (hash || "");
-				if(!skipPush){
-					try{
-						window.history.pushState(routeObj.value, "", routeObj.value);
+				try{
+					if(windowHistoryAction == 'push'){
+						window.history.pushState(routeObj.value,"",routeObj.value);
 						}
-					catch(e){
-						//dump(e);
+					else if (windowHistoryAction == 'replace'){
+						window.history.replaceState(routeObj.value,"",routeObj.value);
+						}
+					else if (windowHistoryAction == 'hash'){
+						window.history.pushState(routeObj.value, "", window.location.pathname+"#!"+routeObj.value);
+						}
+					else {
+						//skip
+						}
+					}
+				catch(e){
+					if(windowHistoryAction == 'hash'){
+						window.location.hash = "#!"+routeObj.value;
 						}
 					}
 				_app.router._executeCallback(routeObj);
@@ -1072,7 +1091,7 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 				}
 			return false;
 			},
-		handleURIString : function(uriStr, skipPush, forcedParams){
+		handleURIString : function(uriStr, windowHistoryAction, forcedParams){
 			var a = document.createElement('a');
 			a.href = "http://www.domain.com"+uriStr;
 			var path = a.pathname;
@@ -1081,7 +1100,7 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 			console.log(path);
 			console.log(search);
 			console.log(hash);
-			this.handleURIChange(path,search,hash,skipPush,forcedParams);
+			this.handleURIChange(path,search,hash,windowHistoryAction,forcedParams);
 			}
 		},
 
@@ -1710,6 +1729,7 @@ window.frames["printContainerIframe"].print();
 	//				_app.u.dump(" -> msg: "); _app.u.dump(msg);
 					if(msg._rtag && msg._rtag.jqObj)	{$target = msg._rtag.jqObj}
 					else if(msg.parentID){$target = $(_app.u.jqSelector('#',msg.parentID));}
+					else if(msg.jqObj){$target = msg.jqObj;}
 					else if(msg._rtag && (msg._rtag.parentID || msg._rtag.targetID || msg._rtag.selector))	{
 						if(msg._rtag.parentID)	{$target = $(_app.u.jqSelector('#',msg._rtag.parentID))}
 						else if(msg._rtag.targetID)	{$target = $(_app.u.jqSelector('#',msg._rtag.targetID))}

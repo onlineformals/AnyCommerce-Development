@@ -73,7 +73,7 @@ var admin_prodedit = function(_app) {
 				onSuccess : function()	{
 					var r = true; //return false if extension won't load for some reason (account config, dependencies, etc).
 					_app.rq.push(['css',0,_app.vars.baseURL+'extensions/admin/product_editor.css','product_editor_styles']);
-					_app.model.fetchNLoadTemplates(_app.vars.baseURL+'extensions/admin/product_editor.html',theseTemplates);
+					// _app.model.fetchNLoadTemplates(_app.vars.baseURL+'extensions/admin/product_editor.html',theseTemplates);
 	//				window.savePanel = _app.ext.admin.a.saveProductPanel; //for product editor. odd. this function doesn't exist. commented out by JT on 2012-11-27
 
 					return r;
@@ -3082,7 +3082,7 @@ function type2class(type)	{
 
 			webPageEditor : function($ele,p)	{
 				var pid = $ele.closest("[data-pid]").data('pid');
-				if(pid)	{navigateTo('//biz/vstore/builder/index.cgi?ACTION=INITEDIT&FORMAT=PRODUCT&FS=P&SKU='+pid);}
+				if(pid)	{navigateTo('/biz/vstore/builder/index.cgi?ACTION=INITEDIT&FORMAT=PRODUCT&FS=P&SKU='+pid);}
 				else	{_app.u.throwGMessage("In admin_prodedit.uiActions.webPageEditor, unable to determine pid.");}
 				}, //webPageEditor
 

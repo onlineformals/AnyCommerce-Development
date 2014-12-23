@@ -23,7 +23,7 @@ QUERIES.  It can get a little hairy, which is why this guide is here!  For detai
 the elasticsearch api: http://elasticsearch.org.
 
 If you come up with a crazy awesome elastic search of epicness, please let us know at the AnyCommerce
-Google Group : https://groups.google.com/forum//forum/anycommerce-app-development
+Google Group : https://groups.google.com/forum/#!forum/anycommerce-app-development
 
 *************************************************************************************************/
 

@@ -455,7 +455,6 @@ This is used to get add an array of skus, most likely for a product list.
 								'cancel' : function(event){
 									event.preventDefault();
 									$(this).dialog('close');
-									_app.router.handleURIChange('/my_account/');
 									},
 								'save' : function(event,ui) {
 									event.preventDefault();
@@ -493,9 +492,8 @@ This is used to get add an array of skus, most likely for a product list.
 									
 									}
 								},
-							close : function(event, ui) {$(this).dialog('destroy').remove();_app.router.handleURIChange('/my_account/');}
+							close : function(event, ui) {$(this).dialog('destroy').remove()}
 							});
-							_app.router.handleURIChange('/my_account/');
 //* 201342 -> used in checkout (or potentailly any editor) to immediately highlight any invalid fields (useful in 'edit' as opposed to 'create' address)
 							if(vars.validateForm)	{
 								_app.u.validateForm($editor);
@@ -599,7 +597,7 @@ This is used to get add an array of skus, most likely for a product list.
 								
 								}
 							},
-						close : function(event, ui) {$(this).dialog('destroy').remove();_app.router.handleURIChange('/my_account/');}
+						close : function(event, ui) {$(this).dialog('destroy').remove()}
 						});
 
 					}

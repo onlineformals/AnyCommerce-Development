@@ -81,7 +81,7 @@ var admin_config = function(_app) {
 			onSuccess : function()	{
 				var r = false; //return false if extension won't load for some reason (account config, dependencies, etc).
 //the list of templates in theseTemplate intentionally has a lot of the templates left off.  This was done intentionally to keep the memory footprint low. They'll get loaded on the fly if/when they are needed.
-				_app.model.fetchNLoadTemplates(_app.vars.baseURL+'extensions/admin/config.html',theseTemplates);
+				// _app.model.fetchNLoadTemplates(_app.vars.baseURL+'extensions/admin/config.html',theseTemplates);
 				r = true;
 
 				return r;
@@ -1039,7 +1039,7 @@ when an event type is changed, all the event types are dropped, then re-added.
 						.find(".applyDatepicker").datetimepicker({
 							changeMonth: true,
 							dateFormat : 'yymmdd',
-							timeFormat: 'hhmmss',
+							timeFormat: 'HHmmss',
 							changeYear: true,
 							separator : '' //get rid of space between date and time.
 							})
@@ -1069,7 +1069,7 @@ when an event type is changed, all the event types are dropped, then re-added.
 				$( ".applyDatepicker",$D).datetimepicker({
 						changeMonth: true,
 						dateFormat : 'yymmdd',
-						timeFormat: 'hhmmss',
+						timeFormat: 'HHmmss',
 						changeYear: true,
 						separator : '' //get rid of space between date and time.
 						});
