@@ -10,7 +10,7 @@ _app.u.loadScript(configURI,function(){
 	_app.vars.domain = zGlobals.appSettings.sdomain; //passed in ajax requests.
 	_app.vars.jqurl = (document.location.protocol === 'file:') ? _app.vars.testURL+'jsonapi/' : '/jsonapi/';
 	
-	var startupRequires = ['quickstart'];
+	var startupRequires = ['quickstart','_store_formals','_store_filter'];
 	
 	_app.require(startupRequires, function(){
 		setTimeout(function(){$('#appView').removeClass('initFooter');}, 1200);
@@ -411,6 +411,15 @@ _app.u.bindTemplateEvent(function(){return true;}, 'complete.scrollrestore',func
 _app.u.bindTemplateEvent(function(){return true;}, 'depart.scrollrestore', function(event, $context, infoObj){
 	var scroll = $('html').scrollTop()
 	$context.data('scroll-restore',scroll);
+	});
+	
+_app.extend({
+	"namespace" : "_store_formals",
+	"filename" : "extensions/_store_formals.js"
+	});
+_app.extend({
+	"namespace" : "_store_filter",
+	"filename" : "extensions/_store_filter.js"
 	});
 
 // _app.u.bindTemplateEvent('productTemplate', 'complete.invcheck',function(event, $context, infoObj){
