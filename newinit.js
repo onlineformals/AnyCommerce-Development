@@ -537,7 +537,7 @@ _app.u.bindTemplateEvent('homepageTemplate', 'complete.pageinit',function(event,
 		next : ".nextHPBannerCaro"
 	});
 	}
-	setTimeout(carouselHPBanner, 500);
+	setTimeout(carouselHPBanner, 1000);
 	
 	//Carousel title bar - homepage product lists
 	function carouselHPProductListTitle(){ $(".hpProductListTitleCarousel", $context).carouFredSel
@@ -555,7 +555,7 @@ _app.u.bindTemplateEvent('homepageTemplate', 'complete.pageinit',function(event,
 		//pagination  : ".hpProductListPag"
 	});
 	}
-	setTimeout(carouselHPProductListTitle, 500);
+	setTimeout(carouselHPProductListTitle, 1000);
 	
 	//Carousel Content bar - homepage product lists
 	function carouselHPProductList(){ $(".hpProductListCarouselContainer",$context).carouFredSel
@@ -570,7 +570,7 @@ _app.u.bindTemplateEvent('homepageTemplate', 'complete.pageinit',function(event,
 	//$(".loadingBG", ".hpProductListCarouselContainer").remove();
 	//_app.u.dump("loadingBG has been removed from bottom carousel");
 	
-	setTimeout(carouselHPProductList, 500);
+	setTimeout(carouselHPProductList, 1000);
 	
 	$(".hpProductListNext", $context).click(function() {
 		$(".hpProductListTitleCarousel", $context).trigger("next");
