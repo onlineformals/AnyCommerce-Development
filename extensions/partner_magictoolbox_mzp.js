@@ -26,7 +26,7 @@ To add powerReviews, do the following:
 #1) In the <head> section of your index.html file, add includes for magiczoomplus .js and .css
 #2) set format: magicZoomPlus; extension: magictoolbox; on an img tag. the var should be set to prod_imageX where X is an integer.
 
-EX: <img src='images/blank.gif' data-bind='var: product(zoovy:prod_image1); format:magicZoomPlus; extension:magicToolBox_mzp;' width='335' height='375' />
+EX: <img src='Images/blank.gif' data-bind='var: product(zoovy:prod_image1); format:magicZoomPlus; extension:magicToolBox_mzp;' width='335' height='375' />
 
 
 */
