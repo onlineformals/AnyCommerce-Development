@@ -530,13 +530,13 @@ need to be customized on a per-ria basis.
 2. Puts control of this into custom page transitions.
 */
 
-				$o.fadeOut(1000, function(){
-					$n.fadeIn(1000); 
+				$o.fadeOut(0, function(){
+					$n.fadeIn(0); 
 					callback();
 					}); //fade out old, fade in new.
 				}
 			else if($n instanceof jQuery)	{
-				$n.fadeIn(1000);
+				$n.fadeIn(0);
 				callback();
 				}
 			else	{
