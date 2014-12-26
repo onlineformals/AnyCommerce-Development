@@ -1,19 +1,192 @@
-<!--
-the homepageTemplate template is loaded into mainContentArea by default when the application loads
--->
-<div id="homepageTemplate" class="homeTemplate">
+	<span class="displayNone" data-seo-title="Prom Dresses Online | Sherri Hill | La Femme | Tony Bowls"></span>
+	<span class="displayNone" data-seo-desc="Shop for your prom or cocktail dress online or by appointment in our Virginia Beach store. We are an authorized retailer and offer worldwide shipping."></span>
+
 	
-	<ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList"></ul>
+    <div class="centeringContainer">
+	
+	
 
-	<ul data-tlc="bind $var '.@products'; store_prodlist#productlist  --hideSummary='1' --withReviews='1' --withVariations='1' --withInventory='1' --templateid='productListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin productList"></ul>
+	
+	
+<!--
+/******************************************************************************************************************************************************************/
+/******************************************************************************************************************************************************************/
+THIS AREA IS WHERE THE HOMEPAGE TOP SKINNY AD BAR CAN BE CHANGED. PLEASE ONLY MODIFY THE showContent('category',{'navcat':''}) FOR THE LINK AND 
+src="Images/Homepage/topbanner/testbanner.png" FOR THE IMAGE FILE.
+/******************************************************************************************************************************************************************/
+/******************************************************************************************************************************************************************/ 
+-->       	
+		<div class="homepageBannerContainer">
+        	<!--Remove the overflow hidden style when installing the new banner*/-->
+            <a class="pointer" ><img  src="Images/Homepage/topbanner/topbanner.png" alt="" /></a> <!--onClick="return showContent('category',{'navcat':''});"-->
+        </div>
+<!--
+/******************************************************************************************************************************************************************/
+/******************************************************************************************************************************************************************/
+END HOMEPAGE TOP SKINNY AD BAR SECTION
+/******************************************************************************************************************************************************************/
+/******************************************************************************************************************************************************************/
+-->
+        
+		
+		
+		
+		
+		
+		
+		
+<!--
+/******************************************************************************************************************************************************************/
+/******************************************************************************************************************************************************************/
+THIS AREA IS WHERE THE HOMEPAGE CAROUSEL CAN BE CHANGED. PLEASE ONLY MODIFY THE showContent('category',{'navcat':''}) FOR THE LINK AND 
+src="Images/Homepage/carousel/testbanner-1.png" FOR THE IMAGE FILE.
+/******************************************************************************************************************************************************************/
+/******************************************************************************************************************************************************************/ 
+-->   
+		<div class="homepageCarouselContainer">
+            <ul class="carouselHPBannerList">
+        <li><a class="pointer" href="/category/prom.designers.sherri_hill"><img  src="Images/Homepage/carousel/sherrihill15.png" alt="" /></a></li>	
+		<li><a class="pointer" href="/category/designers.mac_duggal"><img  src="Images/Homepage/carousel/macduggal15.png" alt="" /></a></li>	
+		<li><a class="pointer" href="/category/in_stock"><img  src="Images/Homepage/carousel/instocksummer.png" alt="" /></a></li>
+		<li><a class="pointer" href="/category/prom.sale"><img  src="Images/Homepage/carousel/salebanner.png" alt="" /></a></li>
+		<li><a class="pointer" href="/category/designers.scala"><img  src="Images/Homepage/carousel/scalabanner.png" alt="" /></a></li>
+		<li><a class="pointer" href="/category/designers.la_femme"><img  src="Images/Homepage/carousel/lafemmespring.png" alt="" /></a></li>
+		<li><a class="pointer" href="/category/designers.sherri_hill"><img  src="Images/Homepage/carousel/sherrispring.png" alt="" /></a></li>
+            </ul>
+            <img  class="prevHPBannerCaro" src="Images/Homepage/caroleft.png" alt="" />
+            <img  class="nextHPBannerCaro" src="Images/Homepage/caroright.png" alt="" />
+        </div>		
+<!--
+/******************************************************************************************************************************************************************/
+/******************************************************************************************************************************************************************/
+END HOMEPAGE CAROUSEL SECTION
+/******************************************************************************************************************************************************************/
+/******************************************************************************************************************************************************************/
+-->
 
-	<p data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
 
-	<ul data-tlc="quickstart#searchbytag --tag='IS_BESTSELLER' --title='Best Sellers' --size='8' --templateid='productListTemplateResultsNoPreview';" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 
-	<!--
-	<ul data-tlc="bind $var '.$listName.@products'; store_prodlist#productlist  --hideSummary='1' --withReviews='1' --withVariations='1' --withInventory='1' --templateid='productListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin productList"></ul>
-	-->
+
+<!--
+/******************************************************************************************************************************************************************/
+/******************************************************************************************************************************************************************/
+THIS AREA IS WHERE THE HOMEPAGE THREE WIDE AD BANNER BARS CAN BE CHANGED. PLEASE ONLY MODIFY THE showContent('category',{'navcat':''}) FOR THE LINK, 
+src="Images/Homepage/subcats/testchildren.png" FOR THE IMAGE FILE, AND <p class="homepageSubCatTitle">Children's</p> FOR THE AD TITLE.
+/******************************************************************************************************************************************************************/
+/******************************************************************************************************************************************************************/ 
+-->   
+        <div class="homepageSubCatListContainer">
+            <div class="homepageSubCatItemTop pointer">
+                <a href="/category/in_stock">
+                    <img  src="Images/Homepage/subcats/instock.png" alt="" />
+                    <div class="homepageSubCatTitleBar homepageSubCatTitleBar1">
+                        <p class="homepageSubCatTitle"></p>
+                    </div>
+                </a>
+            </div>
+            <div class="homepageSubCatItemTop pointer">
+            	<a href="/category/showroom">
+                    <img  src="Images/Homepage/subcats/showroom.png" alt="" />
+                    <div class="homepageSubCatTitleBar homepageSubCatTitleBar2">
+                        <p class="homepageSubCatTitle"></p>
+                    </div>
+                </a>
+            </div>
+            <div class="homepageSubCatItemTop pointer">
+            	<a href="/category/prom.trends.sequins">
+                    <img  src="Images/Homepage/subcats/sequins.png" alt="" />
+                    <div class="homepageSubCatTitleBar homepageSubCatTitleBar3">
+                        <p class="homepageSubCatTitle"></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+<!--
+/******************************************************************************************************************************************************************/
+/******************************************************************************************************************************************************************/
+END HOMEPAGE THREE WIDE AD BANNER BARS SECTION
+/******************************************************************************************************************************************************************/
+/******************************************************************************************************************************************************************/
+-->
+
+
+
+
+<!--
+/******************************************************************************************************************************************************************/
+/******************************************************************************************************************************************************************/
+THIS AREA IS WHERE THE HOMEPAGE FOUR TALL AD BANNER BARS CAN BE CHANGED. PLEASE ONLY MODIFY THE showContent('category',{'navcat':''}) FOR THE LINK, 
+src="Images/Homepage/categories/testprom.png" FOR THE IMAGE FILE, AND <p class="homepageCatTitle">Prom</p> FOR THE AD TITLE.
+/******************************************************************************************************************************************************************/
+/******************************************************************************************************************************************************************/ 
+-->
+        <div class="homepageCategoryListContainer">
+            <a class="homepageCategoryItemTop pointer" href="/category/prom"> <!--onMouseOver="myApp.ext._store_formals.a.homepageCategoryMouseOver($(this))" onMouseOut="myApp.ext._store_formals.a.homepageCategoryMouseOut($(this))"-->
+                <img  src="Images/Homepage/categories/prom.png" alt="" />
+                <div class="homepageCatTitleBar homepageCatTitleBar1">
+                    <p class="homepageCatTitle">Prom</p>
+                </div>
+            </a>
+            <a class="homepageCategoryItemTop pointer" href="/category/evening">
+                <img  src="Images/Homepage/categories/evening.png" alt="" />
+                <div class="homepageCatTitleBar homepageCatTitleBar2">
+                    <p class="homepageCatTitle">Evening</p>
+                </div>
+            </a>
+            <a class="homepageCategoryItemTop pointer" href="/category/cocktail">
+                <img  src="Images/Homepage/categories/cocktail.png" alt="" />
+                <div class="homepageCatTitleBar homepageCatTitleBar3">
+                    <p class="homepageCatTitle">Cocktail</p>
+                </div>
+            </a>
+            <a class="homepageCategoryItemTop pointer" href="/category/plus_size">
+                <img  src="Images/Homepage/categories/plus.png" alt="" />
+                <div class="homepageCatTitleBar homepageCatTitleBar4">
+                    <p class="homepageCatTitle">Plus Size</p>
+                </div>
+            </a>
+        </div>
+<!--
+/******************************************************************************************************************************************************************/
+/******************************************************************************************************************************************************************/
+END HOMEPAGE FOUR TALL AD BANNER BARS SECTION
+/******************************************************************************************************************************************************************/
+/******************************************************************************************************************************************************************/
+-->
+    </div>
+    
+    <div class="homepageProductListContainer">
+    	<div class="centeringContainer">
+            <div class="hpProductListTitleCarouselBar">
+                <ul class="hpProductListTitleCarousel">
+                	<li><h3>FEATURED STYLES</h3></li>
+                    <li><h3>BEST SELLERS</h3></li>
+                    <li><h3>NEW ARRIVALS</h3></li>
+                    <li><h3>CELEBRITY TRENDS</h3></li>
+                    <li><h3>NEW TO SALE</h3></li>
+                </ul>
+                <img  class="hpProductListPrev" src="Images/Homepage/caroleftsmall.png" alt="" />
+                <img  class="hpProductListNext" src="Images/Homepage/carorightsmall.png" alt="" />
+            </div>
+        </div>
+        <div class="hpProductListContentArea">
+        	<div class="centeringContainer">
+            	<div class="hpProductListCarouselArea">
+                	<div class="hpProductListCarouselContainer">
+                    	
+						
+						<ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_featured_products.@products'; prodlist_infinite#infiniteproductlist --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate' --legacy;"></ul>
+                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_best_sellers.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate' --legacy;"></ul>
+                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_-_new_arrivals.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate' --legacy;"></ul>
+                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_celebrity_trends.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate' --legacy;"></ul>
+                        <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.$app_new_to_sale.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate' --legacy;"></ul>
+					</div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+
 </div>
 
 
