@@ -18,9 +18,7 @@
 
 <meta name="description" content="Shop for your prom or cocktail dress online or by appointment in our Virginia Beach store. We are an authorized retailer and offer worldwide shipping." >
 
-<meta name="msvalidate.01" content="7EE836C1CB26BEE30DD9DDFFDB833736" />
-
-<script data-apptimize="minify" type="text/javascript">
+<script type="text/javascript">
 var myCreole, baseURL;
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -150,12 +148,12 @@ $.PromisePipeline = function(){
 }
 </script>
 
-<script data-apptimize="minify" type="text/javascript">
+<script type="text/javascript">
 $(document).ready(function(){
 	var paramStr = window.location.href.replace(window.location.hash, '').split('?')[1];
 	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 		window.myApp = new initApp({
-			"release":"201411.20141226130500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+			"release":"201411.20141226143000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 			"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 			"baseURL":baseURL, //used in non-local mode.
 			"checkoutAuthMode" : "active",//can be passive, active or required
@@ -163,11 +161,11 @@ $(document).ready(function(){
 			"addjQueryPointer" : true,
 			"analyticsPointer" : "ga"
 			});
-		myApp.u.loadScript('newinit.js?_v='+new Date().getTime());
 		myCreole = new Parse.Simple.Creole();
-				$('#appversion').text(myApp.vars.release);
-				}
-			});
+		myApp.u.loadScript('newinit.js?_v='+new Date().getTime());
+		$('#appversion').text(myApp.vars.release);		
+		}
+	});
 
 </script>
 
