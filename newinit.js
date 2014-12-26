@@ -585,7 +585,7 @@ _app.extend({
 		// }
 	// });
 	
-_app.rq.push(['script',0,'lightbox/js/lightbox-2.6.min.js']);
+//_app.rq.push(['script',0,'lightbox/js/lightbox-2.6.min.js']);
 
 _app.model.getGrammar("pegjs");
 
