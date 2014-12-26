@@ -205,25 +205,85 @@ each of the 'sections' are used to load another template. don't change the id.
 don't modify the 'data-templateid' unless you are changing template names and updating everywhere appropriate.
 -->
 <div id="categoryTemplate" class=" categoryTemplate">
-	<span class="displayNone" data-tlc="bind $title '.%page.page_title'; if(is $title --null;){{bind $title '.pretty';}}; if(is $title --blank;){{bind $title '.pretty';}}; bind $parent '.'; store_routing#seoanchor  --seo=$title; apply --attrib='data-canonical';"></span>
-	<span class="displayNone" data-tlc="bind $var '.%page.page_title'; if(is $var --null;){{bind $var '.pretty';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
-	<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description2';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
-	
-	<ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>
 
-	<img data-tlc="bind $var '.%page.banner1'; quickstart#banner  --height='250' --width='750' --legacy;" src="Images/blank.gif" alt="">
+	<div class="centeringContainer">
+	<span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
+	<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>	
+    <span class="displayNone" data-tlc="store_routing#seoanchor; apply --attrib='data-canonical';"></span>
+        <ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>
+        <div class="catTopCarousel">
+            <div class="carouselCPBannerList">
+            </div>
+            <img  class="prevCPBannerCaro" src="Images/Homepage/caroleft.png" alt="" />
+            <img  class="nextCPBannerCaro" src="Images/Homepage/caroright.png" alt="" />
+            <div class="catProdListCustomTextArea displayNone" data-tlc="bind $var '.%page.description'; if (is $var --notblank;){{apply --append;}};">
+                <h1 data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></h1>
+            </div>
+        </div>
+        
+        <ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList"></ul><!-- outputs a list of subcategories -->
+        
+        <div class="catCustomTextArea displayNone" data-tlc="bind $var '.%page.description'; if (is $var --notblank;){{apply --append;}};">
+            <h1 data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></h1>
+        </div>
+        
+         <div class="catBottomCarousel">         	
+            <div class="catProductListTitleCarouselBar displayNone" data-tlc="bind $var '.@products'; if (is $var --notblank;){{apply --append;}};">
+            	<h3>Featured Styles</h3>
+            </div>
+            <div class="catProductListContentArea">
+                <ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate' --legacy;"></ul>
+            </div>
+        </div>
+    </div>
+   
+</div>
 
-	<h2 data-tlc="bind $var '.%page.header'; if (is $var --notblank;) {{apply --append;}};"></h2>
-
-	<p data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
-
-	<ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList"></ul><!-- outputs a list of subcategories -->
-
-	<ul data-tlc="bind $var '.@products'; store_prodlist#productlist  --withReviews='1' --withInventory='1' --withVariations='1' --itemsperpage='25' --templateid='productListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin productList"></ul><!-- outputs the product list -->
-
-	<p data-tlc="bind $var '.%page.description2'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
 
 
+
+
+
+
+
+
+<div id='categoryProductListTemplate' class='categoryTemplate' data-app-role='categoryPage'>
+
+	<div class="centeringContainer">
+        <span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
+        <span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
+        <span class="displayNone" data-tlc="store_routing#seoanchor; apply --attrib='data-canonical';"></span>
+
+    	<div class="searchTab" title="Need help finding exactly the dress you want? Click the magnifying glass to narrow your results with our filtered search!">
+        	<img  onClick="myApp.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent());" src="Images/categorypage/filteredsearch/search_tab.png" alt="" />
+        	<p onClick="myApp.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent());">Narrow Your Search</p>
+        </div>
+    	<div class="catProdListSidebar">
+        	<!--
+            <img class="floatRight" onClick="myApp.ext._store_filter.a.catProdListFilterExpandContract($(this).parent().parent().parent());" src="Images/categorypage/filteredsearch/search_tab_open.png" />
+        	-->
+        </div>
+        <div class="catProdListContentArea"> 
+            <ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>
+            <div class="carouselCPBannerList">
+            </div>
+            <img  class="prevCPBannerCaroProdList" src="Images/Homepage/caroleft.png" alt="" />
+            <img  class="nextCPBannerCaroProdList" src="Images/Homepage/caroright.png" alt="" />
+            <div class="catProdListCustomTextArea displayNone" data-tlc="bind $var '.%page.description'; if (is $var --notblank;){{apply --append;}};">
+                <h1 data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></h1>
+            </div>
+
+            <div class="catProdListProductListCont">
+            	<div class="catGhostCell"></div>
+				<div class="nativeProductList productList">
+					<ul class='listStyleNone fluidList noPadOrMargin productList' data-tlc="bind $var '.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate'  --legacy;"></ul>
+            	</div>
+				<div class="searchFilterResults">
+					<ul class="searchFilterResults productList" data-app-role='productList'></ul>
+				</div>
+            </div>
+    	</div>    
+    </div>
 </div>
 
 

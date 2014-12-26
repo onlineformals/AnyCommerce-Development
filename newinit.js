@@ -633,10 +633,6 @@ _app.u.bindTemplateEvent('homepageTemplate', 'complete.pageinit',function(event,
 });
 
 
-_app.extend({
-	"namespace" : "_store_banner",
-	"filename" : "extensions/_store_banner.js"
-	});
 
 
 _app.u.bindTemplateEvent('categoryTemplate', 'complete.pageinit',function(event,$context,infoObj){
@@ -1243,6 +1239,11 @@ _app.extend({
 	"namespace" : "_store_filter",
 	"filename" : "extensions/_store_filter.js"
 	});
+_app.extend({
+	"namespace" : "_store_banner",
+	"filename" : "extensions/_store_banner.js"
+	});
+
 
 // _app.u.bindTemplateEvent('productTemplate', 'complete.invcheck',function(event, $context, infoObj){
 	// if(!$context.attr('data-invcheck')){
@@ -1296,7 +1297,7 @@ _app.couple('quickstart','addPageHandler',{
 	
 _app.couple('quickstart','addPageHandler',{
 	"pageType" : "category",
-	"require" : ['store_navcats','store_prodlist','prodlist_infinite','templates.html','store_routing'],
+	"require" : ['store_navcats','store_prodlist','prodlist_infinite','templates.html','store_routing','_store_banner'],
 	"handler" : function($container, infoObj, require){
 		infoObj.deferred = $.Deferred();
 		infoObj.defPipeline.addDeferred(infoObj.deferred);
