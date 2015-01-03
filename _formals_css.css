@@ -249,7 +249,7 @@ progress::-moz-progress-bar { background: #E61652; }
     border-top: 1px solid #999999;
     color: #B4B4B4;
     float: left;
-    height: 25px;
+    height: 25px !important;
     padding: 0 0 0 10px;
     width: 205px;
 	-webkit-appearance:none;
