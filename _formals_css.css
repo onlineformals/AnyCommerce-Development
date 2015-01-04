@@ -3195,6 +3195,14 @@ input[type=checkbox].filterCB:checked + label.break {
 /*****SHOWROOM TEMPLATE****/
 
 .showroomTemplate{
+	background-image:url(Images/Homepage/footer/showroombackdrop.jpg);
+	height: 930px;
+}
+.showroomTemplate div.centeringContainer{
+	background-color: rgba(245,245,245,0.6);
+	height: 890px;
+	padding:20px;
+	
 }
 .showroomTemplate h2{
 	text-align: center;
@@ -3217,6 +3225,9 @@ input[type=checkbox].filterCB:checked + label.break {
     margin-right: 60px;
     width: 45%;
 }
+.showroomTemplate div.showroomLeftSection p span{
+	font-style: italic;
+}
 .showroomLeftSection h2{
 	color: #E61652;
     font-size: 26px;
@@ -3233,6 +3244,7 @@ input[type=checkbox].filterCB:checked + label.break {
 }
 
 .showroomTemplate div.showroomRightSection{
+	float: right;
 }
 .showroomRightSection h2{
 	margin-bottom: 15px;
