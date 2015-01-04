@@ -534,6 +534,7 @@ progress::-moz-progress-bar { background: #E61652; }
 .footNewsSignupCont div#subscribeFrm div.userInfo div.subButton p{
 	margin: 0;
 	text-align: center;
+	padding-top: 4px;
 }
 
 .footNewsSignupCont div#subscribeFrm div.userInfo fieldset.subscriberLists{
