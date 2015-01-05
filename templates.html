@@ -549,7 +549,7 @@ this will likely become more flexible in the future. ###
 -->
 
 
-<div data-tlc="bind $var '.pid'; apply --attrib='data-pid';" id='productTemplate' class='productPage'>
+<div data-tlc="bind $var '.pid'; apply --attrib='data-pid';" id='productTemplate' class='productPageitemscope="itemscope" itemtype="http://schema.org/Product"'>
 
 	<div class="centeringContainer">
 	
@@ -658,17 +658,17 @@ this will likely become more flexible in the future. ###
             
             <div class="prodTempContentContainer">
                 <div class='prodSummaryContainer marginBottom no_underline'>
-                    <h1 data-tlc="bind $var '.%attribs.zoovy:prod_name'; apply --append;" property="name"></h1>
+                    <h1 data-tlc="bind $var '.%attribs.zoovy:prod_name'; apply --append;" itemprop="name"></h1>
                     
                     <img class="productAuthSeal" src="Images/productpage/authorizedseal2.png"  alt="" />
     
                     <div class='marginBottom'>
-                        <h5 class="productMfg displayNone" data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{ apply --show; }};">By: <a href='#' data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{apply --append; format --prepend='#!search/keywords/'; apply --attrib='href';}};"></a></h5>
+                        <h5 class="productMfg displayNone" data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{ apply --show; }};">By: <a href='#' data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{apply --append; format --prepend='#!search/keywords/'; apply --attrib='href';}};" itemprop="manufacturer"></a></h5>
                     </div>
     
-                    <div class='priceContainer marginBottom'>
-                        <div property="offers"  typeof="Offer">
-                            <h4 class="productPriceText" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{_store_formals#currencyprodlist --legacy; apply --append;}};" property="price"></h4>
+                    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                        <div class='priceContainer marginBottom'>
+                            <h4 class="productPriceText" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{_store_formals#currencyprodlist --legacy; apply --append;}};" itemprop="price"></h4>
                             <h5 class='prodTempProdMSRP prodMSRP' data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;) {{_store_formals#currencymsrp --legacy; apply --append;}};"></h5>
                             <div class="displayNone savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;)  {{_store_formals#showhidearea  --legacy}};">                	
                                <div data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --currencysign='$' --hidezero='true' --legacy;" class="savings"></div>
@@ -676,8 +676,8 @@ this will likely become more flexible in the future. ###
                                <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingspercentageprodlistitem  --legacy; apply --append;" class="savingsPercentage"></span>
                             </div>
                         </div>
+                        <div class="productDescriptionContainer" data-tlc="bind $var '.%attribs.zoovy:prod_desc'; if (is $var --notblank;) {{render --wiki='quickstart'; apply --append;}};" itemprop="description"></div>
                     </div>
-                    <div class="productDescriptionContainer" data-tlc="bind $var '.%attribs.zoovy:prod_desc'; if (is $var --notblank;) {{render --wiki='quickstart'; apply --append;}};" property="description"></div>
                     
                     <form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="inline">
                         <fieldset data-tlc="bind $var '.pid'; store_product#atcvariations  --legacy; apply --append;" class="borderNone variationsContainer"></fieldset>
