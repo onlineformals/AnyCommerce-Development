@@ -1217,15 +1217,15 @@ _app.u.bindTemplateEvent(function(){return true;}, 'complete.metainformation',fu
 _app.u.bindTemplateEvent(function(){return true;}, 'complete.scrollrestore',function(event, $context, infoObj){
 	var scroll = $context.data('scroll-restore');
 	if(scroll){
-		dump("Returning to already visited page. Returning to scroll position of: ");
-		dump(scroll);
-		dump($context.data('scroll-restore'));
+		//dump("Returning to already visited page. Returning to scroll position of: ");
+		//dump(scroll);
+		//dump($context.data('scroll-restore'));
 		$('html, body').animate({scrollTop : scroll}, 300);
 		}
 	else if((infoObj.performJumpToTop === false) ? false : true) {
 		$('html, body').animate({scrollTop : 0}, 300);
-		dump("Page not previously visited. Scroll to top of page.");
-		dump($context.data('scroll-restore'));
+		//dump("Page not previously visited. Scroll to top of page.");
+		//dump($context.data('scroll-restore'));
 		}
 	else {
 		//do nothing
@@ -1235,9 +1235,9 @@ _app.u.bindTemplateEvent(function(){return true;}, 'complete.scrollrestore',func
 _app.u.bindTemplateEvent(function(){return true;}, 'depart.scrollrestore', function(event, $context, infoObj){
 	var scroll = window.pageYOffset;
 	$context.data('scroll-restore',scroll);
-	dump("Storing scroll position for previous page as: ");
-	dump(scroll);
-	dump($context.data('scroll-restore'));
+	//dump("Storing scroll position for previous page as: ");
+	//dump(scroll);
+	//dump($context.data('scroll-restore'));
 	});
 
 _app.extend({
