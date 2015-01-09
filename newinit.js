@@ -1221,11 +1221,11 @@ _app.u.bindTemplateEvent(function(){return true;}, 'complete.scrollrestore',func
 		//dump(scroll);
 		//dump($context.data('scroll-restore'));
 		 setTimeout(function(){
-			$('html, body').animate({scrollTop : scroll}, 300);
+			$('html, body').animate({scrollTop : scroll}, 0);
 		 }, 1002);
 		}
 	else if((infoObj.performJumpToTop === false) ? false : true) {
-		$('html, body').animate({scrollTop : 0}, 300);
+		$('html, body').animate({scrollTop : 0}, 0);
 		//dump("Page not previously visited. Scroll to top of page.");
 		//dump($context.data('scroll-restore'));
 		}
