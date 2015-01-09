@@ -1218,12 +1218,12 @@ _app.u.bindTemplateEvent(function(){return true;}, 'complete.scrollrestore',func
 	var scroll = $context.data('scroll-restore');
 	if(scroll){
 		$('html, body').animate({scrollTop : scroll}, 300);
-		//dump("return scroll value detected. The position is: ");
-		//dump(scroll);
+		dump("return scroll value detected. The position is: ");
+		dump(scroll);
 		}
 	else if((infoObj.performJumpToTop === false) ? false : true) {
 		$('html, body').animate({scrollTop : 0}, 300);
-		//dump("No return scroll value detected. Scrolling to the top of the screen");
+		dump("No return scroll value detected. Scrolling to the top of the screen");
 		}
 	else {
 		//do nothing
@@ -1233,9 +1233,9 @@ _app.u.bindTemplateEvent(function(){return true;}, 'complete.scrollrestore',func
 _app.u.bindTemplateEvent(function(){return true;}, 'depart.scrollrestore', function(event, $context, infoObj){
 	var scroll = $('html').scrollTop()
 	$context.data('scroll-restore',scroll);
-	//dump($context);
-	//dump("Scroll position for "+$context+" is ");
-	//dump(scroll);
+	dump($context);
+	dump("Scroll position for "+$context+" is ");
+	dump(scroll);
 	});
 
 _app.extend({
