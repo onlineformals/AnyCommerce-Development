@@ -1218,8 +1218,7 @@ _app.u.bindTemplateEvent(function(){return true;}, 'complete.scrollrestore',func
 	var scroll = $context.data('scroll-restore');
 	if(scroll){
 		$('html, body').animate({scrollTop : scroll}, 300);
-		dump("return scroll value detected. The position is: ");
-		dump(scroll);
+		dump("return scroll value detected. The position is: "+ scroll);
 		}
 	else if((infoObj.performJumpToTop === false) ? false : true) {
 		$('html, body').animate({scrollTop : 0}, 300);
@@ -1234,8 +1233,7 @@ _app.u.bindTemplateEvent(function(){return true;}, 'depart.scrollrestore', funct
 	var scroll = $('html').scrollTop()
 	$context.data('scroll-restore',scroll);
 	dump($context);
-	dump("Scroll position for "+$context+" is ");
-	dump(scroll);
+	dump("Scroll position for "+$context+" is " + scroll);
 	});
 
 _app.extend({
