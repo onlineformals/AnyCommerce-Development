@@ -1233,7 +1233,7 @@ _app.u.bindTemplateEvent(function(){return true;}, 'complete.scrollrestore',func
 	});
 	
 _app.u.bindTemplateEvent(function(){return true;}, 'depart.scrollrestore', function(event, $context, infoObj){
-	var scroll = $('html').scrollTop();
+	var scroll = window.pageYOffset;
 	$context.data('scroll-restore',scroll);
 	dump("Storing scroll position for previous page as: ");
 	dump(scroll);
