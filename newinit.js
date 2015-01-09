@@ -1220,7 +1220,9 @@ _app.u.bindTemplateEvent(function(){return true;}, 'complete.scrollrestore',func
 		//dump("Returning to already visited page. Returning to scroll position of: ");
 		//dump(scroll);
 		//dump($context.data('scroll-restore'));
-		$('html, body').animate({scrollTop : scroll}, 300);
+		 setTimeout(function(){
+			$('html, body').animate({scrollTop : scroll}, 300);
+		 }, 1002);
 		}
 	else if((infoObj.performJumpToTop === false) ? false : true) {
 		$('html, body').animate({scrollTop : 0}, 300);
