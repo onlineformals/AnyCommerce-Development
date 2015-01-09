@@ -44,6 +44,7 @@ var partner_addthis = function(_app) {
 		callbacks : {
 			init : {
 				onSuccess : function(){
+					dump("BEGIN _app.ext.partner_addthis.callbacks.init.onSuccess");
 					var scriptPath = (document.location.protocol == 'https:' ? 'https:' : 'http:')+'//s7.addthis.com/js/250/addthis_widget.js';
 					if(_app.ext.partner_addthis.vars.addthis_config.username && _app.ext.partner_addthis.vars.addthis_config.username !== ""){
 						scriptPath+= '#username='+_app.ext.partner_addthis.vars.addthis_config.username+'&domready';
@@ -52,9 +53,9 @@ var partner_addthis = function(_app) {
 						scriptPath += '#domready';
 						}
 					_app.u.loadScript(scriptPath);
-					
+
 					//This is an example of how to add an addthis toolbox to a product page
-					_app.rq.push(['templateFunction','productTemplate','onCompletes',function(infoObj){
+					_app.templates.productTemplate.on('complete.formals',function(event,$context,infoObj){
 						var $context = $(_app.u.jqSelector('#',infoObj.parentID));
 						var $toolbox = $('.socialLinks', $context);
 						if($toolbox.hasClass('addThisRendered')){
@@ -69,10 +70,10 @@ var partner_addthis = function(_app) {
 								+		'<a class="addthis_button_preferred_4"></a>'
 								+		'<a class="addthis_button_compact"></a>'
 								+	'</div>');
-							
+
 							_app.ext.partner_addthis.u.toolbox($toolbox, infoObj);
 							}
-						}]);
+						});
 					return true;
 				},
 				onError : function() {
