@@ -1223,7 +1223,7 @@ _app.u.bindTemplateEvent(function(){return true;}, 'complete.scrollrestore',func
 		}
 	else if((infoObj.performJumpToTop === false) ? false : true) {
 		$('html, body').animate({scrollTop : 0}, 300);
-		dump("Page not prebiously visited. Scroll to top of page.");
+		dump("Page not previously visited. Scroll to top of page.");
 		}
 	else {
 		//do nothing
@@ -1235,6 +1235,7 @@ _app.u.bindTemplateEvent(function(){return true;}, 'depart.scrollrestore', funct
 	$context.data('scroll-restore',scroll);
 	dump("Storing scroll position for previous page as: ");
 	dump(scroll);
+	dump($context.data('scroll-restore',scroll));
 	});
 
 _app.extend({
