@@ -1217,6 +1217,8 @@ _app.u.bindTemplateEvent(function(){return true;}, 'complete.metainformation',fu
 _app.u.bindTemplateEvent(function(){return true;}, 'complete.scrollrestore',function(event, $context, infoObj){
 	var scroll = $context.data('scroll-restore');
 	if(scroll){
+		dump("Returning to already visited page. Returning to scroll position of: ");
+		dump(scroll);
 		$('html, body').animate({scrollTop : scroll}, 300);
 		}
 	else if((infoObj.performJumpToTop === false) ? false : true) {
