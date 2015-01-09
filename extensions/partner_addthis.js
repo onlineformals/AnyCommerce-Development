@@ -56,10 +56,8 @@ var partner_addthis = function(_app) {
 
 					//This is an example of how to add an addthis toolbox to a product page
 					_app.templates.productTemplate.on('complete.formals',function(event,$context,infoObj){
+						var $context = $(_app.u.jqSelector('#',infoObj.parentID));
 						var $toolbox = $('.socialLinks', $context);
-						dump("Running addThis social links builder extension.");
-						dump("socialLinks = ");
-						dump($toolbox);
 						if($toolbox.hasClass('addThisRendered')){
 							//Already rendered, don't do it again.
 							}
