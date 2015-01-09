@@ -1219,11 +1219,13 @@ _app.u.bindTemplateEvent(function(){return true;}, 'complete.scrollrestore',func
 	if(scroll){
 		dump("Returning to already visited page. Returning to scroll position of: ");
 		dump(scroll);
+		dump($context.data('scroll-restore'));
 		$('html, body').animate({scrollTop : scroll}, 300);
 		}
 	else if((infoObj.performJumpToTop === false) ? false : true) {
 		$('html, body').animate({scrollTop : 0}, 300);
 		dump("Page not previously visited. Scroll to top of page.");
+		dump($context.data('scroll-restore'));
 		}
 	else {
 		//do nothing
@@ -1235,7 +1237,7 @@ _app.u.bindTemplateEvent(function(){return true;}, 'depart.scrollrestore', funct
 	$context.data('scroll-restore',scroll);
 	dump("Storing scroll position for previous page as: ");
 	dump(scroll);
-	dump($context.data('scroll-restore',scroll));
+	dump($context.data('scroll-restore'));
 	});
 
 _app.extend({
