@@ -160,6 +160,9 @@ var _store_formals = function (_app) {
 			init : {
 				onSuccess : function(){
 					_app.u.dump('BEGIN _app.ext_store_formals.callbacks.init.onSuccess');
+					_app.globalAjax.numRequestsPerPipe = 25;
+					dump("_app.globalAjax.numRequestsPerPipe = ");
+					dump(_app.globalAjax.numRequestsPerPipe);
 					_app.ext._store_formals.u.bindOnclick();
 					
 										
