@@ -666,8 +666,8 @@ this will likely become more flexible in the future. ###
                         <h5 class="productMfg displayNone" data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{ apply --show; }};">By: <a itemprop="name" href='#' data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{apply --append; format --prepend='#!search/keywords/'; apply --attrib='href';}};"></a></h5>
                     </div>
     
-                    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                        <div class='priceContainer marginBottom'>
+                    <div>
+                        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class='priceContainer marginBottom'>
                             <h4 itemprop="price" class="productPriceText" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{_store_formals#currencyprodlist --legacy; apply --append;}};"></h4>
                             <h5 class='prodTempProdMSRP prodMSRP' data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;) {{_store_formals#currencymsrp --legacy; apply --append;}};"></h5>
                             <div class="displayNone savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;)  {{_store_formals#showhidearea  --legacy}};">                	
