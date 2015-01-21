@@ -1007,22 +1007,24 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 		//this would get added at end of INIT. that way, init can modify the hash as needed w/out impacting.
 				$('body').on('click.router','a[href], area[href]',function(event){
 					var a = event.currentTarget;
-					if(document.location.protocol == "file:"){
+					var isFileAndLocal = false;
+					if(a.protocol == "file:"){
 						a = document.createElement('a');
 						var href = $(this).attr('href');
-						if(href.indexOf('/') != 0){href = "/"+href;}
+						if(href.charAt(0) != '/'){href = "/"+href;}
 						a.href = "http://www.domain.com"+href;
+						isFileAndLocal = true;
 						}
 					var path = a.pathname;
 					var search = a.search;
 					var hash = a.hash;
-					console.log($(this).attr('href'));
-					console.log($(this).attr('href').indexOf('#'));
+					
 					if($(this).attr('href').indexOf('#') == 0){
 						//This is an internal hash link, href="#.*"
 						event.preventDefault();
 						}
-					else if(_app.router.handleURIChange(path, search, hash)){
+					else if(isFileAndLocal || window.location.hostname == a.hostname){
+						_app.router.handleURIChange(path, search, hash)
 						event.preventDefault();
 						}
 					else {
@@ -3310,7 +3312,9 @@ $tmp.empty().remove();
 		epoch2mdy : function($tag,data)	{
 			$tag.text(_app.u.epoch2Pretty(data.value,data.bindData.showtime))
 			},
-	
+		data : function($tag, data){
+			$tag.data(data.bindData.index, data.value);
+			},
 		text : function($tag,data){
 			var o = '';
 			if(jQuery.isEmptyObject(data.bindData))	{o = data.value}
@@ -3354,7 +3358,7 @@ $tmp.empty().remove();
 				}
 			else	{
 //for all other inputs and selects, simply setting the value will suffice.
-				if($tag.data('stringify'))	{
+				if($tag.data('stringify') || data.bindData.stringify)	{
 					$tag.val(JSON.stringify(data.value));
 					}
 				else	{
