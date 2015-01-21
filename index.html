@@ -170,7 +170,7 @@ $(document).ready(function(){
 	var paramStr = window.location.href.replace(window.location.hash, '').split('?')[1];
 	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 		window.myApp = new initApp({
-		"release":"201410.20150120163500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201410.20150121135500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
@@ -581,19 +581,19 @@ var _robots = {
 			
 			
 			<div class="footerSealsSection">
-				<!--
 				<div class="footerTopPromSeal">
 					<script type="text/javascript">var customer_id="105781";</script><script type="text/javascript" src="//www.toppromwebsites.com/validator/tpw-seal.js"></script>
 				</div>
-				
+				<!--
 				<div class="footerAuthorizeDotNetSeal">
 					<div class="AuthorizeNetSeal"> <script type="text/javascript" >var ANS_customer_id="2ac6c99b-53f8-4abd-bc2e-a2d6a6f8dd53";</script> <script type="text/javascript" src="//verify.authorize.net/anetseal/seal.js" ></script> <a href="http://www.authorize.net/" id="AuthorizeNetText" target="_blank">Accepts Credit Cards</a> </div>
 				</div>
+				-->
 				
 				<div class="footerRapidSSLSeal">
 					<img data-apptimize="embed" src="Images/Homepage/footer/RapidSSL_SEAL-90x50.gif" alt="" />
 				</div>
-				
+				<!--
 				<div class="footerGeotrustSeal">
 					<script type="text/javascript" src="//smarticon.geotrust.com/si.js"></script>
 				</div>
