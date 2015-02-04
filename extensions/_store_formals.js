@@ -164,6 +164,8 @@ var _store_formals = function (_app) {
 					dump("_app.globalAjax.numRequestsPerPipe = ");
 					dump(_app.globalAjax.numRequestsPerPipe);
 					_app.ext._store_formals.u.bindOnclick();
+					_app.u.loadScript("zoom-master/jquery.zoom.min.js");
+					dump("zoom.js loaded.");
 					
 										
 				},
