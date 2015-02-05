@@ -437,14 +437,13 @@ _app.u.bindTemplateEvent('productTemplate', 'complete.pageinit',function(event,$
 		   "h" : 1150,
 		   "b" : "FFFFFF"
 		   });
-		   $(".imageContainerBlocker", $context).css("height",715);
-		   $(".imageContainerBlocker", $context).show();
-		   setTimeout(function(){
-				_app.u.loadScript("zoom-master/jquery.zoom.min.js");
-				dump("zoom.js loaded.");
-			   	 $(".imageContainerBlocker", $context).hide();
-		   }, 5000);
 		 $('.prodImageContainer', $context).on('mouseenter', function(){
+			 $(".imageContainerBlocker", $context).css("height",715);
+			 $(".imageContainerBlocker", $context).show();
+			 _app.u.loadScript("zoom-master/jquery.zoom.min.js");
+			dump("zoom.js loaded.");
+			 setTimeout(function(){
+				$(".imageContainerBlocker", $context).hide();
 				 $('.largeImageContainer', $context).zoom({
 					  url: imageURL,
 					  on:'mouseover',
@@ -514,7 +513,8 @@ _app.u.bindTemplateEvent('productTemplate', 'complete.pageinit',function(event,$
 							$('.largeImageContainer').removeClass('active');
 							}
 						});
-			});
+					});
+			 }, 3000);
 		});
 	
 		function productHoverZoomClick(){
