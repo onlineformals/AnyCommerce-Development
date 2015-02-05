@@ -1669,7 +1669,7 @@ _app.extend({
 	
 _app.couple('quickstart','addPageHandler',{
 	"pageType" : "product",
-	"require" : ['store_product','store_navcats', 'store_routing', 'store_search', 'templates.html', 'store_prodlist','_store_formals','partner_addthis','store_crm'],
+	"require" : ['store_product','store_navcats', 'store_routing', 'store_search', 'store_prodlist','_store_formals','partner_addthis','store_crm'],
 	"handler" : function($container, infoObj, require){
 		infoObj.deferred = $.Deferred();
 		infoObj.defPipeline.addDeferred(infoObj.deferred);
