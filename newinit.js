@@ -415,6 +415,7 @@ _app.u.bindTemplateEvent('productTemplate', 'complete.pageinit',function(event,$
 	}
 	*/
 	
+	
 	//var $context = $(_app.u.jqSelector('#',infoObj.parentID));
 	var $tabContainer = $( ".tabbedProductContent",$context);
 		if($tabContainer.length)	{
@@ -427,6 +428,8 @@ _app.u.bindTemplateEvent('productTemplate', 'complete.pageinit',function(event,$
 		
 		
 		//HOVER ZOOM FEATURE
+		_app.u.loadScript("zoom-master/jquery.zoom.min.js");
+		dump("zoom.js loaded.");
 		 
 		 var image = $('.prodImageContainer',$context).attr('data-imgsrc');
 		 //dump("var image =");
