@@ -439,11 +439,11 @@ _app.u.bindTemplateEvent('productTemplate', 'complete.pageinit',function(event,$
 		   });
 		   $(".imageContainerBlocker", $context).css("height",715);
 		   $(".imageContainerBlocker", $context).show();
-				setTimeout(function(){
+		   setTimeout(function(){
 				_app.u.loadScript("zoom-master/jquery.zoom.min.js");
 				dump("zoom.js loaded.");
 			   	 $(".imageContainerBlocker", $context).hide();
-		   }, 3000);
+		   }, 5000);
 		 $('.prodImageContainer', $context).on('mouseenter', function(){
 				 $('.largeImageContainer', $context).zoom({
 					  url: imageURL,
