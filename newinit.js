@@ -428,9 +428,6 @@ _app.u.bindTemplateEvent('productTemplate', 'complete.pageinit',function(event,$
 		
 		
 		//HOVER ZOOM FEATURE
-		_app.u.loadScript("zoom-master/jquery.zoom.min.js");
-		dump("zoom.js loaded.");
-		 
 		 var image = $('.prodImageContainer',$context).attr('data-imgsrc');
 		 //dump("var image =");
 		 //dump (image);
@@ -440,75 +437,84 @@ _app.u.bindTemplateEvent('productTemplate', 'complete.pageinit',function(event,$
 		   "h" : 1150,
 		   "b" : "FFFFFF"
 		   });
-		 $('.largeImageContainer', $context).zoom({
-		  url: imageURL,
-		  on:'mouseover',
-		  onZoomIn: function(){
-		   // the active class causes the curser to be switched to a zoom out image - this occurs when the image has zoom
-		   $('.largeImageContainer').addClass('active');
-		   },
-		  onZoomOut: function(){
-		   // restores the zoom in curser after zoom out
-		   $('.largeImageContainer').removeClass('active');
-		   }});
-		 $('.thumbnail',$context).on('mouseenter', function(){
-			  //dump("Thumbnail swap action activated.");
-			  $('.largeImageContainer').trigger('zoom.destroy');
-			  //dump("$(this).parent().attr('data-imgsrc') = ");
-			  //dump($(this).parent().attr('data-imgsrc'));
-			  var newImage = $(this).attr('data-imgsrc');
-			  
-			  //IMAGE VIEWER CLICK BLOCKER
-			  var thumbObject = $(this);
-			  if(thumbObject.data("firstTimeHover")){
-				  //_app.u.dump("firstTimeHover exists for " + $(this) + ". Doing nothing.")
-			  }
-			  else{
-				  //_app.u.dump("firstTimeHover does not exists for " + $(this) + ". Adding it set to false.")
-				  thumbObject.data('firstTimeHover',false).append();
-			  }
-			  
-			  if (thumbObject.data('firstTimeHover') === false){
-				  //_app.u.dump("Running image blocker for " + $(this) + ".")
-				  var imageContainerSize = $('.imageContainer', $context).height();
-				  //_app.u.dump(imageContainerSize);
-				  $(".imageContainerBlocker", $context).css("height",imageContainerSize);
-				  $(".imageContainerBlocker", $context).show();
-			  }
-			  //END IMAGE CLICK BLOCKER
-		
-			  $('.prodImageContainer > img',$context).attr('src', _app.u.makeImage({
-				   "name" : newImage,
-				   "w" : 450,
-				   "h" : 560,
-				   "b" : "FFFFFF"
-			   }));
-			  var newImageURL = _app.u.makeImage({
-				   "name" : newImage,
-				   "w" : 1000,
-				   "h" : 1150,
-				   "b" : "FFFFFF"
-			   });
-			   
-			   //CLICK BLOCKER ACTIVATOR
-			   setTimeout(function(){
-				   $(".imageContainerBlocker", $context).hide();
-				   thumbObject.data('firstTimeHover',true).append();
-				   //_app.u.dump("Setting firstTimeHover to true for " + $(this) + ".");
-			   }, 2000);
-			   //END CLICK BLOCK ACTIVATOR
-			   
-			  $('.largeImageContainer').zoom({
-				   url: newImageURL,
-				   on:'mouseover',
-				   onZoomIn: function(){
-					$('.largeImageContainer').addClass('active');
-					//_app.u.dump("we're running addClass");
-					},
-				   onZoomOut: function(){
-					$('.largeImageContainer').removeClass('active');
-					}
-				});
+		   $(".imageContainerBlocker", $context).css("height",715);
+		   $(".imageContainerBlocker", $context).show();
+				setTimeout(function(){
+				_app.u.loadScript("zoom-master/jquery.zoom.min.js");
+				dump("zoom.js loaded.");
+			   	 $(".imageContainerBlocker", $context).hide();
+		   }, 3000);
+		 $('.prodImageContainer', $context).on('mouseenter', function(){
+				 $('.largeImageContainer', $context).zoom({
+					  url: imageURL,
+					  on:'mouseover',
+					  onZoomIn: function(){
+					   // the active class causes the curser to be switched to a zoom out image - this occurs when the image has zoom
+					   $('.largeImageContainer').addClass('active');
+					   },
+					  onZoomOut: function(){
+					   // restores the zoom in curser after zoom out
+					   $('.largeImageContainer').removeClass('active');
+				 }});
+				 $('.thumbnail',$context).on('mouseenter', function(){
+					  //dump("Thumbnail swap action activated.");
+					  $('.largeImageContainer').trigger('zoom.destroy');
+					  //dump("$(this).parent().attr('data-imgsrc') = ");
+					  //dump($(this).parent().attr('data-imgsrc'));
+					  var newImage = $(this).attr('data-imgsrc');
+					  
+					  //IMAGE VIEWER CLICK BLOCKER
+					  var thumbObject = $(this);
+					  if(thumbObject.data("firstTimeHover")){
+						  //_app.u.dump("firstTimeHover exists for " + $(this) + ". Doing nothing.")
+					  }
+					  else{
+						  //_app.u.dump("firstTimeHover does not exists for " + $(this) + ". Adding it set to false.")
+						  thumbObject.data('firstTimeHover',false).append();
+					  }
+					  
+					  if (thumbObject.data('firstTimeHover') === false){
+						  //_app.u.dump("Running image blocker for " + $(this) + ".")
+						  var imageContainerSize = $('.imageContainer', $context).height();
+						  //_app.u.dump(imageContainerSize);
+						  $(".imageContainerBlocker", $context).css("height",imageContainerSize);
+						  $(".imageContainerBlocker", $context).show();
+					  }
+					  //END IMAGE CLICK BLOCKER
+				
+					  $('.prodImageContainer > img',$context).attr('src', _app.u.makeImage({
+						   "name" : newImage,
+						   "w" : 450,
+						   "h" : 560,
+						   "b" : "FFFFFF"
+					   }));
+					  var newImageURL = _app.u.makeImage({
+						   "name" : newImage,
+						   "w" : 1000,
+						   "h" : 1150,
+						   "b" : "FFFFFF"
+					   });
+					   
+					   //CLICK BLOCKER ACTIVATOR
+					   setTimeout(function(){
+						   $(".imageContainerBlocker", $context).hide();
+						   thumbObject.data('firstTimeHover',true).append();
+						   //_app.u.dump("Setting firstTimeHover to true for " + $(this) + ".");
+					   }, 2000);
+					   //END CLICK BLOCK ACTIVATOR
+					   
+					  $('.largeImageContainer').zoom({
+						   url: newImageURL,
+						   on:'mouseover',
+						   onZoomIn: function(){
+							$('.largeImageContainer').addClass('active');
+							//_app.u.dump("we're running addClass");
+							},
+						   onZoomOut: function(){
+							$('.largeImageContainer').removeClass('active');
+							}
+						});
+			});
 		});
 	
 		function productHoverZoomClick(){
