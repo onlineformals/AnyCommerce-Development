@@ -703,6 +703,28 @@ var _store_formals = function (_app) {
 				$parent.empty().tlc({verb:"transmogrify", templateid:"SizingChartTemplate"});
 				window.scrollTo(0,0); 
 				$parent.dialog({'modal':'true', 'title':'','width':870, height:700, 'dialogClass' : 'SizingChartModal'});
+			},
+			showShare : function($context,infoObj){
+				_app.require('partner_addthis',function($context,infoObj){
+					var $toolbox = $('.socialLinks', $context);
+					if($toolbox.hasClass('addThisRendered')){
+						//Already rendered, don't do it again.
+					}
+					else {
+						$toolbox.addClass('addThisRendered').append(
+								'<div id="socialLinks" class="addthis_default_style addthis_32x32_style">'
+							+		'<a class="addthis_button_preferred_1"></a>'
+							+		'<a class="addthis_button_preferred_2"></a>'
+							+		'<a class="addthis_button_preferred_3"></a>'
+							+		'<a class="addthis_button_preferred_4"></a>'
+							+		'<a class="addthis_button_compact"></a>'
+							+	'</div>');
+
+						_app.ext.partner_addthis.u.toolbox($toolbox, infoObj);
+					}
+				});
+			dump("AddThis loaded.");
+
 			}
 			
 		},
@@ -730,7 +752,7 @@ var _store_formals = function (_app) {
 				}
 				//dump(r);
 				return(r);
-			}, //currencyprodlist
+			} //currencyprodlist
 		}
 	}
 	return r;

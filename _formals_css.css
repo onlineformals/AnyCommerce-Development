@@ -1828,7 +1828,6 @@ form.prodViewerAddToCartFormQuickview{
 .prodlistRelatedContainer{
 	float:left;
 }
-
 /***********************************************************************************************************************************/
 /*****IMAGE CONTAINER****/
 .imageContainer{
@@ -2056,12 +2055,12 @@ h5.productMfg a{
     margin-right: 0;
     margin-top: 0;
     text-align: center;
-    width: 96%;
+    width: 100%;
 }
 .productSharingLinkContainer a{
 	color: #726b5b;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
     text-decoration: none;
 }
 .socialLinks{

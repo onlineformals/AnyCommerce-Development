@@ -685,7 +685,7 @@ this will likely become more flexible in the future. ###
                         <input data-tlc="bind $var '.pid'; store_product#addtocartbutton  --legacy;" value="ADD TO BAG" class="applyButton addToCartButton addtocartbutton displayNone" type="submit" />
                     </form>
                     
-                    <div class="productSharingLinkContainer">
+                    <div class="productSharingLinkContainer" data-tlc="bind $var '.'; if(is $var --notblank) {{ apply --show; }};">
                         <p>
                             <a data-app-click="quickstart|productAdd2List" data-listid="wishlist">Add to Wishlist</a>
                             &#124;
@@ -696,6 +696,8 @@ this will likely become more flexible in the future. ###
                             <a data-app-click="store_crm|productReviewShow">Write Review</a>
                             &#124;
                             <a href="javascript:window.print()">Print</a>
+                            &#124;
+                            <a class="productShareLinkActivate" data-app-click="_store_formals|showShare">Share this product</a>
                         </p>
                    </div>
                     
